@@ -1,0 +1,39 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "neon",
+			"mood": "normal",
+			"line": "olhe so. uma 'frase'",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line2": {
+			"char": "neon",
+			"mood": "pointy",
+			"line": "maneiro ne?",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line3": {
+			"char": "neon",
+			"mood": "angry",
+			"line": "voces TODOS sao meras peças no meu grande jogo de xadrez",
+			"position": "left",
+			"specialfx": "shake"
+		},
+		"line4": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "cara ,",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line5": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "do que caralhos voce ta falando",
+			"position": "right",
+			"specialfx": "none"
+		}						
+	}
+}

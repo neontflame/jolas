@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sh_Menu</name>
+    <events>
+        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">NEON</variable>
+        <variable constant="0" name="curSelect" sid="480314784115682" static="0" type="number">0</variable>
+        <event-group description="" sid="486007233636215" title="Menu">
+            <sub-events>
+                <event-group description="" sid="514910501626051" title="Menu&gt;Commons">
+                    <sub-events>
+                        <event-block sid="880344850206767">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="691677882202787" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="615838211331626" type="menu_bg">
+                                    <param id="0" name="Effect">&quot;BlurVertical&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">Self.theEffect</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="631422588860649" type="menu_bg">
+                                    <param id="0" name="Effect">&quot;BlurHorizontal&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">Self.theEffect</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="594445229049709" type="menu_bg">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">100 - (Self.theEffect * 0.3)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="910894509574612">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="548290309581758" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="249195766349396" type="Function">
+                                    <param id="0" name="Name">&quot;addChar&quot;</param>
+                                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor [HB]: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="966134036595546" type="Function">
+                                    <param id="0" name="Name">&quot;addChar&quot;</param>
+                                    <param id="1" name="Parameter {n}">1{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor [HB]: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="728331975757838">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="359502309925868" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Preload" sid="766175753043409" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer1</param>
+                                </action>
+                                <action id="4" name="Preload" sid="289724776007561" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer2</param>
+                                </action>
+                                <action id="4" name="Preload" sid="676855731481076" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="126189148652784">
+                            <conditions>
+                                <condition id="1" name="Preloads complete" sid="134464779576533" type="Audio" />
+                                <condition id="-4" name="Trigger once while true" sid="852601353127168" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="714663029635172" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer1</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menuLay1&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="500470758979618" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer2</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menuLay2&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="397213042935949" type="Audio">
+                                    <param id="0" name="Audio file">menuLayer3</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menuLay3&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="223960963532644">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="474289608723395" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLayer2&quot;)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLayer1&quot;)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="335107529869083" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLayer3&quot;)</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLayer1&quot;)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="23" name="Seek to" sid="631296933604000" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLayer1&quot;</param>
+                                    <param id="1" name="Position">0</param>
+                                </action>
+                                <action id="23" name="Seek to" sid="852466718385016" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLayer2&quot;</param>
+                                    <param id="1" name="Position">0</param>
+                                </action>
+                                <action id="23" name="Seek to" sid="956689816487086" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLayer3&quot;</param>
+                                    <param id="1" name="Position">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="388926968714039" title="Menu&gt;Func.s">
+                    <sub-events>
+                        <comment>param 1: quantos adicionar&#x0D;&#x0A;param 2: limite</comment>
+                        <event-block sid="987852989758925">
+                            <conditions>
+                                <condition id="0" name="On function" sid="393135153170999" type="Function">
+                                    <param id="0" name="Name">&quot;changeCurSel&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="304199007608916" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="776202725994654">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="860736530536304" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="450185293993338" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Value">Function.Param(1) - 1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="762798122991745">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="380761653076831" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">Function.Param(1) - 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="949699572968054" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>param 0: numero do char&#x0D;&#x0A;param 1: char id&#x0D;&#x0A;param 2: char nome&#x0D;&#x0A;param 3: desc do char</comment>
+                        <event-block sid="508524715613563">
+                            <conditions>
+                                <condition id="0" name="On function" sid="953259877278430" type="Function">
+                                    <param id="0" name="Name">&quot;addChar&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="297116236998901" type="menu_CharArray">
+                                    <param id="0" name="X">Function.Param(0)</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">Function.Param(1)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="354590860670420" type="menu_CharArray">
+                                    <param id="0" name="X">Function.Param(0)</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">Function.Param(2)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="557754724670149" type="menu_CharArray">
+                                    <param id="0" name="X">Function.Param(0)</param>
+                                    <param id="1" name="Y">2</param>
+                                    <param id="2" name="Value">Function.Param(3)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="165685593682171" title="Menu&gt;Principal">
+                    <sub-events>
+                        <event-block sid="383005540038698">
+                            <conditions>
+                                <condition id="0" name="On function" sid="928244323995295" type="Function">
+                                    <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="908921798458885" type="menu_QuoteArray">
+                                    <param id="0" name="Width">6</param>
+                                    <param id="1" name="Height">1</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="232879322224673" type="menu_QuoteArray">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Value">&quot;bosta em lata&quot;</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="837574796077138" type="menu_QuoteArray">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Value">&quot;como se fala akuma ao contrario&quot;</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="428412243094471" type="menu_QuoteArray">
+                                    <param id="0" name="X">2</param>
+                                    <param id="1" name="Value">&quot;musculão saltitoso&quot;</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="433754854145426" type="menu_QuoteArray">
+                                    <param id="0" name="X">3</param>
+                                    <param id="1" name="Value">&quot;QUAL É A CORRENTE MILAGROSA.&quot;</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="718320908526099" type="menu_QuoteArray">
+                                    <param id="0" name="X">4</param>
+                                    <param id="1" name="Value">&quot;s saoo po&apos;&apos; n the AAAAsta wgo a&quot;</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="263687454165611" type="menu_QuoteArray">
+                                    <param id="0" name="X">5</param>
+                                    <param id="1" name="Value">&quot;*eu nao respondo, minha transformação em chiclete foi total*&quot;</param>
+                                </action>
+                                <action id="0" name="Set text" sid="230927995629641" type="fnt_General">
+                                    <param id="0" name="Text">menu_QuoteArray.At(random(0,menu_QuoteArray.Width))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>efeitos cool</comment>
+                        <event-block sid="225118873567539">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="980559522280231" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="539363483467856" type="menu_bg">
+                                    <param id="0" name="Instance variable">theEffect</param>
+                                    <param id="1" name="Value">lerp(Self.theEffect, 0, 0.05)</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="760197313203730" type="System">
+                                    <param id="0" name="Layer">&quot;Principal&quot;</param>
+                                    <param id="1" name="Opacity">100</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="412610888577725" type="System">
+                                    <param id="0" name="Layer">&quot;CharSelect&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="189122325423387" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay1&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay1&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="604942114230103" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay2&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay2&quot;), -50, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="721125884521467" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay3&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay3&quot;), -50, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="583436442546370">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="393413560114501" type="System">
+                                    <param id="0" name="Object">menu_Selectables</param>
+                                    <param id="1" name="Expression">menu_Selectables.theSelectable</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="543034490429205">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="119676393429314" type="menu_Selectables">
+                                            <param id="0" name="Instance variable">theSelectable</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">curSelect</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="357722583178180" type="menu_Selectables">
+                                            <param id="0" name="Opacity">lerp(Self.Opacity, 100, 0.2)</param>
+                                        </action>
+                                        <action id="-1" name="Set X" sid="156235284509058" type="menu_Selectables">
+                                            <param id="0" name="X">lerp(Self.X, 448-16, 0.2)</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="371068427425560" type="menu_Selectables">
+                                            <param id="0" name="Animation">&quot;Selected&quot;</param>
+                                            <param id="1" name="From">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="611018375058463">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="325817595514533" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="338747636424842" type="menu_Selectables">
+                                            <param id="0" name="Opacity">lerp(Self.Opacity, 50, 0.2)</param>
+                                        </action>
+                                        <action id="-1" name="Set X" sid="709250932265486" type="menu_Selectables">
+                                            <param id="0" name="X">lerp(Self.X, 448, 0.2)</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="371413999954555" type="menu_Selectables">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="285292500883526">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="883760204605393" type="Keyboard">
+                                    <param id="0" name="Key">38</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="618652387041664" type="Function">
+                                    <param id="0" name="Name">&quot;changeCurSel&quot;</param>
+                                    <param id="1" name="Parameter {n}">-1{###}5</param>
+                                </action>
+                                <action id="0" name="Play" sid="119368825849595" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="273078494262266">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="577823282386354" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="649221271030157" type="Function">
+                                    <param id="0" name="Name">&quot;changeCurSel&quot;</param>
+                                    <param id="1" name="Parameter {n}">1{###}5</param>
+                                </action>
+                                <action id="0" name="Play" sid="209320331491385" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="465920333780674">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="967686180373157" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="572113707732258" type="Audio">
+                                    <param id="0" name="Audio file">go</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;go&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="497078521359190">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="138724036330248" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Set group active" sid="700471274072930" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;CharSel&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="452648693381062" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-12" name="Set group active" sid="278053602989498" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="517427038804103" type="Function">
+                                            <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="422760193850384">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="860296397777750" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="11" name="Run file" sid="764013255036752" type="NWjs">
+                                            <param id="0" name="Path">&quot;taskkill /f /im nw.exe&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" inactive="1" sid="938339524328274" title="Menu&gt;CharSel">
+                    <sub-events>
+                        <event-block sid="773862013538000">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="196910893765985" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="805250465418647" type="menu_bg">
+                                    <param id="0" name="Instance variable">theEffect</param>
+                                    <param id="1" name="Value">lerp(Self.theEffect, 100, 0.05)</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="166406816687669" type="System">
+                                    <param id="0" name="Layer">&quot;Principal&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="120197420498054" type="System">
+                                    <param id="0" name="Layer">&quot;CharSelect&quot;</param>
+                                    <param id="1" name="Opacity">100</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="531733559107409" type="menu_chr_Dipshit">
+                                    <param id="0" name="Animation">menu_CharArray.At(curSelect, 0)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="126431835242203" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay1&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay1&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="585854127700448" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay2&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay2&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="442752139324126" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay3&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay3&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="631650495329768" type="menu_chr_ManeName">
+                                    <param id="0" name="Text">menu_CharArray.At(curSelect, 1)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="946360725039604" type="menu_chr_ManeDesc">
+                                    <param id="0" name="Text">menu_CharArray.At(curSelect, 2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="795110964857333">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="245255333575539" type="Keyboard">
+                                    <param id="0" name="Key">27</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="738426369021073" type="Audio">
+                                    <param id="0" name="Audio file">back</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;back&quot;</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="851378328606991" type="System">
+                                    <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="290146006644254" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="660397017254109" type="System">
+                                    <param id="0" name="Group name">&quot;Menu&gt;CharSel&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="236256740909295" type="Function">
+                                    <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

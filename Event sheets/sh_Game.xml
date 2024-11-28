@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sh_Game</name>
+    <events>
+        <variable constant="0" name="lv" sid="823988847016153" static="0" type="number">0</variable>
+        <variable constant="0" name="xp" sid="192122071760072" static="0" type="number">0</variable>
+        <variable constant="0" name="lvLimit" sid="252437206304225" static="0" type="number">13</variable>
+        <variable constant="0" name="focusedHitboxId" sid="926761483989335" static="0" type="number">0</variable>
+        <include>sh_gm_Player</include>
+        <include>sh_gm_Dialogue</include>
+        <event-group description="" sid="643394988016432" title="HUD">
+            <sub-events>
+                <event-block sid="848128821281537">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="756755845882643" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="486935380460485" type="hud_Combo">
+                            <param id="0" name="X">(hud_ComboFont.X + hud_ComboFont.Width) - (hud_ComboFont.TextWidth) - 110</param>
+                            <param id="1" name="Y">hud_ComboFont.Y</param>
+                        </action>
+                        <action id="0" name="Set text" sid="794265094363365" type="hud_ComboFont">
+                            <param id="0" name="Text">abs(round(ply_Hitbox.SonicPhysics.VectorX))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="575500757192405" type="hud_LevelFont">
+                            <param id="0" name="Text">lv</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="573711878692290" type="hud_XpBar">
+                            <param id="0" name="Width">round(xp / (lv * lvLimit) * 144)</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="525054707035091" type="hud_LevelSquare">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">(lv * 7.5) % 100</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="430417805809366">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="870852244292774" type="fnt_General">
+                                    <param id="0" name="Instance variable">type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;xp&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="423063229656691" type="fnt_General">
+                                    <param id="0" name="Text">xp &amp; &quot;/&quot; &amp; (lv * lvLimit)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="986040042273697">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="458799036566828" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">focusedHitboxId</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="855621491157562" type="hud_HpBars">
+                                    <param id="0" name="Width">38 * ply_Hitbox.hp</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="682062497382378" title="Level System">
+            <sub-events>
+                <comment>xp maximo antes de um nivel e o nivel * 5</comment>
+                <event-block sid="395022077841497">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="474390958265350" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="172340062964369" type="System">
+                            <param id="0" name="Variable">xp</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="758533008368896">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="500525814546794" type="System">
+                                    <param id="0" name="Variable">xp</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">round(lv * lvLimit)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="785165239597900" type="System">
+                                    <param id="0" name="Variable">xp</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="449270334937904" type="System">
+                                    <param id="0" name="Variable">lv</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>param 0: ID&#x0D;&#x0A;param 1: char ID (sao 4 letras maiusculas - exemplo: NEON, SUSH, HWNT, SKET, etc)&#x0D;&#x0A;-- atributos --&#x0D;&#x0A;= TODOS AQUI SAO VALORES MULTIPLICATIVOS A NAO SER Q SEJA ESPECIFICADO O CONTRARIO&#x0D;&#x0A;param 2: peso&#x0D;&#x0A;param 3: aceleraçao&#x0D;&#x0A;param 4: deceleraçao (nota: aceleraçao e deceleraçao no ar sao afetadas pelo param 3)&#x0D;&#x0A;&gt; param 12: deceleraçao ar (aditivo)&#x0D;&#x0A;&gt; param 13: deceleraçao girando (aditivo) (nota: deceleraçao girando nao e afetada pelo param 4)&#x0D;&#x0A;param 5: velocidade natural maxima (nota: girando nao e afetado)&#x0D;&#x0A;param 6: fricçao&#x0D;&#x0A;param 10 e 11: largura e altura&#x0D;&#x0A;-- especial --&#x0D;&#x0A;param 7: pode girar (tipo o sonic)?&#x0D;&#x0A;param 8: tem especial 2?&#x0D;&#x0A;param 9: resistencia (aka defesa - diminui dano que recebe normalmente... nao sei se vou usar)&#x0D;&#x0A;</comment>
+        <event-block sid="221488707413292">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="701761370701946" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="728283521596470" type="ply_Hitbox" />
+                <action id="-9" name="Destroy" sid="304777717747469" type="ply_Neon" />
+                <action disabled="1" id="0" name="Call function" sid="458539398828503" type="Function">
+                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;id da hitbox&quot;{###}&quot;CHAR (4 letras)&quot;{###}&quot;peso (mult)&quot;{###}&quot;accel (mult)&quot;{###}&quot;decel (mult)&quot;{###}&quot;vel maxima (mult)&quot;{###}&quot;fricçao (mult)&quot;{###}&quot;pode girar? (0 ou 1)&quot;{###}&quot;tem especial 2? (0 ou 1)&quot;{###}&quot;resistencia&quot;{###}&quot;largura (mult)&quot;{###}&quot;altura (mult)&quot;{###}&quot;decel ar (add)&quot;{###}&quot;decel girando (add)&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="910382922494250" type="Function">
+                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
+                </action>
+                <action id="-16" name="Wait" sid="302392600940327" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="0" name="Call function" sid="317021393286649" type="Function">
+                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                    <param id="1" name="Parameter {n}">1{###}&quot;NEON&quot;{###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="549098130475606">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="596749772840263" type="Keyboard">
+                    <param id="0" name="Key">67</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="563298779531906" type="Function">
+                    <param id="0" name="Name">&quot;triggerDialogue&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;diagTool.json&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

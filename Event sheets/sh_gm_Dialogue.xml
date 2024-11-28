@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sh_gm_Dialogue</name>
+    <events>
+        <variable constant="0" name="diagActive" sid="560727176611990" static="0" type="number">0</variable>
+        <event-group description="" sid="943861677935597" title="Dialogue">
+            <sub-events>
+                <event-group description="" sid="927686607696586" title="Dialogue&gt;Func.s">
+                    <sub-events>
+                        <event-block sid="481520164624445">
+                            <conditions>
+                                <condition id="0" name="On function" sid="969401895241803" type="Function">
+                                    <param id="0" name="Name">&quot;triggerDialogue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Request URL" sid="470376917415776" type="AJAX">
+                                    <param id="0" name="Tag">&quot;diag&quot;</param>
+                                    <param id="1" name="URL">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="681435273344213">
+                            <conditions>
+                                <condition id="0" name="On function" sid="845343976525863" type="Function">
+                                    <param id="0" name="Name">&quot;callDialogue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="755861141064890" type="diag_Box">
+                                    <param id="0" name="Instance variable">diagCalled</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="601980181436857" type="fnt_Dialogue">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="179702844499473" type="diag_Box">
+                                    <param id="0" name="Animation">Function.Param(3)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="957158204094887" type="fnt_Dialogue">
+                                    <param id="0" name="Instance variable">diagTextItself</param>
+                                    <param id="1" name="Value">Function.Param(2)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="770106312657487" type="fnt_Dialogue">
+                                    <param id="0" name="Instance variable">diagTextSize</param>
+                                    <param id="1" name="Value">len(Function.Param(2))</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="869080187528864" type="fnt_Dialogue">
+                                    <param id="0" name="Instance variable">curLetter</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="973711054342385" type="fnt_Dialogue">
+                                    <param id="0" name="Width">diag_Box.ImagePointX(&quot;Text bounds&quot;) - diag_Box.ImagePointX(&quot;Text&quot;)</param>
+                                    <param id="1" name="Height">diag_Box.ImagePointY(&quot;Text bounds&quot;) - diag_Box.ImagePointY(&quot;Text&quot;)</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="885104951000003" type="diag_Portrait">
+                                    <param id="0" name="X">diag_Box.ImagePointX(1)</param>
+                                    <param id="1" name="Y">Self.Y</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="842952036489873" type="diag_Portrait">
+                                    <param id="0" name="Animation">Function.Param(0) &amp; &quot;_&quot; &amp; Function.Param(1)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="661016095315008" type="fnt_Dialogue">
+                                    <param id="0" name="Instance variable">diagFx</param>
+                                    <param id="1" name="Value">Function.Param(4)</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="530454232376971" type="diag_FancyName">
+                                    <param id="0" name="Animation">Function.Param(0)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-4" name="Set position to another object" sid="570130676904851" type="diag_FancyName">
+                                    <param id="0" name="Object">diag_Box</param>
+                                    <param id="1" name="Image point (optional)">&quot;Charname&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>position of dialogue port</comment>
+                                <event-block any="1" sid="416266203494273">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="482040741187583" type="Function">
+                                            <param id="0" name="Index">3</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                        </condition>
+                                        <condition id="1" name="Compare parameter" sid="763741852770744" type="Function">
+                                            <param id="0" name="Index">3</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="399039606042249">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="285063882956533" type="Function">
+                                                    <param id="0" name="Index">3</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="486990864978843" type="diag_Portrait">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="181984807381599" type="diag_Portrait">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="646538711919415">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="540688095463292" type="Function">
+                                                    <param id="0" name="Index">3</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="752633486605609" type="diag_Portrait">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="322261045578518" type="diag_Portrait">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="546473368925964">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="529384549651832" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="599462664226236" type="diag_Portrait">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="809804686701397">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="679133314342533" type="System">
+                                            <param id="0" name="First value">left(diag_Portrait.AnimationName, len(Function.Param(0)))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">Function.Param(0) </param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Set Y" sid="285398687691468" type="diag_Portrait">
+                                            <param id="0" name="Y">diag_Box.ImagePointY(1) + 10</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="279314603196420">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="516001277998746" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Set Y" sid="811799727394058" type="diag_Portrait">
+                                            <param id="0" name="Y">448</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="879807155040609" title="Dialogue&gt;System">
+                    <sub-events>
+                        <comment>Loads dialogue</comment>
+                        <event-block sid="684650107884976">
+                            <conditions>
+                                <condition id="0" name="On completed" sid="306989628480961" type="AJAX">
+                                    <param id="0" name="Tag">&quot;diag&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="60" name="LoadJSON" sid="983504559211722" type="JSON">
+                                    <param id="0" name="JSON">AJAX.LastData</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}"></param>
+                                </action>
+                                <action id="-10" name="Set value" sid="265643369443646" type="diag_Box">
+                                    <param id="0" name="Instance variable">curDiag</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="375356438088715" type="diag_Box">
+                                    <param id="0" name="Instance variable">diagSize</param>
+                                    <param id="1" name="Value">JSON.Size(0, &quot;dialogue&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="889289413844384" type="System">
+                                    <param id="0" name="Variable">diagActive</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="640041297678979" type="System">
+                                    <param id="0" name="Layer">&quot;Dialogue&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="815551042838759">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="679519510834373" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="632236596765932" type="diag_DarkenerThing">
+                                    <param id="0" name="Opacity">LayerOpacity(&quot;DialogueBlurUnder&quot;) / 2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="634020024617213">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="982988303142825" type="System">
+                                            <param id="0" name="Variable">diagActive</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-18" name="Set layer opacity" sid="441273180336276" type="System">
+                                            <param id="0" name="Layer">&quot;DialogueBlurUnder&quot;</param>
+                                            <param id="1" name="Opacity">lerp(LayerOpacity(&quot;DialogueBlurUnder&quot;), 0, 0.1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="340331339741218">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="858262720668149" type="System">
+                                            <param id="0" name="Variable">diagActive</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-18" name="Set layer opacity" sid="247145820638746" type="System">
+                                            <param id="0" name="Layer">&quot;DialogueBlurUnder&quot;</param>
+                                            <param id="1" name="Opacity">lerp(LayerOpacity(&quot;DialogueBlurUnder&quot;), 100, 0.1)</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="235009442534965" type="diag_Portrait">
+                                            <param id="0" name="Y">lerp(Self.Y, diag_Box.ImagePointY(1), 0.2)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="162873047621293">
+                                            <conditions>
+                                                <condition id="0" name="On key pressed" sid="642502112559003" type="Keyboard">
+                                                    <param id="0" name="Key">13</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="754618567076135">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="596564643500074" type="diag_Box">
+                                                            <param id="0" name="Instance variable">curDiag</param>
+                                                            <param id="1" name="Comparison">3</param>
+                                                            <param id="2" name="Value">Self.diagSize</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                    <sub-events>
+                                                        <event-block sid="551640945627019">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="746247715703028" type="fnt_Dialogue">
+                                                                    <param id="0" name="Instance variable">curLetter</param>
+                                                                    <param id="1" name="Comparison">2</param>
+                                                                    <param id="2" name="Value">Self.diagTextSize</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-10" name="Set value" sid="865879390407143" type="fnt_Dialogue">
+                                                                    <param id="0" name="Instance variable">curLetter</param>
+                                                                    <param id="1" name="Value">Self.diagTextSize -1</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="958275122386479">
+                                                            <conditions>
+                                                                <condition id="-22" name="Else" sid="958209775346007" type="System" />
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="-11" name="Add to" sid="905185569992704" type="diag_Box">
+                                                                    <param id="0" name="Instance variable">curDiag</param>
+                                                                    <param id="1" name="Value">1</param>
+                                                                </action>
+                                                                <action id="-13" name="Set boolean" sid="362140352250434" type="diag_Box">
+                                                                    <param id="0" name="Instance variable">diagCalled</param>
+                                                                    <param id="1" name="Value">0</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
+                                                </event-block>
+                                                <event-block sid="368828292112893">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="254856396028242" type="diag_Box">
+                                                            <param id="0" name="Instance variable">curDiag</param>
+                                                            <param id="1" name="Comparison">4</param>
+                                                            <param id="2" name="Value">Self.diagSize</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-9" name="Set value" sid="403932609092509" type="System">
+                                                            <param id="0" name="Variable">diagActive</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                        <action id="-4" name="Set layer visible" sid="629731793885296" type="System">
+                                                            <param id="0" name="Layer">&quot;Dialogue&quot;</param>
+                                                            <param id="1" name="Visibility">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="572094132007313">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="388593706780915" type="diag_Box">
+                                                    <param id="0" name="Instance variable">curDiag</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Value">Self.diagSize</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="161567313489098">
+                                                    <conditions>
+                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="379740484173222" type="diag_Box">
+                                                            <param id="0" name="Instance variable">diagCalled</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="200" name="Set Current Path" sid="423601669631590" type="JSON">
+                                                            <param id="0" name="Reference point">0</param>
+                                                            <param id="1" name="Key {n}">&quot;dialogue&quot;{###}&quot;line&quot; &amp; diag_Box.curDiag</param>
+                                                        </action>
+                                                        <action id="0" name="Call function" sid="935886479988575" type="Function">
+                                                            <param id="0" name="Name">&quot;callDialogue&quot;</param>
+                                                            <param id="1" name="Parameter {n}">JSON.Value(1, &quot;char&quot;){###}JSON.Value(1, &quot;mood&quot;){###}JSON.Value(1, &quot;line&quot;){###}JSON.Value(1, &quot;position&quot;){###}JSON.Value(1, &quot;specialfx&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <comment>Dialogue continuer</comment>
+                                                <event-block sid="607081129208232">
+                                                    <conditions>
+                                                        <condition id="0" name="On key pressed" sid="682549002330036" type="Keyboard">
+                                                            <param id="0" name="Key">13</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions />
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <comment>The funny typewriter thing</comment>
+                                        <event-block sid="266290602687587">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="641105433129334" type="fnt_Dialogue">
+                                                    <param id="0" name="Instance variable">curLetter</param>
+                                                    <param id="1" name="Comparison">2</param>
+                                                    <param id="2" name="Value">Self.diagTextSize</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" sid="914669058712098" type="fnt_Dialogue">
+                                                    <param id="0" name="Instance variable">curLetter</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="447996737563948" type="fnt_Dialogue">
+                                                    <param id="0" name="Text">left(Self.diagTextItself, Self.curLetter)</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="252616506449733">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="791269100810644" type="System">
+                                                            <param id="0" name="First value">fnt_Dialogue.curLetter % 2</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Play" sid="579360425149615" type="Audio">
+                                                            <param id="0" name="Audio file">tick</param>
+                                                            <param id="2" name="Loop">0</param>
+                                                            <param id="3" name="Volume">0</param>
+                                                            <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="871229674124805">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="609778724809991" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="990928667297987" type="diag_Portrait">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-group description="" sid="410635350525181" title="Dialogue&gt;System&gt;Fx">
+                            <sub-events>
+                                <event-block sid="941900554111890">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="313935320972813" type="fnt_Dialogue">
+                                            <param id="0" name="Instance variable">diagFx</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;none&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="412380658103753" type="fnt_Dialogue">
+                                            <param id="0" name="X">diag_Box.ImagePointX(&quot;Text&quot;)</param>
+                                            <param id="1" name="Y">diag_Box.ImagePointY(&quot;Text&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="409660927306343">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="621367833306126" type="fnt_Dialogue">
+                                            <param id="0" name="Instance variable">diagFx</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;shake&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="623435800710197" type="fnt_Dialogue">
+                                            <param id="0" name="X">diag_Box.ImagePointX(&quot;Text&quot;) + random(-1, 1)</param>
+                                            <param id="1" name="Y">diag_Box.ImagePointY(&quot;Text&quot;) + random(-1, 1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
