@@ -21,8 +21,7 @@
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
-        <plugin author="Original work: Zack0Wack0 - modifications by juantar &amp; bhavanvaishnav - additional modifications by JohnnySheffield" id="Socket" version="1">Socket</plugin>
-        <plugin author="Digital Mania S.A.R.L" id="SocketMan" version="1">SocketMan</plugin>
+        <plugin author="Exit Games" id="Photon" version="1">Photon</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
@@ -317,9 +316,6 @@
                 <object-folder name="playables">
                     <object-type name="ply_Neon" sid="628903944842920">
                         <plugin id="Sprite" />
-                        <instance-variables>
-                            <instance-variable name="id" sid="720102346615245" type="number" />
-                        </instance-variables>
                         <animation-folder>
                             <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="724516111172492" speed="5">
                                 <frame duration="1" hotspotX="0.529412" hotspotY="0.921569" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon idle.png">
@@ -463,8 +459,6 @@
                         <instance-variable name="char_canInput" sid="779701168261121" type="boolean" />
                         <instance-variable name="hitStun" sid="939482017862320" type="number" />
                         <instance-variable name="cameraOffsetX" sid="710325311671648" type="number" />
-                        <instance-variable name="anim_xAdder" sid="934686187905859" type="number" />
-                        <instance-variable name="anim_yAdder" sid="754632692113415" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="SonicPhysics" sid="775282999167726">
@@ -856,17 +850,14 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="SocketMan" sid="616117924691828">
-            <plugin id="SocketMan" />
-        </object-type>
         <object-type global="1" name="online_OtherChars" sid="884376173391829">
             <plugin id="JSON" />
         </object-type>
         <object-type global="1" name="online_MyChar" sid="623271015687217">
             <plugin id="JSON" />
         </object-type>
-        <object-type name="Socket" sid="682544224440544">
-            <plugin id="Socket" />
+        <object-type name="Photon" sid="564787770356215">
+            <plugin id="Photon" />
         </object-type>
     </object-folder>
     <families>
@@ -874,6 +865,11 @@
             <members>
                 <member>ply_Neon</member>
             </members>
+            <instance-variables>
+                <instance-variable name="id" sid="909691280030078" type="number" />
+                <instance-variable name="external_xp" sid="773601065703911" type="number" />
+                <instance-variable name="external_lv" sid="477763110781761" type="number" />
+            </instance-variables>
         </family>
     </families>
     <layout-folder>
@@ -928,8 +924,17 @@
         <global-instance type="Comment" uid="35" />
         <global-instance type="NWjs" uid="52" />
         <global-instance type="AJAX" uid="58" />
-        <global-instance type="SocketMan" uid="74" />
-        <global-instance type="Socket" uid="77" />
+        <global-instance type="Photon" uid="50">
+            <properties>
+                <appid>898df7fa-ec1a-4b25-941b-ac4c0b946af0</appid>
+                <appversion>1.0</appversion>
+                <protocol>ws</protocol>
+                <region>cae</region>
+                <hosttype>Photon Cloud</hosttype>
+                <selfhostedaddress>localhost:9090</selfhostedaddress>
+                <loglevel>INFO</loglevel>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder>
         <sound-folder name="MENU">

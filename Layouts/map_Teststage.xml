@@ -637,8 +637,6 @@
                         <char_canInput>true</char_canInput>
                         <hitStun>0</hitStun>
                         <cameraOffsetX>0</cameraOffsetX>
-                        <anim_xAdder>0</anim_xAdder>
-                        <anim_yAdder>0</anim_yAdder>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="SonicPhysics">
@@ -684,7 +682,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-192</x>
+                        <x>-128</x>
                         <y>96</y>
                         <z>0</z>
                         <width>64</width>
@@ -696,7 +694,7 @@
                         <opacity>0.5</opacity>
                     </world>
                 </instance>
-                <instance type="ply_Neon" uid="50">
+                <instance type="ply_Neon" uid="78">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -705,12 +703,14 @@
                     </properties>
                     <instance-variables>
                         <id>0</id>
+                        <external_xp>0</external_xp>
+                        <external_lv>0</external_lv>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-96</x>
-                        <y>96</y>
+                        <x>-128</x>
+                        <y>0</y>
                         <z>0</z>
                         <width>68</width>
                         <height>102</height>

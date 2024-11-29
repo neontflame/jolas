@@ -11,4 +11,4 @@ isso e um WIP massivo ainda!!
 - **[Comment](https://fiaful.itch.io/comment-construct-2-and-3-addon)** de *fiaful*
 - **[JSON](https://github.com/FrenchYann/JSON_for_construct2)** de *Yann Granjon*
 - **[Sonic Physics](https://github.com/DanielPeterMcDonald/sonicphysics)** de *PixelMonkey*
-- **[Modded Socket.io](https://www.construct.net/en/tutorials/modded-socket-io-346)** (mas mais moddado ainda - posto depois)
+- **[Photon Realtime SDK](https://dashboard.photonengine.com/download/photon-construct2-sdk_v4-1-1-5.zip)** de *Exit Games*

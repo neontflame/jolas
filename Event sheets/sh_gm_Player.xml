@@ -10,23 +10,10 @@
                     <sub-events>
                         <comment>param 0: ID&#x0D;&#x0A;param 1: char ID (sao 4 letras maiusculas - exemplo: NEON, SUSH, HWNT, SKET, etc)&#x0D;&#x0A;-- atributos --&#x0D;&#x0A;= TODOS AQUI SAO VALORES MULTIPLICATIVOS A NAO SER Q SEJA ESPECIFICADO O CONTRARIO&#x0D;&#x0A;param 2: peso&#x0D;&#x0A;param 3: aceleraçao&#x0D;&#x0A;param 4: deceleraçao (nota: aceleraçao e deceleraçao no ar sao afetadas pelo param 3)&#x0D;&#x0A;&gt; param 12: deceleraçao ar (aditivo)&#x0D;&#x0A;&gt; param 13: deceleraçao girando (aditivo) (nota: deceleraçao girando nao e afetada pelo param 4)&#x0D;&#x0A;param 5: velocidade natural maxima (nota: girando nao e afetado)&#x0D;&#x0A;param 6: fricçao&#x0D;&#x0A;param 10 e 11: largura e altura&#x0D;&#x0A;-- especial --&#x0D;&#x0A;param 7: pode girar (tipo o sonic)?&#x0D;&#x0A;param 8: tem especial 2?&#x0D;&#x0A;param 9: resistencia (aka defesa - diminui dano que recebe normalmente... nao sei se vou usar)&#x0D;&#x0A;</comment>
                         <comment>os atributos default sao atributos parecidos com (caso nao sejam) os do neon!!!!</comment>
-                        <event-block sid="722968893509653">
-                            <conditions>
-                                <condition id="0" name="On function" sid="712380354078571" type="Function">
-                                    <param id="0" name="Name">&quot;createHitbox&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="999894476158537" type="Function">
-                                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
-                                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
-                                </action>
-                            </actions>
-                        </event-block>
                         <event-block sid="216184093953010">
                             <conditions>
                                 <condition id="0" name="On function" sid="542724787601889" type="Function">
-                                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                                    <param id="0" name="Name">&quot;createHitbox&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -114,6 +101,13 @@
                                 <action id="-7" name="Set size" sid="210240087091379" type="ply_Hitbox">
                                     <param id="0" name="Width">64 * Function.Param(10)</param>
                                     <param id="1" name="Height">64 * Function.Param(11)</param>
+                                </action>
+                                <action id="0" name="Add comment (normal)" sid="609584740687942" type="Comment">
+                                    <param id="0" name="Comment">&quot;outros quinhentos&quot;</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="811690554541422" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">char_isDefaultAnims</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -203,6 +197,31 @@
                                         <action id="-10" name="Set value" sid="360392675746703" type="ply_Neon">
                                             <param id="0" name="Instance variable">id</param>
                                             <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="722968893509653">
+                            <conditions>
+                                <condition id="0" name="On function" sid="712380354078571" type="Function">
+                                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="290022891900210">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="735763991084795" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;NEON&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="864966833901407" type="Function">
+                                            <param id="0" name="Name">&quot;createHitbox&quot;</param>
+                                            <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1){###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -579,8 +598,10 @@
                         <comment>CHAR SPRITES</comment>
                         <event-block sid="187727104769952">
                             <conditions>
-                                <condition id="-11" name="For Each" sid="317619137558497" type="System">
+                                <condition id="-24" name="For Each (ordered)" sid="317619137558497" type="System">
                                     <param id="0" name="Object">ply_Hitbox</param>
+                                    <param id="1" name="Expression">ply_Hitbox.id</param>
+                                    <param id="2" name="Order">0</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -652,19 +673,23 @@
                                 </event-block>
                                 <event-block sid="776353379939664">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="820013678470388" type="ply_Neon">
+                                        <condition id="-7" name="Compare instance variable" sid="820013678470388" type="PlayerSprites">
                                             <param id="0" name="Instance variable">id</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">ply_Hitbox.id</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Set position" sid="878803246838814" type="ply_Neon">
+                                        <action id="-3" name="Set position" sid="878803246838814" type="PlayerSprites">
                                             <param id="0" name="X">ply_Hitbox.X + xAdder</param>
                                             <param id="1" name="Y">ply_Hitbox.Y + yAdder - (ply_Hitbox.Height/2)</param>
                                         </action>
-                                        <action id="6" name="Set speed" sid="984544199644561" type="ply_Neon">
+                                        <action id="6" name="Set speed" sid="984544199644561" type="PlayerSprites">
                                             <param id="0" name="Speed">ply_Hitbox.anim_speed</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="846058844703194" type="PlayerSprites">
+                                            <param id="0" name="Animation">ply_Hitbox.anim_name</param>
+                                            <param id="1" name="From">1</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -686,7 +711,7 @@
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-8" name="Set angle" sid="892326959461980" type="ply_Neon">
+                                                        <action id="-8" name="Set angle" sid="892326959461980" type="PlayerSprites">
                                                             <param id="0" name="Angle">-ply_Hitbox.SonicPhysics.VectorY *  0.05</param>
                                                         </action>
                                                     </actions>
@@ -696,7 +721,7 @@
                                                         <condition id="-22" name="Else" sid="856609616846835" type="System" />
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-8" name="Set angle" sid="897055281223052" type="ply_Neon">
+                                                        <action id="-8" name="Set angle" sid="897055281223052" type="PlayerSprites">
                                                             <param id="0" name="Angle">ply_Hitbox.SonicPhysics.VectorY *  0.05</param>
                                                         </action>
                                                     </actions>
@@ -708,22 +733,8 @@
                                                 <condition id="-22" name="Else" sid="548139929043478" type="System" />
                                             </conditions>
                                             <actions>
-                                                <action id="-8" name="Set angle" sid="872696968425814" type="ply_Neon">
+                                                <action id="-8" name="Set angle" sid="872696968425814" type="PlayerSprites">
                                                     <param id="0" name="Angle">ply_Hitbox.SonicPhysics.SurfaceAngle</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <comment>anim player</comment>
-                                        <event-block sid="272316508555324">
-                                            <conditions>
-                                                <condition id="2" inverted="1" name="Is playing" sid="992412133176740" type="ply_Neon">
-                                                    <param id="0" name="Animation">ply_Hitbox.anim_name</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="4" name="Set animation" sid="846058844703194" type="ply_Neon">
-                                                    <param id="0" name="Animation">ply_Hitbox.anim_name</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -735,7 +746,7 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="7" name="Set mirrored" sid="213501601161022" type="ply_Neon">
+                                                <action id="7" name="Set mirrored" sid="213501601161022" type="PlayerSprites">
                                                     <param id="0" name="State">0</param>
                                                 </action>
                                             </actions>
@@ -745,7 +756,7 @@
                                                 <condition id="-22" name="Else" sid="689345251977742" type="System" />
                                             </conditions>
                                             <actions>
-                                                <action id="7" name="Set mirrored" sid="729119456271307" type="ply_Neon">
+                                                <action id="7" name="Set mirrored" sid="729119456271307" type="PlayerSprites">
                                                     <param id="0" name="State">1</param>
                                                 </action>
                                             </actions>
@@ -760,10 +771,10 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-17" name="Move forward" sid="248369715854745" type="ply_Neon">
+                                                <action id="-17" name="Move forward" sid="248369715854745" type="PlayerSprites">
                                                     <param id="0" name="Distance">random(-ply_Hitbox.anim_shakeForce,ply_Hitbox.anim_shakeForce)</param>
                                                 </action>
-                                                <action id="-23" name="Move at angle" sid="833801489531231" type="ply_Neon">
+                                                <action id="-23" name="Move at angle" sid="833801489531231" type="PlayerSprites">
                                                     <param id="0" name="Angle">90</param>
                                                     <param id="1" name="Distance">random(-ply_Hitbox.anim_shakeForce,ply_Hitbox.anim_shakeForce)</param>
                                                 </action>

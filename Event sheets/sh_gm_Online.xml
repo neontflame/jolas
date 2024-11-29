@@ -6,276 +6,316 @@
         <variable constant="0" name="debugVar" sid="740103586084863" static="0" type="text"></variable>
         <event-group description="" sid="796384898782648" title="OnlineMultiplayer">
             <sub-events>
-                <event-group description="" sid="305608738900300" title="OnlineMultiplayer&gt;Additional">
+                <event-group description="" sid="714738051161263" title="OnlineMulti&gt;Connecting">
                     <sub-events>
-                        <event-block sid="232795148985829">
+                        <event-block sid="605470183811467">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="240058782798742" type="ply_Hitbox">
-                                    <param id="0" name="Instance variable">id</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">focusedHitboxId</param>
-                                </condition>
+                                <condition id="-2" name="On start of layout" sid="787211713411920" type="System" />
                             </conditions>
                             <actions>
-                                <action behavior="SonicPhysics" id="14" name="Set enabled" sid="612837726103456" type="ply_Hitbox">
-                                    <param id="0" name="State">1</param>
+                                <action id="10" name="Connect" sid="823722795079747" type="Photon" />
+                                <action id="101" name="Set my actor name" sid="581654656523324" type="Photon">
+                                    <param id="0" name="name">&quot;foobar&quot;</param>
                                 </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="946779711788143">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="106266840756994" type="System" />
-                            </conditions>
-                            <actions>
-                                <action behavior="SonicPhysics" id="14" name="Set enabled" sid="759092900261366" type="ply_Hitbox">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="430174277806377" type="ply_Hitbox">
-                                    <param id="0" name="Instance variable">char_isDefaultAnims</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
-                <event-group description="" sid="173496472216609" title="OnlineMultiplayer&gt;Connecting">
-                    <sub-events>
-                        <event-block sid="420721878430838">
-                            <conditions>
-                                <condition id="-2" name="On start of layout" sid="835794836308393" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Connect" sid="923165763678452" type="Socket">
-                                    <param id="0" name="Address">&quot;localhost&quot;</param>
-                                    <param id="1" name="Port">8000</param>
-                                </action>
-                                <action id="0" name="Set New Object" sid="482697574750931" type="online_MyChar">
-                                    <param id="0" name="Reference point">0</param>
-                                    <param id="1" name="Key {n}"></param>
-                                </action>
-                                <action id="0" name="Set New Object" sid="797674518064423" type="online_OtherChars">
+                                <action id="0" name="Set New Object" sid="242017624953552" type="online_MyChar">
                                     <param id="0" name="Reference point">0</param>
                                     <param id="1" name="Key {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="121575438568541">
+                        <event-block sid="888831624368083">
                             <conditions>
-                                <condition id="1" name="On connect" sid="802589463401693" type="Socket" />
+                                <condition id="22" name="On join lobby" sid="702009785347604" type="Photon" />
                             </conditions>
                             <actions>
-                                <action id="20" name="Set Value" sid="643771596194632" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.id</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;id&quot;</param>
+                                <action id="13" name="Join random room" sid="269927486913282" type="Photon">
+                                    <param id="0" name="MatchMyRoom">0</param>
+                                    <param id="1" name="MatchmakingMode">0</param>
+                                    <param id="2" name="LobbyName">&quot;&quot;</param>
+                                    <param id="3" name="LobbyType">0</param>
+                                    <param id="4" name="SqlLobbyFilter">&quot;&quot;</param>
                                 </action>
-                                <action id="20" name="Set Value" sid="855054203410679" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.char</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;charac&quot;</param>
+                            </actions>
+                        </event-block>
+                        <event-block sid="307579147763676">
+                            <conditions>
+                                <condition id="23" name="On joinRandomRoom no match found" sid="302106312616518" type="Photon" />
+                            </conditions>
+                            <actions>
+                                <action id="11" name="Create room" sid="872749874718699" type="Photon">
+                                    <param id="0" name="Room">&quot;test&quot;</param>
+                                    <param id="1" name="LobbyName">&quot;&quot;</param>
+                                    <param id="2" name="LobbyType">0</param>
                                 </action>
-                                <action id="20" name="Set Value" sid="355291990161496" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.X)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;x&quot;</param>
+                            </actions>
+                        </event-block>
+                        <event-block sid="865548628913514">
+                            <conditions>
+                                <condition id="14" name="On join room" sid="548874163742914" type="Photon" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="424480772631113" type="System">
+                                    <param id="0" name="Variable">focusedHitboxId</param>
+                                    <param id="1" name="Value">Photon.MyActorNr</param>
                                 </action>
-                                <action id="20" name="Set Value" sid="791385878862932" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.Y)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;y&quot;</param>
+                                <action id="0" name="Call function" sid="941718252638750" type="Function">
+                                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                                    <param id="1" name="Parameter {n}">Photon.MyActorNr{###}&quot;NEON&quot;</param>
                                 </action>
-                                <action id="20" name="Set Value" sid="355931842078232" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.anim_name</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;anim&quot;</param>
+                                <action id="-16" name="Wait" sid="215862739389561" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
                                 </action>
-                                <action id="20" name="Set Value" sid="465527458570482" type="online_MyChar">
-                                    <param id="0" name="Value">LayoutName</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;place&quot;</param>
-                                </action>
-                                <action id="4" name="Emit" sid="888162789490213" type="Socket">
-                                    <param id="0" name="Event">&quot;hitboxLoad&quot;</param>
-                                    <param id="1" name="Data">online_MyChar.AsJson(0)</param>
+                                <action id="17" name="Raise event" sid="531236814735629" type="Photon">
+                                    <param id="0" name="Code">1</param>
+                                    <param id="1" name="Data">curChar</param>
+                                    <param id="2" name="InterestGroup">0</param>
+                                    <param id="3" name="Cache">4</param>
+                                    <param id="4" name="Receivers">0</param>
+                                    <param id="5" name="TargetActors">&quot;&quot;</param>
+                                    <param id="6" name="WebForward">0</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="797224655179998" title="OnlineMultiplayer&gt;Emitting">
+                <event-group description="" sid="606060888764431" title="OnlineMulti&gt;Events">
                     <sub-events>
-                        <event-block sid="390076737952291">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="540593780117577" type="ply_Hitbox">
-                                    <param id="0" name="Instance variable">id</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">focusedHitboxId</param>
-                                </condition>
-                                <condition id="-8" name="Compare two values" sid="681228252691688" type="System">
-                                    <param id="0" name="First value">abs(lerp(ply_Hitbox.SonicPhysics.Speed, -1, 0.2))</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Second value">-1</param>
-                                </condition>
-                                <condition id="-6" name="Every X seconds" sid="219993148505176" type="System">
-                                    <param id="0" name="Interval (seconds)">0.05</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="20" name="Set Value" sid="900390620471079" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.id</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;id&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="204016317593275" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.char</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;charac&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="600370352006914" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.X)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;x&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="869639417672608" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.Y)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;y&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="169197748106189" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.sonicphysics.VectorX)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;vx&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="551941977059417" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.sonicphysics.Vectory)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;vy&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="154689443946426" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.anim_name</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;animname&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="751957352348647" type="online_MyChar">
-                                    <param id="0" name="Value">ply_Hitbox.anim_speed</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;animspeed&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="827471698634919" type="online_MyChar">
-                                    <param id="0" name="Value">round(ply_Hitbox.anim_isMirrored)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;mirrored&quot;</param>
-                                </action>
-                                <action id="20" name="Set Value" sid="579929829506060" type="online_MyChar">
-                                    <param id="0" name="Value">LayoutName</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}">&quot;place&quot;</param>
-                                </action>
-                                <action id="4" name="Emit" sid="138498104305199" type="Socket">
-                                    <param id="0" name="Event">&quot;hitboxInfo&quot;</param>
-                                    <param id="1" name="Data">online_MyChar.AsJson(0)</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
-                <event-group description="" sid="756525677145746" title="OnlineMultiplayer&gt;Receiving">
-                    <sub-events>
-                        <event-block sid="905757864413715">
-                            <conditions>
-                                <condition id="5" name="On event received" sid="651745695579126" type="Socket">
-                                    <param id="0" name="Socket Event">&quot;hitboxInfo&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="210200582265449" type="Function">
-                                    <param id="0" name="Name">&quot;online_hitboxInfo&quot;</param>
-                                    <param id="1" name="Parameter {n}">Socket.LastData</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="809942448382017" type="System">
-                                    <param id="0" name="Variable">debugVar</param>
-                                    <param id="1" name="Value">Socket.LastData</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="695402930638304">
-                            <conditions>
-                                <condition id="0" name="On function" sid="796974019952176" type="Function">
-                                    <param id="0" name="Name">&quot;online_hitboxInfo&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="60" name="LoadJSON" sid="670456671547440" type="online_OtherChars">
-                                    <param id="0" name="JSON">Function.Param(0)</param>
-                                    <param id="1" name="Reference point">0</param>
-                                    <param id="2" name="Key {n}"></param>
-                                </action>
-                            </actions>
+                        <event-group description="" sid="853260890090697" title="OnlineMulti&gt;Events&gt;Send">
                             <sub-events>
-                                <event-block sid="174589098056418">
+                                <comment>POSITION N SHIT</comment>
+                                <event-block sid="356344123520476">
+                                    <conditions />
+                                    <actions>
+                                        <action id="20" name="Set Value" sid="777464423784015" type="online_MyChar">
+                                            <param id="0" name="Value">Photon.MyActorNr</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;id&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="473257164332084" type="online_MyChar">
+                                            <param id="0" name="Value">LayoutName</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;layout&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="340768545867784" type="online_MyChar">
+                                            <param id="0" name="Value">xp</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;xp&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="970856327033350" type="online_MyChar">
+                                            <param id="0" name="Value">lv</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;lv&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="333010374949428">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="279100923098463" type="ply_Hitbox">
+                                        <condition id="-7" name="Compare instance variable" sid="418652145452384" type="PlayerSprites">
                                             <param id="0" name="Instance variable">id</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">online_OtherChars.Value(0, &quot;id&quot;)</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="347195413558382" type="System">
-                                            <param id="0" name="First value">online_OtherChars.Value(0, &quot;id&quot;)</param>
-                                            <param id="1" name="Comparison">1</param>
-                                            <param id="2" name="Second value">focusedHitboxId</param>
+                                            <param id="2" name="Value">Photon.MyActorNr</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Set position" sid="621760327443744" type="ply_Hitbox">
-                                            <param id="0" name="X">online_OtherChars.Value(0, &quot;x&quot;)</param>
-                                            <param id="1" name="Y">online_OtherChars.Value(0, &quot;y&quot;)</param>
+                                        <action id="20" name="Set Value" sid="395740397747736" type="online_MyChar">
+                                            <param id="0" name="Value">PlayerSprites.X</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;x&quot;</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="832673778861730" type="ply_Hitbox">
-                                            <param id="0" name="Instance variable">anim_name</param>
-                                            <param id="1" name="Value">online_OtherChars.Value(0, &quot;animname&quot;)</param>
+                                        <action id="20" name="Set Value" sid="182328739680811" type="online_MyChar">
+                                            <param id="0" name="Value">PlayerSprites.Y</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;y&quot;</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="768232703087396" type="ply_Hitbox">
-                                            <param id="0" name="Instance variable">anim_speed</param>
-                                            <param id="1" name="Value">online_OtherChars.Value(0, &quot;animspeed&quot;)</param>
-                                        </action>
-                                        <action behavior="SonicPhysics" id="11" name="Set vector X" sid="696954273128300" type="ply_Hitbox">
-                                            <param id="0" name="Vector X">online_OtherChars.Value(0,&quot;vx&quot;)</param>
-                                        </action>
-                                        <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="325503128232397" type="ply_Hitbox">
-                                            <param id="0" name="Vector Y">online_OtherChars.Value(0,&quot;vy&quot;)</param>
+                                        <action id="20" name="Set Value" sid="985080464846549" type="online_MyChar">
+                                            <param id="0" name="Value">PlayerSprites.Angle</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;angle&quot;</param>
                                         </action>
                                     </actions>
+                                </event-block>
+                                <event-block sid="713579441901616">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="829837980343768" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">Photon.MyActorNr</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="20" name="Set Value" sid="123781970074320" type="online_MyChar">
+                                            <param id="0" name="Value">ply_Hitbox.anim_isMirrored</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;animmirrored&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="741184252783880" type="online_MyChar">
+                                            <param id="0" name="Value">ply_Hitbox.anim_name</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;animname&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="535693398151799" type="online_MyChar">
+                                            <param id="0" name="Value">ply_Hitbox.anim_speed</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;animspeed&quot;</param>
+                                        </action>
+                                        <action id="20" name="Set Value" sid="192889065716241" type="online_MyChar">
+                                            <param id="0" name="Value">ply_Hitbox.hp</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;hp&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="306890958708370">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="427927946877317" type="System">
+                                            <param id="0" name="Interval (seconds)">0.025</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="17" name="Raise event" sid="996498232070261" type="Photon">
+                                            <param id="0" name="Code">10</param>
+                                            <param id="1" name="Data">online_MyChar.AsJson(0)</param>
+                                            <param id="2" name="InterestGroup">0</param>
+                                            <param id="3" name="Cache">0</param>
+                                            <param id="4" name="Receivers">0</param>
+                                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                                            <param id="6" name="WebForward">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="637800466554133" title="OnlineMulti&gt;Events&gt;Receive">
+                            <sub-events>
+                                <comment>CREATE CHAR for others</comment>
+                                <event-block sid="663174257109773">
+                                    <conditions>
+                                        <condition id="3" name="On event" sid="757538910220277" type="Photon">
+                                            <param id="0" name="Code">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
                                     <sub-events>
-                                        <event-block sid="391297369006558">
+                                        <event-block sid="305152452720548">
                                             <conditions>
-                                                <condition id="-8" name="Compare two values" sid="555487055373029" type="System">
-                                                    <param id="0" name="First value">online_OtherChars.Value(0, &quot;mirrored&quot;)</param>
+                                                <condition id="-8" name="Compare two values" sid="148909401385043" type="System">
+                                                    <param id="0" name="First value">Photon.EventData</param>
                                                     <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">1</param>
+                                                    <param id="2" name="Second value">&quot;NEON&quot;</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-13" name="Set boolean" sid="353416032831318" type="ply_Hitbox">
-                                                    <param id="0" name="Instance variable">anim_isMirrored</param>
-                                                    <param id="1" name="Value">1</param>
+                                                <action id="-3" name="Create object" sid="214289113404755" type="System">
+                                                    <param id="0" name="Object to create">ply_Neon</param>
+                                                    <param id="1" name="Layer">&quot;Player&quot;</param>
+                                                    <param id="2" name="X">0</param>
+                                                    <param id="3" name="Y">0</param>
                                                 </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="496819966213172">
-                                            <conditions>
-                                                <condition id="-22" name="Else" sid="596352881199339" type="System" />
-                                            </conditions>
-                                            <actions>
-                                                <action id="-13" name="Set boolean" sid="395092027213847" type="ply_Hitbox">
-                                                    <param id="0" name="Instance variable">anim_isMirrored</param>
-                                                    <param id="1" name="Value">0</param>
+                                                <action id="-10" name="Set value" sid="365623781577008" type="ply_Neon">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Value">Photon.ActorNr</param>
                                                 </action>
                                             </actions>
                                         </event-block>
                                     </sub-events>
                                 </event-block>
+                                <event-block sid="240389205985469">
+                                    <conditions>
+                                        <condition id="3" name="On event" sid="131439136051601" type="Photon">
+                                            <param id="0" name="Code">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="60" name="LoadJSON" sid="181253320061726" type="online_OtherChars">
+                                            <param id="0" name="JSON">Photon.EventData</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}"></param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="794521176008332">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="667384503237482" type="PlayerSprites">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">online_OtherChars.Value(0, &quot;id&quot;)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Set position" sid="546595000743680" type="PlayerSprites">
+                                                    <param id="0" name="X">online_OtherChars.Value(0, &quot;x&quot;)</param>
+                                                    <param id="1" name="Y">online_OtherChars.Value(0, &quot;y&quot;)</param>
+                                                </action>
+                                                <action id="-8" name="Set angle" sid="217836215649037" type="PlayerSprites">
+                                                    <param id="0" name="Angle">online_OtherChars.Value(0, &quot;angle&quot;)</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="551109307998650" type="PlayerSprites">
+                                                    <param id="0" name="Animation">online_OtherChars.Value(0, &quot;animname&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="6" name="Set speed" sid="176026567280592" type="PlayerSprites">
+                                                    <param id="0" name="Speed">online_OtherChars.Value(0, &quot;animspeed&quot;)</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="826054109985298" type="PlayerSprites">
+                                                    <param id="0" name="Instance variable">external_xp</param>
+                                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;xp&quot;)</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="805312905309927" type="PlayerSprites">
+                                                    <param id="0" name="Instance variable">external_lv</param>
+                                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;lv&quot;)</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="919262903457321">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="772992656274003" type="System">
+                                                            <param id="0" name="First value">online_OtherChars.Value(0, &quot;animmirrored&quot;)</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="717582764895740" type="PlayerSprites">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="153331612516066">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="748147544909838" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="982133664184848" type="PlayerSprites">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="807625306729158">
+                                    <conditions>
+                                        <condition id="16" name="On actor leave" sid="243919335359924" type="Photon" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="761780524650132">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="647926664314600" type="PlayerSprites">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">Photon.ActorNr</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="523584293914856" type="PlayerSprites" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
                             </sub-events>
-                        </event-block>
+                        </event-group>
                     </sub-events>
                 </event-group>
             </sub-events>

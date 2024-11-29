@@ -21,9 +21,6 @@
                             <param id="0" name="X">(hud_ComboFont.X + hud_ComboFont.Width) - (hud_ComboFont.TextWidth) - 110</param>
                             <param id="1" name="Y">hud_ComboFont.Y</param>
                         </action>
-                        <action id="0" name="Set text" sid="794265094363365" type="hud_ComboFont">
-                            <param id="0" name="Text">abs(round(ply_Hitbox.SonicPhysics.VectorX))</param>
-                        </action>
                         <action id="0" name="Set text" sid="575500757192405" type="hud_LevelFont">
                             <param id="0" name="Text">lv</param>
                         </action>
@@ -62,6 +59,9 @@
                             <actions>
                                 <action id="-5" name="Set width" sid="855621491157562" type="hud_HpBars">
                                     <param id="0" name="Width">38 * ply_Hitbox.hp</param>
+                                </action>
+                                <action id="0" name="Set text" sid="794265094363365" type="hud_ComboFont">
+                                    <param id="0" name="Text">abs(round(ply_Hitbox.SonicPhysics.VectorX))</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -106,28 +106,20 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <comment>param 0: ID&#x0D;&#x0A;param 1: char ID (sao 4 letras maiusculas - exemplo: NEON, SUSH, HWNT, SKET, etc)&#x0D;&#x0A;-- atributos --&#x0D;&#x0A;= TODOS AQUI SAO VALORES MULTIPLICATIVOS A NAO SER Q SEJA ESPECIFICADO O CONTRARIO&#x0D;&#x0A;param 2: peso&#x0D;&#x0A;param 3: aceleraçao&#x0D;&#x0A;param 4: deceleraçao (nota: aceleraçao e deceleraçao no ar sao afetadas pelo param 3)&#x0D;&#x0A;&gt; param 12: deceleraçao ar (aditivo)&#x0D;&#x0A;&gt; param 13: deceleraçao girando (aditivo) (nota: deceleraçao girando nao e afetada pelo param 4)&#x0D;&#x0A;param 5: velocidade natural maxima (nota: girando nao e afetado)&#x0D;&#x0A;param 6: fricçao&#x0D;&#x0A;param 10 e 11: largura e altura&#x0D;&#x0A;-- especial --&#x0D;&#x0A;param 7: pode girar (tipo o sonic)?&#x0D;&#x0A;param 8: tem especial 2?&#x0D;&#x0A;param 9: resistencia (aka defesa - diminui dano que recebe normalmente... nao sei se vou usar)&#x0D;&#x0A;</comment>
         <event-block sid="221488707413292">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="701761370701946" type="System" />
             </conditions>
             <actions>
                 <action id="-9" name="Destroy" sid="728283521596470" type="ply_Hitbox" />
-                <action id="-9" name="Destroy" sid="304777717747469" type="ply_Neon" />
+                <action id="-9" name="Destroy" sid="943050663032168" type="PlayerSprites" />
                 <action disabled="1" id="0" name="Call function" sid="458539398828503" type="Function">
-                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                    <param id="0" name="Name">&quot;createHitbox&quot;</param>
                     <param id="1" name="Parameter {n}">&quot;id da hitbox&quot;{###}&quot;CHAR (4 letras)&quot;{###}&quot;peso (mult)&quot;{###}&quot;accel (mult)&quot;{###}&quot;decel (mult)&quot;{###}&quot;vel maxima (mult)&quot;{###}&quot;fricçao (mult)&quot;{###}&quot;pode girar? (0 ou 1)&quot;{###}&quot;tem especial 2? (0 ou 1)&quot;{###}&quot;resistencia&quot;{###}&quot;largura (mult)&quot;{###}&quot;altura (mult)&quot;{###}&quot;decel ar (add)&quot;{###}&quot;decel girando (add)&quot;</param>
                 </action>
-                <action id="0" name="Call function" sid="910382922494250" type="Function">
+                <action disabled="1" id="0" name="Call function" sid="910382922494250" type="Function">
                     <param id="0" name="Name">&quot;createCharacter&quot;</param>
-                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
-                </action>
-                <action id="-16" name="Wait" sid="302392600940327" type="System">
-                    <param id="0" name="Seconds">1.0</param>
-                </action>
-                <action id="0" name="Call function" sid="317021393286649" type="Function">
-                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
-                    <param id="1" name="Parameter {n}">1{###}&quot;NEON&quot;{###}1{###}1{###}1{###}1{###}1{###}0{###}0{###}0{###}64 / 64{###}80 / 64{###}0{###}0</param>
+                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;</param>
                 </action>
             </actions>
         </event-block>
