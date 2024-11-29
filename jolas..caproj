@@ -21,6 +21,8 @@
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
+        <plugin author="Original work: Zack0Wack0 - modifications by juantar &amp; bhavanvaishnav - additional modifications by JohnnySheffield" id="Socket" version="1">Socket</plugin>
+        <plugin author="Digital Mania S.A.R.L" id="SocketMan" version="1">SocketMan</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
@@ -64,7 +66,7 @@
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Preload sounds">Yes</prop>
-        <prop name="Preview browser">NW.js</prop>
+        <prop name="Preview browser">(default)</prop>
         <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">No</prop>
         <prop name="Use iOS retina display">All devices</prop>
@@ -854,6 +856,18 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="SocketMan" sid="616117924691828">
+            <plugin id="SocketMan" />
+        </object-type>
+        <object-type global="1" name="online_OtherChars" sid="884376173391829">
+            <plugin id="JSON" />
+        </object-type>
+        <object-type global="1" name="online_MyChar" sid="623271015687217">
+            <plugin id="JSON" />
+        </object-type>
+        <object-type name="Socket" sid="682544224440544">
+            <plugin id="Socket" />
+        </object-type>
     </object-folder>
     <families>
         <family name="PlayerSprites" plugin-id="Sprite" sid="685820396969351">
@@ -877,6 +891,7 @@
             <event-sheet>sh_Game.xml</event-sheet>
             <event-sheet>sh_gm_Player.xml</event-sheet>
             <event-sheet>sh_gm_Dialogue.xml</event-sheet>
+            <event-sheet>sh_gm_Online.xml</event-sheet>
         </event-folder>
         <event-sheet>sh_Menu.xml</event-sheet>
     </event-folder>
@@ -913,6 +928,8 @@
         <global-instance type="Comment" uid="35" />
         <global-instance type="NWjs" uid="52" />
         <global-instance type="AJAX" uid="58" />
+        <global-instance type="SocketMan" uid="74" />
+        <global-instance type="Socket" uid="77" />
     </global-instances>
     <sounds-folder>
         <sound-folder name="MENU">

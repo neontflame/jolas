@@ -9,6 +9,7 @@
         <variable constant="0" name="focusedHitboxId" sid="926761483989335" static="0" type="number">0</variable>
         <include>sh_gm_Player</include>
         <include>sh_gm_Dialogue</include>
+        <include>sh_gm_Online</include>
         <event-group description="" sid="643394988016432" title="HUD">
             <sub-events>
                 <event-block sid="848128821281537">
