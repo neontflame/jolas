@@ -582,6 +582,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <theCool>0</theCool>
+                        <initX>0</initX>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -604,6 +608,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <theCool>1</theCool>
+                        <initX>0</initX>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -626,6 +634,10 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <theCool>-1</theCool>
+                        <initX>0</initX>
+                    </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -651,14 +663,14 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>128</x>
-                        <y>224</y>
+                        <x>135</x>
+                        <y>272</y>
                         <z>0</z>
                         <width>68</width>
                         <height>102</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0.558823526</hotspotX>
+                        <hotspotY>0.931372523</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -677,7 +689,7 @@
         </instance>
         <instance type="menu_CharArray" uid="54">
             <properties>
-                <width>10</width>
+                <width>3</width>
                 <height>3</height>
                 <depth>1</depth>
             </properties>

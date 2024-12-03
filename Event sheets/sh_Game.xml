@@ -7,8 +7,12 @@
         <variable constant="0" name="xp" sid="192122071760072" static="0" type="number">0</variable>
         <variable constant="0" name="lvLimit" sid="252437206304225" static="0" type="number">13</variable>
         <variable constant="0" name="focusedHitboxId" sid="926761483989335" static="0" type="number">0</variable>
+        <comment>GENERAL INCLUDES</comment>
+        <include>sh_Utils</include>
+        <comment>GAME INCLUDES</comment>
         <include>sh_gm_Player</include>
         <include>sh_gm_Dialogue</include>
+        <include>sh_gm_Objects</include>
         <include>sh_gm_Online</include>
         <event-group description="" sid="643394988016432" title="HUD">
             <sub-events>
@@ -63,7 +67,72 @@
                                 <action id="0" name="Set text" sid="794265094363365" type="hud_ComboFont">
                                     <param id="0" name="Text">abs(round(ply_Hitbox.SonicPhysics.VectorX))</param>
                                 </action>
+                                <action id="4" name="Set animation" sid="796058571769496" type="hud_Icons">
+                                    <param id="0" name="Animation">ply_Hitbox.char</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="409349249126989">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="535884098302960" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">char</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;SUSH&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-5" name="Set width" sid="724968946511552" type="hud_ammoBars">
+                                            <param id="0" name="Width">lerp(Self.Width, ply_Hitbox.char_CoolVar4 * 12, 0.2)</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="128213867408740" type="hud_ammoBars">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="950211843475308">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="108158498108320" type="hud_HpNXp">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;ammo&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="511103180897399" type="hud_HpNXp">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="552694029483472">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="961359877627925" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="557313577175331" type="hud_ammoBars">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="621180687876726">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="138680555700227" type="hud_HpNXp">
+                                                    <param id="0" name="Instance variable">type</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;ammo&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="268904175132280" type="hud_HpNXp">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>

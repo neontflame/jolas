@@ -22,6 +22,38 @@
                                     <param id="1" name="Key {n}"></param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="489137837985763">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="421335949380027" type="System">
+                                            <param id="0" name="First value">round(random(1,2))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="223439199540626" type="System">
+                                            <param id="0" name="Variable">curChar</param>
+                                            <param id="1" name="Value">&quot;NEON&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="588684011113208">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="189036611136901" type="System">
+                                            <param id="0" name="First value">round(random(1,2))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="949507717527008" type="System">
+                                            <param id="0" name="Variable">curChar</param>
+                                            <param id="1" name="Value">&quot;SUSH&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="888831624368083">
                             <conditions>
@@ -60,7 +92,7 @@
                                 </action>
                                 <action id="0" name="Call function" sid="941718252638750" type="Function">
                                     <param id="0" name="Name">&quot;createCharacter&quot;</param>
-                                    <param id="1" name="Parameter {n}">Photon.MyActorNr{###}&quot;NEON&quot;</param>
+                                    <param id="1" name="Parameter {n}">Photon.MyActorNr{###}curChar</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="215862739389561" type="System">
                                     <param id="0" name="Seconds">0.1</param>
@@ -132,6 +164,11 @@
                                             <param id="1" name="Reference point">0</param>
                                             <param id="2" name="Key {n}">&quot;angle&quot;</param>
                                         </action>
+                                        <action id="20" name="Set Value" sid="740921037513336" type="online_MyChar">
+                                            <param id="0" name="Value">PlayerSprites.AnimationFrame</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}">&quot;animframe&quot;</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block sid="713579441901616">
@@ -183,6 +220,47 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="300321538271464">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="665149016316021" type="Function">
+                                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="641667837779407" type="System">
+                                            <param id="0" name="First value">Photon.MyActorNr</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="17" name="Raise event" sid="653519696371476" type="Photon">
+                                            <param id="0" name="Code">50</param>
+                                            <param id="1" name="Data">Function.Param(0) &amp; &quot;|&quot; &amp; Function.Param(1) &amp; &quot;|&quot; &amp; Function.Param(2) &amp; &quot;|&quot; &amp; Function.Param(3) </param>
+                                            <param id="2" name="InterestGroup">0</param>
+                                            <param id="3" name="Cache">0</param>
+                                            <param id="4" name="Receivers">0</param>
+                                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                                            <param id="6" name="WebForward">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="708669280305963">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="976801678409518" type="Function">
+                                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="17" name="Raise event" sid="509945454398471" type="Photon">
+                                            <param id="0" name="Code">51</param>
+                                            <param id="1" name="Data">Function.Param(0)</param>
+                                            <param id="2" name="InterestGroup">0</param>
+                                            <param id="3" name="Cache">0</param>
+                                            <param id="4" name="Receivers">0</param>
+                                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                                            <param id="6" name="WebForward">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-group>
                         <event-group description="" sid="637800466554133" title="OnlineMulti&gt;Events&gt;Receive">
@@ -212,6 +290,27 @@
                                                     <param id="3" name="Y">0</param>
                                                 </action>
                                                 <action id="-10" name="Set value" sid="365623781577008" type="ply_Neon">
+                                                    <param id="0" name="Instance variable">id</param>
+                                                    <param id="1" name="Value">Photon.ActorNr</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="905418382438343">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="555407013375478" type="System">
+                                                    <param id="0" name="First value">Photon.EventData</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">&quot;SUSH&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="835657954006275" type="System">
+                                                    <param id="0" name="Object to create">ply_Sushi</param>
+                                                    <param id="1" name="Layer">&quot;Player&quot;</param>
+                                                    <param id="2" name="X">0</param>
+                                                    <param id="3" name="Y">0</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="830395292930083" type="ply_Sushi">
                                                     <param id="0" name="Instance variable">id</param>
                                                     <param id="1" name="Value">Photon.ActorNr</param>
                                                 </action>
@@ -256,6 +355,9 @@
                                                 <action id="6" name="Set speed" sid="176026567280592" type="PlayerSprites">
                                                     <param id="0" name="Speed">online_OtherChars.Value(0, &quot;animspeed&quot;)</param>
                                                 </action>
+                                                <action id="5" name="Set frame" sid="610895696061722" type="PlayerSprites">
+                                                    <param id="0" name="Frame number">online_OtherChars.Value(0, &quot;animframe&quot;)</param>
+                                                </action>
                                                 <action id="-10" name="Set value" sid="826054109985298" type="PlayerSprites">
                                                     <param id="0" name="Instance variable">external_xp</param>
                                                     <param id="1" name="Value">online_OtherChars.Value(0, &quot;xp&quot;)</param>
@@ -293,6 +395,38 @@
                                             </sub-events>
                                         </event-block>
                                     </sub-events>
+                                </event-block>
+                                <comment>SPECIAL EVENTS</comment>
+                                <comment>SUSHI MISSILE</comment>
+                                <event-block sid="192223934526145">
+                                    <conditions>
+                                        <condition id="3" name="On event" sid="983985274005129" type="Photon">
+                                            <param id="0" name="Code">50</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="14" name="Log" sid="798528741337290" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">Photon.EventData</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="118249028993243" type="Function">
+                                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
+                                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 1, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 2, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 3, &quot;|&quot;))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="942795649370771">
+                                    <conditions>
+                                        <condition id="3" name="On event" sid="297451401626765" type="Photon">
+                                            <param id="0" name="Code">51</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="163103455621151" type="Function">
+                                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                                            <param id="1" name="Parameter {n}">Photon.EventData</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                                 <event-block sid="807625306729158">
                                     <conditions>

@@ -3,7 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>sh_Menu</name>
     <events>
-        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">NEON</variable>
+        <include>sh_Utils</include>
+        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">SUSH</variable>
         <variable constant="0" name="curSelect" sid="480314784115682" static="0" type="number">0</variable>
         <event-group description="" sid="486007233636215" title="Menu">
             <sub-events>
@@ -36,13 +37,21 @@
                                 <condition id="-2" name="On start of layout" sid="548290309581758" type="System" />
                             </conditions>
                             <actions>
+                                <action id="-10" name="Set value" sid="887879452851541" type="hud_Icons">
+                                    <param id="0" name="Instance variable">initX</param>
+                                    <param id="1" name="Value">Self.X</param>
+                                </action>
                                 <action id="0" name="Call function" sid="249195766349396" type="Function">
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
-                                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor [HB]: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
+                                    <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
                                 </action>
                                 <action id="0" name="Call function" sid="966134036595546" type="Function">
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
-                                    <param id="1" name="Parameter {n}">1{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor [HB]: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
+                                    <param id="1" name="Parameter {n}">1{###}&quot;SUSH&quot;{###}&quot;Sushi Brando&quot;{###}&quot;ele e estupido - no entanto ele e bom com armas&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Rocket Launcher: segure o botao E1 para sacar seu lançador de foguetes - use o mouse para mirar e atirar&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="446860451507236" type="Function">
+                                    <param id="0" name="Name">&quot;addChar&quot;</param>
+                                    <param id="1" name="Parameter {n}">2{###}&quot;SUSH&quot;{###}&quot;Terceira Entry&quot;{###}&quot;pq eu precisava de mais um pra testar&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -457,6 +466,13 @@
                                 <action id="0" name="Set text" sid="946360725039604" type="menu_chr_ManeDesc">
                                     <param id="0" name="Text">menu_CharArray.At(curSelect, 2)</param>
                                 </action>
+                                <action id="4" name="Set animation" sid="818328246145326" type="hud_Icons">
+                                    <param id="0" name="Animation">menu_CharArray.At(Function.Call(&quot;wrapValue&quot;, curSelect, Self.theCool, 0, menu_CharArray.Width - 1), 0)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-1" name="Set X" sid="218282925201105" type="hud_Icons">
+                                    <param id="0" name="X">lerp(Self.X, Self.initX, 0.2)</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="795110964857333">
@@ -487,6 +503,50 @@
                                 <action id="0" name="Call function" sid="236256740909295" type="Function">
                                     <param id="0" name="Name">&quot;menuAlter&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="598887946624112">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="472116632465574" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="773546191362390" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                                <action id="-17" name="Move forward" sid="694191091677832" type="hud_Icons">
+                                    <param id="0" name="Distance">-96</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="626825857426686" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, -1, 0, menu_CharArray.Width - 1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="540242020336155">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="200391164891600" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="213881171874084" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                                <action id="-17" name="Move forward" sid="475025963599042" type="hud_Icons">
+                                    <param id="0" name="Distance">96</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="198539948194340" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, 1, 0, menu_CharArray.Width - 1)</param>
                                 </action>
                             </actions>
                         </event-block>

@@ -31,6 +31,7 @@
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="PixelMonkey" id="SonicPhysics" version="0.100000001">Sonic Physics</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -52,7 +53,8 @@
     </window-size>
     <pixel-rounding>1</pixel-rounding>
     <preview-effects>1</preview-effects>
-    <use-loader-layout>0</use-loader-layout>
+    <first-layout>Loading</first-layout>
+    <use-loader-layout>1</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">No</prop>
         <prop name="Downscaling">Low quality</prop>
@@ -61,11 +63,11 @@
         <prop name="Fullscreen scaling">Low quality</prop>
         <prop name="Fullscreen scaling quality">Low</prop>
         <prop name="Hide address bar">No</prop>
-        <prop name="Loader style">Percentage text</prop>
+        <prop name="Loader style">Nothing (not recommended)</prop>
         <prop name="Orientations">Landscape</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Preload sounds">Yes</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">NW.js</prop>
         <prop name="Sampling">Point</prop>
         <prop name="Use high-DPI display">No</prop>
         <prop name="Use iOS retina display">All devices</prop>
@@ -132,7 +134,20 @@
                     <plugin id="Sprite" />
                     <animation-folder>
                         <animation framecount="1" loop="0" name="NEON" pingpong="0" repeatcount="1" repeatto="0" sid="568729044784034" speed="5">
-                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon idle.png">
+                            <frame duration="1" hotspotX="0.558824" hotspotY="0.931373" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon idle.png">
+                                <collision-poly>
+                                    <point x="0.5" y="0.147059" />
+                                    <point x="0.779412" y="0.147059" />
+                                    <point x="0.955882" y="0.5" />
+                                    <point x="0.897059" y="0.931373" />
+                                    <point x="0.5" y="0.95098" />
+                                    <point x="0.102941" y="0.931373" />
+                                    <point x="0.117647" y="0.5" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="SUSH" pingpong="0" repeatcount="1" repeatto="0" sid="529177011843714" speed="5">
+                            <frame duration="1" hotspotX="0.525641" hotspotY="0.884956" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi idle.png">
                                 <collision-poly>
                                     <point x="0.5" y="0.147059" />
                                     <point x="0.779412" y="0.147059" />
@@ -145,6 +160,9 @@
                             </frame>
                         </animation>
                     </animation-folder>
+                </object-type>
+                <object-type global="1" name="menu_CharArray" sid="562905575717698">
+                    <plugin id="Arr" />
                 </object-type>
             </object-folder>
             <object-folder name="main">
@@ -436,6 +454,103 @@
                             </animation>
                         </animation-folder>
                     </object-type>
+                    <object-type name="ply_Sushi" sid="166658801252655">
+                        <plugin id="Sprite" />
+                        <animation-folder>
+                            <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="224227738480913" speed="5">
+                                <frame duration="1" hotspotX="0.525641" hotspotY="0.876106" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi idle.png">
+                                    <collision-poly>
+                                        <point x="0.5" y="0.147059" />
+                                        <point x="0.779412" y="0.147059" />
+                                        <point x="0.955882" y="0.5" />
+                                        <point x="0.897059" y="0.931373" />
+                                        <point x="0.5" y="0.95098" />
+                                        <point x="0.102941" y="0.931373" />
+                                        <point x="0.117647" y="0.5" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="4" loop="1" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="808440736314291" speed="10">
+                                <frame duration="1" hotspotX="0.488372" hotspotY="0.944444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiWalk0001.png" />
+                                <frame duration="1" hotspotX="0.488372" hotspotY="0.944444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiWalk0002.png" />
+                                <frame duration="1" hotspotX="0.488372" hotspotY="0.944444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiWalk0003.png" />
+                                <frame duration="1" hotspotX="0.488372" hotspotY="0.944444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiWalk0004.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="818827728782042" speed="20">
+                                <frame duration="1" hotspotX="0.46281" hotspotY="1" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRun0001.png" />
+                                <frame duration="1" hotspotX="0.46281" hotspotY="1" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRun0002.png" />
+                                <frame duration="1" hotspotX="0.46281" hotspotY="1" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRun0003.png" />
+                            </animation>
+                            <animation framecount="2" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="361480836442758" speed="10">
+                                <frame duration="1" hotspotX="0.516854" hotspotY="0.884956" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiJump0001.png" />
+                                <frame duration="1" hotspotX="0.516854" hotspotY="0.884956" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiJump0002.png" />
+                            </animation>
+                            <animation framecount="1" loop="0" name="Fall" pingpong="0" repeatcount="1" repeatto="0" sid="672253419635569" speed="10">
+                                <frame duration="1" hotspotX="0.516854" hotspotY="0.884956" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiJump0003.png" />
+                            </animation>
+                            <animation framecount="2" loop="0" name="Hurt" pingpong="0" repeatcount="1" repeatto="0" sid="964718936792927" speed="15">
+                                <frame duration="1" hotspotX="0.51087" hotspotY="1.00909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiDano0001.png" />
+                                <frame duration="1" hotspotX="0.51087" hotspotY="1.00909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiDano0002.png" />
+                            </animation>
+                            <animation framecount="1" loop="0" name="Brake" pingpong="0" repeatcount="1" repeatto="0" sid="218723471971747" speed="5">
+                                <frame duration="1" hotspotX="0.52381" hotspotY="0.967742" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiBrakes.png">
+                                    <collision-poly>
+                                        <point x="1" y="1" />
+                                        <point x="0" y="1" />
+                                        <point x="0" y="0" />
+                                        <point x="1" y="0" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="4" loop="1" name="BigHurt" pingpong="0" repeatcount="1" repeatto="0" sid="506972870590131" speed="15">
+                                <frame duration="1" hotspotX="0.490385" hotspotY="0.971154" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi sonicBattleSpin0001.png" />
+                                <frame duration="1" hotspotX="0.490385" hotspotY="0.971154" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi sonicBattleSpin0002.png" />
+                                <frame duration="1" hotspotX="0.490385" hotspotY="0.971154" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi sonicBattleSpin0003.png" />
+                                <frame duration="1" hotspotX="0.490385" hotspotY="0.971154" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushi sonicBattleSpin0004.png" />
+                            </animation>
+                            <animation framecount="8" loop="1" name="RocketLauncherFloor" pingpong="0" repeatcount="1" repeatto="0" sid="933056789239061" speed="15">
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRocketFloor0003.png">
+                                    <image-point name="theCoolShit" x="0.826389" y="0.676471" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRocketFloor0002.png">
+                                    <image-point name="theCoolShit" x="0.722222" y="0.817647" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRocketFloor0001.png">
+                                    <image-point name="theCoolShit" x="0.402778" y="0.847059" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118">
+                                    <image-point name="theCoolShit" x="0.722222" y="0.817647" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118">
+                                    <image-point name="theCoolShit" x="0.826389" y="0.676471" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRocketFloor0004.png">
+                                    <image-point name="theCoolShit" x="0.680556" y="0.335294" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiRocketFloor0005.png">
+                                    <image-point name="theCoolShit" x="0.298611" y="0.147059" />
+                                </frame>
+                                <frame duration="1" hotspotX="0.4375" hotspotY="0.894118">
+                                    <image-point name="theCoolShit" x="0.680556" y="0.335294" />
+                                </frame>
+                            </animation>
+                            <animation framecount="1" loop="1" name="RocketLauncherAir" pingpong="0" repeatcount="1" repeatto="0" sid="760883434379362" speed="15">
+                                <frame duration="1" hotspotX="0.537879" hotspotY="0.907563" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\sushiAerialRocket.png">
+                                    <image-point name="theCoolShit" x="0.992424" y="0.831933" />
+                                    <collision-poly>
+                                        <point x="0.113636" y="0.12605" />
+                                        <point x="0.5" y="0.117647" />
+                                        <point x="0.795455" y="0.226891" />
+                                        <point x="0.772727" y="0.495798" />
+                                        <point x="0.780303" y="0.756303" />
+                                        <point x="0.5" y="0.915966" />
+                                        <point x="0.439394" y="0.512605" />
+                                        <point x="0.431818" y="0.495798" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                        </animation-folder>
+                    </object-type>
                 </object-folder>
                 <object-type name="ply_Hitbox" sid="430080068316583">
                     <plugin id="Sprite" />
@@ -455,10 +570,12 @@
                         <instance-variable name="char_CoolVar2" sid="492372564373765" type="number" />
                         <instance-variable name="char_CoolVar3" sid="783515058683496" type="number" />
                         <instance-variable name="char_CoolVar4" sid="219997931881766" type="number" />
+                        <instance-variable name="char_CoolVar5" sid="333153708088233" type="number" />
                         <instance-variable name="char_isDefaultAnims" sid="342153409624279" type="boolean" />
-                        <instance-variable name="char_canInput" sid="779701168261121" type="boolean" />
+                        <instance-variable name="char_canDefaultInput" sid="779701168261121" type="boolean" />
                         <instance-variable name="hitStun" sid="939482017862320" type="number" />
                         <instance-variable name="cameraOffsetX" sid="710325311671648" type="number" />
+                        <instance-variable name="cameraOffsetY" sid="464201836513211" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="SonicPhysics" sid="775282999167726">
@@ -471,8 +588,57 @@
                         </animation>
                     </animation-folder>
                 </object-type>
+                <object-type global="1" name="online_MyChar" sid="623271015687217">
+                    <plugin id="JSON" />
+                </object-type>
+                <object-type global="1" name="online_OtherChars" sid="884376173391829">
+                    <plugin id="JSON" />
+                </object-type>
             </object-folder>
             <object-folder name="objs">
+                <object-folder name="items">
+                    <object-type name="ply_SUSH_Missile" sid="320146237482022">
+                        <plugin id="Sprite" />
+                        <instance-variables>
+                            <instance-variable name="id" sid="239164730484489" type="number" />
+                        </instance-variables>
+                        <behaviors>
+                            <behavior-type name="Bullet" sid="856305984480395">
+                                <behavior id="Bullet" />
+                            </behavior-type>
+                        </behaviors>
+                        <animation-folder>
+                            <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="834222301625749" speed="5">
+                                <frame duration="1" hotspotX="0.714286" hotspotY="0.533333" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\Missile.png">
+                                    <collision-poly>
+                                        <point x="0.467857" y="0.216667" />
+                                        <point x="0.5" y="0.0666667" />
+                                        <point x="0.957143" y="0.2" />
+                                        <point x="1" y="0.466667" />
+                                        <point x="0.957143" y="0.8" />
+                                        <point x="0.5" y="1" />
+                                        <point x="0.464286" y="0.7" />
+                                        <point x="0.45" y="0.416667" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="1" loop="0" name="Explode" pingpong="0" repeatcount="1" repeatto="0" sid="580550968527243" speed="5">
+                                <frame duration="1" hotspotX="0.507143" hotspotY="0.507143">
+                                    <collision-poly>
+                                        <point x="0.05" y="0.05" />
+                                        <point x="0.578571" y="0" />
+                                        <point x="0.985714" y="0.0642857" />
+                                        <point x="1" y="0.614286" />
+                                        <point x="0.942857" y="0.964286" />
+                                        <point x="0.55" y="1" />
+                                        <point x="0.0571429" y="0.942857" />
+                                        <point x="0.00714286" y="0.514286" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                        </animation-folder>
+                    </object-type>
+                </object-folder>
                 <object-type name="hit_Solid" sid="304079613893272">
                     <plugin id="Sprite" />
                     <behaviors>
@@ -518,8 +684,11 @@
                 </object-type>
                 <object-type name="hud_HpNXp" sid="527940926837021">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="type" sid="778944138056724" type="string" />
+                    </instance-variables>
                     <animation-folder>
-                        <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="197684521895249" speed="0">
+                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="197684521895249" speed="0">
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\hpAndXp.png">
                                 <collision-poly>
                                     <point x="0.0810811" y="0.0612245" />
@@ -529,16 +698,7 @@
                                     <point x="0.486486" y="0.265306" />
                                 </collision-poly>
                             </frame>
-                            <frame duration="1" hotspotX="0" hotspotY="0">
-                                <collision-poly>
-                                    <point x="0.0810811" y="0.0612245" />
-                                    <point x="0.486486" y="0.102041" />
-                                    <point x="0.486486" y="0.387755" />
-                                    <point x="0.918919" y="0.938776" />
-                                    <point x="0.486486" y="0.265306" />
-                                </collision-poly>
-                            </frame>
-                            <frame duration="1" hotspotX="0" hotspotY="0">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\ammoText.png">
                                 <collision-poly>
                                     <point x="0.0810811" y="0.0612245" />
                                     <point x="0.486486" y="0.102041" />
@@ -556,8 +716,12 @@
                 </object-type>
                 <object-type name="hud_Icons" sid="208882178976081">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="theCool" sid="205001530490661" type="number" />
+                        <instance-variable name="initX" sid="594987639154469" type="number" />
+                    </instance-variables>
                     <animation-folder>
-                        <animation framecount="2" loop="0" name="NEON" pingpong="0" repeatcount="1" repeatto="0" sid="178383064365677" speed="0">
+                        <animation framecount="1" loop="0" name="NEON" pingpong="0" repeatcount="1" repeatto="0" sid="178383064365677" speed="0">
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\char icons\charIcon0001.png">
                                 <collision-poly>
                                     <point x="0.212121" y="0.253012" />
@@ -570,7 +734,9 @@
                                     <point x="0.050505" y="0.493976" />
                                 </collision-poly>
                             </frame>
-                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\char icons\charIcon0002.png" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="SUSH" pingpong="0" repeatcount="1" repeatto="0" sid="959067190303328" speed="0">
+                            <frame duration="1" hotspotX="-0.0405405" hotspotY="-0.103448" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\char icons\sushi icon.png" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -630,6 +796,174 @@
                         </animation>
                     </animation-folder>
                 </object-type>
+                <object-type name="hud_ammoBars" sid="843586058501237">
+                    <plugin id="TiledBg" />
+                    <texture original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\ammoShit.png" />
+                </object-type>
+            </object-folder>
+            <object-folder name="diag">
+                <object-type name="diag_Portrait" sid="619405966158616">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="3" loop="1" name="neon_default" pingpong="0" repeatcount="1" repeatto="0" sid="580724315392707" speed="15">
+                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0002.png" />
+                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0003.png" />
+                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0001.png">
+                                <collision-poly>
+                                    <point x="0.218605" y="0.315436" />
+                                    <point x="0.497674" y="0.154362" />
+                                    <point x="0.795349" y="0.295302" />
+                                    <point x="1" y="0.496644" />
+                                    <point x="0.902326" y="0.85906" />
+                                    <point x="0.497674" y="0.966443" />
+                                    <point x="0.0604651" y="0.912752" />
+                                    <point x="0.153488" y="0.496644" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="3" loop="1" name="neon_pointy" pingpong="0" repeatcount="1" repeatto="0" sid="181233273730135" speed="15">
+                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0002.png" />
+                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0003.png" />
+                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0001.png" />
+                        </animation>
+                        <animation framecount="3" loop="1" name="neon_angry" pingpong="0" repeatcount="1" repeatto="0" sid="947067493797712" speed="15">
+                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0002.png" />
+                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0003.png" />
+                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0001.png" />
+                        </animation>
+                        <animation framecount="3" loop="1" name="neon_confused" pingpong="0" repeatcount="1" repeatto="0" sid="119724102133934" speed="15">
+                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0002.png" />
+                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0003.png" />
+                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0001.png" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="diag_FancyName" sid="489195372449102">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="placeholder" pingpong="0" repeatcount="1" repeatto="0" sid="827359805891434" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0">
+                                <collision-poly>
+                                    <point x="0.0300752" y="0.137931" />
+                                    <point x="0.924812" y="0.344828" />
+                                    <point x="1" y="0.482759" />
+                                    <point x="0.887218" y="0.482759" />
+                                    <point x="0.496241" y="0.896552" />
+                                    <point x="0.0150376" y="0.931035" />
+                                    <point x="0.0075188" y="0.482759" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="none" pingpong="0" repeatcount="1" repeatto="0" sid="960388394319766" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0">
+                                <collision-poly>
+                                    <point x="0.0300752" y="0.137931" />
+                                    <point x="0.924812" y="0.344828" />
+                                    <point x="1" y="0.482759" />
+                                    <point x="0.887218" y="0.482759" />
+                                    <point x="0.496241" y="0.896552" />
+                                    <point x="0.0150376" y="0.931035" />
+                                    <point x="0.0075188" y="0.482759" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="neon" pingpong="0" repeatcount="1" repeatto="0" sid="702818416386127" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\name.png">
+                                <collision-poly>
+                                    <point x="0.0300752" y="0.137931" />
+                                    <point x="0.924812" y="0.344828" />
+                                    <point x="1" y="0.482759" />
+                                    <point x="0.887218" y="0.482759" />
+                                    <point x="0.496241" y="0.896552" />
+                                    <point x="0.0150376" y="0.931035" />
+                                    <point x="0.0075188" y="0.482759" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="diag_DarkenerThing" sid="713676083415946">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="425798468759785" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="diag_Box" sid="863333592989079">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="diagSize" sid="766403497827750" type="number" />
+                        <instance-variable name="curDiag" sid="741303183315189" type="number" />
+                        <instance-variable name="diagCalled" sid="640967144317343" type="boolean" />
+                    </instance-variables>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="right" pingpong="0" repeatcount="1" repeatto="0" sid="299553426750115" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\dialog\balaoDeFala.png">
+                                <image-point name="Imagepoint 1" x="0.745875" y="0.130208" />
+                                <image-point name="Text" x="0.070407" y="0.333333" />
+                                <image-point name="Charname" x="0.633663" y="0.151042" />
+                                <image-point name="Text bounds" x="0.774477" y="0.75" />
+                                <collision-poly>
+                                    <point x="0.0539054" y="0.255208" />
+                                    <point x="0.49945" y="0.119792" />
+                                    <point x="0.994499" y="0.0260417" />
+                                    <point x="1" y="0.5" />
+                                    <point x="0.966997" y="0.84375" />
+                                    <point x="0.49945" y="0.859375" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.5" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="left" pingpong="0" repeatcount="1" repeatto="0" sid="965009073319860" speed="5">
+                            <frame duration="1" hotspotX="0.143014" hotspotY="-0.0520833">
+                                <image-point name="Imagepoint 1" x="0.254125" y="0.130208" />
+                                <image-point name="Text" x="0.213421" y="0.28125" />
+                                <image-point name="Charname" x="0.213421" y="0.151042" />
+                                <image-point name="Text bounds" x="0.917492" y="0.697917" />
+                                <collision-poly>
+                                    <point x="1" y="0.5" />
+                                    <point x="1" y="1" />
+                                    <point x="0.50055" y="0.859375" />
+                                    <point x="0.0330033" y="0.84375" />
+                                    <point x="0" y="0.5" />
+                                    <point x="0.00550056" y="0.0260417" />
+                                    <point x="0.50055" y="0.119792" />
+                                    <point x="0.946095" y="0.255208" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="window" pingpong="0" repeatcount="1" repeatto="0" sid="642722427952445" speed="5">
+                            <frame duration="1" hotspotX="-0.599424" hotspotY="0.787234" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\dialog\window.png">
+                                <image-point name="Imagepoint 1" x="0.746398" y="0.131915" />
+                                <image-point name="Text" x="0.0345821" y="0.178723" />
+                                <image-point name="Charname" x="0.0259366" y="0.87234" />
+                                <image-point name="Text bounds" x="0.971182" y="0.868085" />
+                                <collision-poly>
+                                    <point x="0.0539054" y="0.255208" />
+                                    <point x="0.49945" y="0.119792" />
+                                    <point x="0.994499" y="0.0260417" />
+                                    <point x="1" y="0.5" />
+                                    <point x="0.966997" y="0.84375" />
+                                    <point x="0.49945" y="0.859375" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.5" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="fnt_Dialogue" sid="595462647685994">
+                    <plugin id="Spritefont2" />
+                    <instance-variables>
+                        <instance-variable name="diagTextSize" sid="380050889525579" type="number" />
+                        <instance-variable name="curLetter" sid="807433519390227" type="number" />
+                        <instance-variable name="diagTextItself" sid="871033914945638" type="string" />
+                        <instance-variable name="diagFx" sid="306200447784090" type="string" />
+                    </instance-variables>
+                    <texture />
+                </object-type>
             </object-folder>
         </object-folder>
         <object-folder name="c2">
@@ -663,19 +997,18 @@
             <object-type name="WebStorage" sid="1510269620771624">
                 <plugin id="WebStorage" />
             </object-type>
+            <object-type name="AJAX" sid="523125161648442">
+                <plugin id="AJAX" />
+            </object-type>
+            <object-type global="1" name="JSON" sid="890558950801179">
+                <plugin id="JSON" />
+            </object-type>
+            <object-type name="Photon" sid="564787770356215">
+                <plugin id="Photon" />
+            </object-type>
         </object-folder>
         <object-type name="Text" sid="2985603725420557">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="fnt_Dialogue" sid="595462647685994">
-            <plugin id="Spritefont2" />
-            <instance-variables>
-                <instance-variable name="diagTextSize" sid="380050889525579" type="number" />
-                <instance-variable name="curLetter" sid="807433519390227" type="number" />
-                <instance-variable name="diagTextItself" sid="871033914945638" type="string" />
-                <instance-variable name="diagFx" sid="306200447784090" type="string" />
-            </instance-variables>
-            <texture />
         </object-type>
         <object-type name="fnt_General" sid="948470595579113">
             <plugin id="Spritefont2" />
@@ -689,181 +1022,24 @@
             </effects>
             <texture />
         </object-type>
-        <object-type global="1" name="menu_CharArray" sid="562905575717698">
-            <plugin id="Arr" />
-        </object-type>
-        <object-type name="diag_Box" sid="863333592989079">
+        <object-type name="headercool" sid="630329770828402">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="diagSize" sid="766403497827750" type="number" />
-                <instance-variable name="curDiag" sid="741303183315189" type="number" />
-                <instance-variable name="diagCalled" sid="640967144317343" type="boolean" />
-            </instance-variables>
             <animation-folder>
-                <animation framecount="1" loop="0" name="right" pingpong="0" repeatcount="1" repeatto="0" sid="299553426750115" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\dialog\balaoDeFala.png">
-                        <image-point name="Imagepoint 1" x="0.745875" y="0.130208" />
-                        <image-point name="Text" x="0.070407" y="0.333333" />
-                        <image-point name="Charname" x="0.633663" y="0.151042" />
-                        <image-point name="Text bounds" x="0.774477" y="0.75" />
-                        <collision-poly>
-                            <point x="0.0539054" y="0.255208" />
-                            <point x="0.49945" y="0.119792" />
-                            <point x="0.994499" y="0.0260417" />
-                            <point x="1" y="0.5" />
-                            <point x="0.966997" y="0.84375" />
-                            <point x="0.49945" y="0.859375" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="1" loop="0" name="left" pingpong="0" repeatcount="1" repeatto="0" sid="965009073319860" speed="5">
-                    <frame duration="1" hotspotX="0.143014" hotspotY="-0.0520833">
-                        <image-point name="Imagepoint 1" x="0.254125" y="0.130208" />
-                        <image-point name="Text" x="0.213421" y="0.28125" />
-                        <image-point name="Charname" x="0.213421" y="0.151042" />
-                        <image-point name="Text bounds" x="0.917492" y="0.697917" />
-                        <collision-poly>
-                            <point x="1" y="0.5" />
-                            <point x="1" y="1" />
-                            <point x="0.50055" y="0.859375" />
-                            <point x="0.0330033" y="0.84375" />
-                            <point x="0" y="0.5" />
-                            <point x="0.00550056" y="0.0260417" />
-                            <point x="0.50055" y="0.119792" />
-                            <point x="0.946095" y="0.255208" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="1" loop="0" name="window" pingpong="0" repeatcount="1" repeatto="0" sid="642722427952445" speed="5">
-                    <frame duration="1" hotspotX="-0.599424" hotspotY="0.787234" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\dialog\window.png">
-                        <image-point name="Imagepoint 1" x="0.746398" y="0.131915" />
-                        <image-point name="Text" x="0.0345821" y="0.178723" />
-                        <image-point name="Charname" x="0.0259366" y="0.87234" />
-                        <image-point name="Text bounds" x="0.971182" y="0.868085" />
-                        <collision-poly>
-                            <point x="0.0539054" y="0.255208" />
-                            <point x="0.49945" y="0.119792" />
-                            <point x="0.994499" y="0.0260417" />
-                            <point x="1" y="0.5" />
-                            <point x="0.966997" y="0.84375" />
-                            <point x="0.49945" y="0.859375" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0.5" />
-                        </collision-poly>
-                    </frame>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="786911410648284" speed="5">
+                    <frame duration="1" hotspotX="0.50079" hotspotY="0.5" original-source="E:\Códigos Fonte\Especulamente-Redesign\elementos\header\headers\headercool1.png" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type global="1" name="JSON" sid="890558950801179">
-            <plugin id="JSON" />
-        </object-type>
-        <object-type name="AJAX" sid="523125161648442">
-            <plugin id="AJAX" />
-        </object-type>
-        <object-type name="diag_Portrait" sid="619405966158616">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="3" loop="1" name="neon_default" pingpong="0" repeatcount="1" repeatto="0" sid="580724315392707" speed="15">
-                    <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0002.png" />
-                    <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0003.png" />
-                    <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0001.png">
-                        <collision-poly>
-                            <point x="0.218605" y="0.315436" />
-                            <point x="0.497674" y="0.154362" />
-                            <point x="0.795349" y="0.295302" />
-                            <point x="1" y="0.496644" />
-                            <point x="0.902326" y="0.85906" />
-                            <point x="0.497674" y="0.966443" />
-                            <point x="0.0604651" y="0.912752" />
-                            <point x="0.153488" y="0.496644" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="3" loop="1" name="neon_pointy" pingpong="0" repeatcount="1" repeatto="0" sid="181233273730135" speed="15">
-                    <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0002.png" />
-                    <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0003.png" />
-                    <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0001.png" />
-                </animation>
-                <animation framecount="3" loop="1" name="neon_angry" pingpong="0" repeatcount="1" repeatto="0" sid="947067493797712" speed="15">
-                    <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0002.png" />
-                    <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0003.png" />
-                    <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0001.png" />
-                </animation>
-                <animation framecount="3" loop="1" name="neon_confused" pingpong="0" repeatcount="1" repeatto="0" sid="119724102133934" speed="15">
-                    <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0002.png" />
-                    <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0003.png" />
-                    <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0001.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="diag_DarkenerThing" sid="713676083415946">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="425798468759785" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="diag_FancyName" sid="489195372449102">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="placeholder" pingpong="0" repeatcount="1" repeatto="0" sid="827359805891434" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <collision-poly>
-                            <point x="0.0300752" y="0.137931" />
-                            <point x="0.924812" y="0.344828" />
-                            <point x="1" y="0.482759" />
-                            <point x="0.887218" y="0.482759" />
-                            <point x="0.496241" y="0.896552" />
-                            <point x="0.0150376" y="0.931035" />
-                            <point x="0.0075188" y="0.482759" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="1" loop="0" name="none" pingpong="0" repeatcount="1" repeatto="0" sid="960388394319766" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <collision-poly>
-                            <point x="0.0300752" y="0.137931" />
-                            <point x="0.924812" y="0.344828" />
-                            <point x="1" y="0.482759" />
-                            <point x="0.887218" y="0.482759" />
-                            <point x="0.496241" y="0.896552" />
-                            <point x="0.0150376" y="0.931035" />
-                            <point x="0.0075188" y="0.482759" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-                <animation framecount="1" loop="0" name="neon" pingpong="0" repeatcount="1" repeatto="0" sid="702818416386127" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\name.png">
-                        <collision-poly>
-                            <point x="0.0300752" y="0.137931" />
-                            <point x="0.924812" y="0.344828" />
-                            <point x="1" y="0.482759" />
-                            <point x="0.887218" y="0.482759" />
-                            <point x="0.496241" y="0.896552" />
-                            <point x="0.0150376" y="0.931035" />
-                            <point x="0.0075188" y="0.482759" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type global="1" name="online_OtherChars" sid="884376173391829">
-            <plugin id="JSON" />
-        </object-type>
-        <object-type global="1" name="online_MyChar" sid="623271015687217">
-            <plugin id="JSON" />
-        </object-type>
-        <object-type name="Photon" sid="564787770356215">
-            <plugin id="Photon" />
+        <object-type name="loadingBar" sid="448108755847911">
+            <plugin id="TiledBg" />
+            <texture />
         </object-type>
     </object-folder>
     <families>
         <family name="PlayerSprites" plugin-id="Sprite" sid="685820396969351">
             <members>
                 <member>ply_Neon</member>
+                <member>ply_Sushi</member>
             </members>
             <instance-variables>
                 <instance-variable name="id" sid="909691280030078" type="number" />
@@ -871,9 +1047,15 @@
                 <instance-variable name="external_lv" sid="477763110781761" type="number" />
             </instance-variables>
         </family>
+        <family name="Solids" plugin-id="Sprite" sid="768608541962072">
+            <members>
+                <member>hit_Solid</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout-folder name="TechShit">
+            <layout>Loading.xml</layout>
             <layout>GlobalLayers.xml</layout>
             <layout>Dialogue.xml</layout>
         </layout-folder>
@@ -888,8 +1070,11 @@
             <event-sheet>sh_gm_Player.xml</event-sheet>
             <event-sheet>sh_gm_Dialogue.xml</event-sheet>
             <event-sheet>sh_gm_Online.xml</event-sheet>
+            <event-sheet>sh_gm_Objects.xml</event-sheet>
         </event-folder>
         <event-sheet>sh_Menu.xml</event-sheet>
+        <event-sheet>sh_Loading.xml</event-sheet>
+        <event-sheet>sh_Utils.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />

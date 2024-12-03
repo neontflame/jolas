@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sh_gm_Objects</name>
+    <events>
+        <event-group description="" sid="269083802537234" title="Objs">
+            <sub-events>
+                <event-group description="" sid="215996751400279" title="Objs&gt;Missile">
+                    <sub-events>
+                        <event-block sid="679994882362321">
+                            <conditions>
+                                <condition id="0" name="On function" sid="489034860794571" type="Function">
+                                    <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Is playing" sid="903812438796510" type="ply_SUSH_Missile">
+                                    <param id="0" name="Animation">&quot;Explode&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="972036342384652">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="950812375136706" type="ply_SUSH_Missile">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="139568603568986" type="ply_SUSH_Missile">
+                                            <param id="0" name="Animation">&quot;Explode&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="303335188976393" type="ply_SUSH_Missile">
+                                            <param id="0" name="Angle">0</param>
+                                        </action>
+                                        <action behavior="Bullet" id="5" name="Set enabled" sid="925870808999443" type="ply_SUSH_Missile">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="131674752544611" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="396563067775730" type="ply_SUSH_Missile" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="303249968018388">
+                            <conditions>
+                                <condition id="0" name="On function" sid="683797607600631" type="Function">
+                                    <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="339514458854713" type="System">
+                                    <param id="0" name="Object to create">ply_SUSH_Missile</param>
+                                    <param id="1" name="Layer">ply_Hitbox.LayerName</param>
+                                    <param id="2" name="X">Function.Param(2)</param>
+                                    <param id="3" name="Y">Function.Param(3)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="272578298118699" type="ply_SUSH_Missile">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="785411617351196" type="ply_SUSH_Missile">
+                                    <param id="0" name="Angle">Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="737725399191033">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="726147518096152" type="ply_SUSH_Missile">
+                                    <param id="0" name="Object">Solids</param>
+                                </condition>
+                                <condition id="0" name="On collision with another object" sid="610324827879876" type="ply_SUSH_Missile">
+                                    <param id="0" name="Object">ply_Hitbox</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="540350260407609">
+                                    <conditions>
+                                        <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="748074855572055" type="ply_SUSH_Missile">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Distance">17</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="409326538135424" type="Function">
+                                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                                            <param id="1" name="Parameter {n}">ply_SUSH_Missile.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="947656515174318">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="623083214476263" type="ply_Hitbox">
+                                    <param id="0" name="Object">ply_SUSH_Missile</param>
+                                </condition>
+                                <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="386941875336199" type="ply_SUSH_Missile">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Distance">17</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="829968816085765" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="772743691279627" type="Function">
+                                    <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                                    <param id="1" name="Parameter {n}">ply_SUSH_Missile.UID</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="elDistance" sid="389464633723562" static="0" type="number">0</variable>
+                                <variable constant="0" name="coolSpeeds" sid="265642442213310" static="0" type="number">0</variable>
+                                <event-block sid="618497966040382">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="265418832024177" type="System">
+                                            <param id="0" name="Variable">elDistance</param>
+                                            <param id="1" name="Value">distance(ply_Hitbox.X, ply_Hitbox.Y, ply_SUSH_Missile.X, ply_SUSH_Missile.Y)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="506600859303838">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="201332777728441" type="System">
+                                                    <param id="0" name="Variable">elDistance</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">ply_SUSH_Missile.Height/2</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="865580986082376" type="System">
+                                                    <param id="0" name="Variable">elDistance</param>
+                                                    <param id="1" name="Value">ply_SUSH_Missile.Height/2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="291792402767260">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="612216308787038" type="System">
+                                            <param id="0" name="First value">abs(ply_Hitbox.SonicPhysics.VectorX)</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">ply_Hitbox.SonicPhysics.SoftMaxSpeed</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="688215252574671" type="System">
+                                            <param id="0" name="Variable">coolSpeeds</param>
+                                            <param id="1" name="Value">(abs(ply_Hitbox.SonicPhysics.SoftMaxSpeed) + (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75) + 50</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="507056237969591">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="329294206479069" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="702391464087876" type="System">
+                                            <param id="0" name="Variable">coolSpeeds</param>
+                                            <param id="1" name="Value">(abs(ply_Hitbox.SonicPhysics.VectorX) + (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75) + 50</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="658659548315029">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="889868405448799" type="ply_Hitbox">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">ply_SUSH_Missile.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="SonicPhysics" id="11" name="Set vector X" sid="634004708342238" type="ply_Hitbox">
+                                            <param id="0" name="Vector X">abs(Self.SonicPhysics.VectorX) + (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="927916063021479">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="296426380136455" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="SonicPhysics" id="11" name="Set vector X" sid="439158290366032" type="ply_Hitbox">
+                                            <param id="0" name="Vector X">-abs(Self.SonicPhysics.VectorX) - (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="645529775598686">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="838971939008942" type="System">
+                                            <param id="0" name="First value">abs(ply_Hitbox.SonicPhysics.VectorY)</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">ply_Hitbox.SonicPhysics.MinJumpStrength</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="291074334317434" type="ply_Hitbox">
+                                            <param id="0" name="Vector Y">-abs(Self.SonicPhysics.MinJumpStrength) - (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="293504625600137">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="253485919234362" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="863369967781020" type="ply_Hitbox">
+                                            <param id="0" name="Vector Y">-abs(Self.SonicPhysics.VectorY) - (487.5 * (0.015 * abs(ply_SUSH_Missile.Height/2 - elDistance))) * 0.75</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>and here goes a bit of Cool Shit</comment>
+                                <event-block sid="866472143469301">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="161059149938242" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">ply_SUSH_Missile.id</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                                <event-block sid="741263334749415">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="346394232092865" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="600287736759888" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">anim_name</param>
+                                            <param id="1" name="Value">&quot;Hurt&quot;</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="981302312817180" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">hp</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

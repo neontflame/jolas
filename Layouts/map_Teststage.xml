@@ -625,7 +625,7 @@
                         <anim_playing>true</anim_playing>
                         <anim_isMirrored>false</anim_isMirrored>
                         <anim_shakeForce>0</anim_shakeForce>
-                        <hp>4</hp>
+                        <hp>6</hp>
                         <char_Resistance>0</char_Resistance>
                         <char_canRoll>false</char_canRoll>
                         <char_hasSpecial2>false</char_hasSpecial2>
@@ -633,10 +633,12 @@
                         <char_CoolVar2>0</char_CoolVar2>
                         <char_CoolVar3>0</char_CoolVar3>
                         <char_CoolVar4>0</char_CoolVar4>
+                        <char_CoolVar5>0</char_CoolVar5>
                         <char_isDefaultAnims>true</char_isDefaultAnims>
-                        <char_canInput>true</char_canInput>
+                        <char_canDefaultInput>true</char_canDefaultInput>
                         <hitStun>0</hitStun>
                         <cameraOffsetX>0</cameraOffsetX>
+                        <cameraOffsetY>0</cameraOffsetY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="SonicPhysics">
@@ -718,6 +720,70 @@
                         <hotspotX>0.529411793</hotspotX>
                         <hotspotY>0.921568632</hotspotY>
                         <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ply_Sushi" uid="74">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <id>0</id>
+                        <external_xp>0</external_xp>
+                        <external_lv>0</external_lv>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-256</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>78</width>
+                        <height>113</height>
+                        <depth>0</depth>
+                        <hotspotX>0.525641024</hotspotX>
+                        <hotspotY>0.876106203</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ply_SUSH_Missile" uid="77">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <id>0</id>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>1500</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>1000</gravity>
+                                <bounce-off-solids>Yes</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-160</x>
+                        <y>160</y>
+                        <z>0</z>
+                        <width>70</width>
+                        <height>15</height>
+                        <depth>0</depth>
+                        <hotspotX>0.714285731</hotspotX>
+                        <hotspotY>0.533333361</hotspotY>
+                        <angle>2.617993832</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
