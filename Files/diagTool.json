@@ -1,100 +1,37 @@
 {
     "dialogue": {
         "line1": {
-            "char": "none",
-            "mood": "none",
-            "line": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis velit est, quis efficitur nunc aliquet sit amet. Phasellus quis mattis metus. Praesent nec porta augue. Donec nec purus eget quam pulvinar consectetur ut ut nibh.",
-            "position": "window",
+            "char": "sushi",
+            "mood": "cool",
+            "line": "ok mas trocou o email neon?",
+            "position": "left",
             "specialfx": "none"
         },
         "line2": {
             "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
+            "mood": "default",
+            "line": "troquei !",
             "position": "right",
             "specialfx": "none"
         },
         "line3": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
-            "position": "right",
+            "char": "sushi",
+            "mood": "confused",
+            "line": "vsf ainda nn acredito que eles deixam vc dar reset de fabrica tão de graça assim",
+            "position": "left",
             "specialfx": "none"
         },
         "line4": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
-            "position": "right",
+            "char": "sushi",
+            "mood": "default",
+            "line": "e mudou de cpf?",
+            "position": "left",
             "specialfx": "none"
         },
         "line5": {
             "char": "neon",
-            "mood": "confused",
-            "line": "what",
-            "position": "left",
-            "specialfx": "none"
-        },
-        "line6": {
-            "char": "neon",
             "mood": "pointy",
-            "line": "hey",
-            "position": "right",
-            "specialfx": "none"
-        },
-        "line7": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
-            "position": "right",
-            "specialfx": "none"
-        },
-        "line8": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
-            "position": "right",
-            "specialfx": "none"
-        },
-        "line9": {
-            "char": "neon",
-            "mood": "confused",
-            "line": "what is it that you want",
-            "position": "left",
-            "specialfx": "none"
-        },
-        "line10": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "hey",
-            "position": "right",
-            "specialfx": "none"
-        },
-        "line11": {
-            "char": "neon",
-            "mood": "angry",
-            "line": "ANSWER me you FUCK",
-            "position": "left",
-            "specialfx": "shake"
-        },
-        "line12": {
-            "char": "neon",
-            "mood": "pointy",
-            "line": "knife",
-            "position": "right",
-            "specialfx": "none"
-        },
-        "line13": {
-            "char": "neon",
-            "mood": "confused",
-            "line": "",
-            "position": "left",
-            "specialfx": "none"
-        },
-        "line14": {
-            "char": "neon",
-            "mood": "confused",
-            "line": "huh",
+            "line": "Nao tinha cpf #lol",
             "position": "right",
             "specialfx": "none"
         }

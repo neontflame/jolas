@@ -18,6 +18,7 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Yann Granjon" id="JSON" version="1">JSON</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
@@ -25,6 +26,7 @@
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
@@ -115,9 +117,34 @@
                 </object-type>
                 <object-type name="menu_chr_seta" sid="586050440364574">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="dir" sid="246843230119754" type="string" />
+                    </instance-variables>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="502904394306292" speed="5">
                             <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\menu\choose your dipshit\seta.png">
+                                <collision-poly>
+                                    <point x="0.0384615" y="0.037037" />
+                                    <point x="0.961538" y="0.481481" />
+                                    <point x="0.730769" y="0.740741" />
+                                    <point x="0.5" y="0.851852" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.481481" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="2" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="594169937004759" speed="15">
+                            <frame duration="1" hotspotX="0.384615" hotspotY="0.518519">
+                                <collision-poly>
+                                    <point x="0.0384615" y="0.037037" />
+                                    <point x="0.961538" y="0.481481" />
+                                    <point x="0.730769" y="0.740741" />
+                                    <point x="0.5" y="0.851852" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.481481" />
+                                </collision-poly>
+                            </frame>
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.518519">
                                 <collision-poly>
                                     <point x="0.0384615" y="0.037037" />
                                     <point x="0.961538" y="0.481481" />
@@ -805,37 +832,61 @@
                 <object-type name="diag_Portrait" sid="619405966158616">
                     <plugin id="Sprite" />
                     <animation-folder>
-                        <animation framecount="3" loop="1" name="neon_default" pingpong="0" repeatcount="1" repeatto="0" sid="580724315392707" speed="15">
-                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0002.png" />
-                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0003.png" />
-                            <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0001.png">
-                                <collision-poly>
-                                    <point x="0.218605" y="0.315436" />
-                                    <point x="0.497674" y="0.154362" />
-                                    <point x="0.795349" y="0.295302" />
-                                    <point x="1" y="0.496644" />
-                                    <point x="0.902326" y="0.85906" />
-                                    <point x="0.497674" y="0.966443" />
-                                    <point x="0.0604651" y="0.912752" />
-                                    <point x="0.153488" y="0.496644" />
-                                </collision-poly>
-                            </frame>
-                        </animation>
-                        <animation framecount="3" loop="1" name="neon_pointy" pingpong="0" repeatcount="1" repeatto="0" sid="181233273730135" speed="15">
-                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0002.png" />
-                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0003.png" />
-                            <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0001.png" />
-                        </animation>
-                        <animation framecount="3" loop="1" name="neon_angry" pingpong="0" repeatcount="1" repeatto="0" sid="947067493797712" speed="15">
-                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0002.png" />
-                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0003.png" />
-                            <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0001.png" />
-                        </animation>
-                        <animation framecount="3" loop="1" name="neon_confused" pingpong="0" repeatcount="1" repeatto="0" sid="119724102133934" speed="15">
-                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0002.png" />
-                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0003.png" />
-                            <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0001.png" />
-                        </animation>
+                        <animation-folder name="Neon T. Flame">
+                            <animation framecount="3" loop="1" name="neon_default" pingpong="0" repeatcount="1" repeatto="0" sid="580724315392707" speed="15">
+                                <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0002.png" />
+                                <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0003.png" />
+                                <frame duration="1" hotspotX="0.609302" hotspotY="0.939597" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitHmm0001.png">
+                                    <collision-poly>
+                                        <point x="0.218605" y="0.315436" />
+                                        <point x="0.497674" y="0.154362" />
+                                        <point x="0.795349" y="0.295302" />
+                                        <point x="1" y="0.496644" />
+                                        <point x="0.902326" y="0.85906" />
+                                        <point x="0.497674" y="0.966443" />
+                                        <point x="0.0604651" y="0.912752" />
+                                        <point x="0.153488" y="0.496644" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="3" loop="1" name="neon_pointy" pingpong="0" repeatcount="1" repeatto="0" sid="181233273730135" speed="15">
+                                <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0002.png" />
+                                <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0003.png" />
+                                <frame duration="1" hotspotX="0.675781" hotspotY="0.972028" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitYeheah0001.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="neon_angry" pingpong="0" repeatcount="1" repeatto="0" sid="947067493797712" speed="15">
+                                <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0002.png" />
+                                <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0003.png" />
+                                <frame duration="1" hotspotX="0.615094" hotspotY="0.830409" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portraitAngry0001.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="neon_confused" pingpong="0" repeatcount="1" repeatto="0" sid="119724102133934" speed="15">
+                                <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0002.png" />
+                                <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0003.png" />
+                                <frame duration="1" hotspotX="0.56051" hotspotY="0.785" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\portrait whuh0001.png" />
+                            </animation>
+                        </animation-folder>
+                        <animation-folder name="Sushi Brando">
+                            <animation framecount="3" loop="1" name="sushi_default" pingpong="0" repeatcount="1" repeatto="0" sid="223723729899196" speed="15">
+                                <frame duration="1" hotspotX="0.684848" hotspotY="0.90367" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitNeut0001.png" />
+                                <frame duration="1" hotspotX="0.684848" hotspotY="0.90367" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitNeut0002.png" />
+                                <frame duration="1" hotspotX="0.684848" hotspotY="0.90367" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitNeut0003.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="sushi_cool" pingpong="0" repeatcount="1" repeatto="0" sid="248513466721008" speed="15">
+                                <frame duration="1" hotspotX="0.695652" hotspotY="0.876652" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitTaunting0001.png" />
+                                <frame duration="1" hotspotX="0.695652" hotspotY="0.876652" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitTaunting0002.png" />
+                                <frame duration="1" hotspotX="0.695652" hotspotY="0.876652" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitTaunting0003.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="sushi_angry" pingpong="0" repeatcount="1" repeatto="0" sid="703076529767580" speed="15">
+                                <frame duration="1" hotspotX="0.522822" hotspotY="0.896552" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitAngry0001.png" />
+                                <frame duration="1" hotspotX="0.522822" hotspotY="0.896552" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitAngry0002.png" />
+                                <frame duration="1" hotspotX="0.522822" hotspotY="0.896552" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitAngry0003.png" />
+                            </animation>
+                            <animation framecount="3" loop="1" name="sushi_confused" pingpong="0" repeatcount="1" repeatto="0" sid="933855964726405" speed="15">
+                                <frame duration="1" hotspotX="0.70936" hotspotY="0.967742" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitConfused0001.png" />
+                                <frame duration="1" hotspotX="0.70936" hotspotY="0.967742" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitConfused0002.png" />
+                                <frame duration="1" hotspotX="0.70936" hotspotY="0.967742" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\portraitConfused0003.png" />
+                            </animation>
+                        </animation-folder>
                     </animation-folder>
                 </object-type>
                 <object-type name="diag_FancyName" sid="489195372449102">
@@ -869,6 +920,19 @@
                         </animation>
                         <animation framecount="1" loop="0" name="neon" pingpong="0" repeatcount="1" repeatto="0" sid="702818416386127" speed="5">
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\portraits\name.png">
+                                <collision-poly>
+                                    <point x="0.0300752" y="0.137931" />
+                                    <point x="0.924812" y="0.344828" />
+                                    <point x="1" y="0.482759" />
+                                    <point x="0.887218" y="0.482759" />
+                                    <point x="0.496241" y="0.896552" />
+                                    <point x="0.0150376" y="0.931035" />
+                                    <point x="0.0075188" y="0.482759" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="1" loop="0" name="sushi" pingpong="0" repeatcount="1" repeatto="0" sid="248481736968049" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sushi\portraits\name.png">
                                 <collision-poly>
                                     <point x="0.0300752" y="0.137931" />
                                     <point x="0.924812" y="0.344828" />
@@ -1034,6 +1098,18 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
+        <object-type name="menu_Textbox" sid="332331357396233">
+            <plugin id="TextBox" />
+            <instance-variables>
+                <instance-variable name="type" sid="552658302054603" type="string" />
+            </instance-variables>
+        </object-type>
+        <object-type name="menu_List" sid="486576017402986">
+            <plugin id="List" />
+            <instance-variables>
+                <instance-variable name="type" sid="255990734228796" type="string" />
+            </instance-variables>
+        </object-type>
     </object-folder>
     <families>
         <family name="PlayerSprites" plugin-id="Sprite" sid="685820396969351">
@@ -1114,7 +1190,7 @@
                 <appid>898df7fa-ec1a-4b25-941b-ac4c0b946af0</appid>
                 <appversion>1.0</appversion>
                 <protocol>ws</protocol>
-                <region>cae</region>
+                <region>sa</region>
                 <hosttype>Photon Cloud</hosttype>
                 <selfhostedaddress>localhost:9090</selfhostedaddress>
                 <loglevel>INFO</loglevel>

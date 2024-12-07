@@ -3,57 +3,39 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>sh_gm_Online</name>
     <events>
-        <variable constant="0" name="debugVar" sid="740103586084863" static="0" type="text"></variable>
-        <event-group description="" sid="796384898782648" title="OnlineMultiplayer">
+        <variable constant="0" name="onlineEnabled" sid="548433108182084" static="0" type="number">0</variable>
+        <variable constant="0" name="roomName" sid="740103586084863" static="0" type="text"></variable>
+        <event-block sid="872346532451515">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="708135713370723" type="System" />
+                <condition id="-14" name="Compare variable" sid="942331565510445" type="System">
+                    <param id="0" name="Variable">onlineEnabled</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="683207022365257" type="System">
+                    <param id="0" name="Group name">&quot;OnlineMultiplayer&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" inactive="1" sid="796384898782648" title="OnlineMultiplayer">
             <sub-events>
                 <event-group description="" sid="714738051161263" title="OnlineMulti&gt;Connecting">
                     <sub-events>
                         <event-block sid="605470183811467">
                             <conditions>
-                                <condition id="-2" name="On start of layout" sid="787211713411920" type="System" />
+                                <condition id="31" inverted="1" name="Is connected to Nameserver" sid="787211713411920" type="Photon" />
                             </conditions>
                             <actions>
                                 <action id="10" name="Connect" sid="823722795079747" type="Photon" />
-                                <action id="101" name="Set my actor name" sid="581654656523324" type="Photon">
-                                    <param id="0" name="name">&quot;foobar&quot;</param>
-                                </action>
                                 <action id="0" name="Set New Object" sid="242017624953552" type="online_MyChar">
                                     <param id="0" name="Reference point">0</param>
                                     <param id="1" name="Key {n}"></param>
                                 </action>
                             </actions>
-                            <sub-events>
-                                <event-block sid="489137837985763">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="421335949380027" type="System">
-                                            <param id="0" name="First value">round(random(1,2))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">1</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="223439199540626" type="System">
-                                            <param id="0" name="Variable">curChar</param>
-                                            <param id="1" name="Value">&quot;NEON&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="588684011113208">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="189036611136901" type="System">
-                                            <param id="0" name="First value">round(random(1,2))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">2</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="949507717527008" type="System">
-                                            <param id="0" name="Variable">curChar</param>
-                                            <param id="1" name="Value">&quot;SUSH&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
                         </event-block>
                         <event-block sid="888831624368083">
                             <conditions>
@@ -75,7 +57,7 @@
                             </conditions>
                             <actions>
                                 <action id="11" name="Create room" sid="872749874718699" type="Photon">
-                                    <param id="0" name="Room">&quot;test&quot;</param>
+                                    <param id="0" name="Room">roomName</param>
                                     <param id="1" name="LobbyName">&quot;&quot;</param>
                                     <param id="2" name="LobbyType">0</param>
                                 </action>
