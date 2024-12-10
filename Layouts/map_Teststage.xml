@@ -625,7 +625,6 @@
                         <anim_playing>true</anim_playing>
                         <anim_isMirrored>false</anim_isMirrored>
                         <anim_shakeForce>0</anim_shakeForce>
-                        <hp>6</hp>
                         <char_Resistance>0</char_Resistance>
                         <char_canRoll>false</char_canRoll>
                         <char_hasSpecial2>false</char_hasSpecial2>
@@ -636,9 +635,13 @@
                         <char_CoolVar5>0</char_CoolVar5>
                         <char_isDefaultAnims>true</char_isDefaultAnims>
                         <char_canDefaultInput>true</char_canDefaultInput>
+                        <char_atkForce>0</char_atkForce>
+                        <hp>6</hp>
                         <hitStun>0</hitStun>
                         <cameraOffsetX>0</cameraOffsetX>
                         <cameraOffsetY>0</cameraOffsetY>
+                        <gim_combo>0</gim_combo>
+                        <gim_comboTimer>0</gim_comboTimer>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="SonicPhysics">
@@ -701,7 +704,7 @@
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <collisions>Disabled</collisions>
                     </properties>
                     <instance-variables>
                         <id>0</id>
@@ -728,7 +731,7 @@
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <collisions>Disabled</collisions>
                     </properties>
                     <instance-variables>
                         <id>0</id>

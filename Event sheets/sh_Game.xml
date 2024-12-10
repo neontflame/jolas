@@ -25,6 +25,9 @@
                             <param id="0" name="X">(hud_ComboFont.X + hud_ComboFont.Width) - (hud_ComboFont.TextWidth) - 110</param>
                             <param id="1" name="Y">hud_ComboFont.Y</param>
                         </action>
+                        <action id="-16" name="Set opacity" sid="845779122369749" type="hud_Combo">
+                            <param id="0" name="Opacity">hud_ComboFont.Opacity</param>
+                        </action>
                         <action id="0" name="Set text" sid="575500757192405" type="hud_LevelFont">
                             <param id="0" name="Text">lv</param>
                         </action>
@@ -64,8 +67,11 @@
                                 <action id="-5" name="Set width" sid="855621491157562" type="hud_HpBars">
                                     <param id="0" name="Width">38 * ply_Hitbox.hp</param>
                                 </action>
+                                <action id="-16" name="Set opacity" sid="815262258578675" type="hud_ComboFont">
+                                    <param id="0" name="Opacity">lerp(Self.Opacity, ply_Hitbox.gim_comboTimer * 20, 0.1)</param>
+                                </action>
                                 <action id="0" name="Set text" sid="794265094363365" type="hud_ComboFont">
-                                    <param id="0" name="Text">abs(round(ply_Hitbox.SonicPhysics.VectorX))</param>
+                                    <param id="0" name="Text">ply_Hitbox.gim_combo</param>
                                 </action>
                                 <action id="4" name="Set animation" sid="796058571769496" type="hud_Icons">
                                     <param id="0" name="Animation">ply_Hitbox.char</param>
@@ -131,6 +137,20 @@
                                             </actions>
                                         </event-block>
                                     </sub-events>
+                                </event-block>
+                                <event-block sid="613080727634184">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="807755436804167" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">gim_comboTimer</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="784902843749880" type="hud_ComboFont">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>

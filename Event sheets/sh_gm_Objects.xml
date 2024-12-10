@@ -227,6 +227,10 @@
                                         <condition id="-22" name="Else" sid="346394232092865" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="-10" name="Set value" sid="247399727047705" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">hitStun</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
                                         <action id="-10" name="Set value" sid="600287736759888" type="ply_Hitbox">
                                             <param id="0" name="Instance variable">anim_name</param>
                                             <param id="1" name="Value">&quot;Hurt&quot;</param>

@@ -267,6 +267,199 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <comment>me jogue aos lobos e eu aiaiai o lobo me mordeu</comment>
+                        <event-block sid="845897103656060">
+                            <conditions>
+                                <condition id="0" name="On function" sid="935079019211778" type="Function">
+                                    <param id="0" name="Name">&quot;hurtHitbox&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="182974791901939">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="543598244268512" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">id</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="327479471447218" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">hitStun</param>
+                                            <param id="1" name="Value">20</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="921833937350817" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">anim_name</param>
+                                            <param id="1" name="Value">&quot;Hurt&quot;</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="640411192505002" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">hp</param>
+                                            <param id="1" name="Value">-Function.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="980310926106362">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="399235785027410" type="Function">
+                                                    <param id="0" name="Index">1</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="SonicPhysics" id="11" name="Set vector X" sid="195785092405133" type="ply_Hitbox">
+                                                    <param id="0" name="Vector X">-abs(Self.SonicPhysics.VectorX * 0.5) - (150 * Function.Param(2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="725211795748212">
+                                            <conditions>
+                                                <condition id="1" name="Compare parameter" sid="693866888815871" type="Function">
+                                                    <param id="0" name="Index">1</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="SonicPhysics" id="11" name="Set vector X" sid="846904744871762" type="ply_Hitbox">
+                                                    <param id="0" name="Vector X">abs(Self.SonicPhysics.VectorX * 0.5) + (150 * Function.Param(2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="645230335088284">
+                                            <conditions>
+                                                <condition behavior="SonicPhysics" id="2" name="Is on floor" sid="800892090951291" type="ply_Hitbox" />
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="629065937940618" type="ply_Hitbox">
+                                                    <param id="0" name="Vector Y">-250 * (Function.Param(2))</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="917589561404762">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="221854402165159" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="365734927814569" type="ply_Hitbox">
+                                                    <param id="0" name="Vector Y">-abs((Self.SonicPhysics.VectorY + 527.5)* 0.75)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="354862042735710">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="686363056455524" type="ply_Hitbox">
+                                    <param id="0" name="Object">PlayerSprites</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="101139319528251" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">PlayerSprites.id</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="860843615454368" type="Function">
+                                    <param id="0" name="Name">&quot;increaseCombo&quot;</param>
+                                    <param id="1" name="Parameter {n}">PlayerSprites.id{###}&quot;default&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="whereThatShitFrom" sid="197772287859631" static="0" type="text"></variable>
+                                <event-block sid="300992809794800">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="531933856723879" type="PlayerSprites">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">ply_Hitbox.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="667132238848682" type="System">
+                                            <param id="0" name="Variable">whereThatShitFrom</param>
+                                            <param id="1" name="Value">&quot;left&quot;</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="499784514097218" type="Function">
+                                            <param id="0" name="Name">&quot;hurtHitbox&quot;</param>
+                                            <param id="1" name="Parameter {n}">ply_Hitbox.id{###}whereThatShitFrom{###}1 * (1 / lv)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="330617097513950">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="515114668845790" type="PlayerSprites">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">ply_Hitbox.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="813948428979514" type="System">
+                                            <param id="0" name="Variable">whereThatShitFrom</param>
+                                            <param id="1" name="Value">&quot;right&quot;</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="244410476730743" type="Function">
+                                            <param id="0" name="Name">&quot;hurtHitbox&quot;</param>
+                                            <param id="1" name="Parameter {n}">ply_Hitbox.id{###}whereThatShitFrom{###}1 * (1 / lv)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="815926926443738">
+                            <conditions>
+                                <condition id="0" name="On function" sid="709382903488612" type="Function">
+                                    <param id="0" name="Name">&quot;increaseCombo&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="585581726644433" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="457855539306337" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">gim_comboTimer</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="772124494518201" type="ply_Hitbox">
+                                    <param id="0" name="Instance variable">gim_combo</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="541913717031956">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="259205760733991" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;default&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="SonicPhysics" id="14" name="Set enabled" sid="642406574102778" type="ply_Hitbox">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="554636790939394" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">anim_shakeForce</param>
+                                            <param id="1" name="Value">2</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="434435613132551" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action behavior="SonicPhysics" id="14" name="Set enabled" sid="931565068426601" type="ply_Hitbox">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="287910506039545" type="ply_Hitbox">
+                                            <param id="0" name="Instance variable">anim_shakeForce</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                     </sub-events>
                 </event-group>
                 <event-group description="" sid="119046749982379" title="Char&gt;Commons">
@@ -647,6 +840,83 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
+                        <event-group description="" sid="206973192359660" title="Char&gt;Commons&gt;Misc">
+                            <sub-events>
+                                <event-group description="" sid="572456204267806" title="Char&gt;Commons&gt;Misc&gt;Combo">
+                                    <sub-events>
+                                        <event-block sid="612266231875338">
+                                            <conditions>
+                                                <condition id="-6" name="Every X seconds" sid="922057113905890" type="System">
+                                                    <param id="0" name="Interval (seconds)">1.0</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="117486210843535" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">gim_comboTimer</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-11" name="Add to" sid="408242488177370" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">gim_comboTimer</param>
+                                                    <param id="1" name="Value">-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="223628673139742">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="679330552299318" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">gim_comboTimer</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="647232819927562" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">gim_combo</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                                <event-group description="" sid="795744531643508" title="Char&gt;Commons&gt;Misc&gt;Hitstun">
+                                    <sub-events>
+                                        <comment>eu provavelmente vou ter q fazer isso funcionar de um jeito diferente mais tarde pra funcionar com eventuais gimmicks mas por enquanto ta safe</comment>
+                                        <event-block sid="886073315985137">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="342647282518706" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">hitStun</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="163018114048827" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">char_canDefaultInput</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-11" name="Add to" sid="946025741063020" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">hitStun</param>
+                                                    <param id="1" name="Value">-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="501186440114124">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="312425642493390" type="System" />
+                                                <condition id="-4" name="Trigger once while true" sid="399634740958288" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="160425768046394" type="ply_Hitbox">
+                                                    <param id="0" name="Instance variable">char_canDefaultInput</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-group>
+                            </sub-events>
+                        </event-group>
                     </sub-events>
                 </event-group>
                 <event-group description="" sid="286295864692096" title="Char&gt;Sprites">
@@ -905,6 +1175,36 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-group description="" sid="822726724700424" title="Char&gt;Hitboxes">
+                    <sub-events>
+                        <event-group description="" sid="726449791822305" title="Char&gt;Hitboxes&gt;Neon">
+                            <sub-events>
+                                <event-block sid="573569528055407">
+                                    <conditions>
+                                        <condition id="2" name="Is playing" sid="234484867145456" type="ply_Neon">
+                                            <param id="0" name="Animation">&quot;NeonSpecialType1&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="11" name="Set collisions enabled" sid="132799182087175" type="ply_Neon">
+                                            <param id="0" name="Collisions">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="756824049274953">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="571630948126088" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="11" name="Set collisions enabled" sid="541759732933137" type="ply_Neon">
+                                            <param id="0" name="Collisions">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
                 <comment>CHARS ESPECIFICOS</comment>
                 <event-block sid="383345577060628">
                     <conditions>
@@ -1064,7 +1364,7 @@
                                                         </action>
                                                         <action id="-10" name="Set value" sid="775966389674052" type="ply_Hitbox">
                                                             <param id="0" name="Instance variable">anim_name</param>
-                                                            <param id="1" name="Value">&quot;SpecialCharge&quot;</param>
+                                                            <param id="1" name="Value">&quot;NeonSpecialCharge&quot;</param>
                                                         </action>
                                                         <action id="-10" name="Set value" sid="727853680225734" type="ply_Hitbox">
                                                             <param id="0" name="Instance variable">anim_shakeForce</param>
@@ -1098,7 +1398,7 @@
                                                         </action>
                                                         <action id="-10" name="Set value" sid="447643081837443" type="ply_Hitbox">
                                                             <param id="0" name="Instance variable">anim_name</param>
-                                                            <param id="1" name="Value">&quot;SpecialType1&quot;</param>
+                                                            <param id="1" name="Value">&quot;NeonSpecialType1&quot;</param>
                                                         </action>
                                                         <action id="-10" name="Set value" sid="723254075880046" type="ply_Hitbox">
                                                             <param id="0" name="Instance variable">anim_speed</param>

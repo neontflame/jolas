@@ -445,7 +445,7 @@
                                 <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0003.png" />
                                 <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0004.png" />
                             </animation>
-                            <animation framecount="1" loop="0" name="SpecialCharge" pingpong="0" repeatcount="1" repeatto="0" sid="285959766472820" speed="5">
+                            <animation framecount="1" loop="0" name="NeonSpecialCharge" pingpong="0" repeatcount="1" repeatto="0" sid="285959766472820" speed="5">
                                 <frame duration="1" hotspotX="0.5" hotspotY="1.03614" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon SpecialCharge.png">
                                     <collision-poly>
                                         <point x="0.0169492" y="0.0240964" />
@@ -459,12 +459,12 @@
                                     </collision-poly>
                                 </frame>
                             </animation>
-                            <animation framecount="3" loop="1" name="SpecialType1" pingpong="0" repeatcount="1" repeatto="0" sid="699988539414273" speed="30">
+                            <animation framecount="3" loop="1" name="NeonSpecialType1" pingpong="0" repeatcount="1" repeatto="0" sid="699988539414273" speed="30">
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.14035" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon special0001.png" />
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.14035" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon special0002.png" />
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.14035" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon special0003.png" />
                             </animation>
-                            <animation framecount="3" loop="1" name="SpecialType2" pingpong="0" repeatcount="1" repeatto="0" sid="201111598697798" speed="30">
+                            <animation framecount="3" loop="1" name="NeonSpecialType2" pingpong="0" repeatcount="1" repeatto="0" sid="201111598697798" speed="30">
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.25532" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon specialPowerful0001.png">
                                     <collision-poly>
                                         <point x="0.12" y="0.319149" />
@@ -589,7 +589,6 @@
                         <instance-variable name="anim_playing" sid="591586403389569" type="boolean" />
                         <instance-variable name="anim_isMirrored" sid="776075824487687" type="boolean" />
                         <instance-variable name="anim_shakeForce" sid="927472165079228" type="number" />
-                        <instance-variable name="hp" sid="224708323603355" type="number" />
                         <instance-variable name="char_Resistance" sid="841908859357806" type="number" />
                         <instance-variable name="char_canRoll" sid="875587263826949" type="boolean" />
                         <instance-variable name="char_hasSpecial2" sid="734477514164817" type="boolean" />
@@ -600,9 +599,13 @@
                         <instance-variable name="char_CoolVar5" sid="333153708088233" type="number" />
                         <instance-variable name="char_isDefaultAnims" sid="342153409624279" type="boolean" />
                         <instance-variable name="char_canDefaultInput" sid="779701168261121" type="boolean" />
+                        <instance-variable name="char_atkForce" sid="850685814916945" type="number" />
+                        <instance-variable name="hp" sid="224708323603355" type="number" />
                         <instance-variable name="hitStun" sid="939482017862320" type="number" />
                         <instance-variable name="cameraOffsetX" sid="710325311671648" type="number" />
                         <instance-variable name="cameraOffsetY" sid="464201836513211" type="number" />
+                        <instance-variable name="gim_combo" sid="473860827856782" type="number" />
+                        <instance-variable name="gim_comboTimer" sid="547257782886363" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="SonicPhysics" sid="775282999167726">
