@@ -169,6 +169,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -194,6 +199,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -227,6 +237,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -252,6 +267,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -285,6 +305,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -310,6 +335,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -343,6 +373,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -368,6 +403,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -401,6 +441,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -426,6 +471,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -459,6 +509,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -484,6 +539,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -517,6 +577,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -546,6 +611,11 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -571,6 +641,11 @@
                     </properties>
                     <behavior-instances>
                         <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -605,14 +680,14 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
-            <global>0</global>
+            <global>1</global>
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
                 <instance type="ply_Hitbox" uid="10">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -637,11 +712,13 @@
                         <char_canDefaultInput>true</char_canDefaultInput>
                         <char_atkForce>0</char_atkForce>
                         <hp>6</hp>
+                        <hplimit>6</hplimit>
                         <hitStun>0</hitStun>
                         <cameraOffsetX>0</cameraOffsetX>
                         <cameraOffsetY>0</cameraOffsetY>
                         <gim_combo>0</gim_combo>
                         <gim_comboTimer>0</gim_comboTimer>
+                        <etc_DeathCoefficient>1</etc_DeathCoefficient>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="SonicPhysics">
@@ -711,6 +788,13 @@
                         <external_xp>0</external_xp>
                         <external_lv>0</external_lv>
                     </instance-variables>
+                    <effect-instances>
+                        <effect-instance type="Brightness">
+                            <parameters>
+                                <brightness>1</brightness>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -738,6 +822,13 @@
                         <external_xp>0</external_xp>
                         <external_lv>0</external_lv>
                     </instance-variables>
+                    <effect-instances>
+                        <effect-instance type="Brightness">
+                            <parameters>
+                                <brightness>1</brightness>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>

@@ -5,6 +5,23 @@
     <events>
         <event-group description="" sid="269083802537234" title="Objs">
             <sub-events>
+                <event-group description="" sid="197620282077021" title="Objs&gt;Bloco de Morrer">
+                    <sub-events>
+                        <event-block sid="625972981636061">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="179256370640394" type="ply_Hitbox">
+                                    <param id="0" name="Object">obj_morrerBlock</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="845951556452132" type="Function">
+                                    <param id="0" name="Name">&quot;killHitbox&quot;</param>
+                                    <param id="1" name="Parameter {n}">ply_Hitbox.id</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="215996751400279" title="Objs&gt;Missile">
                     <sub-events>
                         <event-block sid="679994882362321">
@@ -227,6 +244,10 @@
                                         <condition id="-22" name="Else" sid="346394232092865" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="0" name="Call function" sid="148561296037771" type="Function">
+                                            <param id="0" name="Name">&quot;increaseCombo&quot;</param>
+                                            <param id="1" name="Parameter {n}">ply_SUSH_Missile.id{###}&quot;nofreeze&quot;</param>
+                                        </action>
                                         <action id="-10" name="Set value" sid="247399727047705" type="ply_Hitbox">
                                             <param id="0" name="Instance variable">hitStun</param>
                                             <param id="1" name="Value">100</param>

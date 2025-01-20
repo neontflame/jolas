@@ -36,6 +36,7 @@
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="PixelMonkey" id="SonicPhysics" version="0.100000001">Sonic Physics</behavior>
+        <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
         <behavior author="Scirra" id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
@@ -274,6 +275,20 @@
                     </animation-folder>
                 </object-type>
             </object-folder>
+            <object-folder name="loader">
+                <object-type name="headercool" sid="630329770828402">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="786911410648284" speed="5">
+                            <frame duration="1" hotspotX="0.50079" hotspotY="0.5" original-source="E:\Códigos Fonte\Especulamente-Redesign\elementos\header\headers\headercool1.png" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="loadingBar" sid="448108755847911">
+                    <plugin id="TiledBg" />
+                    <texture />
+                </object-type>
+            </object-folder>
             <object-type name="menu_enterButt" sid="810869718539842">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -354,6 +369,18 @@
             </object-type>
             <object-type name="menu_TextosAutorais" sid="212163230005530">
                 <plugin id="Text" />
+            </object-type>
+            <object-type name="menu_List" sid="486576017402986">
+                <plugin id="List" />
+                <instance-variables>
+                    <instance-variable name="type" sid="255990734228796" type="string" />
+                </instance-variables>
+            </object-type>
+            <object-type name="menu_Textbox" sid="332331357396233">
+                <plugin id="TextBox" />
+                <instance-variables>
+                    <instance-variable name="type" sid="552658302054603" type="string" />
+                </instance-variables>
             </object-type>
         </object-folder>
         <object-folder name="game">
@@ -464,20 +491,9 @@
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.14035" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon special0002.png" />
                                 <frame duration="1" hotspotX="0.544" hotspotY="1.14035" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon special0003.png" />
                             </animation>
-                            <animation framecount="3" loop="1" name="NeonSpecialType2" pingpong="0" repeatcount="1" repeatto="0" sid="201111598697798" speed="30">
-                                <frame duration="1" hotspotX="0.544" hotspotY="1.25532" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon specialPowerful0001.png">
-                                    <collision-poly>
-                                        <point x="0.12" y="0.319149" />
-                                        <point x="0.496" y="0.0212766" />
-                                        <point x="0.912" y="0.234043" />
-                                        <point x="1" y="0.489362" />
-                                        <point x="0.936" y="0.829787" />
-                                        <point x="0.496" y="1" />
-                                        <point x="0.184" y="0.510638" />
-                                    </collision-poly>
-                                </frame>
-                                <frame duration="1" hotspotX="0.544" hotspotY="1.25532" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon specialPowerful0002.png" />
-                                <frame duration="1" hotspotX="0.544" hotspotY="1.25532" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon specialPowerful0003.png" />
+                            <animation framecount="2" loop="1" name="NeonBounceBack" pingpong="0" repeatcount="1" repeatto="1" sid="201111598697798" speed="15">
+                                <frame duration="1" hotspotX="0.484375" hotspotY="0.898148" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\wallHit0001.png" />
+                                <frame duration="1" hotspotX="0.484375" hotspotY="0.898148" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\wallHit0002.png" />
                             </animation>
                         </animation-folder>
                     </object-type>
@@ -601,11 +617,13 @@
                         <instance-variable name="char_canDefaultInput" sid="779701168261121" type="boolean" />
                         <instance-variable name="char_atkForce" sid="850685814916945" type="number" />
                         <instance-variable name="hp" sid="224708323603355" type="number" />
+                        <instance-variable name="hplimit" sid="567700060073515" type="number" />
                         <instance-variable name="hitStun" sid="939482017862320" type="number" />
                         <instance-variable name="cameraOffsetX" sid="710325311671648" type="number" />
                         <instance-variable name="cameraOffsetY" sid="464201836513211" type="number" />
                         <instance-variable name="gim_combo" sid="473860827856782" type="number" />
                         <instance-variable name="gim_comboTimer" sid="547257782886363" type="number" />
+                        <instance-variable name="etc_DeathCoefficient" sid="586739250118010" type="number" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="SonicPhysics" sid="775282999167726">
@@ -623,6 +641,14 @@
                 </object-type>
                 <object-type global="1" name="online_OtherChars" sid="884376173391829">
                     <plugin id="JSON" />
+                </object-type>
+                <object-type name="ply_Spawnpoint" sid="805140794148633">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="493137355737539" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        </animation>
+                    </animation-folder>
                 </object-type>
             </object-folder>
             <object-folder name="objs">
@@ -675,6 +701,9 @@
                         <behavior-type name="Solid" sid="948864544692972">
                             <behavior id="solid" />
                         </behavior-type>
+                        <behavior-type name="Jumpthru" sid="638498028358244">
+                            <behavior id="jumpthru" />
+                        </behavior-type>
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="604073932051118" speed="5">
@@ -712,20 +741,29 @@
                         </animation>
                     </animation-folder>
                 </object-type>
-                <object-type name="hud_HpNXp" sid="527940926837021">
+                <object-type name="hud_MeterLabels" sid="527940926837021">
                     <plugin id="Sprite" />
                     <instance-variables>
                         <instance-variable name="type" sid="778944138056724" type="string" />
                     </instance-variables>
                     <animation-folder>
-                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="197684521895249" speed="0">
+                        <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="197684521895249" speed="0">
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\hpAndXp.png">
                                 <collision-poly>
-                                    <point x="0.0810811" y="0.0612245" />
-                                    <point x="0.486486" y="0.102041" />
-                                    <point x="0.486486" y="0.387755" />
-                                    <point x="0.918919" y="0.938776" />
-                                    <point x="0.486486" y="0.265306" />
+                                    <point x="0.136364" y="0.130435" />
+                                    <point x="0.818181" y="0.217392" />
+                                    <point x="0.818181" y="0.826087" />
+                                    <point x="1" y="1" />
+                                    <point x="0.818181" y="0.565217" />
+                                </collision-poly>
+                            </frame>
+                            <frame duration="1" hotspotX="0" hotspotY="0">
+                                <collision-poly>
+                                    <point x="0" y="0" />
+                                    <point x="0" y="0" />
+                                    <point x="0" y="0" />
+                                    <point x="0.833334" y="0.812501" />
+                                    <point x="0" y="0" />
                                 </collision-poly>
                             </frame>
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\ammoText.png">
@@ -739,10 +777,6 @@
                             </frame>
                         </animation>
                     </animation-folder>
-                </object-type>
-                <object-type name="hud_HpBars" sid="105503135013185">
-                    <plugin id="TiledBg" />
-                    <texture original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\hpThing.png" />
                 </object-type>
                 <object-type name="hud_Icons" sid="208882178976081">
                     <plugin id="Sprite" />
@@ -811,6 +845,9 @@
                 </object-type>
                 <object-type name="hud_XpBarBG" sid="231889318439877">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="type" sid="273356512996332" type="string" />
+                    </instance-variables>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="683446492704921" speed="5">
                             <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\xpThing0002.png">
@@ -829,6 +866,10 @@
                 <object-type name="hud_ammoBars" sid="843586058501237">
                     <plugin id="TiledBg" />
                     <texture original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\ammoShit.png" />
+                </object-type>
+                <object-type name="hud_HpBar" sid="203627261437527">
+                    <plugin id="NinePatch" />
+                    <texture />
                 </object-type>
             </object-folder>
             <object-folder name="diag">
@@ -1032,6 +1073,87 @@
                     <texture />
                 </object-type>
             </object-folder>
+            <object-folder name="sala-specific">
+                <object-folder name="tutorial">
+                    <object-type name="bg_Tutorial" sid="175322537444961">
+                        <plugin id="TiledBg" />
+                        <behaviors>
+                            <behavior-type name="Wrap" sid="840106260646283">
+                                <behavior id="wrap" />
+                            </behavior-type>
+                        </behaviors>
+                        <texture original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\looping bg.png" />
+                    </object-type>
+                    <object-type name="stg_tut_Comentarios" sid="177616379435873">
+                        <plugin id="Sprite" />
+                        <animation-folder>
+                            <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="594456541351090" speed="0">
+                                <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\little comment 2 night0001.png">
+                                    <collision-poly>
+                                        <point x="0.0240964" y="0.034188" />
+                                        <point x="0.5" y="0" />
+                                        <point x="0.975904" y="0.034188" />
+                                        <point x="1" y="0.495726" />
+                                        <point x="0.975904" y="0.965812" />
+                                        <point x="0.5" y="1" />
+                                        <point x="0.0240964" y="0.965812" />
+                                        <point x="0" y="0.495726" />
+                                    </collision-poly>
+                                </frame>
+                                <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\little comment 2 night0002.png" />
+                                <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\little comment 2 night0003.png" />
+                                <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\little comment 2 night0002.png">
+                                    <collision-poly>
+                                        <point x="0.192771" y="0.273504" />
+                                        <point x="0.5" y="0" />
+                                        <point x="0.783133" y="0.307692" />
+                                        <point x="0.783133" y="0.692308" />
+                                        <point x="0.5" y="1" />
+                                        <point x="0.192771" y="0.726496" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                        </animation-folder>
+                    </object-type>
+                    <object-type name="obj_morrerBlock" sid="188344382894943">
+                        <plugin id="Sprite" />
+                        <animation-folder>
+                            <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="108265349559969" speed="5">
+                                <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\salas\tutorial\morrer!!!.png">
+                                    <collision-poly>
+                                        <point x="0.0375" y="0.130435" />
+                                        <point x="0.5" y="0.0217391" />
+                                        <point x="0.98125" y="0.0652174" />
+                                        <point x="1" y="0.5" />
+                                        <point x="0.93125" y="0.76087" />
+                                        <point x="0.5" y="1" />
+                                        <point x="0.0375" y="0.869565" />
+                                        <point x="0" y="0.5" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                        </animation-folder>
+                    </object-type>
+                    <object-type name="map_tut_CoisoEmCima" sid="390529874900098">
+                        <plugin id="NinePatch" />
+                        <texture />
+                    </object-type>
+                </object-folder>
+            </object-folder>
+            <object-type name="cam_CamZones" sid="856521530886572">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="boundLimitXLeft" sid="331297467069165" type="number" />
+                    <instance-variable name="boundLimitXRight" sid="258980006458443" type="number" />
+                    <instance-variable name="boundLimitYUp" sid="431332167000965" type="number" />
+                    <instance-variable name="boundLimitYDown" sid="649456739671581" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="151520124749501" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="c2">
             <object-type name="Audio" sid="2722091819329769">
@@ -1089,29 +1211,45 @@
             </effects>
             <texture />
         </object-type>
-        <object-type name="headercool" sid="630329770828402">
+        <object-type name="map_tut_BonitinhoFloor" sid="816928310296257">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="786911410648284" speed="5">
-                    <frame duration="1" hotspotX="0.50079" hotspotY="0.5" original-source="E:\Códigos Fonte\Especulamente-Redesign\elementos\header\headers\headercool1.png" />
+                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169018806817370" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="loadingBar" sid="448108755847911">
-            <plugin id="TiledBg" />
+        <object-type name="9patch" sid="953337059196668">
+            <plugin id="NinePatch" />
             <texture />
-        </object-type>
-        <object-type name="menu_Textbox" sid="332331357396233">
-            <plugin id="TextBox" />
-            <instance-variables>
-                <instance-variable name="type" sid="552658302054603" type="string" />
-            </instance-variables>
-        </object-type>
-        <object-type name="menu_List" sid="486576017402986">
-            <plugin id="List" />
-            <instance-variables>
-                <instance-variable name="type" sid="255990734228796" type="string" />
-            </instance-variables>
         </object-type>
     </object-folder>
     <families>
@@ -1125,6 +1263,11 @@
                 <instance-variable name="external_xp" sid="773601065703911" type="number" />
                 <instance-variable name="external_lv" sid="477763110781761" type="number" />
             </instance-variables>
+            <effects>
+                <effect-type name="Brightness">
+                    <effect id="brightness" />
+                </effect-type>
+            </effects>
         </family>
         <family name="Solids" plugin-id="Sprite" sid="768608541962072">
             <members>
@@ -1140,6 +1283,7 @@
         </layout-folder>
         <layout-folder name="Game">
             <layout>map_Teststage.xml</layout>
+            <layout>map_Tutorial.xml</layout>
         </layout-folder>
         <layout>menu_Menu.xml</layout>
     </layout-folder>
@@ -1226,6 +1370,9 @@
             <file name="menuLayer2.ogg" />
             <file name="menuLayer3.m4a" />
             <file name="menuLayer3.ogg" />
+        </music-folder>
+        <music-folder name="GAME">
+            <file name="map_Tutorial.ogg" />
         </music-folder>
     </music-folder>
     <files-folder>
