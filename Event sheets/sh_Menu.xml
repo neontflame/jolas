@@ -4,8 +4,9 @@
     <name>sh_Menu</name>
     <events>
         <include>sh_Utils</include>
-        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">SUSH</variable>
+        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">NEON</variable>
         <variable constant="0" name="curSelect" sid="480314784115682" static="0" type="number">0</variable>
+        <variable constant="0" name="curSave" sid="771023290880218" static="0" type="number">0</variable>
         <event-group description="" sid="486007233636215" title="Menu">
             <sub-events>
                 <event-group description="" sid="514910501626051" title="Menu&gt;Commons">
@@ -37,6 +38,10 @@
                                 <condition id="-2" name="On start of layout" sid="548290309581758" type="System" />
                             </conditions>
                             <actions>
+                                <action id="0" name="Call function" sid="584897053548236" type="Function">
+                                    <param id="0" name="Name">&quot;getSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                                 <action id="-10" name="Set value" sid="887879452851541" type="hud_Icons">
                                     <param id="0" name="Instance variable">initX</param>
                                     <param id="1" name="Value">Self.X</param>
@@ -102,31 +107,43 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block any="1" sid="223960963532644">
+                        <event-block any="1" sid="140328740400836">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="474289608723395" type="System">
-                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLayer2&quot;)</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLayer1&quot;)</param>
+                                <condition id="-8" name="Compare two values" sid="932363028970923" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLay1&quot;)-0.1</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLay2&quot;)</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="335107529869083" type="System">
-                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLayer3&quot;)</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLayer1&quot;)</param>
+                                <condition id="-8" name="Compare two values" sid="561789898383425" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLay1&quot;)+0.1</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLay2&quot;)</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="23" name="Seek to" sid="631296933604000" type="Audio">
-                                    <param id="0" name="Tag">&quot;menuLayer1&quot;</param>
-                                    <param id="1" name="Position">0</param>
+                                <action id="23" name="Seek to" sid="222265097271402" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay2&quot;</param>
+                                    <param id="1" name="Position">Audio.PlaybackTime(&quot;menuLay1&quot;)</param>
                                 </action>
-                                <action id="23" name="Seek to" sid="852466718385016" type="Audio">
-                                    <param id="0" name="Tag">&quot;menuLayer2&quot;</param>
-                                    <param id="1" name="Position">0</param>
-                                </action>
-                                <action id="23" name="Seek to" sid="956689816487086" type="Audio">
-                                    <param id="0" name="Tag">&quot;menuLayer3&quot;</param>
-                                    <param id="1" name="Position">0</param>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="731261500310959">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="311028872529712" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLay1&quot;)-0.1</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLay3&quot;)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="977645381865075" type="System">
+                                    <param id="0" name="First value">Audio.PlaybackTime(&quot;menuLay1&quot;)+0.1</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">Audio.PlaybackTime(&quot;menuLay3&quot;)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="23" name="Seek to" sid="184347211681435" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay3&quot;</param>
+                                    <param id="1" name="Position">Audio.PlaybackTime(&quot;menuLay1&quot;)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -339,6 +356,10 @@
                                     <param id="0" name="Layer">&quot;Principal&quot;</param>
                                     <param id="1" name="Opacity">100</param>
                                 </action>
+                                <action id="-18" name="Set layer opacity" sid="146415345800296" type="System">
+                                    <param id="0" name="Layer">&quot;SaveScreen&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
                                 <action id="-18" name="Set layer opacity" sid="412610888577725" type="System">
                                     <param id="0" name="Layer">&quot;CharSelect&quot;</param>
                                     <param id="1" name="Opacity">0</param>
@@ -473,6 +494,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-9" name="Set value" sid="512780073524734" type="System">
+                                            <param id="0" name="Variable">onlineEnabled</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                         <action id="-12" name="Set group active" sid="278053602989498" type="System">
                                             <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
                                             <param id="1" name="State">0</param>
@@ -485,7 +510,7 @@
                                             <param id="0" name="Seconds">0.05</param>
                                         </action>
                                         <action id="-12" name="Set group active" sid="700471274072930" type="System">
-                                            <param id="0" name="Group name">&quot;Menu&gt;CharSel&quot;</param>
+                                            <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
                                             <param id="1" name="State">1</param>
                                         </action>
                                         <action id="0" name="Call function" sid="517427038804103" type="Function">
@@ -503,6 +528,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-9" name="Set value" sid="441321729803210" type="System">
+                                            <param id="0" name="Variable">onlineEnabled</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
                                         <action id="-12" name="Set group active" sid="709549422678835" type="System">
                                             <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
                                             <param id="1" name="State">0</param>
@@ -514,8 +543,8 @@
                                         <action id="-16" name="Wait" sid="930750879867589" type="System">
                                             <param id="0" name="Seconds">0.05</param>
                                         </action>
-                                        <action id="-12" name="Set group active" sid="578944528882532" type="System">
-                                            <param id="0" name="Group name">&quot;Menu&gt;CharSelMulti&quot;</param>
+                                        <action id="-12" name="Set group active" sid="878602430315522" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
                                             <param id="1" name="State">1</param>
                                         </action>
                                         <action id="0" name="Call function" sid="890593371594759" type="Function">
@@ -542,6 +571,456 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-group description="" sid="368713019086662" title="Menu&gt;SaveParsing">
+                    <sub-events>
+                        <event-block sid="818814626083449">
+                            <conditions>
+                                <condition id="0" name="On function" sid="977385510741125" type="Function">
+                                    <param id="0" name="Name">&quot;callSaves&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="258158083102960">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="132620772251981" type="System">
+                                            <param id="0" name="Name">&quot;loopFoda&quot;</param>
+                                            <param id="1" name="Start index">0</param>
+                                            <param id="2" name="End index">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="60" name="LoadJSON" sid="237355332373890" type="menu_sav_json">
+                                            <param id="0" name="JSON">Dictionary.Get(&quot;save&quot; &amp; loopindex)</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}"></param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="731672835663998">
+                                            <conditions>
+                                                <condition id="0" name="Compare value" sid="920912441735962" type="Dictionary">
+                                                    <param id="0" name="Key">&quot;save&quot; &amp; loopindex</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Value">&quot;{}&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="366675514516970">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="759815903334227" type="menu_sav_Delete">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-15" name="Set visible" sid="605879015043343" type="menu_sav_Delete">
+                                                            <param id="0" name="Visibility">1</param>
+                                                        </action>
+                                                        <action id="11" name="Set collisions enabled" sid="586256969781829" type="menu_sav_Delete">
+                                                            <param id="0" name="Collisions">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="398251974966621">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="637083318454879" type="menu_sav_Info">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="660568749591343" type="menu_sav_Info">
+                                                            <param id="0" name="Text">Function.Call(&quot;getLayName&quot;, menu_sav_json.Value(0, &quot;map&quot;)) &amp; newline &amp; Function.Call(&quot;getCharName&quot;, menu_sav_json.Value(0, &quot;char&quot;))</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="476918701306079">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="362997480029270" type="menu_sav_Nivel">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="497763768427025" type="menu_sav_Nivel">
+                                                            <param id="0" name="Text">&quot;Nível &quot; &amp; menu_sav_json.Value(0, &quot;lv&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="266952469359957">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="201610551709613" type="menu_sav_Playtime">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="356396995244972" type="menu_sav_Playtime">
+                                                            <param id="0" name="Text">menu_sav_json.Value(0, &quot;playtimeHr&quot;) &amp; &quot;h &quot; &amp; menu_sav_json.Value(0, &quot;playtimeMin&quot;) &amp; &quot;min &quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="480804223218802">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="515156206808006" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Instance variable">type</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;savedipshit&quot;</param>
+                                                        </condition>
+                                                        <condition id="-7" name="Compare instance variable" sid="480808860271456" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Instance variable">id</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="4" name="Set animation" sid="830087939978180" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Animation">menu_sav_json.Value(0, &quot;char&quot;)</param>
+                                                            <param id="1" name="From">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="672037363754301">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="908898809774931" type="System" />
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="115197213607908">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="314088349024504" type="menu_sav_Delete">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-15" name="Set visible" sid="491782377161402" type="menu_sav_Delete">
+                                                            <param id="0" name="Visibility">0</param>
+                                                        </action>
+                                                        <action id="11" name="Set collisions enabled" sid="100784064946544" type="menu_sav_Delete">
+                                                            <param id="0" name="Collisions">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="437662419765918">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="999844530900159" type="menu_sav_Info">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="113946332633631" type="menu_sav_Info">
+                                                            <param id="0" name="Text">&quot;save vazio&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="539539316243641">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="452928403122821" type="menu_sav_Nivel">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="924445209173061" type="menu_sav_Nivel">
+                                                            <param id="0" name="Text">&quot;seu save é:&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="251364673326514">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="554742745855540" type="menu_sav_Playtime">
+                                                            <param id="0" name="Instance variable">saveId</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Set text" sid="612753093659269" type="menu_sav_Playtime">
+                                                            <param id="0" name="Text">&quot;0h 0min&quot;</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="461253393572116">
+                                                    <conditions>
+                                                        <condition id="-7" name="Compare instance variable" sid="901665335692948" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Instance variable">type</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">&quot;savedipshit&quot;</param>
+                                                        </condition>
+                                                        <condition id="-7" name="Compare instance variable" sid="479818806820692" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Instance variable">id</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Value">loopindex</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-15" name="Set visible" sid="735729472994210" type="menu_chr_Dipshit">
+                                                            <param id="0" name="Visibility">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" inactive="1" sid="979548162912125" title="Menu&gt;Save">
+                    <sub-events>
+                        <event-block sid="618044658625407">
+                            <conditions>
+                                <condition id="0" name="On function" sid="796202455897243" type="Function">
+                                    <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set visible" sid="272717442810565" type="menu_Textbox">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="2" name="Set visible" sid="732389380324806" type="menu_List">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="111945184642000" type="Function">
+                                    <param id="0" name="Name">&quot;callSaves&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="878265804276596" type="System">
+                                    <param id="0" name="Layer">&quot;Principal&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="220010436017033" type="System">
+                                    <param id="0" name="Layer">&quot;SaveScreen&quot;</param>
+                                    <param id="1" name="Opacity">100</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="545785574919324" type="System">
+                                    <param id="0" name="Layer">&quot;CharSelect&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="469920168880932" type="System">
+                                    <param id="0" name="Layer">&quot;CharSelectMulti&quot;</param>
+                                    <param id="1" name="Opacity">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="640315650880908">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="562584486552434" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="259281325320291" type="menu_bg">
+                                    <param id="0" name="Instance variable">theEffect</param>
+                                    <param id="1" name="Value">lerp(Self.theEffect, 100, 0.05)</param>
+                                </action>
+                                <action id="-2" name="Set Y" sid="544135944206780" type="menu_sav_seta">
+                                    <param id="0" name="Y">lerp(Self.Y, 72 + (124 * curSelect), 0.2)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="987540485718610" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay1&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay1&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="386010230917440" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay2&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay2&quot;), 0, 0.1)</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="227473693860297" type="Audio">
+                                    <param id="0" name="Tag">&quot;menuLay3&quot;</param>
+                                    <param id="1" name="dB">lerp(Audio.Volume(&quot;menuLay3&quot;), -50, 0.1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>deletar save ...</comment>
+                        <event-block sid="955048976133883">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="230459723319920" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">1</param>
+                                    <param id="2" name="Object clicked">menu_sav_Delete</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="512540886509050" type="Function">
+                                    <param id="0" name="Name">&quot;deleteData&quot;</param>
+                                    <param id="1" name="Parameter {n}">menu_sav_Delete.saveId</param>
+                                </action>
+                                <action id="0" name="Call function" sid="137109847732634" type="Function">
+                                    <param id="0" name="Name">&quot;callSaves&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Play" sid="981691139646354" type="Audio">
+                                    <param id="0" name="Audio file">back</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;back&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="239683002824991">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="801449342281997" type="Keyboard">
+                                    <param id="0" name="Key">27</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="342679002563015" type="Audio">
+                                    <param id="0" name="Audio file">back</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;back&quot;</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="713818052515380" type="System">
+                                    <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="218590399311014" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="943339272805494" type="System">
+                                    <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="530512230313847" type="Function">
+                                    <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="865623043441853">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="176795241924404" type="Keyboard">
+                                    <param id="0" name="Key">38</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="234012982555456" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="329269287021674" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, -1, 0, 2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="266315201128793">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="173408670048812" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="602642921870635" type="Audio">
+                                    <param id="0" name="Audio file">tick</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="871595417159128" type="System">
+                                    <param id="0" name="Variable">curSelect</param>
+                                    <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, 1, 0, 2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="877442974140524">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="575075178747397" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="943660720685818" type="Audio">
+                                    <param id="0" name="Audio file">go</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;go&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="603948179740299" type="System">
+                                    <param id="0" name="Variable">curSave</param>
+                                    <param id="1" name="Value">curSelect</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="477004382934505">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="296990106450151" type="System">
+                                            <param id="0" name="Variable">onlineEnabled</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Set group active" sid="999268102525795" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="991913387060617" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="235266308815740" type="System">
+                                            <param id="0" name="Seconds">0.05</param>
+                                        </action>
+                                        <action id="-12" name="Set group active" sid="630582836121164" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;CharSel&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="535230392394957" type="Function">
+                                            <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="635569555973068">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="123737096125231" type="System">
+                                            <param id="0" name="Variable">onlineEnabled</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Set group active" sid="403765647681793" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="895926206780783" type="System">
+                                            <param id="0" name="Variable">curSelect</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="962337341597462" type="System">
+                                            <param id="0" name="Seconds">0.05</param>
+                                        </action>
+                                        <action id="-12" name="Set group active" sid="157547296193636" type="System">
+                                            <param id="0" name="Group name">&quot;Menu&gt;CharSelMulti&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="166030617111085" type="Function">
+                                            <param id="0" name="Name">&quot;menuAlter&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" inactive="1" sid="938339524328274" title="Menu&gt;CharSel">
                     <sub-events>
                         <event-block sid="689606444048257">
@@ -551,12 +1030,8 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Set value" sid="512780073524734" type="System">
-                                    <param id="0" name="Variable">onlineEnabled</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
                                 <action id="-18" name="Set layer opacity" sid="166406816687669" type="System">
-                                    <param id="0" name="Layer">&quot;Principal&quot;</param>
+                                    <param id="0" name="Layer">&quot;SaveScreen&quot;</param>
                                     <param id="1" name="Opacity">0</param>
                                 </action>
                                 <action id="-18" name="Set layer opacity" sid="120197420498054" type="System">
@@ -623,12 +1098,12 @@
                                     <param id="1" name="Tag (optional)">&quot;back&quot;</param>
                                 </action>
                                 <action id="-12" name="Set group active" sid="851378328606991" type="System">
-                                    <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
+                                    <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
                                     <param id="1" name="State">1</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="290146006644254" type="System">
                                     <param id="0" name="Variable">curSelect</param>
-                                    <param id="1" name="Value">0</param>
+                                    <param id="1" name="Value">curSave</param>
                                 </action>
                                 <action id="-12" name="Set group active" sid="660397017254109" type="System">
                                     <param id="0" name="Group name">&quot;Menu&gt;CharSel&quot;</param>
@@ -735,10 +1210,33 @@
                                 <action id="-16" name="Wait" sid="834311844040771" type="System">
                                     <param id="0" name="Seconds">1.0</param>
                                 </action>
-                                <action id="-25" name="Go to layout (by name)" sid="629812256889343" type="System">
-                                    <param id="0" name="Layout">&quot;map_Teststage&quot;</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="453945580817866">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="258501501587789" type="System">
+                                            <param id="0" name="First value">Function.Call(&quot;isSave&quot;, curSave)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;true&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-25" name="Go to layout (by name)" sid="629812256889343" type="System">
+                                            <param id="0" name="Layout">Function.Call(&quot;getSaveInfo&quot;, curSave, &quot;map&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="473580267956267">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="155816961226215" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-25" name="Go to layout (by name)" sid="320030092491191" type="System">
+                                            <param id="0" name="Layout">&quot;map_Tutorial&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="330482877269371">
                             <conditions>
@@ -764,10 +1262,6 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Set value" sid="510933974770083" type="System">
-                                    <param id="0" name="Variable">onlineEnabled</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
                                 <action id="3" name="Set visible" sid="758663008237898" type="menu_Textbox">
                                     <param id="0" name="Visibility">1</param>
                                 </action>
@@ -775,7 +1269,7 @@
                                     <param id="0" name="Visibility">1</param>
                                 </action>
                                 <action id="-18" name="Set layer opacity" sid="421511365702185" type="System">
-                                    <param id="0" name="Layer">&quot;Principal&quot;</param>
+                                    <param id="0" name="Layer">&quot;SaveScreen&quot;</param>
                                     <param id="1" name="Opacity">0</param>
                                 </action>
                                 <action id="-18" name="Set layer opacity" sid="235036404045699" type="System">
@@ -839,12 +1333,12 @@
                                     <param id="1" name="Tag (optional)">&quot;back&quot;</param>
                                 </action>
                                 <action id="-12" name="Set group active" sid="597603747815611" type="System">
-                                    <param id="0" name="Group name">&quot;Menu&gt;Principal&quot;</param>
+                                    <param id="0" name="Group name">&quot;Menu&gt;Save&quot;</param>
                                     <param id="1" name="State">1</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="235802638906525" type="System">
                                     <param id="0" name="Variable">curSelect</param>
-                                    <param id="1" name="Value">0</param>
+                                    <param id="1" name="Value">curSave</param>
                                 </action>
                                 <action id="-12" name="Set group active" sid="550107502588141" type="System">
                                     <param id="0" name="Group name">&quot;Menu&gt;CharSelMulti&quot;</param>

@@ -3,104 +3,414 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>sh_Utils</name>
     <events>
-        <comment>param 0: initial value&#x0D;&#x0A;param 1: how much to add&#x0D;&#x0A;param 2: min&#x0D;&#x0A;param 3: max</comment>
-        <event-block sid="499063787585339">
-            <conditions>
-                <condition id="0" name="On function" sid="366956626397269" type="Function">
-                    <param id="0" name="Name">&quot;wrapValue&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
+        <variable constant="0" name="playtimeHr" sid="752551211071484" static="0" type="number">0</variable>
+        <variable constant="0" name="playtimeMin" sid="997796250742507" static="0" type="number">0</variable>
+        <event-group description="" sid="734157966312317" title="Utils">
             <sub-events>
-                <event-block sid="604413014762600">
-                    <conditions>
-                        <condition id="-8" name="Compare two values" sid="474616441715527" type="System">
-                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Second value">Function.Param(3)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="168727861875242" type="Function">
-                            <param id="0" name="Value">Self.Param(2)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="960657500681664">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="634543217855364" type="System" />
-                        <condition id="-8" name="Compare two values" sid="806710989150306" type="System">
-                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Second value">Function.Param(2)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="899481985399931" type="Function">
-                            <param id="0" name="Value">Self.Param(3)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="303972189674165">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="571871881984090" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="610274188754986" type="Function">
-                            <param id="0" name="Value">Self.Param(0) + Self.Param(1)</param>
-                        </action>
-                    </actions>
-                </event-block>
+                <event-group description="" sid="863190483443216" title="Utils&gt;GameInfo">
+                    <sub-events>
+                        <event-block sid="759601987503588">
+                            <conditions>
+                                <condition id="0" name="On function" sid="588571436833581" type="Function">
+                                    <param id="0" name="Name">&quot;getLayName&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="535543495059306">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="383103380579133" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;map_Teststage&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="563393677640001" type="Function">
+                                            <param id="0" name="Value">&quot;Mapa de Testes&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="780809260919211">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="768278664846115" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;map_Tutorial&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="327500013779578" type="Function">
+                                            <param id="0" name="Value">&quot;Tutorial&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="368763513561672">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="538884469436599" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;map_Praia&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="597754823518327" type="Function">
+                                            <param id="0" name="Value">&quot;A Praia&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="363336942030248">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="602881271156146" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;map_Especulapolis&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="794743593992189" type="Function">
+                                            <param id="0" name="Value">&quot;Especulapolis&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="547616867600496">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="333720304835338" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;map_Davemoney&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="478851354174508" type="Function">
+                                            <param id="0" name="Value">&quot;Davemoneys Enterprises&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="912035434041112">
+                            <conditions>
+                                <condition id="0" name="On function" sid="352122522815770" type="Function">
+                                    <param id="0" name="Name">&quot;getCharName&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="537470176353819" type="Function">
+                                    <param id="0" name="Value">menu_CharArray.At(menu_CharArray.IndexOf(Function.Param(0)), 1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="350197770450803" title="Utils&gt;Savefiles">
+                    <sub-events>
+                        <event-block sid="801902175747747">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="652893840474336" type="System" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="155486261654684">
+                            <conditions>
+                                <condition id="0" name="On function" sid="566707938506907" type="Function">
+                                    <param id="0" name="Name">&quot;isSave&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="947014703426462" type="Function">
+                                    <param id="0" name="Name">&quot;getSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="131384635195364">
+                                    <conditions>
+                                        <condition id="3" name="Has key" sid="708751003159794" type="Dictionary">
+                                            <param id="0" name="Key">&quot;save&quot; &amp; Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="989255512211963" type="Function">
+                                            <param id="0" name="Value">&quot;true&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="896831940718617">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="663730522600337" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="978540770631222" type="Function">
+                                            <param id="0" name="Value">&quot;false&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="980643687462414">
+                            <conditions>
+                                <condition id="0" name="On function" sid="383766569259341" type="Function">
+                                    <param id="0" name="Name">&quot;getSaveInfo&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="614464087783475" type="Function">
+                                    <param id="0" name="Name">&quot;getSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="60" name="LoadJSON" sid="654771283565908" type="menu_sav_json">
+                                    <param id="0" name="JSON">Dictionary.Get(&quot;save&quot; &amp; Function.Param(0))</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}"></param>
+                                </action>
+                                <action id="1" name="Set return value" sid="736478993926056" type="Function">
+                                    <param id="0" name="Value">menu_sav_json.Value(0, Function.Param(1))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="610346433489248">
+                            <conditions>
+                                <condition id="0" name="On function" sid="144375114366634" type="Function">
+                                    <param id="0" name="Name">&quot;getSave&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Check item exists" sid="602070717191710" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;SaveData&quot;</param>
+                                </action>
+                                <action id="1" name="Get item" sid="480974794741745" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;SaveData&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="817022308776292">
+                            <conditions>
+                                <condition id="1" name="On item get" sid="333986831307736" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;SaveData&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Load" sid="652577467332436" type="Dictionary">
+                                    <param id="0" name="JSON">LocalStorage.ItemValue</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="602902355259591">
+                            <conditions>
+                                <condition id="0" name="On function" sid="723276044478802" type="Function">
+                                    <param id="0" name="Name">&quot;makeSaveJson&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="60" name="LoadJSON" sid="786017890644751" type="menu_sav_json">
+                                    <param id="0" name="JSON">&quot;{}&quot;</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}"></param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="162553573622428" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;lv&quot;</param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="973425716400981" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;xp&quot;</param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="763503583982458" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;char&quot;</param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="212452995162341" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;map&quot;</param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="518267525851907" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;playtimeHr&quot;</param>
+                                </action>
+                                <action id="0" name="Set New Object" sid="824304212160081" type="menu_sav_json">
+                                    <param id="0" name="Reference point">0</param>
+                                    <param id="1" name="Key {n}">&quot;playtimeMin&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="768188114945378">
+                            <conditions>
+                                <condition id="0" name="On function" sid="806928439291125" type="Function">
+                                    <param id="0" name="Name">&quot;saveSave&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="239234294917763" type="Function">
+                                    <param id="0" name="Name">&quot;makeSaveJson&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="973545407802032" type="Function">
+                                    <param id="0" name="Name">&quot;getSave&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="20" name="Set Value" sid="817904730072337" type="menu_sav_json">
+                                    <param id="0" name="Value">lv</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;lv&quot;</param>
+                                </action>
+                                <action id="20" name="Set Value" sid="963205169091214" type="menu_sav_json">
+                                    <param id="0" name="Value">xp</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;xp&quot;</param>
+                                </action>
+                                <action id="20" name="Set Value" sid="455895271230340" type="menu_sav_json">
+                                    <param id="0" name="Value">curChar</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;char&quot;</param>
+                                </action>
+                                <action id="20" name="Set Value" sid="457983086112218" type="menu_sav_json">
+                                    <param id="0" name="Value">LayoutName</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;map&quot;</param>
+                                </action>
+                                <action id="20" name="Set Value" sid="716378434042978" type="menu_sav_json">
+                                    <param id="0" name="Value">playtimeHr</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;playtimeHr&quot;</param>
+                                </action>
+                                <action id="20" name="Set Value" sid="184472772614858" type="menu_sav_json">
+                                    <param id="0" name="Value">playtimeMin</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}">&quot;playtimeMin&quot;</param>
+                                </action>
+                                <action id="0" name="Add key" sid="610810039284173" type="Dictionary">
+                                    <param id="0" name="Key">&quot;save&quot; &amp; Function.Param(0)</param>
+                                    <param id="1" name="Value">menu_sav_json.AsJson(0)</param>
+                                </action>
+                                <action id="0" name="Set item" sid="522535122105724" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;SaveData&quot;</param>
+                                    <param id="1" name="Value">Dictionary.AsJSON</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="767604808325505">
+                            <conditions>
+                                <condition id="0" name="On function" sid="909564788739981" type="Function">
+                                    <param id="0" name="Name">&quot;deleteData&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Delete key" sid="175392090045838" type="Dictionary">
+                                    <param id="0" name="Key">&quot;save&quot; &amp; Function.Param(0)</param>
+                                </action>
+                                <action id="0" name="Set item" sid="906913780149912" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;SaveData&quot;</param>
+                                    <param id="1" name="Value">Dictionary.AsJSON</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="902764883688814" title="Utils&gt;General">
+                    <sub-events>
+                        <comment>param 0: initial value&#x0D;&#x0A;param 1: how much to add&#x0D;&#x0A;param 2: min&#x0D;&#x0A;param 3: max</comment>
+                        <event-block sid="499063787585339">
+                            <conditions>
+                                <condition id="0" name="On function" sid="366956626397269" type="Function">
+                                    <param id="0" name="Name">&quot;wrapValue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="604413014762600">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="474616441715527" type="System">
+                                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">Function.Param(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="168727861875242" type="Function">
+                                            <param id="0" name="Value">Self.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="960657500681664">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="634543217855364" type="System" />
+                                        <condition id="-8" name="Compare two values" sid="806710989150306" type="System">
+                                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">Function.Param(2)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="899481985399931" type="Function">
+                                            <param id="0" name="Value">Self.Param(3)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="303972189674165">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="571871881984090" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="610274188754986" type="Function">
+                                            <param id="0" name="Value">Self.Param(0) + Self.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="439403756504271">
+                            <conditions>
+                                <condition id="0" name="On function" sid="152253795498041" type="Function">
+                                    <param id="0" name="Name">&quot;boundValue&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="430884834258929">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="684802529182339" type="System">
+                                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">Function.Param(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="589705311184475" type="Function">
+                                            <param id="0" name="Value">Self.Param(3)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="396903280221317">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="858283935341702" type="System" />
+                                        <condition id="-8" name="Compare two values" sid="727573525847956" type="System">
+                                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">Function.Param(2)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="424520967498173" type="Function">
+                                            <param id="0" name="Value">Self.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="228463959971796">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="920024963267343" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="503424923846499" type="Function">
+                                            <param id="0" name="Value">Self.Param(0) + Self.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
-        </event-block>
-        <event-block sid="439403756504271">
-            <conditions>
-                <condition id="0" name="On function" sid="152253795498041" type="Function">
-                    <param id="0" name="Name">&quot;boundValue&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="430884834258929">
-                    <conditions>
-                        <condition id="-8" name="Compare two values" sid="684802529182339" type="System">
-                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Second value">Function.Param(3)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="589705311184475" type="Function">
-                            <param id="0" name="Value">Self.Param(3)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="396903280221317">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="858283935341702" type="System" />
-                        <condition id="-8" name="Compare two values" sid="727573525847956" type="System">
-                            <param id="0" name="First value">Function.Param(0) + Function.Param(1)</param>
-                            <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Second value">Function.Param(2)</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="424520967498173" type="Function">
-                            <param id="0" name="Value">Self.Param(2)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="228463959971796">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="920024963267343" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Set return value" sid="503424923846499" type="Function">
-                            <param id="0" name="Value">Self.Param(0) + Self.Param(1)</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
+        </event-group>
     </events>
 </c2eventsheet>

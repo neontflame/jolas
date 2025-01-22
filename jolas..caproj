@@ -15,10 +15,12 @@
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Francesco Iafulli (aka fiaful)" id="Comment" version="1">Comment</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Yann Granjon" id="JSON" version="1">JSON</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
         <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
@@ -160,6 +162,10 @@
                 </object-type>
                 <object-type name="menu_chr_Dipshit" sid="685662821354482">
                     <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="type" sid="334580961396366" type="string" />
+                        <instance-variable name="id" sid="910949843822469" type="number" />
+                    </instance-variables>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="NEON" pingpong="0" repeatcount="1" repeatto="0" sid="568729044784034" speed="5">
                             <frame duration="1" hotspotX="0.558824" hotspotY="0.931373" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon idle.png">
@@ -287,6 +293,98 @@
                 <object-type name="loadingBar" sid="448108755847911">
                     <plugin id="TiledBg" />
                     <texture />
+                </object-type>
+            </object-folder>
+            <object-folder name="saveYourDipshit">
+                <object-type name="menu_sav_seta" sid="566867401734213">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="437050419034156" speed="5">
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.518519" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\menu\choose your dipshit\seta.png">
+                                <collision-poly>
+                                    <point x="0.0384615" y="0.037037" />
+                                    <point x="0.961538" y="0.481481" />
+                                    <point x="0.730769" y="0.740741" />
+                                    <point x="0.5" y="0.851852" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.481481" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                        <animation framecount="2" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="641608914368032" speed="15">
+                            <frame duration="1" hotspotX="0.384615" hotspotY="0.518519">
+                                <collision-poly>
+                                    <point x="0.0384615" y="0.037037" />
+                                    <point x="0.961538" y="0.481481" />
+                                    <point x="0.730769" y="0.740741" />
+                                    <point x="0.5" y="0.851852" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.481481" />
+                                </collision-poly>
+                            </frame>
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.518519">
+                                <collision-poly>
+                                    <point x="0.0384615" y="0.037037" />
+                                    <point x="0.961538" y="0.481481" />
+                                    <point x="0.730769" y="0.740741" />
+                                    <point x="0.5" y="0.851852" />
+                                    <point x="0" y="1" />
+                                    <point x="0" y="0.481481" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="menu_sav_Playtime" sid="824854295161291">
+                    <plugin id="Text" />
+                    <instance-variables>
+                        <instance-variable name="saveId" sid="863590538738103" type="number" />
+                    </instance-variables>
+                </object-type>
+                <object-type name="menu_sav_Nivel" sid="486155257215235">
+                    <plugin id="Text" />
+                    <instance-variables>
+                        <instance-variable name="saveId" sid="265620663705655" type="number" />
+                    </instance-variables>
+                </object-type>
+                <object-type name="menu_sav_Info" sid="145676111533535">
+                    <plugin id="Text" />
+                    <instance-variables>
+                        <instance-variable name="saveId" sid="751123172355746" type="number" />
+                    </instance-variables>
+                </object-type>
+                <object-type name="menu_sav_bgSave" sid="965145119255524">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="745953791400680" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\menu\save your dipshit\bgSave.png" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type global="1" name="menu_sav_json" sid="896574355329909">
+                    <plugin id="JSON" />
+                </object-type>
+                <object-type name="menu_sav_Delete" sid="808938119968668">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable name="saveId" sid="344965510276211" type="number" />
+                    </instance-variables>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="514960336578863" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\menu\save your dipshit\iconeDeletar.png">
+                                <collision-poly>
+                                    <point x="0.147059" y="0.111111" />
+                                    <point x="0.5" y="0" />
+                                    <point x="0.882353" y="0.0888889" />
+                                    <point x="0.941176" y="0.488889" />
+                                    <point x="0.911765" y="0.933333" />
+                                    <point x="0.5" y="1" />
+                                    <point x="0.176471" y="0.866667" />
+                                    <point x="0.0588235" y="0.488889" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
                 </object-type>
             </object-folder>
             <object-type name="menu_enterButt" sid="810869718539842">
@@ -1138,6 +1236,42 @@
                         <plugin id="NinePatch" />
                         <texture />
                     </object-type>
+                    <object-type name="map_tut_BonitinhoFloor" sid="816928310296257">
+                        <plugin id="Sprite" />
+                        <animation-folder>
+                            <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169018806817370" speed="0">
+                                <frame duration="1" hotspotX="0" hotspotY="0" />
+                                <frame duration="1" hotspotX="0" hotspotY="0" />
+                                <frame duration="1" hotspotX="0" hotspotY="0" />
+                                <frame duration="1" hotspotX="0" hotspotY="0">
+                                    <collision-poly>
+                                        <point x="1" y="1" />
+                                        <point x="0" y="1" />
+                                        <point x="0" y="0" />
+                                        <point x="1" y="0" />
+                                    </collision-poly>
+                                </frame>
+                                <frame duration="1" hotspotX="0" hotspotY="0">
+                                    <collision-poly>
+                                        <point x="1" y="1" />
+                                        <point x="0" y="1" />
+                                        <point x="0" y="0" />
+                                        <point x="1" y="0" />
+                                    </collision-poly>
+                                </frame>
+                                <frame duration="1" hotspotX="0" hotspotY="0" />
+                                <frame duration="1" hotspotX="0" hotspotY="0" />
+                                <frame duration="1" hotspotX="0" hotspotY="0">
+                                    <collision-poly>
+                                        <point x="1" y="1" />
+                                        <point x="0" y="1" />
+                                        <point x="0" y="0" />
+                                        <point x="1" y="0" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                        </animation-folder>
+                    </object-type>
                 </object-folder>
             </object-folder>
             <object-type name="cam_CamZones" sid="856521530886572">
@@ -1195,6 +1329,12 @@
             <object-type name="Photon" sid="564787770356215">
                 <plugin id="Photon" />
             </object-type>
+            <object-type global="1" name="Dictionary" sid="164112650628219">
+                <plugin id="Dictionary" />
+            </object-type>
+            <object-type name="LocalStorage" sid="938701877724480">
+                <plugin id="LocalStorage" />
+            </object-type>
         </object-folder>
         <object-type name="Text" sid="2985603725420557">
             <plugin id="Text" />
@@ -1209,46 +1349,6 @@
                     <effect id="hsladjust" />
                 </effect-type>
             </effects>
-            <texture />
-        </object-type>
-        <object-type name="map_tut_BonitinhoFloor" sid="816928310296257">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169018806817370" speed="0">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="9patch" sid="953337059196668">
-            <plugin id="NinePatch" />
             <texture />
         </object-type>
     </object-folder>
@@ -1343,6 +1443,7 @@
                 <loglevel>INFO</loglevel>
             </properties>
         </global-instance>
+        <global-instance type="LocalStorage" uid="249" />
     </global-instances>
     <sounds-folder>
         <sound-folder name="MENU">

@@ -118,6 +118,10 @@
                                     <param id="0" name="Instance variable">char_isDefaultAnims</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="0" name="Call function" sid="732416368341820" type="Function">
+                                    <param id="0" name="Name">&quot;resetHitboxParams&quot;</param>
+                                    <param id="1" name="Parameter {n}">ply_Hitbox.id{###}ply_Hitbox.char</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <comment>pode girar</comment>
@@ -193,10 +197,6 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="697112396903675" type="ply_Hitbox">
-                                            <param id="0" name="Instance variable">char_CoolVar1</param>
-                                            <param id="1" name="Value">200</param>
-                                        </action>
                                         <action id="-3" name="Create object" sid="391796329877670" type="System">
                                             <param id="0" name="Object to create">ply_Neon</param>
                                             <param id="1" name="Layer">&quot;Player&quot;</param>
@@ -218,10 +218,6 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="786657819648021" type="ply_Hitbox">
-                                            <param id="0" name="Instance variable">char_CoolVar4</param>
-                                            <param id="1" name="Value">12</param>
-                                        </action>
                                         <action id="-3" name="Create object" sid="384226915675470" type="System">
                                             <param id="0" name="Object to create">ply_Sushi</param>
                                             <param id="1" name="Layer">&quot;Player&quot;</param>
@@ -326,7 +322,7 @@
                                             <actions>
                                                 <action id="-10" name="Set value" sid="203988533603307" type="ply_Hitbox">
                                                     <param id="0" name="Instance variable">char_CoolVar1</param>
-                                                    <param id="1" name="Value">200</param>
+                                                    <param id="1" name="Value">400</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1601,7 +1597,7 @@
                                                                     <param id="1" name="Value">1</param>
                                                                 </action>
                                                                 <action behavior="SonicPhysics" id="11" name="Set vector X" sid="848576645601303" type="ply_Hitbox">
-                                                                    <param id="0" name="Vector X">Self.char_CoolVar4 * -0.5</param>
+                                                                    <param id="0" name="Vector X">Self.char_CoolVar4 * -0.325</param>
                                                                 </action>
                                                                 <action behavior="SonicPhysics" id="12" name="Set vector Y" sid="438277734616975" type="ply_Hitbox">
                                                                     <param id="0" name="Vector Y">abs(Self.char_CoolVar4) * -0.35</param>
@@ -1687,6 +1683,10 @@
                                                         </condition>
                                                     </conditions>
                                                     <actions>
+                                                        <action id="-10" name="Set value" sid="762221396251587" type="ply_Hitbox">
+                                                            <param id="0" name="Instance variable">char_CoolVar1</param>
+                                                            <param id="1" name="Value">400</param>
+                                                        </action>
                                                         <action id="-10" name="Set value" sid="268603638903401" type="ply_Hitbox">
                                                             <param id="0" name="Instance variable">char_CoolVar2</param>
                                                             <param id="1" name="Value">1</param>
@@ -1832,10 +1832,6 @@
                                                                 <action id="-10" name="Set value" sid="660681205755926" type="ply_Hitbox">
                                                                     <param id="0" name="Instance variable">char_CoolVar2</param>
                                                                     <param id="1" name="Value">0</param>
-                                                                </action>
-                                                                <action id="-10" name="Set value" sid="824544507666595" type="ply_Hitbox">
-                                                                    <param id="0" name="Instance variable">char_CoolVar1</param>
-                                                                    <param id="1" name="Value">200</param>
                                                                 </action>
                                                                 <action id="-13" name="Set boolean" sid="956214570340187" type="ply_Hitbox">
                                                                     <param id="0" name="Instance variable">char_isDefaultAnims</param>

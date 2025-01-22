@@ -208,10 +208,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>736</x>
+                        <x>768</x>
                         <y>224</y>
                         <z>0</z>
-                        <width>288</width>
+                        <width>256</width>
                         <height>160</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -242,10 +242,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>832</x>
+                        <x>896</x>
                         <y>160</y>
                         <z>0</z>
-                        <width>288</width>
+                        <width>224</width>
                         <height>160</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -468,7 +468,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4672</x>
+                        <x>5152</x>
                         <y>736</y>
                         <z>0</z>
                         <width>480</width>
@@ -490,20 +490,20 @@
                     <behavior-instances>
                         <behavior-instance type="Solid">
                             <properties>
-                                <initial-state>Enabled</initial-state>
+                                <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Jumpthru">
                             <properties>
-                                <initial-state>Disabled</initial-state>
+                                <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4320</x>
-                        <y>480</y>
+                        <x>4640</x>
+                        <y>608</y>
                         <z>0</z>
                         <width>224</width>
                         <height>32</height>
@@ -570,7 +570,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4928</x>
+                        <x>5408</x>
                         <y>352</y>
                         <z>0</z>
                         <width>1472</width>
@@ -604,42 +604,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4576</x>
+                        <x>5056</x>
                         <y>736</y>
-                        <z>0</z>
-                        <width>96</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="hit_Solid" uid="171">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Solid">
-                            <properties>
-                                <initial-state>Disabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Jumpthru">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>4096</x>
-                        <y>320</y>
                         <z>0</z>
                         <width>96</width>
                         <height>32</height>
@@ -672,11 +638,113 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4352</x>
+                        <x>4192</x>
                         <y>224</y>
                         <z>0</z>
-                        <width>480</width>
+                        <width>640</width>
                         <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="hit_Solid" uid="195">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4384</x>
+                        <y>544</y>
+                        <z>0</z>
+                        <width>96</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="hit_Solid" uid="179">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4160</x>
+                        <y>480</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="hit_Solid" uid="171">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Jumpthru">
+                            <properties>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>3936</x>
+                        <y>448</y>
+                        <z>0</z>
+                        <width>32</width>
+                        <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -703,6 +771,28 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="map_tut_BonitinhoFloor" uid="232">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>5</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4416</x>
+                        <y>256</y>
+                        <z>0</z>
+                        <width>96</width>
+                        <height>736</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="map_tut_CoisoEmCima" uid="132">
                     <properties>
                         <left-margin>3</left-margin>
@@ -718,10 +808,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
+                        <x>-32</x>
                         <y>352</y>
                         <z>0</z>
-                        <width>640</width>
+                        <width>672</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -747,7 +837,7 @@
                         <x>640</x>
                         <y>288</y>
                         <z>0</z>
-                        <width>96</width>
+                        <width>128</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -770,10 +860,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>736</x>
+                        <x>768</x>
                         <y>224</y>
                         <z>0</z>
-                        <width>96</width>
+                        <width>128</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -796,10 +886,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>832</x>
+                        <x>896</x>
                         <y>160</y>
                         <z>0</z>
-                        <width>288</width>
+                        <width>224</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -917,7 +1007,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>736</x>
+                        <x>768</x>
                         <y>256</y>
                         <z>0</z>
                         <width>96</width>
@@ -939,7 +1029,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>832</x>
+                        <x>896</x>
                         <y>192</y>
                         <z>0</z>
                         <width>96</width>
@@ -1194,7 +1284,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4672</x>
+                        <x>5152</x>
                         <y>736</y>
                         <z>0</z>
                         <width>256</width>
@@ -1220,8 +1310,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4320</x>
-                        <y>480</y>
+                        <x>4640</x>
+                        <y>608</y>
                         <z>0</z>
                         <width>224</width>
                         <height>32</height>
@@ -1241,11 +1331,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4384</x>
-                        <y>512</y>
+                        <x>4704</x>
+                        <y>640</y>
                         <z>0</z>
                         <width>96</width>
-                        <height>480</height>
+                        <height>352</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -1294,7 +1384,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4928</x>
+                        <x>5408</x>
                         <y>352</y>
                         <z>0</z>
                         <width>1472</width>
@@ -1320,7 +1410,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4576</x>
+                        <x>5056</x>
                         <y>736</y>
                         <z>0</z>
                         <width>96</width>
@@ -1495,7 +1585,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4928</x>
+                        <x>5408</x>
                         <y>384</y>
                         <z>0</z>
                         <width>96</width>
@@ -1517,7 +1607,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4672</x>
+                        <x>5152</x>
                         <y>768</y>
                         <z>0</z>
                         <width>96</width>
@@ -1539,7 +1629,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5280</x>
+                        <x>5760</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -1561,7 +1651,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5280</x>
+                        <x>5760</x>
                         <y>864</y>
                         <z>0</z>
                         <width>96</width>
@@ -1583,7 +1673,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4704</x>
+                        <x>5184</x>
                         <y>800</y>
                         <z>0</z>
                         <width>96</width>
@@ -1605,7 +1695,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4960</x>
+                        <x>5440</x>
                         <y>672</y>
                         <z>0</z>
                         <width>96</width>
@@ -1705,28 +1795,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="195">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>4416</x>
-                        <y>544</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="map_tut_BonitinhoFloor" uid="197">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -1737,7 +1805,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4416</x>
+                        <x>4736</x>
                         <y>672</y>
                         <z>0</z>
                         <width>32</width>
@@ -1759,7 +1827,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4416</x>
+                        <x>4736</x>
                         <y>800</y>
                         <z>0</z>
                         <width>32</width>
@@ -1781,7 +1849,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4960</x>
+                        <x>5440</x>
                         <y>608</y>
                         <z>0</z>
                         <width>32</width>
@@ -1803,7 +1871,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5024</x>
+                        <x>5504</x>
                         <y>544</y>
                         <z>0</z>
                         <width>32</width>
@@ -1825,7 +1893,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4960</x>
+                        <x>5440</x>
                         <y>480</y>
                         <z>0</z>
                         <width>32</width>
@@ -1847,7 +1915,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5024</x>
+                        <x>5504</x>
                         <y>416</y>
                         <z>0</z>
                         <width>32</width>
@@ -1869,7 +1937,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5440</x>
+                        <x>5920</x>
                         <y>416</y>
                         <z>0</z>
                         <width>32</width>
@@ -1891,7 +1959,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5632</x>
+                        <x>6112</x>
                         <y>480</y>
                         <z>0</z>
                         <width>32</width>
@@ -1913,7 +1981,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5824</x>
+                        <x>6304</x>
                         <y>416</y>
                         <z>0</z>
                         <width>32</width>
@@ -1935,7 +2003,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>6016</x>
+                        <x>6496</x>
                         <y>480</y>
                         <z>0</z>
                         <width>32</width>
@@ -1957,7 +2025,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>6208</x>
+                        <x>6688</x>
                         <y>416</y>
                         <z>0</z>
                         <width>32</width>
@@ -1979,7 +2047,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>6080</x>
+                        <x>6560</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -2001,7 +2069,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>6272</x>
+                        <x>6752</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -2023,7 +2091,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5888</x>
+                        <x>6368</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -2045,7 +2113,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5504</x>
+                        <x>5984</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -2067,7 +2135,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5696</x>
+                        <x>6176</x>
                         <y>416</y>
                         <z>0</z>
                         <width>96</width>
@@ -2089,8 +2157,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5760</x>
-                        <y>608</y>
+                        <x>5664</x>
+                        <y>576</y>
                         <z>0</z>
                         <width>32</width>
                         <height>64</height>
@@ -2111,8 +2179,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5824</x>
-                        <y>704</y>
+                        <x>5728</x>
+                        <y>672</y>
                         <z>0</z>
                         <width>96</width>
                         <height>32</height>
@@ -2133,8 +2201,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>5952</x>
-                        <y>608</y>
+                        <x>5856</x>
+                        <y>576</y>
                         <z>0</z>
                         <width>32</width>
                         <height>64</height>
@@ -2142,32 +2210,6 @@
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
                         <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="map_tut_CoisoEmCima" uid="172">
-                    <properties>
-                        <left-margin>3</left-margin>
-                        <right-margin>3</right-margin>
-                        <top-margin>3</top-margin>
-                        <bottom-margin>3</bottom-margin>
-                        <edges>Stretch</edges>
-                        <fill>Stretch</fill>
-                        <initial-visibility>Visible</initial-visibility>
-                        <hotspot>Top-left</hotspot>
-                        <seams>Overlap</seams>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>4096</x>
-                        <y>320</y>
-                        <z>0</z>
-                        <width>96</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -2186,14 +2228,36 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4352</x>
+                        <x>4192</x>
                         <y>224</y>
                         <z>0</z>
-                        <width>480</width>
+                        <width>640</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="map_tut_BonitinhoFloor" uid="231">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>7</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4736</x>
+                        <y>928</y>
+                        <z>0</z>
+                        <width>32</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -2207,8 +2271,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4384</x>
-                        <y>256</y>
+                        <x>4448</x>
+                        <y>288</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2229,30 +2293,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4416</x>
-                        <y>288</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="179">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
                         <x>4448</x>
-                        <y>256</y>
+                        <y>416</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2273,8 +2315,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4480</x>
-                        <y>288</y>
+                        <x>4448</x>
+                        <y>672</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2295,8 +2337,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4512</x>
-                        <y>256</y>
+                        <x>4448</x>
+                        <y>800</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2317,8 +2359,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4544</x>
-                        <y>288</y>
+                        <x>4448</x>
+                        <y>928</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2339,8 +2381,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4576</x>
-                        <y>256</y>
+                        <x>4544</x>
+                        <y>416</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2361,8 +2403,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4608</x>
-                        <y>288</y>
+                        <x>4576</x>
+                        <y>384</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2383,8 +2425,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4640</x>
-                        <y>256</y>
+                        <x>4608</x>
+                        <y>352</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2396,6 +2438,28 @@
                     </world>
                 </instance>
                 <instance type="map_tut_BonitinhoFloor" uid="219">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>7</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4640</x>
+                        <y>320</y>
+                        <z>0</z>
+                        <width>32</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="map_tut_BonitinhoFloor" uid="220">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -2417,7 +2481,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="220">
+                <instance type="map_tut_BonitinhoFloor" uid="221">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -2439,28 +2503,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="221">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>4736</x>
-                        <y>288</y>
-                        <z>0</z>
-                        <width>32</width>
-                        <height>32</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="map_tut_BonitinhoFloor" uid="222">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -2471,7 +2513,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4768</x>
+                        <x>4608</x>
                         <y>256</y>
                         <z>0</z>
                         <width>32</width>
@@ -2493,8 +2535,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4704</x>
-                        <y>320</y>
+                        <x>4576</x>
+                        <y>288</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2515,7 +2557,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4640</x>
+                        <x>4544</x>
                         <y>320</y>
                         <z>0</z>
                         <width>32</width>
@@ -2537,8 +2579,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4576</x>
-                        <y>320</y>
+                        <x>4512</x>
+                        <y>352</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2560,7 +2602,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>4512</x>
-                        <y>320</y>
+                        <y>448</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -2571,69 +2613,81 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="227">
+                <instance type="map_tut_CoisoEmCima" uid="227">
                     <properties>
+                        <left-margin>3</left-margin>
+                        <right-margin>3</right-margin>
+                        <top-margin>3</top-margin>
+                        <bottom-margin>3</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4448</x>
-                        <y>320</y>
+                        <x>4384</x>
+                        <y>544</y>
                         <z>0</z>
-                        <width>32</width>
+                        <width>96</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="228">
+                <instance type="map_tut_CoisoEmCima" uid="228">
                     <properties>
+                        <left-margin>3</left-margin>
+                        <right-margin>3</right-margin>
+                        <top-margin>3</top-margin>
+                        <bottom-margin>3</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4512</x>
-                        <y>352</y>
+                        <x>4160</x>
+                        <y>480</y>
                         <z>0</z>
-                        <width>32</width>
+                        <width>64</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="map_tut_BonitinhoFloor" uid="229">
+                <instance type="map_tut_CoisoEmCima" uid="172">
                     <properties>
+                        <left-margin>3</left-margin>
+                        <right-margin>3</right-margin>
+                        <top-margin>3</top-margin>
+                        <bottom-margin>3</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>7</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4640</x>
-                        <y>352</y>
+                        <x>3936</x>
+                        <y>416</y>
                         <z>0</z>
                         <width>32</width>
-                        <height>32</height>
+                        <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -2776,7 +2830,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>4352</x>
+                        <x>4160</x>
                         <y>608</y>
                         <z>0</z>
                         <width>166</width>
@@ -2847,6 +2901,50 @@
                         <z>0</z>
                         <width>166</width>
                         <height>117</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="obj_morrerBlock" uid="130">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4704</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>160</width>
+                        <height>46</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="obj_morrerBlock" uid="131">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>4928</x>
+                        <y>896</y>
+                        <z>0</z>
+                        <width>160</width>
+                        <height>46</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
