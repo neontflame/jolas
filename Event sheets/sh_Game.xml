@@ -256,10 +256,6 @@
                     <actions>
                         <action id="-9" name="Destroy" sid="728283521596470" type="ply_Hitbox" />
                         <action id="-9" name="Destroy" sid="943050663032168" type="PlayerSprites" />
-                        <action disabled="1" id="0" name="Call function" sid="458539398828503" type="Function">
-                            <param id="0" name="Name">&quot;createHitbox&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;id da hitbox&quot;{###}&quot;CHAR (4 letras)&quot;{###}&quot;peso (mult)&quot;{###}&quot;accel (mult)&quot;{###}&quot;decel (mult)&quot;{###}&quot;vel maxima (mult)&quot;{###}&quot;fricçao (mult)&quot;{###}&quot;pode girar? (0 ou 1)&quot;{###}&quot;tem especial 2? (0 ou 1)&quot;{###}&quot;resistencia&quot;{###}&quot;largura (mult)&quot;{###}&quot;altura (mult)&quot;{###}&quot;decel ar (add)&quot;{###}&quot;decel girando (add)&quot;</param>
-                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="985100416237489">

@@ -4,7 +4,7 @@
     <name>sh_Menu</name>
     <events>
         <include>sh_Utils</include>
-        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">NEON</variable>
+        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">SONC</variable>
         <variable constant="0" name="curSelect" sid="480314784115682" static="0" type="number">0</variable>
         <variable constant="0" name="curSave" sid="771023290880218" static="0" type="number">0</variable>
         <event-group description="" sid="486007233636215" title="Menu">
@@ -46,11 +46,6 @@
                                     <param id="0" name="Instance variable">initX</param>
                                     <param id="1" name="Value">Self.X</param>
                                 </action>
-                                <action id="1" name="Set size" sid="550758700846191" type="menu_CharArray">
-                                    <param id="0" name="Width">3</param>
-                                    <param id="1" name="Height">3</param>
-                                    <param id="2" name="Depth">1</param>
-                                </action>
                                 <action id="0" name="Call function" sid="249195766349396" type="Function">
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
                                     <param id="1" name="Parameter {n}">0{###}&quot;NEON&quot;{###}&quot;Neon T. Flame&quot;{###}&quot;um dos maluco que ta tentando achar a chave da mansao do hawnt&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Self-Meteor: aperte o botao E1 para se jogar em qualquer coisa que estiver na sua frente - carregavel!&quot;</param>
@@ -61,7 +56,7 @@
                                 </action>
                                 <action id="0" name="Call function" sid="446860451507236" type="Function">
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
-                                    <param id="1" name="Parameter {n}">2{###}&quot;SUSH&quot;{###}&quot;Terceira Entry&quot;{###}&quot;pq eu precisava de mais um pra testar&quot;</param>
+                                    <param id="1" name="Parameter {n}">2{###}&quot;SONC&quot;{###}&quot;Sonic the Hedgehog&quot;{###}&quot;o organismo mais rapido vivo&quot; &amp; newline &amp; newline &amp; &quot;Spindash: segure o botao E1 enquanto voce estiver pressionando a tecla baixo pra carregar - ao soltar voce sera propulsionado pra frente enquanto gira&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -205,6 +200,11 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="1" name="Set size" sid="725782929199828" type="menu_CharArray">
+                                    <param id="0" name="Width">Function.Call(&quot;largerValue&quot;, menu_CharArray.Width, Function.Param(0) + 1)</param>
+                                    <param id="1" name="Height">3</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
                                 <action id="3" name="Set at XY" sid="297116236998901" type="menu_CharArray">
                                     <param id="0" name="X">Function.Param(0)</param>
                                     <param id="1" name="Y">0</param>

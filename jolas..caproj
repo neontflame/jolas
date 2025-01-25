@@ -193,6 +193,19 @@
                                 </collision-poly>
                             </frame>
                         </animation>
+                        <animation framecount="1" loop="0" name="SONC" pingpong="0" repeatcount="1" repeatto="0" sid="342683620165779" speed="5">
+                            <frame duration="1" hotspotX="0.625" hotspotY="0.875" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic idle.png">
+                                <collision-poly>
+                                    <point x="0.5" y="0.147059" />
+                                    <point x="0.779412" y="0.147059" />
+                                    <point x="0.955882" y="0.5" />
+                                    <point x="0.897059" y="0.931373" />
+                                    <point x="0.5" y="0.95098" />
+                                    <point x="0.102941" y="0.931373" />
+                                    <point x="0.117647" y="0.5" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
                     </animation-folder>
                 </object-type>
                 <object-type global="1" name="menu_CharArray" sid="562905575717698">
@@ -692,6 +705,92 @@
                             </animation>
                         </animation-folder>
                     </object-type>
+                    <object-type name="ply_Sonic" sid="910329665188770">
+                        <plugin id="Sprite" />
+                        <animation-folder>
+                            <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="708756925610833" speed="5">
+                                <frame duration="1" hotspotX="0.6125" hotspotY="0.890625" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic idle.png">
+                                    <collision-poly>
+                                        <point x="0.5" y="0.147059" />
+                                        <point x="0.779412" y="0.147059" />
+                                        <point x="0.955882" y="0.5" />
+                                        <point x="0.897059" y="0.931373" />
+                                        <point x="0.5" y="0.95098" />
+                                        <point x="0.102941" y="0.931373" />
+                                        <point x="0.117647" y="0.5" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="6" loop="1" name="Walk" pingpong="0" repeatcount="1" repeatto="0" sid="541692846971748" speed="10">
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0001.png" />
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0002.png" />
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0003.png" />
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0004.png" />
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0005.png" />
+                                <frame duration="1" hotspotX="0.546219" hotspotY="0.990909" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic walk0006.png" />
+                            </animation>
+                            <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="799561033676603" speed="20">
+                                <frame duration="1" hotspotX="0.515152" hotspotY="0.99" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic run0001.png" />
+                                <frame duration="1" hotspotX="0.515152" hotspotY="0.99" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic run0002.png" />
+                                <frame duration="1" hotspotX="0.515152" hotspotY="0.99" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic run0003.png" />
+                                <frame duration="1" hotspotX="0.515152" hotspotY="0.99" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic run0004.png" />
+                            </animation>
+                            <animation framecount="8" loop="1" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="477225792548826" speed="10">
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0001.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0002.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0003.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0004.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0005.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0006.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0007.png" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="1.04444" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonic spin0008.png" />
+                            </animation>
+                            <animation framecount="2" loop="0" name="Hurt" pingpong="0" repeatcount="1" repeatto="0" sid="832781486679340" speed="15">
+                                <frame duration="1" hotspotX="0.508772" hotspotY="1.01163" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon Yeouch0001.png" />
+                                <frame duration="1" hotspotX="0.508772" hotspotY="1.01163" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon Yeouch0002.png" />
+                            </animation>
+                            <animation framecount="1" loop="0" name="Brake" pingpong="0" repeatcount="1" repeatto="0" sid="633736035623145" speed="5">
+                                <frame duration="1" hotspotX="0.507937" hotspotY="0.975207" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonicBrake.png">
+                                    <collision-poly>
+                                        <point x="0.5" y="0.147059" />
+                                        <point x="0.779412" y="0.147059" />
+                                        <point x="0.955882" y="0.5" />
+                                        <point x="0.897059" y="0.931373" />
+                                        <point x="0.5" y="0.95098" />
+                                        <point x="0.102941" y="0.931373" />
+                                        <point x="0.117647" y="0.5" />
+                                    </collision-poly>
+                                </frame>
+                            </animation>
+                            <animation framecount="4" loop="1" name="BigHurt" pingpong="0" repeatcount="1" repeatto="0" sid="492865487613230" speed="15">
+                                <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0001.png">
+                                    <collision-poly>
+                                        <point x="0.230089" y="0.236364" />
+                                        <point x="0.495575" y="0.00909091" />
+                                        <point x="0.707965" y="0.3" />
+                                        <point x="0.672566" y="0.5" />
+                                        <point x="0.761062" y="0.754545" />
+                                        <point x="0.495575" y="0.854545" />
+                                        <point x="0.292035" y="0.7" />
+                                        <point x="0.274336" y="0.5" />
+                                    </collision-poly>
+                                </frame>
+                                <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0002.png" />
+                                <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0003.png" />
+                                <frame duration="1" hotspotX="0.504425" hotspotY="0.854545" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\neon\neon sonicBattleSpin0004.png" />
+                            </animation>
+                            <animation framecount="8" loop="1" name="Roll" pingpong="0" repeatcount="1" repeatto="0" sid="364819585181639" speed="10">
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                                <frame duration="1" hotspotX="0.505618" hotspotY="0.944444" />
+                            </animation>
+                        </animation-folder>
+                    </object-type>
                 </object-folder>
                 <object-type name="ply_Hitbox" sid="430080068316583">
                     <plugin id="Sprite" />
@@ -704,8 +803,7 @@
                         <instance-variable name="anim_isMirrored" sid="776075824487687" type="boolean" />
                         <instance-variable name="anim_shakeForce" sid="927472165079228" type="number" />
                         <instance-variable name="char_Resistance" sid="841908859357806" type="number" />
-                        <instance-variable name="char_canRoll" sid="875587263826949" type="boolean" />
-                        <instance-variable name="char_hasSpecial2" sid="734477514164817" type="boolean" />
+                        <instance-variable name="char_Rollable" sid="748148996590568" type="number" />
                         <instance-variable name="char_CoolVar1" sid="896077597686743" type="number" />
                         <instance-variable name="char_CoolVar2" sid="492372564373765" type="number" />
                         <instance-variable name="char_CoolVar3" sid="783515058683496" type="number" />
@@ -722,6 +820,7 @@
                         <instance-variable name="gim_combo" sid="473860827856782" type="number" />
                         <instance-variable name="gim_comboTimer" sid="547257782886363" type="number" />
                         <instance-variable name="etc_DeathCoefficient" sid="586739250118010" type="number" />
+                        <instance-variable name="etc_isBraking" sid="194715154134937" type="boolean" />
                     </instance-variables>
                     <behaviors>
                         <behavior-type name="SonicPhysics" sid="775282999167726">
@@ -899,6 +998,20 @@
                         </animation>
                         <animation framecount="1" loop="0" name="SUSH" pingpong="0" repeatcount="1" repeatto="0" sid="959067190303328" speed="0">
                             <frame duration="1" hotspotX="-0.0405405" hotspotY="-0.103448" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\HUD\char icons\sushi icon.png" />
+                        </animation>
+                        <animation framecount="1" loop="0" name="SONC" pingpong="0" repeatcount="1" repeatto="0" sid="710176039137578" speed="0">
+                            <frame duration="1" hotspotX="0.0967742" hotspotY="-0.121212" original-source="C:\Users\Neon\Desktop\CAPXs\jolas mmoing\chars\sonic\sonicon.png">
+                                <collision-poly>
+                                    <point x="0.212121" y="0.253012" />
+                                    <point x="0.494949" y="0.277108" />
+                                    <point x="0.707071" y="0.349398" />
+                                    <point x="0.777778" y="0.493976" />
+                                    <point x="0.777778" y="0.73494" />
+                                    <point x="0.494949" y="0.927711" />
+                                    <point x="0.151515" y="0.819277" />
+                                    <point x="0.050505" y="0.493976" />
+                                </collision-poly>
+                            </frame>
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -1356,6 +1469,7 @@
         <family name="PlayerSprites" plugin-id="Sprite" sid="685820396969351">
             <members>
                 <member>ply_Neon</member>
+                <member>ply_Sonic</member>
                 <member>ply_Sushi</member>
             </members>
             <instance-variables>
@@ -1440,7 +1554,7 @@
                 <region>sa</region>
                 <hosttype>Photon Cloud</hosttype>
                 <selfhostedaddress>localhost:9090</selfhostedaddress>
-                <loglevel>INFO</loglevel>
+                <loglevel>ERROR</loglevel>
             </properties>
         </global-instance>
         <global-instance type="LocalStorage" uid="249" />
@@ -1460,6 +1574,8 @@
                 <file name="Jump 2.ogg" />
                 <file name="skidding.m4a" />
                 <file name="skidding.ogg" />
+                <file name="Rolling.m4a" />
+                <file name="Rolling.ogg" />
             </sound-folder>
         </sound-folder>
     </sounds-folder>

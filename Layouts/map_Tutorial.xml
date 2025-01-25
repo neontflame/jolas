@@ -2987,8 +2987,7 @@
                         <anim_isMirrored>false</anim_isMirrored>
                         <anim_shakeForce>0</anim_shakeForce>
                         <char_Resistance>0</char_Resistance>
-                        <char_canRoll>false</char_canRoll>
-                        <char_hasSpecial2>false</char_hasSpecial2>
+                        <char_Rollable>0</char_Rollable>
                         <char_CoolVar1>0</char_CoolVar1>
                         <char_CoolVar2>0</char_CoolVar2>
                         <char_CoolVar3>0</char_CoolVar3>
@@ -3005,6 +3004,7 @@
                         <gim_combo>0</gim_combo>
                         <gim_comboTimer>0</gim_comboTimer>
                         <etc_DeathCoefficient>0</etc_DeathCoefficient>
+                        <etc_isBraking>false</etc_isBraking>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="SonicPhysics">

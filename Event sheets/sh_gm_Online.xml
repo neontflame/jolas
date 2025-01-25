@@ -4,472 +4,417 @@
     <name>sh_gm_Online</name>
     <events>
         <variable constant="0" name="onlineEnabled" sid="548433108182084" static="0" type="number">0</variable>
-        <variable constant="0" name="roomName" sid="740103586084863" static="0" type="text"></variable>
+        <variable constant="0" name="roomName" sid="740103586084863" static="0" type="text">uwa</variable>
         <event-block sid="872346532451515">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="708135713370723" type="System" />
-                <condition id="-14" name="Compare variable" sid="942331565510445" type="System">
-                    <param id="0" name="Variable">onlineEnabled</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">1</param>
-                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="605470183811467">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="942331565510445" type="System">
+                            <param id="0" name="Variable">onlineEnabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Connect" sid="823722795079747" type="Photon" />
+                        <action id="0" name="Set New Object" sid="242017624953552" type="online_MyChar">
+                            <param id="0" name="Reference point">0</param>
+                            <param id="1" name="Key {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="888831624368083">
+            <conditions>
+                <condition id="22" name="On join lobby" sid="702009785347604" type="Photon" />
             </conditions>
             <actions>
-                <action id="-12" name="Set group active" sid="683207022365257" type="System">
-                    <param id="0" name="Group name">&quot;OnlineMultiplayer&quot;</param>
-                    <param id="1" name="State">1</param>
+                <action id="13" name="Join random room" sid="269927486913282" type="Photon">
+                    <param id="0" name="MatchMyRoom">0</param>
+                    <param id="1" name="MatchmakingMode">0</param>
+                    <param id="2" name="LobbyName">&quot;&quot;</param>
+                    <param id="3" name="LobbyType">0</param>
+                    <param id="4" name="SqlLobbyFilter">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
-        <event-group description="" inactive="1" sid="796384898782648" title="OnlineMultiplayer">
+        <event-block sid="307579147763676">
+            <conditions>
+                <condition id="23" name="On joinRandomRoom no match found" sid="302106312616518" type="Photon" />
+            </conditions>
+            <actions>
+                <action id="11" name="Create room" sid="872749874718699" type="Photon">
+                    <param id="0" name="Room">roomName</param>
+                    <param id="1" name="LobbyName">&quot;&quot;</param>
+                    <param id="2" name="LobbyType">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="865548628913514">
+            <conditions>
+                <condition id="14" name="On join room" sid="548874163742914" type="Photon" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="215862739389561" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="17" name="Raise event" sid="531236814735629" type="Photon">
+                    <param id="0" name="Code">1</param>
+                    <param id="1" name="Data">curChar</param>
+                    <param id="2" name="InterestGroup">0</param>
+                    <param id="3" name="Cache">4</param>
+                    <param id="4" name="Receivers">0</param>
+                    <param id="5" name="TargetActors">&quot;&quot;</param>
+                    <param id="6" name="WebForward">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="424480772631113" type="System">
+                    <param id="0" name="Variable">focusedHitboxId</param>
+                    <param id="1" name="Value">Photon.MyActorNr</param>
+                </action>
+                <action id="0" name="Call function" sid="941718252638750" type="Function">
+                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
+                    <param id="1" name="Parameter {n}">Photon.MyActorNr{###}curChar</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="853260890090697" title="OnlineMulti&gt;Events&gt;Send">
             <sub-events>
-                <event-group description="" sid="714738051161263" title="OnlineMulti&gt;Connecting">
+                <comment>POSITION N SHIT</comment>
+                <event-block sid="356344123520476">
+                    <conditions />
+                    <actions>
+                        <action id="20" name="Set Value" sid="777464423784015" type="online_MyChar">
+                            <param id="0" name="Value">Photon.MyActorNr</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;id&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="473257164332084" type="online_MyChar">
+                            <param id="0" name="Value">LayoutName</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;layout&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="340768545867784" type="online_MyChar">
+                            <param id="0" name="Value">xp</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;xp&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="970856327033350" type="online_MyChar">
+                            <param id="0" name="Value">lv</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;lv&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="333010374949428">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="418652145452384" type="PlayerSprites">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">Photon.MyActorNr</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="20" name="Set Value" sid="395740397747736" type="online_MyChar">
+                            <param id="0" name="Value">PlayerSprites.X</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;x&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="182328739680811" type="online_MyChar">
+                            <param id="0" name="Value">PlayerSprites.Y</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;y&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="985080464846549" type="online_MyChar">
+                            <param id="0" name="Value">PlayerSprites.Angle</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;angle&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="740921037513336" type="online_MyChar">
+                            <param id="0" name="Value">PlayerSprites.AnimationFrame</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;animframe&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="713579441901616">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="829837980343768" type="ply_Hitbox">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">Photon.MyActorNr</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="20" name="Set Value" sid="123781970074320" type="online_MyChar">
+                            <param id="0" name="Value">ply_Hitbox.anim_isMirrored</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;animmirrored&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="741184252783880" type="online_MyChar">
+                            <param id="0" name="Value">ply_Hitbox.anim_name</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;animname&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="535693398151799" type="online_MyChar">
+                            <param id="0" name="Value">ply_Hitbox.anim_speed</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;animspeed&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="192889065716241" type="online_MyChar">
+                            <param id="0" name="Value">ply_Hitbox.hp</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;hp&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="306890958708370">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="427927946877317" type="System">
+                            <param id="0" name="Interval (seconds)">0.025</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="17" name="Raise event" sid="996498232070261" type="Photon">
+                            <param id="0" name="Code">10</param>
+                            <param id="1" name="Data">online_MyChar.AsJson(0)</param>
+                            <param id="2" name="InterestGroup">0</param>
+                            <param id="3" name="Cache">0</param>
+                            <param id="4" name="Receivers">0</param>
+                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                            <param id="6" name="WebForward">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="300321538271464">
+                    <conditions>
+                        <condition id="0" name="On function" sid="665149016316021" type="Function">
+                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="641667837779407" type="System">
+                            <param id="0" name="First value">Photon.MyActorNr</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="17" name="Raise event" sid="653519696371476" type="Photon">
+                            <param id="0" name="Code">50</param>
+                            <param id="1" name="Data">Function.Param(0) &amp; &quot;|&quot; &amp; Function.Param(1) &amp; &quot;|&quot; &amp; Function.Param(2) &amp; &quot;|&quot; &amp; Function.Param(3) </param>
+                            <param id="2" name="InterestGroup">0</param>
+                            <param id="3" name="Cache">0</param>
+                            <param id="4" name="Receivers">0</param>
+                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                            <param id="6" name="WebForward">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="708669280305963">
+                    <conditions>
+                        <condition id="0" name="On function" sid="976801678409518" type="Function">
+                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="17" name="Raise event" sid="509945454398471" type="Photon">
+                            <param id="0" name="Code">51</param>
+                            <param id="1" name="Data">Function.Param(0)</param>
+                            <param id="2" name="InterestGroup">0</param>
+                            <param id="3" name="Cache">0</param>
+                            <param id="4" name="Receivers">0</param>
+                            <param id="5" name="TargetActors">&quot;&quot;</param>
+                            <param id="6" name="WebForward">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="558422655852617">
+                    <conditions>
+                        <condition id="0" name="On function" sid="107785070104922" type="Function">
+                            <param id="0" name="Name">&quot;increaseCombo&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="245133719012796" type="System">
+                            <param id="0" name="First value">Photon.MyActorNr</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="17" name="Raise event" sid="626126354114674" type="Photon">
+                            <param id="0" name="Code">11</param>
+                            <param id="1" name="Data">Function.Param(0) &amp; &quot;|&quot; &amp; Function.Param(1)</param>
+                            <param id="2" name="InterestGroup">0</param>
+                            <param id="3" name="Cache">0</param>
+                            <param id="4" name="Receivers">0</param>
+                            <param id="5" name="TargetActors">Function.Param(0)</param>
+                            <param id="6" name="WebForward">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="637800466554133" title="OnlineMulti&gt;Events&gt;Receive">
+            <sub-events>
+                <comment>CREATE CHAR for others</comment>
+                <event-block sid="663174257109773">
+                    <conditions>
+                        <condition id="3" name="On event" sid="757538910220277" type="Photon">
+                            <param id="0" name="Code">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="835684718057096" type="Function">
+                            <param id="0" name="Name">&quot;createCharacterSprites&quot;</param>
+                            <param id="1" name="Parameter {n}">Photon.ActorNr{###}Photon.EventData</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="240389205985469">
+                    <conditions>
+                        <condition id="3" name="On event" sid="131439136051601" type="Photon">
+                            <param id="0" name="Code">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="60" name="LoadJSON" sid="181253320061726" type="online_OtherChars">
+                            <param id="0" name="JSON">Photon.EventData</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}"></param>
+                        </action>
+                    </actions>
                     <sub-events>
-                        <event-block sid="605470183811467">
+                        <event-block sid="794521176008332">
                             <conditions>
-                                <condition id="31" inverted="1" name="Is connected to Nameserver" sid="787211713411920" type="Photon" />
+                                <condition id="-7" name="Compare instance variable" sid="667384503237482" type="PlayerSprites">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">online_OtherChars.Value(0, &quot;id&quot;)</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action id="10" name="Connect" sid="823722795079747" type="Photon" />
-                                <action id="0" name="Set New Object" sid="242017624953552" type="online_MyChar">
-                                    <param id="0" name="Reference point">0</param>
-                                    <param id="1" name="Key {n}"></param>
+                                <action id="-3" name="Set position" sid="546595000743680" type="PlayerSprites">
+                                    <param id="0" name="X">online_OtherChars.Value(0, &quot;x&quot;)</param>
+                                    <param id="1" name="Y">online_OtherChars.Value(0, &quot;y&quot;)</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="217836215649037" type="PlayerSprites">
+                                    <param id="0" name="Angle">online_OtherChars.Value(0, &quot;angle&quot;)</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="551109307998650" type="PlayerSprites">
+                                    <param id="0" name="Animation">online_OtherChars.Value(0, &quot;animname&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="176026567280592" type="PlayerSprites">
+                                    <param id="0" name="Speed">online_OtherChars.Value(0, &quot;animspeed&quot;)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="610895696061722" type="PlayerSprites">
+                                    <param id="0" name="Frame number">online_OtherChars.Value(0, &quot;animframe&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="826054109985298" type="PlayerSprites">
+                                    <param id="0" name="Instance variable">external_xp</param>
+                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;xp&quot;)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="805312905309927" type="PlayerSprites">
+                                    <param id="0" name="Instance variable">external_lv</param>
+                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;lv&quot;)</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <event-block sid="888831624368083">
-                            <conditions>
-                                <condition id="22" name="On join lobby" sid="702009785347604" type="Photon" />
-                            </conditions>
-                            <actions>
-                                <action id="13" name="Join random room" sid="269927486913282" type="Photon">
-                                    <param id="0" name="MatchMyRoom">0</param>
-                                    <param id="1" name="MatchmakingMode">0</param>
-                                    <param id="2" name="LobbyName">&quot;&quot;</param>
-                                    <param id="3" name="LobbyType">0</param>
-                                    <param id="4" name="SqlLobbyFilter">&quot;&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="307579147763676">
-                            <conditions>
-                                <condition id="23" name="On joinRandomRoom no match found" sid="302106312616518" type="Photon" />
-                            </conditions>
-                            <actions>
-                                <action id="11" name="Create room" sid="872749874718699" type="Photon">
-                                    <param id="0" name="Room">roomName</param>
-                                    <param id="1" name="LobbyName">&quot;&quot;</param>
-                                    <param id="2" name="LobbyType">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="865548628913514">
-                            <conditions>
-                                <condition id="14" name="On join room" sid="548874163742914" type="Photon" />
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="424480772631113" type="System">
-                                    <param id="0" name="Variable">focusedHitboxId</param>
-                                    <param id="1" name="Value">Photon.MyActorNr</param>
-                                </action>
-                                <action id="0" name="Call function" sid="941718252638750" type="Function">
-                                    <param id="0" name="Name">&quot;createCharacter&quot;</param>
-                                    <param id="1" name="Parameter {n}">Photon.MyActorNr{###}curChar</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="215862739389561" type="System">
-                                    <param id="0" name="Seconds">0.1</param>
-                                </action>
-                                <action id="17" name="Raise event" sid="531236814735629" type="Photon">
-                                    <param id="0" name="Code">1</param>
-                                    <param id="1" name="Data">curChar</param>
-                                    <param id="2" name="InterestGroup">0</param>
-                                    <param id="3" name="Cache">4</param>
-                                    <param id="4" name="Receivers">0</param>
-                                    <param id="5" name="TargetActors">&quot;&quot;</param>
-                                    <param id="6" name="WebForward">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
-                <event-group description="" sid="606060888764431" title="OnlineMulti&gt;Events">
-                    <sub-events>
-                        <event-group description="" sid="853260890090697" title="OnlineMulti&gt;Events&gt;Send">
                             <sub-events>
-                                <comment>POSITION N SHIT</comment>
-                                <event-block sid="356344123520476">
-                                    <conditions />
-                                    <actions>
-                                        <action id="20" name="Set Value" sid="777464423784015" type="online_MyChar">
-                                            <param id="0" name="Value">Photon.MyActorNr</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;id&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="473257164332084" type="online_MyChar">
-                                            <param id="0" name="Value">LayoutName</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;layout&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="340768545867784" type="online_MyChar">
-                                            <param id="0" name="Value">xp</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;xp&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="970856327033350" type="online_MyChar">
-                                            <param id="0" name="Value">lv</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;lv&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="333010374949428">
+                                <event-block sid="919262903457321">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="418652145452384" type="PlayerSprites">
-                                            <param id="0" name="Instance variable">id</param>
+                                        <condition id="-8" name="Compare two values" sid="772992656274003" type="System">
+                                            <param id="0" name="First value">online_OtherChars.Value(0, &quot;animmirrored&quot;)</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">Photon.MyActorNr</param>
+                                            <param id="2" name="Second value">1</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="20" name="Set Value" sid="395740397747736" type="online_MyChar">
-                                            <param id="0" name="Value">PlayerSprites.X</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;x&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="182328739680811" type="online_MyChar">
-                                            <param id="0" name="Value">PlayerSprites.Y</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;y&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="985080464846549" type="online_MyChar">
-                                            <param id="0" name="Value">PlayerSprites.Angle</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;angle&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="740921037513336" type="online_MyChar">
-                                            <param id="0" name="Value">PlayerSprites.AnimationFrame</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;animframe&quot;</param>
+                                        <action id="7" name="Set mirrored" sid="717582764895740" type="PlayerSprites">
+                                            <param id="0" name="State">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="713579441901616">
+                                <event-block sid="153331612516066">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="829837980343768" type="ply_Hitbox">
-                                            <param id="0" name="Instance variable">id</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">Photon.MyActorNr</param>
-                                        </condition>
+                                        <condition id="-22" name="Else" sid="748147544909838" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="20" name="Set Value" sid="123781970074320" type="online_MyChar">
-                                            <param id="0" name="Value">ply_Hitbox.anim_isMirrored</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;animmirrored&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="741184252783880" type="online_MyChar">
-                                            <param id="0" name="Value">ply_Hitbox.anim_name</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;animname&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="535693398151799" type="online_MyChar">
-                                            <param id="0" name="Value">ply_Hitbox.anim_speed</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;animspeed&quot;</param>
-                                        </action>
-                                        <action id="20" name="Set Value" sid="192889065716241" type="online_MyChar">
-                                            <param id="0" name="Value">ply_Hitbox.hp</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}">&quot;hp&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="306890958708370">
-                                    <conditions>
-                                        <condition id="-6" name="Every X seconds" sid="427927946877317" type="System">
-                                            <param id="0" name="Interval (seconds)">0.025</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="17" name="Raise event" sid="996498232070261" type="Photon">
-                                            <param id="0" name="Code">10</param>
-                                            <param id="1" name="Data">online_MyChar.AsJson(0)</param>
-                                            <param id="2" name="InterestGroup">0</param>
-                                            <param id="3" name="Cache">0</param>
-                                            <param id="4" name="Receivers">0</param>
-                                            <param id="5" name="TargetActors">&quot;&quot;</param>
-                                            <param id="6" name="WebForward">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="300321538271464">
-                                    <conditions>
-                                        <condition id="0" name="On function" sid="665149016316021" type="Function">
-                                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="641667837779407" type="System">
-                                            <param id="0" name="First value">Photon.MyActorNr</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">Function.Param(0)</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="17" name="Raise event" sid="653519696371476" type="Photon">
-                                            <param id="0" name="Code">50</param>
-                                            <param id="1" name="Data">Function.Param(0) &amp; &quot;|&quot; &amp; Function.Param(1) &amp; &quot;|&quot; &amp; Function.Param(2) &amp; &quot;|&quot; &amp; Function.Param(3) </param>
-                                            <param id="2" name="InterestGroup">0</param>
-                                            <param id="3" name="Cache">0</param>
-                                            <param id="4" name="Receivers">0</param>
-                                            <param id="5" name="TargetActors">&quot;&quot;</param>
-                                            <param id="6" name="WebForward">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="708669280305963">
-                                    <conditions>
-                                        <condition id="0" name="On function" sid="976801678409518" type="Function">
-                                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="17" name="Raise event" sid="509945454398471" type="Photon">
-                                            <param id="0" name="Code">51</param>
-                                            <param id="1" name="Data">Function.Param(0)</param>
-                                            <param id="2" name="InterestGroup">0</param>
-                                            <param id="3" name="Cache">0</param>
-                                            <param id="4" name="Receivers">0</param>
-                                            <param id="5" name="TargetActors">&quot;&quot;</param>
-                                            <param id="6" name="WebForward">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="558422655852617">
-                                    <conditions>
-                                        <condition id="0" name="On function" sid="107785070104922" type="Function">
-                                            <param id="0" name="Name">&quot;increaseCombo&quot;</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="245133719012796" type="System">
-                                            <param id="0" name="First value">Photon.MyActorNr</param>
-                                            <param id="1" name="Comparison">1</param>
-                                            <param id="2" name="Second value">Function.Param(0)</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="17" name="Raise event" sid="626126354114674" type="Photon">
-                                            <param id="0" name="Code">11</param>
-                                            <param id="1" name="Data">Function.Param(0) &amp; &quot;|&quot; &amp; Function.Param(1)</param>
-                                            <param id="2" name="InterestGroup">0</param>
-                                            <param id="3" name="Cache">0</param>
-                                            <param id="4" name="Receivers">0</param>
-                                            <param id="5" name="TargetActors">Function.Param(0)</param>
-                                            <param id="6" name="WebForward">0</param>
+                                        <action id="7" name="Set mirrored" sid="982133664184848" type="PlayerSprites">
+                                            <param id="0" name="State">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
-                        </event-group>
-                        <event-group description="" sid="637800466554133" title="OnlineMulti&gt;Events&gt;Receive">
-                            <sub-events>
-                                <comment>CREATE CHAR for others</comment>
-                                <event-block sid="663174257109773">
-                                    <conditions>
-                                        <condition id="3" name="On event" sid="757538910220277" type="Photon">
-                                            <param id="0" name="Code">1</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="305152452720548">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="148909401385043" type="System">
-                                                    <param id="0" name="First value">Photon.EventData</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;NEON&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-3" name="Create object" sid="214289113404755" type="System">
-                                                    <param id="0" name="Object to create">ply_Neon</param>
-                                                    <param id="1" name="Layer">&quot;Player&quot;</param>
-                                                    <param id="2" name="X">0</param>
-                                                    <param id="3" name="Y">0</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="365623781577008" type="ply_Neon">
-                                                    <param id="0" name="Instance variable">id</param>
-                                                    <param id="1" name="Value">Photon.ActorNr</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="905418382438343">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="555407013375478" type="System">
-                                                    <param id="0" name="First value">Photon.EventData</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">&quot;SUSH&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-3" name="Create object" sid="835657954006275" type="System">
-                                                    <param id="0" name="Object to create">ply_Sushi</param>
-                                                    <param id="1" name="Layer">&quot;Player&quot;</param>
-                                                    <param id="2" name="X">0</param>
-                                                    <param id="3" name="Y">0</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="830395292930083" type="ply_Sushi">
-                                                    <param id="0" name="Instance variable">id</param>
-                                                    <param id="1" name="Value">Photon.ActorNr</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <event-block sid="240389205985469">
-                                    <conditions>
-                                        <condition id="3" name="On event" sid="131439136051601" type="Photon">
-                                            <param id="0" name="Code">10</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="60" name="LoadJSON" sid="181253320061726" type="online_OtherChars">
-                                            <param id="0" name="JSON">Photon.EventData</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}"></param>
-                                        </action>
-                                    </actions>
-                                    <sub-events>
-                                        <event-block sid="794521176008332">
-                                            <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="667384503237482" type="PlayerSprites">
-                                                    <param id="0" name="Instance variable">id</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">online_OtherChars.Value(0, &quot;id&quot;)</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-3" name="Set position" sid="546595000743680" type="PlayerSprites">
-                                                    <param id="0" name="X">online_OtherChars.Value(0, &quot;x&quot;)</param>
-                                                    <param id="1" name="Y">online_OtherChars.Value(0, &quot;y&quot;)</param>
-                                                </action>
-                                                <action id="-8" name="Set angle" sid="217836215649037" type="PlayerSprites">
-                                                    <param id="0" name="Angle">online_OtherChars.Value(0, &quot;angle&quot;)</param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="551109307998650" type="PlayerSprites">
-                                                    <param id="0" name="Animation">online_OtherChars.Value(0, &quot;animname&quot;)</param>
-                                                    <param id="1" name="From">1</param>
-                                                </action>
-                                                <action id="6" name="Set speed" sid="176026567280592" type="PlayerSprites">
-                                                    <param id="0" name="Speed">online_OtherChars.Value(0, &quot;animspeed&quot;)</param>
-                                                </action>
-                                                <action id="5" name="Set frame" sid="610895696061722" type="PlayerSprites">
-                                                    <param id="0" name="Frame number">online_OtherChars.Value(0, &quot;animframe&quot;)</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="826054109985298" type="PlayerSprites">
-                                                    <param id="0" name="Instance variable">external_xp</param>
-                                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;xp&quot;)</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="805312905309927" type="PlayerSprites">
-                                                    <param id="0" name="Instance variable">external_lv</param>
-                                                    <param id="1" name="Value">online_OtherChars.Value(0, &quot;lv&quot;)</param>
-                                                </action>
-                                            </actions>
-                                            <sub-events>
-                                                <event-block sid="919262903457321">
-                                                    <conditions>
-                                                        <condition id="-8" name="Compare two values" sid="772992656274003" type="System">
-                                                            <param id="0" name="First value">online_OtherChars.Value(0, &quot;animmirrored&quot;)</param>
-                                                            <param id="1" name="Comparison">0</param>
-                                                            <param id="2" name="Second value">1</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="7" name="Set mirrored" sid="717582764895740" type="PlayerSprites">
-                                                            <param id="0" name="State">0</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                                <event-block sid="153331612516066">
-                                                    <conditions>
-                                                        <condition id="-22" name="Else" sid="748147544909838" type="System" />
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="7" name="Set mirrored" sid="982133664184848" type="PlayerSprites">
-                                                            <param id="0" name="State">1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <event-block sid="820207087835225">
-                                    <conditions>
-                                        <condition id="3" name="On event" sid="270888470338397" type="Photon">
-                                            <param id="0" name="Code">11</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Call function" sid="811814447232076" type="Function">
-                                            <param id="0" name="Name">&quot;increaseCombo&quot;</param>
-                                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}tokenat(Photon.EventData, 1, &quot;|&quot;)</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <comment>SPECIAL EVENTS</comment>
-                                <comment>SUSHI MISSILE</comment>
-                                <event-block sid="192223934526145">
-                                    <conditions>
-                                        <condition id="3" name="On event" sid="983985274005129" type="Photon">
-                                            <param id="0" name="Code">50</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="14" name="Log" sid="798528741337290" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">Photon.EventData</param>
-                                        </action>
-                                        <action id="0" name="Call function" sid="118249028993243" type="Function">
-                                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
-                                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 1, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 2, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 3, &quot;|&quot;))</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="942795649370771">
-                                    <conditions>
-                                        <condition id="3" name="On event" sid="297451401626765" type="Photon">
-                                            <param id="0" name="Code">51</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Call function" sid="163103455621151" type="Function">
-                                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
-                                            <param id="1" name="Parameter {n}">Photon.EventData</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="807625306729158">
-                                    <conditions>
-                                        <condition id="16" name="On actor leave" sid="243919335359924" type="Photon" />
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="761780524650132">
-                                            <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="647926664314600" type="PlayerSprites">
-                                                    <param id="0" name="Instance variable">id</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">Photon.ActorNr</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Destroy" sid="523584293914856" type="PlayerSprites" />
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                            </sub-events>
-                        </event-group>
+                        </event-block>
                     </sub-events>
-                </event-group>
+                </event-block>
+                <event-block sid="820207087835225">
+                    <conditions>
+                        <condition id="3" name="On event" sid="270888470338397" type="Photon">
+                            <param id="0" name="Code">11</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="811814447232076" type="Function">
+                            <param id="0" name="Name">&quot;increaseCombo&quot;</param>
+                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}tokenat(Photon.EventData, 1, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>SPECIAL EVENTS</comment>
+                <comment>SUSHI MISSILE</comment>
+                <event-block sid="192223934526145">
+                    <conditions>
+                        <condition id="3" name="On event" sid="983985274005129" type="Photon">
+                            <param id="0" name="Code">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="14" name="Log" sid="798528741337290" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">Photon.EventData</param>
+                        </action>
+                        <action id="0" name="Call function" sid="118249028993243" type="Function">
+                            <param id="0" name="Name">&quot;sush_makeMissile&quot;</param>
+                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 1, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 2, &quot;|&quot;)){###}float(tokenat(Photon.EventData, 3, &quot;|&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="942795649370771">
+                    <conditions>
+                        <condition id="3" name="On event" sid="297451401626765" type="Photon">
+                            <param id="0" name="Code">51</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="163103455621151" type="Function">
+                            <param id="0" name="Name">&quot;sush_explodeMissile&quot;</param>
+                            <param id="1" name="Parameter {n}">Photon.EventData</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="807625306729158">
+                    <conditions>
+                        <condition id="16" name="On actor leave" sid="243919335359924" type="Photon" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="761780524650132">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="647926664314600" type="PlayerSprites">
+                                    <param id="0" name="Instance variable">id</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Photon.ActorNr</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="523584293914856" type="PlayerSprites" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
     </events>
