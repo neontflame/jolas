@@ -4,7 +4,7 @@
     <name>sh_Menu</name>
     <events>
         <include>sh_Utils</include>
-        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">SONC</variable>
+        <variable constant="0" name="curChar" sid="522366492901546" static="0" type="text">NEON</variable>
         <variable constant="0" name="curSelect" sid="480314784115682" static="0" type="number">0</variable>
         <variable constant="0" name="curSave" sid="771023290880218" static="0" type="number">0</variable>
         <event-group description="" sid="486007233636215" title="Menu">
@@ -54,9 +54,13 @@
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
                                     <param id="1" name="Parameter {n}">1{###}&quot;SUSH&quot;{###}&quot;Sushi Brando&quot;{###}&quot;ele e estupido - no entanto ele e bom com armas&quot; &amp; newline &amp; newline &amp;&#x0D;&#x0A;&quot;Rocket Launcher: segure o botao E1 para sacar seu lançador de foguetes - use o mouse para mirar e atirar&quot;</param>
                                 </action>
+                                <action id="0" name="Call function" sid="911578021346207" type="Function">
+                                    <param id="0" name="Name">&quot;addChar&quot;</param>
+                                    <param id="1" name="Parameter {n}">2{###}&quot;SKET&quot;{###}&quot;Sketcher Squared&quot;{###}&quot;ele e tipo - um cara&quot; &amp; newline &amp; newline &amp; &quot;Bolt meter: (wip)&quot;</param>
+                                </action>
                                 <action id="0" name="Call function" sid="446860451507236" type="Function">
                                     <param id="0" name="Name">&quot;addChar&quot;</param>
-                                    <param id="1" name="Parameter {n}">2{###}&quot;SONC&quot;{###}&quot;Sonic the Hedgehog&quot;{###}&quot;o organismo mais rapido vivo&quot; &amp; newline &amp; newline &amp; &quot;Spindash: segure o botao E1 enquanto voce estiver pressionando a tecla baixo pra carregar - ao soltar voce sera propulsionado pra frente enquanto gira&quot;</param>
+                                    <param id="1" name="Parameter {n}">3{###}&quot;SONC&quot;{###}&quot;Sonic the Hedgehog&quot;{###}&quot;o organismo mais rapido vivo&quot; &amp; newline &amp; newline &amp; &quot;Spindash: segure o botao E1 enquanto voce estiver pressionando a tecla baixo pra carregar - ao soltar voce sera propulsionado pra frente enquanto gira&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -405,7 +409,7 @@
                                             <param id="0" name="Opacity">lerp(Self.Opacity, 100, 0.2)</param>
                                         </action>
                                         <action id="-1" name="Set X" sid="156235284509058" type="menu_Selectables">
-                                            <param id="0" name="X">lerp(Self.X, 448-16, 0.2)</param>
+                                            <param id="0" name="X">lerp(Self.X, (OriginalWindowWidth-Self.Width)-16, 0.2)</param>
                                         </action>
                                         <action id="4" name="Set animation" sid="371068427425560" type="menu_Selectables">
                                             <param id="0" name="Animation">&quot;Selected&quot;</param>
@@ -422,7 +426,7 @@
                                             <param id="0" name="Opacity">lerp(Self.Opacity, 50, 0.2)</param>
                                         </action>
                                         <action id="-1" name="Set X" sid="709250932265486" type="menu_Selectables">
-                                            <param id="0" name="X">lerp(Self.X, 448, 0.2)</param>
+                                            <param id="0" name="X">lerp(Self.X, (OriginalWindowWidth-Self.Width), 0.2)</param>
                                         </action>
                                         <action id="4" name="Set animation" sid="371413999954555" type="menu_Selectables">
                                             <param id="0" name="Animation">&quot;Default&quot;</param>
@@ -668,19 +672,19 @@
                                                 </event-block>
                                                 <event-block sid="480804223218802">
                                                     <conditions>
-                                                        <condition id="-7" name="Compare instance variable" sid="515156206808006" type="menu_chr_Dipshit">
+                                                        <condition id="-7" name="Compare instance variable" sid="515156206808006" type="hud_Icons">
                                                             <param id="0" name="Instance variable">type</param>
                                                             <param id="1" name="Comparison">0</param>
-                                                            <param id="2" name="Value">&quot;savedipshit&quot;</param>
+                                                            <param id="2" name="Value">&quot;save&quot;</param>
                                                         </condition>
-                                                        <condition id="-7" name="Compare instance variable" sid="480808860271456" type="menu_chr_Dipshit">
-                                                            <param id="0" name="Instance variable">id</param>
+                                                        <condition id="-7" name="Compare instance variable" sid="378468283200916" type="hud_Icons">
+                                                            <param id="0" name="Instance variable">theCool</param>
                                                             <param id="1" name="Comparison">0</param>
                                                             <param id="2" name="Value">loopindex</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action id="4" name="Set animation" sid="830087939978180" type="menu_chr_Dipshit">
+                                                        <action id="4" name="Set animation" sid="830087939978180" type="hud_Icons">
                                                             <param id="0" name="Animation">menu_sav_json.Value(0, &quot;char&quot;)</param>
                                                             <param id="1" name="From">1</param>
                                                         </action>
@@ -755,19 +759,19 @@
                                                 </event-block>
                                                 <event-block sid="461253393572116">
                                                     <conditions>
-                                                        <condition id="-7" name="Compare instance variable" sid="901665335692948" type="menu_chr_Dipshit">
+                                                        <condition id="-7" name="Compare instance variable" sid="648926264256963" type="hud_Icons">
                                                             <param id="0" name="Instance variable">type</param>
                                                             <param id="1" name="Comparison">0</param>
-                                                            <param id="2" name="Value">&quot;savedipshit&quot;</param>
+                                                            <param id="2" name="Value">&quot;save&quot;</param>
                                                         </condition>
-                                                        <condition id="-7" name="Compare instance variable" sid="479818806820692" type="menu_chr_Dipshit">
-                                                            <param id="0" name="Instance variable">id</param>
+                                                        <condition id="-7" name="Compare instance variable" sid="319659076910786" type="hud_Icons">
+                                                            <param id="0" name="Instance variable">theCool</param>
                                                             <param id="1" name="Comparison">0</param>
                                                             <param id="2" name="Value">loopindex</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-15" name="Set visible" sid="735729472994210" type="menu_chr_Dipshit">
+                                                        <action id="-15" name="Set visible" sid="727410568255878" type="hud_Icons">
                                                             <param id="0" name="Visibility">0</param>
                                                         </action>
                                                     </actions>
@@ -827,7 +831,7 @@
                                     <param id="1" name="Value">lerp(Self.theEffect, 100, 0.05)</param>
                                 </action>
                                 <action id="-2" name="Set Y" sid="544135944206780" type="menu_sav_seta">
-                                    <param id="0" name="Y">lerp(Self.Y, 72 + (124 * curSelect), 0.2)</param>
+                                    <param id="0" name="Y">lerp(Self.Y, 102 + (124 * curSelect), 0.2)</param>
                                 </action>
                                 <action id="3" name="Set volume" sid="987540485718610" type="Audio">
                                     <param id="0" name="Tag">&quot;menuLay1&quot;</param>
@@ -1075,14 +1079,27 @@
                                 <action id="0" name="Set text" sid="946360725039604" type="menu_chr_ManeDesc">
                                     <param id="0" name="Text">menu_CharArray.At(curSelect, 2)</param>
                                 </action>
-                                <action id="4" name="Set animation" sid="818328246145326" type="hud_Icons">
-                                    <param id="0" name="Animation">menu_CharArray.At(Function.Call(&quot;wrapValue&quot;, curSelect, Self.theCool, 0, menu_CharArray.Width - 1), 0)</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action id="-1" name="Set X" sid="218282925201105" type="hud_Icons">
-                                    <param id="0" name="X">lerp(Self.X, Self.initX, 0.2)</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="148669351119475">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="186606604700577" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="818328246145326" type="hud_Icons">
+                                            <param id="0" name="Animation">menu_CharArray.At(Function.Call(&quot;wrapValue&quot;, curSelect, Self.theCool, 0, menu_CharArray.Width - 1), 0)</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-1" name="Set X" sid="218282925201105" type="hud_Icons">
+                                            <param id="0" name="X">lerp(Self.X, Self.initX, 0.2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="795110964857333">
                             <conditions>
@@ -1128,9 +1145,6 @@
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
                                 </action>
-                                <action id="-17" name="Move forward" sid="694191091677832" type="hud_Icons">
-                                    <param id="0" name="Distance">-96</param>
-                                </action>
                                 <action id="-9" name="Set value" sid="626825857426686" type="System">
                                     <param id="0" name="Variable">curSelect</param>
                                     <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, -1, 0, menu_CharArray.Width - 1)</param>
@@ -1152,6 +1166,20 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="209041002625891">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="961043931892375" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-17" name="Move forward" sid="694191091677832" type="hud_Icons">
+                                            <param id="0" name="Distance">-96</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-block>
                         <event-block sid="540242020336155">
@@ -1166,9 +1194,6 @@
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
-                                </action>
-                                <action id="-17" name="Move forward" sid="475025963599042" type="hud_Icons">
-                                    <param id="0" name="Distance">96</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="198539948194340" type="System">
                                     <param id="0" name="Variable">curSelect</param>
@@ -1188,6 +1213,20 @@
                                         <action id="4" name="Set animation" sid="759555717452750" type="menu_chr_seta">
                                             <param id="0" name="Animation">&quot;Press&quot;</param>
                                             <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="583603786004689">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="578844719266620" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-17" name="Move forward" sid="475025963599042" type="hud_Icons">
+                                            <param id="0" name="Distance">96</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1310,14 +1349,27 @@
                                 <action id="0" name="Set text" sid="302123623755120" type="menu_chr_ManeName">
                                     <param id="0" name="Text">menu_CharArray.At(curSelect, 1)</param>
                                 </action>
-                                <action id="4" name="Set animation" sid="546108685989391" type="hud_Icons">
-                                    <param id="0" name="Animation">menu_CharArray.At(Function.Call(&quot;wrapValue&quot;, curSelect, Self.theCool, 0, menu_CharArray.Width - 1), 0)</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action id="-1" name="Set X" sid="716301626754767" type="hud_Icons">
-                                    <param id="0" name="X">lerp(Self.X, Self.initX, 0.2)</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="403133241725967">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="896314412663385" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="546108685989391" type="hud_Icons">
+                                            <param id="0" name="Animation">menu_CharArray.At(Function.Call(&quot;wrapValue&quot;, curSelect, Self.theCool, 0, menu_CharArray.Width - 1), 0)</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-1" name="Set X" sid="716301626754767" type="hud_Icons">
+                                            <param id="0" name="X">lerp(Self.X, Self.initX, 0.2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="349820230493690">
                             <conditions>
@@ -1363,9 +1415,6 @@
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
                                 </action>
-                                <action id="-17" name="Move forward" sid="370255448878522" type="hud_Icons">
-                                    <param id="0" name="Distance">-96</param>
-                                </action>
                                 <action id="-9" name="Set value" sid="843190875734208" type="System">
                                     <param id="0" name="Variable">curSelect</param>
                                     <param id="1" name="Value">Function.Call(&quot;wrapValue&quot;, curSelect, -1, 0, menu_CharArray.Width - 1)</param>
@@ -1387,6 +1436,20 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="705043302859030">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="516035932998432" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-17" name="Move forward" sid="370255448878522" type="hud_Icons">
+                                            <param id="0" name="Distance">-96</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-block>
                         <event-block sid="351489849516743">
@@ -1401,9 +1464,6 @@
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;tick&quot;</param>
-                                </action>
-                                <action id="-17" name="Move forward" sid="878643910547699" type="hud_Icons">
-                                    <param id="0" name="Distance">96</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="654413137776882" type="System">
                                     <param id="0" name="Variable">curSelect</param>
@@ -1423,6 +1483,20 @@
                                         <action id="4" name="Set animation" sid="911694432600599" type="menu_chr_seta">
                                             <param id="0" name="Animation">&quot;Press&quot;</param>
                                             <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="316323999699365">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="368932157036956" type="hud_Icons">
+                                            <param id="0" name="Instance variable">type</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;charsel&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-17" name="Move forward" sid="878643910547699" type="hud_Icons">
+                                            <param id="0" name="Distance">96</param>
                                         </action>
                                     </actions>
                                 </event-block>

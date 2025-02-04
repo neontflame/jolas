@@ -81,8 +81,8 @@
                         <x>-32</x>
                         <y>-16</y>
                         <z>0</z>
-                        <width>768</width>
-                        <height>448</height>
+                        <width>896</width>
+                        <height>528</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -101,7 +101,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>640</x>
-                        <y>448</y>
+                        <y>528</y>
                         <z>0</z>
                         <width>215</width>
                         <height>149</height>
@@ -115,7 +115,7 @@
                 <instance type="diag_Box" uid="55">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Right</initial-animation>
+                        <initial-animation>left</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
@@ -128,13 +128,13 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-32</x>
-                        <y>240</y>
+                        <y>320</y>
                         <z>0</z>
                         <width>909</width>
                         <height>192</height>
                         <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotX>0.0220022</hotspotX>
+                        <hotspotY>-0.052083332</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -164,9 +164,9 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>304</y>
+                        <y>384</y>
                         <z>0</z>
-                        <width>640</width>
+                        <width>736</width>
                         <height>80</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -185,8 +185,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>660</x>
-                        <y>376</y>
+                        <x>736</x>
+                        <y>448</y>
                         <z>0</z>
                         <width>85</width>
                         <height>34</height>
@@ -200,15 +200,15 @@
                 <instance type="diag_FancyName" uid="62">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
+                        <initial-animation>placeholder</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>544</x>
-                        <y>272</y>
+                        <x>32</x>
+                        <y>352</y>
                         <z>0</z>
                         <width>133</width>
                         <height>29</height>

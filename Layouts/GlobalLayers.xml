@@ -101,6 +101,7 @@
                     <instance-variables>
                         <theCool>0</theCool>
                         <initX>0</initX>
+                        <type></type>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -211,7 +212,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>512</x>
+                        <x>600</x>
                         <y>16</y>
                         <z>0</z>
                         <width>184</width>
@@ -233,7 +234,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>528</x>
+                        <x>600</x>
                         <y>16</y>
                         <z>0</z>
                         <width>100</width>

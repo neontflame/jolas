@@ -254,6 +254,29 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="468645133175156">
+                    <conditions>
+                        <condition id="0" name="On function" sid="506926315468714" type="Function">
+                            <param id="0" name="Name">&quot;knockbackResponse&quot;</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="346036647011165" type="System">
+                            <param id="0" name="First value">Photon.MyActorNr</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="17" name="Raise event" sid="292641288444040" type="Photon">
+                            <param id="0" name="Code">12</param>
+                            <param id="1" name="Data">Function.Param(0)</param>
+                            <param id="2" name="InterestGroup">0</param>
+                            <param id="3" name="Cache">0</param>
+                            <param id="4" name="Receivers">0</param>
+                            <param id="5" name="TargetActors">Function.Param(0)</param>
+                            <param id="6" name="WebForward">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="637800466554133" title="OnlineMulti&gt;Events&gt;Receive">
@@ -359,7 +382,20 @@
                     <actions>
                         <action id="0" name="Call function" sid="811814447232076" type="Function">
                             <param id="0" name="Name">&quot;increaseCombo&quot;</param>
-                            <param id="1" name="Parameter {n}">int(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}tokenat(Photon.EventData, 1, &quot;|&quot;)</param>
+                            <param id="1" name="Parameter {n}">float(tokenat(Photon.EventData, 0, &quot;|&quot;)){###}tokenat(Photon.EventData, 1, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="772202756622972">
+                    <conditions>
+                        <condition id="3" name="On event" sid="857508940302864" type="Photon">
+                            <param id="0" name="Code">12</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="583681964282468" type="Function">
+                            <param id="0" name="Name">&quot;knockbackResponse&quot;</param>
+                            <param id="1" name="Parameter {n}">float(Photon.EventData)</param>
                         </action>
                     </actions>
                 </event-block>

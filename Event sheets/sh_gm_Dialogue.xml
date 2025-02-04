@@ -17,7 +17,7 @@
                             <actions>
                                 <action id="0" name="Request URL" sid="470376917415776" type="AJAX">
                                     <param id="0" name="Tag">&quot;diag&quot;</param>
-                                    <param id="1" name="URL">Function.Param(0)</param>
+                                    <param id="1" name="URL">Function.Param(0) &amp; &quot;.json&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

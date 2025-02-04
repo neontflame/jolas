@@ -2,7 +2,7 @@
 	"dialogue": {
 		"line1": {
 			"char": "neon",
-			"mood": "normal",
+			"mood": "default",
 			"line": "olhe so. uma 'frase'",
 			"position": "right",
 			"specialfx": "none"
@@ -15,25 +15,39 @@
 			"specialfx": "none"
 		},
 		"line3": {
-			"char": "neon",
-			"mood": "angry",
-			"line": "voces TODOS sao meras peças no meu grande jogo de xadrez",
+			"char": "sketcher",
+			"mood": "smile",
+			"line": "oi eu sou o sketcher",
 			"position": "left",
-			"specialfx": "shake"
+			"specialfx": "none"
 		},
 		"line4": {
 			"char": "neon",
 			"mood": "confused",
-			"line": "cara ,",
+			"line": "",
 			"position": "right",
 			"specialfx": "none"
 		},
 		"line5": {
 			"char": "neon",
 			"mood": "confused",
-			"line": "do que caralhos voce ta falando",
+			"line": "holy shit e o sketcher",
 			"position": "right",
 			"specialfx": "none"
-		}						
+		},
+		"line6": {
+			"char": "sketcher",
+			"mood": "shrug",
+			"line": "yep",
+			"position": "left",
+			"specialfx": "none"
+		},
+		"line7": {
+			"char": "sketcher",
+			"mood": "cocky",
+			"line": "the one and only",
+			"position": "left",
+			"specialfx": "none"
+		}
 	}
 }
