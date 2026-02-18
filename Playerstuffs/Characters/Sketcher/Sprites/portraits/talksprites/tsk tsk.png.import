@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3w6i4xknv3ll"
-path="res://.godot/imported/sorriso.png-d114089b1a881eb34b88353255bf827e.ctex"
+uid="uid://c6d4hcaoukap"
+path="res://.godot/imported/tsk tsk.png-c14b6d12e224ad1007ccb18e865a26b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sketcher/Sprites/talksprites/sorriso.png"
-dest_files=["res://.godot/imported/sorriso.png-d114089b1a881eb34b88353255bf827e.ctex"]
+source_file="res://Playerstuffs/Characters/Sketcher/Sprites/portraits/talksprites/tsk tsk.png"
+dest_files=["res://.godot/imported/tsk tsk.png-c14b6d12e224ad1007ccb18e865a26b0.ctex"]
 
 [params]
 

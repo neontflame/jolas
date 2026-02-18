@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp2yyenhjb2ad"
-path="res://.godot/imported/surpreso.png-4b6c6471b625f7cb03cfe3947b32509e.ctex"
+uid="uid://8hgwnjvuhdal"
+path="res://.godot/imported/boowomp.png-85bf4042647cc312cad8959143d2e317.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sketcher/Sprites/talksprites/surpreso.png"
-dest_files=["res://.godot/imported/surpreso.png-4b6c6471b625f7cb03cfe3947b32509e.ctex"]
+source_file="res://Playerstuffs/Characters/Sketcher/Sprites/portraits/talksprites/boowomp.png"
+dest_files=["res://.godot/imported/boowomp.png-85bf4042647cc312cad8959143d2e317.ctex"]
 
 [params]
 

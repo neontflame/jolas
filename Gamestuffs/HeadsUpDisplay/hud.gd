@@ -2,15 +2,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CanvasLayer/PlayerIcon.texture = load("res://Playerstuffs/Characters/" + GPStats.char + "/Icon.png")
-	var customHUD = load("res://Playerstuffs/Characters/" + GPStats.char + "/HUD.tscn")
+	$CanvasLayer/PlayerIcon.texture = GameUtils.get_char_asset(GPStats.char, "Icon.png")
+	var customHUD = GameUtils.get_char_asset(GPStats.char, "HUD.tscn")
 	if customHUD:
 		$CanvasLayer.add_child(customHUD.instantiate())
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var hueShift = fmod(GPStats.level * 7.5, 100.0) / 100.0
+	var hueShift = fmod((GPStats.level - 1) * 7.5, 100.0) / 100.0
 	$CanvasLayer/LevelLabel.text = str(GPStats.level)
 	$CanvasLayer/LevelSquare.material.set_shader_parameter('shift_hue', hueShift)
 	

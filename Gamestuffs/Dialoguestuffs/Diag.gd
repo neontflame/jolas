@@ -61,8 +61,8 @@ func runDiag(diagNum: int):
 	var character: String = CoolDial['char'].capitalize()
 	if (load("res://Playerstuffs/Characters/" + character + "/Portrait.tscn") != null):
 		$DialogueCanvas/Control/CharName.visible = true
-		$DialogueCanvas/Control/CharName.play(character)
-		portrite = load("res://Playerstuffs/Characters/" + character + "/Portrait.tscn").instantiate()
+		$DialogueCanvas/Control/CharName.texture = GameUtils.get_char_asset(character, "DiagName.png")
+		portrite = GameUtils.get_char_asset(character, "Portrait.tscn").instantiate()
 		$DialogueCanvas/Control.add_child(portrite)
 		portrite.ptrt.play(CoolDial['mood'])
 		portrite.ptrt.set_frame(0)

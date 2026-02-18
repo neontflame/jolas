@@ -40,8 +40,10 @@ static func get_char_info(char:String):
 	var charGotten = JSON.parse_string(charInfo)
 	return charGotten
 
-static func get_char_icon(char:String):
-	var charStuff = load("res://Playerstuffs/Characters/" + char + "/Icon.png")
+static func get_char_asset(char:String, asset:String):
+	var charPath = "res://Playerstuffs/Characters/" + char + "/" + asset
+	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
+	var charStuff = load(charPath)
 	return charStuff
 
 static func get_map_info(lvl:String):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v4pi7ncytjmb"
-path="res://.godot/imported/name sonic.png-041818de55a2692a9f63a6a6a08cb520.ctex"
+uid="uid://byhtk7ul4md6d"
+path="res://.godot/imported/DiagName.png-9cc5772571897daa46352dcc9e5e6c6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sonic/Sprites/portraits/name sonic.png"
-dest_files=["res://.godot/imported/name sonic.png-041818de55a2692a9f63a6a6a08cb520.ctex"]
+source_file="res://Playerstuffs/Characters/Sketcher/DiagName.png"
+dest_files=["res://.godot/imported/DiagName.png-9cc5772571897daa46352dcc9e5e6c6f.ctex"]
 
 [params]
 

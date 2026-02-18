@@ -40,9 +40,9 @@ func changeSel(amount:int):
 	var nextIcon = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
 	var prevIcon = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
 	
-	$MenuCanvas/MidAnchor/IconSelect/Icons/CurIcon.texture = GameUtils.get_char_icon(GameUtils.get_chars()[CoolMenu.curSelected])
-	$MenuCanvas/MidAnchor/IconSelect/Icons/IconRight.texture = GameUtils.get_char_icon(GameUtils.get_chars()[nextIcon])
-	$MenuCanvas/MidAnchor/IconSelect/Icons/IconLeft.texture = GameUtils.get_char_icon(GameUtils.get_chars()[prevIcon])
+	$MenuCanvas/MidAnchor/IconSelect/Icons/CurIcon.texture = GameUtils.get_char_asset(GameUtils.get_chars()[CoolMenu.curSelected], 'Icon.png')
+	$MenuCanvas/MidAnchor/IconSelect/Icons/IconRight.texture = GameUtils.get_char_asset(GameUtils.get_chars()[nextIcon], 'Icon.png')
+	$MenuCanvas/MidAnchor/IconSelect/Icons/IconLeft.texture = GameUtils.get_char_asset(GameUtils.get_chars()[prevIcon], 'Icon.png')
 	
 	loadCharPreview(GameUtils.get_chars()[CoolMenu.curSelected])
 	

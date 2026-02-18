@@ -1,7 +1,7 @@
 extends Node2D
 class_name JolasLevel
 
-var player = load("res://Playerstuffs/Characters/" + GPStats.char + "/" + GPStats.char + ".tscn")
+var player = GameUtils.get_char_asset(GPStats.char, GPStats.char + ".tscn")
 var playerInstance
 var dialogueInstance
 var isDial := false

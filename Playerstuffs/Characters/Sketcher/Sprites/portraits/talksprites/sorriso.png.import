@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byhtk7ul4md6d"
-path="res://.godot/imported/skech nome.png-f22adc978bbed65b3ecfe737c2957bcb.ctex"
+uid="uid://d3w6i4xknv3ll"
+path="res://.godot/imported/sorriso.png-f001c9e095e262d741f3c5901c1918a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sketcher/Sprites/portraits/skech nome.png"
-dest_files=["res://.godot/imported/skech nome.png-f22adc978bbed65b3ecfe737c2957bcb.ctex"]
+source_file="res://Playerstuffs/Characters/Sketcher/Sprites/portraits/talksprites/sorriso.png"
+dest_files=["res://.godot/imported/sorriso.png-f001c9e095e262d741f3c5901c1918a7.ctex"]
 
 [params]
 

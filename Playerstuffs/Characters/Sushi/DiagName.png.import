@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6d4hcaoukap"
-path="res://.godot/imported/tsk tsk.png-ce0fd89cc214f2f0bdebaba52b2efb46.ctex"
+uid="uid://ch3a0sd5vt82x"
+path="res://.godot/imported/DiagName.png-6c23e8f8131af47df199a02958dfb587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sketcher/Sprites/talksprites/tsk tsk.png"
-dest_files=["res://.godot/imported/tsk tsk.png-ce0fd89cc214f2f0bdebaba52b2efb46.ctex"]
+source_file="res://Playerstuffs/Characters/Sushi/DiagName.png"
+dest_files=["res://.godot/imported/DiagName.png-6c23e8f8131af47df199a02958dfb587.ctex"]
 
 [params]
 

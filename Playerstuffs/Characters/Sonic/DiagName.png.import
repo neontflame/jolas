@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3a0sd5vt82x"
-path="res://.godot/imported/name.png-4fd961c8bd04dd9258fbe7b66554015a.ctex"
+uid="uid://v4pi7ncytjmb"
+path="res://.godot/imported/DiagName.png-740349c01528af5b0946f01e91a7ff27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sushi/Sprites/portraits/name.png"
-dest_files=["res://.godot/imported/name.png-4fd961c8bd04dd9258fbe7b66554015a.ctex"]
+source_file="res://Playerstuffs/Characters/Sonic/DiagName.png"
+dest_files=["res://.godot/imported/DiagName.png-740349c01528af5b0946f01e91a7ff27.ctex"]
 
 [params]
 

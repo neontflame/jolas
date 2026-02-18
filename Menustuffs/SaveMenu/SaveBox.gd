@@ -12,7 +12,7 @@ func renderSave():
 		$EmptySave.visible = false
 		$FullSave.visible = true
 		# player info
-		$FullSave/Icon.texture = GameUtils.get_char_icon(coolSaveness["player"])
+		$FullSave/Icon.texture = GameUtils.get_char_asset(coolSaveness["player"], "Icon.png")
 		$FullSave/LvCount.text = 'Nível ' + str(GeneralUtils.display_number(coolSaveness["level"]))
 		var mapInfo = GameUtils.get_map_info(coolSaveness["map"])
 		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]

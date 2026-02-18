@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xe8ubopoy5h3"
-path="res://.godot/imported/neutro.png-3b4922968d59dd5a1dbb952450b183a7.ctex"
+uid="uid://brl2atqdlgm11"
+path="res://.godot/imported/cocky.png-dd1911747a52930bc90867dc8058f7e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Sketcher/Sprites/talksprites/neutro.png"
-dest_files=["res://.godot/imported/neutro.png-3b4922968d59dd5a1dbb952450b183a7.ctex"]
+source_file="res://Playerstuffs/Characters/Sketcher/Sprites/portraits/talksprites/cocky.png"
+dest_files=["res://.godot/imported/cocky.png-dd1911747a52930bc90867dc8058f7e4.ctex"]
 
 [params]
 
