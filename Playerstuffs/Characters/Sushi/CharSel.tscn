@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0ecobt81u5u"]
+
+[ext_resource type="Texture2D" uid="uid://n1b0ywv7lxq7" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle.png" id="1_fnkq6"]
+
+[node name="CharSel" type="Node2D"]
+
+[node name="SushiIdle" type="Sprite2D" parent="."]
+position = Vector2(-2, -65)
+texture = ExtResource("1_fnkq6")

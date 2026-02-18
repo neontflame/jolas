@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2y3bfu7583m4"]
+
+[ext_resource type="Script" uid="uid://cqybtcnsij22n" path="res://Playerstuffs/Characters/Sushi/Scripts/hudSushi.gd" id="1_dm8fv"]
+[ext_resource type="Texture2D" uid="uid://bx58hnmyu2hsi" path="res://Playerstuffs/Characters/Sushi/Sprites/HUD/hud_AmmoLabel.png" id="2_6ij4g"]
+[ext_resource type="Texture2D" uid="uid://cfuby712pofr0" path="res://Playerstuffs/Characters/Sushi/Sprites/HUD/hud_ammoBars.png" id="3_fdvpt"]
+
+[node name="Hud" type="Node2D"]
+script = ExtResource("1_dm8fv")
+
+[node name="AmmoLabel" type="Sprite2D" parent="."]
+position = Vector2(112, 80)
+texture = ExtResource("2_6ij4g")
+centered = false
+
+[node name="AmmoBars" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(128, 96)
+texture = ExtResource("3_fdvpt")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 16)

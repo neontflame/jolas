@@ -1,0 +1,39 @@
+{
+    "dialogue": {
+        "line1": {
+            "char": "sushi",
+            "mood": "cool",
+            "line": "ok mas trocou o email neon?",
+            "position": "left",
+            "specialfx": "none"
+        },
+        "line2": {
+            "char": "neon",
+            "mood": "default",
+            "line": "troquei !",
+            "position": "right",
+            "specialfx": "none"
+        },
+        "line3": {
+            "char": "sushi",
+            "mood": "confused",
+            "line": "vsf ainda nn acredito que eles deixam vc dar reset de fabrica tão de graça assim",
+            "position": "left",
+            "specialfx": "none"
+        },
+        "line4": {
+            "char": "sushi",
+            "mood": "default",
+            "line": "e mudou de [color=#888888]cpf[/color]?",
+            "position": "left",
+            "specialfx": "none"
+        },
+        "line5": {
+            "char": "neon",
+            "mood": "pointy",
+            "line": "[shake amp=50]Nao tinha cpf [color=#FF0000][wave amp=50]#lol[/wave][/color][/shake]",
+            "position": "right",
+            "specialfx": "none"
+        }
+    }
+}

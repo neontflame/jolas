@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://pfbvf7uaonxl"]
+
+[ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Gamestuffs/Levelstuffs/level.gd" id="1_h803n"]
+[ext_resource type="PackedScene" uid="uid://c87scbdosa8xd" path="res://Gamestuffs/HeadsUpDisplay/hud.tscn" id="2_so8ub"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
+
+[node name="TheThing" type="Node2D"]
+script = ExtResource("1_h803n")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(354, 1036)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+material = SubResource("CanvasItemMaterial_eip3h")
+position = Vector2(564, 463)
+polygon = PackedVector2Array(396, -154.99994, 326.99988, 408.00003, -143.00012, 405, -222.00012, -251.00006)
+one_way_collision = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(177, 518)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_eip3h")
+position = Vector2(37, 51)
+polygon = PackedVector2Array(-271, 957, 1130, 957, 1447, 857, 1758, 718, 2112, 656, 2431, 695, 3847.9644, 693.272, 4262, 754, 4561, 920, 4891, 1021, 5160, 1021, 5422, 860, 5696, 775, 6396.5464, 771.29065, 6390, 669, 6607, 669, 6600, 583, 6814, 583, 6821, 497, 7394, 497, 9342, 1393, 9582, 1581, 9982, 1893, 10276, 2061, 10560, 2148, 12496, 2205, 12784, 2153, 12935, 2063, 12986, 2005, 13024, 1936, 13053, 1854, 13066, 1753, 13051, 1428, 12895, 1228, 12577, 1132, 12462, 1069, 12392, 999, 12357, 911, 12348, 821, 12375, 697, 12422, 629, 12496, 570, 12585, 525, 12691, 497, 12814, 481, 13080, 473, 13362, 510, 15108, 510, 15191, 529, 15266, 573, 15360, 673, 15457, 847, 15838, 1777, 16055, 2200, 16188, 2337, 16336, 2426, 16546, 2438, 16734, 2414, 16845, 2361, 16903, 2287, 16971, 2156, 16977, 2059, 19092, 2062, 17610, 2950, 13671, 3007, 9431, 2996, 6021, 1485, -236, 1455, -593, 1490, -605, -881, -260, -905)
+
+[node name="Hud" parent="." instance=ExtResource("2_so8ub")]
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(235, 1443)

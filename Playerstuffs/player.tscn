@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv0kwtpveitw3"]
+
+[ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
+[ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
+[ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/state_machine.gd" id="13_ld8br"]
+[ext_resource type="Script" uid="uid://u65cs2bew2dh" path="res://Playerstuffs/StateMachinery/floorSt.gd" id="14_mv4eb"]
+[ext_resource type="Script" uid="uid://bfcpscdta4eqm" path="res://Playerstuffs/StateMachinery/airSt.gd" id="15_axjgi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(127, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rtyar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "plySprite")]
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
+floor_max_angle = 0.8709193
+floor_snap_length = 17.3
+platform_floor_layers = 4294901761
+platform_wall_layers = 1
+script = ExtResource("3_6t5aa")
+player_collisions = NodePath("CollisionShape2D")
+sfx_player = NodePath("SfxPlayer")
+plySprite = NodePath("AnimatedSprite2D")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("13_ld8br")
+
+[node name="Floor" type="Node" parent="StateMachine"]
+script = ExtResource("14_mv4eb")
+
+[node name="Air" type="Node" parent="StateMachine"]
+script = ExtResource("15_axjgi")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("5_axjgi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+rotation_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 2)
+shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 2)
+sprite_frames = SubResource("SpriteFrames_rtyar")
+animation = &"run"
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]

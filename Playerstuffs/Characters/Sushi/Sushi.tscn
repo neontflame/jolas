@@ -1,0 +1,168 @@
+[gd_scene load_steps=28 format=3 uid="uid://ctr7sp1ptwpe4"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hou52"]
+[ext_resource type="Script" uid="uid://dti35yo5dmmfq" path="res://Playerstuffs/Characters/Sushi/Scripts/statemachineSushi.gd" id="2_6k7s2"]
+[ext_resource type="Texture2D" uid="uid://68b6b65hjngn" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiBrakes.png" id="2_73gkf"]
+[ext_resource type="Script" uid="uid://dncsapjgdt3sc" path="res://Playerstuffs/Characters/Sushi/Scripts/playerSushi.gd" id="2_t8ely"]
+[ext_resource type="Texture2D" uid="uid://n1b0ywv7lxq7" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle.png" id="3_6k7s2"]
+[ext_resource type="Script" uid="uid://ddh2thpk4njlg" path="res://Playerstuffs/Characters/Sushi/Scripts/floorStSushi.gd" id="3_6x6fl"]
+[ext_resource type="Script" uid="uid://0dhyyyb303vm" path="res://Playerstuffs/Characters/Sushi/Scripts/airStSushi.gd" id="4_2hysu"]
+[ext_resource type="Texture2D" uid="uid://bnc20bqih14tl" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiJump0003.png" id="4_6x6fl"]
+[ext_resource type="Texture2D" uid="uid://b4npg2ijd4cfy" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiDano0001.png" id="5_2hysu"]
+[ext_resource type="Script" uid="uid://bf82ia0lhqwac" path="res://Playerstuffs/Characters/Sushi/Scripts/rocketFStSushi.gd" id="5_ig8nj"]
+[ext_resource type="Texture2D" uid="uid://ci21w0vl1p656" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiDano0002.png" id="6_ig8nj"]
+[ext_resource type="Script" uid="uid://dc3t3qq1e06vi" path="res://Playerstuffs/Characters/Sushi/Scripts/rocketAStSushi.gd" id="6_t8ely"]
+[ext_resource type="Texture2D" uid="uid://b7p8e7d5f3f1k" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiJump0001.png" id="7_t8ely"]
+[ext_resource type="Texture2D" uid="uid://c5wi2bqg0xtqw" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiJump0002.png" id="8_ekn4m"]
+[ext_resource type="Texture2D" uid="uid://dopfqksncf2pq" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRun0001.png" id="9_vjlnb"]
+[ext_resource type="Texture2D" uid="uid://dni4161aw5t5b" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRun0002.png" id="10_extba"]
+[ext_resource type="Texture2D" uid="uid://cochwi0tku3r7" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRun0003.png" id="11_6yxng"]
+[ext_resource type="Texture2D" uid="uid://ch13p2rcwf7e0" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0001.png" id="12_8umtg"]
+[ext_resource type="Texture2D" uid="uid://dnkwfknw7ahkg" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0002.png" id="13_1ujpi"]
+[ext_resource type="Texture2D" uid="uid://hdeueawn8lc1" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0003.png" id="14_brnb8"]
+[ext_resource type="Texture2D" uid="uid://yt4aiu0ogvv3" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0004.png" id="15_5hri0"]
+[ext_resource type="Texture2D" uid="uid://bh5ggc7egiglw" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0005.png" id="16_ax3lu"]
+[ext_resource type="Texture2D" uid="uid://dpgxwbr66q4xf" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0001.png" id="17_ialdw"]
+[ext_resource type="Texture2D" uid="uid://beh1oi8mf1wx6" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0002.png" id="18_oyaog"]
+[ext_resource type="Texture2D" uid="uid://bk8swkq0othjl" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0003.png" id="19_imtfe"]
+[ext_resource type="Texture2D" uid="uid://c6d2auhvgkgb4" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0004.png" id="20_yup0q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6070"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_73gkf")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6k7s2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6x6fl")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2hysu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ig8nj")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t8ely")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ekn4m")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_brnb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ujpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8umtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1ujpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_brnb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5hri0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ax3lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5hri0")
+}],
+"loop": false,
+"name": &"rocketLauncher",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vjlnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_extba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6yxng")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ialdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_oyaog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_imtfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yup0q")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" instance=ExtResource("1_hou52")]
+script = ExtResource("2_t8ely")
+FLOOR_ACCELERATION = 60.0
+AIR_ACCELERATION = 40
+SOFT_MAX_SPEED = 500
+GRAVITY = 30
+JUMP_VELOCITY = -720
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("2_6k7s2")
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("3_6x6fl")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("4_2hysu")
+
+[node name="RocketF" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("5_ig8nj")
+
+[node name="RocketA" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("6_t8ely")
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.49, 0.755)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_v6070")
+animation = &"rocketLauncher"
+offset = Vector2(0, -16)

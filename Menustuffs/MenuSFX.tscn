@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0jh3e8r8mhg3"]
+
+[ext_resource type="AudioStream" uid="uid://cif1ajm7jfcqh" path="res://Gamestuffs/Sounds/Commons/back.ogg" id="1_2no7w"]
+[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="2_yw620"]
+[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="3_htmqo"]
+
+[node name="SFX" type="Node"]
+
+[node name="Back" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(257, 284)
+stream = ExtResource("1_2no7w")
+
+[node name="Go" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(257, 284)
+stream = ExtResource("2_yw620")
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(257, 284)
+stream = ExtResource("3_htmqo")

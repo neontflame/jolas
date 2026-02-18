@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcnq6phkna3io"]
+
+[ext_resource type="Texture2D" uid="uid://llv3j4rxjhbg" path="res://Playerstuffs/Characters/Neon/Sprites/neon idle.png" id="1_nnfat"]
+
+[node name="CharSel" type="Node2D"]
+
+[node name="NeonIdle" type="Sprite2D" parent="."]
+position = Vector2(-1, -44)
+texture = ExtResource("1_nnfat")

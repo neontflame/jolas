@@ -1,0 +1,159 @@
+[gd_scene load_steps=28 format=3 uid="uid://dpn4bk7w2bk3i"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_pwpvx"]
+[ext_resource type="Script" uid="uid://bysn73mcwwj6e" path="res://Playerstuffs/Characters/Neon/Scripts/playerNeon.gd" id="2_ewxw4"]
+[ext_resource type="Script" uid="uid://bfky7k3mhic0l" path="res://Playerstuffs/Characters/Neon/Scripts/statemachineNeon.gd" id="3_0onri"]
+[ext_resource type="Script" uid="uid://dni6db0hfw75n" path="res://Playerstuffs/Characters/Neon/Scripts/airStNeon.gd" id="3_asxp3"]
+[ext_resource type="Texture2D" uid="uid://dgdfnf85axlmo" path="res://Playerstuffs/Characters/Neon/Sprites/neon brake.png" id="4_0nyvt"]
+[ext_resource type="Script" uid="uid://cgtsk4hvyjdcm" path="res://Playerstuffs/Characters/Neon/Scripts/floorStNeon.gd" id="4_shed0"]
+[ext_resource type="Texture2D" uid="uid://llv3j4rxjhbg" path="res://Playerstuffs/Characters/Neon/Sprites/neon idle.png" id="5_0onri"]
+[ext_resource type="Script" uid="uid://b6ylylstvd0da" path="res://Playerstuffs/Characters/Neon/Scripts/extraStNeon.gd" id="5_k3kgu"]
+[ext_resource type="Texture2D" uid="uid://hn1btwdaixm7" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0001.png" id="6_k3kgu"]
+[ext_resource type="Texture2D" uid="uid://dwauf58m4fauv" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0002.png" id="7_edtyq"]
+[ext_resource type="Texture2D" uid="uid://bkc7avym75tby" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0001.png" id="8_cjni4"]
+[ext_resource type="Texture2D" uid="uid://dw36lpq6313m" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0002.png" id="9_3gnpl"]
+[ext_resource type="Texture2D" uid="uid://cw5dbkx0opjf5" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0001.png" id="10_ors8w"]
+[ext_resource type="Texture2D" uid="uid://df5qy4jrgfmi4" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0002.png" id="11_jgmca"]
+[ext_resource type="Texture2D" uid="uid://blnvggrn7b8dv" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0003.png" id="12_k6ipe"]
+[ext_resource type="Texture2D" uid="uid://b0wfohgobso8f" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0004.png" id="13_kyjxy"]
+[ext_resource type="Texture2D" uid="uid://buwblvyhg0qsh" path="res://Playerstuffs/Characters/Neon/Sprites/wallHit0001.png" id="14_utcyf"]
+[ext_resource type="Texture2D" uid="uid://co6horahl5kyc" path="res://Playerstuffs/Characters/Neon/Sprites/wallHit0002.png" id="15_4ifrj"]
+[ext_resource type="Texture2D" uid="uid://cke8od2x0w2rn" path="res://Playerstuffs/Characters/Neon/Sprites/neon SpecialCharge.png" id="16_k2kvf"]
+[ext_resource type="Texture2D" uid="uid://i7351fwnatkc" path="res://Playerstuffs/Characters/Neon/Sprites/neon special0001.png" id="17_xabxi"]
+[ext_resource type="Texture2D" uid="uid://djju73nsa14ha" path="res://Playerstuffs/Characters/Neon/Sprites/neon special0002.png" id="18_2beya"]
+[ext_resource type="Texture2D" uid="uid://i00fan6m64ns" path="res://Playerstuffs/Characters/Neon/Sprites/neon special0003.png" id="19_daf5h"]
+[ext_resource type="Texture2D" uid="uid://chhi6kxp5lq8f" path="res://Playerstuffs/Characters/Neon/Sprites/neon Walk0001.png" id="20_p3pp0"]
+[ext_resource type="Texture2D" uid="uid://bx4ehoatd5qcr" path="res://Playerstuffs/Characters/Neon/Sprites/neon Walk0002.png" id="21_7no2y"]
+[ext_resource type="Texture2D" uid="uid://clyn58fy8r844" path="res://Playerstuffs/Characters/Neon/Sprites/neon Walk0003.png" id="22_03cwg"]
+[ext_resource type="Texture2D" uid="uid://dw0tpijvesli0" path="res://Playerstuffs/Characters/Neon/Sprites/neon Walk0004.png" id="23_wen5m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhcf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0nyvt")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0onri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_k3kgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_edtyq")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_cjni4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3gnpl")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ors8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jgmca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_k6ipe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kyjxy")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_utcyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4ifrj")
+}],
+"loop": false,
+"name": &"specialBounceback",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_k2kvf")
+}],
+"loop": true,
+"name": &"specialCharge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_xabxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2beya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_daf5h")
+}],
+"loop": true,
+"name": &"specialGo",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_p3pp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_7no2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_03cwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wen5m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" instance=ExtResource("1_pwpvx")]
+script = ExtResource("2_ewxw4")
+FLOOR_FRICTION = 0.925
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("3_0onri")
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("4_shed0")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("3_asxp3")
+
+[node name="ExtraState" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("5_k3kgu")
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.46, 0.68)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_rhcf3")
+animation = &"default"

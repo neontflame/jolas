@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://c87scbdosa8xd"]
+
+[ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
+[ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_36asn"]
+[ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="5_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://dupgsvqcnqs4i" path="res://Gamestuffs/HeadsUpDisplay/HpLabel.png" id="6_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://dhjdp07qe725o" path="res://Gamestuffs/HeadsUpDisplay/XpLabel.png" id="7_4f5kr"]
+[ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="8_piegi"]
+[ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="9_i2avg"]
+[ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_1a2va"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43w4t"]
+shader = ExtResource("2_t1xeu")
+shader_parameter/shift_hue = 0.0
+
+[sub_resource type="SystemFont" id="SystemFont_7gr8i"]
+font_names = PackedStringArray("Arial")
+font_weight = 750
+subpixel_positioning = 0
+
+[node name="Hud" type="Node2D"]
+script = ExtResource("1_e0onf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_43w4t")
+use_parent_material = true
+position = Vector2(40, 16)
+texture = ExtResource("3_36asn")
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer"]
+offset_left = -38.0
+offset_top = -21.0
+offset_right = 100.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.5137255)
+theme_override_fonts/font = SubResource("SystemFont_7gr8i")
+theme_override_font_sizes/font_size = 70
+text = "1"
+horizontal_alignment = 1
+
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(67, 65)
+texture = ExtResource("5_t1xeu")
+
+[node name="Bars" type="Node" parent="CanvasLayer"]
+
+[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
+position = Vector2(88, 16)
+texture = ExtResource("6_5ep0j")
+centered = false
+
+[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
+position = Vector2(107, 54)
+texture = ExtResource("7_4f5kr")
+centered = false
+
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+position = Vector2(112, 32)
+texture = ExtResource("8_piegi")
+centered = false
+
+[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+position = Vector2(128, 64)
+texture = ExtResource("8_piegi")
+centered = false
+
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 209.0
+offset_bottom = 48.0
+texture = ExtResource("9_i2avg")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
+offset_left = 170.0
+offset_top = 23.0
+offset_right = 253.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 18
+text = "1000/1000"
+horizontal_alignment = 2
+
+[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 225.0
+offset_bottom = 80.0
+texture = ExtResource("10_1a2va")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="XPText" type="Label" parent="CanvasLayer/Bars"]
+offset_left = 186.0
+offset_top = 55.0
+offset_right = 269.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 18
+text = "1000/1000"
+horizontal_alignment = 2
+
+[node name="anchortest" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TestLabel" type="Label" parent="CanvasLayer/anchortest"]
+layout_mode = 0
+offset_left = -211.0
+offset_top = 11.0
+offset_right = 29.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_font_sizes/font_size = 18
+text = "Isso e um Fucking teste. Fuck."
+horizontal_alignment = 2

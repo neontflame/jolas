@@ -1,0 +1,53 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "neon",
+			"mood": "default",
+			"line": "olhe so. uma 'frase'",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line2": {
+			"char": "neon",
+			"mood": "pointy",
+			"line": "maneiro ne?",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line3": {
+			"char": "sketcher",
+			"mood": "smile",
+			"line": "oi eu sou o sketcher",
+			"position": "left",
+			"specialfx": "none"
+		},
+		"line4": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line5": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "holy shit e o sketcher",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line6": {
+			"char": "sketcher",
+			"mood": "shrug",
+			"line": "yep",
+			"position": "left",
+			"specialfx": "none"
+		},
+		"line7": {
+			"char": "sketcher",
+			"mood": "cocky",
+			"line": "the one and only",
+			"position": "left",
+			"specialfx": "none"
+		}
+	}
+}

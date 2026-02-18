@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://x04hyhpls548"]
+
+[ext_resource type="Texture2D" uid="uid://bovedcmohuurm" path="res://Menustuffs/SaveMenu/SaveBox.png" id="1_gdkex"]
+[ext_resource type="Script" uid="uid://con14lmbu1nji" path="res://Menustuffs/SaveMenu/SaveBox.gd" id="1_movk3"]
+[ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="2_178rs"]
+[ext_resource type="Texture2D" uid="uid://ybq850xd3j8g" path="res://Menustuffs/SaveMenu/SaveDel.png" id="3_178rs"]
+
+[sub_resource type="SystemFont" id="SystemFont_movk3"]
+font_names = PackedStringArray("Verdana")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5t5b"]
+size = Vector2(34, 48)
+
+[sub_resource type="SystemFont" id="SystemFont_8xmhf"]
+font_names = PackedStringArray("verdana")
+
+[sub_resource type="SystemFont" id="SystemFont_m0t24"]
+font_names = PackedStringArray("verdana")
+font_weight = 550
+
+[node name="SaveBox" type="Node2D"]
+script = ExtResource("1_movk3")
+
+[node name="SaveBox" type="Sprite2D" parent="."]
+texture = ExtResource("1_gdkex")
+centered = false
+
+[node name="FullSave" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="FullSave"]
+position = Vector2(60, 56)
+texture = ExtResource("2_178rs")
+
+[node name="LvCount" type="Label" parent="FullSave"]
+offset_left = 105.0
+offset_top = 13.0
+offset_right = 161.0
+offset_bottom = 36.0
+theme_override_fonts/font = SubResource("SystemFont_movk3")
+theme_override_font_sizes/font_size = 24
+text = "Nível 1"
+
+[node name="CurMap" type="Label" parent="FullSave"]
+offset_left = 105.0
+offset_top = 55.0
+offset_right = 371.0
+offset_bottom = 76.0
+theme_override_fonts/font = SubResource("SystemFont_movk3")
+theme_override_font_sizes/font_size = 13
+text = "Mapa de testes"
+
+[node name="CurChar" type="Label" parent="FullSave"]
+offset_left = 105.0
+offset_top = 76.0
+offset_right = 371.0
+offset_bottom = 97.0
+theme_override_fonts/font = SubResource("SystemFont_movk3")
+text = "Neon T. Flame"
+
+[node name="Timespan" type="Label" parent="FullSave"]
+offset_left = 277.0
+offset_top = 7.0
+offset_right = 399.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.54509807, 0.7254902, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_movk3")
+text = "0h 0min"
+horizontal_alignment = 2
+
+[node name="SaveDel" type="Area2D" parent="FullSave"]
+position = Vector2(374, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullSave/SaveDel"]
+position = Vector2(18, 24)
+shape = SubResource("RectangleShape2D_m5t5b")
+
+[node name="SaveDelSprite" type="Sprite2D" parent="FullSave/SaveDel"]
+texture = ExtResource("3_178rs")
+centered = false
+
+[node name="EmptySave" type="Node2D" parent="."]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EmptySave"]
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 409.0
+offset_bottom = 104.0
+theme_override_fonts/normal_font = SubResource("SystemFont_8xmhf")
+theme_override_fonts/bold_font = SubResource("SystemFont_m0t24")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "seu save é: [b]save vazio[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1

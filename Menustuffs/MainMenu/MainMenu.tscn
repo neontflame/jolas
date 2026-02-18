@@ -1,0 +1,188 @@
+[gd_scene load_steps=20 format=3 uid="uid://cmfb6a66cild4"]
+
+[ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
+[ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_yqxuh"]
+[ext_resource type="Texture2D" uid="uid://dar2tl1qdu5lg" path="res://Menustuffs/MainMenu/jolarAtivo.png" id="3_rdp1e"]
+[ext_resource type="Texture2D" uid="uid://bsg2pwbokixtf" path="res://Menustuffs/MainMenu/jolarInativo.png" id="4_qa50y"]
+[ext_resource type="Texture2D" uid="uid://1e0vaoq46p76" path="res://Menustuffs/MainMenu/jolarCoopAtivo.png" id="5_un3ih"]
+[ext_resource type="Texture2D" uid="uid://c5k55ajppvjb0" path="res://Menustuffs/MainMenu/jolarCoopInativo.png" id="6_5deut"]
+[ext_resource type="Texture2D" uid="uid://dcocxpxypatvu" path="res://Menustuffs/MainMenu/opcoesAtivo.png" id="7_8uvje"]
+[ext_resource type="Texture2D" uid="uid://4ny7w70owpnb" path="res://Menustuffs/MainMenu/opcoesInativo.png" id="8_e4a6g"]
+[ext_resource type="Texture2D" uid="uid://ctd3myn53kthc" path="res://Menustuffs/MainMenu/sobreAtivo.png" id="9_sucjd"]
+[ext_resource type="Texture2D" uid="uid://m50nhuwawypm" path="res://Menustuffs/MainMenu/sobreInativo.png" id="10_p0sje"]
+[ext_resource type="Texture2D" uid="uid://cdhoropocc1i4" path="res://Menustuffs/MainMenu/sairAtivo.png" id="11_lpvck"]
+[ext_resource type="Texture2D" uid="uid://dg8j4ypg1kyva" path="res://Menustuffs/MainMenu/sairInativo.png" id="12_3md7f"]
+
+[sub_resource type="SystemFont" id="SystemFont_rdp1e"]
+font_names = PackedStringArray("Arial")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou8cy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rdp1e")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qa50y")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkq5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_un3ih")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5deut")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nj4bg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8uvje")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_e4a6g")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3c3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_sucjd")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_p0sje")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4pto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_lpvck")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_3md7f")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_yqxuh")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="Logo" type="Sprite2D" parent="MenuCanvas"]
+position = Vector2(21, 18)
+texture = ExtResource("1_1hf02")
+centered = false
+
+[node name="Quote" type="Label" parent="MenuCanvas"]
+offset_left = 80.0
+offset_top = 91.0
+offset_right = 480.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_yqxuh")
+theme_override_font_sizes/font_size = 18
+text = "insira uma quote engraçadinha aqui ou algo do tipo"
+
+[node name="Label" type="Label" parent="MenuCanvas"]
+offset_left = 3.0
+offset_top = 465.0
+offset_right = 544.0
+offset_bottom = 499.0
+theme_override_colors/font_color = Color(0, 0, 0.6, 1)
+theme_override_fonts/font = SubResource("SystemFont_rdp1e")
+theme_override_font_sizes/font_size = 12
+text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
+termo \"jolas\" cunhado por hawnt, sketcher e zummy"
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Opts" type="Node2D" parent="MenuCanvas/RightAnchor"]
+position = Vector2(-216, -86)
+
+[node name="jolar" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+sprite_frames = SubResource("SpriteFrames_ou8cy")
+animation = &"inactive"
+centered = false
+
+[node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+position = Vector2(0, 24)
+sprite_frames = SubResource("SpriteFrames_xkq5v")
+animation = &"inactive"
+centered = false
+
+[node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+position = Vector2(0, 64)
+sprite_frames = SubResource("SpriteFrames_nj4bg")
+animation = &"inactive"
+centered = false
+
+[node name="sobre" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+position = Vector2(0, 88)
+sprite_frames = SubResource("SpriteFrames_v3c3c")
+animation = &"inactive"
+centered = false
+
+[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+position = Vector2(0, 136)
+sprite_frames = SubResource("SpriteFrames_e4pto")
+animation = &"inactive"
+centered = false

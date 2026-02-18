@@ -1,0 +1,170 @@
+[gd_scene load_steps=14 format=3 uid="uid://vk0j7euhewop"]
+
+[ext_resource type="Script" uid="uid://ckfxpag2jfue2" path="res://Menustuffs/DipshitMenu/DipshitMenu.gd" id="1_1fg5c"]
+[ext_resource type="Texture2D" uid="uid://vj3pw103g4sl" path="res://Menustuffs/DipshitMenu/ChooseYourDipshit.png" id="1_v7kdm"]
+[ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="2_7q1s8"]
+[ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="3_1fg5c"]
+[ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_sdvf2"]
+[ext_resource type="Texture2D" uid="uid://bs0yvs4glmh1h" path="res://Menustuffs/DipshitMenu/DipshitBox.png" id="5_ohf5w"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_a3aa5"]
+[ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="7_x8tw6"]
+[ext_resource type="Texture2D" uid="uid://c4xnwpqlk0y0j" path="res://Menustuffs/Commons/SetaAtiva1.png" id="8_6m5v3"]
+[ext_resource type="Texture2D" uid="uid://dj3fu1fed2o8e" path="res://Menustuffs/Commons/SetaAtiva2.png" id="9_1558m"]
+[ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="10_ky6fr"]
+
+[sub_resource type="SystemFont" id="SystemFont_485od"]
+font_names = PackedStringArray("Verdana")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pobul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x8tw6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6m5v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1558m")
+}],
+"loop": false,
+"name": &"press",
+"speed": 12.0
+}]
+
+[node name="DipshitMenu" type="Node2D"]
+script = ExtResource("1_1fg5c")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" type="Sprite2D" parent="MenuCanvas/LeftAnchor"]
+position = Vector2(54, 39)
+texture = ExtResource("2_7q1s8")
+
+[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChooseYourDipshit" type="Sprite2D" parent="MenuCanvas/MidAnchor"]
+position = Vector2(213, -182)
+texture = ExtResource("1_v7kdm")
+
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor"]
+layout_mode = 0
+offset_left = -140.0
+offset_top = -62.0
+offset_right = 404.0
+offset_bottom = 178.0
+texture = ExtResource("4_sdvf2")
+patch_margin_left = 20
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 16
+
+[node name="DipshitBox" type="Sprite2D" parent="MenuCanvas/MidAnchor"]
+position = Vector2(-252, -38)
+texture = ExtResource("5_ohf5w")
+
+[node name="CharInfo" type="Node2D" parent="MenuCanvas/MidAnchor"]
+position = Vector2(-380, -230)
+
+[node name="Name" type="Label" parent="MenuCanvas/MidAnchor/CharInfo"]
+offset_left = 26.0
+offset_top = 314.0
+offset_right = 230.0
+offset_bottom = 337.0
+theme_override_fonts/font = SubResource("SystemFont_485od")
+theme_override_font_sizes/font_size = 18
+text = "Neon T. Flame"
+horizontal_alignment = 1
+
+[node name="Desc" type="RichTextLabel" parent="MenuCanvas/MidAnchor/CharInfo"]
+offset_left = 252.0
+offset_top = 187.0
+offset_right = 774.0
+offset_bottom = 394.0
+theme_override_constants/line_separation = -10
+theme_override_constants/paragraph_separation = 5
+theme_override_fonts/normal_font = ExtResource("6_a3aa5")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "left right left right left right down
+you got [color=#FF0000]another thing[/color] comin if you think i'll lose "
+
+[node name="PreviewPos" type="Node2D" parent="MenuCanvas/MidAnchor/CharInfo"]
+position = Vector2(133, 276)
+
+[node name="IconSelect" type="Node2D" parent="MenuCanvas/MidAnchor"]
+position = Vector2(-380, -230)
+
+[node name="SetaRight" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/IconSelect"]
+position = Vector2(721, 127)
+sprite_frames = SubResource("SpriteFrames_pobul")
+
+[node name="SetaLeft" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/IconSelect"]
+position = Vector2(345, 127)
+sprite_frames = SubResource("SpriteFrames_pobul")
+flip_h = true
+
+[node name="Icons" type="Node2D" parent="MenuCanvas/MidAnchor/IconSelect"]
+
+[node name="CurIcon" type="Sprite2D" parent="MenuCanvas/MidAnchor/IconSelect/Icons"]
+position = Vector2(540, 122)
+texture = ExtResource("10_ky6fr")
+
+[node name="IconRight" type="Sprite2D" parent="MenuCanvas/MidAnchor/IconSelect/Icons"]
+self_modulate = Color(1, 1, 1, 0.41960785)
+position = Vector2(644, 122)
+texture = ExtResource("10_ky6fr")
+
+[node name="IconLeft" type="Sprite2D" parent="MenuCanvas/MidAnchor/IconSelect/Icons"]
+self_modulate = Color(1, 1, 1, 0.41960785)
+position = Vector2(436, 122)
+texture = ExtResource("10_ky6fr")
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor"]
+position = Vector2(-36, 0)
+texture = ExtResource("3_1fg5c")
+
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

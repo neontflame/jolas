@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6i304br5j7n4"]
+
+[ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
+[ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="1_lagfm"]
+[ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="2_86qpw"]
+[ext_resource type="Texture2D" uid="uid://c4xnwpqlk0y0j" path="res://Menustuffs/Commons/SetaAtiva1.png" id="3_desna"]
+[ext_resource type="Texture2D" uid="uid://dj3fu1fed2o8e" path="res://Menustuffs/Commons/SetaAtiva2.png" id="4_dc8a4"]
+[ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="5_x1y7c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_desna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dc8a4")
+}],
+"loop": false,
+"name": &"active",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_x1y7c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("savesNode")]
+script = ExtResource("1_86qpw")
+savesNode = NodePath("MenuCanvas/MidAnchor/Saves")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" type="Sprite2D" parent="MenuCanvas/LeftAnchor"]
+position = Vector2(54, 39)
+texture = ExtResource("1_lagfm")
+
+[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Saves" type="Node2D" parent="MenuCanvas/MidAnchor"]
+position = Vector2(-176, 54)
+
+[node name="SetaCool" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/Saves"]
+position = Vector2(-42, 36)
+sprite_frames = SubResource("SpriteFrames_omsxf")
+centered = false
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor"]
+position = Vector2(-36, 0)
+texture = ExtResource("2_86qpw")

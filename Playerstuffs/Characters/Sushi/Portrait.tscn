@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://b5vhx348uiwn5"]
+
+[ext_resource type="Texture2D" uid="uid://bvn8rmmgu5sca" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitAngry0001.png" id="1_m2sa8"]
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_qggik"]
+[ext_resource type="Texture2D" uid="uid://capohvxgywsp8" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitAngry0002.png" id="2_qggik"]
+[ext_resource type="Texture2D" uid="uid://c0otjtdq1qyga" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitAngry0003.png" id="3_rgyvk"]
+[ext_resource type="Texture2D" uid="uid://c6qniw1e7tc1c" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitConfused0001.png" id="4_dv0l7"]
+[ext_resource type="Texture2D" uid="uid://c5wmax00o222t" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitConfused0002.png" id="5_5kivg"]
+[ext_resource type="Texture2D" uid="uid://doe0n4ehivobf" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitConfused0003.png" id="6_8f48f"]
+[ext_resource type="Texture2D" uid="uid://p4mk85o4ep3y" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitTaunting0001.png" id="7_mmyi5"]
+[ext_resource type="Texture2D" uid="uid://bdrldrdri00ch" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitTaunting0002.png" id="8_0wec1"]
+[ext_resource type="Texture2D" uid="uid://bxg6axee3pyu0" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitTaunting0003.png" id="9_b0ykw"]
+[ext_resource type="Texture2D" uid="uid://cletul0mu2kjm" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitNeut0001.png" id="10_x3lpb"]
+[ext_resource type="Texture2D" uid="uid://fhhbwcpgmppx" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitNeut0002.png" id="11_sxkvo"]
+[ext_resource type="Texture2D" uid="uid://mwaovid8mfhe" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitNeut0003.png" id="12_whk18"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vpsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m2sa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qggik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rgyvk")
+}],
+"loop": false,
+"name": &"angry",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dv0l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5kivg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8f48f")
+}],
+"loop": false,
+"name": &"confused",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mmyi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0wec1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b0ykw")
+}],
+"loop": false,
+"name": &"cool",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_x3lpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sxkvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_whk18")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Portrait" type="Node2D"]
+script = ExtResource("1_qggik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -69)
+sprite_frames = SubResource("SpriteFrames_2vpsd")
+animation = &"angry"

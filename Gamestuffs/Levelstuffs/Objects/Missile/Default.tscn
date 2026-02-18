@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://drd1m1ya7sw1k"]
+
+[ext_resource type="Script" uid="uid://rcve1fwkisna" path="res://Gamestuffs/Levelstuffs/Objects/Missile/Missile.gd" id="1_mdbox"]
+[ext_resource type="Texture2D" uid="uid://b5g7ear6y0c2k" path="res://Gamestuffs/Levelstuffs/Objects/Missile/Missile.png" id="2_638ne"]
+[ext_resource type="Texture2D" uid="uid://dmepq8iedpcyk" path="res://Gamestuffs/Levelstuffs/Objects/Missile/ExplodePlaceholder.png" id="3_638ne"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5qhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_638ne")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_638ne")
+}],
+"loop": true,
+"name": &"missile",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qhf"]
+size = Vector2(38, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_638ne"]
+radius = 61.073727
+
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_mdbox")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f5qhf")
+animation = &"missile"
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0.5)
+shape = SubResource("RectangleShape2D_f5qhf")
+
+[node name="ExplosionCollide" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_638ne")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]
