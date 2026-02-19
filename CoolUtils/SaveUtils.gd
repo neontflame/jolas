@@ -8,8 +8,11 @@ static func save_game(slot:int):
 		playstime = Time.get_unix_time_from_system()
 	else:
 		playstime = get_save_info(slot)['first-playtime']
-		
-	var saveStuff = FileAccess.open('user://save' + str(slot) + '.jol', FileAccess.WRITE)
+	var saveStuff
+	if GameUtils.loadedMods != []:
+		saveStuff = FileAccess.open('user://modSave' + str(slot) + '.jol', FileAccess.WRITE)
+	else:
+		saveStuff = FileAccess.open('user://save' + str(slot) + '.jol', FileAccess.WRITE)
 	var saveInfo:Dictionary = {
 		"new": false,
 		"player": GPStats.char,
@@ -18,7 +21,8 @@ static func save_game(slot:int):
 		"maxHP": GPStats.maxHP,
 		"map": MapUtils.map.name,
 		"first-playtime": playstime,
-		"last-playtime": Time.get_unix_time_from_system()
+		"last-playtime": Time.get_unix_time_from_system(),
+		"applied-mods": GameUtils.loadedMods
 	}
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))
@@ -28,16 +32,24 @@ static func get_save_info(slot:int):
 		"new": true
 	}
 	var pathness:String = 'user://save' + str(slot) + '.jol'
+	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
+	var shouldMod:bool = (FileAccess.file_exists(pathnessMods) && GameUtils.loadedMods != [])
 	
-	if !FileAccess.file_exists(pathness):
-		return newSave
+	if !shouldMod:
+		if !FileAccess.file_exists(pathness):
+			return newSave
 		
-	var saveStuff = FileAccess.open(pathness, FileAccess.READ)
+	var saveStuff = FileAccess.open((pathnessMods if shouldMod else pathness), FileAccess.READ)
 	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
 	return saveGotten
 
 static func delete_save(slot:int):
-	var saveStuff = FileAccess.open('user://save' + str(slot) + '.jol', FileAccess.WRITE)
+	var pathness:String = 'user://save' + str(slot) + '.jol'
+	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
+	
+	var shouldMod:bool = (GameUtils.loadedMods != [])
+	
+	var saveStuff = FileAccess.open((pathnessMods if shouldMod else pathness), FileAccess.WRITE)
 	var saveInfo:Dictionary = {
 		"new": true,
 		"deleted": true

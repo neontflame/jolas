@@ -58,7 +58,8 @@ theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "Neon T. Flame"
 
 [node name="Timespan" type="Label" parent="FullSave"]
-offset_left = 277.0
+visible = false
+offset_left = 219.0
 offset_top = 7.0
 offset_right = 399.0
 offset_bottom = 28.0

@@ -36,7 +36,7 @@ animations = [{
 
 [node name="FileThingie" type="Control"]
 clip_contents = true
-custom_minimum_size = Vector2(410, 32)
+custom_minimum_size = Vector2(398, 32)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7ghir")

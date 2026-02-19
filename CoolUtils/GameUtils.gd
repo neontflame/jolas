@@ -1,6 +1,8 @@
 extends Node
 class_name GameUtils
 
+static var loadedMods:Array = []
+
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
 	var trueCharlist:Array = []

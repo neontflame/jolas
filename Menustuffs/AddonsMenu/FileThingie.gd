@@ -2,6 +2,7 @@ extends Control
 
 var filename:String = ''
 var selected:bool = false
+var applied:bool = false
 var id:int = 0
 var getMoused:bool = false
 
@@ -18,6 +19,11 @@ func setup():
 	mouse_exited.connect(un_moused)
 
 func _process(delta: float) -> void:
+	if applied:
+		$Label.self_modulate.a = 0.5
+	else:
+		$Label.self_modulate.a = 1
+		
 	$bg.self_modulate.a = lerp($bg.self_modulate.a,
 							(0.75 if selected else 0.4),
 							0.2)
@@ -27,4 +33,5 @@ func is_moused():
 	getMoused = true
 
 func un_moused():
+	CoolMenu.curSelected = -1
 	getMoused = false
