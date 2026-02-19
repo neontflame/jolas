@@ -11,6 +11,8 @@ static var maxHP := 10
 
 static var lvLimit := 5
 
+static var modded := false
+
 static func setCharObject(thisChar:PlayerObject):
 	charObject = thisChar
 

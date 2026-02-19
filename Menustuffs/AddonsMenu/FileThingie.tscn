@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqfjq6dvakk2m"]
+
+[ext_resource type="Script" uid="uid://do64q5h4w7o6y" path="res://Menustuffs/AddonsMenu/FileThingie.gd" id="1_7ghir"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="1_g1iuw"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_wbk87"]
+[ext_resource type="Texture2D" uid="uid://b3vxt3hpg36g0" path="res://Menustuffs/AddonsMenu/defaultIcon.png" id="4_mu3qi"]
+[ext_resource type="Texture2D" uid="uid://br86kfedgan5n" path="res://Menustuffs/AddonsMenu/folderIcon.png" id="5_l2c1n"]
+[ext_resource type="Texture2D" uid="uid://fqeuk0057whi" path="res://Menustuffs/AddonsMenu/jolaPckIcon.png" id="6_gk741"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkrl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mu3qi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l2c1n")
+}],
+"loop": true,
+"name": &"folder",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gk741")
+}],
+"loop": true,
+"name": &"pck",
+"speed": 5.0
+}]
+
+[node name="FileThingie" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(410, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7ghir")
+
+[node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.27058825)
+position = Vector2(204.99998, 10.999999)
+scale = Vector2(6.484375, 0.59374994)
+texture = ExtResource("1_g1iuw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -2.0
+offset_right = 404.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("3_wbk87")
+theme_override_font_sizes/font_size = 18
+text = "CoolFileAwesome.zip"
+
+[node name="fileicon" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 15)
+sprite_frames = SubResource("SpriteFrames_dkrl0")
+animation = &"pck"

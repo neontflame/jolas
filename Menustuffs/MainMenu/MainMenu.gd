@@ -68,6 +68,8 @@ func goToMenu(menuName:String):
 	match menuName:
 		'jolar':
 			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
+		'addons':
+			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
 		_:
 			CoolMenu.stop_sfx('Go')
 			CoolMenu.play_sfx('Back')

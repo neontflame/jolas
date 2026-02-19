@@ -24,10 +24,10 @@ static func get_maps():
 	return trueLvlList
 
 static func get_char_preview(char:String):
-	return load("res://Playerstuffs/Characters/" + char + "/CharSel.tscn")
+	return load("res://Playerstuffs/Characters/" + existing_char(char) + "/CharSel.tscn")
 	
 static func get_char_info(char:String):
-	var charStuff = "res://Playerstuffs/Characters/" + char + "/Info.json"
+	var charStuff = "res://Playerstuffs/Characters/" + existing_char(char) + "/Info.json"
 	var charInfo = '' 
 	if load(charStuff) == null:
 		charInfo = '{
@@ -41,11 +41,15 @@ static func get_char_info(char:String):
 	return charGotten
 
 static func get_char_asset(char:String, asset:String):
-	var charPath = "res://Playerstuffs/Characters/" + char + "/" + asset
+	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
 	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
 	var charStuff = load(charPath)
 	return charStuff
 
+static func existing_char(char:String):
+	if ResourceLoader.list_directory("res://Playerstuffs/Characters/" + char + "/"): return char
+	else: return 'Neon'
+	
 static func get_map_info(lvl:String):
 	var lvlStuff = "res://Gamestuffs/Levelstuffs/Levels/" + lvl + ".json"
 	var lvlInfo = ''

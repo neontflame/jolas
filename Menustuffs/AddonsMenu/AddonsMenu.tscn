@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl80lh7un678f"]
+
+[ext_resource type="Script" uid="uid://c5qxtuknpdlja" path="res://Menustuffs/AddonsMenu/AddonsMenu.gd" id="1_tkxuk"]
+[ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="2_d8hr0"]
+[ext_resource type="PackedScene" uid="uid://cqfjq6dvakk2m" path="res://Menustuffs/AddonsMenu/FileThingie.tscn" id="4_tkxuk"]
+[ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_wkwuq"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_0xtj2"]
+[ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="11_c7k3o"]
+
+[node name="AddonsMenu" type="Node2D" node_paths=PackedStringArray("boxWithABunchOfShitInIt")]
+script = ExtResource("1_tkxuk")
+boxWithABunchOfShitInIt = NodePath("MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" type="Sprite2D" parent="MenuCanvas/LeftAnchor"]
+position = Vector2(54, 39)
+texture = ExtResource("2_d8hr0")
+
+[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor"]
+layout_mode = 0
+offset_left = -195.0
+offset_top = -211.0
+offset_right = 235.0
+offset_bottom = 238.0
+texture = ExtResource("4_wkwuq")
+patch_margin_left = 20
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 16
+
+[node name="PathLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+layout_mode = 0
+offset_left = -183.0
+offset_top = -206.0
+offset_right = 214.0
+offset_bottom = -176.0
+theme_override_fonts/font = ExtResource("6_0xtj2")
+theme_override_font_sizes/font_size = 18
+text = "user://Lmfao idk"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor"]
+layout_mode = 0
+offset_left = -185.0
+offset_top = -174.0
+offset_right = 225.0
+offset_bottom = 229.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ScrollContainer"]
+layout_mode = 2
+
+[node name="Control" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer" instance=ExtResource("4_tkxuk")]
+layout_mode = 2
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor"]
+position = Vector2(-36, 0)
+texture = ExtResource("11_c7k3o")

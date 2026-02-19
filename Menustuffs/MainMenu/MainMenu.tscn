@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmfb6a66cild4"]
+[gd_scene load_steps=23 format=3 uid="uid://cmfb6a66cild4"]
 
 [ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
 [ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://m50nhuwawypm" path="res://Menustuffs/MainMenu/sobreInativo.png" id="10_p0sje"]
 [ext_resource type="Texture2D" uid="uid://cdhoropocc1i4" path="res://Menustuffs/MainMenu/sairAtivo.png" id="11_lpvck"]
 [ext_resource type="Texture2D" uid="uid://dg8j4ypg1kyva" path="res://Menustuffs/MainMenu/sairInativo.png" id="12_3md7f"]
+[ext_resource type="Texture2D" uid="uid://ygt1a50ik8nu" path="res://Menustuffs/MainMenu/addonsAtivo.png" id="12_qa50y"]
+[ext_resource type="Texture2D" uid="uid://6yka0huh70vj" path="res://Menustuffs/MainMenu/addonsInativo.png" id="13_un3ih"]
 
 [sub_resource type="SystemFont" id="SystemFont_rdp1e"]
 font_names = PackedStringArray("Arial")
@@ -93,6 +95,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_5deut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_qa50y")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_un3ih")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e4pto"]
 animations = [{
 "frames": [{
@@ -166,7 +187,7 @@ centered = false
 [node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
 position = Vector2(0, 24)
 sprite_frames = SubResource("SpriteFrames_xkq5v")
-animation = &"inactive"
+animation = &"active"
 centered = false
 
 [node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
@@ -181,8 +202,14 @@ sprite_frames = SubResource("SpriteFrames_v3c3c")
 animation = &"inactive"
 centered = false
 
-[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="addons" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
 position = Vector2(0, 136)
+sprite_frames = SubResource("SpriteFrames_5deut")
+animation = &"inactive"
+centered = false
+
+[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+position = Vector2(0, 168)
 sprite_frames = SubResource("SpriteFrames_e4pto")
 animation = &"inactive"
 centered = false
