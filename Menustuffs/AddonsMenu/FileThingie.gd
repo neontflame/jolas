@@ -1,6 +1,7 @@
 extends Control
 
 var filename:String = ''
+var folder:String = ''
 var selected:bool = false
 var applied:bool = false
 var id:int = 0
@@ -14,6 +15,9 @@ func setup():
 		$fileicon.play('folder')
 	else:
 		$fileicon.play('default')
+		
+	if !filename.ends_with('/'):
+		sizeStringOnSizeLabel(folder + filename)
 	
 	mouse_entered.connect(is_moused)
 	mouse_exited.connect(un_moused)
@@ -35,3 +39,8 @@ func is_moused():
 func un_moused():
 	CoolMenu.curSelected = -1
 	getMoused = false
+
+func sizeStringOnSizeLabel(file:String):
+	var size = FileAccess.get_size(file)
+	$SizeLabel.visible = true
+	$SizeLabel.text = FileUtils.format_bytes(size)

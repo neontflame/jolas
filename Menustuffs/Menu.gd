@@ -19,6 +19,7 @@ func _ready() -> void:
 		track.play()
 		
 	print(OS.get_executable_path().get_base_dir())
+
 var sineWaveCoolio := 0.0
 
 func _process(delta: float) -> void:

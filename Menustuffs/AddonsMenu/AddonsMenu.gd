@@ -33,6 +33,7 @@ func reload():
 		var newFile = load("res://Menustuffs/AddonsMenu/FileThingie.tscn").instantiate()
 		boxWithABunchOfShitInIt.add_child(newFile)
 		newFile.filename = item
+		newFile.folder = curPath
 		newFile.setup()
 		if GameUtils.loadedMods.has(curPath + newFile.filename):
 			newFile.applied = true
@@ -40,6 +41,7 @@ func reload():
 		i += 1
 
 func _process(delta: float) -> void:
+	$MenuCanvas/MidAnchor/ModLabel.text = str(len(GameUtils.loadedMods)) + (' mod carregado' if len(GameUtils.loadedMods) == 1 else ' mods carregados')
 	for coolfile in boxWithABunchOfShitInIt.get_children():
 		if CoolMenu.curSelected != -1:
 			coolfile.selected = (coolfile.filename == curItems[CoolMenu.curSelected])

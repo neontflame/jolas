@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv0kwtpveitw3"]
+[gd_scene load_steps=11 format=3 uid="uid://bv0kwtpveitw3"]
 
 [ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
+[ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/state_pattern.gd" id="6_uawoe"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
 [ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/state_machine.gd" id="13_ld8br"]
 [ext_resource type="Script" uid="uid://u65cs2bew2dh" path="res://Playerstuffs/StateMachinery/floorSt.gd" id="14_mv4eb"]
@@ -61,7 +62,40 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uawoe"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:motion")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:plySprite:animation")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath(".:plySprite:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath(".:plySprite:flip_h")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:player_collisions:rotation")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:current_state")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath(".:previous_state")
+properties/8/spawn = true
+properties/8/replication_mode = 2
+properties/9/path = NodePath(".:plySprite:frame")
+properties/9/spawn = true
+properties/9/replication_mode = 2
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "plySprite")]
+collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_block_on_wall = false
@@ -86,6 +120,10 @@ script = ExtResource("15_axjgi")
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("5_axjgi")
 
+[node name="Empty" type="Node" parent="StateMachine"]
+script = ExtResource("6_uawoe")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
@@ -103,3 +141,6 @@ sprite_frames = SubResource("SpriteFrames_rtyar")
 animation = &"run"
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_uawoe")

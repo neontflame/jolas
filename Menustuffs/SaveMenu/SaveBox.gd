@@ -32,4 +32,7 @@ func renderSave():
 		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
 		# $FullSave/Timespan.text = timeString
 		$FullSave/CurChar.text = GameUtils.get_char_info(coolSaveness["player"])["name"]
+		
+		if coolSaveness["applied-mods"] != []:
+			$SaveBox.self_modulate.b = 0
 	pass

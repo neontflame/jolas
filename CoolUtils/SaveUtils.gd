@@ -19,7 +19,7 @@ static func save_game(slot:int):
 		"level": GPStats.level,
 		"xp": GPStats.xp,
 		"maxHP": GPStats.maxHP,
-		"map": MapUtils.map.name,
+		"map": GPStats.curMap,
 		"first-playtime": playstime,
 		"last-playtime": Time.get_unix_time_from_system(),
 		"applied-mods": GameUtils.loadedMods

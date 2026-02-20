@@ -45,9 +45,17 @@ static func get_char_info(char:String):
 static func get_char_asset(char:String, asset:String):
 	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
 	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
-	var charStuff = load(charPath)
-	return charStuff
-
+	if load(charPath):
+		var charStuff = load(charPath)
+		return charStuff
+	else:
+		return null
+	
+static func get_char_asset_path(char:String, asset:String):
+	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
+	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
+	return charPath
+	
 static func existing_char(char:String):
 	if ResourceLoader.list_directory("res://Playerstuffs/Characters/" + char + "/"): return char
 	else: return 'Neon'
@@ -55,7 +63,7 @@ static func existing_char(char:String):
 static func get_map_info(lvl:String):
 	var lvlStuff = "res://Gamestuffs/Levelstuffs/Levels/" + lvl + ".json"
 	var lvlInfo = ''
-	if load(lvlStuff) == null:
+	if !load(lvlStuff):
 		lvlInfo = '{
 	"name": "Tapa-buraco",
 	"region": "Place Holder"

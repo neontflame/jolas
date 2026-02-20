@@ -8,10 +8,15 @@ static var xp := 0
 static var level := 3
 static var charObject:PlayerObject
 static var maxHP := 10
-
-static var lvLimit := 5
+static var lvLimit := 5 # multiplicador pros limites dos niveis eu acho
+static var curMap := 'TheThing'
 
 static var modded := false
+
+#region Multiplayer variables
+static var is_multiplayer := true
+static var multiplayerID:Variant = -1
+#endregion
 
 static func setCharObject(thisChar:PlayerObject):
 	charObject = thisChar
@@ -32,3 +37,4 @@ static func load_info_from_save(saveNum:int):
 		level = save['level']
 		xp = save['xp']
 		maxHP = save['maxHP']
+		curMap = save['map']

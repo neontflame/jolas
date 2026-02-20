@@ -23,8 +23,7 @@ func update():
 	
 	if Input.is_action_just_pressed("ctrl_1") && Player.ammo > 0:
 		Player.ammo -= 1
-		var missile = MapUtils.spawn_object('Missile', Player.position + addedPos, 'Default')
-		print(Player.rocketAngle)
+		var missile = MapUtils.spawn_object('Missile', Player.position + addedPos, 'Sushi')
 		missile.launch(
 			Vector2.from_angle(deg_to_rad(Player.rocketAngle)),
 			20.0 + abs(Player.motion.x * 0.005)

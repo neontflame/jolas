@@ -13,7 +13,7 @@ var previous_state = null
 @export var FLOOR_ACCELERATION = 62.5
 @export var AIR_ACCELERATION = 30
 @export var SOFT_MAX_SPEED = 600
-@export var GRAVITY = 25
+@export var GRAVITY = 25.0
 @export var JUMP_VELOCITY = -625
 @export var SLOPE_VEL_ADD = 30
 @export var FLOOR_FRICTION = 0.9125
@@ -51,23 +51,30 @@ var practicalAngle := 0.0
 var movementEnabled:bool = true
 
 var camOffset := Vector2(0.0, 0.0)
+
+var playerID:Variant = -1
 #endregion
 
 func _ready() -> void:
-	print('Fuck;')
 	hp = GPStats.maxHP
 	# comece a state machine
 	for state in state_machine.get_children():
 		state.States = state_machine
 		state.Player = self
 		state.StateName = state.name
-		print('ok so in theory this should work;')
 	current_state = state_machine.st_floor
 	previous_state = state_machine.st_floor
 
+func _enter_tree() -> void:
+	if GPStats.is_multiplayer:
+		playerID = name.to_int()
+		set_multiplayer_authority(playerID)
+		movementEnabled = get_multi_status()
+	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
-	current_state.update()
+	if current_state.has_method("update"): current_state.update()
+	
 	updateShit.emit(motion)
 	
 	velocity = motion.rotated(up_direction.angle() + PI/2)
@@ -203,3 +210,6 @@ func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + name + ".ogg")
 	sfx_player.volume_db = volumeDB
 	sfx_player.play()
+
+func get_multi_status():
+	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)

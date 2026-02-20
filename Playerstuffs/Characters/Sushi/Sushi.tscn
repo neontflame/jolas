@@ -141,7 +141,6 @@ script = ExtResource("2_t8ely")
 FLOOR_ACCELERATION = 60.0
 AIR_ACCELERATION = 40
 SOFT_MAX_SPEED = 500
-GRAVITY = 30
 JUMP_VELOCITY = -720
 
 [node name="StateMachine" parent="." index="0"]

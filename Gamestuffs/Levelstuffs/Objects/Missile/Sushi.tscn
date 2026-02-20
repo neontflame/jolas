@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://cskkgn4vd6i10"]
+
+[ext_resource type="Script" uid="uid://rcve1fwkisna" path="res://Gamestuffs/Levelstuffs/Objects/Missile/Missile.gd" id="1_ol0vr"]
+[ext_resource type="Texture2D" uid="uid://dmepq8iedpcyk" path="res://Gamestuffs/Levelstuffs/Objects/Missile/ExplodePlaceholder.png" id="2_qds3b"]
+[ext_resource type="Texture2D" uid="uid://b5g7ear6y0c2k" path="res://Gamestuffs/Levelstuffs/Objects/Missile/Missile.png" id="3_38p71"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5qhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qds3b")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_38p71")
+}],
+"loop": true,
+"name": &"missile",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qhf"]
+size = Vector2(38, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_638ne"]
+radius = 61.073727
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ol0vr"]
+properties/0/path = NodePath("MissileCollide:disabled")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("ExplosionCollide:disabled")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath("objSprite:animation")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath("objSprite:frame")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:used")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:position")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath(".:launch()")
+properties/8/spawn = true
+properties/8/replication_mode = 2
+
+[node name="Missile" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ol0vr")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f5qhf")
+animation = &"missile"
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+position = Vector2(13, 0.5)
+shape = SubResource("RectangleShape2D_f5qhf")
+
+[node name="ExplosionCollide" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("CircleShape2D_638ne")
+disabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ol0vr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]
