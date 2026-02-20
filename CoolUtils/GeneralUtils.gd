@@ -21,3 +21,18 @@ static func get_default_screen_res() -> Vector2:
 		ProjectSettings.get_setting("display/window/size/viewport_width"),
 		ProjectSettings.get_setting("display/window/size/viewport_height")
 		)
+
+static func check_array_compat(array1:Array, array2:Array):
+	if array1 == array2:
+		return true
+		
+	for thingOne in array1:
+		if !array2.has(thingOne):
+			return false
+	
+	for thingTwo in array2:
+		if !array1.has(thingTwo):
+			return false
+	
+	# tem q ver dos dois lados neh
+	return true

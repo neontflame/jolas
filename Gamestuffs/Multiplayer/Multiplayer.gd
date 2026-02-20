@@ -6,6 +6,7 @@ extends Node
 signal player_connected(peer_id, player_info)
 signal player_disconnected(peer_id)
 signal server_disconnected
+signal bye_bye
 
 const PORT = 7000
 const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
@@ -21,7 +22,8 @@ var players = {}
 # entered in a UI scene.
 var player_info = 	{
 					"name": "Name",
-					"char": GPStats.char
+					"char": GPStats.char,
+					"loaded-mods": GameUtils.loadedMods
 					}
 					
 var players_loaded = 0
@@ -53,8 +55,10 @@ func create_game():
 	player_connected.emit(1, player_info)
 
 func remove_multiplayer_peer():
-	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	if multiplayer != null:
+		multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	players.clear()
+	bye_bye.emit()
 
 # When the server decides to start the game from a UI scene,
 # do Lobby.load_game.rpc(filepath)
@@ -78,6 +82,16 @@ func _on_player_connected(id):
 @rpc("any_peer", "reliable")
 func _register_player(new_player_info):
 	var new_player_id = multiplayer.get_remote_sender_id()
+	
+	if multiplayer.is_server():
+		var server_mods = player_info['loaded-mods'] # Or players[1]['loaded-mods']
+		var joining_mods = new_player_info['loaded-mods']
+		
+		if !GeneralUtils.check_array_compat(server_mods, joining_mods):
+			print('Mod mismatch! Kicking peer:', new_player_id)
+			multiplayer.multiplayer_peer.disconnect_peer(new_player_id)
+			return # STOP execution here. Do not add to dict.
+			
 	players[new_player_id] = new_player_info
 	if multiplayer.is_server():
 		player_connected.emit(new_player_id, new_player_info)

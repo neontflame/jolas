@@ -12,7 +12,7 @@ var charDict:Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	createLevel(GPStats.curMap)
-	createPlayer(GPStats.char)
+	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveNum)
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
@@ -113,4 +113,7 @@ func removeFromPeerID(peer_id:Variant):
 		allChars.erase(charDict[peer_id])
 		charDict[peer_id].queue_free()
 		charDict.erase(peer_id)
+
+func bye_bye() -> void:
+	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
 #endregion

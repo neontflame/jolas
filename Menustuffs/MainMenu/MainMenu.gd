@@ -67,6 +67,10 @@ func goToMenu(menuName:String):
 	CoolMenu.play_sfx('Go')
 	match menuName:
 		'jolar':
+			GPStats.is_multiplayer = false
+			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
+		'jolarCoop':
+			GPStats.is_multiplayer = true
 			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
 		'addons':
 			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
