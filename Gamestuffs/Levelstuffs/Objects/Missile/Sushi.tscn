@@ -57,6 +57,9 @@ properties/7/replication_mode = 2
 properties/8/path = NodePath(".:launch()")
 properties/8/spawn = true
 properties/8/replication_mode = 2
+properties/9/path = NodePath(".:queue_free()")
+properties/9/spawn = true
+properties/9/replication_mode = 2
 
 [node name="Missile" type="Area2D"]
 collision_layer = 3

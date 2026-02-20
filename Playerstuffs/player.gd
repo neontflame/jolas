@@ -51,8 +51,11 @@ var practicalAngle := 0.0
 var movementEnabled:bool = true
 
 var camOffset := Vector2(0.0, 0.0)
+#endregion
 
+#region Multiplayer Bull Shit
 var playerID:Variant = -1
+var curMap:String = ''
 #endregion
 
 func _ready() -> void:
@@ -82,6 +85,13 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
+	
+	if GPStats.is_multiplayer:
+		if is_multiplayer_authority():
+			curMap = GPStats.curMap
+		if curMap != GPStats.curMap:
+			if !is_multiplayer_authority():
+				visible = false
 	
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
 

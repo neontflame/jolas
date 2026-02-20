@@ -5,7 +5,7 @@ class_name Bullet
 signal hit_something
 
 #Variable for keeping track of it's velocity
-var velocity:Vector2
+var velocity:Vector2 = Vector2(0,0)
 var cooldown := 10
 var missileOwner
 
