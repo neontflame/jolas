@@ -10,6 +10,8 @@ static var blurAmount:float = 0.0
 
 static var instance:Node2D
 
+static var comingFrom = ''
+
 @onready var theMusics := [$BGMLayer1, $BGMLayer2, $BGMLayer3]
 var theVolumes:Array = [0.0, 0.0, 0.0]
 
@@ -19,6 +21,10 @@ func _ready() -> void:
 		track.play()
 		
 	print(OS.get_executable_path().get_base_dir())
+	
+	if CoolMenu.comingFrom != '':
+		$MainMenu.change_self_scene('res://Menustuffs/' + comingFrom + '/' + comingFrom + '.tscn')
+		CoolMenu.comingFrom = ''
 
 var sineWaveCoolio := 0.0
 

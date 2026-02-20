@@ -30,7 +30,14 @@ func _process(delta: float) -> void:
 		CoolMenu.play_sfx('Tick')
 		changeSel(1)
 	if Input.is_action_just_pressed("ui_accept"):
-		getEmBoy()
+		if GPStats.is_multiplayer:
+			CoolMenu.play_sfx('Go')
+			GPStats.char = GameUtils.get_chars()[CoolMenu.curSelected]
+			print(GPStats.char)
+			CoolMenu.curSelected = GPStats.saveNum
+			change_self_scene('res://Menustuffs/OnlineMenu/OnlineMenu.tscn')
+		else:
+			getEmBoy()
 
 func changeSel(amount:int):
 	$MenuCanvas/MidAnchor/IconSelect/Icons.position.x += 104 * amount
@@ -67,7 +74,7 @@ func getEmBoy() -> void:
 	# aqui e o mapa default
 	# favor trocar quando tiver um mapa de verdade!
 	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:
-		mapToGoTo = 'TheThing'
+		mapToGoTo = GameUtils.defaultMap
 	else:
 		mapToGoTo = SaveUtils.get_save_info(GPStats.saveNum)['map']
 		

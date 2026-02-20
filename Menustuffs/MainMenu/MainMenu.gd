@@ -71,7 +71,7 @@ func goToMenu(menuName:String):
 			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
 		'jolarCoop':
 			GPStats.is_multiplayer = true
-			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
+			change_self_scene("res://Menustuffs/OnlineMenu/OnlineMenu.tscn")
 		'addons':
 			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
 		_:

@@ -3,6 +3,12 @@ class_name GameUtils
 
 static var loadedMods:Array = []
 
+static var ipEntered:String = '127.0.0.1'
+static var portEntered:int = 7000
+static var username:String = ''
+
+static var defaultMap:String = 'TheThing'
+
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
 	var trueCharlist:Array = []

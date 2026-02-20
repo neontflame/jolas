@@ -14,7 +14,8 @@ static var curMap := 'TheThing'
 static var modded := false
 
 #region Multiplayer variables
-static var is_multiplayer := true
+static var is_multiplayer := false
+static var is_hosting := false
 static var multiplayerID:Variant = -1
 #endregion
 
@@ -33,6 +34,7 @@ static func load_info_from_save(saveNum:int):
 		level = 1
 		xp = 0
 		maxHP = 10
+		curMap = GameUtils.defaultMap
 	else:
 		level = save['level']
 		xp = save['xp']

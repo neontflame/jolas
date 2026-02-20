@@ -70,6 +70,9 @@ func _enter_tree() -> void:
 		playerID = name.to_int()
 		set_multiplayer_authority(playerID)
 		movementEnabled = get_multi_status()
+		
+		if is_multiplayer_authority():
+			GPStats.charObject = self
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60

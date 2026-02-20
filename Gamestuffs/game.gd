@@ -14,6 +14,13 @@ func _ready() -> void:
 	createLevel(GPStats.curMap)
 	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveNum)
+	
+	if GPStats.is_multiplayer:
+		if GPStats.is_hosting:
+			create_mp_game()
+		else:
+			join_mp_game()
+
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
@@ -70,19 +77,13 @@ func _process(_delta: float) -> void:
 	
 	if (Input.is_action_just_pressed("ui_accept")):
 		playDialogue('diagTool')
-
-	if GPStats.is_multiplayer:
-		if (Input.is_action_just_pressed("ui_home")):
-			join_mp_game()
-		if (Input.is_action_just_pressed("ui_end")):
-			create_mp_game()
 	pass
 	
 #region Multiplayer
 func join_mp_game():
 	removePlayer()
 	removeFromPeerID(multiplayer.get_unique_id())
-	$Multiplayer.join_game()
+	$Multiplayer.join_game(GameUtils.ipEntered)
 
 func create_mp_game():
 	removePlayer()
@@ -115,5 +116,6 @@ func removeFromPeerID(peer_id:Variant):
 		charDict.erase(peer_id)
 
 func bye_bye() -> void:
+	CoolMenu.comingFrom = 'OnlineMenu'
 	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
 #endregion

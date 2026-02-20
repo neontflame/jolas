@@ -8,7 +8,7 @@ signal player_disconnected(peer_id)
 signal server_disconnected
 signal bye_bye
 
-const PORT = 7000
+var PORT = GameUtils.portEntered
 const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
 const MAX_CONNECTIONS = 20
 
@@ -21,7 +21,7 @@ var players = {}
 # For example, the value of "name" can be set to something the player
 # entered in a UI scene.
 var player_info = 	{
-					"name": "Name",
+					"name": GameUtils.username,
 					"char": GPStats.char,
 					"loaded-mods": GameUtils.loadedMods
 					}
@@ -41,6 +41,7 @@ func join_game(address = ""):
 	var peer = ENetMultiplayerPeer.new()
 	var error = peer.create_client(address, PORT)
 	if error:
+		remove_multiplayer_peer()
 		return error
 	multiplayer.multiplayer_peer = peer
 
@@ -106,6 +107,7 @@ func _on_connected_ok():
 	player_connected.emit(peer_id, player_info)
 
 func _on_connected_fail():
+	print('Fuck.')
 	remove_multiplayer_peer()
 
 func _on_server_disconnected():
