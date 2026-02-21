@@ -5,9 +5,11 @@ var hurtTimer := 30.0;
 func enter_state():
 	print('Enter Hurt')
 	Player.plySprite.play('hurt')
+	hurtTimer = 30.0
 	
 func update():
-	hurtTimer -= 1 * Player.deltaOne; # i couldve used a timer for this but Nahhhhhhhhhhhhhhhhhh
+	Player.shakeForce = hurtTimer * 0.5
+	hurtTimer -= 1; # i couldve used a timer for this but Nahhhhhhhhhhhhhhhhhh
 	
 	if hurtTimer <= 0:
 		if Player.is_on_floor():
@@ -18,4 +20,3 @@ func update():
 	Player.handlePhys()
 	# Player.handleMovement()
 	Player.handleCamera()
-	

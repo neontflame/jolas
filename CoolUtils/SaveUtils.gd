@@ -56,3 +56,28 @@ static func delete_save(slot:int):
 	}
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))
+
+static func save_online():
+	var saveStuff = FileAccess.open('user://onlineInfo.json', FileAccess.WRITE)
+	var saveInfo:Dictionary = {
+		"name": GameUtils.username,
+		"ip": GameUtils.ipEntered,
+		"port": int(GameUtils.portEntered)
+	}
+	
+	saveStuff.store_string(JSON.stringify(saveInfo))
+
+static func get_online_info():
+	var pathness:String = 'user://onlineInfo.json'
+	var emptyInfo:Dictionary = {
+		"name": "",
+		"ip": "127.0.0.1",
+		"port": 7000
+	}
+	
+	if !FileAccess.file_exists(pathness):
+		return emptyInfo
+		
+	var saveStuff = FileAccess.open(pathness, FileAccess.READ)
+	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
+	return saveGotten

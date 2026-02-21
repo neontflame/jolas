@@ -10,6 +10,7 @@ func enter_state():
 	pass
 
 func exit_state():
+	print('good bye ' + StateName + '!')
 	pass
 
 func draw():

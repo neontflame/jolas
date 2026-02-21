@@ -23,13 +23,16 @@ func update():
 	
 	if Input.is_action_just_pressed("ctrl_1") && Player.ammo > 0:
 		Player.ammo -= 1
-		var missile = MapUtils.spawn_object('Missile', Player.position + addedPos, 'Sushi')
-		missile.launch(
-			Vector2.from_angle(deg_to_rad(Player.rocketAngle)),
-			20.0 + abs(Player.motion.x * 0.005)
+		MapUtils.spawn_object('Missile', Player.position + addedPos, 'Default',
+			{	
+			"direction": Vector2.from_angle(deg_to_rad(Player.rocketAngle)),
+			"speed": 20.0 + abs(Player.motion.x * 0.005),
+			"rotation": deg_to_rad(Player.rocketAngle),
+			"power": GPStats.level,
+			"owner_id": Player.playerID
+			}
 		)
-		missile.rotation = deg_to_rad(Player.rocketAngle)
-		missile.missileOwner = Player
+
 		
 	if Input.is_action_just_released("ctrl_2"):
 		goBack()

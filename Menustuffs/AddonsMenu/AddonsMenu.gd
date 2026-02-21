@@ -15,7 +15,9 @@ func _ready() -> void:
 func reload():
 	CoolMenu.curSelected = 0
 	$MenuCanvas/MidAnchor/PathLabel.text = curPath
-	curItems = ResourceLoader.list_directory(curPath)
+	curItems = []
+	for file in DirAccess.get_directories_at(curPath):
+		curItems.append(file + '/')
 	for file in DirAccess.get_files_at(curPath):
 		curItems.append(file)
 		
@@ -78,7 +80,7 @@ func _process(delta: float) -> void:
 func goBack():
 	CoolMenu.play_sfx('Back')
 	if curPath == root:
-		CoolMenu.curSelected = 0
+		CoolMenu.curSelected = 4
 		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	else:
 		# e hora de voltar

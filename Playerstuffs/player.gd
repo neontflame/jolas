@@ -39,6 +39,8 @@ var shakeForce := 0.0
 var camShakeForce := 0.0
 
 var hp := 0.0
+
+var invulnFrames := 30.0
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -86,12 +88,17 @@ func _physics_process(delta: float) -> void:
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
 	
+	if current_state != state_machine.st_hurt:
+		if invulnFrames > 0:
+			invulnFrames -= 1 * deltaOne
+			plySprite.self_modulate.a = 0.5
+		else:
+			plySprite.self_modulate.a = 1
+	
 	if GPStats.is_multiplayer:
 		if is_multiplayer_authority():
 			curMap = GPStats.curMap
-		if curMap != GPStats.curMap:
-			if !is_multiplayer_authority():
-				visible = false
+		visible = (curMap == GPStats.curMap)
 	
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
 
@@ -212,6 +219,15 @@ func change_state(new_state):
 		previous_state.exit_state()
 		current_state.enter_state()
 
+func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+	if get_multi_status():
+		if !get_invuln():
+			hp -= hpLost
+			motion.y = vel.y
+			motion.x = (vel.x if fromBehind else -vel.x)
+			invulnFrames = 120.0
+			change_state(state_machine.st_hurt)
+	
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Playerstuffs/Sounds/" + name + ".ogg")
@@ -226,3 +242,6 @@ func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 
 func get_multi_status():
 	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
+
+func get_invuln():
+	return (invulnFrames > 0)

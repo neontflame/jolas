@@ -2,6 +2,7 @@ extends "res://Playerstuffs/Characters/Sushi/Scripts/rocketStSushi.gd"
 
 func enter_state():
 	print('RRRRRRRRROCKET (air)')
+	Player.jumping = false
 
 func update():
 	super.update()

@@ -10,9 +10,9 @@ func _ready() -> void:
 	print('Dude i hope')
 
 func _enter_tree() -> void:	
-	$MenuCanvas/MidAnchor/UsrTxt.text = GameUtils.username
-	$MenuCanvas/MidAnchor/IPTxt.text = GameUtils.ipEntered
-	$MenuCanvas/MidAnchor/PortTxt.text = str(GameUtils.portEntered)
+	$MenuCanvas/MidAnchor/UsrTxt.text = SaveUtils.get_online_info()['name']
+	$MenuCanvas/MidAnchor/IPTxt.text = SaveUtils.get_online_info()['ip']
+	$MenuCanvas/MidAnchor/PortTxt.text = str(int(SaveUtils.get_online_info()['port']))
 	
 	
 	GPStats.is_multiplayer = true
@@ -49,6 +49,7 @@ func _on_usrtxt_text_changed() -> void:
 
 func savebox_click() -> void:
 	CoolMenu.play_sfx('Go')
+	SaveUtils.save_online()
 	CoolMenu.curSelected = GPStats.saveNum
 	change_self_scene('res://Menustuffs/SaveMenu/SaveMenu.tscn')
 	call_deferred('queue_free')

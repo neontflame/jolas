@@ -118,6 +118,5 @@ func _on_server_disconnected():
 ### Bullshitteria aleatoria sei la mano
 
 @rpc("any_peer", "reliable")
-func _spawn_object(name:String, pos:Vector2, variation:String = 'Default'):
-	var obj = MapUtils.spawn_object_duplicate(name, pos, variation)
-	obj.set_multiplayer_authority(multiplayer.get_remote_sender_id())
+func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Dictionary):
+	var obj = MapUtils.spawn_object_online(name, pos, variation, additionalData)

@@ -9,6 +9,8 @@ var isDial := false
 var allChars:Array = []
 var charDict:Dictionary = {}
 
+static var instance:JolasGame
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	createLevel(GPStats.curMap)
@@ -20,6 +22,8 @@ func _ready() -> void:
 			create_mp_game()
 		else:
 			join_mp_game()
+	
+	JolasGame.instance = self
 
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
