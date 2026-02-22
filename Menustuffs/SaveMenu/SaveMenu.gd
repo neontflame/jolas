@@ -50,4 +50,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		CoolMenu.play_sfx('Back')
 		CoolMenu.curSelected = 0
-		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
+		if GPStats.is_multiplayer:
+			change_self_scene('res://Menustuffs/OnlineMenu/OnlineMenu.tscn')
+		else:
+			change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')

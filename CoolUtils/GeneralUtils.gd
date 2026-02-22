@@ -36,3 +36,19 @@ static func check_array_compat(array1:Array, array2:Array):
 	
 	# tem q ver dos dois lados neh
 	return true
+
+static func replace_control_names(string:String):
+	var stringReplacies:Array = [
+		["ctrl_up", "Up"],
+		["ctrl_down", "Down"],
+		["ctrl_left", "Left"],
+		["ctrl_right", "Right"],
+		["ctrl_1", "B"],
+		["ctrl_2", "A"]
+	]
+	
+	var coolString:String = string
+	for replacery in stringReplacies:
+		coolString = coolString.replace(replacery[0], replacery[1])
+	
+	return coolString

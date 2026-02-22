@@ -62,7 +62,9 @@ static func save_online():
 	var saveInfo:Dictionary = {
 		"name": GameUtils.username,
 		"ip": GameUtils.ipEntered,
-		"port": int(GameUtils.portEntered)
+		"port": int(GameUtils.portEntered),
+		"saveSlot": GPStats.saveNum,
+		"char": GPStats.char
 	}
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))
@@ -72,7 +74,9 @@ static func get_online_info():
 	var emptyInfo:Dictionary = {
 		"name": "",
 		"ip": "127.0.0.1",
-		"port": 7000
+		"port": 7000,
+		"saveSlot": 0,
+		"char": "Neon"
 	}
 	
 	if !FileAccess.file_exists(pathness):
@@ -80,4 +84,9 @@ static func get_online_info():
 		
 	var saveStuff = FileAccess.open(pathness, FileAccess.READ)
 	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
+	if saveGotten.has('char'):
+		saveGotten['char'] = GameUtils.existing_char(saveGotten['char'])
+	else:
+		saveGotten['char'] = 'Neon'
 	return saveGotten
+	

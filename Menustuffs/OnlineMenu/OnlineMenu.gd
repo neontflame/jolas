@@ -14,10 +14,14 @@ func _enter_tree() -> void:
 	$MenuCanvas/MidAnchor/IPTxt.text = SaveUtils.get_online_info()['ip']
 	$MenuCanvas/MidAnchor/PortTxt.text = str(int(SaveUtils.get_online_info()['port']))
 	
+	if !GPStats.is_multiplayer:
+		GPStats.saveNum = SaveUtils.get_online_info()['saveSlot']
+		GPStats.char = SaveUtils.get_online_info()['char']
 	
-	GPStats.is_multiplayer = true
 	$MenuCanvas/MidAnchor/SaveBoxOnline.saveId = GPStats.saveNum
 	$MenuCanvas/MidAnchor/SaveBoxOnline.renderSaveOnline()
+	
+	GPStats.is_multiplayer = true
 
 func _process(delta: float) -> void:
 	if !canControl: return
