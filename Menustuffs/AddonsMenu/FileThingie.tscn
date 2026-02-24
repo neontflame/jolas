@@ -43,16 +43,16 @@ script = ExtResource("1_7ghir")
 
 [node name="bg" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.27058825)
-position = Vector2(204.99998, 10.999999)
+position = Vector2(204.99998, 10.999998)
 scale = Vector2(6.484375, 0.59374994)
 texture = ExtResource("1_g1iuw")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 35.0
-offset_top = -2.0
+offset_top = -1.0
 offset_right = 338.0
-offset_bottom = 28.0
+offset_bottom = 29.0
 theme_override_fonts/font = ExtResource("3_wbk87")
 theme_override_font_sizes/font_size = 18
 text = "CoolFileAwesome.zip"
@@ -62,8 +62,9 @@ text_overrun_behavior = 3
 visible = false
 layout_mode = 0
 offset_left = 330.0
+offset_top = -1.0
 offset_right = 387.0
-offset_bottom = 30.0
+offset_bottom = 29.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.503)
 theme_override_fonts/font = ExtResource("3_wbk87")
 theme_override_font_sizes/font_size = 18

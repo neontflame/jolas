@@ -21,6 +21,8 @@ func _ready() -> void:
 		track.play()
 		
 	print(OS.get_executable_path().get_base_dir())
+	OptionsUtils.preferences.merge(OptionsUtils.get_prefs_info(), true)
+	OptionsUtils.get_controls_info()
 	
 	if CoolMenu.comingFrom != '':
 		$MainMenu.change_self_scene('res://Menustuffs/' + comingFrom + '/' + comingFrom + '.tscn')
@@ -37,10 +39,10 @@ func _process(delta: float) -> void:
 	for vol in range(len(theMusics)):
 		if vol < CoolMenu.activeMusicLayers:
 			# print('Get N')
-			theVolumes[vol] = 0.0
+			theVolumes[vol] = GeneralUtils.get_volume_db('bgm', 0)
 		else:
 			# print('Get out')
-			theVolumes[vol] = -1000.0
+			theVolumes[vol] = -50.0
 	# print(CoolMenu.activeMusicLayers, ' music layers, ', theVolumes)
 	
 	for trackNum in range(len(theMusics)):
@@ -48,6 +50,7 @@ func _process(delta: float) -> void:
 
 static func play_sfx(sfxName:String):
 	if !CoolMenu.instance: return
+	CoolMenu.instance.get_node('SFX/' + sfxName).volume_db = GeneralUtils.get_volume_db('sfx', 0)
 	CoolMenu.instance.get_node('SFX/' + sfxName).play()
 	
 static func stop_sfx(sfxName:String):

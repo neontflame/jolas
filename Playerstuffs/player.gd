@@ -231,13 +231,13 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Playerstuffs/Sounds/" + name + ".ogg")
-	sfx_player.volume_db = volumeDB
+	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
 
 func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + name + ".ogg")
-	sfx_player.volume_db = volumeDB
+	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
 
 func get_multi_status():

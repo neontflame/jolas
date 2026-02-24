@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://crlfmwhsrwnja"]
+
+[ext_resource type="Script" uid="uid://b25cfhrs8v0v8" path="res://Menustuffs/OptionsMenu/OptThingie.gd" id="1_ml7t4"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_xrvu5"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_qw7ac"]
+
+[node name="OptThingie" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(398, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ml7t4")
+
+[node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.27058825)
+position = Vector2(204.99998, 10.999999)
+scale = Vector2(6.484375, 0.59374994)
+texture = ExtResource("2_xrvu5")
+
+[node name="Title" type="Node2D" parent="."]
+visible = false
+
+[node name="TitleName" type="Label" parent="Title"]
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 394.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_qw7ac")
+theme_override_font_sizes/font_size = 18
+text = "Botões de controle"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Option" type="Node2D" parent="."]
+
+[node name="OptName" type="RichTextLabel" parent="Option"]
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 336.0
+offset_bottom = 29.0
+focus_mode = 0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_qw7ac")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Botões de controle"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="OptChoice" type="Label" parent="Option"]
+offset_left = 252.0
+offset_top = -1.0
+offset_right = 387.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.503)
+theme_override_fonts/font = ExtResource("3_qw7ac")
+theme_override_font_sizes/font_size = 18
+text = "< Wii >"
+horizontal_alignment = 2
+
+[node name="OptSlider" type="HSlider" parent="Option"]
+visible = false
+offset_left = 242.0
+offset_top = 9.0
+offset_right = 389.0
+offset_bottom = 25.0
+max_value = 1.0
+step = 0.01
+
+[connection signal="value_changed" from="Option/OptSlider" to="." method="sliderDraggest"]

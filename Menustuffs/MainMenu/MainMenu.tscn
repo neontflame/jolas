@@ -18,6 +18,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_rdp1e"]
 font_names = PackedStringArray("Arial")
+subpixel_positioning = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ou8cy"]
 animations = [{

@@ -5,7 +5,7 @@ var canControl:bool = true
 
 func _ready() -> void:
 	CoolMenu.blurAmount = 2
-	CoolMenu.activeMusicLayers = 2
+	CoolMenu.activeMusicLayers = 3
 	
 	print('Dude i hope')
 

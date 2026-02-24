@@ -38,6 +38,7 @@ static func check_array_compat(array1:Array, array2:Array):
 	return true
 
 static func replace_control_names(string:String):
+	# isso e pra ser usado com BBCODE !!!!! RAAHH
 	var stringReplacies:Array = [
 		["ctrl_up", "Up"],
 		["ctrl_down", "Down"],
@@ -49,6 +50,21 @@ static func replace_control_names(string:String):
 	
 	var coolString:String = string
 	for replacery in stringReplacies:
+		replacery[1] = ControllerIconUtils.get_action_bind_bbcode(replacery[0])
 		coolString = coolString.replace(replacery[0], replacery[1])
 	
 	return coolString
+
+static func get_volume(type:String):
+	OptionsUtils.get_prefs_info()
+	
+	match (type):
+		'bgm':
+			return OptionsUtils.preferences['volMaster'] * OptionsUtils.preferences['volBGM']
+		'sfx':
+			return OptionsUtils.preferences['volMaster'] * OptionsUtils.preferences['volSFX']
+		_:
+			return OptionsUtils.preferences['volMaster']
+
+static func get_volume_db(type:String, mod:float = 0.0):
+	return (0.0 + mod) + ((-62.5) * (1 - get_volume(type)))

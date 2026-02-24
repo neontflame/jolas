@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp43amil405rq"]
+
+[ext_resource type="Script" uid="uid://b4wqc7p0hfllg" path="res://Menustuffs/OptionsMenu/KeybindThingie.gd" id="1_ayi5t"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_y7uhd"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_73f40"]
+
+[node name="KeybindThingie" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(398, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ayi5t")
+
+[node name="bg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.27058825)
+position = Vector2(204.99998, 10.999999)
+scale = Vector2(6.484375, 0.59374994)
+texture = ExtResource("2_y7uhd")
+
+[node name="Idk" type="Node2D" parent="."]
+
+[node name="OptName" type="RichTextLabel" parent="Idk"]
+offset_left = 4.0
+offset_top = -1.0
+offset_right = 336.0
+offset_bottom = 29.0
+focus_mode = 0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_73f40")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Pular / [img]res://Gamestuffs/ControllerIcons/X360/A.png[/img]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="OptChoice" type="RichTextLabel" parent="Idk"]
+offset_left = 261.0
+offset_top = -1.0
+offset_right = 396.0
+offset_bottom = 29.0
+focus_mode = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(18.892157, 18.892157, 18.892157, 0.49019608)
+theme_override_fonts/normal_font = ExtResource("3_73f40")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Botão 6 "
+fit_content = true
+autowrap_trim_flags = 128
+horizontal_alignment = 2
