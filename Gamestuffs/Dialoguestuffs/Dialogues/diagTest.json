@@ -15,34 +15,48 @@
 			"specialfx": "none"
 		},
 		"line3": {
+			"char": "neon",
+			"mood": "default",
+			"line": "eu tambem posso citar [wave]keybinds[/wave] usando o nome interno deles",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line4": {
+			"char": "neon",
+			"mood": "pointy",
+			"line": "tipo assim: voce sabia que voce pode usar um de seus [color=0033CC]especiais[/color] com a tecla ctrl_1 ou ctrl_2?",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line5": {
 			"char": "sketcher",
 			"mood": "smile",
 			"line": "oi eu sou o sketcher",
 			"position": "left",
 			"specialfx": "none"
 		},
-		"line4": {
+		"line6": {
 			"char": "neon",
 			"mood": "confused",
 			"line": "",
 			"position": "right",
 			"specialfx": "none"
 		},
-		"line5": {
+		"line7": {
 			"char": "neon",
 			"mood": "confused",
 			"line": "holy shit e o sketcher",
 			"position": "right",
 			"specialfx": "none"
 		},
-		"line6": {
+		"line8": {
 			"char": "sketcher",
 			"mood": "shrug",
 			"line": "yep",
 			"position": "left",
 			"specialfx": "none"
 		},
-		"line7": {
+		"line9": {
 			"char": "sketcher",
 			"mood": "cocky",
 			"line": "the one and only",

@@ -76,6 +76,8 @@ func goToMenu(menuName:String):
 			change_self_scene("res://Menustuffs/OptionsMenu/OptionsMenu.tscn")
 		'addons':
 			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+		'sair':
+			get_tree().quit()
 		_:
 			CoolMenu.stop_sfx('Go')
 			CoolMenu.play_sfx('Back')

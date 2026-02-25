@@ -20,8 +20,17 @@ font_names = PackedStringArray("Arial")
 font_weight = 750
 subpixel_positioning = 0
 
-[node name="Hud" type="Node2D"]
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel")]
 script = ExtResource("1_e0onf")
+canvasLayer = NodePath("CanvasLayer")
+playerIcon = NodePath("CanvasLayer/PlayerIcon")
+levelLabel = NodePath("CanvasLayer/LevelLabel")
+levelSquare = NodePath("CanvasLayer/LevelSquare")
+hpText = NodePath("CanvasLayer/Bars/HPText")
+xpText = NodePath("CanvasLayer/Bars/XPText")
+hpBar = NodePath("CanvasLayer/Bars/HPBar")
+xpBar = NodePath("CanvasLayer/Bars/XPBar")
+testLabel = NodePath("CanvasLayer/anchortest/TestLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -112,23 +121,20 @@ horizontal_alignment = 2
 
 [node name="anchortest" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
-grow_vertical = 0
 
 [node name="TestLabel" type="Label" parent="CanvasLayer/anchortest"]
 layout_mode = 0
-offset_left = -211.0
-offset_top = 11.0
-offset_right = 29.0
-offset_bottom = 41.0
+offset_left = -327.0
+offset_top = -1.0
+offset_right = 33.0
+offset_bottom = 29.0
 theme_override_fonts/font = ExtResource("2_fccik")
 theme_override_font_sizes/font_size = 18
-text = "Isso e um Fucking teste. Fuck."
+text = "FPS: 60"
 horizontal_alignment = 2

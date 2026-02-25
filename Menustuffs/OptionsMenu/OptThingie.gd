@@ -47,6 +47,8 @@ func setup():
 	$Option/OptChoice.visible = (validOpts != ['slider'])
 	$Option/OptSlider.visible = (validOpts == ['slider'])
 	
+	if optInternal == 'keybinds':
+		$Option/OptChoice.visible = false
 	if validOpts == ['slider']:
 		$Option/OptSlider.connect("drag_ended", youreDraggingIt)
 		$Option/OptSlider.value = float(curOpt)

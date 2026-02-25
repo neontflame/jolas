@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk14f0lmv0be0"]
+
+[ext_resource type="Script" uid="uid://4mw23m7sjbu1" path="res://Gamestuffs/NPCs/NPC.gd" id="1_mfgud"]
+[ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="2_wemd6"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_vglih"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsrpb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wemd6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xesd"]
+size = Vector2(110, 115)
+
+[node name="TestNpc" type="Node2D"]
+script = ExtResource("1_mfgud")
+
+[node name="NPC" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -57)
+sprite_frames = SubResource("SpriteFrames_gsrpb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -57)
+shape = SubResource("RectangleShape2D_8xesd")
+
+[node name="InteractText" type="RichTextLabel" parent="."]
+offset_left = -68.0
+offset_top = -151.0
+offset_right = 68.0
+offset_bottom = -119.0
+theme_override_fonts/normal_font = ExtResource("3_vglih")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Interagir"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_body_exited"]

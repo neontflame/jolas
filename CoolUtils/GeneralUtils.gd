@@ -44,8 +44,10 @@ static func replace_control_names(string:String):
 		["ctrl_down", "Down"],
 		["ctrl_left", "Left"],
 		["ctrl_right", "Right"],
-		["ctrl_1", "B"],
-		["ctrl_2", "A"]
+		["ctrl_1", "CtrlOne"],
+		["ctrl_2", "CtrlTwo"],
+		["ctrl_pause", "Pause"],
+		["ctrl_interact", "Interact"]
 	]
 	
 	var coolString:String = string

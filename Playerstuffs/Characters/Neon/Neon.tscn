@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dpn4bk7w2bk3i"]
+[gd_scene load_steps=32 format=3 uid="uid://dpn4bk7w2bk3i"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_pwpvx"]
 [ext_resource type="Script" uid="uid://bysn73mcwwj6e" path="res://Playerstuffs/Characters/Neon/Scripts/playerNeon.gd" id="2_ewxw4"]
@@ -10,9 +10,13 @@
 [ext_resource type="Script" uid="uid://b6ylylstvd0da" path="res://Playerstuffs/Characters/Neon/Scripts/extraStNeon.gd" id="5_k3kgu"]
 [ext_resource type="Texture2D" uid="uid://hn1btwdaixm7" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0001.png" id="6_k3kgu"]
 [ext_resource type="Texture2D" uid="uid://dwauf58m4fauv" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0002.png" id="7_edtyq"]
+[ext_resource type="Texture2D" uid="uid://dmrdp6eamgb7j" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0001.png" id="7_nyp1u"]
 [ext_resource type="Texture2D" uid="uid://bkc7avym75tby" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0001.png" id="8_cjni4"]
+[ext_resource type="Texture2D" uid="uid://bhn7grjnol0bp" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0002.png" id="8_orwjl"]
 [ext_resource type="Texture2D" uid="uid://dw36lpq6313m" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0002.png" id="9_3gnpl"]
+[ext_resource type="Texture2D" uid="uid://cjjcie2cthgik" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0003.png" id="9_xgcps"]
 [ext_resource type="Texture2D" uid="uid://cw5dbkx0opjf5" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0001.png" id="10_ors8w"]
+[ext_resource type="Texture2D" uid="uid://bsdlp6p8c3ag6" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0004.png" id="10_skd0q"]
 [ext_resource type="Texture2D" uid="uid://df5qy4jrgfmi4" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0002.png" id="11_jgmca"]
 [ext_resource type="Texture2D" uid="uid://blnvggrn7b8dv" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0003.png" id="12_k6ipe"]
 [ext_resource type="Texture2D" uid="uid://b0wfohgobso8f" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0004.png" id="13_kyjxy"]
@@ -29,6 +33,23 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rhcf3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nyp1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_orwjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xgcps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_skd0q")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_0nyvt")
@@ -155,4 +176,5 @@ scale = Vector2(0.46, 0.68)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
-animation = &"walk"
+animation = &"default"
+frame_progress = 0.86111176

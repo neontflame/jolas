@@ -1,7 +1,8 @@
 extends "res://Playerstuffs/Characters/Sushi/Scripts/rocketStSushi.gd"
 
 func enter_state():
-	print('RRRRRRRRROCKET (floor)')
+	super.enter_state()
+	print('(floor)')
 	Player.motion.y = 4
 
 func update():

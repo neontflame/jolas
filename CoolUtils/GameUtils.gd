@@ -13,8 +13,10 @@ static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
 	var trueCharlist:Array = []
 	
-	for char in charlist:
-		trueCharlist.append(char.left(len(char) - 1))
+	for chara in charlist:
+		var coolswag = chara.left(len(chara) - 1)
+		if ResourceLoader.exists(get_char_asset_path(coolswag, coolswag + '.tscn')):
+			trueCharlist.append(coolswag)
 		
 	return trueCharlist
 	
@@ -50,16 +52,16 @@ static func get_char_info(char:String):
 
 static func get_char_asset(char:String, asset:String):
 	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
-	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
+	# print(charPath + (" exists" if load(charPath) else " doesnt exist"))
 	if load(charPath):
 		var charStuff = load(charPath)
-		return charStuff
+		return load(charPath)
 	else:
 		return null
 	
 static func get_char_asset_path(char:String, asset:String):
 	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
-	print(charPath + (" exists" if load(charPath) else " doesnt exist"))
+	# print(charPath + (" exists" if load(charPath) else " doesnt exist"))
 	return charPath
 	
 static func existing_char(char:String):

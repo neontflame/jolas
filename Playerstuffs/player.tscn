@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv0kwtpveitw3"]
+[gd_scene load_steps=12 format=3 uid="uid://bv0kwtpveitw3"]
 
 [ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
+[ext_resource type="Script" uid="uid://dene0qklmyw2y" path="res://Playerstuffs/StateMachinery/deathSt.gd" id="6_43xdi"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_uawoe"]
 [ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/state_machine.gd" id="13_ld8br"]
 [ext_resource type="Script" uid="uid://u65cs2bew2dh" path="res://Playerstuffs/StateMachinery/floorSt.gd" id="14_mv4eb"]
 [ext_resource type="Script" uid="uid://bfcpscdta4eqm" path="res://Playerstuffs/StateMachinery/airSt.gd" id="15_axjgi"]
@@ -12,6 +14,14 @@ size = Vector2(127, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rtyar"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wxeps")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
@@ -98,8 +108,20 @@ properties/10/replication_mode = 1
 properties/11/path = NodePath(".:curMap")
 properties/11/spawn = true
 properties/11/replication_mode = 1
+properties/12/path = NodePath(".:multiplayerName:visible")
+properties/12/spawn = true
+properties/12/replication_mode = 2
+properties/13/path = NodePath(".:multiplayerName:text")
+properties/13/spawn = true
+properties/13/replication_mode = 2
+properties/14/path = NodePath(".:multiplayerName:position:y")
+properties/14/spawn = true
+properties/14/replication_mode = 2
+properties/15/path = NodePath(".:plySprite:self_modulate:a")
+properties/15/spawn = true
+properties/15/replication_mode = 2
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "plySprite")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "multiplayerName", "plySprite")]
 collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -111,6 +133,7 @@ platform_wall_layers = 1
 script = ExtResource("3_6t5aa")
 player_collisions = NodePath("CollisionShape2D")
 sfx_player = NodePath("SfxPlayer")
+multiplayerName = NodePath("MultiplayerName")
 plySprite = NodePath("AnimatedSprite2D")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -124,6 +147,9 @@ script = ExtResource("15_axjgi")
 
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("5_axjgi")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("6_43xdi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
@@ -139,9 +165,21 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_rtyar")
-animation = &"run"
+animation = &"battleSpin"
 
 [node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_uawoe")
+
+[node name="MultiplayerName" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -93.0
+offset_top = -90.0
+offset_right = 92.0
+offset_bottom = -50.0
+theme_override_fonts/normal_font = ExtResource("7_uawoe")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "nome de usuario"
+horizontal_alignment = 1

@@ -9,6 +9,7 @@ var isDial := false
 var allChars:Array = []
 var charDict:Dictionary = {}
 
+@export var coolFade:TextureRect
 static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +26,7 @@ func _ready() -> void:
 	
 	JolasGame.instance = self
 
-# The Joy of Creation
+#region Os Auxiliares
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
@@ -54,6 +55,50 @@ func createLevel(lvl:String):
 	
 	GPStats.curMap = level.name
 
+func respawnPlayer():
+	if level:
+		GPStats.charObject.position = level.spawnpoint.position
+	
+	GPStats.charObject.hp = GPStats.maxHP
+	
+	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
+
+#acaba os treco de player
+var fadeTween:Tween = create_tween()
+func fadeOut(sec:float, callThat:Callable = func():pass):
+	fadeTween.kill()
+	
+	fadeTween = create_tween()
+	fadeTween.tween_method(
+		func(value): 
+			coolFade.self_modulate.a = value
+			if value <= 0.0:
+				coolFade.visible = false
+				callThat.call()
+			,  
+		1.0,  # Start value
+		0.0,  # End value
+		sec     # Duration
+	)
+
+func fadeIn(sec:float, callThat:Callable = func():pass):
+	fadeTween.kill()
+	
+	coolFade.visible = true
+	fadeTween = create_tween()
+	fadeTween.tween_method(
+		func(value): 
+			coolFade.self_modulate.a = value
+			if value >= 1.0:
+				callThat.call()
+			,  
+		0.0,  # Start value
+		1.0,  # End value
+		sec     # Duration
+	)
+#endregion
+
+#region Diálogo
 # DIALOGO....
 func endDialogue() -> void:
 	isDial = false
@@ -74,13 +119,11 @@ func playDialogue(diagName:String):
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)
-		
+#endregion
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	GPStats.process(_delta)
-	
-	if (Input.is_action_just_pressed("ui_accept")):
-		playDialogue('diagTool')
 	pass
 	
 #region Multiplayer

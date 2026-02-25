@@ -5,17 +5,23 @@ static var controllerIconPath = 'res://Gamestuffs/ControllerIcons/'
 
 static var wiiMaps:Dictionary = {
 	'ctrl_1': '1',
-	'ctrl_2': '2'
+	'ctrl_2': '2',
+	'ctrl_pause': 'Plus',
+	'ctrl_interact': 'A'
 }
 
 static var ps3Maps:Dictionary = {
 	'ctrl_1': 'Circle',
-	'ctrl_2': 'X'
+	'ctrl_2': 'X',
+	'ctrl_pause': 'Start',
+	'ctrl_interact': 'Triangle'
 }
 
 static var xbox360Maps:Dictionary = {
-	'ctrl_1': 'A',
-	'ctrl_2': 'B'
+	'ctrl_1': 'B',
+	'ctrl_2': 'A',
+	'ctrl_pause': 'Start',
+	'ctrl_interact': 'Y'
 }
 
 static var ps3Butts:Dictionary = {
@@ -89,13 +95,14 @@ static func get_event_bind_bbcode(event:InputEvent):
 static func get_ps3_bind_bbcode(event:InputEvent):
 	var coolSauce = null
 	if event is InputEventJoypadButton:
-		if xbox360Butts['buttons'].has(event.button_index):
+		if ps3Butts['buttons'].has(event.button_index):
 			coolSauce = '[img]'
 			coolSauce += controllerIconPath + 'PS3/' + ps3Butts['buttons'][event.button_index] + '.png'
 			coolSauce += '[/img]'
 	if event is InputEventJoypadMotion:
-		if xbox360Butts['axis'].has(event.axis):
-			coolSauce += '[img]'
+		print(event.axis)
+		if ps3Butts['axis'].has(event.axis):
+			coolSauce = '[img]'
 			coolSauce += controllerIconPath + 'PS3/' + ps3Butts['axis'][event.axis] + '.png'
 			coolSauce += '[/img]'
 	return coolSauce
@@ -109,7 +116,7 @@ static func get_360_bind_bbcode(event:InputEvent):
 			coolSauce += '[/img]'
 	if event is InputEventJoypadMotion:
 		if xbox360Butts['axis'].has(event.axis):
-			coolSauce += '[img]'
+			coolSauce = '[img]'
 			coolSauce += controllerIconPath + 'X360/' + xbox360Butts['axis'][event.axis] + '.png'
 			coolSauce += '[/img]'
 	return coolSauce

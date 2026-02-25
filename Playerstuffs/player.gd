@@ -22,6 +22,7 @@ var previous_state = null
 @export_group('Technical shit')
 @export var player_collisions:CollisionShape2D
 @export var sfx_player:AudioStreamPlayer2D
+@export var multiplayerName:RichTextLabel
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
@@ -78,6 +79,9 @@ func _enter_tree() -> void:
 		
 		if is_multiplayer_authority():
 			GPStats.charObject = self
+			multiplayerName.text = GameUtils.username
+			multiplayerName.visible = true
+			multiplayerName.position.y = player_collisions.position.y - (player_collisions.shape.get_rect().size.y / 2) - 24
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
@@ -226,7 +230,10 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 			motion.y = vel.y
 			motion.x = (vel.x if fromBehind else -vel.x)
 			invulnFrames = 120.0
-			change_state(state_machine.st_hurt)
+			if (hp <= 0):
+				change_state(state_machine.st_death)
+			else:
+				change_state(state_machine.st_hurt)
 	
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
