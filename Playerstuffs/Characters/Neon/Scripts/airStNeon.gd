@@ -24,10 +24,10 @@ func update():
 			Player.charge = lerp(Player.charge, 1920.0, 0.05)
 			Player.shakeForce = Player.charge * 0.005
 			# voce pode agora mudar de direçao no ar
-			if Input.is_action_pressed("ctrl_left"):
-				Player.plySprite.flip_h = true;
 			if Input.is_action_pressed("ctrl_right"):
 				Player.plySprite.flip_h = false;
+			if Input.is_action_pressed("ctrl_left"):
+				Player.plySprite.flip_h = true;
 				
 		if Input.is_action_just_released("ctrl_2") && Player.canDoCharge:
 			Player.shakeForce = 0

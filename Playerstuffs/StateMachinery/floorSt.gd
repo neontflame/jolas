@@ -37,8 +37,8 @@ func handleAnimations() -> void:
 			Player.plySprite.speed_scale = 1;
 		
 	if (Player.movementEnabled):
-		if Input.is_action_pressed("ctrl_left"):
-			Player.plySprite.flip_h = true;
-			
 		if Input.is_action_pressed("ctrl_right"):
 			Player.plySprite.flip_h = false;
+			
+		if Input.is_action_pressed("ctrl_left"):
+			Player.plySprite.flip_h = true;

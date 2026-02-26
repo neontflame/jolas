@@ -8,7 +8,7 @@ static func get_portrait(char:String):
 	]
 	for possible in possibilities:
 		possible = possible.replace('?', char)
-		if load(possible):
+		if ResourceLoader.exists(possible):
 			return load(possible)
 	return null
 
@@ -19,6 +19,6 @@ static func get_coolname(char:String):
 	]
 	for possible in possibilities:
 		possible = possible.replace('?', char)
-		if load(possible):
+		if ResourceLoader.exists(possible):
 			return load(possible)
 	return null

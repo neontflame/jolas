@@ -48,6 +48,9 @@ var invulnFrames := 30.0
 var motion := Vector2(0.0, 0.0)
 var jumping:bool = false
 var holding_jump:bool = false
+
+var up_override:bool = false
+
 var isSonicPhys:bool = false
 var practicalAngle := 0.0
 
@@ -149,7 +152,7 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if Input.is_action_pressed("ctrl_up") and is_on_floor():
+	if PlayerUtils.is_jump_pressed() and is_on_floor():
 		if isSonicPhys:
 			motion.y = JUMP_VELOCITY * deltaOne
 		else:
@@ -161,7 +164,7 @@ func handleMovement() -> void:
 		holding_jump = true
 	
 	if holding_jump:
-		if motion.y >= 0 || !Input.is_action_pressed("ctrl_up"):
+		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
 			holding_jump = false
 			
 	# walkfucks

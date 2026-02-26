@@ -16,6 +16,7 @@ static var coolOptiones:Array = [
 		['volSFX', 'Efeitos sonoros', ['slider'], 1.0],
 		['volBGM', 'Música', ['slider'], 1.0],
 	['conts', 'Controles', [], 0], # label
+		['tapJump', '"Tap Jump"', ['Não', 'Sim'], 1],
 		['keybinds', 'Keybinds', [''], 0]
 ]
 static var bindList:Array = [
@@ -23,6 +24,7 @@ static var bindList:Array = [
 		["ctrl_down", "Baixo"],
 		["ctrl_up", "Cima"],
 		["ctrl_right", "Direita"],
+		["ctrl_jump", "Pular"],
 		["ctrl_2", "Especial 1"], #meio contra-intuitivo mas whatever
 		["ctrl_1", "Especial 2"],
 		["ctrl_interact", "Interagir"],

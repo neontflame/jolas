@@ -46,6 +46,7 @@ static func replace_control_names(string:String):
 		["ctrl_right", "Right"],
 		["ctrl_1", "CtrlOne"],
 		["ctrl_2", "CtrlTwo"],
+		["ctrl_jump", "Jump"],
 		["ctrl_pause", "Pause"],
 		["ctrl_interact", "Interact"]
 	]

@@ -13,6 +13,7 @@ static var wiiMaps:Dictionary = {
 static var ps3Maps:Dictionary = {
 	'ctrl_1': 'Circle',
 	'ctrl_2': 'X',
+	'ctrl_jump': 'Square',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Triangle'
 }
@@ -20,6 +21,7 @@ static var ps3Maps:Dictionary = {
 static var xbox360Maps:Dictionary = {
 	'ctrl_1': 'B',
 	'ctrl_2': 'A',
+	'ctrl_jump': 'X',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y'
 }
