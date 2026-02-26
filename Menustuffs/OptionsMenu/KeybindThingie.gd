@@ -78,8 +78,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func updateMyStuff():
 	$Idk/OptName.text = optName
 	if OptionsUtils.get_prefs_info()['buttonType'] == 0: #if wii
-		if GeneralUtils.replace_control_names(optInternal).begins_with('[img]'):
-			$Idk/OptName.text += ' / ' + GeneralUtils.replace_control_names(optInternal)
+		if GeneralUtils.text_replacery(optInternal).begins_with('[img]'):
+			$Idk/OptName.text += ' / ' + GeneralUtils.text_replacery(optInternal)
 	var coolEvents = InputMap.action_get_events(optInternal)
 	if coolEvents.size() > 0:
 		$Idk/OptChoice.text = ControllerIconUtils.get_event_bind_bbcode(coolEvents[0])

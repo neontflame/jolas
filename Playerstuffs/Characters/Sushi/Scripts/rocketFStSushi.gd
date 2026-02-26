@@ -7,5 +7,6 @@ func enter_state():
 
 func update():
 	super.update()
+	Player.motion.x = Player.motion.x * 0.975
 	if !Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_rocket_air)

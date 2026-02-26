@@ -37,7 +37,7 @@ static func check_array_compat(array1:Array, array2:Array):
 	# tem q ver dos dois lados neh
 	return true
 
-static func replace_control_names(string:String):
+static func text_replacery(string:String):
 	# isso e pra ser usado com BBCODE !!!!! RAAHH
 	var stringReplacies:Array = [
 		["ctrl_up", "Up"],
@@ -70,4 +70,4 @@ static func get_volume(type:String):
 			return OptionsUtils.preferences['volMaster']
 
 static func get_volume_db(type:String, mod:float = 0.0):
-	return (0.0 + mod) + ((-62.5) * (1 - get_volume(type)))
+	return mod + linear_to_db(get_volume(type) + 0.001) 

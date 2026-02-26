@@ -26,6 +26,14 @@ static var xbox360Maps:Dictionary = {
 	'ctrl_interact': 'Y'
 }
 
+static var gamecubeMaps:Dictionary = {
+	'ctrl_1': 'B',
+	'ctrl_2': 'A',
+	'ctrl_jump': 'X',
+	'ctrl_pause': 'Start',
+	'ctrl_interact': 'Y'
+}
+
 static var ps3Butts:Dictionary = {
 	'buttons': {
 		JOY_BUTTON_A: 'X',
@@ -60,6 +68,24 @@ static var xbox360Butts:Dictionary = {
 	}
 }
 
+static var gamecubeButts:Dictionary = {
+	# so um adendo
+	# eu nao sei se isso vai funcionar 
+	# eu nao tenho um adaptador de gamecube pra pc xP
+	'buttons': {
+		JOY_BUTTON_A: 'A',
+		JOY_BUTTON_B: 'B',
+		JOY_BUTTON_X: 'X',
+		JOY_BUTTON_Y: 'Y',
+		JOY_BUTTON_START: 'StartPause',
+		JOY_BUTTON_RIGHT_SHOULDER: 'Z'
+	},
+	'axis': {
+		JOY_AXIS_TRIGGER_LEFT: 'L',
+		JOY_AXIS_TRIGGER_RIGHT: 'R'
+	}
+}
+
 static var buttonNames:Dictionary = {
 	'buttons': {
 		JOY_BUTTON_A: 'A',
@@ -86,11 +112,13 @@ static func get_event_bind_bbcode(event:InputEvent):
 	var coolReturns
 	if OptionsUtils.get_prefs_info()['buttonType'] == 2:
 		coolReturns = get_ps3_bind_bbcode(event)
+	elif OptionsUtils.get_prefs_info()['buttonType'] == 3:
+		coolReturns = get_gc_bind_bbcode(event)
 	else:
 		coolReturns = get_360_bind_bbcode(event)
 	if coolReturns == null:
 		coolReturns = get_button_name(event)
-	if OptionsUtils.get_prefs_info()['buttonType'] == 3 || coolReturns == null:
+	if OptionsUtils.get_prefs_info()['buttonType'] == 4 || coolReturns == null:
 		coolReturns = event.as_text()
 	return coolReturns
 	
@@ -123,6 +151,20 @@ static func get_360_bind_bbcode(event:InputEvent):
 			coolSauce += '[/img]'
 	return coolSauce
 
+static func get_gc_bind_bbcode(event:InputEvent):
+	var coolSauce = null
+	if event is InputEventJoypadButton:
+		if gamecubeButts['buttons'].has(event.button_index):
+			coolSauce = '[img]'
+			coolSauce += controllerIconPath + 'GC/' + gamecubeButts['buttons'][event.button_index] + '.png'
+			coolSauce += '[/img]'
+	if event is InputEventJoypadMotion:
+		if gamecubeButts['axis'].has(event.axis):
+			coolSauce = '[img]'
+			coolSauce += controllerIconPath + 'GC/' + gamecubeButts['axis'][event.axis] + '.png'
+			coolSauce += '[/img]'
+	return coolSauce
+	
 static func get_button_name(event:InputEvent):
 	var coolSauce = null
 	if event is InputEventJoypadButton:
@@ -143,9 +185,11 @@ static func get_action_bind_bbcode(action:StringName):
 		coolReturns = get_360_action_bbcode(action)
 	if OptionsUtils.get_prefs_info()['buttonType'] == 2: # PS3
 		coolReturns = get_ps3_action_bbcode(action)
+	if OptionsUtils.get_prefs_info()['buttonType'] == 3: # GameCube
+		coolReturns = get_gc_action_bbcode(action)
 	if coolReturns == null:
 		coolReturns = get_button_name(actionEvent)
-	if OptionsUtils.get_prefs_info()['buttonType'] == 3 || coolReturns == null:
+	if OptionsUtils.get_prefs_info()['buttonType'] == 4 || coolReturns == null:
 		coolReturns = actionEvent.as_text()
 	return coolReturns
 	
@@ -172,5 +216,14 @@ static func get_ps3_action_bbcode(action:StringName):
 	if coolSauce == null && ps3Maps.has(action):
 		coolSauce = '[img]'
 		coolSauce += controllerIconPath + 'PS3/' + ps3Maps[action] + '.png'
+		coolSauce += '[/img]'
+	return coolSauce
+
+static func get_gc_action_bbcode(action:StringName):
+	var coolSauce = null
+	coolSauce = get_gc_bind_bbcode(InputMap.action_get_events(action)[0])
+	if coolSauce == null && gamecubeMaps.has(action):
+		coolSauce = '[img]'
+		coolSauce += controllerIconPath + 'GC/' + gamecubeMaps[action] + '.png'
 		coolSauce += '[/img]'
 	return coolSauce

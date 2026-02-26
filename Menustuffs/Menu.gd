@@ -42,11 +42,12 @@ func _process(delta: float) -> void:
 			theVolumes[vol] = GeneralUtils.get_volume_db('bgm', 0)
 		else:
 			# print('Get out')
-			theVolumes[vol] = -50.0
+			theVolumes[vol] = linear_to_db(0.0)
 	# print(CoolMenu.activeMusicLayers, ' music layers, ', theVolumes)
 	
 	for trackNum in range(len(theMusics)):
-		theMusics[trackNum].volume_db = lerp(theMusics[trackNum].volume_db, theVolumes[trackNum], 0.2)
+		var coolume = lerp(theMusics[trackNum].volume_db, theVolumes[trackNum], 0.2)
+		theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum])
 
 static func play_sfx(sfxName:String):
 	if !CoolMenu.instance: return

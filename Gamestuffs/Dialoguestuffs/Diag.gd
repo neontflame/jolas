@@ -86,7 +86,7 @@ func runDiag(diagNum: int):
 
 	# essa e a parte que o robo maldito fez
 	$DialogueCanvas/Control/RichTextLabel.bbcode_enabled = true
-	$DialogueCanvas/Control/RichTextLabel.text = GeneralUtils.replace_control_names(CoolDial['line'])
+	$DialogueCanvas/Control/RichTextLabel.text = GeneralUtils.text_replacery(CoolDial['line'])
 	$DialogueCanvas/Control/RichTextLabel.visible_ratio = 0.0
 	
 	tween = create_tween()
