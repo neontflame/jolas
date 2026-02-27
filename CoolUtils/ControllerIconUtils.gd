@@ -26,6 +26,14 @@ static var xbox360Maps:Dictionary = {
 	'ctrl_interact': 'Y'
 }
 
+static var dreamcastMaps:Dictionary = {
+	'ctrl_1': 'B',
+	'ctrl_2': 'A',
+	'ctrl_jump': 'X',
+	'ctrl_pause': 'Start',
+	'ctrl_interact': 'Y'
+}
+
 static var gamecubeMaps:Dictionary = {
 	'ctrl_1': 'B',
 	'ctrl_2': 'A',
@@ -86,6 +94,21 @@ static var gamecubeButts:Dictionary = {
 	}
 }
 
+static var dreamcastButts:Dictionary = {
+	# similarmente eu tambem nao sei se isso vai dar certo 
+	# pq eu nao tenho um adaptador ou um controle!
+	'buttons': {
+		JOY_BUTTON_A: 'A',
+		JOY_BUTTON_B: 'B',
+		JOY_BUTTON_X: 'X',
+		JOY_BUTTON_Y: 'Y',
+		JOY_BUTTON_START: 'Start'
+	},
+	'axis': {
+		JOY_AXIS_TRIGGER_LEFT: 'LTrigger',
+		JOY_AXIS_TRIGGER_RIGHT: 'RTrigger'
+	}
+}
 static var buttonNames:Dictionary = {
 	'buttons': {
 		JOY_BUTTON_A: 'A',
@@ -111,60 +134,34 @@ static var buttonNames:Dictionary = {
 static func get_event_bind_bbcode(event:InputEvent):
 	var coolReturns
 	if OptionsUtils.get_prefs_info()['buttonType'] == 2:
-		coolReturns = get_ps3_bind_bbcode(event)
+		coolReturns = get_generic_bind_bbcode(event, ps3Butts, 'PS3')
 	elif OptionsUtils.get_prefs_info()['buttonType'] == 3:
-		coolReturns = get_gc_bind_bbcode(event)
+		coolReturns = get_generic_bind_bbcode(event, gamecubeButts, 'GC')
+	elif OptionsUtils.get_prefs_info()['buttonType'] == 4:
+		coolReturns = get_generic_bind_bbcode(event, dreamcastButts, 'DC')
 	else:
-		coolReturns = get_360_bind_bbcode(event)
+		coolReturns = get_generic_bind_bbcode(event, xbox360Butts, 'X360')
 	if coolReturns == null:
 		coolReturns = get_button_name(event)
-	if OptionsUtils.get_prefs_info()['buttonType'] == 4 || coolReturns == null:
+	if OptionsUtils.get_prefs_info()['buttonType'] == 5 || coolReturns == null:
 		coolReturns = event.as_text()
 	return coolReturns
-	
-static func get_ps3_bind_bbcode(event:InputEvent):
+
+static func get_generic_bind_bbcode(event:InputEvent, butts:Dictionary, folder:String):
 	var coolSauce = null
 	if event is InputEventJoypadButton:
-		if ps3Butts['buttons'].has(event.button_index):
+		if butts['buttons'].has(event.button_index):
 			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'PS3/' + ps3Butts['buttons'][event.button_index] + '.png'
+			coolSauce += controllerIconPath + folder + '/' + butts['buttons'][event.button_index] + '.png'
 			coolSauce += '[/img]'
 	if event is InputEventJoypadMotion:
 		print(event.axis)
-		if ps3Butts['axis'].has(event.axis):
+		if butts['axis'].has(event.axis):
 			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'PS3/' + ps3Butts['axis'][event.axis] + '.png'
+			coolSauce += controllerIconPath + folder + '/' + butts['axis'][event.axis] + '.png'
 			coolSauce += '[/img]'
 	return coolSauce
 
-static func get_360_bind_bbcode(event:InputEvent):
-	var coolSauce = null
-	if event is InputEventJoypadButton:
-		if xbox360Butts['buttons'].has(event.button_index):
-			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'X360/' + xbox360Butts['buttons'][event.button_index] + '.png'
-			coolSauce += '[/img]'
-	if event is InputEventJoypadMotion:
-		if xbox360Butts['axis'].has(event.axis):
-			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'X360/' + xbox360Butts['axis'][event.axis] + '.png'
-			coolSauce += '[/img]'
-	return coolSauce
-
-static func get_gc_bind_bbcode(event:InputEvent):
-	var coolSauce = null
-	if event is InputEventJoypadButton:
-		if gamecubeButts['buttons'].has(event.button_index):
-			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'GC/' + gamecubeButts['buttons'][event.button_index] + '.png'
-			coolSauce += '[/img]'
-	if event is InputEventJoypadMotion:
-		if gamecubeButts['axis'].has(event.axis):
-			coolSauce = '[img]'
-			coolSauce += controllerIconPath + 'GC/' + gamecubeButts['axis'][event.axis] + '.png'
-			coolSauce += '[/img]'
-	return coolSauce
-	
 static func get_button_name(event:InputEvent):
 	var coolSauce = null
 	if event is InputEventJoypadButton:
@@ -182,14 +179,16 @@ static func get_action_bind_bbcode(action:StringName):
 	if OptionsUtils.get_prefs_info()['buttonType'] == 0: # Wii
 		coolReturns = get_wii_action_bbcode(action)
 	if OptionsUtils.get_prefs_info()['buttonType'] == 1: # X360
-		coolReturns = get_360_action_bbcode(action)
+		coolReturns = get_generic_action_bbcode(action, xbox360Butts, xbox360Maps, 'X360')
 	if OptionsUtils.get_prefs_info()['buttonType'] == 2: # PS3
-		coolReturns = get_ps3_action_bbcode(action)
+		coolReturns = get_generic_action_bbcode(action, ps3Butts, ps3Maps, 'PS3')
 	if OptionsUtils.get_prefs_info()['buttonType'] == 3: # GameCube
-		coolReturns = get_gc_action_bbcode(action)
+		coolReturns = get_generic_action_bbcode(action, gamecubeButts, gamecubeMaps, 'GC')
+	if OptionsUtils.get_prefs_info()['buttonType'] == 4: # Dreamcast
+		coolReturns = get_generic_action_bbcode(action, dreamcastButts, dreamcastMaps, 'DC')
 	if coolReturns == null:
 		coolReturns = get_button_name(actionEvent)
-	if OptionsUtils.get_prefs_info()['buttonType'] == 4 || coolReturns == null:
+	if OptionsUtils.get_prefs_info()['buttonType'] == 5 || coolReturns == null:
 		coolReturns = actionEvent.as_text()
 	return coolReturns
 	
@@ -201,29 +200,11 @@ static func get_wii_action_bbcode(action:StringName):
 		coolSauce += '[/img]'
 	return coolSauce
 
-static func get_360_action_bbcode(action:StringName):
+static func get_generic_action_bbcode(action:StringName, butts:Dictionary, maps:Dictionary, folder:String):
 	var coolSauce = null
-	coolSauce = get_360_bind_bbcode(InputMap.action_get_events(action)[0])
-	if coolSauce == null && xbox360Maps.has(action):
+	coolSauce = get_generic_bind_bbcode(InputMap.action_get_events(action)[0], butts, folder)
+	if coolSauce == null && maps.has(action):
 		coolSauce = '[img]'
-		coolSauce += controllerIconPath + 'X360/' + xbox360Maps[action] + '.png'
-		coolSauce += '[/img]'
-	return coolSauce
-
-static func get_ps3_action_bbcode(action:StringName):
-	var coolSauce = null
-	coolSauce = get_ps3_bind_bbcode(InputMap.action_get_events(action)[0])
-	if coolSauce == null && ps3Maps.has(action):
-		coolSauce = '[img]'
-		coolSauce += controllerIconPath + 'PS3/' + ps3Maps[action] + '.png'
-		coolSauce += '[/img]'
-	return coolSauce
-
-static func get_gc_action_bbcode(action:StringName):
-	var coolSauce = null
-	coolSauce = get_gc_bind_bbcode(InputMap.action_get_events(action)[0])
-	if coolSauce == null && gamecubeMaps.has(action):
-		coolSauce = '[img]'
-		coolSauce += controllerIconPath + 'GC/' + gamecubeMaps[action] + '.png'
+		coolSauce += controllerIconPath + folder + '/' + maps[action] + '.png'
 		coolSauce += '[/img]'
 	return coolSauce

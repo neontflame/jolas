@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=5 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Gamestuffs/Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
+[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gamestuffs/Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
@@ -41,3 +42,35 @@ position = Vector2(235, 1443)
 
 [node name="TestNpc" parent="." instance=ExtResource("2_h803n")]
 position = Vector2(2869, 1263)
+
+[node name="Camera regions" type="Node2D" parent="."]
+
+[node name="CameraBound" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(1671, 756)
+scale = Vector2(16.825, 8.97)
+continuousX = true
+
+[node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(4887, 749.00006)
+scale = Vector2(16.825, 8.97)
+continuousX = true
+
+[node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(7193.0005, 755)
+scale = Vector2(6.595, 8.97)
+continuousX = true
+
+[node name="CameraBound4" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(9453, 1430)
+scale = Vector2(16.285, 13.715)
+continuousX = true
+
+[node name="CameraBound5" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(12327, 1787.9999)
+scale = Vector2(12.57, 12.875)
+continuousX = true
+
+[node name="CameraBound6" parent="Camera regions" instance=ExtResource("3_so8ub")]
+position = Vector2(16364.001, 1788.0001)
+scale = Vector2(29.095, 12.875)
+continuousX = true

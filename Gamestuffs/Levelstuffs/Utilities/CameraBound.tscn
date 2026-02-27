@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3vin3ndywwa"]
+
+[ext_resource type="Script" uid="uid://cuq0m353d3n5u" path="res://Gamestuffs/Levelstuffs/Utilities/CameraBound.gd" id="1_2f4et"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsxal"]
+
+[node name="CameraBound" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_2f4et")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_lsxal")
+debug_color = Color(0.28404376, 0.61230224, 0.44038132, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

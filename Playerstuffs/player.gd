@@ -23,6 +23,7 @@ var previous_state = null
 @export var player_collisions:CollisionShape2D
 @export var sfx_player:AudioStreamPlayer2D
 @export var multiplayerName:RichTextLabel
+@export var coolCamera:Camera2D
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
