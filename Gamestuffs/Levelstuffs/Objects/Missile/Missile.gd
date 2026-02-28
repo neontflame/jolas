@@ -37,20 +37,37 @@ func _on_body_entered(body):
 		
 func fuckingExplosione():
 	print('kaboom')
+	var strength:float = 243.75 + (power * 12.5 * 2)
+	if strength > 500:
+		strength = 500
+	var objHeight = $objSprite.sprite_frames.get_frame_texture('explode', 0).get_height()
+
 	for body in get_overlapping_bodies():
-		if body is PlayerObject:
-			var strength:float = 243.75 + (power * 12.5 * 2)
-			if strength > 500:
-				strength = 500
-				
+		var distance:float = body.position.distance_to(position)
+		if distance > objHeight/2: distance = objHeight/2
+		# BOILERPLATE INSANO
+		if body is MobObject:
 			if body != missileOwner:
-				body.yeowch(2 * power, (body.position.x > position.x))
+				body.yeowch(4 * power, (body.position.x > position.x))
 			used = true
-			var objHeight = $objSprite.sprite_frames.get_frame_texture('explode', 0).get_height()
-			# programar na construct requer paciencia
-			var distance:float = body.position.distance_to(position)
-			if distance > objHeight/2: distance = objHeight/2
+			var coolSpeeds:float = (abs(body.velocity.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50
+			if abs(body.velocity.x) < body.MAX_SPEED:
+				coolSpeeds = (abs(body.MAX_SPEED) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50
 			
+			if body.position.x > position.x:
+				body.velocity.x = coolSpeeds
+			if body.position.x < position.x:
+				body.velocity.x = -coolSpeeds
+			if abs(body.velocity.y) < 500:
+				body.velocity.y = -(500 + (strength * (0.075 * abs(objHeight/2 - distance))) * 0.75)
+			else:
+				body.velocity.y = -(abs(body.velocity.y) + (strength * (0.075 * abs(objHeight/2 - distance))) * 0.75)
+				
+		if body is PlayerObject:
+			if body != missileOwner:
+				body.yeowch(4 * power, (body.position.x > position.x))
+			used = true
+			# programar na construct requer paciencia
 			var coolSpeeds:float = (abs(body.motion.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50
 			if abs(body.motion.x) < body.SOFT_MAX_SPEED:
 				coolSpeeds = (abs(body.SOFT_MAX_SPEED) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50

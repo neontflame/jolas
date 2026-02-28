@@ -2,11 +2,12 @@ extends "res://Menustuffs/Submenu.gd"
 
 var charPreview
 var canControl:bool = true
+var coolChars:Array = GameUtils.get_chars()
 
 func _ready() -> void:
 	CoolMenu.blurAmount = 3
 	CoolMenu.activeMusicLayers = 3
-	CoolMenu.maxSelected = len(GameUtils.get_chars())
+	CoolMenu.maxSelected = len(coolChars)
 	changeSel(0)
 	
 func _process(delta: float) -> void:
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if GPStats.is_multiplayer:
 			CoolMenu.play_sfx('Go')
-			GPStats.char = GameUtils.get_chars()[CoolMenu.curSelected]
+			GPStats.char = coolChars[CoolMenu.curSelected]
 			print(GPStats.char)
 			CoolMenu.curSelected = GPStats.saveNum
 			change_self_scene('res://Menustuffs/OnlineMenu/OnlineMenu.tscn')
@@ -47,11 +48,11 @@ func changeSel(amount:int):
 	var nextIcon = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
 	var prevIcon = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
 	
-	$MenuCanvas/MidAnchor/IconSelect/Icons/CurIcon.texture = GameUtils.get_char_asset(GameUtils.get_chars()[CoolMenu.curSelected], 'Icon.png')
-	$MenuCanvas/MidAnchor/IconSelect/Icons/IconRight.texture = GameUtils.get_char_asset(GameUtils.get_chars()[nextIcon], 'Icon.png')
-	$MenuCanvas/MidAnchor/IconSelect/Icons/IconLeft.texture = GameUtils.get_char_asset(GameUtils.get_chars()[prevIcon], 'Icon.png')
+	$MenuCanvas/MidAnchor/IconSelect/Icons/CurIcon.texture = GameUtils.get_char_asset(coolChars[CoolMenu.curSelected], 'Icon.png')
+	$MenuCanvas/MidAnchor/IconSelect/Icons/IconRight.texture = GameUtils.get_char_asset(coolChars[nextIcon], 'Icon.png')
+	$MenuCanvas/MidAnchor/IconSelect/Icons/IconLeft.texture = GameUtils.get_char_asset(coolChars[prevIcon], 'Icon.png')
 	
-	loadCharPreview(GameUtils.get_chars()[CoolMenu.curSelected])
+	loadCharPreview(coolChars[CoolMenu.curSelected])
 	
 func loadCharPreview(char:String):
 	if charPreview != null: charPreview.queue_free()
@@ -71,7 +72,7 @@ func getEmBoy() -> void:
 	CoolMenu.activeMusicLayers = 0
 	CoolMenu.play_sfx('Go')
 	canControl = false
-	GPStats.char = GameUtils.get_chars()[CoolMenu.curSelected]
+	GPStats.char = coolChars[CoolMenu.curSelected]
 	# aqui e o mapa default
 	# favor trocar quando tiver um mapa de verdade!
 	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:

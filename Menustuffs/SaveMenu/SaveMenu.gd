@@ -2,6 +2,7 @@ extends "res://Menustuffs/Submenu.gd"
 
 var saveAmount:int = 6
 var saveSlots:Array = []
+var spaceBetweenSaves := 160.0
 
 @export var savesNode:Node2D
 
@@ -10,10 +11,10 @@ func _ready() -> void:
 	CoolMenu.activeMusicLayers = 2
 	
 	for i in range(saveAmount):
-		print(i)
+		# print(i)
 		var coolioSave = load('res://Menustuffs/SaveMenu/SaveBox.tscn').instantiate()
 		coolioSave.saveId = i
-		coolioSave.position.y = 128.0 * i
+		coolioSave.position.y = spaceBetweenSaves * i
 		savesNode.add_child(coolioSave)
 		saveSlots.append(coolioSave)
 		coolioSave.renderSave()
@@ -22,12 +23,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	savesNode.position.y = lerp(	savesNode.position.y,
-										(CoolMenu.curSelected * -72.0) + 54,
+										(CoolMenu.curSelected * -spaceBetweenSaves * 0.75) + 54,
 										0.2
 									)
 									
 	savesNode.get_node('SetaCool').position.y = lerp(	savesNode.get_node('SetaCool').position.y,
-										(CoolMenu.curSelected * 128.0) + 36,
+										(CoolMenu.curSelected * spaceBetweenSaves) + 36,
 										0.5
 									)
 	if Input.is_action_just_pressed("ui_up"):

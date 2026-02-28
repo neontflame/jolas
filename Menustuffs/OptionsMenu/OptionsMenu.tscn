@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cym8yboarb8qr"]
 
 [ext_resource type="Script" uid="uid://cgy76q0ju8bg6" path="res://Menustuffs/OptionsMenu/OptionsMenu.gd" id="1_b8rrs"]
-[ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="2_j2wg4"]
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_a38o1"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="3_skdbn"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_b8rrs"]
 
@@ -17,9 +17,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" type="Sprite2D" parent="MenuCanvas/LeftAnchor"]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_a38o1")]
 position = Vector2(54, 39)
-texture = ExtResource("2_j2wg4")
 
 [node name="MidAnchor" type="Control" parent="MenuCanvas"]
 layout_mode = 3

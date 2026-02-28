@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://cur2gbeak6s0i"]
+
+[ext_resource type="Script" uid="uid://brbkmhxprxey7" path="res://Gamestuffs/Levelstuffs/Mobs/Mob.gd" id="1_odjvr"]
+[ext_resource type="Script" uid="uid://deeeo8l0243xr" path="res://Gamestuffs/Levelstuffs/Mobs/MobStateMachine.gd" id="2_roppu"]
+[ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="3_mdl05"]
+[ext_resource type="Script" uid="uid://dq32mfrkrguyk" path="res://Gamestuffs/Levelstuffs/Mobs/StatePatternism/defaultSt.gd" id="3_roppu"]
+[ext_resource type="Script" uid="uid://c764epcbow7k4" path="res://Gamestuffs/Levelstuffs/Mobs/StatePatternism/hurtSt.gd" id="4_mdl05"]
+[ext_resource type="Script" uid="uid://cej4ef60qr7qh" path="res://Gamestuffs/Levelstuffs/Mobs/StatePatternism/deathSt.gd" id="5_hgoir"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgoir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mdl05")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mdl05")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mdl05")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nigrx"]
+size = Vector2(127, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qbnk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgoir"]
+radius = 498.0492
+
+[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "leSprite")]
+collision_layer = 2
+script = ExtResource("1_odjvr")
+ACCELERATION = 10.0
+collisions = NodePath("ActualCollision")
+collArea = NodePath("CollidesWithPlayer")
+collAreaCollision = NodePath("CollidesWithPlayer/CollisionShape2D")
+playerDetector = NodePath("PlayerDetector")
+sfx_player = NodePath("AudioStreamPlayer2D")
+leSprite = NodePath("AnimatedSprite2D")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_roppu")
+
+[node name="Default" type="Node" parent="StateMachine"]
+script = ExtResource("3_roppu")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("4_mdl05")
+
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("5_hgoir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hgoir")
+animation = &"hurt"
+
+[node name="ActualCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_nigrx")
+
+[node name="CollidesWithPlayer" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollidesWithPlayer"]
+shape = SubResource("RectangleShape2D_3qbnk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_hgoir")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="pd_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="pd_body_exited"]

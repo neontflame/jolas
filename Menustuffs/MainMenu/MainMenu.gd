@@ -79,6 +79,6 @@ func goToMenu(menuName:String):
 		'sair':
 			get_tree().quit()
 		_:
+			print(menuName)
 			CoolMenu.stop_sfx('Go')
 			CoolMenu.play_sfx('Back')
-	print(menuName)

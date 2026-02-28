@@ -9,6 +9,7 @@ func renderSave():
 	if coolSaveness["new"] == true:
 		$FullSave.visible = false
 		$EmptySave.visible = true
+		$SaveBox.play('empty')
 	else:
 		$EmptySave.visible = false
 		$FullSave.visible = true
@@ -28,14 +29,18 @@ func renderSave():
 		
 		# player info
 		$FullSave/Icon.texture = GameUtils.get_char_asset(coolSaveness["player"], "Icon.png")
-		$FullSave/LvCount.text = 'Nível ' + str(GeneralUtils.display_number(coolSaveness["level"]))
+		
+		var hueShift = fmod((coolSaveness["level"] - 1) * 7.5, 100.0) / 100.0
+		$FullSave/LvCount.text = str(GeneralUtils.display_number(coolSaveness["level"]))
+		$FullSave/LvCount.add_theme_color_override("font_color", Color.from_hsv(0.61 + hueShift, 0.6, 1.0, 1.0))
+		
 		var mapInfo = GameUtils.get_map_info(coolSaveness["map"])
 		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
 		# $FullSave/Timespan.text = timeString
 		$FullSave/CurChar.text = GameUtils.get_char_info(coolSaveness["player"])["name"]
 		
 		if coolSaveness["applied-mods"] != []:
-			$SaveBox.self_modulate.b = 0
+			$SaveBox.play('mod')
 	pass
 
 func renderSaveOnline():

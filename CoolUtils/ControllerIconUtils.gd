@@ -7,7 +7,9 @@ static var wiiMaps:Dictionary = {
 	'ctrl_1': '1',
 	'ctrl_2': '2',
 	'ctrl_pause': 'Plus',
-	'ctrl_interact': 'A'
+	'ctrl_interact': 'A',
+	'ui_cancel': '1',
+	'ui_accept': '2'
 }
 
 static var ps3Maps:Dictionary = {
@@ -15,7 +17,9 @@ static var ps3Maps:Dictionary = {
 	'ctrl_2': 'X',
 	'ctrl_jump': 'Square',
 	'ctrl_pause': 'Start',
-	'ctrl_interact': 'Triangle'
+	'ctrl_interact': 'Triangle',
+	'ui_cancel': 'Circle',
+	'ui_accept': 'X'
 }
 
 static var xbox360Maps:Dictionary = {
@@ -23,7 +27,9 @@ static var xbox360Maps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_pause': 'Start',
-	'ctrl_interact': 'Y'
+	'ctrl_interact': 'Y',
+	'ui_cancel': 'B',
+	'ui_accept': 'A'
 }
 
 static var dreamcastMaps:Dictionary = {
@@ -31,7 +37,9 @@ static var dreamcastMaps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_pause': 'Start',
-	'ctrl_interact': 'Y'
+	'ctrl_interact': 'Y',
+	'ui_cancel': 'B',
+	'ui_accept': 'A'
 }
 
 static var gamecubeMaps:Dictionary = {
@@ -39,7 +47,9 @@ static var gamecubeMaps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_pause': 'Start',
-	'ctrl_interact': 'Y'
+	'ctrl_interact': 'Y',
+	'ui_cancel': 'B',
+	'ui_accept': 'A'
 }
 
 static var ps3Butts:Dictionary = {
@@ -126,7 +136,11 @@ static var buttonNames:Dictionary = {
 	},
 	'axis': {
 		JOY_AXIS_TRIGGER_LEFT: 'L trigger',
-		JOY_AXIS_TRIGGER_RIGHT: 'R trigger'
+		JOY_AXIS_TRIGGER_RIGHT: 'R trigger',
+		JOY_AXIS_LEFT_X: 'Analógico Esq. X',
+		JOY_AXIS_LEFT_Y: 'Analógico Esq. Y',
+		JOY_AXIS_RIGHT_X: 'Analógico Dir. X',
+		JOY_AXIS_RIGHT_Y: 'Analógico Dir. Y'
 	}
 }
 
@@ -169,7 +183,8 @@ static func get_button_name(event:InputEvent):
 			coolSauce = buttonNames['buttons'][event.button_index]
 	if event is InputEventJoypadMotion:
 		if buttonNames['axis'].has(event.axis):
-			coolSauce += buttonNames['axis'][event.axis]
+			coolSauce = buttonNames['axis'][event.axis]
+			coolSauce += ('+' if event.axis_value >= 0 else '-')
 	return coolSauce
 
 # Action icons
@@ -202,9 +217,18 @@ static func get_wii_action_bbcode(action:StringName):
 
 static func get_generic_action_bbcode(action:StringName, butts:Dictionary, maps:Dictionary, folder:String):
 	var coolSauce = null
-	coolSauce = get_generic_bind_bbcode(InputMap.action_get_events(action)[0], butts, folder)
+	coolSauce = get_generic_bind_bbcode(InputMap.action_get_events(action)[get_action_gp_index(action)], butts, folder)
 	if coolSauce == null && maps.has(action):
 		coolSauce = '[img]'
 		coolSauce += controllerIconPath + folder + '/' + maps[action] + '.png'
 		coolSauce += '[/img]'
 	return coolSauce
+	
+# utilitario ok!
+static func get_action_gp_index(action:StringName):
+	var coolIndex = 0
+	for eventy in InputMap.action_get_events(action):
+		if eventy is InputEventJoypadButton or eventy is InputEventJoypadMotion:
+			return coolIndex
+		coolIndex += 1
+	return 0 #placery

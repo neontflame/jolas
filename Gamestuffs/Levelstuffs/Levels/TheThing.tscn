@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=6 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Gamestuffs/Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gamestuffs/Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
+[ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
@@ -74,3 +75,11 @@ continuousX = true
 position = Vector2(16364.001, 1788.0001)
 scale = Vector2(29.095, 12.875)
 continuousX = true
+
+[node name="enemigos" type="Node2D" parent="."]
+
+[node name="TemplateMob" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(6084, 1239)
+
+[node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(7320, 936)

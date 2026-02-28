@@ -41,14 +41,21 @@ var shakeForce := 0.0
 var camShakeForce := 0.0
 
 var hp := 0.0
-
 var invulnFrames := 30.0
+
+var combo := 0
+var comboFrames := 240.0
+
+var stunFrames := 0.0
 #endregion
 
 #region Variables That Could Be of Assistance
 var motion := Vector2(0.0, 0.0)
 var jumping:bool = false
 var holding_jump:bool = false
+
+var attack:bool = false
+var attackStrength:float = 2
 
 var up_override:bool = false
 
@@ -89,12 +96,20 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
+	if stunFrames > 0:
+		stunFrames -= 1 * deltaOne
+		return
 	if current_state.has_method("update"): current_state.update()
 	
 	updateShit.emit(motion)
 	
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
+	
+	if comboFrames > 0:
+		comboFrames -= 1 * deltaOne
+	else:
+		combo = 0
 	
 	if current_state != state_machine.st_hurt:
 		if invulnFrames > 0:
@@ -227,9 +242,20 @@ func change_state(new_state):
 		previous_state.exit_state()
 		current_state.enter_state()
 
+func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+	increaseCombo()
+	stunFrames = _stunFrames
+	motion.y = vel.y
+	motion.x = (vel.x if fromBehind else -vel.x)
+
+func increaseCombo():
+	comboFrames = 240.0
+	combo += 1
+
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
 		if !get_invuln():
+			stunFrames = 2
 			hp -= hpLost
 			motion.y = vel.y
 			motion.x = (vel.x if fromBehind else -vel.x)

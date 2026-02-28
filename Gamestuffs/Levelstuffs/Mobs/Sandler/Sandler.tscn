@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://e1ynj776x83b"]
+
+[ext_resource type="PackedScene" uid="uid://cur2gbeak6s0i" path="res://Gamestuffs/Levelstuffs/Mobs/TemplateMob.tscn" id="1_8heju"]
+[ext_resource type="Script" uid="uid://b2cnp2or62bh5" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/Scripts/defaultStSandler.gd" id="2_bxyn8"]
+[ext_resource type="Texture2D" uid="uid://byjlebpadi8hj" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/EleMeDaMorte.png" id="3_axhw3"]
+[ext_resource type="Texture2D" uid="uid://es48yaitcq1y" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/EleMeDaMedo.png" id="4_psr0v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62dbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_axhw3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_psr0v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_psr0v")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[node name="TemplateMob" instance=ExtResource("1_8heju")]
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource("2_bxyn8")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_62dbl")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.875, 0.76)

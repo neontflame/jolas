@@ -35,7 +35,7 @@ scroll_active = false
 shortcut_keys_enabled = false
 
 [node name="OptChoice" type="RichTextLabel" parent="Idk"]
-offset_left = 261.0
+offset_left = 200.0
 offset_top = -1.0
 offset_right = 396.0
 offset_bottom = 29.0
