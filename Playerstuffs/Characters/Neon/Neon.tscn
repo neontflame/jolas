@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dpn4bk7w2bk3i"]
+[gd_scene load_steps=33 format=3 uid="uid://dpn4bk7w2bk3i"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_pwpvx"]
 [ext_resource type="Script" uid="uid://bysn73mcwwj6e" path="res://Playerstuffs/Characters/Neon/Scripts/playerNeon.gd" id="2_ewxw4"]
@@ -156,8 +156,22 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyp1u"]
+size = Vector2(119, 39)
+
 [node name="Player" instance=ExtResource("1_pwpvx")]
 script = ExtResource("2_ewxw4")
+FLOOR_ACCELERATION = 62.5
+AIR_ACCELERATION = 30
+SOFT_MAX_SPEED = 600
+GRAVITY = 25.0
+JUMP_VELOCITY = -625
+SLOPE_VEL_ADD = 30
+FLOOR_FRICTION = 0.9125
+AIR_FRICTION = 0.9995
+ATTACK_DMG = {
+"default": 2
+}
 
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_0onri")
@@ -176,5 +190,9 @@ scale = Vector2(0.46, 0.68)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
-animation = &"default"
-frame_progress = 0.86111176
+animation = &"specialGo"
+
+[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7"]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_nyp1u")
+disabled = true

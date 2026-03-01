@@ -45,6 +45,7 @@ position = Vector2(235, 1443)
 position = Vector2(2869, 1263)
 
 [node name="Camera regions" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_so8ub")]
 position = Vector2(1671, 756)
@@ -83,3 +84,18 @@ position = Vector2(6084, 1239)
 
 [node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_7akha")]
 position = Vector2(7320, 936)
+
+[node name="TemplateMob3" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(7845, 951)
+
+[node name="TemplateMob4" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(7031, 773)
+
+[node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(4678, 1254)
+
+[node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(4219, 1150)
+
+[node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_7akha")]
+position = Vector2(1466, 1328)

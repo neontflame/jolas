@@ -15,3 +15,4 @@ func update():
 		Mob.change_state(Mob.state_machine.st_default)
 	
 	Mob.handlePhys()
+	Mob.handlePlyHits(false)

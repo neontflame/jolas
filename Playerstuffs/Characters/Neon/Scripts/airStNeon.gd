@@ -41,7 +41,22 @@ func update():
 				Player.position.x -= 1
 				Player.motion.x = Player.charge
 			
-			Player.motion.y = -Player.charge * 0.45
+			Player.motion.y = Player.charge * -0.25
+			Player.motion.y += Player.charge * 0.45 * Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down").y
+			# FRENTE
+			Player.make_hitbox(	Vector2(30.0, 8.0),
+								Vector2(3.5, 2.75),
+								Player.ATTACK_DMG['default'],
+								250,
+								-40
+			)
+			#TRAS
+			Player.make_hitbox(	Vector2(-30.0, 8.0),
+								Vector2(3, 2),
+								Player.ATTACK_DMG['default'] / 2,
+								250,
+								-40
+			)
 			Player.canDoCharge = false
 			Player.isSpecialing = true
 			Player.jumping = false
@@ -58,8 +73,11 @@ func update():
 				
 			Player.motion.y = abs(Player.nonZeroXVel) * -0.35
 			Player.isSpecialing = false
+			Player.delete_hitboxes()
 			Player.plySprite.play('specialBounceback')
 			
 		if Player.is_on_floor():
+			Player.delete_hitboxes()
 			Player.isSpecialing = false
+			Player.invulnFrames = 4.0
 			Player.change_state(Player.state_machine.st_floor)

@@ -4,6 +4,7 @@ var hurtTimer := 30.0;
 
 func enter_state():
 	print('Enter Hurt')
+	Player.delete_hitboxes()
 	Player.plySprite.play('hurt')
 	hurtTimer = 30.0
 	

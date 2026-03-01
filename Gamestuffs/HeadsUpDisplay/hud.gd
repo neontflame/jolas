@@ -9,6 +9,7 @@ extends Node2D
 @export var hpBar:NinePatchRect
 @export var xpBar:NinePatchRect
 @export var testLabel:Label
+@export var comboText:RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,5 +49,8 @@ func _process(delta: float) -> void:
 			xpBar.size.y
 			)
 	)
+	
+	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)
+	comboText.self_modulate.a = GPStats.charObject.comboFrames / 120
 
 var connected := false

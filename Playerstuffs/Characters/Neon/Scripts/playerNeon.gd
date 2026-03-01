@@ -9,7 +9,10 @@ var nonZeroXVel := 0.0
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-		
+	# attackStrength = ATTACK_DMG['default']
+	# attack = isSpecialing
+	player_collisions.disabled = isSpecialing
+	$SpecialCollide.disabled = !isSpecialing
 	if abs(motion.x) > 2 && !is_on_wall():
 		nonZeroXVel = motion.x
 
@@ -23,3 +26,20 @@ func handleCameraSpecial() -> void:
 		idealZoom = 1
 	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealZoom, 0.05), 
 								lerp($Camera2D.zoom.y, idealZoom, 0.05))
+
+func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+	super.connectAttack(_stunFrames, fromBehind, vel)
+	if isSpecialing:
+		delete_hitboxes()
+		plySprite.play('specialBounceback')
+		isSpecialing = false
+	
+func level_up():
+	for key in ATTACK_DMG.keys():
+		ATTACK_DMG[key] = ATTACK_DMG[key] * GPStats.level
+	print('seus ataques agora sao:')
+	print(ATTACK_DMG)
+
+func hitbox_connect(hit:OffensiveHitbox):
+	print('connec')
+	connectAttack(2, (hitboxCoisos.scale.x == -1), Vector2(250, -250))

@@ -6,7 +6,8 @@ func update():
 	if Mob.detectingPlayer:
 		if Mob.position.x < GPStats.charObject.position.x:
 			Mob.inputSimulation(1, 0)
-		if Mob.position.x > GPStats.charObject.position.x:
+		elif Mob.position.x > GPStats.charObject.position.x:
 			Mob.inputSimulation(-1, 0)
+		
 		if Mob.position.y > GPStats.charObject.position.x:
 			Mob.inputSimulation(0, -1)

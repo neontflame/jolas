@@ -19,11 +19,16 @@ var previous_state = null
 @export var FLOOR_FRICTION = 0.9125
 @export var AIR_FRICTION = 0.9995
 
+@export var ATTACK_DMG:Dictionary = {
+	'default': 1
+}
+
 @export_group('Technical shit')
 @export var player_collisions:CollisionShape2D
 @export var sfx_player:AudioStreamPlayer2D
 @export var multiplayerName:RichTextLabel
 @export var coolCamera:Camera2D
+@export var hitboxCoisos:Node2D
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
@@ -44,9 +49,11 @@ var hp := 0.0
 var invulnFrames := 30.0
 
 var combo := 0
-var comboFrames := 240.0
+var comboFrames := 0.0
 
 var stunFrames := 0.0
+
+var hitboxes:Array = []
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -102,6 +109,11 @@ func _physics_process(delta: float) -> void:
 	if current_state.has_method("update"): current_state.update()
 	
 	updateShit.emit(motion)
+	var coolFlip = (-1 if plySprite.flip_h else 1)
+	if hitboxCoisos.scale.x != coolFlip:
+		hitboxCoisos.scale.x = coolFlip
+		for hit in hitboxCoisos.get_children():
+			hit.fixAngles()
 	
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
@@ -242,32 +254,37 @@ func change_state(new_state):
 		previous_state.exit_state()
 		current_state.enter_state()
 
-func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
 	increaseCombo()
 	stunFrames = _stunFrames
-	motion.y = vel.y
-	motion.x = (vel.x if fromBehind else -vel.x)
+	if vel != Vector2(0, 0):
+		motion.y = vel.y
+		motion.x = (vel.x if fromBehind else -vel.x)
 
 func increaseCombo():
-	comboFrames = 240.0
+	comboFrames = 180.0
 	combo += 1
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
 		if !get_invuln():
+			if current_state.name == 'Death':
+				return false
+			play_sfx('Hit1')
 			stunFrames = 2
 			hp -= hpLost
 			motion.y = vel.y
-			motion.x = (vel.x if fromBehind else -vel.x)
+			motion.x = (abs(vel.x) if fromBehind else -abs(vel.x))
 			invulnFrames = 120.0
 			if (hp <= 0):
 				change_state(state_machine.st_death)
 			else:
 				change_state(state_machine.st_hurt)
+			return true
 	
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Playerstuffs/Sounds/" + name + ".ogg")
+	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
 	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
 
@@ -282,3 +299,29 @@ func get_multi_status():
 
 func get_invuln():
 	return (invulnFrames > 0)
+
+func level_up():
+	# isso aqui ja depende mais do personagem
+	pass
+
+func add_xp(xp:float):
+	if GPStats.charObject == self:
+		GPStats.xp += xp
+
+## TODOs:
+# implementar hitboxes tipo as de jogo de luta 
+# pq eu sei que vao ter personagens que jogam tal como estes
+func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
+	hitbox.position = offset
+	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
+	hitboxCoisos.add_child(hitbox)
+	hitbox.fixAngles()
+	
+func delete_hitboxes():
+	for hit in hitboxCoisos.get_children():
+		hitboxes.erase(hit)
+		hit.queue_free()
+
+func hitbox_connect(hit:OffensiveHitbox):
+	pass

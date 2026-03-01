@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=15 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="8_piegi"]
 [ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="9_i2avg"]
 [ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_1a2va"]
+[ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_taoro"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43w4t"]
 shader = ExtResource("2_t1xeu")
@@ -20,7 +21,11 @@ font_names = PackedStringArray("Arial")
 font_weight = 750
 subpixel_positioning = 0
 
-[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel")]
+[sub_resource type="FontVariation" id="FontVariation_5tfyd"]
+base_font = ExtResource("11_taoro")
+spacing_glyph = -4
+
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -30,7 +35,8 @@ hpText = NodePath("CanvasLayer/Bars/HPText")
 xpText = NodePath("CanvasLayer/Bars/XPText")
 hpBar = NodePath("CanvasLayer/Bars/HPBar")
 xpBar = NodePath("CanvasLayer/Bars/XPBar")
-testLabel = NodePath("CanvasLayer/anchortest/TestLabel")
+testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
+comboText = NodePath("CanvasLayer/RightAnchor/ComboText")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -119,7 +125,7 @@ theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
 
-[node name="anchortest" type="Control" parent="CanvasLayer"]
+[node name="RightAnchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -128,12 +134,24 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="TestLabel" type="Label" parent="CanvasLayer/anchortest"]
+[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor"]
 layout_mode = 0
-offset_left = -327.0
-offset_top = -1.0
-offset_right = 33.0
-offset_bottom = 29.0
+offset_left = -200.0
+offset_top = 10.0
+offset_right = 28.0
+offset_bottom = 79.0
+theme_override_fonts/normal_font = SubResource("FontVariation_5tfyd")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]12"
+horizontal_alignment = 2
+
+[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
+layout_mode = 0
+offset_left = -328.0
+offset_top = 58.0
+offset_right = 32.0
+offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("2_fccik")
 theme_override_font_sizes/font_size = 18
 text = "FPS: 60"

@@ -8,7 +8,7 @@ static var xp := 0
 static var level := 3
 static var charObject:PlayerObject
 static var maxHP := 10
-static var lvLimit := 5 # multiplicador pros limites dos niveis eu acho
+static var lvLimit := 7 # multiplicador pros limites dos niveis eu acho
 static var curMap := 'TheThing'
 
 static var modded := false
@@ -26,6 +26,11 @@ static func process(delta: float) -> void:
 	if xp > level * lvLimit:
 		xp = xp - level * lvLimit
 		level += 1
+		
+		var hpDifference := charObject.hp / GPStats.maxHP
+		maxHP += level * 2
+		charObject.hp = ceil(maxHP * hpDifference)
+		charObject.level_up()
 
 static func load_info_from_save(saveNum:int):
 	var save = SaveUtils.get_save_info(saveNum)

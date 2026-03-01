@@ -10,6 +10,7 @@ var cooldown := 10
 
 var missileOwner # a gente nem sequer ta usando essa variavel
 var power := 1
+var baseDamage := 4.0
 
 var used := false
 
@@ -48,7 +49,8 @@ func fuckingExplosione():
 		# BOILERPLATE INSANO
 		if body is MobObject:
 			if body != missileOwner:
-				body.yeowch(4 * power, (body.position.x > position.x))
+				if missileOwner is PlayerObject: body.theHarmer = missileOwner
+				body.yeowch(baseDamage * power, (body.position.x > position.x))
 			used = true
 			var coolSpeeds:float = (abs(body.velocity.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50
 			if abs(body.velocity.x) < body.MAX_SPEED:
@@ -65,7 +67,7 @@ func fuckingExplosione():
 				
 		if body is PlayerObject:
 			if body != missileOwner:
-				body.yeowch(4 * power, (body.position.x > position.x))
+				body.yeowch(baseDamage * power, (body.position.x > position.x))
 			used = true
 			# programar na construct requer paciencia
 			var coolSpeeds:float = (abs(body.motion.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50

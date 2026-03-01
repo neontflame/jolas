@@ -60,7 +60,6 @@ func respawnPlayer():
 		GPStats.charObject.position = level.spawnpoint.position
 	
 	GPStats.charObject.hp = GPStats.maxHP
-	
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
 
 #acaba os treco de player

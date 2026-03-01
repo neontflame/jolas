@@ -13,12 +13,13 @@ func update():
 		getOuttaHereTriggered = true
 		getOuttaHere()
 	Mob.handlePhys()
+	Mob.inputSimulation(0,0)
 
 func getOuttaHere():
 	var alphatween:Tween = create_tween()
 	alphatween.tween_method(
 		func(value):
-			Mob.self_modulate.a = value
+			Mob.leSprite.self_modulate.a = value
 			if value <= 0.0:
 				Mob.queue_free(),
 			1.0, 0.0, 2.0)

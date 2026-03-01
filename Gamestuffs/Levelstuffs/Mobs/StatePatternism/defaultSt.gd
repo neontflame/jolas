@@ -1,6 +1,6 @@
 extends MobStatePattern
 
-var gotFloored := false
+var gotFloored:bool = false
 
 func enter_state():
 	Mob.isHurting = false
@@ -8,6 +8,7 @@ func enter_state():
 	
 func update():
 	Mob.handlePhys()
+	Mob.handlePlyHits(true)
 	
 	if Mob.is_on_floor():
 		if !gotFloored:
@@ -15,9 +16,3 @@ func update():
 			gotFloored = true
 	else:
 		gotFloored = false
-	
-	if Mob.touchingPlayer:
-		if Mob.touchedPlayer.attack:
-			Mob.yeowch(Mob.touchedPlayer.attackStrength, (Mob.position.x > Mob.touchedPlayer.x))
-		else:
-			Mob.touchedPlayer.yeowch(Mob.strength, (Mob.position.x < Mob.touchedPlayer.position.x))

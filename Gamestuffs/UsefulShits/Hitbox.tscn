@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ark1lk5fvnu"]
+
+[ext_resource type="Script" uid="uid://doa0teqrib1ya" path="res://Gamestuffs/UsefulShits/Hitbox.gd" id="1_lj56n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgbob"]
+
+[node name="Hitbox" type="Area2D" node_paths=PackedStringArray("collide")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_lj56n")
+collide = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tgbob")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

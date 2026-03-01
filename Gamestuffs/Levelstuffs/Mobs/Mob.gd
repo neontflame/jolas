@@ -19,7 +19,8 @@ var previous_state = null
 @export var JUMP_VELOCITY = -625
 @export var FRICTION = 0.9125
 
-@export var hp:float = 10
+@export var maxHP:float = 10
+@onready var hp:float = maxHP
 @export var level:float = 1.0
 @export var strength:float = 1.0
 
@@ -43,6 +44,8 @@ var detectingPlayer:bool = false
 var touchingPlayer:bool = false
 var touchedPlayer:PlayerObject
 var touchedBody
+
+var theHarmer:PlayerObject
 
 var isHurting := false
 var stunFrames := 0.0
@@ -69,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		stunFrames -= 1 * deltaOne
 		return
 	if current_state.has_method('update'): current_state.update()
-	
+	$Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
 	move_and_slide()
 
 func handlePhys():
@@ -105,18 +108,24 @@ func onUntouched(body):
 
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
-	stunFrames = 2
+	if current_state.name == 'Death':
+		return false
+	stunFrames = 2.0
+	if theHarmer: theHarmer.add_xp(1)
+	play_sfx('Hit2')
 	hp -= hpLost
 	velocity.y = vel.y
 	velocity.x = (vel.x if fromBehind else -vel.x)
 	if (hp <= 0):
+		if theHarmer: theHarmer.add_xp(maxHP)
 		change_state(state_machine.st_death)
 	else:
 		change_state(state_machine.st_hurt)
+	return true
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Gamestuffs/Levelstuffs/Mobs/Sounds/" + name + ".ogg")
+	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
 	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
 
@@ -146,3 +155,21 @@ func pd_body_entered(body: Node2D) -> void:
 func pd_body_exited(body: Node2D) -> void:
 	if body is PlayerObject:
 		detectingPlayer = false
+
+# voce pode tentar combar eles agora
+func handlePlyHits(harmPlayer:bool = true):
+	if touchingPlayer:
+		if touchedPlayer.attack:
+			theHarmer = touchedPlayer
+			touchedPlayer.connectAttack(2, 
+			(position.x > touchedPlayer.position.x), 
+			Vector2(-touchedPlayer.motion.x, -abs(touchedPlayer.motion.y))
+			)
+			yeowch(touchedPlayer.attackStrength, 
+			(position.x > touchedPlayer.position.x)
+			)
+		elif harmPlayer:
+			theHarmer = null
+			touchedPlayer.yeowch(strength, 
+			(position.x < touchedPlayer.position.x)
+			)
