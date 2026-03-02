@@ -21,7 +21,7 @@ static func spawn_object(name:String, pos:Vector2, variation:String = 'Default',
 		object.apply_additional_data(additionalData)
 	return object
 
-static func spawn_object_online(name:String, pos:Vector2, variation:String = 'Default', additionalData:Dictionary = {}):			
+static func spawn_object_online(name:String, pos:Vector2, variation:String = 'Default', additionalData:Dictionary = {}):
 	var object = load("res://Gamestuffs/Levelstuffs/Objects/" + name + "/" + variation + ".tscn").instantiate()
 	map.add_child(object)
 	object.position = pos

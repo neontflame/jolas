@@ -165,6 +165,9 @@ FLOOR_ACCELERATION = 60.0
 AIR_ACCELERATION = 40
 SOFT_MAX_SPEED = 500
 JUMP_VELOCITY = -720
+ATTACK_DMG = {
+"default": 1.0
+}
 
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("2_6k7s2")

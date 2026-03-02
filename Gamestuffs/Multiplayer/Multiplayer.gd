@@ -94,8 +94,7 @@ func _register_player(new_player_info):
 			return # STOP execution here. Do not add to dict.
 			
 	players[new_player_id] = new_player_info
-	if multiplayer.is_server():
-		player_connected.emit(new_player_id, new_player_info)
+	player_connected.emit(new_player_id, new_player_info)
 
 func _on_player_disconnected(id):
 	players.erase(id)
@@ -120,3 +119,15 @@ func _on_server_disconnected():
 @rpc("any_peer", "reliable")
 func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Dictionary):
 	var obj = MapUtils.spawn_object_online(name, pos, variation, additionalData)
+
+@rpc("any_peer", "reliable")
+func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+	for char in JolasGame.instance.plyNode.get_children():
+		if char.get_multiplayer_authority() == playerId:
+			char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+
+@rpc("any_peer", "reliable")
+func _player_delete_hitboxes(playerId:Variant):
+	for char in JolasGame.instance.plyNode.get_children():
+		if char.get_multiplayer_authority() == playerId:
+			char.delete_hitboxes_actual()

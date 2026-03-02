@@ -31,6 +31,8 @@ func setUp(_owner:Node2D, _scale:Vector2, _damage:float, _knockback:float, _knoc
 	
 	if proprietor.has_method('hitboxes'):
 		proprietor.hitboxes.append(self)
+	
+	set_multiplayer_authority(proprietor.get_multiplayer_authority())
 		
 	#if proprietor.has_method('hitbox_connect'):
 		# connectedHit.connect(proprietor.hitbox_connect)

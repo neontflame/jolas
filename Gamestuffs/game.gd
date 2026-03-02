@@ -10,6 +10,8 @@ var allChars:Array = []
 var charDict:Dictionary = {}
 
 @export var coolFade:TextureRect
+@export var plyNode:Node2D
+@export var lvlNode:Node2D
 static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +36,7 @@ func createPlayer(chara:String, id:int = -1):
 	if playerInstance: remove_child(playerInstance)
 	playerInstance = player.instantiate()
 	playerInstance.playerID = id
-	add_child(playerInstance)
+	plyNode.add_child(playerInstance)
 	allChars.append(playerInstance)
 	
 	if level:
@@ -51,7 +53,7 @@ func createLevel(lvl:String):
 	if level: level.queue_free()
 	
 	level = load(GameUtils.get_map_path(lvl)).instantiate()
-	add_child(level)
+	lvlNode.add_child(level)
 	
 	GPStats.curMap = level.name
 
@@ -142,7 +144,7 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	var pInst = playery.instantiate()
 	pInst.playerID = peer_id
 	pInst.name = str(peer_id)
-	add_child(pInst, true)
+	plyNode.add_child(pInst, true)
 	allChars.append(pInst)
 	charDict[peer_id] = pInst
 	
@@ -150,7 +152,9 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 		pInst.position = level.spawnpoint.position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
+	print('== CHAR DICT ==')
 	print(charDict)
+	print('== END CHAR DICT ==')
 
 func _on_player_disconnected(peer_id: Variant) -> void:
 	removeFromPeerID(peer_id)

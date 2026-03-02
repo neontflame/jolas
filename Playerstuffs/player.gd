@@ -38,7 +38,7 @@ var previous_state = null
 # Weeeeeeeeeeeird stuff goin on here. Tread Lightlyyyuhh
 const WeirdMultiplier = 100
 signal updateShit(velocity:Vector2)
-var deltaOne := 0.0
+var deltaOne:float = 1.0
 var floorSinCos := Vector2(0.0, 0.0)
 var idealZoom := 1.0
 
@@ -312,13 +312,29 @@ func add_xp(xp:float):
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+	var m_api = Engine.get_main_loop().root.get_multiplayer()
+	
+	if m_api.multiplayer_peer is ENetMultiplayerPeer:
+		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle)
+	
+	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+
+func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
 	hitbox.position = offset
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
 	hitbox.fixAngles()
-	
+
 func delete_hitboxes():
+	var m_api = Engine.get_main_loop().root.get_multiplayer()
+	
+	if m_api.multiplayer_peer is ENetMultiplayerPeer:
+		MultiplayerMayhem._player_delete_hitboxes.rpc(get_multiplayer_authority())
+	
+	delete_hitboxes_actual()
+
+func delete_hitboxes_actual():
 	for hit in hitboxCoisos.get_children():
 		hitboxes.erase(hit)
 		hit.queue_free()

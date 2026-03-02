@@ -6,12 +6,18 @@
 [ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://Gamestuffs/Multiplayer/Multiplayer.gd" id="3_ll7to"]
 [ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://Gamestuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode")]
 script = ExtResource("1_wmjmx")
 coolFade = NodePath("CanvasLayer/Fade")
+plyNode = NodePath("Players")
+lvlNode = NodePath("Level")
 
 [node name="Hud" parent="." instance=ExtResource("2_ll7to")]
 z_index = 512
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
