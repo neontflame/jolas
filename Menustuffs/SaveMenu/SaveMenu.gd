@@ -1,8 +1,8 @@
 extends "res://Menustuffs/Submenu.gd"
 
-var saveAmount:int = 6
+# var saveAmount:int = 6
 var saveSlots:Array = []
-var spaceBetweenSaves := 160.0
+var spaceBetweenSaves := 128.0
 
 @export var savesNode:Node2D
 
@@ -10,31 +10,49 @@ func _ready() -> void:
 	CoolMenu.blurAmount = 2
 	CoolMenu.activeMusicLayers = 2
 	
-	for i in range(saveAmount):
-		# print(i)
-		var coolioSave = load('res://Menustuffs/SaveMenu/SaveBox.tscn').instantiate()
-		coolioSave.saveId = i
-		coolioSave.position.y = spaceBetweenSaves * i
-		savesNode.add_child(coolioSave)
-		saveSlots.append(coolioSave)
-		coolioSave.renderSave()
+	var coolNumberist:int = 0
 	
-	CoolMenu.maxSelected = saveAmount
+	for kid in savesNode.get_children():
+		if kid is SaveBox:
+			kid.saveId = coolNumberist
+			kid.renderSave()
+			saveSlots.append(kid)
+			coolNumberist += 1
+	
+	#for i in range(saveAmount):
+		## print(i)
+		#var coolioSave = load('res://Menustuffs/SaveMenu/SaveBox.tscn').instantiate()
+		#coolioSave.saveId = i
+		#coolioSave.position.y = spaceBetweenSaves * i
+		#savesNode.add_child(coolioSave)
+		#saveSlots.append(coolioSave)
+		#coolioSave.renderSave()
+	
+	CoolMenu.maxSelected = coolNumberist
 
 func _process(delta: float) -> void:
-	savesNode.position.y = lerp(	savesNode.position.y,
-										(CoolMenu.curSelected * -spaceBetweenSaves * 0.75) + 54,
+	savesNode.position.x = lerp(	savesNode.position.x,
+										-176 - (saveSlots[CoolMenu.curSelected].position.x * 0.1),
 										0.2
 									)
 									
-	savesNode.get_node('SetaCool').position.y = lerp(	savesNode.get_node('SetaCool').position.y,
-										(CoolMenu.curSelected * spaceBetweenSaves) + 36,
+	savesNode.position.y = lerp(	savesNode.position.y,
+										54 - (saveSlots[CoolMenu.curSelected].position.y * 0.75),
+										0.2
+									)
+
+	savesNode.get_node('SetaCool').position.x = lerp(	savesNode.get_node('SetaCool').position.x,
+										saveSlots[CoolMenu.curSelected].position.x - 42,
 										0.5
 									)
-	if Input.is_action_just_pressed("ui_up"):
+	savesNode.get_node('SetaCool').position.y = lerp(	savesNode.get_node('SetaCool').position.y,
+										saveSlots[CoolMenu.curSelected].position.y + 56,
+										0.5
+									)
+	if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_left"):
 		CoolMenu.play_sfx('Tick')
 		CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_down") || Input.is_action_just_pressed("ui_right"):
 		CoolMenu.play_sfx('Tick')
 		CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
 	

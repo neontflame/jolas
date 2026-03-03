@@ -1,10 +1,13 @@
 extends Node2D
+class_name SaveBox
 
 var saveId:int = 0
 signal onClicked
 
 func renderSave():
 	var coolSaveness:Dictionary = SaveUtils.get_save_info(saveId)
+	print('save id: ' + str(saveId))
+	print(coolSaveness)
 	
 	if coolSaveness["new"] == true:
 		$FullSave.visible = false
