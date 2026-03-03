@@ -3,6 +3,8 @@ extends "res://Menustuffs/Submenu.gd"
 var menuCoolios:Array = []
 var menuNames:Array = []
 
+var isSelected:bool = false
+
 func randomQuote():
 	var quotes := [
 		'bosta em lata',
@@ -53,22 +55,23 @@ func _process(delta: float) -> void:
 			menuOpt.position.x = lerp(menuOpt.position.x, 0.0, 0.2)
 			menuOpt.self_modulate.a = 0.5
 	
-	if Input.is_action_just_pressed('ui_down'):
-		CoolMenu.play_sfx('Tick')
-		CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
-	if Input.is_action_just_pressed('ui_up'):
-		CoolMenu.play_sfx('Tick')
-		CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
-	
-	if Input.is_action_just_pressed('ui_accept'):
-		goToMenu(menuCoolios[CoolMenu.curSelected].name)
+	if !isSelected:
+		if Input.is_action_just_pressed('ui_down'):
+			CoolMenu.play_sfx('Tick')
+			CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
+		if Input.is_action_just_pressed('ui_up'):
+			CoolMenu.play_sfx('Tick')
+			CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
+		
+		if Input.is_action_just_pressed('ui_accept'):
+			goToMenu(menuCoolios[CoolMenu.curSelected].name)
 
 func goToMenu(menuName:String):
 	CoolMenu.play_sfx('Go')
 	match menuName:
 		'jolar':
 			GPStats.is_multiplayer = false
-			change_self_scene("res://Menustuffs/SaveMenu/SaveMenu.tscn")
+			whiteTweenTo("res://Menustuffs/SaveMenu/SaveMenu.tscn")
 		'jolarCoop':
 			GPStats.is_multiplayer = true
 			change_self_scene("res://Menustuffs/OnlineMenu/OnlineMenu.tscn")
@@ -82,3 +85,28 @@ func goToMenu(menuName:String):
 			print(menuName)
 			CoolMenu.stop_sfx('Go')
 			CoolMenu.play_sfx('Back')
+
+func whiteTweenTo(scene:String):
+	isSelected = true
+	var coolTweens = create_tween()
+	coolTweens.tween_method(
+					func(value): 
+						$MenuCanvas/FadeRect.self_modulate.a = value
+						if value >= 1:
+							change_self_scene(scene)
+						,  
+					0.0,  # Start value
+					1.0,  # End value
+					0.3    # Duration
+				)
+
+func whiteTweenFrom():
+	var coolTweens = create_tween()
+	coolTweens.tween_method(
+					func(value): 
+						$MenuCanvas/FadeRect.self_modulate.a = value
+						,  
+					1.0,  # Start value
+					0.0,  # End value
+					0.3    # Duration
+				)
