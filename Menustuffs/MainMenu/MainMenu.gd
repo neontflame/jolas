@@ -89,6 +89,8 @@ func goToMenu(menuName:String):
 func whiteTweenTo(scene:String):
 	isSelected = true
 	var coolTweens = create_tween()
+	$MenuCanvas/FadeRect.self_modulate.a = 0.0
+	$MenuCanvas/FadeRect.visible = true
 	coolTweens.tween_method(
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value
@@ -102,6 +104,8 @@ func whiteTweenTo(scene:String):
 
 func whiteTweenFrom():
 	var coolTweens = create_tween()
+	$MenuCanvas/FadeRect.self_modulate.a = 1.0
+	$MenuCanvas/FadeRect.visible = true
 	coolTweens.tween_method(
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value

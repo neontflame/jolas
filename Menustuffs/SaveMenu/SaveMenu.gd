@@ -33,6 +33,8 @@ func _ready() -> void:
 
 func _enter_tree() -> void:
 	var coolTweens = create_tween()
+	$MenuCanvas/FadeRect.self_modulate.a = 1.0
+	$MenuCanvas/FadeRect.visible = true
 	coolTweens.tween_method(
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value
@@ -90,6 +92,8 @@ func _process(delta: float) -> void:
 func whiteTweenTo(scene:String):
 	isSelected = true
 	var coolTweens = create_tween()
+	$MenuCanvas/FadeRect.self_modulate.a = 0.0
+	$MenuCanvas/FadeRect.visible = true
 	coolTweens.tween_method(
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value
