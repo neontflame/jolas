@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dl1ihi677xdwd"]
+
+[ext_resource type="Texture2D" uid="uid://b21ksi7gf6rd4" path="res://Playerstuffs/Characters/LuanPL2/Sprites/costume2(1).png" id="1_gdutm"]
+
+[node name="CharSel" type="Node2D" unique_id=2128582115]
+
+[node name="Costume2(1)" type="Sprite2D" parent="." unique_id=1377996514]
+position = Vector2(-2, -58)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gdutm")

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bkgfmlcb4pgkk"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_uonol"]
+[ext_resource type="Script" uid="uid://pqv5rgbevlbd" path="res://Playerstuffs/Characters/LuanPL2/Scripts/playerLuanPL2.gd" id="2_7quop"]
+[ext_resource type="Texture2D" uid="uid://b21ksi7gf6rd4" path="res://Playerstuffs/Characters/LuanPL2/Sprites/costume2(1).png" id="2_gw7el"]
+[ext_resource type="Script" uid="uid://o7qvakchnrnv" path="res://Playerstuffs/Characters/LuanPL2/Scripts/floorLuan.gd" id="3_25oet"]
+[ext_resource type="Texture2D" uid="uid://c8r4lso6u5y7c" path="res://Playerstuffs/Characters/LuanPL2/Sprites/costume3.png" id="3_khnmp"]
+[ext_resource type="Script" uid="uid://fnyhcrbdch6m" path="res://Playerstuffs/Characters/LuanPL2/Scripts/hurtLuan.gd" id="4_7quop"]
+[ext_resource type="Script" uid="uid://cgcvpcpp28lv8" path="res://Playerstuffs/Characters/LuanPL2/Scripts/airLuan.gd" id="4_25oet"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7quop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gw7el")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gw7el")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("3_khnmp")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 1.0
+}]
+
+[node name="Player" unique_id=712617520 instance=ExtResource("1_uonol")]
+script = ExtResource("2_7quop")
+ATTACK_DMG = {
+"default": 5
+}
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("3_25oet")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("4_25oet")
+
+[node name="Hurt" parent="StateMachine" index="2"]
+script = ExtResource("4_7quop")
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.245, 0.855)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_7quop")
+animation = &"default"
