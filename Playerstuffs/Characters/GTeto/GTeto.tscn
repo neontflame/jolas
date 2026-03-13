@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://bvn014sqhfrsx"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hg04w"]
+[ext_resource type="Texture2D" uid="uid://dyso55scr8nd3" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0001.png" id="2_vyqck"]
+[ext_resource type="Texture2D" uid="uid://cexoojt46du05" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto idle.png" id="2_xuht7"]
+[ext_resource type="Texture2D" uid="uid://ct2n51edbywke" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0002.png" id="3_0kway"]
+[ext_resource type="Texture2D" uid="uid://bf8ptiuh0o6yv" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0003.png" id="4_5osx7"]
+[ext_resource type="Texture2D" uid="uid://ogq8cfkukl8q" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0004.png" id="5_pjnwn"]
+[ext_resource type="Texture2D" uid="uid://f724isy4cen7" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto fall.png" id="7_b6rhw"]
+[ext_resource type="Texture2D" uid="uid://c5v2oxx1602mc" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge air0001.png" id="8_s1msp"]
+[ext_resource type="Texture2D" uid="uid://d4jsjygb6qtqj" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge air0002.png" id="9_8bapk"]
+[ext_resource type="Texture2D" uid="uid://rbvtohiij66m" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge floor0001.png" id="10_ok1yj"]
+[ext_resource type="Texture2D" uid="uid://dtrxjtx4c4dqj" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge floor0002.png" id="11_02u55"]
+[ext_resource type="Texture2D" uid="uid://r3t7lj0vl5ng" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot air0001.png" id="12_onv64"]
+[ext_resource type="Texture2D" uid="uid://conmbxhrm4630" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot air0002.png" id="13_f4va4"]
+[ext_resource type="Texture2D" uid="uid://bb8y15pd7tvch" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot air0003.png" id="14_m6nla"]
+[ext_resource type="Texture2D" uid="uid://yn07eewyymts" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot floor0001.png" id="15_qaut2"]
+[ext_resource type="Texture2D" uid="uid://feqccvu4ueff" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot floor0002.png" id="16_7bkan"]
+[ext_resource type="Texture2D" uid="uid://71mwr6875rx2" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto shoot floor0003.png" id="17_br403"]
+[ext_resource type="Texture2D" uid="uid://fmvkrnra3ohf" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-slam/gtslam air.png" id="18_h6tm1"]
+[ext_resource type="Texture2D" uid="uid://bw53ll6v6ofng" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-slam/gtslam land0001.png" id="19_bv4nr"]
+[ext_resource type="Texture2D" uid="uid://ditrdvxjwldwk" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-slam/gtslam land0002.png" id="20_2slyt"]
+[ext_resource type="Texture2D" uid="uid://ngx16jyfy3k8" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto hurt0001.png" id="21_6wfbb"]
+[ext_resource type="Texture2D" uid="uid://df4e4xd0l6go6" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto hurt0002.png" id="22_7d4fm"]
+[ext_resource type="Texture2D" uid="uid://b7vub7m1k471d" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto jump.png" id="23_ustwx"]
+[ext_resource type="Texture2D" uid="uid://bcp6dd7cxwu3s" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0001.png" id="24_utfa8"]
+[ext_resource type="Texture2D" uid="uid://tv0q08t4hll5" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0002.png" id="25_2dhqi"]
+[ext_resource type="Texture2D" uid="uid://gx1sy3gelg8v" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0003.png" id="26_uycj4"]
+[ext_resource type="Texture2D" uid="uid://dh103ro4xmesj" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0004.png" id="27_5srw2"]
+[ext_resource type="Texture2D" uid="uid://clh1udpw87e5l" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0001.png" id="28_i567o"]
+[ext_resource type="Texture2D" uid="uid://bv36mw72v6fcx" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0002.png" id="29_dhtg4"]
+[ext_resource type="Texture2D" uid="uid://bswo5w3fydfoe" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0003.png" id="30_0isye"]
+[ext_resource type="Texture2D" uid="uid://b38006pkewtkq" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0004.png" id="31_jokxt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47cw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vyqck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0kway")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5osx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pjnwn")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xuht7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_b6rhw")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_s1msp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8bapk")
+}],
+"loop": true,
+"name": &"gtChargeAir",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ok1yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_02u55")
+}],
+"loop": true,
+"name": &"gtChargeFloor",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_onv64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f4va4")
+}, {
+"duration": 5.0,
+"texture": ExtResource("14_m6nla")
+}],
+"loop": false,
+"name": &"gtShootAir",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_qaut2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7bkan")
+}, {
+"duration": 5.0,
+"texture": ExtResource("17_br403")
+}],
+"loop": false,
+"name": &"gtShootFloor",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_h6tm1")
+}],
+"loop": true,
+"name": &"gtSlam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_bv4nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2slyt")
+}],
+"loop": false,
+"name": &"gtSlamLand",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_6wfbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7d4fm")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_ustwx")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_utfa8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2dhqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_uycj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5srw2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_i567o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dhtg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0isye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jokxt")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player" unique_id=440724726 instance=ExtResource("1_hg04w")]
+FLOOR_ACCELERATION = 64.5
+AIR_ACCELERATION = 32
+GRAVITY = 20.0
+JUMP_VELOCITY = -620
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-2.5, 10.675)
+scale = Vector2(0.585, 0.86)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_47cw4")
+animation = &"gtSlamLand"
+frame = 1
+frame_progress = 1.0
