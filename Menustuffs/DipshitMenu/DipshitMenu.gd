@@ -65,8 +65,6 @@ func loadCharPreview(char:String):
 	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char)['name']
 	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char)['desc']
 	
-	$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n'
-	
 	if GameUtils.get_char_info(char)['ability'] is Array:
 		for abilitee in GameUtils.get_char_info(char)['ability']:
 			$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + GeneralUtils.text_replacery(abilitee)
