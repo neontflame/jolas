@@ -124,7 +124,8 @@ func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Di
 func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
-			char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+			if char.has_method('make_hitbox_actual'):
+				char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
 
 @rpc("any_peer", "reliable")
 func _player_delete_hitboxes(playerId:Variant):

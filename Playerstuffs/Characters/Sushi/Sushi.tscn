@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ctr7sp1ptwpe4"]
+[gd_scene format=3 uid="uid://ctr7sp1ptwpe4"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hou52"]
 [ext_resource type="Script" uid="uid://dti35yo5dmmfq" path="res://Playerstuffs/Characters/Sushi/Scripts/statemachineSushi.gd" id="2_6k7s2"]
@@ -158,7 +158,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Player" node_paths=PackedStringArray("rocketIndicator") instance=ExtResource("1_hou52")]
+[node name="Player" unique_id=25172122 node_paths=PackedStringArray("rocketIndicator") instance=ExtResource("1_hou52")]
 script = ExtResource("2_t8ely")
 rocketIndicator = NodePath("RocketIndicator")
 FLOOR_ACCELERATION = 60.0
@@ -178,10 +178,10 @@ script = ExtResource("3_6x6fl")
 [node name="Air" parent="StateMachine" index="1"]
 script = ExtResource("4_2hysu")
 
-[node name="RocketF" type="Node" parent="StateMachine" index="3"]
+[node name="RocketF" type="Node" parent="StateMachine" index="3" unique_id=1408272058]
 script = ExtResource("5_ig8nj")
 
-[node name="RocketA" type="Node" parent="StateMachine" index="4"]
+[node name="RocketA" type="Node" parent="StateMachine" index="4" unique_id=1610911674]
 script = ExtResource("6_t8ely")
 
 [node name="CollisionShape2D" parent="." index="2"]
@@ -192,7 +192,7 @@ sprite_frames = SubResource("SpriteFrames_v6070")
 animation = &"default"
 offset = Vector2(0, -16)
 
-[node name="RocketIndicator" type="Sprite2D" parent="." index="6"]
+[node name="RocketIndicator" type="Sprite2D" parent="." index="6" unique_id=251688297]
 visible = false
 texture = ExtResource("27_ekn4m")
 offset = Vector2(143.335, -1)

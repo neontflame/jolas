@@ -1,101 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Gamestuffs/Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gamestuffs/Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
+[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Gamestuffs/Levelstuffs/Utilities/GoToLevel.tscn" id="5_khcdk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
-[node name="TheThing" type="Node2D" node_paths=PackedStringArray("spawnpoint")]
+[node name="TheThing" type="Node2D" unique_id=516179439 node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
 script = ExtResource("1_h803n")
 spawnpoint = NodePath("Spawnpoint")
+spawnpointBack = NodePath("BackSpawnpoint")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1035966685]
 position = Vector2(354, 1036)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=1400275003]
 material = SubResource("CanvasItemMaterial_eip3h")
 position = Vector2(564, 463)
 polygon = PackedVector2Array(396, -154.99994, 326.99988, 408.00003, -143.00012, 405, -222.00012, -251.00006)
 one_way_collision = true
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2" unique_id=506875263]
 modulate = Color(0.20152658, 0.20152658, 0.20152658, 1)
 position = Vector2(564, 463)
 polygon = PackedVector2Array(-123, -135, 33, -118, -34, 82)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=863310741]
 position = Vector2(177, 518)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1655709482]
 material = SubResource("CanvasItemMaterial_eip3h")
 position = Vector2(37, 51)
-polygon = PackedVector2Array(-215, 953, 1130, 957, 1447, 857, 1758, 718, 2112, 656, 2431, 695, 3847.9644, 693.272, 4262, 754, 4561, 920, 4891, 1021, 5160, 1021, 5422, 860, 5696, 775, 6396.5464, 771.29065, 6390, 669, 6607, 669, 6600, 583, 6814, 583, 6821, 497, 7394, 497, 9342, 1393, 9582, 1581, 9982, 1893, 10276, 2061, 10560, 2148, 12496, 2205, 12784, 2153, 12935, 2063, 12986, 2005, 13024, 1936, 13053, 1854, 13066, 1753, 13051, 1428, 12895, 1228, 12577, 1132, 12462, 1069, 12392, 999, 12357, 911, 12348, 821, 12375, 697, 12422, 629, 12496, 570, 12585, 525, 12691, 497, 12814, 481, 13080, 473, 13362, 510, 15108, 510, 15191, 529, 15266, 573, 15360, 673, 15457, 847, 15838, 1777, 16055, 2200, 16188, 2337, 16336, 2426, 16546, 2438, 16734, 2414, 16845, 2361, 16903, 2287, 16971, 2156, 16977, 2059, 19092, 2062, 17610, 2950, 13671, 3007, 9431, 2996, 6021, 1485, -236, 1455, -593, 1490, -605, -881, -218, -898)
+polygon = PackedVector2Array(-215, 953, 1130, 957, 1447, 857, 1758, 718, 2112, 656, 2431, 695, 3847.9644, 693.272, 4262, 754, 4561, 920, 4891, 1021, 5160, 1021, 5422, 860, 5696, 775, 6396.5464, 771.29065, 6390, 669, 6607, 669, 6600, 583, 6814, 583, 6821, 497, 7394, 497, 9342, 1393, 9582, 1581, 9982, 1893, 10276, 2061, 10560, 2148, 12496, 2205, 12784, 2153, 12935, 2063, 12986, 2005, 13024, 1936, 13053, 1854, 13066, 1753, 13051, 1428, 12895, 1228, 12577, 1132, 12462, 1069, 12392, 999, 12357, 911, 12348, 821, 12375, 697, 12422, 629, 12496, 570, 12585, 525, 12691, 497, 12814, 481, 13080, 473, 13362, 510, 15108, 510, 15191, 529, 15266, 573, 15360, 673, 15457, 847, 15838, 1777, 16055, 2200, 16188, 2337, 16336, 2426, 16546, 2438, 16734, 2414, 16845, 2361, 16903, 2287, 16971, 2156, 16977, 2059, 19092, 2062, 19404, 2063, 19454, -1257, 19613, -1243, 19566, 2852, 17610, 2950, 13671, 3007, 9431, 2996, 6021, 1485, -236, 1455, -593, 1490, -605, -881, -218, -898)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=28584492]
 modulate = Color(0.5411765, 0.5411765, 0.5411765, 1)
 position = Vector2(37, 51)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
-[node name="Spawnpoint" type="Node2D" parent="."]
+[node name="Spawnpoint" type="Node2D" parent="." unique_id=2132515462]
 position = Vector2(235, 1443)
 
-[node name="TestNpc" parent="." instance=ExtResource("2_h803n")]
+[node name="BackSpawnpoint" type="Node2D" parent="." unique_id=1134862112]
+position = Vector2(19169, 2605)
+
+[node name="TestNpc" parent="." unique_id=1981361638 instance=ExtResource("2_h803n")]
 position = Vector2(2869, 1263)
 
-[node name="Camera regions" type="Node2D" parent="."]
+[node name="Camera regions" type="Node2D" parent="." unique_id=59471622]
 visible = false
 
-[node name="CameraBound" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound" parent="Camera regions" unique_id=493216430 instance=ExtResource("3_so8ub")]
 position = Vector2(1671, 756)
 scale = Vector2(16.825, 8.97)
 continuousX = true
 
-[node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound2" parent="Camera regions" unique_id=1316357824 instance=ExtResource("3_so8ub")]
 position = Vector2(4887, 749.00006)
 scale = Vector2(16.825, 8.97)
 continuousX = true
 
-[node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound3" parent="Camera regions" unique_id=401731531 instance=ExtResource("3_so8ub")]
 position = Vector2(7193.0005, 755)
 scale = Vector2(6.595, 8.97)
 continuousX = true
 
-[node name="CameraBound4" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound4" parent="Camera regions" unique_id=1858070469 instance=ExtResource("3_so8ub")]
 position = Vector2(9453, 1430)
 scale = Vector2(16.285, 13.715)
 continuousX = true
 
-[node name="CameraBound5" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound5" parent="Camera regions" unique_id=1687289809 instance=ExtResource("3_so8ub")]
 position = Vector2(12327, 1787.9999)
 scale = Vector2(12.57, 12.875)
 continuousX = true
 
-[node name="CameraBound6" parent="Camera regions" instance=ExtResource("3_so8ub")]
+[node name="CameraBound6" parent="Camera regions" unique_id=744093091 instance=ExtResource("3_so8ub")]
 position = Vector2(16364.001, 1788.0001)
-scale = Vector2(29.095, 12.875)
+scale = Vector2(29.895, 12.875)
 continuousX = true
 
-[node name="enemigos" type="Node2D" parent="."]
+[node name="enemigos" type="Node2D" parent="." unique_id=1064977454]
 
-[node name="TemplateMob" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob" parent="enemigos" unique_id=1142782918 instance=ExtResource("4_7akha")]
 position = Vector2(6084, 1239)
 
-[node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob2" parent="enemigos" unique_id=953258104 instance=ExtResource("4_7akha")]
 position = Vector2(7320, 936)
 
-[node name="TemplateMob3" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob3" parent="enemigos" unique_id=628933654 instance=ExtResource("4_7akha")]
 position = Vector2(7845, 951)
 
-[node name="TemplateMob4" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob4" parent="enemigos" unique_id=1619157899 instance=ExtResource("4_7akha")]
 position = Vector2(7031, 773)
 
-[node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob5" parent="enemigos" unique_id=840113620 instance=ExtResource("4_7akha")]
 position = Vector2(4678, 1254)
 
-[node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob6" parent="enemigos" unique_id=404345151 instance=ExtResource("4_7akha")]
 position = Vector2(4219, 1150)
 
-[node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_7akha")]
+[node name="TemplateMob7" parent="enemigos" unique_id=468252271 instance=ExtResource("4_7akha")]
 position = Vector2(1466, 1328)
+
+[node name="GoToLevel" parent="." unique_id=1728564638 instance=ExtResource("5_khcdk")]
+position = Vector2(19342, 1322.0001)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "Sandlerhell"

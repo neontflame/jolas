@@ -317,6 +317,8 @@ func add_xp(xp:float):
 ## TODOs:
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
+# ah eu ja fiz isso lmfao
+## faz uma hitbox! knockAngle e em degraus btw
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
@@ -332,6 +334,7 @@ func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback
 	hitboxCoisos.add_child(hitbox)
 	hitbox.fixAngles()
 
+## e tipo o [method make_hitbox] so que com segundos antes
 func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle)
 	await get_tree().create_timer(seconds).timeout
