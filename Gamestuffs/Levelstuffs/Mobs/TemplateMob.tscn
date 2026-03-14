@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cur2gbeak6s0i"]
+[gd_scene format=3 uid="uid://cur2gbeak6s0i"]
 
 [ext_resource type="Script" uid="uid://brbkmhxprxey7" path="res://Gamestuffs/Levelstuffs/Mobs/Mob.gd" id="1_odjvr"]
 [ext_resource type="Script" uid="uid://deeeo8l0243xr" path="res://Gamestuffs/Levelstuffs/Mobs/MobStateMachine.gd" id="2_roppu"]
@@ -42,7 +42,7 @@ size = Vector2(127, 126)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgoir"]
 radius = 498.0492
 
-[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "leSprite")]
+[node name="TemplateMob" type="CharacterBody2D" unique_id=503686930 node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "leSprite")]
 collision_layer = 2
 script = ExtResource("1_odjvr")
 ACCELERATION = 10.0
@@ -53,43 +53,43 @@ playerDetector = NodePath("PlayerDetector")
 sfx_player = NodePath("AudioStreamPlayer2D")
 leSprite = NodePath("AnimatedSprite2D")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=784234587]
 script = ExtResource("2_roppu")
 
-[node name="Default" type="Node" parent="StateMachine"]
+[node name="Default" type="Node" parent="StateMachine" unique_id=1445714436]
 script = ExtResource("3_roppu")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=1059082833]
 script = ExtResource("4_mdl05")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine" unique_id=117763074]
 script = ExtResource("5_hgoir")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1969660000]
 sprite_frames = SubResource("SpriteFrames_hgoir")
 animation = &"hurt"
 
-[node name="ActualCollision" type="CollisionShape2D" parent="."]
+[node name="ActualCollision" type="CollisionShape2D" parent="." unique_id=1034543184]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_nigrx")
 
-[node name="CollidesWithPlayer" type="Area2D" parent="."]
+[node name="CollidesWithPlayer" type="Area2D" parent="." unique_id=1763666926]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollidesWithPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollidesWithPlayer" unique_id=163519714]
 shape = SubResource("RectangleShape2D_3qbnk")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1494984363]
 
-[node name="PlayerDetector" type="Area2D" parent="."]
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=470464892]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1351872201]
 shape = SubResource("CircleShape2D_hgoir")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1105104438]
 offset_left = -68.0
 offset_top = -120.0
 offset_right = 69.0

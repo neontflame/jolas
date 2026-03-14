@@ -18,6 +18,7 @@ var previous_state = null
 @export var SLOPE_VEL_ADD = 30
 @export var FLOOR_FRICTION = 0.9125
 @export var AIR_FRICTION = 0.9995
+@export var JUMP_COUNT = 1
 
 @export var ATTACK_DMG:Dictionary = {
 	'default': 1
@@ -52,8 +53,10 @@ var combo := 0
 var comboFrames := 0.0
 
 var stunFrames := 0.0
+var jumpsDone:int = 1
 
 var hitboxes:Array = []
+var attackDmgOriginal:Dictionary = ATTACK_DMG
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -103,7 +106,7 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
-	if stunFrames > 0:
+	while stunFrames > 0:
 		stunFrames -= 1 * deltaOne
 		return
 	if current_state.has_method("update"): current_state.update()
@@ -170,6 +173,7 @@ func handleMovement() -> void:
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
 		FRICTION = FLOOR_FRICTION
+		jumpsDone = 1
 		jumping = false
 	else:
 		ACCELERATION = AIR_ACCELERATION
@@ -180,7 +184,8 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_pressed() and is_on_floor():
+	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or jumpsDone < JUMP_COUNT):
+		jumpsDone += 1
 		if isSonicPhys:
 			motion.y = JUMP_VELOCITY * deltaOne
 		else:

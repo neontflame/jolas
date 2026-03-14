@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://bvn014sqhfrsx"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hg04w"]
+[ext_resource type="Script" uid="uid://dahgyhomvwubr" path="res://Playerstuffs/Characters/GTeto/Scripts/playerGTeto.gd" id="2_0kway"]
 [ext_resource type="Texture2D" uid="uid://dyso55scr8nd3" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0001.png" id="2_vyqck"]
 [ext_resource type="Texture2D" uid="uid://cexoojt46du05" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto idle.png" id="2_xuht7"]
 [ext_resource type="Texture2D" uid="uid://ct2n51edbywke" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0002.png" id="3_0kway"]
+[ext_resource type="Script" uid="uid://hypx2gb15cbt" path="res://Playerstuffs/Characters/GTeto/Scripts/state_machineGTeto.gd" id="3_8bapk"]
+[ext_resource type="Script" uid="uid://8icwjvj5h63f" path="res://Playerstuffs/Characters/GTeto/Scripts/floorStGTeto.gd" id="3_pjnwn"]
 [ext_resource type="Texture2D" uid="uid://bf8ptiuh0o6yv" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0003.png" id="4_5osx7"]
+[ext_resource type="Script" uid="uid://br5oolomsqejs" path="res://Playerstuffs/Characters/GTeto/Scripts/airStGTeto.gd" id="4_8bapk"]
+[ext_resource type="Script" uid="uid://b513hxv66vc58" path="res://Playerstuffs/Characters/GTeto/Scripts/gtChargeFloorStGTeto.gd" id="5_ok1yj"]
 [ext_resource type="Texture2D" uid="uid://ogq8cfkukl8q" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto sonicbattlespin0004.png" id="5_pjnwn"]
+[ext_resource type="Script" uid="uid://c4f850cmgp5qg" path="res://Playerstuffs/Characters/GTeto/Scripts/gtChargeAirStGTeto.gd" id="7_02u55"]
 [ext_resource type="Texture2D" uid="uid://f724isy4cen7" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto fall.png" id="7_b6rhw"]
 [ext_resource type="Texture2D" uid="uid://c5v2oxx1602mc" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge air0001.png" id="8_s1msp"]
 [ext_resource type="Texture2D" uid="uid://d4jsjygb6qtqj" path="res://Playerstuffs/Characters/GTeto/Sprites/g-t-charge/gteto charge air0002.png" id="9_8bapk"]
@@ -101,7 +107,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"gtShootAir",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,7 +121,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"gtShootFloor",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,10 +197,36 @@ animations = [{
 }]
 
 [node name="Player" unique_id=440724726 instance=ExtResource("1_hg04w")]
-FLOOR_ACCELERATION = 64.5
+script = ExtResource("2_0kway")
+FLOOR_ACCELERATION = 50.0
 AIR_ACCELERATION = 32
+SOFT_MAX_SPEED = 580
 GRAVITY = 20.0
 JUMP_VELOCITY = -620
+SLOPE_VEL_ADD = 31
+FLOOR_FRICTION = 0.925
+JUMP_COUNT = 4
+ATTACK_DMG = {
+"default": 1,
+"maxProjectile": 5.0,
+"minProjectile": 1.0,
+"slam": 4.0
+}
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("3_8bapk")
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("3_pjnwn")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("4_8bapk")
+
+[node name="GTChargeFloor" type="Node" parent="StateMachine" index="4" unique_id=1955716699]
+script = ExtResource("5_ok1yj")
+
+[node name="GTChargeAir" type="Node" parent="StateMachine" index="5" unique_id=84712468]
+script = ExtResource("7_02u55")
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(-2.5, 10.675)
@@ -202,6 +234,4 @@ scale = Vector2(0.585, 0.86)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_47cw4")
-animation = &"gtSlamLand"
-frame = 1
-frame_progress = 1.0
+animation = &"gtShootFloor"

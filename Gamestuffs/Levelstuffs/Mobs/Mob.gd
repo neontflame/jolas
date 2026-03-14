@@ -111,7 +111,9 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 	if current_state.name == 'Death':
 		return false
 	stunFrames = 2.0
-	if theHarmer: theHarmer.add_xp(1)
+	if theHarmer: 
+		theHarmer.add_xp(1)
+		theHarmer.increaseCombo()
 	play_sfx('Hit2')
 	hp -= hpLost
 	velocity.y = vel.y

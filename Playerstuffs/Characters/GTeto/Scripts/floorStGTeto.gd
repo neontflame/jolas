@@ -1,20 +1,13 @@
-extends StatePattern
-
-func enter_state():
-	# print('Enter Floor')
-	Player.motion.y = 4
-	Player.plySprite.animation_finished.connect(animDone)
-	pass
+extends "res://Playerstuffs/StateMachinery/floorSt.gd"
 
 func update():
-	Player.handlePhys()
-	Player.handleMovement()
-	Player.handleCamera()
-	handleAnimations()
+	super.update()
 	
-	if not Player.is_on_floor():
-		Player.change_state(Player.state_machine.st_air)
-	
+	if (Player.movementEnabled):
+		if Input.is_action_just_pressed("ctrl_1") && Player.projCooldown <= 0:
+			Player.projForce = Player.ATTACK_DMG["minProjectile"]
+			Player.change_state(Player.state_machine.st_charge_floor)
+
 func handleAnimations() -> void:
 	if Player.is_on_floor():
 		if Player.plySprite.animation == 'brake':
@@ -34,7 +27,8 @@ func handleAnimations() -> void:
 			else:
 				Player.plySprite.play('walk')
 		else:
-			Player.plySprite.play('default')
+			if Player.projCooldown <= 0 && Player.plySprite.animation != "gtShootFloor":
+				Player.plySprite.play('default')
 			Player.plySprite.speed_scale = 1;
 		
 	if (Player.movementEnabled):
@@ -45,4 +39,5 @@ func handleAnimations() -> void:
 			Player.plySprite.flip_h = true;
 
 func animDone():
-	pass
+	if Player.plySprite.animation == "gtShootFloor":
+		Player.plySprite.play('default')
