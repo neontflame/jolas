@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bg812wul0mkdc"]
+
+[ext_resource type="Texture2D" uid="uid://dhx30qat0q1dm" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gtslam fx0001.png" id="1_543oa"]
+[ext_resource type="Texture2D" uid="uid://b2grdb5q8msau" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gtslam fx0002.png" id="2_fdq2q"]
+[ext_resource type="Texture2D" uid="uid://drdshscc7q5tg" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gtslam fx0003.png" id="3_6wxj3"]
+[ext_resource type="Script" uid="uid://dcuxcjxffv3c7" path="res://Playerstuffs/Characters/GTeto/Misc/slamParticle.gd" id="4_0k8o5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_543oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_543oa")
+}],
+"loop": true,
+"name": &"Fx1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fdq2q")
+}],
+"loop": true,
+"name": &"Fx2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6wxj3")
+}],
+"loop": true,
+"name": &"Fx3",
+"speed": 5.0
+}]
+
+[node name="SlamParticle" type="Node2D" unique_id=403483393]
+script = ExtResource("4_0k8o5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=161141846]
+position = Vector2(-26, 0)
+sprite_frames = SubResource("SpriteFrames_543oa")
+animation = &"Fx1"

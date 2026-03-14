@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cxf7x2s3fvncu"]
+
+[ext_resource type="Texture2D" uid="uid://cexoojt46du05" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto idle.png" id="1_l6sy0"]
+
+[node name="CharSel" type="Node2D" unique_id=1340646845]
+
+[node name="GtetoIdle" type="Sprite2D" parent="." unique_id=2048399005]
+position = Vector2(-6, -65)
+texture = ExtResource("1_l6sy0")

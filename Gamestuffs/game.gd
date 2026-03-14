@@ -29,6 +29,7 @@ func _ready() -> void:
 	JolasGame.instance = self
 
 #region Os Auxiliares
+# The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
@@ -56,12 +57,13 @@ func createLevel(lvl:String):
 	lvlNode.add_child(level)
 	
 	GPStats.curMap = level.name
+	SaveUtils.save_game(GPStats.saveNum)
 
-func respawnPlayer():
+func respawnPlayer(maxOutHP:bool = true, comeback:bool = false):
 	if level:
-		GPStats.charObject.position = level.spawnpoint.position
+		GPStats.charObject.position = (level.spawnpointBack.position if comeback else level.spawnpoint.position)
 	
-	GPStats.charObject.hp = GPStats.maxHP
+	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
 
 #acaba os treco de player

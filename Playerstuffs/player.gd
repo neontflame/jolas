@@ -18,6 +18,7 @@ var previous_state = null
 @export var SLOPE_VEL_ADD = 30
 @export var FLOOR_FRICTION = 0.9125
 @export var AIR_FRICTION = 0.9995
+@export var JUMP_COUNT = 1
 
 @export var ATTACK_DMG:Dictionary = {
 	'default': 1
@@ -47,13 +48,16 @@ var camShakeForce := 0.0
 
 var hp := 0.0
 var invulnFrames := 30.0
+var fullInvuln := false
 
 var combo := 0
 var comboFrames := 0.0
 
 var stunFrames := 0.0
+var jumpsDone:int = 1
 
 var hitboxes:Array = []
+var attackDmgOriginal:Dictionary = ATTACK_DMG
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -103,7 +107,7 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
-	if stunFrames > 0:
+	while stunFrames > 0:
 		stunFrames -= 1 * deltaOne
 		return
 	if current_state.has_method("update"): current_state.update()
@@ -152,13 +156,13 @@ func handleSonicPhys() -> void:
 		up_direction = get_floor_normal()
 	else:
 		if up_direction != Vector2(0.0, -1.0):
-			print('AIR TIME')
+			# print('AIR TIME')
 			var prevmotion := Vector2(
 				motion.x * -up_direction.y - motion.y * up_direction.x,
 				motion.y * -up_direction.y + motion.x * up_direction.x,
 				)
-			print(floorSinCos)
-			print(prevmotion)
+			# print(floorSinCos)
+			# print(prevmotion)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
 			
@@ -170,6 +174,7 @@ func handleMovement() -> void:
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
 		FRICTION = FLOOR_FRICTION
+		jumpsDone = 1
 		jumping = false
 	else:
 		ACCELERATION = AIR_ACCELERATION
@@ -180,7 +185,8 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_pressed() and is_on_floor():
+	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or jumpsDone < JUMP_COUNT):
+		jumpsDone += 1
 		if isSonicPhys:
 			motion.y = JUMP_VELOCITY * deltaOne
 		else:
@@ -255,7 +261,7 @@ func change_state(new_state):
 		current_state.enter_state()
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
-	increaseCombo()
+	# increaseCombo()
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y
@@ -298,7 +304,7 @@ func get_multi_status():
 	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
 
 func get_invuln():
-	return (invulnFrames > 0)
+	return (invulnFrames > 0) || fullInvuln
 
 func level_up():
 	# isso aqui ja depende mais do personagem
@@ -311,6 +317,8 @@ func add_xp(xp:float):
 ## TODOs:
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
+# ah eu ja fiz isso lmfao
+## faz uma hitbox! knockAngle e em degraus btw
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
@@ -325,6 +333,12 @@ func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
 	hitbox.fixAngles()
+
+## e tipo o [method make_hitbox] so que com segundos antes
+func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle)
+	await get_tree().create_timer(seconds).timeout
+	delete_hitboxes()
 
 func delete_hitboxes():
 	var m_api = Engine.get_main_loop().root.get_multiplayer()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://x04hyhpls548"]
+[gd_scene format=3 uid="uid://x04hyhpls548"]
 
 [ext_resource type="Script" uid="uid://con14lmbu1nji" path="res://Menustuffs/SaveMenu/SaveBox.gd" id="1_movk3"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="2_178rs"]
@@ -35,21 +35,22 @@ animations = [{
 
 [sub_resource type="SystemFont" id="SystemFont_movk3"]
 font_names = PackedStringArray("Verdana")
+subpixel_positioning = 0
 
-[node name="SaveBox" type="Node2D"]
+[node name="SaveBox" type="Node2D" unique_id=1059506168]
 script = ExtResource("1_movk3")
 
-[node name="SaveBox" type="AnimatedSprite2D" parent="."]
+[node name="SaveBox" type="AnimatedSprite2D" parent="." unique_id=859131192]
 sprite_frames = SubResource("SpriteFrames_ringp")
 centered = false
 
-[node name="FullSave" type="Node2D" parent="."]
+[node name="FullSave" type="Node2D" parent="." unique_id=124065928]
 
-[node name="Icon" type="Sprite2D" parent="FullSave"]
-position = Vector2(63, 61)
+[node name="Icon" type="Sprite2D" parent="FullSave" unique_id=1315667898]
+position = Vector2(66, 61)
 texture = ExtResource("2_178rs")
 
-[node name="CurMap" type="Label" parent="FullSave"]
+[node name="CurMap" type="Label" parent="FullSave" unique_id=1628018136]
 offset_left = 112.0
 offset_top = 78.0
 offset_right = 378.0
@@ -58,17 +59,19 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_movk3")
 theme_override_font_sizes/font_size = 13
 text = "Mapa de testes"
+horizontal_alignment = 1
 
-[node name="CurChar" type="Label" parent="FullSave"]
+[node name="CurChar" type="Label" parent="FullSave" unique_id=1031603577]
 offset_left = 112.0
 offset_top = 49.0
-offset_right = 278.0
+offset_right = 311.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "Neon T. Flame"
+horizontal_alignment = 1
 
-[node name="Timespan" type="Label" parent="FullSave"]
+[node name="Timespan" type="Label" parent="FullSave" unique_id=366111586]
 visible = false
 offset_left = 219.0
 offset_top = 7.0
@@ -79,7 +82,7 @@ theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "0h 0min"
 horizontal_alignment = 2
 
-[node name="LvCount" type="Label" parent="FullSave"]
+[node name="LvCount" type="Label" parent="FullSave" unique_id=1907397064]
 offset_left = 307.0
 offset_top = 29.0
 offset_right = 402.0
@@ -89,4 +92,4 @@ theme_override_fonts/font = SubResource("SystemFont_movk3")
 theme_override_font_sizes/font_size = 50
 text = "5"
 
-[node name="EmptySave" type="Node2D" parent="."]
+[node name="EmptySave" type="Node2D" parent="." unique_id=1114227226]

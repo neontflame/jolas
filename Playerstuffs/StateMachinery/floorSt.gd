@@ -3,6 +3,7 @@ extends StatePattern
 func enter_state():
 	# print('Enter Floor')
 	Player.motion.y = 4
+	Player.plySprite.animation_finished.connect(animDone)
 	pass
 
 func update():
@@ -42,3 +43,10 @@ func handleAnimations() -> void:
 			
 		if Input.is_action_pressed("ctrl_left"):
 			Player.plySprite.flip_h = true;
+
+func exit_state():
+	if Player.plySprite.animation_finished.is_connected(animDone):
+		Player.plySprite.animation_finished.disconnect(animDone)
+
+func animDone():
+	pass

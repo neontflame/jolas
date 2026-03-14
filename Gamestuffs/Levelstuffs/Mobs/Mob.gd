@@ -23,6 +23,7 @@ var previous_state = null
 @onready var hp:float = maxHP
 @export var level:float = 1.0
 @export var strength:float = 1.0
+@export var xpGrant:float = 10.0
 
 @export_group('Technical shit')
 @export var collisions:CollisionShape2D
@@ -108,16 +109,19 @@ func onUntouched(body):
 
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+	print(vel)
 	if current_state.name == 'Death':
 		return false
+	if theHarmer:
+		theHarmer.increaseCombo()
 	stunFrames = 2.0
-	if theHarmer: theHarmer.add_xp(1)
 	play_sfx('Hit2')
 	hp -= hpLost
 	velocity.y = vel.y
 	velocity.x = (vel.x if fromBehind else -vel.x)
 	if (hp <= 0):
-		if theHarmer: theHarmer.add_xp(maxHP)
+		if theHarmer: 
+			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
 	else:
 		change_state(state_machine.st_hurt)
