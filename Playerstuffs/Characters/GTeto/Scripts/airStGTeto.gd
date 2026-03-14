@@ -12,5 +12,4 @@ func update():
 			Player.change_state(Player.state_machine.st_charge_air)
 		
 	if Input.is_action_just_pressed("ctrl_2"):
-		#todo: gtslam
-		pass
+		Player.change_state(Player.state_machine.st_slam)

@@ -24,13 +24,18 @@ func update():
 		Player.plySprite.speed_scale = 1;
 		var dirMultiplier = (-1.0 if Player.plySprite.flip_h else 1.0)
 		var coolDir = Vector2(dirMultiplier, yChange).rotated(Player.practicalAngle)
+		var coolPos:Vector2 = Player.position + Vector2(projPos.x * dirMultiplier, projPos.y).rotated(Player.practicalAngle)
 		var params:Dictionary = {
 			"direction": coolDir,
 			"speed": 15.0,
 			"power": Player.projForce,
 			"owner_id": Player.playerID
 		}
-		MapUtils.spawn_object('GProjectile', Player.position + Vector2(projPos.x * dirMultiplier, projPos.y), "Default", params)
+		Player.play_char_sfx('Shoot', 'GTeto')
+		MapUtils.spawn_object('GProjectile', 
+							coolPos, 
+							"Default", 
+							params)
 		Player.projCooldown = 6.0 # so pra nao ficar spammy demais
 		if Player.is_on_floor():
 			Player.change_state(Player.state_machine.st_floor)

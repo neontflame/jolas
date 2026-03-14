@@ -10,9 +10,9 @@ func enter_state():
 	
 func update():
 	Player.handlePhys()
+	handleAnimations()
 	Player.handleMovement()
 	Player.handleCamera()
-	handleAnimations()
 	
 	if Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_floor)

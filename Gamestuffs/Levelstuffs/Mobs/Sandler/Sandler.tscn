@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://e1ynj776x83b"]
+[gd_scene format=3 uid="uid://e1ynj776x83b"]
 
 [ext_resource type="PackedScene" uid="uid://cur2gbeak6s0i" path="res://Gamestuffs/Levelstuffs/Mobs/TemplateMob.tscn" id="1_8heju"]
 [ext_resource type="Script" uid="uid://b2cnp2or62bh5" path="res://Gamestuffs/Levelstuffs/Mobs/Sandler/Scripts/defaultStSandler.gd" id="2_bxyn8"]
@@ -33,14 +33,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TemplateMob" instance=ExtResource("1_8heju")]
+[node name="TemplateMob" unique_id=1660431319 instance=ExtResource("1_8heju")]
+position = Vector2(1, 0)
+maxHP = 30.0
+xpGrant = 16.0
 
-[node name="Default" parent="StateMachine" index="0"]
+[node name="Default" parent="StateMachine" parent_id_path=PackedInt32Array(784234587) index="0" unique_id=1445714436]
 script = ExtResource("2_bxyn8")
 
-[node name="Death" parent="StateMachine" index="2"]
+[node name="Death" parent="StateMachine" parent_id_path=PackedInt32Array(784234587) index="2" unique_id=117763074]
 script = ExtResource("3_bxyn8")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1969660000]
 sprite_frames = SubResource("SpriteFrames_62dbl")
 animation = &"default"

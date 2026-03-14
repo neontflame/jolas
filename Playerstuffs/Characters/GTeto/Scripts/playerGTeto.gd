@@ -3,11 +3,16 @@ extends PlayerObject
 var projForce := 0.0
 var projCooldown := 0.0
 var slamDunking:bool = false
+var previousPos:Vector2 = Vector2(0, 0)
+var posDifference:Vector2 = Vector2(0, 0)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if (projCooldown > 0):
 		projCooldown -= 1 * deltaOne
+	if previousPos != position:
+		posDifference = position - previousPos
+		previousPos = posDifference
 	
 func handleHorizontalMovement() -> void:
 	# Go my acceleratione.
@@ -35,3 +40,13 @@ func handleHorizontalMovement() -> void:
 			motion.x += ACCELERATION * deltaOne
 	else:
 		motion.x = motion.x * (FRICTION * deltaOne)
+
+func makeSlamParticle():
+	var rrrect = player_collisions.shape.get_rect()
+	var randPos = Vector2(randf_range(-rrrect.size.x, rrrect.size.x), randf_range(-rrrect.size.x, rrrect.size.x))
+	
+	var thingie = GameUtils.get_char_asset("GTeto", "Misc/SlamParticle.tscn").instantiate()
+	get_parent().add_child(thingie)
+	thingie.position = position + (randPos/3)
+	thingie.rotation = atan2(velocity.y, velocity.x)
+	thingie.z_index = z_index

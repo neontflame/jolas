@@ -48,6 +48,7 @@ var camShakeForce := 0.0
 
 var hp := 0.0
 var invulnFrames := 30.0
+var fullInvuln := false
 
 var combo := 0
 var comboFrames := 0.0
@@ -155,13 +156,13 @@ func handleSonicPhys() -> void:
 		up_direction = get_floor_normal()
 	else:
 		if up_direction != Vector2(0.0, -1.0):
-			print('AIR TIME')
+			# print('AIR TIME')
 			var prevmotion := Vector2(
 				motion.x * -up_direction.y - motion.y * up_direction.x,
 				motion.y * -up_direction.y + motion.x * up_direction.x,
 				)
-			print(floorSinCos)
-			print(prevmotion)
+			# print(floorSinCos)
+			# print(prevmotion)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
 			
@@ -260,7 +261,7 @@ func change_state(new_state):
 		current_state.enter_state()
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
-	increaseCombo()
+	# increaseCombo()
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y
@@ -303,7 +304,7 @@ func get_multi_status():
 	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
 
 func get_invuln():
-	return (invulnFrames > 0)
+	return (invulnFrames > 0) || fullInvuln
 
 func level_up():
 	# isso aqui ja depende mais do personagem
@@ -330,6 +331,11 @@ func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
 	hitbox.fixAngles()
+
+func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle)
+	await get_tree().create_timer(seconds).timeout
+	delete_hitboxes()
 
 func delete_hitboxes():
 	var m_api = Engine.get_main_loop().root.get_multiplayer()

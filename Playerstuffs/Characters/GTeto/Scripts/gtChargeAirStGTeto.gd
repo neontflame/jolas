@@ -1,4 +1,4 @@
-extends "res://Playerstuffs/Characters/GTeto/Scripts/gtCharge.gd"
+extends "res://Playerstuffs/Characters/GTeto/Scripts/gtChargeStGTeto.gd"
 
 func enter_state():
 	yChange = 0.8

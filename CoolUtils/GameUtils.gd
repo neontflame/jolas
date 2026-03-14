@@ -9,14 +9,20 @@ static var username:String = ''
 
 static var defaultMap:String = 'TheThing'
 
+static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher']
+
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
-	var trueCharlist:Array = []
+	var trueCharlist:Array = charOrder
 	
 	for chara in charlist:
 		var coolswag = chara.left(len(chara) - 1)
 		if ResourceLoader.exists(get_char_asset_path(coolswag, coolswag + '.tscn')):
-			trueCharlist.append(coolswag)
+			if not trueCharlist.has(coolswag):
+				trueCharlist.append(coolswag)
+		else:
+			if trueCharlist.has(coolswag):
+				trueCharlist.erase(coolswag)
 		
 	return trueCharlist
 	
