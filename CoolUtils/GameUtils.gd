@@ -82,7 +82,8 @@ static func get_map_info(lvl:String):
 	if !ResourceLoader.exists(lvlStuff):
 		lvlInfo = '{
 	"name": "Tapa-buraco",
-	"region": "Place Holder"
+	"region": "Place Holder",
+	"song": "Placesong"
 }'
 	else:
 		lvlInfo = FileUtils.get_text_file_content(lvlStuff)

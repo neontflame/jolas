@@ -1,27 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://06bwncarbswa"]
+[gd_scene format=3 uid="uid://06bwncarbswa"]
 
 [ext_resource type="Script" uid="uid://btvfhxu7i86ca" path="res://Menustuffs/OnlineMenu/OnlineMenu.gd" id="1_khr1v"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_khr1v"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="3_bqvpi"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_isfkt"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_xg13d"]
 [ext_resource type="PackedScene" uid="uid://dc3gp7wgayv4o" path="res://Menustuffs/SaveMenu/SaveBoxOnline.tscn" id="5_yyxvo"]
 [ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="6_nybyn"]
 
-[node name="OnlineMenu" type="Node2D"]
+[node name="OnlineMenu" type="Node2D" unique_id=1981542364]
 script = ExtResource("1_khr1v")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=501843900]
 
-[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1661515594]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_khr1v")]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=663949782 instance=ExtResource("2_khr1v")]
 position = Vector2(54, 39)
 
-[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+[node name="MidAnchor" type="Control" parent="MenuCanvas" unique_id=734524394]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,8 +35,9 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_isfkt")
 
-[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor"]
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=1697886362]
 layout_mode = 0
 offset_left = -195.0
 offset_top = -165.0
@@ -47,7 +49,7 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 16
 
-[node name="UsernameLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="UsernameLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1060567993]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -157.0
@@ -58,7 +60,7 @@ theme_override_font_sizes/font_size = 18
 text = "Nome de usuário"
 text_overrun_behavior = 3
 
-[node name="UsrTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="UsrTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1050409393]
 layout_mode = 0
 offset_left = -179.0
 offset_top = -125.0
@@ -70,7 +72,7 @@ theme_override_font_sizes/font_size = 18
 placeholder_text = "Seu \"nickname\""
 caret_blink = true
 
-[node name="ServerLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="ServerLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=189245584]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -85.0
@@ -81,7 +83,7 @@ theme_override_font_sizes/font_size = 18
 text = "Servidor"
 text_overrun_behavior = 3
 
-[node name="IPTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="IPTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1886197521]
 layout_mode = 0
 offset_left = -179.0
 offset_top = -53.0
@@ -94,7 +96,7 @@ text = "127.0.0.1"
 placeholder_text = "Endereço IP"
 caret_blink = true
 
-[node name="PortTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="PortTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1125308766]
 layout_mode = 0
 offset_left = 145.0
 offset_top = -53.0
@@ -107,7 +109,7 @@ text = "7000"
 placeholder_text = "Porta"
 caret_blink = true
 
-[node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=325850952]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -6.0
@@ -118,33 +120,45 @@ theme_override_font_sizes/font_size = 18
 text = "Save local"
 text_overrun_behavior = 3
 
-[node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" instance=ExtResource("5_yyxvo")]
+[node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" unique_id=605601312 instance=ExtResource("5_yyxvo")]
 position = Vector2(-171, 27)
 
-[node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor"]
+[node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=531673876]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 153.0
+offset_top = 148.0
 offset_right = 216.0
-offset_bottom = 191.0
+offset_bottom = 190.0
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+theme_override_colors/font_focus_color = Color(0.22262302, 0.30868006, 0.49626786, 1)
+theme_override_colors/font_pressed_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.60122275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+theme_override_colors/font_disabled_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 theme_override_fonts/font = ExtResource("4_xg13d")
 theme_override_font_sizes/font_size = 18
 text = "Entrar"
 
-[node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor"]
+[node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1806947541]
 layout_mode = 0
 offset_left = -175.0
-offset_top = 153.0
+offset_top = 148.0
 offset_right = 19.0
-offset_bottom = 191.0
+offset_bottom = 190.0
 tooltip_text = "OBS: apenas a porta será considerada"
 mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+theme_override_colors/font_focus_color = Color(0.22262302, 0.30868006, 0.49626786, 1)
+theme_override_colors/font_pressed_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.60122275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+theme_override_colors/font_disabled_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 theme_override_fonts/font = ExtResource("4_xg13d")
 theme_override_font_sizes/font_size = 18
 text = "Hospedar"
 
-[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=1595645791]
 visible = false
 layout_mode = 3
 anchors_preset = 3
@@ -157,11 +171,11 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor"]
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor" unique_id=1319725911]
 position = Vector2(-36, 0)
 texture = ExtResource("6_nybyn")
 
-[node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=1793466519]
 visible = false
 self_modulate = Color(0, 0, 0, 0)
 anchors_preset = 15

@@ -57,7 +57,7 @@ var stunFrames := 0.0
 var jumpsDone:int = 1
 
 var hitboxes:Array = []
-var attackDmgOriginal:Dictionary = ATTACK_DMG
+@onready var ATTACK_DMG_LVL:Dictionary = ATTACK_DMG.duplicate(true)
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -310,9 +310,9 @@ func level_up():
 	# isso aqui ja depende mais do personagem
 	# mas por enquanto sure
 	for key in ATTACK_DMG.keys():
-		ATTACK_DMG[key] = attackDmgOriginal[key] * GPStats.level
+		ATTACK_DMG_LVL[key] = ATTACK_DMG[key] * GPStats.level
 	print('seus ataques agora sao:')
-	print(ATTACK_DMG)
+	print(ATTACK_DMG_LVL)
 
 func add_xp(xp:float):
 	if GPStats.charObject == self:

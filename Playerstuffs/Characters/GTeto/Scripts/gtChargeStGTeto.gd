@@ -17,7 +17,7 @@ func update():
 	
 	if Input.is_action_pressed("ctrl_1"):
 		chargeAnim()
-		Player.projForce = lerp(Player.projForce, Player.ATTACK_DMG["maxProjectile"], 0.025)
+		Player.projForce = lerp(Player.projForce, Player.ATTACK_DMG_LVL["maxProjectile"], 0.025)
 		print(Player.projForce)
 	if Input.is_action_just_released("ctrl_1"):
 		shootAnim()

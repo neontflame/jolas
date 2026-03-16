@@ -14,7 +14,7 @@ func update():
 		
 func chargeAnim():
 	Player.plySprite.play("gtChargeFloor")
-	Player.plySprite.speed_scale = Player.projForce / Player.ATTACK_DMG["minProjectile"];
+	Player.plySprite.speed_scale = Player.projForce / Player.ATTACK_DMG_LVL["minProjectile"];
 
 func shootAnim():
 	Player.plySprite.play("gtShootFloor")

@@ -1,26 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw52w017jsy77"]
+[gd_scene format=3 uid="uid://bw52w017jsy77"]
 
 [ext_resource type="Script" uid="uid://ce7vpq5ms6g34" path="res://Menustuffs/OptionsMenu/InputOptionsMenu.gd" id="1_3m14l"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_3m14l"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="3_m3pl1"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_xg447"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="5_a1u1l"]
 
-[node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("boxWithABunchOfShitInIt")]
+[node name="SaveMenu" type="Node2D" unique_id=709660064 node_paths=PackedStringArray("boxWithABunchOfShitInIt")]
 script = ExtResource("1_3m14l")
 boxWithABunchOfShitInIt = NodePath("MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=1750438328]
 
-[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1764709985]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_3m14l")]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=309833424 instance=ExtResource("2_3m14l")]
 position = Vector2(54, 39)
 
-[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+[node name="MidAnchor" type="Control" parent="MenuCanvas" unique_id=1017680318]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,7 +35,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor"]
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=2047405506]
 layout_mode = 0
 offset_left = -195.0
 offset_top = -211.0
@@ -46,7 +47,7 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 16
 
-[node name="PathLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="PathLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1351194266]
 layout_mode = 0
 offset_left = -183.0
 offset_top = -206.0
@@ -58,17 +59,18 @@ text = "Opções >> Keybinds"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor" unique_id=222854081]
 layout_mode = 0
 offset_left = -185.0
 offset_top = -174.0
 offset_right = 225.0
-offset_bottom = 202.0
+offset_bottom = 231.0
+theme = ExtResource("5_a1u1l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ScrollContainer" unique_id=1877749199]
 layout_mode = 2
 
-[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=900627451]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0

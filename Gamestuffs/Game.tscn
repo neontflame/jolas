@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6j45bvm3jouo"]
+[gd_scene format=3 uid="uid://6j45bvm3jouo"]
 
 [ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/game.gd" id="1_wmjmx"]
 [ext_resource type="PackedScene" uid="uid://c87scbdosa8xd" path="res://Gamestuffs/HeadsUpDisplay/hud.tscn" id="2_ll7to"]
@@ -6,23 +6,25 @@
 [ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://Gamestuffs/Multiplayer/Multiplayer.gd" id="3_ll7to"]
 [ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://Gamestuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode")]
+[node name="Game" type="Node2D" unique_id=1808233624 node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "hud", "bgmStream")]
 script = ExtResource("1_wmjmx")
 coolFade = NodePath("CanvasLayer/Fade")
 plyNode = NodePath("Players")
 lvlNode = NodePath("Level")
+hud = NodePath("Hud")
+bgmStream = NodePath("AudioStreamPlayer")
 
-[node name="Hud" parent="." instance=ExtResource("2_ll7to")]
+[node name="Hud" parent="." unique_id=980515745 instance=ExtResource("2_ll7to")]
 z_index = 512
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" type="Node2D" parent="." unique_id=1797160672]
 
-[node name="Players" type="Node2D" parent="."]
+[node name="Players" type="Node2D" parent="." unique_id=1309416345]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=305022835]
 layer = 0
 
-[node name="Fade" type="TextureRect" parent="CanvasLayer"]
+[node name="Fade" type="TextureRect" parent="CanvasLayer" unique_id=1342137513]
 visible = false
 offset_left = -605.0
 offset_top = -277.0
@@ -30,13 +32,15 @@ offset_right = 1302.0
 offset_bottom = 702.0
 texture = ExtResource("3_5r2sg")
 
-[node name="Multiplayer" type="Node" parent="."]
+[node name="Multiplayer" type="Node" parent="." unique_id=14963014]
 script = ExtResource("3_ll7to")
 metadata/_custom_type_script = "uid://8jlcqkyoirjk"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1877049342]
 spawn_path = NodePath("..")
 script = ExtResource("4_f3ii1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1259152205]
 
 [connection signal="bye_bye" from="Multiplayer" to="." method="bye_bye"]
 [connection signal="player_connected" from="Multiplayer" to="." method="_on_player_connected"]

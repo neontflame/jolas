@@ -49,6 +49,7 @@ var touchedBody
 var theHarmer:PlayerObject
 
 var isHurting := false
+var isDead := false
 var stunFrames := 0.0
 #endregion
 
@@ -110,7 +111,7 @@ func onUntouched(body):
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	print(vel)
-	if current_state.name == 'Death':
+	if isDead:
 		return false
 	if theHarmer:
 		theHarmer.increaseCombo()
@@ -123,6 +124,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
+		isDead = true
 	else:
 		change_state(state_machine.st_hurt)
 	return true
