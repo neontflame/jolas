@@ -21,6 +21,7 @@ static var multiplayerID:Variant = -1
 
 static func setCharObject(thisChar:PlayerObject):
 	charObject = thisChar
+	charObject.level_up()
 
 static func process(delta: float) -> void:
 	if xp > level * lvLimit:

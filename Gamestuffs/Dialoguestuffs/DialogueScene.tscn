@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://denxkkowup8rn"]
+[gd_scene format=3 uid="uid://denxkkowup8rn"]
 
 [ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Diag.gd" id="1_1ie7r"]
 [ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="2_3mn5t"]
@@ -12,19 +12,19 @@
 shader = ExtResource("9_6sqdm")
 shader_parameter/amount = 0.0
 
-[node name="DialogueScene" type="Node2D"]
+[node name="DialogueScene" type="Node2D" unique_id=1619398082]
 z_index = 1192
 script = ExtResource("1_1ie7r")
 
-[node name="Sounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="." unique_id=2008273160]
 
-[node name="TickSound" type="AudioStreamPlayer" parent="Sounds"]
+[node name="TickSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1931368914]
 stream = ExtResource("2_x2y7r")
 
-[node name="DialogueCanvas" type="CanvasLayer" parent="."]
+[node name="DialogueCanvas" type="CanvasLayer" parent="." unique_id=1769638368]
 follow_viewport_scale = 0.001
 
-[node name="BlurFx" type="TextureRect" parent="DialogueCanvas"]
+[node name="BlurFx" type="TextureRect" parent="DialogueCanvas" unique_id=357777515]
 material = SubResource("ShaderMaterial_lem3t")
 anchors_preset = -1
 anchor_left = -11.135
@@ -37,7 +37,7 @@ offset_right = 7283.96
 offset_bottom = 2197.4202
 texture = ExtResource("10_lpuaw")
 
-[node name="Control" type="Control" parent="DialogueCanvas"]
+[node name="Control" type="Control" parent="DialogueCanvas" unique_id=387880689]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,17 +51,17 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharName" type="Sprite2D" parent="DialogueCanvas/Control"]
+[node name="CharName" type="Sprite2D" parent="DialogueCanvas/Control" unique_id=790369206]
 z_index = 9
 position = Vector2(310, 157)
 texture = ExtResource("3_x2y7r")
 
-[node name="BalaoDeFala" type="Sprite2D" parent="DialogueCanvas/Control"]
+[node name="BalaoDeFala" type="Sprite2D" parent="DialogueCanvas/Control" unique_id=1330956191]
 z_index = 7
 position = Vector2(14, 208)
 texture = ExtResource("2_3mn5t")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCanvas/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCanvas/Control" unique_id=642082819]
 z_index = 10
 layout_mode = 0
 offset_left = -353.0
@@ -77,8 +77,8 @@ bbcode_enabled = true
 text = "voce esta me deixando [shake amp=50]bravo...[/shake]"
 fit_content = true
 
-[node name="PortraitRightPos" type="Node2D" parent="DialogueCanvas/Control"]
+[node name="PortraitRightPos" type="Node2D" parent="DialogueCanvas/Control" unique_id=540960534]
 position = Vector2(275, 127)
 
-[node name="PortraitLeftPos" type="Node2D" parent="DialogueCanvas/Control"]
+[node name="PortraitLeftPos" type="Node2D" parent="DialogueCanvas/Control" unique_id=34611940]
 position = Vector2(-235, 127)

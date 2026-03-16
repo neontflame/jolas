@@ -308,7 +308,11 @@ func get_invuln():
 
 func level_up():
 	# isso aqui ja depende mais do personagem
-	pass
+	# mas por enquanto sure
+	for key in ATTACK_DMG.keys():
+		ATTACK_DMG[key] = attackDmgOriginal[key] * GPStats.level
+	print('seus ataques agora sao:')
+	print(ATTACK_DMG)
 
 func add_xp(xp:float):
 	if GPStats.charObject == self:

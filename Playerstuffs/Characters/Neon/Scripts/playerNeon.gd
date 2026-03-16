@@ -35,10 +35,7 @@ func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vec
 		isSpecialing = false
 	
 func level_up():
-	for key in ATTACK_DMG.keys():
-		ATTACK_DMG[key] = attackDmgOriginal[key] * GPStats.level
-	print('seus ataques agora sao:')
-	print(ATTACK_DMG)
+	super.level_up()
 
 func hitbox_connect(hit:OffensiveHitbox):
 	print('connec')
