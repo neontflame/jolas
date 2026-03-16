@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5vhx348uiwn5"]
+[gd_scene format=3 uid="uid://b5vhx348uiwn5"]
 
 [ext_resource type="Texture2D" uid="uid://bvn8rmmgu5sca" path="res://Playerstuffs/Characters/Sushi/Sprites/portraits/portraitAngry0001.png" id="1_m2sa8"]
 [ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_qggik"]
@@ -73,10 +73,10 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Portrait" type="Node2D"]
+[node name="sushiPort" type="Node2D" unique_id=1080551585]
 script = ExtResource("1_qggik")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=886449069]
 position = Vector2(-2, -69)
 sprite_frames = SubResource("SpriteFrames_2vpsd")
 animation = &"angry"

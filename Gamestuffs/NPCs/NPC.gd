@@ -3,6 +3,7 @@ var talkedTo:bool = false
 var canTalk:bool = false
 @export var dialogue:String = ''
 @export var dialogoPorChar:bool = false
+@export var questCleared:String = ''
 
 func _ready() -> void:
 	$InteractText.text = ControllerIconUtils.get_action_bind_bbcode('ctrl_interact')

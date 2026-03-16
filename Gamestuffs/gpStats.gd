@@ -41,8 +41,12 @@ static func load_info_from_save(saveNum:int):
 		xp = 0
 		maxHP = 10
 		curMap = GameUtils.defaultMap
+		QuestUtils.clear_all()
 	else:
 		level = save['level']
 		xp = save['xp']
 		maxHP = save['maxHP']
 		curMap = save['map']
+		if (save.has("assignedQuests") and save.has("clearedQuests")):
+			QuestUtils.assignedQuests = save['assignedQuests']
+			QuestUtils.clearedQuests = save['clearedQuests']

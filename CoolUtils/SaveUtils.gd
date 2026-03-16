@@ -22,6 +22,8 @@ static func save_game(slot:int):
 		"map": GPStats.curMap,
 		"first-playtime": playstime,
 		"last-playtime": Time.get_unix_time_from_system(),
+		"assignedQuests": QuestUtils.assignedQuests,
+		"clearedQuests": QuestUtils.clearedQuests,
 		"applied-mods": GameUtils.loadedMods
 	}
 	

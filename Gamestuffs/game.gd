@@ -107,7 +107,9 @@ func endDialogue() -> void:
 	isDial = false
 	for playery in allChars:
 		playery.movementEnabled = playery.get_multi_status()
-		playery.process_mode = PROCESS_MODE_INHERIT
+	for child in get_children():
+		if child == dialogueInstance: continue
+		child.process_mode = PROCESS_MODE_INHERIT
 	dialogueInstance.disconnect('dialogue_end', endDialogue)
 	remove_child(dialogueInstance)
 
@@ -116,8 +118,10 @@ func playDialogue(diagName:String):
 		isDial = true
 		for playery in allChars:
 			playery.movementEnabled = false
-			playery.process_mode = PROCESS_MODE_DISABLED
-		if dialogueInstance: remove_child(dialogueInstance)
+		for child in get_children():
+			if child == dialogueInstance: continue
+			child.process_mode = PROCESS_MODE_DISABLED
+		if dialogueInstance: dialogueInstance.queue_free()
 		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/DialogueScene.tscn").instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)

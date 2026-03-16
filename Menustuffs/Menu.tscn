@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc37lcidf852s"]
+[gd_scene format=3 uid="uid://dc37lcidf852s"]
 
 [ext_resource type="Script" uid="uid://cix7dgur13ume" path="res://Menustuffs/Menu.gd" id="1_2rd20"]
 [ext_resource type="Texture2D" uid="uid://cl665wgpfqbnb" path="res://Menustuffs/Commons/MenuBG.png" id="1_r5uri"]
@@ -16,14 +16,14 @@
 shader = ExtResource("3_fec8x")
 shader_parameter/amount = 0.0
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" unique_id=568171081]
 script = ExtResource("1_2rd20")
 
-[node name="MenuBg" type="Sprite2D" parent="."]
+[node name="MenuBg" type="Sprite2D" parent="." unique_id=755015557]
 position = Vector2(352, 224)
 texture = ExtResource("1_r5uri")
 
-[node name="BlurFx" type="TextureRect" parent="."]
+[node name="BlurFx" type="TextureRect" parent="." unique_id=1833213339]
 material = SubResource("ShaderMaterial_i30ho")
 offset_left = -410.0
 offset_top = -146.0
@@ -31,31 +31,31 @@ offset_right = 1132.0
 offset_bottom = 630.0
 texture = ExtResource("4_m101x")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_ia1xe")]
+[node name="MainMenu" parent="." unique_id=1818746530 instance=ExtResource("2_ia1xe")]
 z_index = 1
 
-[node name="BGMLayer1" type="AudioStreamPlayer" parent="."]
+[node name="BGMLayer1" type="AudioStreamPlayer" parent="." unique_id=354331096]
 stream = ExtResource("4_rrh7q")
 parameters/looping = true
 
-[node name="BGMLayer2" type="AudioStreamPlayer" parent="."]
+[node name="BGMLayer2" type="AudioStreamPlayer" parent="." unique_id=637382063]
 stream = ExtResource("5_fec8x")
 parameters/looping = true
 
-[node name="BGMLayer3" type="AudioStreamPlayer" parent="."]
+[node name="BGMLayer3" type="AudioStreamPlayer" parent="." unique_id=1288578098]
 stream = ExtResource("6_m101x")
 parameters/looping = true
 
-[node name="SFX" type="Node" parent="."]
+[node name="SFX" type="Node" parent="." unique_id=1772592919]
 
-[node name="Back" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Back" type="AudioStreamPlayer2D" parent="SFX" unique_id=745224698]
 position = Vector2(257, 284)
 stream = ExtResource("9_2f15j")
 
-[node name="Go" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Go" type="AudioStreamPlayer2D" parent="SFX" unique_id=167375836]
 position = Vector2(257, 284)
 stream = ExtResource("10_3g3s7")
 
-[node name="Tick" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Tick" type="AudioStreamPlayer2D" parent="SFX" unique_id=1020131617]
 position = Vector2(257, 284)
 stream = ExtResource("11_lo8pj")

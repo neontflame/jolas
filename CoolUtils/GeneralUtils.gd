@@ -47,6 +47,7 @@ static func text_replacery(string:String):
 		["ctrl_1", "CtrlOne"],
 		["ctrl_2", "CtrlTwo"],
 		["ctrl_jump", "Jump"],
+		["ctrl_quests", "Quests"],
 		["ctrl_pause", "Pause"],
 		["ctrl_interact", "Interact"],
 		["ui_accept", "Accept"],

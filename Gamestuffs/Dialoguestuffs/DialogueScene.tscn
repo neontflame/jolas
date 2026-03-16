@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Diag.gd" id="1_1ie7r"]
 [ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="2_3mn5t"]
 [ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="2_x2y7r"]
+[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="3_3mn5t"]
 [ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_x2y7r"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_i3gq3"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="9_6sqdm"]
@@ -12,14 +13,24 @@
 shader = ExtResource("9_6sqdm")
 shader_parameter/amount = 0.0
 
-[node name="DialogueScene" type="Node2D" unique_id=1619398082]
+[node name="DialogueScene" type="Node2D" unique_id=1619398082 node_paths=PackedStringArray("blurBGFx", "diagControl", "charName", "speechBubble", "diagText", "port_LeftPos", "port_RightPos")]
 z_index = 1192
 script = ExtResource("1_1ie7r")
+blurBGFx = NodePath("DialogueCanvas/BlurFx")
+diagControl = NodePath("DialogueCanvas/Control")
+charName = NodePath("DialogueCanvas/Control/CharName")
+speechBubble = NodePath("DialogueCanvas/Control/BalaoDeFala")
+diagText = NodePath("DialogueCanvas/Control/RichTextLabel")
+port_LeftPos = NodePath("DialogueCanvas/Control/PortraitLeftPos")
+port_RightPos = NodePath("DialogueCanvas/Control/PortraitRightPos")
 
 [node name="Sounds" type="Node" parent="." unique_id=2008273160]
 
 [node name="TickSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1931368914]
 stream = ExtResource("2_x2y7r")
+
+[node name="GoSound" type="AudioStreamPlayer" parent="Sounds" unique_id=558271737]
+stream = ExtResource("3_3mn5t")
 
 [node name="DialogueCanvas" type="CanvasLayer" parent="." unique_id=1769638368]
 follow_viewport_scale = 0.001
