@@ -49,6 +49,7 @@ var touchedBody
 var theHarmer:PlayerObject
 
 var isHurting := false
+var isDead := false
 var stunFrames := 0.0
 #endregion
 
@@ -110,7 +111,7 @@ func onUntouched(body):
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	print(vel)
-	if current_state.name == 'Death':
+	if isDead:
 		return false
 	if theHarmer:
 		theHarmer.increaseCombo()
@@ -123,6 +124,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
+		isDead = true
 	else:
 		change_state(state_machine.st_hurt)
 	return true
@@ -163,16 +165,7 @@ func pd_body_exited(body: Node2D) -> void:
 # voce pode tentar combar eles agora
 func handlePlyHits(harmPlayer:bool = true):
 	if touchingPlayer:
-		if touchedPlayer.attack:
-			theHarmer = touchedPlayer
-			touchedPlayer.connectAttack(2, 
-			(position.x > touchedPlayer.position.x), 
-			Vector2(-touchedPlayer.motion.x, -abs(touchedPlayer.motion.y))
-			)
-			yeowch(touchedPlayer.attackStrength, 
-			(position.x > touchedPlayer.position.x)
-			)
-		elif harmPlayer:
+		if harmPlayer:
 			theHarmer = null
 			touchedPlayer.yeowch(strength, 
 			(position.x < touchedPlayer.position.x)

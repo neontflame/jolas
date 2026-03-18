@@ -5,6 +5,7 @@ var level:JolasLevel
 var playerInstance
 var dialogueInstance
 var isDial := false
+var isMenu := false
 
 var allChars:Array = []
 var charDict:Dictionary = {}
@@ -12,6 +13,12 @@ var charDict:Dictionary = {}
 @export var coolFade:TextureRect
 @export var plyNode:Node2D
 @export var lvlNode:Node2D
+@export var hud:HeadsUpDisplay
+@export var bgmStream:AudioStreamPlayer
+@export var ingameMenu:Node2D
+
+var curTrackName:String = ""
+
 static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
@@ -58,6 +65,14 @@ func createLevel(lvl:String):
 	
 	GPStats.curMap = level.name
 	SaveUtils.save_game(GPStats.saveNum)
+	if GameUtils.get_map_info(lvl).has('songFile'):
+		playBGM(GameUtils.get_map_info(lvl)['songFile'])
+		
+	hud.placeInfo.queue_free()
+	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
+	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
+	hud.placeInfo.position = Vector2(20.0, 21.0)
+	hud.placeInfo.triggerPlaceInfo()
 
 func respawnPlayer(maxOutHP:bool = true, comeback:bool = false):
 	if level:
@@ -99,25 +114,41 @@ func fadeIn(sec:float, callThat:Callable = func():pass):
 		1.0,  # End value
 		sec     # Duration
 	)
+
+func pauseGame():
+	for playery in allChars:
+		playery.movementEnabled = false
+	for child in get_children():
+		if child == dialogueInstance \
+		or child == bgmStream \
+		or child == coolFade \
+		or child == ingameMenu: continue
+		child.process_mode = PROCESS_MODE_DISABLED
+
+func unpauseGame():
+	for playery in allChars:
+		playery.movementEnabled = playery.get_multi_status()
+	for child in get_children():
+		if child == dialogueInstance \
+		or child == bgmStream \
+		or child == coolFade \
+		or child == ingameMenu: continue
+		child.process_mode = PROCESS_MODE_INHERIT
 #endregion
 
 #region Diálogo
 # DIALOGO....
 func endDialogue() -> void:
 	isDial = false
-	for playery in allChars:
-		playery.movementEnabled = playery.get_multi_status()
-		playery.process_mode = PROCESS_MODE_INHERIT
+	unpauseGame()
 	dialogueInstance.disconnect('dialogue_end', endDialogue)
 	remove_child(dialogueInstance)
 
 func playDialogue(diagName:String):
 	if !isDial:
 		isDial = true
-		for playery in allChars:
-			playery.movementEnabled = false
-			playery.process_mode = PROCESS_MODE_DISABLED
-		if dialogueInstance: remove_child(dialogueInstance)
+		pauseGame()
+		if dialogueInstance: dialogueInstance.queue_free()
 		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/DialogueScene.tscn").instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
@@ -127,8 +158,15 @@ func playDialogue(diagName:String):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	GPStats.process(_delta)
-	pass
 	
+	if not isDial and not isMenu:
+		if Input.is_action_just_pressed("ctrl_pause"):
+			pauseGame()
+			ingameMenu.makeMenu('Pause')
+		if Input.is_action_just_pressed("ctrl_quests"):
+			pauseGame()
+			ingameMenu.makeMenu('Quests')
+		
 #region Multiplayer
 func join_mp_game():
 	removePlayer()
@@ -170,4 +208,19 @@ func removeFromPeerID(peer_id:Variant):
 func bye_bye() -> void:
 	CoolMenu.comingFrom = 'OnlineMenu'
 	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+#endregion
+
+#region Música
+func playBGM(trackName:String):
+	var pathness = "res://Musicstuffs/" + trackName
+	if curTrackName == trackName: return
+	curTrackName = trackName
+	
+	bgmStream.stream = load(pathness)
+	bgmStream.volume_db = GeneralUtils.get_volume_db('bgm')
+	bgmStream.play()
+	bgmStream.finished.connect(func():curTrackName="")
+
+func stopBGM():
+	bgmStream.stop()
 #endregion

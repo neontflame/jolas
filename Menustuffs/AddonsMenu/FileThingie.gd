@@ -22,7 +22,7 @@ func setup():
 	mouse_entered.connect(is_moused)
 	mouse_exited.connect(un_moused)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if applied:
 		$Label.self_modulate.a = 0.5
 	else:

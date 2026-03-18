@@ -1,4 +1,6 @@
 {
+	"questAssigned": "",
+    "questClear": "",
 	"dialogue": {
 		"line1": {
 			"char": "neon",
@@ -61,6 +63,30 @@
 			"mood": "cocky",
 			"line": "the one and only",
 			"position": "left",
+			"specialfx": "none"
+		},
+		"line10": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "voce ta me intimidando eu devia te matar ?",
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line11": {
+			"char": "neon",
+			"mood": "confused",
+			"choice": [
+				["SIM!!!", "matarSketcher"],
+				["nao wtf qual e o seu problema", "naoMatarSketcher"]
+			],
+			"position": "right",
+			"specialfx": "none"
+		},
+		"line12": {
+			"char": "neon",
+			"mood": "confused",
+			"line": "ok entao",
+			"position": "right",
 			"specialfx": "none"
 		}
 	}

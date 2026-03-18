@@ -1,0 +1,20 @@
+{
+    "questAssigned": "findSonic",
+    "questClear": "",
+    "dialogue": {
+        "line1": {
+            "char": "neon",
+            "mood": "default",
+            "position": "right",
+            "specialfx": "none",
+            "line": "e o seguinte"
+        },
+        "line2": {
+            "char": "neon",
+            "mood": "angry",
+            "position": "right",
+            "specialfx": "none",
+            "line": "voce saira daqui com [shake]morte[/shake]"
+        }
+    }
+}

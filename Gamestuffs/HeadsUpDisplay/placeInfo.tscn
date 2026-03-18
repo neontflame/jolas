@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cdob43vo7sjc4"]
+
+[ext_resource type="Script" uid="uid://c04y50420fixl" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.gd" id="1_qu50f"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="2_q48ia"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_crick"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu50f"]
+shader = ExtResource("2_q48ia")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 2.000000095
+
+[sub_resource type="FontVariation" id="FontVariation_q48ia"]
+base_font = ExtResource("3_crick")
+spacing_glyph = 1
+
+[node name="PlaceInfo" type="Node2D" unique_id=1452514052 node_paths=PackedStringArray("placeLabel", "songLabel")]
+material = SubResource("ShaderMaterial_qu50f")
+script = ExtResource("1_qu50f")
+placeLabel = NodePath("PlaceLabel")
+songLabel = NodePath("SongLabel")
+
+[node name="SongLabel" type="RichTextLabel" parent="." unique_id=2116874773]
+visible = false
+self_modulate = Color(1, 1, 1, 0.99607843)
+use_parent_material = true
+offset_left = -227.0
+offset_top = -12.0
+offset_right = 229.0
+offset_bottom = 27.0
+theme_override_fonts/normal_font = SubResource("FontVariation_q48ia")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/songCoiso.png[/img] Música - Source"
+horizontal_alignment = 1
+
+[node name="PlaceLabel" type="RichTextLabel" parent="." unique_id=1965664435]
+self_modulate = Color(1, 1, 1, 0.99607843)
+use_parent_material = true
+offset_left = -227.0
+offset_top = -12.0
+offset_right = 229.0
+offset_bottom = 27.0
+theme_override_fonts/normal_font = SubResource("FontVariation_q48ia")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] Sandlerhell"
+horizontal_alignment = 1

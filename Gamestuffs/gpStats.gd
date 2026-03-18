@@ -8,7 +8,7 @@ static var xp := 0
 static var level := 3
 static var charObject:PlayerObject
 static var maxHP := 10
-static var lvLimit := 7 # multiplicador pros limites dos niveis eu acho
+static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
 static var curMap := 'TheThing'
 
 static var modded := false
@@ -21,6 +21,7 @@ static var multiplayerID:Variant = -1
 
 static func setCharObject(thisChar:PlayerObject):
 	charObject = thisChar
+	charObject.level_up()
 
 static func process(delta: float) -> void:
 	if xp > level * lvLimit:
@@ -40,8 +41,12 @@ static func load_info_from_save(saveNum:int):
 		xp = 0
 		maxHP = 10
 		curMap = GameUtils.defaultMap
+		QuestUtils.clear_all()
 	else:
 		level = save['level']
 		xp = save['xp']
 		maxHP = save['maxHP']
 		curMap = save['map']
+		if (save.has("assignedQuests") and save.has("clearedQuests")):
+			QuestUtils.assignedQuests = save['assignedQuests']
+			QuestUtils.clearedQuests = save['clearedQuests']

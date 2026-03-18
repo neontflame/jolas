@@ -182,7 +182,7 @@ scale = Vector2(0.46, 0.68)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
-animation = &"specialGo"
+animation = &"default"
 
 [node name="SpecialCollide" type="CollisionShape2D" parent="." index="7" unique_id=1881105694]
 position = Vector2(0, 9.5)

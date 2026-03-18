@@ -1,4 +1,6 @@
 {
 	"name": "Mapa de teste",
-	"region": "Trecos de teste"
+	"region": "Trecos de teste",
+	"songFile": "EmpireCityDay.ogg",
+	"song": "Empire City (Day)"
 }

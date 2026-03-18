@@ -8,7 +8,7 @@ func update():
 			
 	if (Player.movementEnabled):
 		if Input.is_action_just_pressed("ctrl_1") && Player.projCooldown <= 0:
-			Player.projForce = Player.ATTACK_DMG["minProjectile"]
+			Player.projForce = Player.ATTACK_DMG_LVL["minProjectile"]
 			Player.change_state(Player.state_machine.st_charge_air)
 		
 	if Input.is_action_just_pressed("ctrl_2"):

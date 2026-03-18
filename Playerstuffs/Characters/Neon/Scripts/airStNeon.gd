@@ -46,14 +46,14 @@ func update():
 			# FRENTE
 			Player.make_hitbox(	Vector2(30.0, 8.0),
 								Vector2(3.5, 2.75),
-								Player.ATTACK_DMG['default'],
+								Player.ATTACK_DMG_LVL['default'],
 								250,
 								-40
 			)
 			#TRAS
 			Player.make_hitbox(	Vector2(-30.0, 8.0),
 								Vector2(3, 2),
-								Player.ATTACK_DMG['default'] / 2,
+								Player.ATTACK_DMG_LVL['default'] / 2,
 								250,
 								-40
 			)

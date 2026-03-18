@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bj4ylmayt0ps1"]
+[gd_scene format=3 uid="uid://bj4ylmayt0ps1"]
 
 [ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_pjmxm"]
 [ext_resource type="Texture2D" uid="uid://btdlqab7k2t7q" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitAngry0002.png" id="2_pjmxm"]
@@ -73,9 +73,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Portrait" type="Node2D"]
+[node name="neonPort" type="Node2D" unique_id=1355552591]
 script = ExtResource("1_pjmxm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -69)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=908853406]
+position = Vector2(-2, -65)
 sprite_frames = SubResource("SpriteFrames_2vpsd")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b5s5rj5po17bk"]
+
+[ext_resource type="Texture2D" uid="uid://dt0r87nep15e" path="res://Gamestuffs/HeadsUpDisplay/questIcon.png" id="1_7ge0o"]
+[ext_resource type="Script" uid="uid://dujclft0tapbl" path="res://Gamestuffs/HeadsUpDisplay/QuestIcon.gd" id="2_4hig7"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_2wtls"]
+
+[node name="QuestIcon" type="Sprite2D" unique_id=1447934783]
+texture = ExtResource("1_7ge0o")
+script = ExtResource("2_4hig7")
+
+[node name="QuestCount" type="Node2D" parent="." unique_id=1981607480]
+
+[node name="Polygon2D" type="Polygon2D" parent="QuestCount" unique_id=1420982544]
+position = Vector2(-5, -2)
+color = Color(1, 0.5803922, 0, 1)
+polygon = PackedVector2Array(8, -24, 10, -29, 15, -31, 31, -31, 36, -29, 38, -24, 36, -19, 31, -17, 15, -17, 10, -19)
+
+[node name="Label" type="Label" parent="QuestCount" unique_id=9860968]
+offset_left = -6.0
+offset_top = -44.0
+offset_right = 39.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("3_2wtls")
+theme_override_font_sizes/font_size = 18
+text = "999"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=97596528]
+offset_left = -46.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_fonts/normal_font = ExtResource("3_2wtls")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "ctrl_quests"
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 2

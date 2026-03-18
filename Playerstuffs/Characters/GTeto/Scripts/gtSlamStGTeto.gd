@@ -10,7 +10,7 @@ func enter_state():
 	Player.plySprite.animation_finished.connect(animDone)
 	Player.make_hitbox(Vector2(-3.0, -1.0), 
 						Vector2(3.11, 5.715), 
-						Player.ATTACK_DMG["slam"],
+						Player.ATTACK_DMG_LVL["slam"],
 						30.0,
 						135.0
 						)
@@ -31,7 +31,7 @@ func update():
 		Player.plySprite.play("gtSlamLand")
 		
 		var params:Dictionary = {
-			"power": Player.ATTACK_DMG["slamLand"],
+			"power": Player.ATTACK_DMG_LVL["slamLand"],
 			"owner_id": Player.playerID
 		}
 		Player.play_sfx('Hit3', 0)
@@ -53,7 +53,7 @@ func animDone():
 			Player.make_hitbox_timed(0.5,
 								Vector2(-3.0, -1.0), 
 								Vector2(3.11, 4.715), 
-								Player.ATTACK_DMG["slam"],
+								Player.ATTACK_DMG_LVL["slam"],
 								1000.0,
 								45.0
 								)

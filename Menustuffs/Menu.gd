@@ -1,7 +1,7 @@
 extends Node2D
 class_name CoolMenu
 
-static var curMenu:String = ''
+static var curMenu:String = 'Main'
 static var curSelected:int = 0
 static var maxSelected:int = 0
 
@@ -17,12 +17,15 @@ var theVolumes:Array = [0.0, 0.0, 0.0]
 
 func _ready() -> void:
 	CoolMenu.instance = self
+	CoolMenu.curMenu = 'Main'
 	for track in theMusics:
 		track.play()
 		
 	print(OS.get_executable_path().get_base_dir())
 	OptionsUtils.preferences.merge(OptionsUtils.get_prefs_info(), true)
 	OptionsUtils.get_controls_info()
+	UnlockUtils.merge_to_vars()
+	QuestUtils.clear_all()
 	
 	if CoolMenu.comingFrom != '':
 		$MainMenu.change_self_scene('res://Menustuffs/' + comingFrom + '/' + comingFrom + '.tscn')

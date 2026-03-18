@@ -48,6 +48,7 @@ position = Vector2(19169, 2605)
 
 [node name="TestNpc" parent="." unique_id=1981361638 instance=ExtResource("2_h803n")]
 position = Vector2(2869, 1263)
+dialogue = "diagTest"
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=59471622]
 visible = false

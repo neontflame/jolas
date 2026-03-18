@@ -1,4 +1,5 @@
 extends Node2D
+class_name HeadsUpDisplay
 
 @export var canvasLayer:CanvasLayer
 @export var playerIcon:Sprite2D
@@ -10,6 +11,8 @@ extends Node2D
 @export var xpBar:NinePatchRect
 @export var testLabel:Label
 @export var comboText:RichTextLabel
+@export var questIcon:Node2D
+@export var placeInfo:PlaceDisplayerIngame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,5 +55,3 @@ func _process(delta: float) -> void:
 	
 	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)
 	comboText.self_modulate.a = GPStats.charObject.comboFrames / 120
-
-var connected := false

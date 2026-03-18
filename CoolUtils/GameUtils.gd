@@ -18,6 +18,9 @@ static func get_chars():
 	for chara in charlist:
 		var coolswag = chara.left(len(chara) - 1)
 		if ResourceLoader.exists(get_char_asset_path(coolswag, coolswag + '.tscn')):
+			if get_char_info(coolswag).has("locked"):
+				if not UnlockUtils.is_char_unlocked(coolswag):
+					trueCharlist.erase(coolswag)
 			if not trueCharlist.has(coolswag):
 				trueCharlist.append(coolswag)
 		else:
@@ -79,7 +82,8 @@ static func get_map_info(lvl:String):
 	if !ResourceLoader.exists(lvlStuff):
 		lvlInfo = '{
 	"name": "Tapa-buraco",
-	"region": "Place Holder"
+	"region": "Place Holder",
+	"song": "Placesong"
 }'
 	else:
 		lvlInfo = FileUtils.get_text_file_content(lvlStuff)

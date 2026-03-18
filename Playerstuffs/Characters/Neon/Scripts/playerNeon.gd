@@ -9,8 +9,6 @@ var nonZeroXVel := 0.0
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	# attackStrength = ATTACK_DMG['default']
-	# attack = isSpecialing
 	player_collisions.disabled = isSpecialing
 	$SpecialCollide.disabled = !isSpecialing
 	if abs(motion.x) > 2 && !is_on_wall():
@@ -35,10 +33,7 @@ func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vec
 		isSpecialing = false
 	
 func level_up():
-	for key in ATTACK_DMG.keys():
-		ATTACK_DMG[key] = attackDmgOriginal[key] * GPStats.level
-	print('seus ataques agora sao:')
-	print(ATTACK_DMG)
+	super.level_up()
 
 func hitbox_connect(hit:OffensiveHitbox):
 	print('connec')
