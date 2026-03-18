@@ -5,6 +5,7 @@ var level:JolasLevel
 var playerInstance
 var dialogueInstance
 var isDial := false
+var isMenu := false
 
 var allChars:Array = []
 var charDict:Dictionary = {}
@@ -14,6 +15,7 @@ var charDict:Dictionary = {}
 @export var lvlNode:Node2D
 @export var hud:HeadsUpDisplay
 @export var bgmStream:AudioStreamPlayer
+@export var ingameMenu:Node2D
 
 var curTrackName:String = ""
 
@@ -117,14 +119,20 @@ func pauseGame():
 	for playery in allChars:
 		playery.movementEnabled = false
 	for child in get_children():
-		if child == dialogueInstance: continue
+		if child == dialogueInstance \
+		or child == bgmStream \
+		or child == coolFade \
+		or child == ingameMenu: continue
 		child.process_mode = PROCESS_MODE_DISABLED
 
 func unpauseGame():
 	for playery in allChars:
 		playery.movementEnabled = playery.get_multi_status()
 	for child in get_children():
-		if child == dialogueInstance: continue
+		if child == dialogueInstance \
+		or child == bgmStream \
+		or child == coolFade \
+		or child == ingameMenu: continue
 		child.process_mode = PROCESS_MODE_INHERIT
 #endregion
 
@@ -150,8 +158,12 @@ func playDialogue(diagName:String):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	GPStats.process(_delta)
-	pass
 	
+	if not isDial and not isMenu:
+		if Input.is_action_just_pressed("ctrl_pause"):
+			pauseGame()
+			ingameMenu.makeMenu('Pause')
+		
 #region Multiplayer
 func join_mp_game():
 	removePlayer()
@@ -202,6 +214,10 @@ func playBGM(trackName:String):
 	curTrackName = trackName
 	
 	bgmStream.stream = load(pathness)
+	bgmStream.volume_db = GeneralUtils.get_volume_db('bgm')
 	bgmStream.play()
 	bgmStream.finished.connect(func():curTrackName="")
+
+func stopBGM():
+	bgmStream.stop()
 #endregion

@@ -5,14 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="3_5r2sg"]
 [ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://Gamestuffs/Multiplayer/Multiplayer.gd" id="3_ll7to"]
 [ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://Gamestuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
+[ext_resource type="PackedScene" uid="uid://cwltciujlq6jq" path="res://Gamestuffs/IngameMenus/IngameMenu.tscn" id="6_tn4rb"]
 
-[node name="Game" type="Node2D" unique_id=1808233624 node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "hud", "bgmStream")]
+[node name="Game" type="Node2D" unique_id=1808233624 node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "hud", "bgmStream", "ingameMenu")]
 script = ExtResource("1_wmjmx")
 coolFade = NodePath("CanvasLayer/Fade")
 plyNode = NodePath("Players")
 lvlNode = NodePath("Level")
 hud = NodePath("Hud")
 bgmStream = NodePath("AudioStreamPlayer")
+ingameMenu = NodePath("IngameMenu")
 
 [node name="Hud" parent="." unique_id=980515745 instance=ExtResource("2_ll7to")]
 z_index = 512
@@ -41,6 +43,8 @@ spawn_path = NodePath("..")
 script = ExtResource("4_f3ii1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1259152205]
+
+[node name="IngameMenu" parent="." unique_id=919855513 instance=ExtResource("6_tn4rb")]
 
 [connection signal="bye_bye" from="Multiplayer" to="." method="bye_bye"]
 [connection signal="player_connected" from="Multiplayer" to="." method="_on_player_connected"]

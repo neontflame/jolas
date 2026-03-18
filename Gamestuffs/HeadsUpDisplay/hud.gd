@@ -11,6 +11,7 @@ class_name HeadsUpDisplay
 @export var xpBar:NinePatchRect
 @export var testLabel:Label
 @export var comboText:RichTextLabel
+@export var questIcon:Node2D
 @export var placeInfo:PlaceDisplayerIngame
 
 # Called when the node enters the scene tree for the first time.

@@ -50,8 +50,13 @@ func _process(delta: float) -> void:
 		print(OptionsUtils.preferences)
 		OptionsUtils.save_prefs()
 		CoolMenu.play_sfx('Back')
-		CoolMenu.curSelected = 2
-		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
+		match CoolMenu.curMenu:
+			'Ingame':
+				CoolMenu.curSelected = 1
+				change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn')
+			_:
+				CoolMenu.curSelected = 2
+				change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 		
 	"""if CoolMenu.curSelected != -1:
 		if Input.is_action_just_pressed("ui_accept") || Input.is_action_just_pressed('ui_click'):

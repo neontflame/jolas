@@ -1,7 +1,7 @@
 extends Node2D
 class_name CoolMenu
 
-static var curMenu:String = ''
+static var curMenu:String = 'Main'
 static var curSelected:int = 0
 static var maxSelected:int = 0
 
@@ -17,6 +17,7 @@ var theVolumes:Array = [0.0, 0.0, 0.0]
 
 func _ready() -> void:
 	CoolMenu.instance = self
+	CoolMenu.curMenu = 'Main'
 	for track in theMusics:
 		track.play()
 		

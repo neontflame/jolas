@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cwltciujlq6jq"]
+
+[ext_resource type="Script" uid="uid://b3vatl0xu0515" path="res://Gamestuffs/IngameMenus/IngameMenu.gd" id="1_8m1h5"]
+[ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="2_mbqe1"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="3_vyrye"]
+[ext_resource type="AudioStream" uid="uid://cif1ajm7jfcqh" path="res://Gamestuffs/Sounds/Commons/back.ogg" id="4_q4ubd"]
+[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="5_bptd1"]
+[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="6_hxhvq"]
+[ext_resource type="AudioStream" uid="uid://ccpvonrt456p8" path="res://Gamestuffs/Sounds/Commons/BOARD-SELECT.ogg" id="7_mbqe1"]
+[ext_resource type="AudioStream" uid="uid://jomyoexqj1mu" path="res://Gamestuffs/Sounds/Commons/wrap.ogg" id="8_vyrye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vebjx"]
+shader = ExtResource("2_mbqe1")
+shader_parameter/amount = 0.0
+
+[node name="IngameMenu" type="Node2D" unique_id=919855513 node_paths=PackedStringArray("blurBGFx")]
+process_mode = 3
+script = ExtResource("1_8m1h5")
+blurBGFx = NodePath("PrimaryCanvas/BlurFx")
+
+[node name="PrimaryCanvas" type="CanvasLayer" parent="." unique_id=1051294925]
+
+[node name="BlurFx" type="TextureRect" parent="PrimaryCanvas" unique_id=1337387483]
+material = SubResource("ShaderMaterial_vebjx")
+offset_left = -410.0
+offset_top = -146.0
+offset_right = 1132.0
+offset_bottom = 630.0
+texture = ExtResource("3_vyrye")
+
+[node name="SFX" type="Node" parent="." unique_id=63494475]
+
+[node name="Back" type="AudioStreamPlayer2D" parent="SFX" unique_id=1198470490]
+position = Vector2(257, 284)
+stream = ExtResource("4_q4ubd")
+max_distance = 2000000000000.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="Go" type="AudioStreamPlayer2D" parent="SFX" unique_id=1923083179]
+position = Vector2(257, 284)
+stream = ExtResource("5_bptd1")
+max_distance = 2000000000000.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="Tick" type="AudioStreamPlayer2D" parent="SFX" unique_id=2001396704]
+position = Vector2(257, 284)
+stream = ExtResource("6_hxhvq")
+max_distance = 2000000000000.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="Unwrap" type="AudioStreamPlayer2D" parent="SFX" unique_id=851784014]
+position = Vector2(257, 284)
+stream = ExtResource("7_mbqe1")
+volume_db = -22.286
+max_distance = 2000000000000.0
+attenuation = 1e-05
+panning_strength = 0.0
+
+[node name="Wrap" type="AudioStreamPlayer2D" parent="SFX" unique_id=2131689590]
+position = Vector2(257, 284)
+stream = ExtResource("8_vyrye")
+volume_db = -9.286
+max_distance = 2000000000000.0
+attenuation = 1e-05
+panning_strength = 0.0
