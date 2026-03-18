@@ -9,8 +9,6 @@ var nonZeroXVel := 0.0
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	# attackStrength = ATTACK_DMG['default']
-	# attack = isSpecialing
 	player_collisions.disabled = isSpecialing
 	$SpecialCollide.disabled = !isSpecialing
 	if abs(motion.x) > 2 && !is_on_wall():

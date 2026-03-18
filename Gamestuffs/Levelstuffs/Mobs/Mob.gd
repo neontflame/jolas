@@ -165,16 +165,7 @@ func pd_body_exited(body: Node2D) -> void:
 # voce pode tentar combar eles agora
 func handlePlyHits(harmPlayer:bool = true):
 	if touchingPlayer:
-		if touchedPlayer.attack:
-			theHarmer = touchedPlayer
-			touchedPlayer.connectAttack(2, 
-			(position.x > touchedPlayer.position.x), 
-			Vector2(-touchedPlayer.motion.x, -abs(touchedPlayer.motion.y))
-			)
-			yeowch(touchedPlayer.attackStrength, 
-			(position.x > touchedPlayer.position.x)
-			)
-		elif harmPlayer:
+		if harmPlayer:
 			theHarmer = null
 			touchedPlayer.yeowch(strength, 
 			(position.x < touchedPlayer.position.x)

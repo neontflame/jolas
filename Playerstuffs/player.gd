@@ -61,12 +61,14 @@ var hitboxes:Array = []
 #endregion
 
 #region Variables That Could Be of Assistance
+## isso e o que voce vai estar usando ao inves do velocity
 var motion := Vector2(0.0, 0.0)
 var jumping:bool = false
 var holding_jump:bool = false
 
-var attack:bool = false
-var attackStrength:float = 2
+# porque eu ia ter usado isso ia ser tao mais impratico
+# var attack:bool = false
+# var attackStrength:float = 2
 
 var up_override:bool = false
 
@@ -326,7 +328,7 @@ func add_xp(xp:float):
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
 # ah eu ja fiz isso lmfao
-## faz uma hitbox! knockAngle e em degraus btw
+## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Cima btw
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
