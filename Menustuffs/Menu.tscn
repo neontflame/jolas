@@ -48,14 +48,11 @@ parameters/looping = true
 
 [node name="SFX" type="Node" parent="." unique_id=1772592919]
 
-[node name="Back" type="AudioStreamPlayer2D" parent="SFX" unique_id=745224698]
-position = Vector2(257, 284)
+[node name="Back" type="AudioStreamPlayer" parent="SFX" unique_id=1667837212]
 stream = ExtResource("9_2f15j")
 
-[node name="Go" type="AudioStreamPlayer2D" parent="SFX" unique_id=167375836]
-position = Vector2(257, 284)
+[node name="Go" type="AudioStreamPlayer" parent="SFX" unique_id=191668236]
 stream = ExtResource("10_3g3s7")
 
-[node name="Tick" type="AudioStreamPlayer2D" parent="SFX" unique_id=1020131617]
-position = Vector2(257, 284)
+[node name="Tick" type="AudioStreamPlayer" parent="SFX" unique_id=1288149422]
 stream = ExtResource("11_lo8pj")

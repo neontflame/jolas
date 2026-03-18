@@ -32,7 +32,8 @@ static func get_info(questName:StringName):
 	if !ResourceLoader.exists(queStuff):
 		questInfo = '{
 	"name": "Placeholder",
-	"icon": "question mark",
+	"room": "Mapa de teste",
+	"icon": "unknown",
 	"xpReward": 0,
 	"desc": "o que essa quest sequer [wave]faz ?[/wave]"
 	}'
@@ -40,3 +41,10 @@ static func get_info(questName:StringName):
 		questInfo = FileUtils.get_text_file_content(queStuff)
 	var questGotten = JSON.parse_string(questInfo)
 	return questGotten
+
+static func get_icon(questIcon:StringName):
+	var iQuest = "res://Gamestuffs/IngameMenus/Quests/questIcons/%s.png" % questIcon
+	if ResourceLoader.exists(iQuest):
+		return load(iQuest)
+	else:
+		return load("res://Gamestuffs/IngameMenus/Quests/questIcons/unknown.png")

@@ -30,39 +30,19 @@ texture = ExtResource("3_vyrye")
 
 [node name="SFX" type="Node" parent="." unique_id=63494475]
 
-[node name="Back" type="AudioStreamPlayer2D" parent="SFX" unique_id=1198470490]
-position = Vector2(257, 284)
+[node name="Back" type="AudioStreamPlayer" parent="SFX" unique_id=896036172]
 stream = ExtResource("4_q4ubd")
-max_distance = 2000000000000.0
-attenuation = 1e-05
-panning_strength = 0.0
 
-[node name="Go" type="AudioStreamPlayer2D" parent="SFX" unique_id=1923083179]
-position = Vector2(257, 284)
+[node name="Go" type="AudioStreamPlayer" parent="SFX" unique_id=376135285]
 stream = ExtResource("5_bptd1")
-max_distance = 2000000000000.0
-attenuation = 1e-05
-panning_strength = 0.0
 
-[node name="Tick" type="AudioStreamPlayer2D" parent="SFX" unique_id=2001396704]
-position = Vector2(257, 284)
+[node name="Tick" type="AudioStreamPlayer" parent="SFX" unique_id=1054965703]
 stream = ExtResource("6_hxhvq")
-max_distance = 2000000000000.0
-attenuation = 1e-05
-panning_strength = 0.0
 
-[node name="Unwrap" type="AudioStreamPlayer2D" parent="SFX" unique_id=851784014]
-position = Vector2(257, 284)
+[node name="Unwrap" type="AudioStreamPlayer" parent="SFX" unique_id=55432150]
 stream = ExtResource("7_mbqe1")
 volume_db = -22.286
-max_distance = 2000000000000.0
-attenuation = 1e-05
-panning_strength = 0.0
 
-[node name="Wrap" type="AudioStreamPlayer2D" parent="SFX" unique_id=2131689590]
-position = Vector2(257, 284)
+[node name="Wrap" type="AudioStreamPlayer" parent="SFX" unique_id=568244507]
 stream = ExtResource("8_vyrye")
 volume_db = -9.286
-max_distance = 2000000000000.0
-attenuation = 1e-05
-panning_strength = 0.0

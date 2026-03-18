@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cay6bt4mfu1jy"]
+
+[ext_resource type="Script" uid="uid://c050eikxrjg3j" path="res://Gamestuffs/IngameMenus/Quests/QuestThingie.gd" id="1_av0gs"]
+[ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Gamestuffs/Fonts/tahoma.ttf" id="2_6mf5g"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="2_fcnqb"]
+[ext_resource type="Texture2D" uid="uid://c52m7dtrbhbnq" path="res://Gamestuffs/IngameMenus/Quests/questIcons/unknown.png" id="3_fcnqb"]
+
+[node name="Control" type="Control" unique_id=1315261051]
+clip_contents = true
+custom_minimum_size = Vector2(239, 64)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_av0gs")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1271668477]
+self_modulate = Color(1, 1, 1, 0.27058825)
+position = Vector2(140, 41)
+scale = Vector2(5.085938, 1.671875)
+texture = ExtResource("2_fcnqb")
+
+[node name="QuestName" type="Label" parent="." unique_id=222850883]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 8.0
+offset_right = 238.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6mf5g")
+theme_override_font_sizes/font_size = 16
+text = "Lorem ipsum dolor sit amet"
+
+[node name="QuestRoom" type="Label" parent="." unique_id=387697035]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 26.0
+offset_right = 235.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.627451)
+theme_override_constants/line_spacing = -3
+theme_override_fonts/font = ExtResource("2_6mf5g")
+theme_override_font_sizes/font_size = 13
+text = "Sala sala sala sala sala sala sala sala"
+autowrap_mode = 2
+
+[node name="QuestIcon" type="Sprite2D" parent="." unique_id=964819477]
+position = Vector2(20, 32)
+texture = ExtResource("3_fcnqb")

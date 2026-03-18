@@ -21,7 +21,7 @@ func _ready() -> void:
 	CoolMenu.maxSelected = 3
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('newThing')
-	$MenuCanvas/Control/SaveBox.renderSave()
+	$MenuCanvas/Control/SaveBox.renderPaused()
 
 func _process(_delta: float) -> void:
 	if canControl:

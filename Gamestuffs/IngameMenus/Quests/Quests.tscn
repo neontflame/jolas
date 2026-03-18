@@ -1,0 +1,325 @@
+[gd_scene format=3 uid="uid://nixaxqk054y1"]
+
+[ext_resource type="Script" uid="uid://dxbgtfkmgohtg" path="res://Gamestuffs/IngameMenus/Quests/QuestsMenu.gd" id="1_7g8e5"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="1_7841g"]
+[ext_resource type="Texture2D" uid="uid://cb7oebxtpx6m0" path="res://Gamestuffs/IngameMenus/Quests/questThing1.png" id="2_afk5e"]
+[ext_resource type="PackedScene" uid="uid://cay6bt4mfu1jy" path="res://Gamestuffs/IngameMenus/Quests/QuestThingie.tscn" id="3_7g8e5"]
+[ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Gamestuffs/Fonts/tahoma.ttf" id="4_3i2uy"]
+[ext_resource type="Script" uid="uid://dwa84px64pdpg" path="res://Gamestuffs/IngameMenus/Quests/QuestMain.gd" id="4_ba5kw"]
+[ext_resource type="Texture2D" uid="uid://cv234ihccibs8" path="res://Gamestuffs/IngameMenus/Quests/questThing2.png" id="5_ba5kw"]
+[ext_resource type="Script" uid="uid://vi0w0bq7fh7w" path="res://Gamestuffs/IngameMenus/Quests/QuestExplainy.gd" id="6_m0e18"]
+[ext_resource type="FontFile" uid="uid://bfyut4smlslp3" path="res://Gamestuffs/Fonts/tahomabd.ttf" id="7_mao8f"]
+
+[sub_resource type="Animation" id="Animation_7841g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_afk5e"]
+resource_name = "getIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.18301058, 0.5547848, 1),
+"update": 0,
+"values": [Vector2(1.846, 0), Vector2(0.9101124, 1.027027), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_7g8e5"]
+resource_name = "getOut"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(7.450581e-09, 0.06666667, 0.36666664),
+"transitions": PackedFloat32Array(0.34151018, 0.43527535, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9101124, 1.027027), Vector2(1.846, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_3i2uy"]
+resource_name = "hideDesc"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.16493842, 1),
+"update": 0,
+"values": [Vector2(-207, 8), Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.16493842, 1),
+"update": 0,
+"values": [Vector2(163, 8), Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ba5kw"]
+resource_name = "showDesc"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.16493842, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(-207, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.1435874, 1),
+"update": 0,
+"values": [Vector2(755, 8), Vector2(163, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0e18"]
+_data = {
+&"RESET": SubResource("Animation_7841g"),
+&"getIn": SubResource("Animation_afk5e"),
+&"getOut": SubResource("Animation_7g8e5"),
+&"hideDesc": SubResource("Animation_3i2uy"),
+&"showDesc": SubResource("Animation_ba5kw")
+}
+
+[node name="Quests" type="Node2D" unique_id=1594462554 node_paths=PackedStringArray("questMainThing", "questDesc", "anim")]
+script = ExtResource("1_7g8e5")
+questMainThing = NodePath("MenuCanvas/Control/QuestThing")
+questDesc = NodePath("MenuCanvas/Control/QuestThingDesc")
+anim = NodePath("AnimationPlayer")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=430989390]
+
+[node name="Control" type="Control" parent="MenuCanvas" unique_id=1067520950]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 20.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7841g")
+
+[node name="QuestThing" type="Sprite2D" parent="MenuCanvas/Control" unique_id=1545390410 node_paths=PackedStringArray("questContainer", "infoLabel")]
+position = Vector2(8, 8)
+texture = ExtResource("2_afk5e")
+script = ExtResource("4_ba5kw")
+questContainer = NodePath("VBoxContainer")
+infoLabel = NodePath("Label")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/Control/QuestThing" unique_id=277978619]
+offset_left = -117.0
+offset_top = -141.0
+offset_right = 122.0
+offset_bottom = 154.0
+theme = ExtResource("1_7841g")
+
+[node name="Control" parent="MenuCanvas/Control/QuestThing/VBoxContainer" unique_id=1315261051 instance=ExtResource("3_7g8e5")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuCanvas/Control/QuestThing" unique_id=776784685]
+offset_left = -115.0
+offset_top = 171.0
+offset_right = 104.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3i2uy")
+theme_override_font_sizes/font_size = 15
+text = "5 feitas, 10 em andamento"
+horizontal_alignment = 1
+
+[node name="questWarn" type="Label" parent="MenuCanvas/Control/QuestThing" unique_id=1387930930]
+offset_left = -107.0
+offset_top = -5.0
+offset_right = 112.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3i2uy")
+theme_override_font_sizes/font_size = 15
+text = "Suas quests são:
+nenhuma quest"
+horizontal_alignment = 1
+
+[node name="QuestThingDesc" type="Sprite2D" parent="MenuCanvas/Control" unique_id=712410713]
+position = Vector2(755, 8)
+texture = ExtResource("5_ba5kw")
+script = ExtResource("6_m0e18")
+
+[node name="QuestContent" type="RichTextLabel" parent="MenuCanvas/Control/QuestThingDesc" unique_id=994703943]
+offset_left = -197.0
+offset_top = -143.0
+offset_right = 202.0
+offset_bottom = 158.0
+theme = ExtResource("1_7841g")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_3i2uy")
+theme_override_fonts/bold_font = ExtResource("7_mao8f")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee[b]eeeeeeee[/b]eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+[node name="QuestReward" type="RichTextLabel" parent="MenuCanvas/Control/QuestThingDesc" unique_id=1001974653]
+offset_left = -191.0
+offset_top = 170.0
+offset_right = 196.0
+offset_bottom = 194.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_3i2uy")
+theme_override_fonts/bold_font = ExtResource("7_mao8f")
+bbcode_enabled = true
+text = "[color=990000][b]Recompensa:[/b][/color] +50 xp"
+
+[node name="QuestName" type="Label" parent="MenuCanvas/Control/QuestThingDesc" unique_id=1854845376]
+offset_left = -201.0
+offset_top = -193.0
+offset_right = 191.0
+offset_bottom = -163.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3i2uy")
+theme_override_font_sizes/font_size = 24
+text = "Nome da quest"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1416040963]
+libraries/ = SubResource("AnimationLibrary_m0e18")
