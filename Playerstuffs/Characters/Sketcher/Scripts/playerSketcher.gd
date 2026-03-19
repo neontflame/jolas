@@ -24,9 +24,38 @@ func handlePhys():
 	super.handlePhys()
 	plySprite.material.set_shader_parameter("line_thickness", ELECTRICITY/5.0)
 
+func handleParkour():
+	if sweeping_mob('right')[0] && Input.is_action_pressed("ctrl_right"):
+		jumping = true
+		invulnFrames = 10.0
+		motion.x = 900
+		motion.y = -400
+		sweeping_mob('right')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(50.0, 200.0))
+	if sweeping_mob('left')[0] && Input.is_action_pressed("ctrl_left"):
+		jumping = true
+		invulnFrames = 10.0
+		motion.x = -900
+		motion.y = -400
+		sweeping_mob('left')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(-50.0, 200.0))
+
+func sweeping_mob(dir:StringName) -> Array:
+	var isTrued := false
+	var mob:MobObject = null
+	match dir:
+		'right':
+			isTrued = rightSweep.is_colliding() && rightSweep.get_collider() is MobObject
+			if isTrued:
+				mob = rightSweep.get_collider()
+		'left':
+			isTrued = leftSweep.is_colliding() && leftSweep.get_collider() is MobObject
+			if isTrued:
+				mob = leftSweep.get_collider()
+	return [isTrued, mob]
+
 func handleMovement() -> void:
 	super.handleMovement()
 	handleSlide()
+	handleParkour()
 	if Input.is_action_just_pressed("ctrl_down") and is_on_floor():
 		isSliding = true
 		slideTriggered.emit()
