@@ -55,7 +55,8 @@ func sweeping_mob(dir:StringName) -> Array:
 func handleMovement() -> void:
 	super.handleMovement()
 	handleSlide()
-	handleParkour()
+	if Input.is_action_pressed('ctrl_2'):
+		handleParkour()
 	if Input.is_action_just_pressed("ctrl_down") and is_on_floor():
 		isSliding = true
 		slideTriggered.emit()
