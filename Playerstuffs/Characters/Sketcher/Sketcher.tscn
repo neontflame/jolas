@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_avxmv"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="2_1nj8v"]
+[ext_resource type="Script" uid="uid://c6fbrs8xhaeam" path="res://Playerstuffs/Characters/Sketcher/Scripts/playerSketcher.gd" id="2_2ar5l"]
 [ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="2_upuk6"]
 [ext_resource type="Texture2D" uid="uid://c4ykhak1f1vow" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0001.png" id="3_1nj8v"]
 [ext_resource type="Texture2D" uid="uid://dg473dxdrg0f7" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0002.png" id="4_2ar5l"]
@@ -140,6 +141,9 @@ animations = [{
 }]
 
 [node name="Player" unique_id=2058036535 instance=ExtResource("1_avxmv")]
+script = ExtResource("2_2ar5l")
+SLIDE_FRICTION = 1.0
+ELEC_GAUGE_MAX = 10.0
 FLOOR_ACCELERATION = 70.0
 AIR_ACCELERATION = 40
 SOFT_MAX_SPEED = 650

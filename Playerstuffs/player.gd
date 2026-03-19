@@ -167,12 +167,14 @@ func handleSonicPhys() -> void:
 			# print(prevmotion)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
-			
-		
+
+var slopeMult := 1
+var slopeAdd = 0
+var ACCELERATION := 0.0
+var FRICTION := 0.0
+
 func handleMovement() -> void:
 	# Go my acceleratione.
-	var ACCELERATION := 0.0
-	var FRICTION := 0.0
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
 		FRICTION = FLOOR_FRICTION
@@ -203,19 +205,6 @@ func handleMovement() -> void:
 		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
 			holding_jump = false
 	
-	# Floor Physicque
-	var slopeMult := (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
-	var slopeAdd = 0
-	if is_on_floor():
-		practicalAngle = get_floor_normal().angle() + PI/2
-		floorSinCos = get_floor_normal()
-		
-		if (rad_to_deg(get_floor_angle()) > 5):
-			# sei la angulos sao estranhos
-			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
-	else:
-		slopeAdd = 0
-	
 	# walkfucks
 	motion.x += slopeAdd
 	if Input.is_action_pressed("ctrl_left"):
@@ -240,7 +229,19 @@ func handlePhys() -> void:
 		motion.y = 10
 	if is_on_wall():
 		motion.x = 0
+	
+	# Floor Physicque
+	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
+	if is_on_floor():
+		practicalAngle = get_floor_normal().angle() + PI/2
+		floorSinCos = get_floor_normal()
 		
+		if (rad_to_deg(get_floor_angle()) > 5):
+			# sei la angulos sao estranhos
+			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
+	else:
+		slopeAdd = 0
+	
 	# Not Physix but we ball
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)
