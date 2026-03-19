@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://llk5w8w0yx48"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_avxmv"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="2_1nj8v"]
+[ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="2_upuk6"]
+[ext_resource type="Texture2D" uid="uid://c4ykhak1f1vow" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0001.png" id="3_1nj8v"]
+[ext_resource type="Texture2D" uid="uid://dg473dxdrg0f7" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0002.png" id="4_2ar5l"]
+[ext_resource type="Texture2D" uid="uid://cflsop2td852p" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0001.png" id="5_mc72d"]
+[ext_resource type="Texture2D" uid="uid://cr8txqe6lx6y4" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0002.png" id="6_uo5jo"]
+[ext_resource type="Texture2D" uid="uid://5cxjssw7qry6" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0003.png" id="7_ig0g0"]
+[ext_resource type="Texture2D" uid="uid://bnt52ym6lhleu" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0004.png" id="8_da1m6"]
+[ext_resource type="Texture2D" uid="uid://dtad5lqg4plv5" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0005.png" id="9_tba8m"]
+[ext_resource type="Texture2D" uid="uid://cse4ci52pwh34" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0006.png" id="10_qfigm"]
+[ext_resource type="Texture2D" uid="uid://c4wtqjkycpggu" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0001.png" id="11_juud7"]
+[ext_resource type="Texture2D" uid="uid://bhydjk2n0r5ct" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0002.png" id="12_ln26r"]
+[ext_resource type="Texture2D" uid="uid://cndgapc5xh1es" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0003.png" id="13_ev7n3"]
+[ext_resource type="Texture2D" uid="uid://2mbi8r3ntnpy" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0001.png" id="14_gf1t6"]
+[ext_resource type="Texture2D" uid="uid://crf0216cjdggr" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0002.png" id="15_d7o1v"]
+[ext_resource type="Texture2D" uid="uid://dcsun6ybottic" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0003.png" id="16_u2u8d"]
+[ext_resource type="Texture2D" uid="uid://twanxv4872qk" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0004.png" id="17_3hf1s"]
+[ext_resource type="Texture2D" uid="uid://b2g1oimxr2tb3" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake vault0001.png" id="18_ti08h"]
+[ext_resource type="Texture2D" uid="uid://dvrn8h76hkc54" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake vault0002.png" id="19_4bbj6"]
+[ext_resource type="Texture2D" uid="uid://cqy08vvbeqaju" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake vault0003.png" id="20_xwjri"]
+[ext_resource type="Texture2D" uid="uid://c2sn25u8taut" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0001.png" id="21_3set2"]
+[ext_resource type="Texture2D" uid="uid://catgon0yccmfn" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0002.png" id="22_dsjf8"]
+[ext_resource type="Texture2D" uid="uid://cmeocfvne7tji" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0003.png" id="23_tp0le"]
+[ext_resource type="Texture2D" uid="uid://b8t7xmildj8bu" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0004.png" id="24_ts5rf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ar5l"]
+shader = ExtResource("2_1nj8v")
+shader_parameter/line_color = Color(0, 0.6392157, 1, 0.64705884)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/add_margins = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7odvg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_upuk6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1nj8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2ar5l")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mc72d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uo5jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ig0g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_da1m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tba8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfigm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_juud7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ln26r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ev7n3")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gf1t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d7o1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u2u8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3hf1s")
+}],
+"loop": true,
+"name": &"spinkick",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_ti08h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4bbj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xwjri")
+}],
+"loop": false,
+"name": &"vault",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_3set2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_dsjf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_tp0le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ts5rf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 16.0
+}]
+
+[node name="Player" unique_id=2058036535 instance=ExtResource("1_avxmv")]
+FLOOR_ACCELERATION = 70.0
+AIR_ACCELERATION = 40
+SOFT_MAX_SPEED = 650
+GRAVITY = 22.0
+SLOPE_VEL_ADD = 32
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.465, 0.99)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+material = SubResource("ShaderMaterial_2ar5l")
+sprite_frames = SubResource("SpriteFrames_7odvg")
+animation = &"jump"
+offset = Vector2(0, -7)
