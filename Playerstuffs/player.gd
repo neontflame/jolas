@@ -20,7 +20,7 @@ var previous_state = null
 @export var AIR_FRICTION = 0.9995
 @export var JUMP_COUNT = 1
 
-@export var ATTACK_DMG:Dictionary = {
+@export var ATTACK_DMG:Dictionary[String, float] = {
 	'default': 1
 }
 
@@ -76,6 +76,7 @@ var isSonicPhys:bool = false
 var practicalAngle := 0.0
 
 var movementEnabled:bool = true
+var walkingEnabled:bool = true #mostly for abilities to use
 
 var camOffset := Vector2(0.0, 0.0)
 #endregion
@@ -207,14 +208,15 @@ func handleMovement() -> void:
 	
 	# walkfucks
 	motion.x += slopeAdd
-	if Input.is_action_pressed("ctrl_left"):
-		if (motion.x > -SOFT_MAX_SPEED * deltaOne):
-			motion.x -= ACCELERATION * deltaOne
-	elif Input.is_action_pressed("ctrl_right"):
-		if (motion.x < SOFT_MAX_SPEED * deltaOne):
-			motion.x += ACCELERATION * deltaOne
-	else:
-		motion.x = motion.x * (FRICTION * deltaOne) + slopeAdd
+	if walkingEnabled:
+		if Input.is_action_pressed("ctrl_left"):
+			if (motion.x > -SOFT_MAX_SPEED * deltaOne):
+				motion.x -= ACCELERATION * deltaOne
+		elif Input.is_action_pressed("ctrl_right"):
+			if (motion.x < SOFT_MAX_SPEED * deltaOne):
+				motion.x += ACCELERATION * deltaOne
+		else:
+			motion.x = motion.x * (FRICTION * deltaOne) + slopeAdd
 	
 func handlePhys() -> void:
 	# Air Physicque
@@ -239,6 +241,8 @@ func handlePhys() -> void:
 		if (rad_to_deg(get_floor_angle()) > 5):
 			# sei la angulos sao estranhos
 			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
+		else:
+			slopeAdd = 0
 	else:
 		slopeAdd = 0
 	
@@ -269,6 +273,7 @@ func change_state(new_state):
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
 	# increaseCombo()
+	print(_stunFrames)
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y

@@ -5,15 +5,26 @@
 [ext_resource type="Script" uid="uid://c6fbrs8xhaeam" path="res://Playerstuffs/Characters/Sketcher/Scripts/playerSketcher.gd" id="2_2ar5l"]
 [ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="2_upuk6"]
 [ext_resource type="Texture2D" uid="uid://c4ykhak1f1vow" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0001.png" id="3_1nj8v"]
+[ext_resource type="Script" uid="uid://wt3g13f8k1t" path="res://Playerstuffs/Characters/Sketcher/Scripts/floorStSketcher.gd" id="3_2ar5l"]
 [ext_resource type="Texture2D" uid="uid://dg473dxdrg0f7" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0002.png" id="4_2ar5l"]
+[ext_resource type="Script" uid="uid://bnuskrc4s8gj4" path="res://Playerstuffs/Characters/Sketcher/Scripts/airStSketcher.gd" id="4_mc72d"]
 [ext_resource type="Texture2D" uid="uid://cflsop2td852p" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0001.png" id="5_mc72d"]
+[ext_resource type="Texture2D" uid="uid://rpqt8a0osik6" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake sonicBattleSpin0001.png" id="6_juud7"]
 [ext_resource type="Texture2D" uid="uid://cr8txqe6lx6y4" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0002.png" id="6_uo5jo"]
 [ext_resource type="Texture2D" uid="uid://5cxjssw7qry6" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0003.png" id="7_ig0g0"]
+[ext_resource type="Texture2D" uid="uid://cm8t3ugbj6hsa" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake sonicBattleSpin0002.png" id="7_ln26r"]
 [ext_resource type="Texture2D" uid="uid://bnt52ym6lhleu" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0004.png" id="8_da1m6"]
+[ext_resource type="Texture2D" uid="uid://bnsuj7hqoujh3" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake sonicBattleSpin0003.png" id="8_ev7n3"]
+[ext_resource type="Texture2D" uid="uid://c3bjh7w7tjdvp" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake sonicBattleSpin0004.png" id="9_gf1t6"]
 [ext_resource type="Texture2D" uid="uid://dtad5lqg4plv5" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0005.png" id="9_tba8m"]
+[ext_resource type="Texture2D" uid="uid://cbtvxdw5xy38i" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake brake0001.png" id="10_gf1t6"]
 [ext_resource type="Texture2D" uid="uid://cse4ci52pwh34" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0006.png" id="10_qfigm"]
+[ext_resource type="Texture2D" uid="uid://4qshgl5s2kud" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Hurt0001.png" id="11_d7o1v"]
 [ext_resource type="Texture2D" uid="uid://c4wtqjkycpggu" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0001.png" id="11_juud7"]
+[ext_resource type="Texture2D" uid="uid://cx65tlfomp542" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake brake0002.png" id="11_u2u8d"]
+[ext_resource type="Texture2D" uid="uid://bg8bsd4g8162x" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake brake0003.png" id="12_3hf1s"]
 [ext_resource type="Texture2D" uid="uid://bhydjk2n0r5ct" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0002.png" id="12_ln26r"]
+[ext_resource type="Texture2D" uid="uid://bl4f01nmlgqvn" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Hurt0002.png" id="12_u2u8d"]
 [ext_resource type="Texture2D" uid="uid://cndgapc5xh1es" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0003.png" id="13_ev7n3"]
 [ext_resource type="Texture2D" uid="uid://2mbi8r3ntnpy" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0001.png" id="14_gf1t6"]
 [ext_resource type="Texture2D" uid="uid://crf0216cjdggr" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0002.png" id="15_d7o1v"]
@@ -27,14 +38,48 @@
 [ext_resource type="Texture2D" uid="uid://cmeocfvne7tji" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0003.png" id="23_tp0le"]
 [ext_resource type="Texture2D" uid="uid://b8t7xmildj8bu" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0004.png" id="24_ts5rf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juud7"]
+size = Vector2(126.88173, 94.9495)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ar5l"]
 shader = ExtResource("2_1nj8v")
 shader_parameter/line_color = Color(0, 0.6392157, 1, 0.64705884)
-shader_parameter/line_thickness = 2.000000095
+shader_parameter/line_thickness = 0.0
 shader_parameter/add_margins = true
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7odvg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_juud7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ln26r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ev7n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gf1t6")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gf1t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u2u8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3hf1s")
+}],
+"loop": false,
+"name": &"brake",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_upuk6")
@@ -42,6 +87,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d7o1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u2u8d")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -87,9 +143,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_ev7n3")
 }],
-"loop": true,
+"loop": false,
 "name": &"slide",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,19 +198,37 @@ animations = [{
 
 [node name="Player" unique_id=2058036535 instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
-SLIDE_FRICTION = 1.0
+SLIDE_FRICTION = 0.995
 ELEC_GAUGE_MAX = 10.0
-FLOOR_ACCELERATION = 70.0
+FLOOR_ACCELERATION = 80.0
 AIR_ACCELERATION = 40
-SOFT_MAX_SPEED = 650
+SOFT_MAX_SPEED = 700
 GRAVITY = 22.0
-SLOPE_VEL_ADD = 32
+SLOPE_VEL_ADD = 25
+ATTACK_DMG = Dictionary[String, float]({
+"default": 1.0,
+"spinkick": 3.0
+})
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("3_2ar5l")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("4_mc72d")
 
 [node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.465, 0.99)
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3" unique_id=245792445]
+position = Vector2(-1.500001, 18.000004)
+scale = Vector2(0.615, 0.99)
+shape = SubResource("RectangleShape2D_juud7")
+disabled = true
+
+[node name="AnimatedSprite2D" parent="." index="4"]
 material = SubResource("ShaderMaterial_2ar5l")
 sprite_frames = SubResource("SpriteFrames_7odvg")
-animation = &"jump"
+animation = &"brake"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -7)

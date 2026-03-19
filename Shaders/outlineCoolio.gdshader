@@ -7,6 +7,7 @@ varying flat vec4 modulate;
 
 void vertex() {
 	modulate = COLOR;
+	
     if (add_margins) {
         VERTEX += (UV * 2.0 - 1.0) * line_thickness;
     }
@@ -32,7 +33,7 @@ void fragment() {
     vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
     
     if (line_thickness < 0.1) {
-        vec4 color = texture(TEXTURE, uv);
+        vec4 color = texture(TEXTURE, uv) * modulate;
         COLOR = color;
     } else {
         float outline = texture(TEXTURE, uv + vec2(-size.x, 0)).a;
