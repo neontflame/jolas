@@ -43,9 +43,9 @@ size = Vector2(126.88173, 94.9495)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ar5l"]
 shader = ExtResource("2_1nj8v")
-shader_parameter/line_color = Color(0, 0.6392157, 1, 0.64705884)
+shader_parameter/line_color = Color(0, 0.8784314, 1, 0.74509805)
 shader_parameter/line_thickness = 0.0
-shader_parameter/add_margins = true
+shader_parameter/add_margins = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7odvg"]
 animations = [{
@@ -196,27 +196,30 @@ animations = [{
 "speed": 16.0
 }]
 
-[node name="Player" unique_id=2058036535 instance=ExtResource("1_avxmv")]
+[node name="Player" unique_id=2058036535 node_paths=PackedStringArray("rightSweep", "leftSweep") instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
-ELEC_GAUGE_MAX = 10.0
+ELEC_GAUGE_MAX = 20.0
+REBOUND_LIMIT = 2
+rightSweep = NodePath("RightSweep")
+leftSweep = NodePath("LeftSweep")
 FLOOR_ACCELERATION = 80.0
 AIR_ACCELERATION = 40
 SOFT_MAX_SPEED = 700
 GRAVITY = 22.0
-SLOPE_VEL_ADD = 25
 ATTACK_DMG = Dictionary[String, float]({
 "default": 1.0,
+"slide": 2.0,
 "spinkick": 3.0
 })
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
 script = ExtResource("3_2ar5l")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="1" unique_id=1274865026]
 script = ExtResource("4_mc72d")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
 scale = Vector2(0.465, 0.99)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3" unique_id=245792445]
@@ -225,10 +228,14 @@ scale = Vector2(0.615, 0.99)
 shape = SubResource("RectangleShape2D_juud7")
 disabled = true
 
-[node name="AnimatedSprite2D" parent="." index="4"]
+[node name="AnimatedSprite2D" parent="." index="4" unique_id=1252310965]
 material = SubResource("ShaderMaterial_2ar5l")
 sprite_frames = SubResource("SpriteFrames_7odvg")
-animation = &"brake"
-frame = 2
-frame_progress = 1.0
+animation = &"default"
 offset = Vector2(0, -7)
+
+[node name="RightSweep" type="RayCast2D" parent="." index="9" unique_id=1899423237]
+target_position = Vector2(96, 0)
+
+[node name="LeftSweep" type="RayCast2D" parent="." index="10" unique_id=406886896]
+target_position = Vector2(-96, 0)

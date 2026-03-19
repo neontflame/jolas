@@ -14,6 +14,7 @@ var knockAngle:float = 0.0
 # 270 e cima
 # pq dai fica melhor de fazer conta
 var anglery:Vector2 = Vector2(0, 0)
+var coolId:String = ''
 
 # signal connectedHit(hit:OffensiveHitbox)
 

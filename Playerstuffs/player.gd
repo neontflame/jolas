@@ -334,40 +334,48 @@ func add_xp(xp:float):
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
 # ah eu ja fiz isso lmfao
-## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Cima btw
-func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Direita btw
+## direçao do knockAngle e horaria
+func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
-		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle)
+		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 	
-	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
-func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
 	hitbox.position = offset
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
+	hitbox.coolId = hitboxId
 	hitbox.fixAngles()
 
 ## e tipo o [method make_hitbox] so que com segundos antes
-func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
-	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle)
+func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
+	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 	await get_tree().create_timer(seconds).timeout
 	delete_hitboxes()
 
-func delete_hitboxes():
+func delete_hitboxes(hitboxId:String = ''):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
-		MultiplayerMayhem._player_delete_hitboxes.rpc(get_multiplayer_authority())
+		MultiplayerMayhem._player_delete_hitboxes.rpc(get_multiplayer_authority(), hitboxId)
 	
-	delete_hitboxes_actual()
+	delete_hitboxes_actual(hitboxId)
 
-func delete_hitboxes_actual():
+func delete_hitboxes_actual(hitboxId:String = ''):
 	for hit in hitboxCoisos.get_children():
-		hitboxes.erase(hit)
-		hit.queue_free()
+		match hitboxId:
+			'':
+				hitboxes.erase(hit)
+				hit.queue_free()
+			_:
+				if hit.coolId == hitboxId:
+					hitboxes.erase(hit)
+					hit.queue_free()
 
 func hitbox_connect(hit:OffensiveHitbox):
 	pass

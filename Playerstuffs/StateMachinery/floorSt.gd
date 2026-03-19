@@ -3,7 +3,8 @@ extends StatePattern
 func enter_state():
 	# print('Enter Floor')
 	Player.motion.y = 4
-	Player.plySprite.animation_finished.connect(animDone)
+	if not Player.plySprite.animation_finished.is_connected(animDone):
+		Player.plySprite.animation_finished.connect(animDone)
 	pass
 
 func update():
@@ -24,7 +25,9 @@ func handleAnimations() -> void:
 			Player.shakeForce = 0
 			
 		# primeira instancia de codigo com alma na godot ever
-		if ((Input.is_action_pressed('ctrl_left') && Player.motion.x > 10) || (Input.is_action_pressed('ctrl_right') && Player.motion.x < 10)) && (Input.is_action_pressed('ctrl_left') != Input.is_action_pressed('ctrl_right')):
+		if ((Input.is_action_pressed('ctrl_left') && Player.motion.x > 10) \
+		or (Input.is_action_pressed('ctrl_right') && Player.motion.x < 10)) \
+		and (Input.is_action_pressed('ctrl_left') != Input.is_action_pressed('ctrl_right')):
 				if (Player.movementEnabled && Player.walkingEnabled):
 					Player.plySprite.play('brake')
 		elif abs(Player.motion.x) > Player.FLOOR_ACCELERATION:
