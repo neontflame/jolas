@@ -171,6 +171,7 @@ func handleSonicPhys() -> void:
 
 var slopeMult := 1
 var slopeAdd = 0
+var slopeFactor = 0.0
 var ACCELERATION := 0.0
 var FRICTION := 0.0
 
@@ -210,13 +211,13 @@ func handleMovement() -> void:
 	motion.x += slopeAdd
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
-			if (motion.x > -SOFT_MAX_SPEED * deltaOne):
+			if (motion.x > -SOFT_MAX_SPEED * slopeFactor * deltaOne):
 				motion.x -= ACCELERATION * deltaOne
 		elif Input.is_action_pressed("ctrl_right"):
-			if (motion.x < SOFT_MAX_SPEED * deltaOne):
+			if (motion.x < SOFT_MAX_SPEED * slopeFactor * deltaOne):
 				motion.x += ACCELERATION * deltaOne
 		else:
-			motion.x = motion.x * (FRICTION * deltaOne) + slopeAdd
+			motion.x = motion.x * (FRICTION * deltaOne)
 	
 func handlePhys() -> void:
 	# Air Physicque
@@ -243,8 +244,11 @@ func handlePhys() -> void:
 			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
 		else:
 			slopeAdd = 0
+		slopeFactor = 1.0 - (abs(floorSinCos.x) / 2.5)
+		# print(slopeFactor)
 	else:
 		slopeAdd = 0
+		slopeFactor = 1.0
 	
 	# Not Physix but we ball
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)

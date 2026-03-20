@@ -7,7 +7,8 @@ func enter_state():
 
 func handleAnimations() -> void:
 	if Player.isSliding:
-		Player.plySprite.play('slide')
+		if Player.plySprite.animation != 'slide':
+			Player.plySprite.play('slide')
 	else:
 		Player.delete_hitboxes('slide')
 		super.handleAnimations()

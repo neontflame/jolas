@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="2_upuk6"]
 [ext_resource type="Texture2D" uid="uid://c4ykhak1f1vow" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0001.png" id="3_1nj8v"]
 [ext_resource type="Script" uid="uid://wt3g13f8k1t" path="res://Playerstuffs/Characters/Sketcher/Scripts/floorStSketcher.gd" id="3_2ar5l"]
+[ext_resource type="Script" uid="uid://b0k2ee416t8ib" path="res://Playerstuffs/Characters/Sketcher/Scripts/statemachineSketcher.gd" id="3_3hf1s"]
 [ext_resource type="Texture2D" uid="uid://dg473dxdrg0f7" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0002.png" id="4_2ar5l"]
 [ext_resource type="Script" uid="uid://bnuskrc4s8gj4" path="res://Playerstuffs/Characters/Sketcher/Scripts/airStSketcher.gd" id="4_mc72d"]
 [ext_resource type="Texture2D" uid="uid://cflsop2td852p" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0001.png" id="5_mc72d"]
+[ext_resource type="Script" uid="uid://bbv1cyh0pv57h" path="res://Playerstuffs/Characters/Sketcher/Scripts/dashStSketcher.gd" id="5_u2u8d"]
 [ext_resource type="Texture2D" uid="uid://rpqt8a0osik6" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake sonicBattleSpin0001.png" id="6_juud7"]
 [ext_resource type="Texture2D" uid="uid://cr8txqe6lx6y4" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0002.png" id="6_uo5jo"]
 [ext_resource type="Texture2D" uid="uid://5cxjssw7qry6" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Run0003.png" id="7_ig0g0"]
@@ -26,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bhydjk2n0r5ct" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0002.png" id="12_ln26r"]
 [ext_resource type="Texture2D" uid="uid://bl4f01nmlgqvn" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Hurt0002.png" id="12_u2u8d"]
 [ext_resource type="Texture2D" uid="uid://cndgapc5xh1es" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Slide0003.png" id="13_ev7n3"]
+[ext_resource type="Texture2D" uid="uid://b28ollu1p7t13" path="res://Playerstuffs/Characters/Sketcher/Sprites/Fx/dash effect.png" id="14_3hf1s"]
 [ext_resource type="Texture2D" uid="uid://2mbi8r3ntnpy" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0001.png" id="14_gf1t6"]
 [ext_resource type="Texture2D" uid="uid://crf0216cjdggr" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0002.png" id="15_d7o1v"]
 [ext_resource type="Texture2D" uid="uid://dcsun6ybottic" path="res://Playerstuffs/Characters/Sketcher/Sprites/jake spin kick0003.png" id="16_u2u8d"]
@@ -40,6 +43,19 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juud7"]
 size = Vector2(126.88173, 94.9495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti08h"]
+size = Vector2(138.21138, 14.141415)
+
+[sub_resource type="Curve" id="Curve_3hf1s"]
+_limits = [0.0, 21.95, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ti08h"]
+_limits = [0.0, 15.2, 0.0, 1.0]
+_data = [Vector2(0.019047618, 0.020201921), 0.0, 0.0, 0, 0, Vector2(1, 7.062627), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ar5l"]
 shader = ExtResource("2_1nj8v")
@@ -79,6 +95,14 @@ animations = [{
 "loop": false,
 "name": &"brake",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3hf1s")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,9 +221,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf1t6"]
-radius = 362.00137
+radius = 658.21954
 
-[node name="Player" unique_id=2058036535 node_paths=PackedStringArray("rightSweep", "leftSweep") instance=ExtResource("1_avxmv")]
+[node name="Player" unique_id=2058036535 node_paths=PackedStringArray("rightSweep", "leftSweep", "homingArea", "dashLine", "boostLine") instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
 ELEC_GAUGE_MAX = 20.0
@@ -210,22 +234,32 @@ ELEC_USAGE = Dictionary[String, float]({
 })
 rightSweep = NodePath("Detectors/RightSweep")
 leftSweep = NodePath("Detectors/LeftSweep")
+homingArea = NodePath("Detectors/HomingArea")
+dashLine = NodePath("DashLine")
+boostLine = NodePath("BoostLine")
 FLOOR_ACCELERATION = 80.0
 AIR_ACCELERATION = 40
-SOFT_MAX_SPEED = 700
-GRAVITY = 22.0
+SOFT_MAX_SPEED = 725
+GRAVITY = 22.5
 ATTACK_DMG = Dictionary[String, float]({
+"dash": 10.0,
 "default": 1.0,
 "slide": 2.0,
 "spinkick": 3.0,
 "vault": 1.0
 })
 
-[node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
+[node name="StateMachine" parent="." index="0" unique_id=151957281]
+script = ExtResource("3_3hf1s")
+
+[node name="Floor" parent="StateMachine" index="0" unique_id=1423393479]
 script = ExtResource("3_2ar5l")
 
-[node name="Air" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="1" unique_id=1274865026]
+[node name="Air" parent="StateMachine" index="1" unique_id=1274865026]
 script = ExtResource("4_mc72d")
+
+[node name="Dash" type="Node" parent="StateMachine" index="4" unique_id=1997561880]
+script = ExtResource("5_u2u8d")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
 scale = Vector2(0.465, 0.99)
@@ -236,13 +270,34 @@ scale = Vector2(0.615, 0.99)
 shape = SubResource("RectangleShape2D_juud7")
 disabled = true
 
-[node name="AnimatedSprite2D" parent="." index="4" unique_id=1252310965]
+[node name="DashColl" type="CollisionShape2D" parent="." index="4" unique_id=312333655]
+position = Vector2(-1.5000019, -4)
+scale = Vector2(0.615, 0.99)
+shape = SubResource("RectangleShape2D_ti08h")
+disabled = true
+
+[node name="DashLine" type="Line2D" parent="." index="5" unique_id=238866122]
+points = PackedVector2Array(0, -1, 24, -24, 61, -1, 68, -21, 88, -6, 128, -8, 163, -5, 194, -6)
+width = 10.15
+width_curve = SubResource("Curve_3hf1s")
+default_color = Color(0, 0.6, 1, 1)
+
+[node name="BoostLine" type="Line2D" parent="." index="6" unique_id=1458982857]
+position = Vector2(-205, 29)
+points = PackedVector2Array(0, -1, 24, -24, 61, -1, 68, -21, 88, -6, 128, -8, 163, -5, 194, -6)
+width = 10.15
+width_curve = SubResource("Curve_ti08h")
+default_color = Color(0, 0.6, 1, 1)
+
+[node name="AnimatedSprite2D" parent="." index="7" unique_id=1252310965]
 material = SubResource("ShaderMaterial_2ar5l")
 sprite_frames = SubResource("SpriteFrames_7odvg")
-animation = &"default"
+animation = &"slide"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -7)
 
-[node name="Detectors" type="Node2D" parent="." index="9" unique_id=602121509]
+[node name="Detectors" type="Node2D" parent="." index="12" unique_id=602121509]
 
 [node name="RightSweep" type="RayCast2D" parent="Detectors" index="0" unique_id=1899423237]
 target_position = Vector2(125, 48)
@@ -254,6 +309,8 @@ collision_mask = 3
 
 [node name="HomingArea" type="Area2D" parent="Detectors" index="2" unique_id=568901737]
 visible = false
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectors/HomingArea" index="0" unique_id=24767410]
 shape = SubResource("CircleShape2D_gf1t6")
