@@ -204,6 +204,10 @@ script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
 ELEC_GAUGE_MAX = 20.0
 REBOUND_LIMIT = 2
+ELEC_USAGE = Dictionary[String, float]({
+"boost": 1.0,
+"vault": 2.0
+})
 rightSweep = NodePath("Detectors/RightSweep")
 leftSweep = NodePath("Detectors/LeftSweep")
 FLOOR_ACCELERATION = 80.0
@@ -241,14 +245,15 @@ offset = Vector2(0, -7)
 [node name="Detectors" type="Node2D" parent="." index="9" unique_id=602121509]
 
 [node name="RightSweep" type="RayCast2D" parent="Detectors" index="0" unique_id=1899423237]
-target_position = Vector2(125, 62)
+target_position = Vector2(125, 48)
 collision_mask = 3
 
 [node name="LeftSweep" type="RayCast2D" parent="Detectors" index="1" unique_id=406886896]
-target_position = Vector2(-125, 62)
+target_position = Vector2(-125, 48)
 collision_mask = 3
 
 [node name="HomingArea" type="Area2D" parent="Detectors" index="2" unique_id=568901737]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detectors/HomingArea" index="0" unique_id=24767410]
 shape = SubResource("CircleShape2D_gf1t6")

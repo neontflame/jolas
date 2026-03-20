@@ -4,6 +4,7 @@ extends PlayerObject
 @export var SLIDE_FRICTION := 1.0
 @export var ELEC_GAUGE_MAX := 10.0
 @export var REBOUND_LIMIT := 2
+@export var ELEC_USAGE:Dictionary[String, float] = {}
 
 @export var rightSweep:RayCast2D
 @export var leftSweep:RayCast2D
@@ -11,32 +12,45 @@ extends PlayerObject
 var ELECTRICITY := 5.0
 
 var isParkouring := false
+var vaultCooldown := 0.0
 var reboundsDone := 0
 
 var isSliding := false
 signal slideTriggered
 
 func _process(_delta: float) -> void:
+	if ELECTRICITY < 0.0:
+		ELECTRICITY = 0.0
 	if ELECTRICITY > ELEC_GAUGE_MAX:
 		ELECTRICITY = ELEC_GAUGE_MAX
+	
+	if vaultCooldown > 0.0:
+		vaultCooldown -= deltaOne
 
 func handlePhys():
 	super.handlePhys()
 	plySprite.material.set_shader_parameter("line_thickness", ELECTRICITY/5.0)
 
 func handleParkour():
-	if sweeping_mob('right')[0] && Input.is_action_pressed("ctrl_right"):
-		jumping = true
-		invulnFrames = 10.0
-		motion.x = 900
-		motion.y = -400
-		sweeping_mob('right')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(50.0, 200.0))
-	if sweeping_mob('left')[0] && Input.is_action_pressed("ctrl_left"):
-		jumping = true
-		invulnFrames = 10.0
-		motion.x = -900
-		motion.y = -400
-		sweeping_mob('left')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(-50.0, 200.0))
+	if hasElec() and vaultCooldown <= 0.0:
+		if sweeping_mob('right')[0] && Input.is_action_pressed("ctrl_right"):
+			vaultCooldown = 15.0
+			print('vaulted')
+			jumping = true
+			ELECTRICITY -= ELEC_USAGE['vault']
+			invulnFrames = 10.0
+			motion.x = 900
+			motion.y = -500
+			sweeping_mob('right')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(50.0, 200.0))
+		if sweeping_mob('left')[0] && Input.is_action_pressed("ctrl_left"):
+			vaultCooldown = 15.0
+			print('vaulted')
+			jumping = true
+			ELECTRICITY -= ELEC_USAGE['vault']
+			invulnFrames = 10.0
+			motion.x = -900
+			motion.y = -500
+			sweeping_mob('left')[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(-50.0, 200.0))
 
 func sweeping_mob(dir:StringName) -> Array:
 	var isTrued := false
