@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxbgtfkmgohtg" path="res://Gamestuffs/IngameMenus/Quests/QuestsMenu.gd" id="1_7g8e5"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="1_7841g"]
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_3i2uy"]
 [ext_resource type="Texture2D" uid="uid://cb7oebxtpx6m0" path="res://Gamestuffs/IngameMenus/Quests/questThing1.png" id="2_afk5e"]
 [ext_resource type="PackedScene" uid="uid://cay6bt4mfu1jy" path="res://Gamestuffs/IngameMenus/Quests/QuestThingie.tscn" id="3_7g8e5"]
 [ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Gamestuffs/Fonts/tahoma.ttf" id="4_3i2uy"]
@@ -226,6 +227,15 @@ anim = NodePath("AnimationPlayer")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=430989390]
 
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=923430839]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=1612630842 instance=ExtResource("2_3i2uy")]
+position = Vector2(54, 39)
+
 [node name="Control" type="Control" parent="MenuCanvas" unique_id=1067520950]
 layout_mode = 3
 anchors_preset = 8
@@ -305,6 +315,7 @@ offset_left = -191.0
 offset_top = 170.0
 offset_right = 196.0
 offset_bottom = 194.0
+theme = ExtResource("1_7841g")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_3i2uy")
 theme_override_fonts/bold_font = ExtResource("7_mao8f")

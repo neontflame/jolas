@@ -33,6 +33,8 @@ var previous_state = null
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
+
+@export var MULTI_SENDOVER:Array[String] = []
 #endregion 
 
 #region Interesitng Variables
@@ -140,6 +142,7 @@ func _physics_process(delta: float) -> void:
 	if GPStats.is_multiplayer:
 		if is_multiplayer_authority():
 			curMap = GPStats.curMap
+			send_params()
 		visible = (curMap == GPStats.curMap)
 	
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
@@ -176,6 +179,7 @@ var ACCELERATION := 0.0
 var FRICTION := 0.0
 
 func handleMovement() -> void:
+	if not get_multi_status(): return
 	# Go my acceleratione.
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
@@ -389,3 +393,22 @@ func hitbox_exists(hitboxId:String = ''):
 		if hit.coolId == hitboxId:
 			return true
 	return false
+	
+# coiso que existe Explicitamente pra ser usado no multiplayer
+func send_params():
+	if len(MULTI_SENDOVER) <= 0: return
+	var properties:Dictionary[String, Variant] = {}
+	
+	for prop in MULTI_SENDOVER:
+		properties[prop] = get(prop)
+	
+	var m_api = Engine.get_main_loop().root.get_multiplayer()
+	
+	if m_api.multiplayer_peer is ENetMultiplayerPeer:
+		MultiplayerMayhem._player_send_params.rpc(get_multiplayer_authority(), properties)
+
+func get_params(properties:Dictionary[String, Variant]):
+	if GPStats.charObject == self: return
+	for prop in properties.keys():
+		# print(name, ' ', prop, ': ', get(StringName(prop)))
+		set(StringName(prop), properties[prop])

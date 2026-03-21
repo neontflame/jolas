@@ -8,3 +8,10 @@ func renderQuest(questName:StringName):
 		$QuestReward.text += "+%s xp" % QuestUtils.get_info(questName)['xpReward']
 	else:
 		$QuestReward.text += 'nada lmfao'
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("ui_up"):
+		$QuestContent.get_v_scroll_bar().value -= 2
+		
+	if Input.is_action_pressed("ui_down"):
+		$QuestContent.get_v_scroll_bar().value += 2

@@ -24,6 +24,12 @@ func _process(delta: float) -> void:
 		change_self_scene('res://Menustuffs/SaveMenu/SaveMenu.tscn')
 		CoolMenu.curSelected = GPStats.saveNum
 	
+	if Input.is_action_pressed("ui_up"):
+		$MenuCanvas/MidAnchor/CharInfo/Desc.get_v_scroll_bar().value -= 2
+		
+	if Input.is_action_pressed("ui_down"):
+		$MenuCanvas/MidAnchor/CharInfo/Desc.get_v_scroll_bar().value += 2
+		
 	if Input.is_action_just_pressed("ui_left"):
 		CoolMenu.play_sfx('Tick')
 		changeSel(-1)
@@ -63,7 +69,7 @@ func loadCharPreview(char:String):
 		$MenuCanvas/MidAnchor/CharInfo.add_child(charPreview)
 	
 	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char)['name']
-	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char)['desc']
+	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char)['desc'] + '\n'
 	
 	if GameUtils.get_char_info(char)['ability'] is Array:
 		for abilitee in GameUtils.get_char_info(char)['ability']:

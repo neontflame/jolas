@@ -16,8 +16,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="jolas.: Desbravações Abound"
 run/main_scene="uid://dc37lcidf852s"
+config/use_custom_user_dir=true
+config/custom_user_dir_name=".jolas"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bep52erpdihdj"
 
 [autoload]
 

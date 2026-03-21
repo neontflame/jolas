@@ -1,5 +1,11 @@
 {
 	"name": "Jake \"Sketcher\"",
 	"desc": "ele chegou atrasado",
-	"ability": "[color=#FFFF00]Eletricidade[/color]: (wip)"
+	"ability": [
+		"[color=#FFFF00]Spin Attack[/color]: ao apertar o botão de pulo no ar, você faz um chute girando pra frente",
+		"[color=#00FFFF]Eletricidade[/color]: voce tem uma barra de ELETRICIDADE ao seu dispor! suas habilidades dependem desta, entao use ela com cautela!",
+		"[color=#00E0FF]Parkour[/color]: segure ctrl_1. voce podera andar em paredes pra ajudar em toda sorte de Trickshots (a troco de sua ELETRICIDADE ser lentamente drenada)",
+		"[color=#00E0FF]Dash Attack[/color]: aperte ctrl_2! se voce estiver perto de um mob voce vai se lançar nele, caso contrário voce se lança pra frente",
+		"[color=#00E0FF]Boost[/color]: segure ctrl_2 para atingir inimagináveis níveis de velocidade - ao troco de ficar meio difícil de controlar sem os reflexos necessários"
+		]
 }

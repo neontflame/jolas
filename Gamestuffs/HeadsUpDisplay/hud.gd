@@ -30,7 +30,9 @@ func _process(delta: float) -> void:
 	
 	if !GPStats.charObject: return
 	# testLabel.text = 'vel x: ' + GeneralUtils.display_number(GPStats.charObject.motion.x) + ' | vel y: ' + GeneralUtils.display_number(GPStats.charObject.motion.y)
-	testLabel.text = 'FPS: ' + GeneralUtils.display_number(Engine.get_frames_per_second()) + ' | Memória: ' + FileUtils.format_bytes(OS.get_static_memory_usage())
+	testLabel.text = 'FPS: ' + GeneralUtils.display_number(Engine.get_frames_per_second()) 
+	if OS.is_debug_build():
+		testLabel.text += ' | Memória: ' + FileUtils.format_bytes(OS.get_static_memory_usage())
 	hpText.text = GeneralUtils.display_number(GPStats.charObject.hp) + "/" + str(GPStats.maxHP)
 	xpText.text = GeneralUtils.display_number(GPStats.xp) + "/" + str(GPStats.level * GPStats.lvLimit)
 	
