@@ -16,7 +16,7 @@ func fazSoco():
 	Player.soco = true
 	Player.make_hitbox(	Vector2(29.0, -5.0),
 								Vector2(1.9, 1.0),
-								Player.ATTACK_DMG['default'],
+								Player.ATTACK_DMG_LVL['default'],
 								250,
 								-15
 			)

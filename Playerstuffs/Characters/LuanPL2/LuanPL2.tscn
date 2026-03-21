@@ -37,23 +37,23 @@ animations = [{
 
 [node name="Player" unique_id=712617520 instance=ExtResource("1_uonol")]
 script = ExtResource("2_7quop")
-ATTACK_DMG = {
-"default": 5
-}
+ATTACK_DMG = Dictionary[String, float]({
+"default": 5.0
+})
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
 script = ExtResource("3_25oet")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="1" unique_id=1274865026]
 script = ExtResource("4_25oet")
 
-[node name="Hurt" parent="StateMachine" index="2"]
+[node name="Hurt" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="2" unique_id=1262889675]
 script = ExtResource("4_7quop")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
 scale = Vector2(0.245, 0.855)
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_7quop")
 animation = &"default"
