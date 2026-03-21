@@ -11,3 +11,4 @@ func _process(delta: float) -> void:
 			$ElecBar.size.y
 			)
 	)
+	$ElecBar.visible = GPStats.charObject.ELECTRICITY > 0.0

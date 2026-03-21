@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2ch8d0ruo4li"]
+
+[ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="1_nbd01"]
+
+[node name="CharSel" type="Node2D" unique_id=880851363]
+
+[node name="JakeIdle" type="Sprite2D" parent="." unique_id=527843530]
+position = Vector2(1, -72)
+texture = ExtResource("1_nbd01")

@@ -2,6 +2,7 @@ extends Node
 class_name GameUtils
 
 static var loadedMods:Array = []
+static var queuedMods:Array = []
 
 static var ipEntered:String = '127.0.0.1'
 static var portEntered:int = 7000
@@ -10,6 +11,11 @@ static var username:String = ''
 static var defaultMap:String = 'TheThing'
 
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher']
+
+static var majorVersion:int = 0
+static var minorVersion:int = 4
+static var patchVersion:int = 0
+static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")

@@ -9,7 +9,7 @@ var getMoused:bool = false
 
 func setup():
 	$Label.text = filename
-	if filename.ends_with('pck'):
+	if filename.ends_with('pck') or filename.ends_with('zip'):
 		$fileicon.play('pck')
 	elif filename.ends_with('/'):
 		$fileicon.play('folder')

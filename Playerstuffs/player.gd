@@ -151,7 +151,7 @@ func handleSonicPhys() -> void:
 		
 	# Sonic Physix
 	if is_on_floor():
-		if (up_direction.y > 0.3) && (abs(motion.x) < SOFT_MAX_SPEED * 0.3):
+		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
 			print('Get Outta Here')
 			motion.y = -50
 			print(motion)
@@ -383,3 +383,9 @@ func delete_hitboxes_actual(hitboxId:String = ''):
 
 func hitbox_connect(hit:OffensiveHitbox):
 	pass
+
+func hitbox_exists(hitboxId:String = ''):
+	for hit in hitboxCoisos.get_children():
+		if hit.coolId == hitboxId:
+			return true
+	return false

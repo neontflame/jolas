@@ -3,6 +3,7 @@ extends StatePattern
 var homing := false
 
 func enter_state():
+	Player.ELECTRICITY -= Player.ELEC_USAGE['dash']
 	Player.dashLine.clear_points()
 	Player.boostLine.visible = false
 	Player.dashLine.visible = true
@@ -11,11 +12,11 @@ func enter_state():
 	Player.get_node('CollisionShape2D2').disabled = true
 	Player.get_node('DashColl').disabled = false
 	
-	Player.play_sfx('Release', 0)
+	Player.play_char_sfx('Homing', 'Sketcher')
 
 	Player.jumping = false
 	Player.make_hitbox(	Vector2(0.0, 0.0),
-						Vector2(4.945, 1.0),
+						Vector2(4.945, 4.945),
 						Player.ATTACK_DMG_LVL['dash'],
 						900,
 						315,
@@ -46,11 +47,13 @@ func enter_state():
 		if Input.is_action_pressed("ctrl_left") \
 		or not Input.is_action_pressed("ctrl_right") and Player.plySprite.flip_h:
 			Player.plySprite.flip_h = true
-			Player.motion.x = -1400
+			Player.motion.x = -1600
 		else:
 			Player.plySprite.flip_h = false
-			Player.motion.x = 1400
-		await get_tree().create_timer(0.35).timeout
+			Player.motion.x = 1600
+		await get_tree().create_timer(0.25).timeout
+		if not Input.is_action_pressed("ctrl_left") and not Input.is_action_pressed("ctrl_right"):
+			Player.motion.x = Player.motion.x / 2
 		Player.change_state(Player.state_machine.st_floor)
 		Player.plySprite.play('jump')
 

@@ -100,16 +100,19 @@ horizontal_alignment = 1
 
 [node name="Desc" type="RichTextLabel" parent="MenuCanvas/MidAnchor/CharInfo" unique_id=1605418643]
 offset_left = 252.0
-offset_top = 187.0
+offset_top = 180.0
 offset_right = 774.0
 offset_bottom = 394.0
-theme_override_constants/line_separation = -10
+theme_override_constants/line_separation = -14
 theme_override_constants/paragraph_separation = 5
 theme_override_fonts/normal_font = ExtResource("6_a3aa5")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "left right left right left right down
-you got [color=#FF0000]another thing[/color] comin if you think i'll lose "
+you got [color=#FF0000]another thing[/color] comin if you think i'll lose 
+
+[color=FFFF00]Can you feel the fury[/color]: That primal rage
+"
 
 [node name="PreviewPos" type="Node2D" parent="MenuCanvas/MidAnchor/CharInfo" unique_id=1966942834]
 position = Vector2(133, 276)

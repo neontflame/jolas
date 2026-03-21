@@ -11,3 +11,5 @@ func update():
 		
 		if Mob.position.y > GPStats.charObject.position.x:
 			Mob.inputSimulation(0, -1)
+	else:
+		Mob.inputSimulation(0, 0)

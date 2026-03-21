@@ -13,7 +13,7 @@ spawnpointBack = NodePath("Spawnpoint")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804482860]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2125120820]
-polygon = PackedVector2Array(-185, -30, -179, 459, 610, 445, 807, 407, 966, 403, 1128, 431, 1249, 472, 1418, 559, 1539, 586, 1619, 579, 1677, 560, 1704, 536, 1719, 516, 1724, 493, 2364, 476, 2380, 386, 3010, 383, 3485, 267, 4506, 262, 5037, 299, 5037, 378, 4692, 481, 4346, 638, 4314, 780, 3999, 774, 3902, 670, 3578, 674, 3583, 897, 3894, 890, 4384, 909, 4665, 985, 4779, 1074, 4919, 1092, 5367, 1096, 5564, 1175, 5861, 1172, 6022, 1108, 6285, 1109, 6289, 1047, 6489, 1047, 6513, 1002, 6821, 992, 6765, 1280, 6007, 1276, 5367, 1286, 3605, 1346, 3380, 1338, 3260, 1264, 3098, 888, -467, 924, -467, -36)
+polygon = PackedVector2Array(-185, -30, -179, 459, 610, 445, 807, 407, 966, 403, 1128, 431, 1249, 472, 1418, 559, 1539, 586, 1619, 579, 1677, 560, 1704, 536, 1719, 516, 1724, 493, 2364, 476, 2380, 386, 3010, 383, 3485, 267, 4506, 262, 5037, 299, 5037, 378, 4692, 481, 4346, 638, 4311, 747, 3969, 747, 3902, 670, 3578, 674, 3583, 897, 3894, 890, 4384, 909, 4665, 985, 4779, 1074, 4919, 1092, 5367, 1096, 5564, 1175, 5861, 1172, 6022, 1108, 6285, 1109, 6289, 1047, 6489, 1047, 6513, 1002, 6821, 992, 7128, 987, 7133, -422, 7606, -437, 7571, 1284, 6007, 1276, 5367, 1286, 3605, 1346, 3380, 1338, 3260, 1264, 3098, 888, -467, 924, -467, -36)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=125449593]
 position = Vector2(0, 93)
@@ -24,6 +24,7 @@ polygon = PackedVector2Array(244, 397, 216, 589, 366, 537)
 position = Vector2(57, 427)
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1505819244]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" unique_id=1174665050 instance=ExtResource("2_onl2j")]
 position = Vector2(610, 266)
@@ -62,6 +63,30 @@ position = Vector2(3840, 193)
 
 [node name="TemplateMob3" parent="Sandlers" unique_id=1153184640 instance=ExtResource("3_3fjsp")]
 position = Vector2(5222, 1021)
+
+[node name="TemplateMob5" parent="Sandlers" unique_id=1411586705 instance=ExtResource("3_3fjsp")]
+position = Vector2(4112, 187)
+
+[node name="TemplateMob6" parent="Sandlers" unique_id=1266555092 instance=ExtResource("3_3fjsp")]
+position = Vector2(4304, 187)
+
+[node name="TemplateMob7" parent="Sandlers" unique_id=1495185463 instance=ExtResource("3_3fjsp")]
+position = Vector2(4488, 187)
+
+[node name="TemplateMob8" parent="Sandlers" unique_id=2613171 instance=ExtResource("3_3fjsp")]
+position = Vector2(4648, 187)
+
+[node name="TemplateMob9" parent="Sandlers" unique_id=903992582 instance=ExtResource("3_3fjsp")]
+position = Vector2(3572, 194)
+
+[node name="TemplateMob10" parent="Sandlers" unique_id=1979212097 instance=ExtResource("3_3fjsp")]
+position = Vector2(3316, 221)
+
+[node name="TemplateMob11" parent="Sandlers" unique_id=1644821327 instance=ExtResource("3_3fjsp")]
+position = Vector2(3081, 282)
+
+[node name="TemplateMob12" parent="Sandlers" unique_id=1267656589 instance=ExtResource("3_3fjsp")]
+position = Vector2(2530, 262)
 
 [node name="TemplateMob4" parent="Sandlers" unique_id=222768927 instance=ExtResource("3_3fjsp")]
 position = Vector2(6570, 911)
