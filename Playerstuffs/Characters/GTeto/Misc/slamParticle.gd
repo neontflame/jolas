@@ -11,5 +11,5 @@ func doYouWantTheMethod(a):
 	if a <= 0.0:
 		queue_free()
 
-func delete_hitboxes_actual():
+func delete_hitboxes_actual(hitboxId:String):
 	pass

@@ -12,7 +12,7 @@ static func spawn_object(name:String, pos:Vector2, variation:String = 'Default',
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
-			MultiplayerMayhem._spawn_object.rpc(name, pos, variation, additionalData)
+			MultiplayerMayhem._spawn_object.rpc(name, pos, variation, additionalData, GPStats.curMap)
 			
 	var object = load("res://Gamestuffs/Levelstuffs/Objects/" + name + "/" + variation + ".tscn").instantiate()
 	map.add_child(object)

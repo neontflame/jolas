@@ -349,6 +349,7 @@ func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float,
 	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
 func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
+	if GPStats.is_multiplayer && curMap != GPStats.curMap: return
 	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
 	hitbox.position = offset
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
@@ -372,14 +373,13 @@ func delete_hitboxes(hitboxId:String = ''):
 
 func delete_hitboxes_actual(hitboxId:String = ''):
 	for hit in hitboxCoisos.get_children():
-		match hitboxId:
-			'':
+		if hitboxId == '':
+			hitboxes.erase(hit)
+			hit.queue_free()
+		else:
+			if hit.coolId == hitboxId:
 				hitboxes.erase(hit)
 				hit.queue_free()
-			_:
-				if hit.coolId == hitboxId:
-					hitboxes.erase(hit)
-					hit.queue_free()
 
 func hitbox_connect(hit:OffensiveHitbox):
 	pass
