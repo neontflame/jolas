@@ -16,7 +16,7 @@ func enter_state():
 
 	Player.jumping = false
 	Player.make_hitbox(	Vector2(0.0, 0.0),
-						Vector2(4.945, 4.945),
+						Vector2(4.945, 3.945),
 						Player.ATTACK_DMG_LVL['dash'],
 						900,
 						315,

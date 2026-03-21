@@ -117,8 +117,9 @@ func _on_server_disconnected():
 ### Bullshitteria aleatoria sei la mano
 
 @rpc("any_peer", "reliable")
-func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Dictionary):
-	var obj = MapUtils.spawn_object_online(name, pos, variation, additionalData)
+func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Dictionary, map:String):
+	if map == GPStats.curMap:
+		var obj = MapUtils.spawn_object_online(name, pos, variation, additionalData)
 
 @rpc("any_peer", "reliable")
 func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String):

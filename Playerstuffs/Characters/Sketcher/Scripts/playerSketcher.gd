@@ -22,22 +22,22 @@ extends PlayerObject
 
 @export var boostSprite:AnimatedSprite2D
 
-var ELECTRICITY := 5.0
+var ELECTRICITY:float = 5.0
 
-var ctrl1held := 0.0
+var ctrl1held:float = 0.0
 
 var isParkouring := false
 var vaultCooldown := 0.0
 var reboundsDone := 0
 var reboundCountdown := 0.0
 
-var isSliding := false
+var isSliding:bool = false
 signal slideTriggered
 
-var isBoosting := false
+var isBoosting:bool = false
 
 var ctrl1diff = 12 # 5 frames
-var canDash := true
+var canDash:bool = true
 
 func _process(_delta: float) -> void:
 	if ELECTRICITY < 0.0:
@@ -171,7 +171,7 @@ func handleSonicPhys() -> void:
 var previousMotionY := 0.0
 var isRebounding := false
 
-func handleParkour():
+func handleRebounds():
 	if not is_on_floor():
 		reboundCountdown = 30.0
 		previousMotionY = motion.y
@@ -184,24 +184,28 @@ func handleParkour():
 					ELECTRICITY += ELEC_USAGE['rebound_reward']
 		if reboundCountdown <= 0.0:
 			reboundsDone = 0
+
+func handleParkour():
 	#if is_touching_elevation():
 		#print('JUUUMPPP')
 		#motion.y = -700
 		#perdao skech mas nao tava funcionando certo :wilted_rose:
+	ELECTRICITY -= ELEC_USAGE['parkour']
 	if is_touching_wall('left'):
 		up_direction = Vector2(1, 0)
 	if is_touching_wall('right'):
 		up_direction = Vector2(-1, 0)
-	if hasElec() and vaultCooldown <= 0.0:
-		if sweeping_mob('right')[0] && Input.is_action_pressed("ctrl_right"):
-			sweep_mob('right')
-			motion.x = 900
-			motion.y = -500
-		
-		if sweeping_mob('left')[0] && Input.is_action_pressed("ctrl_left"):
-			sweep_mob('left')
-			motion.x = -900
-			motion.y = -500
+	
+	#if hasElec() and vaultCooldown <= 0.0:
+		#if sweeping_mob('right')[0] && Input.is_action_pressed("ctrl_right"):
+			#sweep_mob('right')
+			#motion.x = 900
+			#motion.y = -500
+		#
+		#if sweeping_mob('left')[0] && Input.is_action_pressed("ctrl_left"):
+			#sweep_mob('left')
+			#motion.x = -900
+			#motion.y = -500
 
 func sweep_mob(dir:StringName):
 	vaultCooldown = 15.0
@@ -241,6 +245,7 @@ func sweeping_mob(dir:StringName) -> Array:
 func handleMovement() -> void:
 	super.handleMovement()
 	handleSlide()
+	handleRebounds()
 	if Input.is_action_pressed('ctrl_2'):
 		handleParkour()
 		isParkouring = true
