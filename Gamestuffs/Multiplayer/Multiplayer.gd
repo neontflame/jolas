@@ -121,14 +121,14 @@ func _spawn_object(name:String, pos:Vector2, variation:String, additionalData:Di
 	var obj = MapUtils.spawn_object_online(name, pos, variation, additionalData)
 
 @rpc("any_peer", "reliable")
-func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
 			if char.has_method('make_hitbox_actual'):
-				char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+				char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
 @rpc("any_peer", "reliable")
-func _player_delete_hitboxes(playerId:Variant):
+func _player_delete_hitboxes(playerId:Variant, hitboxId:String = ''):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
-			char.delete_hitboxes_actual()
+			char.delete_hitboxes_actual(hitboxId)

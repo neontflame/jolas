@@ -34,6 +34,8 @@ func randomQuote():
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
 func _ready() -> void:
+	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
+							versão %s - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % GameUtils.gameVersion
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():

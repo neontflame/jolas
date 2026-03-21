@@ -8,16 +8,16 @@ static func clear_all():
 	assignedQuests = []
 	clearedQuests = []
 
-static func assign(questName:StringName):
+static func assign(questName:String):
 	# voce nao pode refazer uma quest que voce ja completou!!
 	if assignedQuests.has(questName) or clearedQuests.has(questName): return
 	assignedQuests.append(questName)
 
-static func abandon(questName:StringName):
+static func abandon(questName:String):
 	if not assignedQuests.has(questName): return
 	assignedQuests.erase(questName)
 
-static func conclude(questName:StringName, additionalPerks:Callable = func():pass):
+static func conclude(questName:String, additionalPerks:Callable = func():pass):
 	if not assignedQuests.has(questName): return
 	assignedQuests.erase(questName)
 	clearedQuests.append(questName)
@@ -26,7 +26,7 @@ static func conclude(questName:StringName, additionalPerks:Callable = func():pas
 		UnlockUtils.unlock_char(get_info(questName)["unlocksChar"])
 	additionalPerks.call()
 
-static func get_info(questName:StringName):
+static func get_info(questName:String):
 	var queStuff = "res://Gamestuffs/Quests/%s.json" % questName
 	var questInfo = '' 
 	if !ResourceLoader.exists(queStuff):
@@ -42,7 +42,7 @@ static func get_info(questName:StringName):
 	var questGotten = JSON.parse_string(questInfo)
 	return questGotten
 
-static func get_icon(questIcon:StringName):
+static func get_icon(questIcon:String):
 	var iQuest = "res://Gamestuffs/IngameMenus/Quests/questIcons/%s.png" % questIcon
 	if ResourceLoader.exists(iQuest):
 		return load(iQuest)

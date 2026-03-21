@@ -4,6 +4,7 @@ var curPath:String = 'user://'
 var root:String = 'user://'
 var curItems:Array = []
 
+
 @export var boxWithABunchOfShitInIt:VBoxContainer
 
 func _ready() -> void:
@@ -44,12 +45,16 @@ func reload():
 
 func _process(delta: float) -> void:
 	$MenuCanvas/MidAnchor/ModLabel.text = str(len(GameUtils.loadedMods)) + (' mod carregado' if len(GameUtils.loadedMods) == 1 else ' mods carregados')
+	if len(GameUtils.queuedMods) > 0:
+		$MenuCanvas/MidAnchor/ModLabel.text += ', ' + str(len(GameUtils.queuedMods)) + (' mod em fila' if len(GameUtils.queuedMods) == 1 else ' mods em fila')
+	
 	for coolfile in boxWithABunchOfShitInIt.get_children():
 		if CoolMenu.curSelected != -1:
 			coolfile.selected = (coolfile.filename == curItems[CoolMenu.curSelected])
 		else:
 			coolfile.selected = false
-		coolfile.applied = (GameUtils.loadedMods.has(curPath + coolfile.filename))
+		coolfile.applied = (GameUtils.loadedMods.has(curPath + coolfile.filename) \
+						or GameUtils.queuedMods.has(curPath + coolfile.filename))
 		
 	if Input.is_action_just_pressed("ui_down"):
 		CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
@@ -71,17 +76,31 @@ func _process(delta: float) -> void:
 				print(curPath)
 				reload()
 				CoolMenu.play_sfx('Tick')
-			elif curItems[CoolMenu.curSelected].ends_with('.pck'):
-				if !GameUtils.loadedMods.has(curPath + curItems[CoolMenu.curSelected]):
-					ProjectSettings.load_resource_pack(curPath + curItems[CoolMenu.curSelected])
-					GameUtils.loadedMods.append(curPath + curItems[CoolMenu.curSelected])
-					CoolMenu.play_sfx('Go')
+			elif curItems[CoolMenu.curSelected].ends_with('.pck') || curItems[CoolMenu.curSelected].ends_with('.zip') :
+				loadMod(curPath + curItems[CoolMenu.curSelected])
+
+
+func loadMod(mod:String):
+	if !GameUtils.loadedMods.has(mod):
+		if ModUtils.is_mod_compatible(mod):
+			if ModUtils.get_mod_info(mod)['restartsGame']:
+				if not GameUtils.queuedMods.has(mod):
+					GameUtils.queuedMods.append(mod)
+			else:
+				ProjectSettings.load_resource_pack(mod)
+				GameUtils.loadedMods.append(mod)
+			CoolMenu.play_sfx('Go')
 
 func goBack():
 	CoolMenu.play_sfx('Back')
 	if curPath == root:
-		CoolMenu.curSelected = 4
-		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
+		if len(GameUtils.queuedMods) > 0:
+			CoolMenu.curSelected = 0
+			GameUtils.queuedMods.reverse()
+			get_tree().change_scene_to_file('res://DontTouchstuffs/QueuedModLoader.tscn')
+		else:
+			CoolMenu.curSelected = 4
+			change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	else:
 		# e hora de voltar
 		var lessPath:Array = curPath.split('/')

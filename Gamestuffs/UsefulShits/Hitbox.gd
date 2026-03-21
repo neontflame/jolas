@@ -14,6 +14,7 @@ var knockAngle:float = 0.0
 # 270 e cima
 # pq dai fica melhor de fazer conta
 var anglery:Vector2 = Vector2(0, 0)
+var coolId:String = ''
 
 # signal connectedHit(hit:OffensiveHitbox)
 
@@ -55,6 +56,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerObject or body is MobObject:
 		if body is MobObject:
 			body.theHarmer = proprietor
+			if body.isDead:
+				return
 		var connects = body.yeowch(damage, (knockAngle < 270.0 && knockAngle > 90.0), forceCtor) #case in point
 		if proprietor.has_method('hitbox_connect'): 
 			if connects:

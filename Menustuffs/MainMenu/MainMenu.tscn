@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmfb6a66cild4"]
+[gd_scene format=3 uid="uid://cmfb6a66cild4"]
 
 [ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
 [ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
@@ -134,17 +134,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainMenu" type="Node2D"]
+[node name="MainMenu" type="Node2D" unique_id=1285358264]
 script = ExtResource("1_yqxuh")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=1213536473]
 
-[node name="Logo" type="Sprite2D" parent="MenuCanvas"]
+[node name="Logo" type="Sprite2D" parent="MenuCanvas" unique_id=1098598753]
 position = Vector2(21, 18)
 texture = ExtResource("1_1hf02")
 centered = false
 
-[node name="Quote" type="Label" parent="MenuCanvas"]
+[node name="Quote" type="Label" parent="MenuCanvas" unique_id=1324006357]
 offset_left = 80.0
 offset_top = 91.0
 offset_right = 480.0
@@ -153,18 +153,19 @@ theme_override_fonts/font = ExtResource("2_yqxuh")
 theme_override_font_sizes/font_size = 18
 text = "insira uma quote engraçadinha aqui ou algo do tipo"
 
-[node name="Label" type="Label" parent="MenuCanvas"]
+[node name="Label" type="Label" parent="MenuCanvas" unique_id=2054991100]
 offset_left = 3.0
-offset_top = 465.0
+offset_top = 420.0
 offset_right = 544.0
-offset_bottom = 499.0
+offset_bottom = 497.0
 theme_override_colors/font_color = Color(0, 0, 0.6, 1)
 theme_override_fonts/font = SubResource("SystemFont_rdp1e")
 theme_override_font_sizes/font_size = 12
 text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
 termo \"jolas\" cunhado por hawnt, sketcher e zummy"
+vertical_alignment = 2
 
-[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=137990789]
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -177,45 +178,45 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Opts" type="Node2D" parent="MenuCanvas/RightAnchor"]
+[node name="Opts" type="Node2D" parent="MenuCanvas/RightAnchor" unique_id=1598082053]
 position = Vector2(-216, -86)
 
-[node name="jolar" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="jolar" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1879036811]
 sprite_frames = SubResource("SpriteFrames_ou8cy")
 animation = &"inactive"
 centered = false
 
-[node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1857426519]
 position = Vector2(0, 24)
 sprite_frames = SubResource("SpriteFrames_xkq5v")
 animation = &"active"
 centered = false
 
-[node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=28709202]
 position = Vector2(0, 64)
 sprite_frames = SubResource("SpriteFrames_nj4bg")
 animation = &"inactive"
 centered = false
 
-[node name="sobre" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="sobre" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1659143196]
 position = Vector2(0, 88)
 sprite_frames = SubResource("SpriteFrames_v3c3c")
 animation = &"inactive"
 centered = false
 
-[node name="addons" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="addons" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1258618933]
 position = Vector2(0, 136)
 sprite_frames = SubResource("SpriteFrames_5deut")
 animation = &"inactive"
 centered = false
 
-[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1362122675]
 position = Vector2(0, 168)
 sprite_frames = SubResource("SpriteFrames_e4pto")
 animation = &"inactive"
 centered = false
 
-[node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=509780394]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

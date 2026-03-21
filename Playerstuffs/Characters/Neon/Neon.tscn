@@ -161,26 +161,26 @@ size = Vector2(119, 39)
 
 [node name="Player" unique_id=1394251398 instance=ExtResource("1_pwpvx")]
 script = ExtResource("2_ewxw4")
-ATTACK_DMG = {
-"default": 3
-}
+ATTACK_DMG = Dictionary[String, float]({
+"default": 3.0
+})
 
-[node name="StateMachine" parent="." index="0"]
+[node name="StateMachine" parent="." index="0" unique_id=151957281]
 script = ExtResource("3_0onri")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" index="0" unique_id=1423393479]
 script = ExtResource("4_shed0")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" index="1" unique_id=1274865026]
 script = ExtResource("3_asxp3")
 
 [node name="ExtraState" type="Node" parent="StateMachine" index="3" unique_id=1095807314]
 script = ExtResource("5_k3kgu")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
 scale = Vector2(0.46, 0.68)
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
 animation = &"default"
 

@@ -3,6 +3,7 @@ extends PlayerObject
 #region Neon-specific
 var charge:float = 0.0
 var canDoCharge:bool = false
+
 var isSpecialing:bool = false
 var nonZeroXVel := 0.0
 #endregion

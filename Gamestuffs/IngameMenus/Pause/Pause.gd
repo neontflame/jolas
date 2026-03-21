@@ -61,9 +61,15 @@ func doSomething(opt:StringName):
 				hudchild.visible = false
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')
+			if GPStats.is_multiplayer:
+				CoolMenu.curSelected = 1
+				MultiplayerMayhem.remove_multiplayer_peer()
+			else:
+				CoolMenu.curSelected = 0
 			JolasGame.instance.fadeIn(1.0, func():
 				get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
 				)
+				
 		_:
 			canControl = true
 			CoolMenu.stop_sfx('Go')

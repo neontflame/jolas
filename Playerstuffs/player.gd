@@ -20,7 +20,7 @@ var previous_state = null
 @export var AIR_FRICTION = 0.9995
 @export var JUMP_COUNT = 1
 
-@export var ATTACK_DMG:Dictionary = {
+@export var ATTACK_DMG:Dictionary[String, float] = {
 	'default': 1
 }
 
@@ -76,6 +76,7 @@ var isSonicPhys:bool = false
 var practicalAngle := 0.0
 
 var movementEnabled:bool = true
+var walkingEnabled:bool = true #mostly for abilities to use
 
 var camOffset := Vector2(0.0, 0.0)
 #endregion
@@ -150,7 +151,7 @@ func handleSonicPhys() -> void:
 		
 	# Sonic Physix
 	if is_on_floor():
-		if (up_direction.y > 0.3) && (abs(motion.x) < SOFT_MAX_SPEED * 0.3):
+		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
 			print('Get Outta Here')
 			motion.y = -50
 			print(motion)
@@ -167,12 +168,15 @@ func handleSonicPhys() -> void:
 			# print(prevmotion)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
-			
-		
+
+var slopeMult := 1
+var slopeAdd = 0
+var slopeFactor = 0.0
+var ACCELERATION := 0.0
+var FRICTION := 0.0
+
 func handleMovement() -> void:
 	# Go my acceleratione.
-	var ACCELERATION := 0.0
-	var FRICTION := 0.0
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
 		FRICTION = FLOOR_FRICTION
@@ -203,29 +207,17 @@ func handleMovement() -> void:
 		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
 			holding_jump = false
 	
-	# Floor Physicque
-	var slopeMult := (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
-	var slopeAdd = 0
-	if is_on_floor():
-		practicalAngle = get_floor_normal().angle() + PI/2
-		floorSinCos = get_floor_normal()
-		
-		if (rad_to_deg(get_floor_angle()) > 5):
-			# sei la angulos sao estranhos
-			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
-	else:
-		slopeAdd = 0
-	
 	# walkfucks
 	motion.x += slopeAdd
-	if Input.is_action_pressed("ctrl_left"):
-		if (motion.x > -SOFT_MAX_SPEED * deltaOne):
-			motion.x -= ACCELERATION * deltaOne
-	elif Input.is_action_pressed("ctrl_right"):
-		if (motion.x < SOFT_MAX_SPEED * deltaOne):
-			motion.x += ACCELERATION * deltaOne
-	else:
-		motion.x = motion.x * (FRICTION * deltaOne) + slopeAdd
+	if walkingEnabled:
+		if Input.is_action_pressed("ctrl_left"):
+			if (motion.x > -SOFT_MAX_SPEED * slopeFactor * deltaOne):
+				motion.x -= ACCELERATION * deltaOne
+		elif Input.is_action_pressed("ctrl_right"):
+			if (motion.x < SOFT_MAX_SPEED * slopeFactor * deltaOne):
+				motion.x += ACCELERATION * deltaOne
+		else:
+			motion.x = motion.x * (FRICTION * deltaOne)
 	
 func handlePhys() -> void:
 	# Air Physicque
@@ -240,7 +232,24 @@ func handlePhys() -> void:
 		motion.y = 10
 	if is_on_wall():
 		motion.x = 0
+	
+	# Floor Physicque
+	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
+	if is_on_floor():
+		practicalAngle = get_floor_normal().angle() + PI/2
+		floorSinCos = get_floor_normal()
 		
+		if (rad_to_deg(get_floor_angle()) > 5):
+			# sei la angulos sao estranhos
+			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
+		else:
+			slopeAdd = 0
+		slopeFactor = 1.0 - (abs(floorSinCos.x) / 2.5)
+		# print(slopeFactor)
+	else:
+		slopeAdd = 0
+		slopeFactor = 1.0
+	
 	# Not Physix but we ball
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)
@@ -268,6 +277,7 @@ func change_state(new_state):
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
 	# increaseCombo()
+	print(_stunFrames)
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y
@@ -328,40 +338,54 @@ func add_xp(xp:float):
 # implementar hitboxes tipo as de jogo de luta 
 # pq eu sei que vao ter personagens que jogam tal como estes
 # ah eu ja fiz isso lmfao
-## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Cima btw
-func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Direita btw
+## direçao do knockAngle e horaria
+func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
-		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle)
+		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 	
-	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle)
+	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
-func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
+func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
 	hitbox.position = offset
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
+	hitbox.coolId = hitboxId
 	hitbox.fixAngles()
 
 ## e tipo o [method make_hitbox] so que com segundos antes
-func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float):
-	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle)
+func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
+	await make_hitbox(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 	await get_tree().create_timer(seconds).timeout
 	delete_hitboxes()
 
-func delete_hitboxes():
+func delete_hitboxes(hitboxId:String = ''):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
-		MultiplayerMayhem._player_delete_hitboxes.rpc(get_multiplayer_authority())
+		MultiplayerMayhem._player_delete_hitboxes.rpc(get_multiplayer_authority(), hitboxId)
 	
-	delete_hitboxes_actual()
+	delete_hitboxes_actual(hitboxId)
 
-func delete_hitboxes_actual():
+func delete_hitboxes_actual(hitboxId:String = ''):
 	for hit in hitboxCoisos.get_children():
-		hitboxes.erase(hit)
-		hit.queue_free()
+		match hitboxId:
+			'':
+				hitboxes.erase(hit)
+				hit.queue_free()
+			_:
+				if hit.coolId == hitboxId:
+					hitboxes.erase(hit)
+					hit.queue_free()
 
 func hitbox_connect(hit:OffensiveHitbox):
 	pass
+
+func hitbox_exists(hitboxId:String = ''):
+	for hit in hitboxCoisos.get_children():
+		if hit.coolId == hitboxId:
+			return true
+	return false

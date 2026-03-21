@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://4xxfjbk6ujt4"]
+
+[ext_resource type="Script" uid="uid://x3efu1blir15" path="res://Playerstuffs/Characters/Sketcher/Scripts/hudSketcher.gd" id="1_jxo51"]
+[ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="2_8utof"]
+[ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="3_qhmh0"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_41ewv"]
+
+[node name="Hud" type="Node2D" unique_id=1671161312]
+script = ExtResource("1_jxo51")
+
+[node name="ElecBarBG" type="Sprite2D" parent="." unique_id=1451712679]
+position = Vector2(114, 97)
+texture = ExtResource("2_8utof")
+centered = false
+
+[node name="ElecBar" type="NinePatchRect" parent="." unique_id=157277492]
+self_modulate = Color(1.393684, 1.393684, 1.393684, 1)
+offset_left = 114.0
+offset_top = 97.0
+offset_right = 211.0
+offset_bottom = 113.0
+texture = ExtResource("3_qhmh0")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HPText" type="Label" parent="." unique_id=1974852375]
+offset_left = 92.0
+offset_top = 73.0
+offset_right = 192.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_41ewv")
+theme_override_font_sizes/font_size = 18
+text = "ELETRICIDADE"

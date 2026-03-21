@@ -192,6 +192,7 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 		pInst.position = level.spawnpoint.position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
+	pInst.level_up()
 	print('== CHAR DICT ==')
 	print(charDict)
 	print('== END CHAR DICT ==')

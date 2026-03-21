@@ -25,6 +25,8 @@ var previous_state = null
 @export var strength:float = 1.0
 @export var xpGrant:float = 10.0
 
+@export var USES_BODY_AS_HITBOX:bool = true
+
 @export_group('Technical shit')
 @export var collisions:CollisionShape2D
 
@@ -164,7 +166,7 @@ func pd_body_exited(body: Node2D) -> void:
 
 # voce pode tentar combar eles agora
 func handlePlyHits(harmPlayer:bool = true):
-	if touchingPlayer:
+	if touchingPlayer && USES_BODY_AS_HITBOX:
 		if harmPlayer:
 			theHarmer = null
 			touchedPlayer.yeowch(strength, 
