@@ -128,7 +128,7 @@ func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damag
 				char.make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
 @rpc("any_peer", "reliable")
-func _player_delete_hitboxes(playerId:Variant):
+func _player_delete_hitboxes(playerId:Variant, hitboxId:String = ''):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
-			char.delete_hitboxes_actual()
+			char.delete_hitboxes_actual(hitboxId)
