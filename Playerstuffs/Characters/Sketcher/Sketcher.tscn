@@ -248,14 +248,6 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dsjf8"]
-properties/0/path = NodePath("DashLine:visible")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath("BoostLine:visible")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
 [node name="Sketcher" unique_id=2058036535 node_paths=PackedStringArray("rightSweep", "leftSweep", "downSweep", "rightWallSweep", "leftWallSweep", "homingArea", "dashLine", "boostLine", "boostSprite") instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
@@ -290,6 +282,7 @@ ATTACK_DMG = Dictionary[String, float]({
 "spinkick": 3.0,
 "vault": 0.025
 })
+MULTI_SENDOVER = Array[String](["ELECTRICITY", "isParkouring", "isBoosting", "evryFrame"])
 
 [node name="StateMachine" parent="." index="0" unique_id=151957281]
 script = ExtResource("3_3hf1s")
@@ -388,6 +381,3 @@ sprite_frames = SubResource("SpriteFrames_tfu3w")
 autoplay = "default"
 frame_progress = 0.3127585
 offset = Vector2(-30, 2)
-
-[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="." index="15" unique_id=1433273740]
-replication_config = SubResource("SceneReplicationConfig_dsjf8")

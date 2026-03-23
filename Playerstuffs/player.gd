@@ -33,6 +33,8 @@ var previous_state = null
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
+
+@export var MULTI_SENDOVER:Array[String] = []
 #endregion 
 
 #region Interesitng Variables
@@ -97,6 +99,7 @@ func _ready() -> void:
 	previous_state = state_machine.st_floor
 
 func _enter_tree() -> void:
+	# CODIGO DE QUANDO ENTRA NO MULTIPLAYER FAVOR NAO MEXER !!!
 	if GPStats.is_multiplayer:
 		playerID = name.to_int()
 		set_multiplayer_authority(playerID)
@@ -140,6 +143,7 @@ func _physics_process(delta: float) -> void:
 	if GPStats.is_multiplayer:
 		if is_multiplayer_authority():
 			curMap = GPStats.curMap
+			send_params()
 		visible = (curMap == GPStats.curMap)
 	
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
@@ -176,6 +180,7 @@ var ACCELERATION := 0.0
 var FRICTION := 0.0
 
 func handleMovement() -> void:
+	if not get_multi_status(): return
 	# Go my acceleratione.
 	if is_on_floor():
 		ACCELERATION = FLOOR_ACCELERATION
@@ -191,7 +196,7 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or jumpsDone < JUMP_COUNT):
+	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or jumpsDone <= JUMP_COUNT):
 		jumpsDone += 1
 		if isSonicPhys:
 			motion.y = JUMP_VELOCITY * deltaOne
@@ -202,6 +207,7 @@ func handleMovement() -> void:
 		motion.y -= abs(motion.x/2) * deltaOne * sin(get_floor_angle())
 		jumping = true
 		holding_jump = true
+		on_jump(jumpsDone)
 	
 	if holding_jump:
 		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
@@ -218,7 +224,7 @@ func handleMovement() -> void:
 				motion.x += ACCELERATION * deltaOne
 		else:
 			motion.x = motion.x * (FRICTION * deltaOne)
-	
+
 func handlePhys() -> void:
 	# Air Physicque
 	if not is_on_floor():
@@ -275,17 +281,17 @@ func change_state(new_state):
 		previous_state.exit_state()
 		current_state.enter_state()
 
-func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
-	# increaseCombo()
-	print(_stunFrames)
-	stunFrames = _stunFrames
-	if vel != Vector2(0, 0):
-		motion.y = vel.y
-		motion.x = (vel.x if fromBehind else -vel.x)
+func add_xp(xp:float):
+	if GPStats.charObject == self:
+		GPStats.xp += xp
 
-func increaseCombo():
-	comboFrames = 180.0
-	combo += 1
+func level_up():
+	# isso aqui ja depende mais do personagem
+	# mas por enquanto sure
+	for key in ATTACK_DMG.keys():
+		ATTACK_DMG_LVL[key] = ATTACK_DMG[key] * GPStats.level
+	print('seus ataques agora sao:')
+	print(ATTACK_DMG_LVL)
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
@@ -316,28 +322,22 @@ func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
 
-func get_multi_status():
-	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
-
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln
 
-func level_up():
-	# isso aqui ja depende mais do personagem
-	# mas por enquanto sure
-	for key in ATTACK_DMG.keys():
-		ATTACK_DMG_LVL[key] = ATTACK_DMG[key] * GPStats.level
-	print('seus ataques agora sao:')
-	print(ATTACK_DMG_LVL)
+#region Ataques e Hitboxes
+func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
+	# increaseCombo()
+	print(_stunFrames)
+	stunFrames = _stunFrames
+	if vel != Vector2(0, 0):
+		motion.y = vel.y
+		motion.x = (vel.x if fromBehind else -vel.x)
 
-func add_xp(xp:float):
-	if GPStats.charObject == self:
-		GPStats.xp += xp
+func increaseCombo():
+	comboFrames = 180.0
+	combo += 1
 
-## TODOs:
-# implementar hitboxes tipo as de jogo de luta 
-# pq eu sei que vao ter personagens que jogam tal como estes
-# ah eu ja fiz isso lmfao
 ## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Direita btw
 ## direçao do knockAngle e horaria
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
@@ -351,7 +351,16 @@ func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float,
 func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	if GPStats.is_multiplayer && curMap != GPStats.curMap: return
 	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
-	hitbox.position = offset
+	var theRotation = 0.0
+	if plySprite.flip_h:
+		theRotation = Vector2.from_angle(player_collisions.rotation)
+		theRotation.y = theRotation.y * -1
+		theRotation = theRotation.angle()
+	else:
+		theRotation = player_collisions.rotation
+		
+	hitbox.position = offset.rotated(theRotation)
+	hitbox.rotation = theRotation
 	hitbox.setUp(self, scale, _damage, _knockback, _knockAngle)
 	hitboxCoisos.add_child(hitbox)
 	hitbox.coolId = hitboxId
@@ -389,3 +398,33 @@ func hitbox_exists(hitboxId:String = ''):
 		if hit.coolId == hitboxId:
 			return true
 	return false
+#endregion
+
+#region Utilidades (Scripting)
+func on_jump(jumpNum:int):
+	pass
+#endregion
+
+#region Utilidades (Multiplayer)
+# coisos que existem Explicitamente pra serem usados no multiplayer
+func get_multi_status():
+	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
+
+func send_params():
+	if len(MULTI_SENDOVER) <= 0: return
+	var properties:Dictionary[String, Variant] = {}
+	
+	for prop in MULTI_SENDOVER:
+		properties[prop] = get(prop)
+	
+	var m_api = Engine.get_main_loop().root.get_multiplayer()
+	
+	if m_api.multiplayer_peer is ENetMultiplayerPeer:
+		MultiplayerMayhem._player_send_params.rpc(get_multiplayer_authority(), properties)
+
+func get_params(properties:Dictionary[String, Variant]):
+	if GPStats.charObject == self: return
+	for prop in properties.keys():
+		# print(name, ' ', prop, ': ', get(StringName(prop)))
+		set(StringName(prop), properties[prop])
+#endregion

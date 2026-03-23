@@ -18,6 +18,6 @@ func update():
 		Player.change_state(Player.state_machine.st_floor)
 
 func handleAnimations():
-	if PlayerUtils.is_jump_just_pressed() && Player.jumpsDone < Player.JUMP_COUNT:
+	if PlayerUtils.is_jump_just_pressed() && Player.jumpsDone <= Player.JUMP_COUNT:
 		Player.play_sfx('Jump', 10)
 		Player.plySprite.play('jump')

@@ -133,3 +133,10 @@ func _player_delete_hitboxes(playerId:Variant, hitboxId:String = ''):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
 			char.delete_hitboxes_actual(hitboxId)
+
+@rpc("any_peer", "reliable")
+func _player_send_params(playerId:Variant, properties:Dictionary[String, Variant]):
+	for char in JolasGame.instance.plyNode.get_children():
+		if char.get_multiplayer_authority() == playerId:
+			if char.has_method('get_params'):
+				char.get_params(properties)

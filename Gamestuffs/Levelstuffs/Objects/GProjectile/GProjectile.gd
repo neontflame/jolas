@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body):
 		if used: return
 		if body == projectileOwner: return
+		if body is MobObject and body.isDead: return
 		print(body.name + " entered!")
 		velocity = Vector2.ZERO
 		$MissileCollide.set_deferred("disabled", true)
@@ -44,11 +45,12 @@ func fuckingExplosione():
 	for body in get_overlapping_bodies():
 		# BOILERPLATE INSANO
 		if body is MobObject:
-			if body != projectileOwner:
-				if projectileOwner is PlayerObject: 
-					body.theHarmer = projectileOwner
-				body.yeowch(power, (body.position.x > position.x))
-			used = true
+			if not body.isDead:
+				if body != projectileOwner:
+					if projectileOwner is PlayerObject: 
+						body.theHarmer = projectileOwner
+					body.yeowch(power, (body.position.x > position.x))
+				used = true
 		
 		if body is PlayerObject:
 			if body != projectileOwner:

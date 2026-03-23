@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://bmrscbi0yasoh"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_qr8ng"]
+[ext_resource type="Texture2D" uid="uid://bdledy08dkkph" path="res://Playerstuffs/Characters/Henry/Sprites/henry sonicbattlespin0001.png" id="2_d1w5r"]
+[ext_resource type="Script" uid="uid://1t8b0f12ai0u" path="res://Playerstuffs/Characters/Henry/Scripts/playerHenry.gd" id="2_jlfop"]
+[ext_resource type="Script" uid="uid://cuugrtuu71jju" path="res://Playerstuffs/Characters/Henry/Scripts/floorStHenry.gd" id="3_gi3i2"]
+[ext_resource type="Texture2D" uid="uid://cgxj7hsyjt1ra" path="res://Playerstuffs/Characters/Henry/Sprites/henry sonicbattlespin0002.png" id="3_jlfop"]
+[ext_resource type="Script" uid="uid://btl6snpb4u1uc" path="res://Playerstuffs/Characters/Henry/Scripts/airStHenry.gd" id="3_lftin"]
+[ext_resource type="Texture2D" uid="uid://d1jo3nxsxq3bn" path="res://Playerstuffs/Characters/Henry/Sprites/henry sonicbattlespin0003.png" id="4_lftin"]
+[ext_resource type="Texture2D" uid="uid://h3nrey2l6lqs" path="res://Playerstuffs/Characters/Henry/Sprites/henry sonicbattlespin0004.png" id="5_gi3i2"]
+[ext_resource type="Texture2D" uid="uid://bp4l3g64h75je" path="res://Playerstuffs/Characters/Henry/Sprites/henry brake0001.png" id="6_7cnvo"]
+[ext_resource type="Texture2D" uid="uid://bitpe4dgc7nib" path="res://Playerstuffs/Characters/Henry/Sprites/henry brake0002.png" id="7_6phyh"]
+[ext_resource type="Texture2D" uid="uid://dauut18i4ad1n" path="res://Playerstuffs/Characters/Henry/Sprites/henry idle.png" id="8_378ge"]
+[ext_resource type="Texture2D" uid="uid://dql1e3os16khb" path="res://Playerstuffs/Characters/Henry/Sprites/henry fall0001.png" id="9_25ipl"]
+[ext_resource type="Texture2D" uid="uid://23okf7v6g0e1" path="res://Playerstuffs/Characters/Henry/Sprites/henry fall0002.png" id="10_a7ae5"]
+[ext_resource type="Texture2D" uid="uid://w2v2h0iuf7kl" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma10001.png" id="11_ugfn7"]
+[ext_resource type="Texture2D" uid="uid://dcegfn73icb7x" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma10002.png" id="12_wi2km"]
+[ext_resource type="Texture2D" uid="uid://dhoyarboxb1xh" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma10003.png" id="13_1vy24"]
+[ext_resource type="Texture2D" uid="uid://b4xbdpj4h4cvy" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma10004.png" id="14_16kb3"]
+[ext_resource type="Texture2D" uid="uid://chxfxb0buudjh" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma20001.png" id="15_kuib7"]
+[ext_resource type="Texture2D" uid="uid://b2b6lcd32o77g" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma20002.png" id="16_ovnda"]
+[ext_resource type="Texture2D" uid="uid://6adq1cyv5333" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma20003.png" id="17_kup78"]
+[ext_resource type="Texture2D" uid="uid://cwlc8fdaj8k3r" path="res://Playerstuffs/Characters/Henry/Sprites/henry arma20004.png" id="18_aqeds"]
+[ext_resource type="Texture2D" uid="uid://bcb3ard0wqerk" path="res://Playerstuffs/Characters/Henry/Sprites/henry hurt0001.png" id="19_hnifm"]
+[ext_resource type="Texture2D" uid="uid://dosxdovpm1mav" path="res://Playerstuffs/Characters/Henry/Sprites/henry hurt0002.png" id="20_f7dt3"]
+[ext_resource type="Texture2D" uid="uid://cl5qibfcpaugu" path="res://Playerstuffs/Characters/Henry/Sprites/henry jump0001.png" id="21_sxra5"]
+[ext_resource type="Texture2D" uid="uid://315m3ykvn53t" path="res://Playerstuffs/Characters/Henry/Sprites/henry jump0002.png" id="22_j1788"]
+[ext_resource type="Texture2D" uid="uid://cp1jvpx4kg8nx" path="res://Playerstuffs/Characters/Henry/Sprites/henry run0001.png" id="23_xsh1o"]
+[ext_resource type="Texture2D" uid="uid://bof8uti7t10cs" path="res://Playerstuffs/Characters/Henry/Sprites/henry run0002.png" id="24_chfsr"]
+[ext_resource type="Texture2D" uid="uid://dsy43w2qusyee" path="res://Playerstuffs/Characters/Henry/Sprites/henry walk0001.png" id="25_i4pff"]
+[ext_resource type="Texture2D" uid="uid://bxnrm4lu28enh" path="res://Playerstuffs/Characters/Henry/Sprites/henry walk0003.png" id="26_s5pi0"]
+[ext_resource type="Texture2D" uid="uid://dqb0bxmotsq20" path="res://Playerstuffs/Characters/Henry/Sprites/henry walk0005.png" id="27_6mi4n"]
+[ext_resource type="Texture2D" uid="uid://b3n8dnds7ia7u" path="res://Playerstuffs/Characters/Henry/Sprites/henry walk0007.png" id="28_g0ysh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvter"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1w5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jlfop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lftin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gi3i2")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7cnvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6phyh")
+}],
+"loop": false,
+"name": &"brake",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_378ge")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_25ipl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a7ae5")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ugfn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wi2km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1vy24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_16kb3")
+}],
+"loop": false,
+"name": &"gun1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_kuib7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ovnda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kup78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_aqeds")
+}],
+"loop": false,
+"name": &"gun2",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_hnifm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_f7dt3")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_sxra5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_j1788")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_xsh1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_chfsr")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_i4pff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_s5pi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6mi4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_g0ysh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[node name="Henry" unique_id=762964537 instance=ExtResource("1_qr8ng")]
+script = ExtResource("2_jlfop")
+GUN_SPEED_ADD = 50.0
+FLOOR_ACCELERATION = 50.5
+SOFT_MAX_SPEED = 550
+GRAVITY = 32.0
+JUMP_VELOCITY = -665
+FLOOR_FRICTION = 0.975
+JUMP_COUNT = 3
+
+[node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
+script = ExtResource("3_gi3i2")
+
+[node name="Air" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="1" unique_id=1274865026]
+script = ExtResource("3_lftin")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
+scale = Vector2(0.4, 0.725)
+
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
+sprite_frames = SubResource("SpriteFrames_dvter")
+animation = &"default"
+offset = Vector2(2, 0)

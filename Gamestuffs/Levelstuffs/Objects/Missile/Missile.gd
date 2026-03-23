@@ -17,7 +17,8 @@ var used := false
 #Set the velocity of the bullet
 #Call this right after creating the bullet to make it start moving
 func launch(direction:Vector2, speed:float):
-	$objSprite.play('missile')    
+	$objSprite.play('missile')
+	play_sfx('Objects/Rocketzx')
 	velocity = direction * speed    
 
 #This is automatically called every physics update.
@@ -38,6 +39,7 @@ func _on_body_entered(body):
 		
 func fuckingExplosione():
 	print('kaboom')
+	play_sfx('Objects/RocketExplode')
 	var strength:float = 243.75 + (power * 12.5 * 2)
 	if strength > 500:
 		strength = 500
@@ -101,3 +103,9 @@ func apply_additional_data(data: Dictionary):
 		if data["owner_id"] == -1:
 			missileOwner = GPStats.charObject
 		pass
+
+func play_sfx(name:String, volumeDB:float = 0.0):
+	if $AudioStreamPlayer2D.playing: $AudioStreamPlayer2D.stop()
+	$AudioStreamPlayer2D.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
+	$AudioStreamPlayer2D.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	$AudioStreamPlayer2D.play()

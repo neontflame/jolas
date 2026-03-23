@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_x8tw6"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_sdvf2"]
 [ext_resource type="Texture2D" uid="uid://bs0yvs4glmh1h" path="res://Menustuffs/DipshitMenu/DipshitBox.png" id="5_ohf5w"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="6_6m5v3"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_a3aa5"]
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="7_x8tw6"]
 [ext_resource type="Texture2D" uid="uid://c4xnwpqlk0y0j" path="res://Menustuffs/Commons/SetaAtiva1.png" id="8_6m5v3"]
@@ -103,7 +104,8 @@ offset_left = 252.0
 offset_top = 180.0
 offset_right = 774.0
 offset_bottom = 394.0
-theme_override_constants/line_separation = -14
+theme = ExtResource("6_6m5v3")
+theme_override_constants/line_separation = -12
 theme_override_constants/paragraph_separation = 5
 theme_override_fonts/normal_font = ExtResource("6_a3aa5")
 theme_override_font_sizes/normal_font_size = 18
@@ -116,6 +118,18 @@ you got [color=#FF0000]another thing[/color] comin if you think i'll lose
 
 [node name="PreviewPos" type="Node2D" parent="MenuCanvas/MidAnchor/CharInfo" unique_id=1966942834]
 position = Vector2(133, 276)
+
+[node name="Name2" type="Label" parent="MenuCanvas/MidAnchor/CharInfo" unique_id=601089915]
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 778.0
+offset_bottom = 406.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_fonts/font = SubResource("SystemFont_485od")
+theme_override_font_sizes/font_size = 12
+text = "use os direcionais!"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="IconSelect" type="Node2D" parent="MenuCanvas/MidAnchor" unique_id=1097782447]
 position = Vector2(-380, -230)
@@ -161,6 +175,7 @@ grow_vertical = 0
 position = Vector2(-36, 0)
 
 [node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=1728147951]
+visible = false
 self_modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0

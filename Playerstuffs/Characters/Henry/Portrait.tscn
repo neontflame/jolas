@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://sohas18ut81g"]
+
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_6m3b3"]
+[ext_resource type="Texture2D" uid="uid://utqpo7p3ek" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/portraitNormal0001.png" id="2_6m3b3"]
+[ext_resource type="Texture2D" uid="uid://lqfl801p3ua6" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/portraitNormal0002.png" id="3_t2jrn"]
+[ext_resource type="Texture2D" uid="uid://chiluysovbboq" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/portraitNormal0003.png" id="4_cy4xq"]
+[ext_resource type="Texture2D" uid="uid://bt3k40paorb1f" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry vazio0001.png" id="5_nw1g3"]
+[ext_resource type="Texture2D" uid="uid://b4glry6u3tobc" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry vazio0002.png" id="6_auemv"]
+[ext_resource type="Texture2D" uid="uid://bks1pmldopt2g" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry vazio0003.png" id="7_bn8ny"]
+[ext_resource type="Texture2D" uid="uid://bgva6a7a4ftoa" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry fuckingtriste portrait0001.png" id="8_0b7n7"]
+[ext_resource type="Texture2D" uid="uid://csb3saeskay6a" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry fuckingtriste portrait0002.png" id="9_ouh3j"]
+[ext_resource type="Texture2D" uid="uid://jpce5djbeun0" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry fuckingtriste portrait0003.png" id="10_i1agu"]
+[ext_resource type="Texture2D" uid="uid://i3j1y16guqip" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry thumbsup portrait0002.png" id="11_l5c86"]
+[ext_resource type="Texture2D" uid="uid://8jfr811hdbkd" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry thumbsup portrait0003.png" id="12_fsbq5"]
+[ext_resource type="Texture2D" uid="uid://b3sm6nttlmid2" path="res://Playerstuffs/Characters/Henry/Sprites/Portraits/henry thumbsup portrait0001.png" id="13_i5px4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thv2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6m3b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t2jrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cy4xq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nw1g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_auemv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bn8ny")
+}],
+"loop": false,
+"name": &"png",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0b7n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ouh3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i1agu")
+}],
+"loop": false,
+"name": &"sad",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_l5c86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fsbq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i5px4")
+}],
+"loop": false,
+"name": &"yeah",
+"speed": 12.0
+}]
+
+[node name="henryPort" type="Node2D" unique_id=1355552591]
+script = ExtResource("1_6m3b3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=908853406]
+position = Vector2(-2, -65)
+sprite_frames = SubResource("SpriteFrames_thv2l")
+animation = &"png"
+frame = 2
+frame_progress = 1.0

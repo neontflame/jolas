@@ -28,3 +28,14 @@ static func spawn_object_online(name:String, pos:Vector2, variation:String = 'De
 	if object.has_method("apply_additional_data") && additionalData != {}:
 		object.apply_additional_data(additionalData)
 	return object
+
+## auto-explicativo!
+## *molder* precisa ter uma propriedade "polygon"
+static func mold_smartshape(molded:SS2D_Shape, molder:Variant, close_shape:bool = true):
+	molded.get_point_array().clear()
+	molded.position = molder.position
+	
+	for point in molder.polygon:
+		molded.get_point_array().add_point(point)
+	if close_shape:
+		molded.get_point_array().close_shape()

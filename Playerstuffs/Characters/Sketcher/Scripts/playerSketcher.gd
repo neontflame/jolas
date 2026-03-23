@@ -26,7 +26,7 @@ var ELECTRICITY:float = 5.0
 
 var ctrl1held:float = 0.0
 
-var isParkouring := false
+var isParkouring:bool = false
 var vaultCooldown := 0.0
 var reboundsDone := 0
 var reboundCountdown := 0.0
@@ -38,6 +38,10 @@ var isBoosting:bool = false
 
 var ctrl1diff = 12 # 5 frames
 var canDash:bool = true
+
+func _enter_tree() -> void:
+	super._enter_tree()
+
 
 func _process(_delta: float) -> void:
 	if ELECTRICITY < 0.0:
@@ -81,6 +85,7 @@ func handleBoost():
 		return
 	
 	if not hasElec():
+		delete_hitboxes('boost')
 		isBoosting = false
 		return
 	
@@ -244,9 +249,10 @@ func sweeping_mob(dir:StringName) -> Array:
 
 func handleMovement() -> void:
 	super.handleMovement()
+	if GPStats.charObject != self: return
 	handleSlide()
 	handleRebounds()
-	if Input.is_action_pressed('ctrl_2'):
+	if Input.is_action_pressed('ctrl_2') && hasElec():
 		handleParkour()
 		isParkouring = true
 	else:
