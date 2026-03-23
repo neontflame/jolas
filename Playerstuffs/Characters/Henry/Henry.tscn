@@ -168,9 +168,11 @@ animations = [{
 
 [node name="Henry" unique_id=762964537 instance=ExtResource("1_qr8ng")]
 script = ExtResource("2_jlfop")
-GUN_SPEED_ADD = 150.0
+GUN_SPEED_ADD = 50.0
 FLOOR_ACCELERATION = 50.5
 SOFT_MAX_SPEED = 550
+GRAVITY = 32.0
+JUMP_VELOCITY = -665
 FLOOR_FRICTION = 0.975
 JUMP_COUNT = 3
 

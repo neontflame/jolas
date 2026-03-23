@@ -53,6 +53,6 @@ func makeGunClip(gunber:int):
 	thingie.position = position + Vector2(gunPos[gunber].x * (-1 if plySprite.flip_h else 1), gunPos[gunber].y)
 
 func on_jump(jumpNum:int):
-	if jumpNum > 1:
+	if jumpNum > 2:
 		var thingie = GameUtils.get_char_asset("Henry", "Misc/JumpFx.tscn").instantiate()
 		plySprite.add_child(thingie)
