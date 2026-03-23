@@ -5,5 +5,5 @@ class_name JolasLevel
 @export var spawnpointBack:Node2D
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _enter_tree() -> void:
 	MapUtils.set_map(self)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d0arww82s7gm7"]
+
+[ext_resource type="Script" uid="uid://dm5f8nxbpn81l" path="res://Playerstuffs/Characters/Henry/Misc/GunFx.gd" id="1_ncy67"]
+[ext_resource type="Texture2D" uid="uid://b2hky4ootwsgi" path="res://Playerstuffs/Characters/Henry/Sprites/Fx/clip fx.png" id="2_2f8cu"]
+
+[node name="GunFx" type="Node2D" unique_id=1805701117 node_paths=PackedStringArray("theClip")]
+script = ExtResource("1_ncy67")
+theClip = NodePath("ClipFx")
+
+[node name="ClipFx" type="Sprite2D" parent="." unique_id=155873036]
+position = Vector2(-1, -1)
+texture = ExtResource("2_2f8cu")

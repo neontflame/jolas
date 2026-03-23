@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cjaidvult07xn"]
+
+[ext_resource type="Texture2D" uid="uid://dauut18i4ad1n" path="res://Playerstuffs/Characters/Henry/Sprites/henry idle.png" id="1_6knkl"]
+
+[node name="CharSel" type="Node2D" unique_id=1703864185]
+
+[node name="HenryIdle" type="Sprite2D" parent="." unique_id=2128533133]
+position = Vector2(-1, -51)
+texture = ExtResource("1_6knkl")
