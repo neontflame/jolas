@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dpc3c1btrxg4p"]
+
+[ext_resource type="Script" uid="uid://djkf3qb68ap1h" path="res://Gamestuffs/IngameMenus/FastTravel/Pin.gd" id="1_renhi"]
+[ext_resource type="Texture2D" uid="uid://dufqdvgysmphk" path="res://Gamestuffs/IngameMenus/FastTravel/mapPinIrrelevant.png" id="2_cp035"]
+[ext_resource type="Texture2D" uid="uid://c13tefresy53w" path="res://Gamestuffs/IngameMenus/FastTravel/mapPinRelevant.png" id="3_g0lkw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apvy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cp035")
+}],
+"loop": true,
+"name": &"irrelevant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g0lkw")
+}],
+"loop": true,
+"name": &"relevant",
+"speed": 5.0
+}]
+
+[node name="Pin" type="Node2D" unique_id=432733768]
+script = ExtResource("1_renhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=526316481]
+sprite_frames = SubResource("SpriteFrames_apvy3")
+animation = &"relevant"

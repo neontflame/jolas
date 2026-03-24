@@ -7,7 +7,7 @@ static var preferences:Dictionary = {
 static var keyBince:Dictionary = {
 }
 
-# internalName:String, visibleName:String, optionery:Array, defValue:Variant
+# internalName:String, visibleName:String, optionery:Array[String], defValue:Variant
 static var coolOptiones:Array = [
 	['pref', 'Preferências', [], 0], # label
 		['buttonType', 'Tipos de botões na UI', ['Wii', 'Xbox 360', 'PS3', 'GameCube', 'Dreamcast', 'Teclado'], 0], #lembre-se de sempre usar o indice e nao o nome em si!
@@ -15,9 +15,10 @@ static var coolOptiones:Array = [
 		['volMaster', 'Mestre', ['slider'], 1.0],
 		['volSFX', 'Efeitos sonoros', ['slider'], 1.0],
 		['volBGM', 'Música', ['slider'], 1.0],
-	['conts', 'Controles', [], 0], # label
+	['conts', 'Controles e Gameplay', [], 0], # label
 		['tapJump', '"Tap Jump"', ['Não', 'Sim'], 1],
-		['keybinds', 'Keybinds', [''], 0]
+		['keybinds', 'Keybinds', [''], 0],
+		['speedZoom', 'Zoom menor em alta vel.', ['Não', 'Sim'], 1]
 ]
 static var bindList:Array = [
 		["ctrl_left", "Esquerda"],

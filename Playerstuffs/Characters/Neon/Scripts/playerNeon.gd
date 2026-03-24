@@ -16,15 +16,8 @@ func _physics_process(delta: float) -> void:
 		nonZeroXVel = motion.x
 
 func handleCameraSpecial() -> void:
+	super.handleCamera()
 	$Camera2D.position.x = lerp($Camera2D.position.x, (-charge if plySprite.flip_h else charge) / 10, 0.2)
-	$Camera2D.position.y = lerp($Camera2D.position.y, -motion.y / 10, 0.2)
-	
-	if abs(motion.x) > SOFT_MAX_SPEED * 1.25:
-		idealZoom = 0.825
-	else:
-		idealZoom = 1
-	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealZoom, 0.05), 
-								lerp($Camera2D.zoom.y, idealZoom, 0.05))
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	super.connectAttack(_stunFrames, fromBehind, vel)

@@ -163,7 +163,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 12.0
+"speed": 24.0
 }]
 
 [node name="Henry" unique_id=762964537 instance=ExtResource("1_qr8ng")]
@@ -175,6 +175,9 @@ GRAVITY = 32.0
 JUMP_VELOCITY = -665
 FLOOR_FRICTION = 0.975
 JUMP_COUNT = 3
+ATTACK_DMG = Dictionary[String, float]({
+"default": 0.5
+})
 
 [node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
 script = ExtResource("3_gi3i2")
@@ -187,5 +190,6 @@ scale = Vector2(0.4, 0.725)
 
 [node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
 sprite_frames = SubResource("SpriteFrames_dvter")
-animation = &"default"
+animation = &"gun2"
+autoplay = "default"
 offset = Vector2(2, 0)

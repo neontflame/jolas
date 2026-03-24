@@ -61,7 +61,9 @@ func createLevel(lvl:String):
 	if level: level.queue_free()
 	
 	level = load(GameUtils.get_map_path(lvl)).instantiate()
+	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
 	lvlNode.add_child(level)
+	MapUtils.set_map(level)
 	
 	GPStats.curMap = level.name
 	SaveUtils.save_game(GPStats.saveNum)
