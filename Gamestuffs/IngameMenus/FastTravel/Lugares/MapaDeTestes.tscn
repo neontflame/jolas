@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bbhguj3f8adm8"]
+
+[ext_resource type="Script" uid="uid://dfgcbul3rd7qa" path="res://Gamestuffs/IngameMenus/FastTravel/Lugares/LugarMapa.gd" id="1_aywg7"]
+[ext_resource type="Texture2D" uid="uid://dbwn1cg68yjxh" path="res://Gamestuffs/IngameMenus/FastTravel/Lugares/mapaDeTestes.png" id="1_o84g8"]
+[ext_resource type="PackedScene" uid="uid://dpc3c1btrxg4p" path="res://Gamestuffs/IngameMenus/FastTravel/Pin.tscn" id="2_4kjkx"]
+[ext_resource type="Texture2D" uid="uid://bd5aopvrphewb" path="res://Gamestuffs/IngameMenus/FastTravel/placeGoThing.png" id="4_tun8v"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="5_tun8v"]
+
+[node name="MapaDeTestes" type="Node2D" unique_id=56169299]
+script = ExtResource("1_aywg7")
+
+[node name="MapaDeTestes" type="Sprite2D" parent="." unique_id=497931961]
+texture = ExtResource("1_o84g8")
+
+[node name="Pins" type="Node2D" parent="." unique_id=11138046]
+
+[node name="Pin" parent="Pins" unique_id=432733768 instance=ExtResource("2_4kjkx")]
+position = Vector2(-87, 53)
+goto = Dictionary[String, String]({
+"DOWN": "-1",
+"LEFT": "-1",
+"RIGHT": "1",
+"UP": "1"
+})
+placeId = "TheThing"
+
+[node name="Pin2" parent="Pins" unique_id=994024770 instance=ExtResource("2_4kjkx")]
+position = Vector2(-7, 24)
+coolId = 1
+isRelevant = false
+goto = Dictionary[String, String]({
+"DOWN": "0",
+"LEFT": "0",
+"RIGHT": "-1",
+"UP": "2"
+})
+placeId = "Sandlerhell"
+
+[node name="Pin3" parent="Pins" unique_id=1593033098 instance=ExtResource("2_4kjkx")]
+position = Vector2(23, -31)
+coolId = 2
+isRelevant = false
+placeId = "OutroMapa"
+
+[node name="PlaceGoThing" type="Sprite2D" parent="." unique_id=1410134871]
+position = Vector2(-87, 43)
+texture = ExtResource("4_tun8v")
+offset = Vector2(0, -10)
+
+[node name="PlaceName" type="Label" parent="." unique_id=1843198917]
+offset_left = -211.0
+offset_top = 147.0
+offset_right = -1.0
+offset_bottom = 177.0
+theme = ExtResource("5_tun8v")
+theme_override_colors/font_color = Color(0.2509804, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Nome do lugar"
+
+[node name="RegName" type="Label" parent="." unique_id=287194055]
+offset_left = 2.0
+offset_top = 146.0
+offset_right = 213.0
+offset_bottom = 176.0
+theme = ExtResource("5_tun8v")
+theme_override_colors/font_color = Color(0.2509804, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Nome da região"
+horizontal_alignment = 2

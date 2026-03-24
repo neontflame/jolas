@@ -163,7 +163,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 12.0
+"speed": 24.0
 }]
 
 [node name="Henry" unique_id=762964537 instance=ExtResource("1_qr8ng")]
@@ -187,5 +187,6 @@ scale = Vector2(0.4, 0.725)
 
 [node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
 sprite_frames = SubResource("SpriteFrames_dvter")
-animation = &"default"
+animation = &"gun2"
+autoplay = "default"
 offset = Vector2(2, 0)

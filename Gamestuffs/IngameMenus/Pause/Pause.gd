@@ -4,12 +4,14 @@ extends "res://Menustuffs/Submenu.gd"
 
 var checkPositiones:Array[Vector2] = [
 	Vector2(-87.0, -39.0),
-	Vector2(-84.0, 7.0),
-	Vector2(-83.0, 53.0)
+	Vector2(-85.0, 12.0),
+	Vector2(-83.0, 53.0),
+	Vector2(-80.0, 98.0),
 ]
 
 var optssss:Array[StringName] = [
 	"resume",
+	"fasttravel",
 	"options",
 	"exit"
 ]
@@ -18,7 +20,7 @@ var canControl:bool = true
 
 func _ready() -> void:
 	CoolMenu.curSelected = 0
-	CoolMenu.maxSelected = 3
+	CoolMenu.maxSelected = len(optssss)
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('newThing')
 	$MenuCanvas/Control/SaveBox.renderPaused()
@@ -48,12 +50,21 @@ func doSomething(opt:StringName):
 		'resume':
 			JolasGame.instance.unpauseGame()
 			JolasGame.instance.hud.questIcon.rerenderCtrl()
+			GPStats.charObject.onUnpause()
 			# CoolMenu.instance.tweenOut()
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')
 			await get_tree().create_timer(0.5).timeout
 			CoolMenu.instance.unmakeMenu()
+		'fasttravel':
+			CoolMenu.play_sfx('Wrap')
+			$AnimationPlayer.play('getOut')
+			await get_tree().create_timer(0.5).timeout
+			change_self_scene('res://Gamestuffs/IngameMenus/FastTravel/FastTravel.tscn')
 		'options':
+			CoolMenu.play_sfx('Wrap')
+			$AnimationPlayer.play('getOut')
+			await get_tree().create_timer(0.5).timeout
 			change_self_scene('res://Menustuffs/OptionsMenu/OptionsMenu.tscn')
 		'exit':
 			SaveUtils.save_game(GPStats.saveNum)

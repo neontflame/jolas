@@ -8,7 +8,7 @@
 [node name="Sandlerhell" type="Node2D" unique_id=393013923 node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
 script = ExtResource("1_a86g7")
 spawnpoint = NodePath("Spawnpoint")
-spawnpointBack = NodePath("Spawnpoint")
+spawnpointBack = NodePath("BackSpawnpoint")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804482860]
 
@@ -22,6 +22,9 @@ polygon = PackedVector2Array(244, 397, 216, 589, 366, 537)
 
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=527226991]
 position = Vector2(57, 427)
+
+[node name="BackSpawnpoint" type="Node2D" parent="." unique_id=1176431338]
+position = Vector2(6938, 947)
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1505819244]
 visible = false
@@ -48,8 +51,8 @@ continuousX = true
 continuousY = true
 
 [node name="CameraBound5" parent="Camera regions" unique_id=108320811 instance=ExtResource("2_onl2j")]
-position = Vector2(5130.0005, 834)
-scale = Vector2(16.515, 3.655)
+position = Vector2(5312, 813.99994)
+scale = Vector2(17.895, 3.655)
 continuousX = true
 continuousY = true
 
@@ -89,10 +92,15 @@ position = Vector2(3081, 282)
 position = Vector2(2530, 262)
 
 [node name="TemplateMob4" parent="Sandlers" unique_id=222768927 instance=ExtResource("3_3fjsp")]
-position = Vector2(6570, 911)
+position = Vector2(6385, 977)
 
 [node name="GoToLevel" parent="." unique_id=1728564638 instance=ExtResource("4_xb70q")]
 position = Vector2(-129, 749.00006)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "TheThing"
 comingBack = true
+
+[node name="GoToLevel2" parent="." unique_id=314853009 instance=ExtResource("4_xb70q")]
+position = Vector2(7115, 882.00006)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "OutroMapa"

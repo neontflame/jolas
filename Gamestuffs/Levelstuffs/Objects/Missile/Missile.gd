@@ -18,7 +18,7 @@ var used := false
 #Call this right after creating the bullet to make it start moving
 func launch(direction:Vector2, speed:float):
 	$objSprite.play('missile')
-	play_sfx('Objects/Rocketzx')
+	play_sfx('Objects/Rocket')
 	velocity = direction * speed    
 
 #This is automatically called every physics update.

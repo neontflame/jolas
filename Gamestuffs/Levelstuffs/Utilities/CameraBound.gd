@@ -3,6 +3,7 @@ class_name CameraBound
 
 @export var continuousX:bool = false
 @export var continuousY:bool = false
+@export var idealZoom:float = 1.0
 # var otherCollidingCams = []
 var letTheBodies:Array = []
 # nos sequer precisamos dessa variavel ?
@@ -56,6 +57,7 @@ func _on_body_exited(body: Node2D) -> void:
 	
 func _physics_process(delta: float) -> void:
 	for body in letTheBodies:
+		body.idealZoom = idealZoom
 		body.coolCamera.limit_left = bounds.x
 		body.coolCamera.limit_right = bounds.x + bounds.width
 		body.coolCamera.limit_top = bounds.y

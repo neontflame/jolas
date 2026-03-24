@@ -20,6 +20,7 @@ static func save_game(slot:int):
 		"xp": GPStats.xp,
 		"maxHP": GPStats.maxHP,
 		"map": GPStats.curMap,
+		"exploredMaps": GPStats.exploredMaps,
 		"first-playtime": playstime,
 		"last-playtime": Time.get_unix_time_from_system(),
 		"assignedQuests": QuestUtils.assignedQuests,

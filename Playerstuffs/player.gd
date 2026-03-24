@@ -59,7 +59,10 @@ var stunFrames := 0.0
 var jumpsDone:int = 1
 
 var hitboxes:Array = []
+
 @onready var ATTACK_DMG_LVL:Dictionary = ATTACK_DMG.duplicate(true)
+
+@onready var canSpeedZoomCam:bool = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -260,16 +263,18 @@ func handlePhys() -> void:
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)
 
+var idealerZoom = 1.0
+
 func handleCamera() -> void:
 	$Camera2D.position.x = lerp($Camera2D.position.x, (velocity.x / 10) + camOffset.x, 0.2) + randf_range(-camShakeForce, camShakeForce)
 	$Camera2D.position.y = lerp($Camera2D.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
 	
-	if abs(motion.x) > SOFT_MAX_SPEED * 1.25:
-		idealZoom = 0.825
+	if (abs(motion.x) > SOFT_MAX_SPEED * 1.25) && canSpeedZoomCam:
+		idealerZoom = idealZoom - 0.175
 	else:
-		idealZoom = 1
-	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealZoom, 0.05), 
-								lerp($Camera2D.zoom.y, idealZoom, 0.05))
+		idealerZoom = idealZoom
+	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealerZoom, 0.05), 
+								lerp($Camera2D.zoom.y, idealerZoom, 0.05))
 
 # roubei do breno creditos pra ele
 func change_state(new_state):
@@ -427,4 +432,9 @@ func get_params(properties:Dictionary[String, Variant]):
 	for prop in properties.keys():
 		# print(name, ' ', prop, ': ', get(StringName(prop)))
 		set(StringName(prop), properties[prop])
+#endregion
+
+#region Utilidades (Misc)
+func onUnpause():
+	canSpeedZoomCam = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
 #endregion

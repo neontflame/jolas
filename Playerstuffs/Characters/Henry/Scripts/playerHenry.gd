@@ -15,6 +15,7 @@ func shootEm(gunber:int):
 	
 	play_char_sfx('Pistol', 'Henry', -2)
 	plySprite.play('gun' + str(gunber + 1))
+	plySprite.set_frame_and_progress(0, 0.0)
 	make_hitbox_timed(0.05, Vector2(423.0, 18.0),
 	Vector2(36.455, 0.435),
 	ATTACK_DMG_LVL['default'],
