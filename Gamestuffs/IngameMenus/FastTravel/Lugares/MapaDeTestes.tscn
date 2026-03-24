@@ -40,6 +40,12 @@ placeId = "Sandlerhell"
 position = Vector2(23, -31)
 coolId = 2
 isRelevant = false
+goto = Dictionary[String, String]({
+"DOWN": "1",
+"LEFT": "-1",
+"RIGHT": "-1",
+"UP": "-1"
+})
 placeId = "OutroMapa"
 
 [node name="PlaceGoThing" type="Sprite2D" parent="." unique_id=1410134871]

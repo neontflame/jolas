@@ -29,11 +29,10 @@ func goToThing(mapId:String):
 	GPStats.charObject.onUnpause()
 	CoolMenu.instance.unmakeMenu()
 	
-	if mapId != GPStats.curMap:
-		JolasGame.instance.fadeIn(0.5, 
-		func(): 
-			print('ok agora volta')
-			JolasGame.instance.createLevel(mapId)
-			JolasGame.instance.respawnPlayer(false, false)
-			JolasGame.instance.fadeOut(0.5)
-			)
+	JolasGame.instance.fadeIn(0.5, 
+	func(): 
+		print('ok agora volta')
+		JolasGame.instance.createLevel(mapId)
+		JolasGame.instance.respawnPlayer(false, false)
+		JolasGame.instance.fadeOut(0.5)
+		)

@@ -175,6 +175,9 @@ GRAVITY = 32.0
 JUMP_VELOCITY = -665
 FLOOR_FRICTION = 0.975
 JUMP_COUNT = 3
+ATTACK_DMG = Dictionary[String, float]({
+"default": 0.5
+})
 
 [node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
 script = ExtResource("3_gi3i2")

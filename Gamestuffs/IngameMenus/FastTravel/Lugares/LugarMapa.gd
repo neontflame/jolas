@@ -33,14 +33,15 @@ func _process(delta: float) -> void:
 							0.2)
 	
 	if canSelect:
-		if Input.is_action_just_pressed("ui_left"):
-			goToOtherPin(curSelected, 'LEFT')
-		if Input.is_action_just_pressed("ui_up"):
-			goToOtherPin(curSelected, 'UP')
-		if Input.is_action_just_pressed("ui_down"):
-			goToOtherPin(curSelected, 'DOWN')
-		if Input.is_action_just_pressed("ui_right"):
-			goToOtherPin(curSelected, 'RIGHT')
+		if len(thePins) > 0:
+			if Input.is_action_just_pressed("ui_left"):
+				goToOtherPin(curSelected, 'LEFT')
+			if Input.is_action_just_pressed("ui_up"):
+				goToOtherPin(curSelected, 'UP')
+			if Input.is_action_just_pressed("ui_down"):
+				goToOtherPin(curSelected, 'DOWN')
+			if Input.is_action_just_pressed("ui_right"):
+				goToOtherPin(curSelected, 'RIGHT')
 		if Input.is_action_just_pressed("ui_accept"):
 			CoolMenu.play_sfx('Go')
 			canSelect = false
