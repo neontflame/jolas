@@ -24,6 +24,8 @@ func _ready() -> void:
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('newThing')
 	$MenuCanvas/Control/SaveBox.renderPaused()
+	await get_tree().create_timer(0.01).timeout
+	selectry(0)
 
 func _process(_delta: float) -> void:
 	if canControl:
@@ -37,9 +39,9 @@ func _process(_delta: float) -> void:
 			doSomething(optssss[CoolMenu.curSelected])
 
 func selectry(selAmount:int):
-	print('test')
+	#print('test')
 	CoolMenu.curSelected = wrap(CoolMenu.curSelected + selAmount, 0, CoolMenu.maxSelected)
-	CoolMenu.play_sfx('Tick')
+	if selAmount != 0: CoolMenu.play_sfx('Tick')
 	checkestMark.position = checkPositiones[CoolMenu.curSelected]
 
 func doSomething(opt:StringName):

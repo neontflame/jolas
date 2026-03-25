@@ -9,10 +9,11 @@ func _process(delta: float) -> void:
 			gunCooldowns[coold] -= deltaOne
 
 func shootEm(gunber:int):
+	if gunCooldowns[gunber] > 0.0: return
 	jumping = false
-	if gunCooldowns[gunber ] > 0.0: return
-	gunCooldowns[gunber] = 3.0
+	gunCooldowns[gunber] = 10.0
 	
+	makeGunClip(gunber)
 	play_char_sfx('Pistol', 'Henry', -2)
 	plySprite.play('gun' + str(gunber + 1))
 	plySprite.set_frame_and_progress(0, 0.0)
@@ -37,12 +38,16 @@ func shootEm(gunber:int):
 func handleMovement():
 	super.handleMovement()
 	if movementEnabled:
-		if Input.is_action_just_pressed("ctrl_2"):
+		if Input.is_action_pressed("ctrl_2"):
 			shootEm(0)
-			makeGunClip(0)
-		if Input.is_action_just_pressed("ctrl_1"):
+		if Input.is_action_just_released("ctrl_2"):
+			if gunCooldowns[0] > 0.0:
+				gunCooldowns[0] = 0.0
+		if Input.is_action_pressed("ctrl_1"):
 			shootEm(1)
-			makeGunClip(1)
+		if Input.is_action_just_released("ctrl_2"):
+			if gunCooldowns[1] > 0.0:
+				gunCooldowns[1] = 0.0
 
 func makeGunClip(gunber:int):
 	var gunPos:Array[Vector2] = [

@@ -100,6 +100,7 @@ func _ready() -> void:
 		state.StateName = state.name
 	current_state = state_machine.st_floor
 	previous_state = state_machine.st_floor
+	PlayerUtils.set_default_zoom()
 
 func _enter_tree() -> void:
 	# CODIGO DE QUANDO ENTRA NO MULTIPLAYER FAVOR NAO MEXER !!!
@@ -270,9 +271,9 @@ func handleCamera() -> void:
 	$Camera2D.position.y = lerp($Camera2D.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
 	
 	if (abs(motion.x) > SOFT_MAX_SPEED * 1.25) && canSpeedZoomCam:
-		idealerZoom = idealZoom - 0.175
+		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom - 0.15)
 	else:
-		idealerZoom = idealZoom
+		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom)
 	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealerZoom, 0.05), 
 								lerp($Camera2D.zoom.y, idealerZoom, 0.05))
 
@@ -437,4 +438,5 @@ func get_params(properties:Dictionary[String, Variant]):
 #region Utilidades (Misc)
 func onUnpause():
 	canSpeedZoomCam = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
+	PlayerUtils.set_default_zoom()
 #endregion

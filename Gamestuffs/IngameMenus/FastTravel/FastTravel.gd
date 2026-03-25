@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')
 			await get_tree().create_timer(0.5).timeout
-			change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn')
+			change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn', 1)
 
 func goToThing(mapId:String):
 	canControl = false
