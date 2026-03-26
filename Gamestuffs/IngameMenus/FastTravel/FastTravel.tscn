@@ -1,11 +1,27 @@
-[gd_scene format=3 uid="uid://dhgahsaupt4oy"]
+[gd_scene load_steps=9 format=3 uid="uid://dhgahsaupt4oy"]
 
 [ext_resource type="Script" uid="uid://oymb4lw27jiq" path="res://Gamestuffs/IngameMenus/FastTravel/FastTravel.gd" id="1_4jg8c"]
 [ext_resource type="Texture2D" uid="uid://c65r1xebifob2" path="res://Gamestuffs/IngameMenus/FastTravel/mapaBg.png" id="2_tdrl1"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_v6li4"]
 [ext_resource type="PackedScene" uid="uid://bbhguj3f8adm8" path="res://Gamestuffs/IngameMenus/FastTravel/Lugares/MapaDeTestes.tscn" id="4_vwfdp"]
 
-[sub_resource type="Animation" id="Animation_1xe81"]
+[sub_resource type="Animation" id="Animation_4jg8c"]
+resource_name = "getIn"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.170755, 0.129408, 1),
+"update": 0,
+"values": [Vector2(1.25, 0), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v6li4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -20,25 +36,9 @@ tracks/0/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_hrges"]
-resource_name = "getIn"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.5),
-"transitions": PackedFloat32Array(0.32987693, 0.2176377, 1),
-"update": 0,
-"values": [Vector2(1.15, 1e-05), Vector2(0.95, 1.06), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_t2ov7"]
+[sub_resource type="Animation" id="Animation_vwfdp"]
 resource_name = "getOut"
-length = 0.5
+step = 0.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,35 +46,35 @@ tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06, 0.5),
-"transitions": PackedFloat32Array(0.14865091, 0.25881627, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.5),
+"transitions": PackedFloat32Array(0.170755, 0.129408, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.95, 1.06), Vector2(1.15, 1e-05)]
+"values": [Vector2(1, 1), Vector2(0.95, 1.05), Vector2(1.25, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcqkl"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xe81"]
 _data = {
-&"RESET": SubResource("Animation_1xe81"),
-&"getIn": SubResource("Animation_hrges"),
-&"getOut": SubResource("Animation_t2ov7")
+&"RESET": SubResource("Animation_v6li4"),
+&"getIn": SubResource("Animation_4jg8c"),
+&"getOut": SubResource("Animation_vwfdp")
 }
 
-[node name="FastTravel" type="Node2D" unique_id=833163870 node_paths=PackedStringArray("mapinha")]
+[node name="FastTravel" type="Node2D" node_paths=PackedStringArray("mapinha")]
 script = ExtResource("1_4jg8c")
 mapinha = NodePath("MenuCanvas/Control/MapaBg/MapaDeTestes")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=1366017563]
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
 
-[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1896356878]
+[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=765234006 instance=ExtResource("2_v6li4")]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_v6li4")]
 position = Vector2(54, 39)
 
-[node name="Control" type="Control" parent="MenuCanvas" unique_id=1859560131]
+[node name="Control" type="Control" parent="MenuCanvas"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,12 +88,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MapaBg" type="Sprite2D" parent="MenuCanvas/Control" unique_id=290676011]
+[node name="MapaBg" type="Sprite2D" parent="MenuCanvas/Control"]
 position = Vector2(20, 20)
 texture = ExtResource("2_tdrl1")
 
-[node name="MapaDeTestes" parent="MenuCanvas/Control/MapaBg" unique_id=56169299 instance=ExtResource("4_vwfdp")]
+[node name="MapaDeTestes" parent="MenuCanvas/Control/MapaBg" instance=ExtResource("4_vwfdp")]
 position = Vector2(2, 13)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1212577306]
-libraries/ = SubResource("AnimationLibrary_wcqkl")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1xe81")
+}

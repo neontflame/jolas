@@ -60,7 +60,7 @@ func triggerKeybindUpdate():
 	CoolMenu.play_sfx('Tick')
 
 func _unhandled_input(event: InputEvent) -> void:
-	if (event is InputEventKey) || (event is InputEventJoypadButton) || (event is InputEventJoypadMotion):
+	if (event is InputEventKey) || (event is InputEventJoypadButton) || (event is InputEventJoypadMotion) || (event is InputEventMouseButton):
 		if event.is_pressed():
 			InputMap.action_erase_events(optInternal)
 			InputMap.action_add_event(optInternal, event)

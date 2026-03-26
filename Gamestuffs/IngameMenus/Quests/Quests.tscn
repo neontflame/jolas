@@ -11,34 +11,6 @@
 [ext_resource type="Script" uid="uid://vi0w0bq7fh7w" path="res://Gamestuffs/IngameMenus/Quests/QuestExplainy.gd" id="6_m0e18"]
 [ext_resource type="FontFile" uid="uid://bfyut4smlslp3" path="res://Gamestuffs/Fonts/tahomabd.ttf" id="7_mao8f"]
 
-[sub_resource type="Animation" id="Animation_3i2uy"]
-resource_name = "getIn"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(0.406126, 0.0853775, 1),
-"update": 0,
-"values": [Vector2(1.25, 0), Vector2(0.95, 1.05), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MenuCanvas/Control/QuestThing:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, 8)]
-}
-
 [sub_resource type="Animation" id="Animation_ba5kw"]
 length = 0.001
 tracks/0/type = "value"
@@ -78,6 +50,34 @@ tracks/2/keys = {
 "values": [Vector2(755, 8)]
 }
 
+[sub_resource type="Animation" id="Animation_3i2uy"]
+resource_name = "getIn"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(0.406126, 0.0853775, 1),
+"update": 0,
+"values": [Vector2(1.25, 0), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
 [sub_resource type="Animation" id="Animation_m0e18"]
 resource_name = "getOut"
 step = 0.0333333
@@ -106,34 +106,6 @@ tracks/1/keys = {
 "values": [Vector2(8, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_mao8f"]
-resource_name = "showDesc"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.176, 1),
-"update": 0,
-"values": [Vector2(8, 8), Vector2(-208, 8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.176777, 1),
-"update": 0,
-"values": [Vector2(755, 8), Vector2(163, 8)]
-}
-
 [sub_resource type="Animation" id="Animation_agcyl"]
 resource_name = "hideDesc"
 step = 0.0333333
@@ -160,6 +132,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.176777, 1),
 "update": 0,
 "values": [Vector2(163, 8), Vector2(755, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_mao8f"]
+resource_name = "showDesc"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/QuestThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.176, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(-208, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/QuestThingDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.176777, 1),
+"update": 0,
+"values": [Vector2(755, 8), Vector2(163, 8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5xugv"]

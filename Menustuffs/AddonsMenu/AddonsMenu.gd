@@ -104,8 +104,7 @@ func goBack():
 	else:
 		# e hora de voltar
 		var lessPath:Array = curPath.split('/')
-		lessPath.remove_at(-1)
-		lessPath.remove_at(-1)
+		lessPath.resize(lessPath.size() - 2)
 		print(lessPath)
 		
 		curPath = ''
