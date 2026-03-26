@@ -22,7 +22,7 @@ config/name="jolas.: Desbravações Abound"
 run/main_scene="uid://dc37lcidf852s"
 config/use_custom_user_dir=true
 config/custom_user_dir_name=".jolas"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://bep52erpdihdj"
 
 [autoload]
