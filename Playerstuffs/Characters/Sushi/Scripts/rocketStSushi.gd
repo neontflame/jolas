@@ -2,7 +2,7 @@ extends StatePattern
 var usingMouse:bool = false
 
 func enter_state():
-	print('RRRRRRRRROCKET')
+	# print('RRRRRRRRROCKET')
 	usingMouse = false
 	Player.rocketIndicator.visible = true
 

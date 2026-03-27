@@ -160,7 +160,7 @@ func handleSonicPhys() -> void:
 	# Sonic Physix
 	if is_on_floor():
 		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
-			print('Get Outta Here')
+			# print('Get Outta Here')
 			motion.y = -50
 			print(motion)
 			up_direction = Vector2(0.0, -1.0)
@@ -296,8 +296,8 @@ func level_up():
 	# mas por enquanto sure
 	for key in ATTACK_DMG.keys():
 		ATTACK_DMG_LVL[key] = ATTACK_DMG[key] * GPStats.level
-	print('seus ataques agora sao:')
-	print(ATTACK_DMG_LVL)
+	# print('seus ataques agora sao:')
+	# print(ATTACK_DMG_LVL)
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
@@ -334,7 +334,7 @@ func get_invuln():
 #region Ataques e Hitboxes
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
 	# increaseCombo()
-	print(_stunFrames)
+	# print(_stunFrames)
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y

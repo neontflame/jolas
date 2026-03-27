@@ -112,7 +112,7 @@ func onUntouched(body):
 
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
-	print(vel)
+	# print(vel)
 	if isDead:
 		return false
 	if theHarmer:

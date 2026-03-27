@@ -8,7 +8,8 @@ static func set_map(lv:JolasLevel):
 
 static func spawn_object(name:String, pos:Vector2, variation:String = 'Default', additionalData:Dictionary = {}):
 # sabe a gente ate poderia fazer o additionalData ser na verdade um Callable
-# mas o multiplayer embutido na godot e meio cu ent isso e impossivel
+# mas nao tem como voce esperar que um pointer de o mesmo resultado em um pc do outro lado do pais
+# ent logicamente isso e impossivel
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:

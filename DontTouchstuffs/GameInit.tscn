@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1m18oeu0ix3m"]
+
+[ext_resource type="Script" uid="uid://bgvfbmf1ljcfl" path="res://DontTouchstuffs/GameInit.gd" id="1_8s201"]
+
+[node name="GameInit" type="Node2D"]
+script = ExtResource("1_8s201")

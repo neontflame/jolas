@@ -129,7 +129,7 @@ func handleCtrlOne():
 		if Input.is_action_just_released("ctrl_1"):
 			delete_hitboxes('boost')
 			isBoosting = false
-			print(ctrl1held)
+			# print(ctrl1held)
 			if ctrl1held <= ctrl1diff and canDash and hasElec():
 				change_state(state_machine.st_dash)
 				canDash = false
@@ -156,7 +156,7 @@ func handleSonicPhys() -> void:
 		# print(abs(motion.x), ' ', SOFT_MAX_SPEED, ' ')
 		if (up_direction.y > -0.4) && (abs(motion.x) < SOFT_MAX_SPEED):
 			if not isParkouring:
-				print('Get Outta Here')
+				# print('Get Outta Here')
 				motion.y = -50
 				print(motion)
 				up_direction = Vector2(0.0, -1.0)
@@ -290,7 +290,7 @@ func get_invuln():
 	return (invulnFrames > 0) || fullInvuln || isBoosting || current_state.name == 'Dash'
 	
 func hitbox_connect(hit:OffensiveHitbox):
-	print('connec')
+	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	
 	match hit.coolId:

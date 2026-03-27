@@ -18,11 +18,11 @@ func _enter_tree() -> void:
 
 func _on_body_entered(body):
 		if body == fxOwner: return
-		print(body.name + " entered!")
+		# print(body.name + " entered!")
 		call_deferred("crossfire")
 		
 func crossfire():
-	print('yeouch')
+	# print('yeouch')
 	for body in get_overlapping_bodies():
 		if body is MobObject:
 			if body != fxOwner:
