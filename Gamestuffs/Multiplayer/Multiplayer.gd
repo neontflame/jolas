@@ -23,7 +23,8 @@ var players = {}
 var player_info = 	{
 					"name": GameUtils.username,
 					"char": GPStats.char,
-					"loaded-mods": GameUtils.loadedMods
+					"loaded-mods": GameUtils.loadedMods,
+					"loaded-mods-folderless": GameUtils.loadedModsFolderless,
 					}
 					
 var players_loaded = 0
@@ -91,8 +92,10 @@ func _register_player(new_player_info):
 	if multiplayer.is_server():
 		var server_mods = player_info['loaded-mods'] # Or players[1]['loaded-mods']
 		var joining_mods = new_player_info['loaded-mods']
+		var joining_mods_foldless = new_player_info['loaded-mods-folderless']
 		
-		if !GeneralUtils.check_array_compat(server_mods, joining_mods):
+		if !GeneralUtils.check_array_compat(server_mods, joining_mods) \
+		and !GeneralUtils.check_array_compat_lenient(server_mods, joining_mods_foldless):
 			print('Mod mismatch! Kicking peer:', new_player_id)
 			multiplayer.multiplayer_peer.disconnect_peer(new_player_id)
 			return # STOP execution here. Do not add to dict.

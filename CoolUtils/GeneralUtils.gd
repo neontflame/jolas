@@ -37,6 +37,14 @@ static func check_array_compat(array1:Array, array2:Array):
 	# tem q ver dos dois lados neh
 	return true
 
+static func check_array_compat_lenient(array1:Array, array2:Array):
+	for thingOne in array1:
+		for thingTwo in array2:
+			if thingOne is String and thingTwo is String:
+				if thingTwo.contains(thingOne) or thingOne.contains(thingTwo):
+					return true
+	return false
+
 static func text_replacery(string:String):
 	# isso e pra ser usado com BBCODE !!!!! RAAHH
 	var stringReplacies:Array = [

@@ -2,6 +2,7 @@ extends Node
 class_name GameUtils
 
 static var loadedMods:Array = []
+static var loadedModsFolderless:Array = []
 static var queuedMods:Array = []
 
 static var ipEntered:String = '127.0.0.1'
@@ -13,8 +14,8 @@ static var defaultMap:String = 'TheThing'
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry']
 
 static var majorVersion:int = 0
-static var minorVersion:int = 5
-static var patchVersion:int = 4
+static var minorVersion:int = 6
+static var patchVersion:int = 0
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
 static func get_chars():

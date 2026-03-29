@@ -89,6 +89,7 @@ func loadMod(mod:String):
 			else:
 				ProjectSettings.load_resource_pack(mod)
 				GameUtils.loadedMods.append(mod)
+				GameUtils.loadedModsFolderless.append(mod.get_file())
 			CoolMenu.play_sfx('Go')
 
 func goBack():

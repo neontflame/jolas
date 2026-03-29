@@ -28,6 +28,7 @@ func _ready() -> void:
 				print('Carregando mod: %s' % mod)
 				ProjectSettings.load_resource_pack(mod)
 				GameUtils.loadedMods.append(mod)
+				GameUtils.loadedModsFolderless.append(mod.get_file())
 			print('Total de mods carregados: %s' % len(GameUtils.queuedMods))
 			GameUtils.queuedMods = []
 		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
