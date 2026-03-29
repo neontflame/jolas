@@ -100,6 +100,7 @@ func _ready() -> void:
 		state.StateName = state.name
 	current_state = state_machine.st_floor
 	previous_state = state_machine.st_floor
+	PlayerUtils.set_default_zoom()
 
 func _enter_tree() -> void:
 	# CODIGO DE QUANDO ENTRA NO MULTIPLAYER FAVOR NAO MEXER !!!
@@ -159,7 +160,7 @@ func handleSonicPhys() -> void:
 	# Sonic Physix
 	if is_on_floor():
 		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
-			print('Get Outta Here')
+			# print('Get Outta Here')
 			motion.y = -50
 			print(motion)
 			up_direction = Vector2(0.0, -1.0)
@@ -270,9 +271,9 @@ func handleCamera() -> void:
 	$Camera2D.position.y = lerp($Camera2D.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
 	
 	if (abs(motion.x) > SOFT_MAX_SPEED * 1.25) && canSpeedZoomCam:
-		idealerZoom = idealZoom - 0.175
+		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom - 0.15)
 	else:
-		idealerZoom = idealZoom
+		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom)
 	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealerZoom, 0.05), 
 								lerp($Camera2D.zoom.y, idealerZoom, 0.05))
 
@@ -295,8 +296,8 @@ func level_up():
 	# mas por enquanto sure
 	for key in ATTACK_DMG.keys():
 		ATTACK_DMG_LVL[key] = ATTACK_DMG[key] * GPStats.level
-	print('seus ataques agora sao:')
-	print(ATTACK_DMG_LVL)
+	# print('seus ataques agora sao:')
+	# print(ATTACK_DMG_LVL)
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
@@ -333,7 +334,7 @@ func get_invuln():
 #region Ataques e Hitboxes
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
 	# increaseCombo()
-	print(_stunFrames)
+	# print(_stunFrames)
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y
@@ -437,4 +438,5 @@ func get_params(properties:Dictionary[String, Variant]):
 #region Utilidades (Misc)
 func onUnpause():
 	canSpeedZoomCam = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
+	PlayerUtils.set_default_zoom()
 #endregion

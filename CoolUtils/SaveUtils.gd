@@ -2,6 +2,7 @@ extends Node
 class_name SaveUtils
 
 static func save_game(slot:int):
+	if GPStats.is_dedicated_server: return
 	var playstime = 0.0
 	
 	if get_save_info(slot)['new'] == true || !get_save_info(slot)['first-playtime']:

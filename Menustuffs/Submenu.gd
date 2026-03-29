@@ -7,9 +7,11 @@ static var instance
 func _enter_tree() -> void:
 	Submenu.instance = self
 
-func change_self_scene(coolscene:String):
+func change_self_scene(coolscene:String, newCurSel:int = -1):
 	if Submenu.saveMenu: Submenu.saveMenu.queue_free()
 	Submenu.saveMenu = load(coolscene).instantiate()
 	get_parent().add_child(Submenu.saveMenu)
 	Submenu.saveMenu.z_index = z_index
+	if newCurSel != -1:
+		CoolMenu.curSelected = newCurSel
 	call_deferred('queue_free')

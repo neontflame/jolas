@@ -16,6 +16,7 @@ static var modded := false
 
 #region Multiplayer variables
 static var is_multiplayer := false
+static var is_dedicated_server := false
 static var is_hosting := false
 static var multiplayerID:Variant = -1
 #endregion

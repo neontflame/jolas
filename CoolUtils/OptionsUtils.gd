@@ -18,7 +18,8 @@ static var coolOptiones:Array = [
 	['conts', 'Controles e Gameplay', [], 0], # label
 		['tapJump', '"Tap Jump"', ['Não', 'Sim'], 1],
 		['keybinds', 'Keybinds', [''], 0],
-		['speedZoom', 'Zoom menor em alta vel.', ['Não', 'Sim'], 1]
+		['speedZoom', 'Zoom menor em alta vel.', ['Não', 'Sim'], 1],
+		['genZoom', 'Zoom da câmera', ['slider'], 0.5]
 ]
 static var bindList:Array = [
 		["ctrl_left", "Esquerda"],

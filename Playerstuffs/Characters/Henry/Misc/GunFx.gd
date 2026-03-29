@@ -4,7 +4,7 @@ extends Node2D
 var velocity:Vector2 = Vector2(0,0)
 
 func _ready() -> void:
-	print('hello')
+	# print('hello')
 	velocity = Vector2(
 		randf_range(-2, 2),
 		randf_range(-2, -10)

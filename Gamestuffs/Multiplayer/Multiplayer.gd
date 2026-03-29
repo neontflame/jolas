@@ -31,8 +31,10 @@ var players_loaded = 0
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
+	
 	multiplayer.connected_to_server.connect(_on_connected_ok)
 	multiplayer.connection_failed.connect(_on_connected_fail)
+	
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 func join_game(address = ""):
@@ -54,6 +56,7 @@ func create_game():
 
 	players[1] = player_info
 	player_connected.emit(1, player_info)
+	print('Server aberto na porta %s' % GameUtils.portEntered)
 
 func remove_multiplayer_peer():
 	if multiplayer != null:
@@ -78,7 +81,8 @@ func player_loaded():
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id):
-	_register_player.rpc_id(id, player_info)
+	if not GPStats.is_dedicated_server:
+		_register_player.rpc_id(id, player_info)
 
 @rpc("any_peer", "reliable")
 func _register_player(new_player_info):

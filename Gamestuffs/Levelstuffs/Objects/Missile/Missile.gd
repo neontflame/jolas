@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body):
 		if used: return
-		print(body.name + " entered!")
+		# print(body.name + " entered!")
 		velocity = Vector2.ZERO
 		$MissileCollide.set_deferred("disabled", true)
 		$objSprite.play('explode')
@@ -38,7 +38,7 @@ func _on_body_entered(body):
 		call_deferred("fuckingExplosione")
 		
 func fuckingExplosione():
-	print('kaboom')
+	# print('kaboom')
 	play_sfx('Objects/RocketExplode')
 	var strength:float = 243.75 + (power * 12.5 * 2)
 	if strength > 500:

@@ -30,5 +30,5 @@ func level_up():
 	super.level_up()
 
 func hitbox_connect(hit:OffensiveHitbox):
-	print('connec')
+	# print('connec')
 	connectAttack(2, (hitboxCoisos.scale.x == -1), Vector2(250, -250))
