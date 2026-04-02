@@ -37,7 +37,7 @@ static func get_chars():
 	return trueCharlist
 	
 static func get_maps():
-	var lvlList:Array = ResourceLoader.list_directory("res://Gamestuffs/Levelstuffs/Levels/")
+	var lvlList:Array = ResourceLoader.list_directory("res://Levelstuffs/Levels/")
 	var trueLvlList:Array = []
 	
 	for lvl in lvlList:
@@ -84,7 +84,7 @@ static func existing_char(char:String):
 	else: return 'Neon'
 	
 static func get_map_info(lvl:String):
-	var lvlStuff = "res://Gamestuffs/Levelstuffs/Levels/" + lvl + ".json"
+	var lvlStuff = "res://Levelstuffs/Levels/" + lvl + ".json"
 	var lvlInfo = ''
 	if !ResourceLoader.exists(lvlStuff):
 		lvlInfo = '{
@@ -98,4 +98,4 @@ static func get_map_info(lvl:String):
 	return lvlGotten
 
 static func get_map_path(map:String):
-	return "res://Gamestuffs/Levelstuffs/Levels/" + map + ".tscn"
+	return "res://Levelstuffs/Levels/" + map + ".tscn"

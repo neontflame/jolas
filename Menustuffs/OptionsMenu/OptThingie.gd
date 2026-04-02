@@ -61,6 +61,8 @@ func _process(delta: float) -> void:
 							0.2)
 	
 	if selected:
+		if Input.is_action_just_pressed("ui_delete"):
+			revertThing()
 		if validOpts == ['slider']:
 			if Input.is_action_pressed("ui_right"):
 				$Option/OptSlider.value += 0.02
@@ -90,6 +92,15 @@ func changeThing(howMany:int):
 	if optInternal == 'keybinds':
 		goToOptions.emit()
 	CoolMenu.play_sfx('Tick')
+
+func revertThing():
+	for optThing in OptionsUtils.coolOptiones:
+		if optThing[0] == optInternal:
+			curOpt = optThing[3]
+			if validOpts == ['slider']: $Option/OptSlider.value = curOpt
+			else: $Option/OptChoice.text = '< ' + validOpts[curOpt] + ' >'
+			CoolMenu.play_sfx('Back')
+	OptionsUtils.preferences[optInternal] = curOpt
 
 func youreDraggingIt(changery:bool):
 	CoolMenu.play_sfx('Go')
