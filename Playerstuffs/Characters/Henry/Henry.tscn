@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bmrscbi0yasoh"]
+[gd_scene load_steps=33 format=3 uid="uid://bmrscbi0yasoh"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_qr8ng"]
 [ext_resource type="Texture2D" uid="uid://bdledy08dkkph" path="res://Playerstuffs/Characters/Henry/Sprites/henry sonicbattlespin0001.png" id="2_d1w5r"]
@@ -166,11 +166,11 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Henry" unique_id=762964537 instance=ExtResource("1_qr8ng")]
+[node name="Henry" instance=ExtResource("1_qr8ng")]
 script = ExtResource("2_jlfop")
 GUN_SPEED_ADD = 50.0
 FLOOR_ACCELERATION = 50.5
-SOFT_MAX_SPEED = 550
+SOFT_MAX_SPEED = 500
 GRAVITY = 32.0
 JUMP_VELOCITY = -665
 FLOOR_FRICTION = 0.975
@@ -179,16 +179,16 @@ ATTACK_DMG = Dictionary[String, float]({
 "default": 0.5
 })
 
-[node name="Floor" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="0" unique_id=1423393479]
+[node name="Floor" parent="StateMachine" index="0"]
 script = ExtResource("3_gi3i2")
 
-[node name="Air" parent="StateMachine" parent_id_path=PackedInt32Array(151957281) index="1" unique_id=1274865026]
+[node name="Air" parent="StateMachine" index="1"]
 script = ExtResource("3_lftin")
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
+[node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.4, 0.725)
 
-[node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_dvter")
 animation = &"gun2"
 autoplay = "default"

@@ -1,0 +1,160 @@
+[gd_scene load_steps=26 format=3 uid="uid://swibihrhyi68"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_lx2ml"]
+[ext_resource type="Texture2D" uid="uid://dire1cho3q5kc" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0001.png" id="2_bp0qf"]
+[ext_resource type="Texture2D" uid="uid://dlva8lv886qi2" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0002.png" id="3_h3u8p"]
+[ext_resource type="Texture2D" uid="uid://bdfx8ne3in5c5" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0003.png" id="4_kfjo7"]
+[ext_resource type="Texture2D" uid="uid://fl8455hpqfer" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0004.png" id="5_2aac8"]
+[ext_resource type="Texture2D" uid="uid://hocus5jai5ul" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david brake.png" id="6_f3t5a"]
+[ext_resource type="Texture2D" uid="uid://cbewi260dyfnv" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david dash0001.png" id="7_4ftfm"]
+[ext_resource type="Texture2D" uid="uid://dpw1uo4u0idvt" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david dash0002.png" id="8_vhm54"]
+[ext_resource type="Texture2D" uid="uid://cxgenucvfop25" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david idle.png" id="9_af4ya"]
+[ext_resource type="Texture2D" uid="uid://oj3dya21n4vt" path="res://Playerstuffs/Characters/FknDavid/Sprites/Fucking Dano0001.png" id="10_c803d"]
+[ext_resource type="Texture2D" uid="uid://cyxuwexehbtm" path="res://Playerstuffs/Characters/FknDavid/Sprites/Fucking Dano0002.png" id="11_lh6l0"]
+[ext_resource type="Texture2D" uid="uid://clf23maheo03" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david jump0001.png" id="12_5gyio"]
+[ext_resource type="Texture2D" uid="uid://c7vsg6w50qwij" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david jump0002.png" id="13_2o4ca"]
+[ext_resource type="Texture2D" uid="uid://c1nf6w7jr4da4" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david run0001.png" id="14_mf2uo"]
+[ext_resource type="Texture2D" uid="uid://3hxkmwpfabn8" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david run0002.png" id="15_0g884"]
+[ext_resource type="Texture2D" uid="uid://bb6lywy2a1bbs" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david run0003.png" id="16_25u5a"]
+[ext_resource type="Texture2D" uid="uid://cq4hmjxfg6hek" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david item0001.png" id="17_3g2cb"]
+[ext_resource type="Texture2D" uid="uid://txlwrhjdq3u2" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david item0002.png" id="18_gjqb4"]
+[ext_resource type="Texture2D" uid="uid://bgdqnhgv816qk" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david item0003.png" id="19_txtah"]
+[ext_resource type="Texture2D" uid="uid://g6csx5phh7gn" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david item0004.png" id="20_j45sp"]
+[ext_resource type="Texture2D" uid="uid://cf6cw3megpoqo" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david walk0001.png" id="21_xjgsk"]
+[ext_resource type="Texture2D" uid="uid://dmtlrux3q7ldk" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david walk0002.png" id="22_3tow1"]
+[ext_resource type="Texture2D" uid="uid://bu51dlwsw7awu" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david walk0003.png" id="23_4uepw"]
+[ext_resource type="Texture2D" uid="uid://geupc21m0kwx" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david walk0004.png" id="24_smmf6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5j1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bp0qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h3u8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kfjo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2aac8")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_f3t5a")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4ftfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vhm54")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_af4ya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_c803d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lh6l0")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_5gyio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2o4ca")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_mf2uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0g884")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_25u5a")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_3g2cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gjqb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txtah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_j45sp")
+}],
+"loop": false,
+"name": &"useItem",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_xjgsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_3tow1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_4uepw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_smmf6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" instance=ExtResource("1_lx2ml")]
+FLOOR_ACCELERATION = 60.0
+AIR_ACCELERATION = 35
+SOFT_MAX_SPEED = 555
+GRAVITY = 29.75
+JUMP_VELOCITY = -630
+SLOPE_VEL_ADD = 25
+FLOOR_FRICTION = 0.91
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.355, 0.95)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_w5j1r")
+animation = &"default"
+offset = Vector2(0, -9)
