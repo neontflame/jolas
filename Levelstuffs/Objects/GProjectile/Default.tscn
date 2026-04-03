@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://yryyrboc6oqr"]
+[gd_scene load_steps=11 format=3 uid="uid://yryyrboc6oqr"]
 
 [ext_resource type="Script" uid="uid://crukdh3wbo1lk" path="res://Levelstuffs/Objects/GProjectile/GProjectile.gd" id="1_e7qyj"]
 [ext_resource type="Texture2D" uid="uid://dhs74csrfcqdv" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0001.png" id="2_vreo0"]
@@ -46,16 +46,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qhf"]
 size = Vector2(39, 25)
 
-[node name="GProjectile" type="Area2D" unique_id=1566628852]
+[node name="GProjectile" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_e7qyj")
 
-[node name="objSprite" type="AnimatedSprite2D" parent="." unique_id=1541837597]
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f5qhf")
 animation = &"projectile"
 
-[node name="MissileCollide" type="CollisionShape2D" parent="." unique_id=303222489]
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_f5qhf")
 

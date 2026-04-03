@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://6j45bvm3jouo"]
+[gd_scene load_steps=0 format=3 uid="uid://6j45bvm3jouo"]
 
 [ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/game.gd" id="1_wmjmx"]
 [ext_resource type="PackedScene" uid="uid://c87scbdosa8xd" path="res://Gamestuffs/HeadsUpDisplay/hud.tscn" id="2_ll7to"]

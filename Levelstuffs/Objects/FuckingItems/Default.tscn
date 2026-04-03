@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://3o6503an4fb0"]
+
+[ext_resource type="Script" uid="uid://btv1pa6ngvjxv" path="res://Levelstuffs/Objects/FuckingItems/FuckingItems.gd" id="1_w6pi6"]
+[ext_resource type="Texture2D" uid="uid://cv756yqnfuwwt" path="res://Levelstuffs/Objects/FuckingItems/FuckingItem0001.png" id="2_s7rga"]
+[ext_resource type="Texture2D" uid="uid://dkj84sohgghwj" path="res://Levelstuffs/Objects/FuckingItems/FuckingItem0004.png" id="3_itjy3"]
+[ext_resource type="Texture2D" uid="uid://d1kltsdrgki8r" path="res://Levelstuffs/Objects/FuckingItems/FuckingItem0002.png" id="4_d0h7l"]
+[ext_resource type="Texture2D" uid="uid://b2uvhtne7leco" path="res://Levelstuffs/Objects/FuckingItems/FuckingItem0003.png" id="5_3uum4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5qhf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s7rga")
+}],
+"loop": true,
+"name": &"godot",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_itjy3")
+}],
+"loop": true,
+"name": &"piano",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d0h7l")
+}],
+"loop": true,
+"name": &"tetris",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3uum4")
+}],
+"loop": true,
+"name": &"violino",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qhf"]
+size = Vector2(28, 32)
+
+[node name="FuckingItem" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_w6pi6")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f5qhf")
+animation = &"godot"
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_f5qhf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]

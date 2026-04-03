@@ -49,7 +49,8 @@ func _process(delta: float) -> void:
 	# print(CoolMenu.activeMusicLayers, ' music layers, ', theVolumes)
 	
 	for trackNum in range(len(theMusics)):
-		var coolume = lerp(theMusics[trackNum].volume_db, theVolumes[trackNum], 0.2)
+		# var coolume = lerp(theMusics[trackNum].volume_db, theVolumes[trackNum], 0.2)
+		var coolume = theVolumes[trackNum]
 		theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum])
 
 static func play_sfx(sfxName:String):
