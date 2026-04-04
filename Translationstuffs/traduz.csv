@@ -1,0 +1,44 @@
+key;pt_BR;en;ja
+opt_yes;Sim;Yes;はい
+opt_no;Não;No;いいえ
+pref;Preferências;Preferences;一般的な設定
+buttonType;Tipos de botões na UI;UI buttons;UI のボタンの種類
+btn_wii;Wii;Wii;Wii
+btn_x360;Xbox 360;Xbox 360;Xbox360
+btn_ps3;PS3;PS3;PS3
+btn_gcn;GameCube;GameCube;GCN
+btn_dc;Dreamcast;Dreamcast;DC
+btn_kb;Teclado;Keyboard;キーボード
+vols;Volumes;Volume;音量設定
+volMaster;Mestre;Master;マスターサウンド
+volSFX;Efeitos sonoros;Sound effects;効果音
+volBGM;Música;Music;音楽
+conts;Controles e Gameplay;Controls and Gameplay;コントロールとゲームプレイ
+tapJump;"Tap Jump";Tap Jump;「タップジャンプ」
+keybinds;Keybinds;Keybinds;キーバインド
+speedZoom;Zoom menor em alta vel.;Zoom out on high speed;高速でズームを小さくする
+genZoom;Zoom da câmera;Camera zoom;カメラのズーム
+tab_opts;Opções;Options;オプション
+mod_loaded_single;%s mod carregado;%s mod loaded;%sつのMODがロードされました
+mod_loaded_plural;%s mods carregados;%s mods loaded;%sつのMODをロードしました
+ctrl_left;Esquerda;Left;左
+ctrl_down;Baixo;Down;下
+ctrl_up;Cima;Up;上
+ctrl_right;Direita;Right;右
+ctrl_jump;Pular;Jump;ジャンプ
+ctrl_1;Especial 1;Special 1;必殺技1
+ctrl_2;Especial 2;Special 2;必殺技2
+ctrl_interact;Interagir;Interact;操作
+ctrl_quests;Quests;Quests;クエスト
+ctrl_pause;Pausa;Pause;一時停止
+dipshit_dirs;use os direcionais!;use the d-pad!;矢印キーを使ってください！
+quests_info;%s feitas, %s em andamento;%s done, %s in progress;完了したクエスト：%s件、残り：%s件
+quests_reward;Recompensa;Reward;賞品
+multi_username_lbl;Nome de usuário;Username;ユーザー名
+multi_server_lbl;Servidor;Server address;サーバー
+multi_localsave_lbl;Save local;Local save;ローカルセーブデータ
+multi_host_btn;Hospedar;Host;サーバーをホストする
+multi_join_btn;Entrar;Join;参加する
+multi_host_btn_popup;OBS: apenas a porta será considerada;PS: only the port will be considered;ドアのみが対象となります
+multi_modwarning;Você só pode jogar com quem tiver os mesmos mods!;You can only play with whoever has the same mods!;同じMODを入れている人同士でしかプレイできません！
+oldsave_lvcount;Nível %s;Level %s;LEVEL %s

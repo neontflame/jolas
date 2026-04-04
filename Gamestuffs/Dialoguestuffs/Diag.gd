@@ -39,7 +39,7 @@ func _ready() -> void:
 
 func parseDialogue(diagFile:String):
 	redirectDiag = ""
-	var pathness := 'res://Gamestuffs/Dialoguestuffs/Dialogues/' + diagFile + '.json'
+	var pathness:String = FileUtils.get_localized_file('res://Gamestuffs/Dialoguestuffs/Dialogues/' + diagFile + '.json')
 	theJayson = JSON.parse_string(FileUtils.get_text_file_content(pathness))
 	if theJayson.has('questClear') and theJayson['questClear'] != "":
 		QuestUtils.conclude(theJayson['questClear'])

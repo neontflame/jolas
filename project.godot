@@ -147,6 +147,31 @@ ctrl_quests={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translation_remaps={
+"res://Menustuffs/DipshitMenu/EscolhaSeuMane.png": PackedStringArray("res://Menustuffs/DipshitMenu/ChooseYourDipshit.png:en"),
+"res://Menustuffs/MainMenu/Logo.png": PackedStringArray("res://Menustuffs/MainMenu/JPLocale/Logo0002.png:ja"),
+"res://Menustuffs/MainMenu/jolarAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarAtivoJP.png:ja"),
+"res://Menustuffs/MainMenu/jolarCoopAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarCoopAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarCoopAtivoJP.png:ja"),
+"res://Menustuffs/MainMenu/jolarCoopInativo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarCoopInativoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarCoopInativoJP.png:ja"),
+"res://Menustuffs/MainMenu/jolarInativo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarInativoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarInativoJP.png:ja"),
+"res://Menustuffs/MainMenu/opcoesAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/opcoesAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/opcoesAtivoJP.png:ja"),
+"res://Menustuffs/MainMenu/opcoesInativo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/opcoesInativoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/opcoesInativoJP.png:ja"),
+"res://Menustuffs/MainMenu/sairAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/sairAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/sairAtivoJP.png:ja"),
+"res://Menustuffs/MainMenu/sairInativo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/sairInativoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/sairInativoJP.png:ja"),
+"res://Menustuffs/MainMenu/sobreAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/sobreAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/sobreAtivoJP.png:ja"),
+"res://Menustuffs/MainMenu/sobreInativo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/sobreInativoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/sobreInativoJP.png:ja"),
+"res://Menustuffs/SaveMenu/Passaporte.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteJP.png:ja"),
+"res://Menustuffs/SaveMenu/PassaporteMod.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteModEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteModJP.png:ja"),
+"res://Menustuffs/SaveMenu/PassaporteVazio.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteVazioEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteVazioJP.png:ja")
+}
+locale/translations=PackedStringArray("res://Translationstuffs/traduz.en.translation", "res://Translationstuffs/traduz.ja.translation", "res://Translationstuffs/traduz.pt_BR.translation")
+locale/test="ja"
+locale/fallback="pt_BR"
+locale/locale_filter_mode=1
+locale/language_filter=["en", "es", "ja", "pt"]
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3

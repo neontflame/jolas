@@ -3,20 +3,23 @@
 [ext_resource type="Script" uid="uid://con14lmbu1nji" path="res://Menustuffs/SaveMenu/SaveBox.gd" id="1_dab0b"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="2_dab0b"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="3_qyspv"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_bqwwd"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="4_dab0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dab0b"]
 size = Vector2(384, 96)
 
 [sub_resource type="SystemFont" id="SystemFont_movk3"]
 font_names = PackedStringArray("Verdana")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_8xmhf"]
 font_names = PackedStringArray("verdana")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_m0t24"]
 font_names = PackedStringArray("verdana")
 font_weight = 550
+subpixel_positioning = 0
 
 [node name="SaveBoxOnline" type="Node2D"]
 script = ExtResource("1_dab0b")
@@ -53,7 +56,7 @@ offset_left = -1.0
 offset_top = 91.0
 offset_right = 391.0
 offset_bottom = 121.0
-theme_override_fonts/font = ExtResource("4_bqwwd")
+theme = ExtResource("4_dab0b")
 theme_override_font_sizes/font_size = 18
 text = "Você só pode jogar com quem tiver os mesmos mods!"
 
@@ -83,7 +86,7 @@ offset_left = 219.0
 offset_top = 7.0
 offset_right = 399.0
 offset_bottom = 28.0
-theme_override_colors/font_color = Color(0.54509807, 0.7254902, 1, 1)
+theme_override_colors/font_color = Color(0.545098, 0.72549, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "0h 0min"
 horizontal_alignment = 2

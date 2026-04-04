@@ -44,7 +44,7 @@ func reload():
 		i += 1
 
 func _process(delta: float) -> void:
-	$MenuCanvas/MidAnchor/ModLabel.text = str(len(GameUtils.loadedMods)) + (' mod carregado' if len(GameUtils.loadedMods) == 1 else ' mods carregados')
+	$MenuCanvas/MidAnchor/ModLabel.text = (tr('mod_loaded_single') if len(GameUtils.loadedMods) == 1 else tr('mod_loaded_plural')) % len(GameUtils.loadedMods)
 	if len(GameUtils.queuedMods) > 0:
 		$MenuCanvas/MidAnchor/ModLabel.text += ', ' + str(len(GameUtils.queuedMods)) + (' mod em fila' if len(GameUtils.queuedMods) == 1 else ' mods em fila')
 	

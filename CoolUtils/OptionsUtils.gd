@@ -7,18 +7,21 @@ static var preferences:Dictionary = {
 static var keyBince:Dictionary = {
 }
 
-# internalName:String, visibleName:String, optionery:Array[String], defValue:Variant
+# internalName:String
+#visibleName:String
+#optionery:Array[String]
+#defValue:Variant
 static var coolOptiones:Array = [
 	['pref', 'Preferências', [], 0], # label
-		['buttonType', 'Tipos de botões na UI', ['Wii', 'Xbox 360', 'PS3', 'GameCube', 'Dreamcast', 'Teclado'], 0], #lembre-se de sempre usar o indice e nao o nome em si!
+		['buttonType', 'Tipos de botões na UI', ['btn_wii', 'btn_x360', 'btn_ps3', 'btn_gcn', 'btn_dc', 'btn_kb'], 0], #lembre-se de sempre usar o indice e nao o nome em si!
 	['vols', 'Volumes', [], 0], # label
 		['volMaster', 'Mestre', ['slider'], 1.0],
 		['volSFX', 'Efeitos sonoros', ['slider'], 1.0],
 		['volBGM', 'Música', ['slider'], 1.0],
 	['conts', 'Controles e Gameplay', [], 0], # label
-		['tapJump', '"Tap Jump"', ['Não', 'Sim'], 1],
+		['tapJump', '"Tap Jump"', ['opt_no', 'opt_yes'], 1],
 		['keybinds', 'Keybinds', [''], 0],
-		['speedZoom', 'Zoom menor em alta vel.', ['Não', 'Sim'], 1],
+		['speedZoom', 'Zoom menor em alta vel.', ['opt_no', 'opt_yes'], 1],
 		['genZoom', 'Zoom da câmera', ['slider'], 0.5]
 ]
 static var bindList:Array = [

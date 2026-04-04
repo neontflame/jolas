@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b25cfhrs8v0v8" path="res://Menustuffs/OptionsMenu/OptThingie.gd" id="1_ml7t4"]
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_xrvu5"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_qw7ac"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="4_xrvu5"]
 
 [node name="OptThingie" type="Control"]
 clip_contents = true
@@ -12,9 +12,9 @@ anchors_preset = 0
 script = ExtResource("1_ml7t4")
 
 [node name="bg" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.27058825)
-position = Vector2(204.99998, 10.999999)
-scale = Vector2(6.484375, 0.59374994)
+self_modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(205, 11)
+scale = Vector2(6.48438, 0.59375)
 texture = ExtResource("2_xrvu5")
 
 [node name="Title" type="Node2D" parent="."]
@@ -25,7 +25,7 @@ offset_left = 4.0
 offset_top = -1.0
 offset_right = 394.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_qw7ac")
+theme = ExtResource("4_xrvu5")
 theme_override_font_sizes/font_size = 18
 text = "Botões de controle"
 horizontal_alignment = 1
@@ -38,9 +38,8 @@ offset_left = 4.0
 offset_top = -1.0
 offset_right = 336.0
 offset_bottom = 29.0
-focus_mode = 0
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("3_qw7ac")
+theme = ExtResource("4_xrvu5")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Botões de controle"
@@ -53,8 +52,8 @@ offset_left = 252.0
 offset_top = -1.0
 offset_right = 387.0
 offset_bottom = 29.0
+theme = ExtResource("4_xrvu5")
 theme_override_colors/font_color = Color(1, 1, 1, 0.503)
-theme_override_fonts/font = ExtResource("3_qw7ac")
 theme_override_font_sizes/font_size = 18
 text = "< Wii >"
 horizontal_alignment = 2

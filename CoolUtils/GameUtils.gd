@@ -50,10 +50,10 @@ static func get_maps():
 	return trueLvlList
 
 static func get_char_preview(char:String):
-	return load("res://Playerstuffs/Characters/" + existing_char(char) + "/CharSel.tscn")
+	return get_char_asset(char, 'CharSel.tscn')
 	
 static func get_char_info(char:String):
-	var charStuff = "res://Playerstuffs/Characters/" + existing_char(char) + "/Info.json"
+	var charStuff = get_char_asset_path(char, "Info.json")
 	var charInfo = '' 
 	if !ResourceLoader.exists(charStuff):
 		charInfo = '{
@@ -67,7 +67,7 @@ static func get_char_info(char:String):
 	return charGotten
 
 static func get_char_asset(char:String, asset:String):
-	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
+	var charPath = get_char_asset_path(char, asset)
 	# print(charPath + (" exists" if load(charPath) else " doesnt exist"))
 	if ResourceLoader.exists(charPath):
 		return load(charPath)
@@ -76,21 +76,23 @@ static func get_char_asset(char:String, asset:String):
 	
 static func get_char_asset_path(char:String, asset:String):
 	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
-	# print(charPath + (" exists" if load(charPath) else " doesnt exist"))
-	return charPath
+	return FileUtils.get_localized_file(charPath)
 	
 static func existing_char(char:String):
 	if ResourceLoader.list_directory("res://Playerstuffs/Characters/" + char + "/"): return char
 	else: return 'Neon'
 	
 static func get_map_info(lvl:String):
-	var lvlStuff = "res://Levelstuffs/Levels/" + lvl + ".json"
+	var lvlStuffOg = "res://Levelstuffs/Levels/" + lvl + ".json"
+	var lvlStuff = FileUtils.get_localized_file(lvlStuffOg)
 	var lvlInfo = ''
 	if !ResourceLoader.exists(lvlStuff):
 		lvlInfo = '{
 	"name": "Tapa-buraco",
 	"region": "Place Holder",
-	"song": "Placesong"
+	"regionInternal": "Placeholder",
+	"songFile": "Placesong.ogg",
+	"song": "Placesong (Remix)"
 }'
 	else:
 		lvlInfo = FileUtils.get_text_file_content(lvlStuff)

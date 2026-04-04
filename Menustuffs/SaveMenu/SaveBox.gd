@@ -63,7 +63,7 @@ func renderSaveOnline():
 		$EmptySave.visible = false
 		$FullSave.visible = true
 		# player info
-		$FullSave/LvCount.text = 'Nível ' + str(GeneralUtils.display_number(coolSaveness["level"]))
+		$FullSave/LvCount.text = tr('oldsave_lvcount') % GeneralUtils.display_number(coolSaveness["level"])
 		var mapInfo = GameUtils.get_map_info(coolSaveness["map"])
 		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
 		# $FullSave/Timespan.text = timeString

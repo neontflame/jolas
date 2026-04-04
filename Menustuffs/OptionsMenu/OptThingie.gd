@@ -36,10 +36,10 @@ func setup():
 	if isLabel:
 		$Title.visible = true
 		$Option.visible = false
-		$Title/TitleName.text = optName
+		$Title/TitleName.text = tr(optInternal)
 		return
 		
-	$Option/OptName.text = optName
+	$Option/OptName.text = tr(optInternal)
 	
 	mouse_entered.connect(is_moused)
 	mouse_exited.connect(un_moused)
@@ -87,7 +87,7 @@ func un_moused():
 func changeThing(howMany:int):
 	curOpt = wrap(int(curOpt) + howMany, 0, len(validOpts))
 	if optInternal != 'keybinds':
-		$Option/OptChoice.text = '< ' + validOpts[curOpt] + ' >'
+		$Option/OptChoice.text = '< ' + tr(validOpts[curOpt]) + ' >'
 		OptionsUtils.preferences[optInternal] = curOpt
 	if optInternal == 'keybinds':
 		goToOptions.emit()
@@ -98,7 +98,7 @@ func revertThing():
 		if optThing[0] == optInternal:
 			curOpt = optThing[3]
 			if validOpts == ['slider']: $Option/OptSlider.value = curOpt
-			else: $Option/OptChoice.text = '< ' + validOpts[curOpt] + ' >'
+			else: $Option/OptChoice.text = '< ' + tr(validOpts[curOpt]) + ' >'
 			CoolMenu.play_sfx('Back')
 	OptionsUtils.preferences[optInternal] = curOpt
 

@@ -10,6 +10,7 @@ func _ready() -> void:
 	CoolMenu.blurAmount = 2
 	CoolMenu.activeMusicLayers = 2
 	
+	$MenuCanvas/MidAnchor/PathLabel.text = tr("tab_opts") + " >> " + tr("keybinds")
 	makeOptions()
 
 #eu nao sei pqq eu tenho essa mania de fazer o codigo inteiro em ingles
@@ -31,7 +32,7 @@ func makeBind(coolId:int, internalName:String, visibleName:String):
 func makeOptions():
 	var integer:int = 0
 	for optione in OptionsUtils.bindList:
-		var bind = makeBind(integer, optione[0], optione[1])
+		var bind = makeBind(integer, optione[0], tr(optione[0]))
 		integer += 1
 	
 	CoolMenu.maxSelected = integer

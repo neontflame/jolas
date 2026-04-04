@@ -27,7 +27,8 @@ static func conclude(questName:String, additionalPerks:Callable = func():pass):
 	additionalPerks.call()
 
 static func get_info(questName:String):
-	var queStuff = "res://Gamestuffs/Quests/%s.json" % questName
+	var queStuffRaw = "res://Gamestuffs/Quests/%s.json" % questName
+	var queStuff = FileUtils.get_localized_file(queStuffRaw)
 	var questInfo = '' 
 	if !ResourceLoader.exists(queStuff):
 		questInfo = '{

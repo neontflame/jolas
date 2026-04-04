@@ -8,6 +8,10 @@ func _ready() -> void:
 	CoolMenu.blurAmount = 3
 	CoolMenu.activeMusicLayers = 3
 	CoolMenu.maxSelected = len(coolChars)
+	
+	var theSave = SaveUtils.get_save_info(GPStats.saveNum)
+	if theSave.has('player'):
+		CoolMenu.curSelected = coolChars.find(theSave['player'])
 	changeSel(0)
 	
 func _process(delta: float) -> void:

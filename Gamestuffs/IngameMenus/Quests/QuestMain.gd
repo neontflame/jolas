@@ -5,7 +5,7 @@ var isActive:bool = true
 @export var infoLabel:Label
 
 func _enter_tree() -> void:
-	infoLabel.text = "%s feitas, %s em andamento" % [len(QuestUtils.clearedQuests), len(QuestUtils.assignedQuests)]
+	infoLabel.text = tr('quests_info') % [len(QuestUtils.clearedQuests), len(QuestUtils.assignedQuests)]
 	for kid in questContainer.get_children():
 		kid.queue_free()
 	
