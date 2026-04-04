@@ -1,8 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://swibihrhyi68"]
+[gd_scene load_steps=31 format=3 uid="uid://swibihrhyi68"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_lx2ml"]
+[ext_resource type="Script" uid="uid://boadx05adikdb" path="res://Playerstuffs/Characters/FknDavid/Scripts/playerFuckingDavid.gd" id="2_2aac8"]
 [ext_resource type="Texture2D" uid="uid://dire1cho3q5kc" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0001.png" id="2_bp0qf"]
+[ext_resource type="Script" uid="uid://b6bmul3kp6pe7" path="res://Playerstuffs/Characters/FknDavid/Scripts/statemachineDavid.gd" id="2_h3u8p"]
 [ext_resource type="Texture2D" uid="uid://dlva8lv886qi2" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0002.png" id="3_h3u8p"]
+[ext_resource type="Script" uid="uid://bqh0kp3a7ulm1" path="res://Playerstuffs/Characters/FknDavid/Scripts/dashStDavid.gd" id="3_kfjo7"]
+[ext_resource type="Script" uid="uid://d02qo1r0efapo" path="res://Playerstuffs/Characters/FknDavid/Scripts/floorStDavid.gd" id="4_f3t5a"]
 [ext_resource type="Texture2D" uid="uid://bdfx8ne3in5c5" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0003.png" id="4_kfjo7"]
 [ext_resource type="Texture2D" uid="uid://fl8455hpqfer" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david sonicbattlespin0004.png" id="5_2aac8"]
 [ext_resource type="Texture2D" uid="uid://hocus5jai5ul" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david brake.png" id="6_f3t5a"]
@@ -10,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpw1uo4u0idvt" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david dash0002.png" id="8_vhm54"]
 [ext_resource type="Texture2D" uid="uid://cxgenucvfop25" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david idle.png" id="9_af4ya"]
 [ext_resource type="Texture2D" uid="uid://oj3dya21n4vt" path="res://Playerstuffs/Characters/FknDavid/Sprites/Fucking Dano0001.png" id="10_c803d"]
+[ext_resource type="Texture2D" uid="uid://cm6igbu3nklmt" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david charge dash.png" id="11_f3t5a"]
 [ext_resource type="Texture2D" uid="uid://cyxuwexehbtm" path="res://Playerstuffs/Characters/FknDavid/Sprites/Fucking Dano0002.png" id="11_lh6l0"]
 [ext_resource type="Texture2D" uid="uid://clf23maheo03" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david jump0001.png" id="12_5gyio"]
 [ext_resource type="Texture2D" uid="uid://c7vsg6w50qwij" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david jump0002.png" id="13_2o4ca"]
@@ -50,6 +55,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_f3t5a")
+}],
+"loop": true,
+"name": &"chargedash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -114,15 +127,15 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_gjqb4")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("19_txtah")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": ExtResource("20_j45sp")
 }],
 "loop": false,
 "name": &"useItem",
-"speed": 16.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -143,6 +156,10 @@ animations = [{
 }]
 
 [node name="Player" instance=ExtResource("1_lx2ml")]
+script = ExtResource("2_2aac8")
+dashSpeed = 1200.0
+dashAttenuate = 0.25
+itemCooldownSecs = 0.45
 FLOOR_ACCELERATION = 60.0
 AIR_ACCELERATION = 35
 SOFT_MAX_SPEED = 555
@@ -150,11 +167,24 @@ GRAVITY = 29.75
 JUMP_VELOCITY = -630
 SLOPE_VEL_ADD = 25
 FLOOR_FRICTION = 0.91
+ATTACK_DMG = Dictionary[String, float]({
+"dash": 3.25,
+"default": 2.5
+})
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("2_h3u8p")
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("4_f3t5a")
+
+[node name="Dash" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("3_kfjo7")
 
 [node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.355, 0.95)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_w5j1r")
-animation = &"default"
+animation = &"jump"
 offset = Vector2(0, -9)
