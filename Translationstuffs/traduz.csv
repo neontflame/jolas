@@ -21,6 +21,8 @@ genZoom;Zoom da câmera;Camera zoom;カメラのズーム
 tab_opts;Opções;Options;オプション
 mod_loaded_single;%s mod carregado;%s mod loaded;%sつのMODがロードされました
 mod_loaded_plural;%s mods carregados;%s mods loaded;%sつのMODをロードしました
+mod_queued_single;, %s mod em fila;, %s mod queued;、キューに入っているMODが%sつ
+mod_queued_plural;, %s mods em fila;, %s mods queued;、キューに入っているMODが%sつ
 ctrl_left;Esquerda;Left;左
 ctrl_down;Baixo;Down;下
 ctrl_up;Cima;Up;上

@@ -44,9 +44,9 @@ func reload():
 		i += 1
 
 func _process(delta: float) -> void:
-	$MenuCanvas/MidAnchor/ModLabel.text = (tr('mod_loaded_single') if len(GameUtils.loadedMods) == 1 else tr('mod_loaded_plural')) % len(GameUtils.loadedMods)
+	$MenuCanvas/MidAnchor/ModLabel.text = tr_n('mod_loaded_single', 'mod_loaded_plural', len(GameUtils.loadedMods)) % len(GameUtils.loadedMods)
 	if len(GameUtils.queuedMods) > 0:
-		$MenuCanvas/MidAnchor/ModLabel.text += ', ' + str(len(GameUtils.queuedMods)) + (' mod em fila' if len(GameUtils.queuedMods) == 1 else ' mods em fila')
+		$MenuCanvas/MidAnchor/ModLabel.text += tr_n('mod_queued_single', 'mod_queued_plural', len(GameUtils.queuedMods)) % len(GameUtils.queuedMods)
 	
 	for coolfile in boxWithABunchOfShitInIt.get_children():
 		if CoolMenu.curSelected != -1:
