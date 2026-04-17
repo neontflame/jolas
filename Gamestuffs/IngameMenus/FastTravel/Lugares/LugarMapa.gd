@@ -5,7 +5,7 @@ static var mapaCoiso
 static var instance
 
 var curSelected:int = 0
-var canSelect:bool = true
+var canSelect:bool = false
 
 var thePins:Array = []
 
@@ -18,6 +18,8 @@ func _ready() -> void:
 	whereAmI()
 	$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
 	$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+	
+	canSelect = true
 
 func change_self_scene(coolscene:String):
 	if Submenu.saveMenu: Submenu.saveMenu.queue_free()

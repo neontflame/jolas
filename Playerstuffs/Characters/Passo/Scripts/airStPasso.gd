@@ -36,7 +36,10 @@ func update():
 		if Player.rebounding:
 			Player.rebounding = false
 		Player.change_state(Player.state_machine.st_floor)
-		
+	
+	if not Player.rebounding:
+		Player.delete_hitboxes('rebound')
+	
 	if Input.is_action_just_pressed("ctrl_2") and not hasDashed \
 	and theCooldown.time_left <= 0.0:
 		doDash()
@@ -58,11 +61,11 @@ func update():
 		Player.play_char_sfx('Wallkick', 'Passo')
 		
 		if Player.is_wall_to_left():
-			Player.plySprite.flip_h = true
 			Player.motion.x = 500
+			Player.plySprite.flip_h = true
 		if Player.is_wall_to_right():
-			Player.plySprite.flip_h = false
 			Player.motion.x = -500
+			Player.plySprite.flip_h = false
 
 func handleAnimations():
 	super.handleAnimations()
@@ -70,6 +73,7 @@ func handleAnimations():
 		Player.plySprite.play('fall')
 
 func doDash():
+	Player.rebounding = false
 	Player.make_hitbox(Vector2(36, 8),
 						Vector2(1.0, 5.8),
 						Player.ATTACK_DMG_LVL['default'],
@@ -86,7 +90,7 @@ func doDash():
 	or ((Player.motion.x > -800) and flipped):
 		Player.motion.x = -800 if flipped else 800
 	else:
-		Player.motion.x += -125 if flipped else 125
+		Player.motion.x += -155 if flipped else 155
 	
 	Player.jumping = false
 	Player.invulnFrames = 24.0

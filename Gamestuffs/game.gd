@@ -58,7 +58,8 @@ func removePlayer():
 		playerInstance.queue_free()
 
 func createLevel(lvl:String):
-	if level: level.queue_free()
+	print('proximo mapa: ' + lvl)
+	if level: level.free()
 	
 	level = load(GameUtils.get_map_path(lvl)).instantiate()
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)

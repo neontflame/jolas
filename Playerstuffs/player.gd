@@ -305,7 +305,15 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if !get_invuln():
 			if current_state.name == 'Death':
 				return false
-			play_sfx('Hit1')
+			
+			var medianVel = (vel.x + vel.y)/2
+			if medianVel < 400:
+				play_sfx('Hit1')
+			if medianVel >= 400 and medianVel < 800:
+				play_sfx('Hit2')
+			if medianVel >= 800:
+				play_sfx('Hit3')
+			
 			stunFrames = 2
 			hp -= hpLost
 			motion.y = vel.y

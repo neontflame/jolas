@@ -7,9 +7,10 @@ func _enter_tree() -> void:
 	triggeredGoto = false
 	
 func _on_body_entered(body: Node2D) -> void:
+	var vai:bool = bool(comingBack)
 	if triggeredGoto: return
 	if body is PlayerObject:
-		print('vai')
+		print('vai ' + str(comingBack))
 		if body.get_multi_status():
 			print('vai')
 			triggeredGoto = true
@@ -17,6 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 			func(): 
 				print('ok agora volta')
 				JolasGame.instance.createLevel(levelInQuestion)
-				JolasGame.instance.respawnPlayer(false, comingBack)
+				JolasGame.instance.respawnPlayer(false, vai)
 				JolasGame.instance.fadeOut(0.5)
 				)

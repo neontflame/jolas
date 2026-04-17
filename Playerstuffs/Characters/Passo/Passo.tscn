@@ -237,8 +237,8 @@ scale = Vector2(0.425, 0.86)
 [node name="AnimatedSprite2D" parent="." index="3"]
 position = Vector2(-5, -5)
 sprite_frames = SubResource("SpriteFrames_v7d13")
-animation = &"reboundPost"
-frame_progress = 0.158756
+animation = &"default"
+frame_progress = 0.328647
 
 [node name="WallSweeps" type="Node2D" parent="AnimatedSprite2D" index="0"]
 

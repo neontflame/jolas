@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 			change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn', 1)
 
 func goToThing(mapId:String):
+	print(mapId)
 	canControl = false
 	CoolMenu.play_sfx('Wrap')
 	$AnimationPlayer.play('getOut')
