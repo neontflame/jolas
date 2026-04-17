@@ -25,7 +25,11 @@ func hitbox_connect(hit:OffensiveHitbox):
 	var flipped:bool = 	Input.is_action_pressed("ctrl_left") \
 						or not Input.is_action_pressed("ctrl_right") \
 						and plySprite.flip_h
-						
+	
+	if hit.coolId == 'rebound':
+		motion.x = motion.x * 1.01
+		motion.y = abs(lastInterestingYv) * -1.025
+	
 	if hit.coolId == 'airdash':
 		state_machine.st_air.isDashing = false
 		state_machine.st_air.hasDashed = false

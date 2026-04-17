@@ -220,6 +220,10 @@ AIR_ACCELERATION = 28
 GRAVITY = 36.0
 JUMP_VELOCITY = -750
 SLOPE_VEL_ADD = 29
+ATTACK_DMG = Dictionary[String, float]({
+"default": 2.0,
+"rebound": 1.25
+})
 
 [node name="Floor" parent="StateMachine" index="0"]
 script = ExtResource("3_h4mkd")
@@ -234,7 +238,7 @@ scale = Vector2(0.425, 0.86)
 position = Vector2(-5, -5)
 sprite_frames = SubResource("SpriteFrames_v7d13")
 animation = &"reboundPost"
-frame_progress = 0.992137
+frame_progress = 0.158756
 
 [node name="WallSweeps" type="Node2D" parent="AnimatedSprite2D" index="0"]
 

@@ -13,6 +13,12 @@ func enter_state():
 	isDashing = false
 	
 	if Player.rebounding:
+		Player.make_hitbox(Vector2(-4, 0),
+							Vector2(6.58, 6.255),
+							Player.ATTACK_DMG_LVL['rebound'],
+							1000.0,
+							135.0,
+							'rebound')
 		Player.play_char_sfx('ReboundYI', 'Passo')
 		Player.plySprite.play('reboundPost')
 	
@@ -91,5 +97,6 @@ func doDash():
 
 func exit_state():
 	Player.delete_hitboxes('airdash')
+	Player.delete_hitboxes('rebound')
 	isDashing = false
 	hasDashed = false
