@@ -16,7 +16,10 @@ func _enter_tree() -> void:
 	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
 
 func renderTexty():
-	$Label.text = '%s de %s mods carregados\n' % [len(loadArray), len(GameUtils.queuedMods)]
+	$Label.text = tr('mod_of_mods_loaded').format(
+		{"loaded_mods": len(loadArray),
+		"queued_mods": len(GameUtils.queuedMods)}
+						)
 	$Label2.text = ''
 	for moddy in loadArray.slice(-24):
 		$Label2.text += moddy + '\n'

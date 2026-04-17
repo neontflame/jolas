@@ -1,6 +1,12 @@
 extends Node2D
 
-func _ready() -> void:
+func setupGameInfo():
+	OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
+	await OptionsUtils.get_controls_info()
+	await UnlockUtils.merge_to_vars()
+	await QuestUtils.clear_all()
+
+func setupAutoloadMods():
 	for argument in OS.get_cmdline_args():
 		var arguString:String = str(argument)
 		if arguString.begins_with("--mods="):
@@ -8,6 +14,10 @@ func _ready() -> void:
 			var modsSplit = initSplit[1].split(",")
 			for mod in modsSplit:
 				GameUtils.queuedMods.append("user://" + mod)
+
+func _ready() -> void:
+	await setupGameInfo()
+	await setupAutoloadMods()
 	
 	if DisplayServer.get_name() == "headless" \
 	or "--server" in OS.get_cmdline_user_args():

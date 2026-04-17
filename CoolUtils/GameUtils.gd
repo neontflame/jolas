@@ -11,7 +11,7 @@ static var username:String = ''
 
 static var defaultMap:String = 'TheThing'
 
-static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry']
+static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'Passo', 'Queixao']
 
 static var majorVersion:int = 0
 static var minorVersion:int = 6
@@ -22,16 +22,22 @@ static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
 	var trueCharlist:Array = charOrder
 	
+	# checa se existe
 	for chara in charlist:
 		var coolswag = chara.left(len(chara) - 1)
 		if ResourceLoader.exists(get_char_asset_path(coolswag, coolswag + '.tscn')):
-			if get_char_info(coolswag).has("locked"):
-				if not UnlockUtils.is_char_unlocked(coolswag):
-					trueCharlist.erase(coolswag)
 			if not trueCharlist.has(coolswag):
 				trueCharlist.append(coolswag)
 		else:
 			if trueCharlist.has(coolswag):
+				trueCharlist.erase(coolswag)
+	
+	# checa se tem
+	for chara in charlist:
+		var coolswag = chara.left(len(chara) - 1)
+		if get_char_info(coolswag).has("locked"):
+			print(coolswag, ' e desbloqueavel')
+			if not UnlockUtils.is_char_unlocked(coolswag):
 				trueCharlist.erase(coolswag)
 		
 	return trueCharlist

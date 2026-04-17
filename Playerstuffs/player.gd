@@ -98,6 +98,7 @@ func _ready() -> void:
 		state.States = state_machine
 		state.Player = self
 		state.StateName = state.name
+		state.setup()
 	current_state = state_machine.st_floor
 	previous_state = state_machine.st_floor
 	PlayerUtils.set_default_zoom()
@@ -346,6 +347,7 @@ func increaseCombo():
 
 ## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Direita btw
 ## direçao do knockAngle e horaria
+
 func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	var m_api = Engine.get_main_loop().root.get_multiplayer()
 	

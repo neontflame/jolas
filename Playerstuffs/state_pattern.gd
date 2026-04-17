@@ -6,6 +6,9 @@ var States = null
 var Player: PlayerObject = null
 var StateName: String = "null"
 
+func setup():
+	pass
+
 func enter_state():
 	pass
 

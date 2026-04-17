@@ -1,4 +1,7 @@
 key;pt_BR;en;ja
+loading_game_info;Carregando informações salvas...;Loading saved info...;保存された情報を読み込んでいます...
+please_wait;Favor aguardar...;Please wait...;お待ちください...
+mod_of_mods_loaded;{loaded_mods} de {queued_mods} mods carregados;{loaded_mods} of {queued_mods} mods loaded;{queued_mods} つの MOD のうち {loaded_mods} つがロードされました
 opt_yes;Sim;Yes;はい
 opt_no;Não;No;いいえ
 pref;Preferências;Preferences;一般的な設定

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://llk5w8w0yx48"]
+[gd_scene load_steps=54 format=3 uid="uid://llk5w8w0yx48"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_avxmv"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="2_1nj8v"]
@@ -47,10 +47,10 @@
 [ext_resource type="Texture2D" uid="uid://dgmlqgidwlsot" path="res://Playerstuffs/Characters/Sketcher/Sprites/Fx/boost  effect0004.png" id="45_a0f65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_juud7"]
-size = Vector2(126.88173, 94.9495)
+size = Vector2(126.882, 94.9495)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ti08h"]
-size = Vector2(138.21138, 14.141415)
+size = Vector2(138.211, 14.1414)
 
 [sub_resource type="Curve" id="Curve_3hf1s"]
 _limits = [0.0, 21.95, 0.0, 1.0]
@@ -59,12 +59,12 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_ti08h"]
 _limits = [0.0, 15.2, 0.0, 1.0]
-_data = [Vector2(0.019047618, 0.020201921), 0.0, 0.0, 0, 0, Vector2(1, 7.062627), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0190476, 0.0202019), 0.0, 0.0, 0, 0, Vector2(1, 7.06263), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ar5l"]
 shader = ExtResource("2_1nj8v")
-shader_parameter/line_color = Color(0, 0.8784314, 1, 0.74509805)
+shader_parameter/line_color = Color(0, 0.878431, 1, 0.745098)
 shader_parameter/line_thickness = 0.0
 shader_parameter/add_margins = false
 
@@ -226,7 +226,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf1t6"]
-radius = 658.21954
+radius = 658.22
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tfu3w"]
 animations = [{
@@ -248,7 +248,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Sketcher" unique_id=2058036535 node_paths=PackedStringArray("rightSweep", "leftSweep", "downSweep", "rightWallSweep", "leftWallSweep", "homingArea", "dashLine", "boostLine", "boostSprite") instance=ExtResource("1_avxmv")]
+[node name="Sketcher" node_paths=PackedStringArray("rightSweep", "leftSweep", "downSweep", "rightWallSweep", "leftWallSweep", "homingArea", "dashLine", "boostLine", "boostSprite") instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
 ELEC_GAUGE_MAX = 20.0
@@ -284,41 +284,41 @@ ATTACK_DMG = Dictionary[String, float]({
 })
 MULTI_SENDOVER = Array[String](["ELECTRICITY", "isParkouring", "isBoosting", "evryFrame"])
 
-[node name="StateMachine" parent="." index="0" unique_id=151957281]
+[node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_3hf1s")
 
-[node name="Floor" parent="StateMachine" index="0" unique_id=1423393479]
+[node name="Floor" parent="StateMachine" index="0"]
 script = ExtResource("3_2ar5l")
 
-[node name="Air" parent="StateMachine" index="1" unique_id=1274865026]
+[node name="Air" parent="StateMachine" index="1"]
 script = ExtResource("4_mc72d")
 
-[node name="Dash" type="Node" parent="StateMachine" index="4" unique_id=1997561880]
+[node name="Dash" type="Node" parent="StateMachine" index="4"]
 script = ExtResource("5_u2u8d")
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
+[node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.465, 0.99)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3" unique_id=245792445]
-position = Vector2(-1.500001, 18.000004)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="3"]
+position = Vector2(-1.5, 18)
 scale = Vector2(0.615, 0.99)
 shape = SubResource("RectangleShape2D_juud7")
 disabled = true
 
-[node name="DashColl" type="CollisionShape2D" parent="." index="4" unique_id=312333655]
-position = Vector2(-1.5000019, -4)
+[node name="DashColl" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(-1.5, -4)
 scale = Vector2(0.615, 0.99)
 shape = SubResource("RectangleShape2D_ti08h")
 disabled = true
 
-[node name="DashLine" type="Line2D" parent="." index="5" unique_id=238866122]
+[node name="DashLine" type="Line2D" parent="." index="5"]
 visible = false
 points = PackedVector2Array(0, -1, 24, -24, 61, -1, 68, -21, 88, -6, 128, -8, 163, -5, 194, -6)
 width = 10.15
 width_curve = SubResource("Curve_3hf1s")
 default_color = Color(0, 0.6, 1, 1)
 
-[node name="BoostLine" type="Line2D" parent="." index="6" unique_id=1458982857]
+[node name="BoostLine" type="Line2D" parent="." index="6"]
 visible = false
 position = Vector2(-205, 29)
 points = PackedVector2Array(0, -1, 24, -24, 61, -1, 68, -21, 88, -6, 128, -8, 163, -5, 194, -6)
@@ -326,58 +326,58 @@ width = 10.15
 width_curve = SubResource("Curve_ti08h")
 default_color = Color(0, 0.6, 1, 1)
 
-[node name="AnimatedSprite2D" parent="." index="7" unique_id=1252310965]
+[node name="AnimatedSprite2D" parent="." index="7"]
 material = SubResource("ShaderMaterial_2ar5l")
 sprite_frames = SubResource("SpriteFrames_7odvg")
 animation = &"default"
 offset = Vector2(0, -7)
 
-[node name="FloorSweeps" type="Node2D" parent="AnimatedSprite2D" index="0" unique_id=507094857]
+[node name="FloorSweeps" type="Node2D" parent="AnimatedSprite2D" index="0"]
 
-[node name="RightSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="0" unique_id=1899423237]
+[node name="RightSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="0"]
 position = Vector2(2, -2)
 target_position = Vector2(136, 54)
 collision_mask = 3
 
-[node name="FloorSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="1" unique_id=1807065889]
+[node name="FloorSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="1"]
 position = Vector2(2, -2)
 target_position = Vector2(0, 84)
 collision_mask = 3
 
-[node name="LeftSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="2" unique_id=406886896]
+[node name="LeftSweep" type="RayCast2D" parent="AnimatedSprite2D/FloorSweeps" index="2"]
 position = Vector2(2, -2)
 target_position = Vector2(-136, 54)
 collision_mask = 3
 
-[node name="WallSweeps" type="Node2D" parent="AnimatedSprite2D" index="1" unique_id=9119972]
+[node name="WallSweeps" type="Node2D" parent="AnimatedSprite2D" index="1"]
 
-[node name="RightSweep" type="RayCast2D" parent="AnimatedSprite2D/WallSweeps" index="0" unique_id=697589064]
+[node name="RightSweep" type="RayCast2D" parent="AnimatedSprite2D/WallSweeps" index="0"]
 position = Vector2(2, -13)
 target_position = Vector2(96, 0)
 collision_mask = 3
 
-[node name="LeftSweep" type="RayCast2D" parent="AnimatedSprite2D/WallSweeps" index="1" unique_id=279751755]
+[node name="LeftSweep" type="RayCast2D" parent="AnimatedSprite2D/WallSweeps" index="1"]
 position = Vector2(2, -13)
 target_position = Vector2(-96, 0)
 collision_mask = 3
 
-[node name="HomingArea" type="Area2D" parent="." index="12" unique_id=568901737]
+[node name="HomingArea" type="Area2D" parent="." index="12"]
 visible = false
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea" index="0" unique_id=24767410]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea" index="0"]
 shape = SubResource("CircleShape2D_gf1t6")
 
-[node name="Windstuff" type="AudioStreamPlayer2D" parent="." index="13" unique_id=720923420]
+[node name="Windstuff" type="AudioStreamPlayer2D" parent="." index="13"]
 stream = ExtResource("41_dsjf8")
 volume_db = -80.0
-attenuation = 1.3195078
+attenuation = 1.31951
 
-[node name="BoostSprite" type="AnimatedSprite2D" parent="." index="14" unique_id=1052408748]
+[node name="BoostSprite" type="AnimatedSprite2D" parent="." index="14"]
 visible = false
-self_modulate = Color(1, 1, 1, 0.5058824)
+self_modulate = Color(1, 1, 1, 0.505882)
 sprite_frames = SubResource("SpriteFrames_tfu3w")
 autoplay = "default"
-frame_progress = 0.3127585
+frame_progress = 0.312759
 offset = Vector2(-30, 2)

@@ -1,0 +1,138 @@
+[gd_scene load_steps=22 format=3 uid="uid://bl832f5l7optf"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_ny8tf"]
+[ext_resource type="Texture2D" uid="uid://b8ggb8t64oxrj" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao battle spin0001.png" id="2_5mv1d"]
+[ext_resource type="Script" uid="uid://db2ii6ljucpnr" path="res://Playerstuffs/Characters/Queixao/Scripts/playerQueixao.gd" id="2_xyjv3"]
+[ext_resource type="Script" uid="uid://s8kfmog04oee" path="res://Playerstuffs/Characters/Queixao/Scripts/floorStQueixao.gd" id="3_awhg7"]
+[ext_resource type="Texture2D" uid="uid://boslqcwe2cp0r" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao battle spin0002.png" id="3_ny6sx"]
+[ext_resource type="Texture2D" uid="uid://bj7w561pbnno7" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao battle spin0003.png" id="4_2pmox"]
+[ext_resource type="Script" uid="uid://bwyvkf71jf4iu" path="res://Playerstuffs/Characters/Queixao/Scripts/airStQueixao.gd" id="4_06pve"]
+[ext_resource type="Texture2D" uid="uid://xw5xxqulgp7e" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao battle spin0004.png" id="5_xyjv3"]
+[ext_resource type="Texture2D" uid="uid://n6pxql4u1bn0" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao brake.png" id="6_awhg7"]
+[ext_resource type="Texture2D" uid="uid://dsqrg37ihdek0" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao idle.png" id="7_06pve"]
+[ext_resource type="Texture2D" uid="uid://b7slccm58ukh3" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao espada.png" id="8_0biai"]
+[ext_resource type="Texture2D" uid="uid://d2atk65lkv7xf" path="res://Playerstuffs/Characters/Queixao/Sprites/queixo doi0001.png" id="9_mp2uv"]
+[ext_resource type="Texture2D" uid="uid://bu636boqekc1s" path="res://Playerstuffs/Characters/Queixao/Sprites/queixo doi0002.png" id="10_0mboc"]
+[ext_resource type="Texture2D" uid="uid://bvtjfmny15w1c" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao pulo.png" id="11_qx00h"]
+[ext_resource type="Texture2D" uid="uid://s4sgedr2ycws" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao run0001.png" id="12_oy7iw"]
+[ext_resource type="Texture2D" uid="uid://mngs87t7f1gq" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao run0002.png" id="13_gs2f7"]
+[ext_resource type="Texture2D" uid="uid://dw6v5t8txwveo" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao walk0001.png" id="14_bjg6y"]
+[ext_resource type="Texture2D" uid="uid://dpfkqokb6y887" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao walk0002.png" id="15_koxb0"]
+[ext_resource type="Texture2D" uid="uid://b88iywd5h2mvy" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao walk0003.png" id="16_lbm5p"]
+[ext_resource type="Texture2D" uid="uid://csjrrjbygmprg" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao walk0004.png" id="17_ej3ja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8kaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5mv1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ny6sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2pmox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xyjv3")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_awhg7")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_06pve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0biai")
+}],
+"loop": true,
+"name": &"espada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mp2uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0mboc")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qx00h")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_oy7iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gs2f7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_bjg6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_koxb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lbm5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ej3ja")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" instance=ExtResource("1_ny8tf")]
+script = ExtResource("2_xyjv3")
+FLOOR_ACCELERATION = 80.0
+AIR_ACCELERATION = 60
+SOFT_MAX_SPEED = 1000
+GRAVITY = 10.0
+JUMP_VELOCITY = -425
+SLOPE_VEL_ADD = 37
+ATTACK_DMG = Dictionary[String, float]({
+"default": 2.14748e+09
+})
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("3_awhg7")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("4_06pve")
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.365, 1.07)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_p8kaq")
+animation = &"run"
