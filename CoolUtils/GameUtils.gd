@@ -15,7 +15,7 @@ static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'Pa
 
 static var majorVersion:int = 0
 static var minorVersion:int = 6
-static var patchVersion:int = 0
+static var patchVersion:int = 1
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
 static func get_chars():

@@ -19,6 +19,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="jolas.: Desbravações Abound"
+config/name_localized={
+"ja": "jolas.: 壮大な探検の冒険"
+}
 run/main_scene="uid://b1m18oeu0ix3m"
 config/use_custom_user_dir=true
 config/custom_user_dir_name=".jolas"
