@@ -19,6 +19,7 @@ var optssss:Array[StringName] = [
 var canControl:bool = true
 
 func _ready() -> void:
+	print("para com essa porra")
 	CoolMenu.curSelected = 0
 	CoolMenu.maxSelected = len(optssss)
 	CoolMenu.play_sfx('Unwrap')
