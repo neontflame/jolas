@@ -54,6 +54,8 @@ var fullInvuln := false
 
 var combo := 0
 var comboFrames := 0.0
+signal comboIncrease
+signal comboReset
 
 var stunFrames := 0.0
 var jumpsDone:int = 1
@@ -136,7 +138,7 @@ func _physics_process(delta: float) -> void:
 	if comboFrames > 0:
 		comboFrames -= 1 * deltaOne
 	else:
-		combo = 0
+		if combo != 0: resetCombo()
 	
 	if current_state != state_machine.st_hurt:
 		if invulnFrames > 0:
@@ -352,6 +354,11 @@ func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vec
 func increaseCombo():
 	comboFrames = 180.0
 	combo += 1
+	comboIncrease.emit()
+
+func resetCombo():
+	combo = 0
+	comboReset.emit()
 
 ## faz uma hitbox! knockAngle e em degraus e o angulo 0 aponta pra Direita btw
 ## direçao do knockAngle e horaria

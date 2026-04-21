@@ -6,7 +6,7 @@ static var saveNum := 0
 static var char := 'Neon'
 static var xp := 0
 static var level := 3
-static var charObject:PlayerObject
+static var charObject: PlayerObject
 static var maxHP := 10
 static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
 static var curMap := 'TheThing'

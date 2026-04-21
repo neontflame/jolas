@@ -10,7 +10,10 @@ class_name HeadsUpDisplay
 @export var hpBar:NinePatchRect
 @export var xpBar:NinePatchRect
 @export var testLabel:Label
+
 @export var comboText:RichTextLabel
+var combo_tween: Tween
+
 @export var questIcon:Node2D
 @export var placeInfo:PlaceDisplayerIngame
 
@@ -20,7 +23,16 @@ func _ready() -> void:
 	var customHUD = GameUtils.get_char_asset(GPStats.char, "HUD.tscn")
 	if customHUD:
 		canvasLayer.add_child(customHUD.instantiate())
-	pass # Replace with function body.
+	comboText.position.y = -64.0
+	
+	while GPStats.charObject == null:
+		await get_tree().process_frame
+	if GPStats.charObject:
+		print("sinais prontos")
+		GPStats.charObject.comboIncrease.connect(show_combo_hud)
+		GPStats.charObject.comboReset.connect(hide_combo_hud)
+	else:
+		print("sinais nao conectados")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,5 +67,23 @@ func _process(delta: float) -> void:
 			)
 	)
 	
+	
+func show_combo_hud():
 	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)
-	comboText.self_modulate.a = GPStats.charObject.comboFrames / 120
+	var initial_pos: float
+	if GPStats.charObject.combo == 1:
+		initial_pos = -64.0
+	else:
+		initial_pos = 20.0
+	
+	comboText.position.y = initial_pos
+	if combo_tween and combo_tween.is_valid(): combo_tween.kill()
+	combo_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	combo_tween.tween_property(comboText, "position:y", 10.0, 0.5)
+
+func hide_combo_hud():
+	if combo_tween and combo_tween.is_valid(): combo_tween.kill()
+	combo_tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUINT)
+	combo_tween.tween_property(comboText, "position:y", -64.0, 0.5)
+	await combo_tween.finished
+	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)

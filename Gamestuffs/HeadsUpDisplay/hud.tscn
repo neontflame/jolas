@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=17 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
@@ -27,7 +27,7 @@ subpixel_positioning = 0
 base_font = ExtResource("11_taoro")
 spacing_glyph = -4
 
-[node name="Hud" type="Node2D" unique_id=1574224645 node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "placeInfo")]
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "placeInfo")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -42,52 +42,52 @@ comboText = NodePath("CanvasLayer/RightAnchor/ComboText")
 questIcon = NodePath("CanvasLayer/QuestIcon")
 placeInfo = NodePath("CanvasLayer/Control/PlaceInfo")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1395271806]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer" unique_id=1666058654]
+[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_43w4t")
 use_parent_material = true
 position = Vector2(40, 16)
 texture = ExtResource("3_36asn")
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer" unique_id=1607570722]
+[node name="LevelLabel" type="Label" parent="CanvasLayer"]
 offset_left = -38.0
 offset_top = -21.0
 offset_right = 100.0
 offset_bottom = 79.0
-theme_override_colors/font_color = Color(1, 1, 1, 0.5137255)
+theme_override_colors/font_color = Color(1, 1, 1, 0.513726)
 theme_override_fonts/font = SubResource("SystemFont_7gr8i")
 theme_override_font_sizes/font_size = 70
 text = "1"
 horizontal_alignment = 1
 
-[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer" unique_id=1826259876]
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(62, 65)
 texture = ExtResource("5_t1xeu")
 
-[node name="Bars" type="Node" parent="CanvasLayer" unique_id=1781242768]
+[node name="Bars" type="Node" parent="CanvasLayer"]
 
-[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1095992270]
+[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(88, 16)
 texture = ExtResource("6_5ep0j")
 centered = false
 
-[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=750366070]
+[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(107, 54)
 texture = ExtResource("7_4f5kr")
 centered = false
 
-[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1317421494]
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(112, 32)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=281244592]
+[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(128, 64)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=1444966525]
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
 offset_left = 112.0
 offset_top = 32.0
 offset_right = 209.0
@@ -98,7 +98,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="HPText" type="Label" parent="CanvasLayer/Bars" unique_id=1061605119]
+[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
 offset_left = 170.0
 offset_top = 23.0
 offset_right = 253.0
@@ -108,7 +108,7 @@ theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
 
-[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=2104607320]
+[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 225.0
@@ -119,7 +119,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="XPText" type="Label" parent="CanvasLayer/Bars" unique_id=339376321]
+[node name="XPText" type="Label" parent="CanvasLayer/Bars"]
 offset_left = 186.0
 offset_top = 55.0
 offset_right = 269.0
@@ -129,7 +129,7 @@ theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
 
-[node name="RightAnchor" type="Control" parent="CanvasLayer" unique_id=40230390]
+[node name="RightAnchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -138,19 +138,19 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor" unique_id=444815792]
+[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor"]
 layout_mode = 0
-offset_left = -200.0
-offset_top = 10.0
-offset_right = 28.0
-offset_bottom = 79.0
+offset_left = -744.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 5.0
 theme_override_fonts/normal_font = SubResource("FontVariation_5tfyd")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]12"
+text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
 horizontal_alignment = 2
 
-[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor" unique_id=1523833424]
+[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
 layout_mode = 0
 offset_left = -328.0
 offset_top = 58.0
@@ -161,10 +161,10 @@ theme_override_font_sizes/font_size = 18
 text = "FPS: 60"
 horizontal_alignment = 2
 
-[node name="QuestIcon" parent="CanvasLayer" unique_id=1447934783 instance=ExtResource("12_5tfyd")]
+[node name="QuestIcon" parent="CanvasLayer" instance=ExtResource("12_5tfyd")]
 position = Vector2(34, 136)
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=217545555]
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -175,5 +175,5 @@ offset_right = 20.0
 offset_bottom = 41.0
 grow_horizontal = 2
 
-[node name="PlaceInfo" parent="CanvasLayer/Control" unique_id=1452514052 instance=ExtResource("13_fndli")]
+[node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("13_fndli")]
 position = Vector2(20, 21)

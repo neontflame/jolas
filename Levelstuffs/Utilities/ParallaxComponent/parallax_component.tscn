@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b56w1cko06jmo"]
+
+[ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="1_6l624"]
+
+[node name="ParallaxComponent" type="ParallaxBackground" node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_6l624")
+PLayer = NodePath("")
+Sprite = NodePath("")
+ParallaxType = 0

@@ -1,10 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=12 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_khcdk"]
+[ext_resource type="PackedScene" uid="uid://bxlbr0kwcvmiw" path="res://Levelstuffs/Levels/test_background_da_silva.tscn" id="6_orxbo"]
+[ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
+[ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
+[ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
+
+[sub_resource type="Curve2D" id="Curve2D_vxpvn"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -408, -216, -366.364, 2.72727, 366.364, -2.72727, 304, -368, 0, 0, 0, 0, 816, -208, 0, 0, 0, 0, 816, -168, 368.687, -7.986, -368.687, 7.986, 208, -88, 0, 0, 0, 0, -408, -168)
+}
+point_count = 6
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
@@ -12,6 +23,24 @@
 script = ExtResource("1_h803n")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+
+[node name="TestBackgroundDaSilva" parent="." instance=ExtResource("6_orxbo")]
+
+[node name="TestTerrain" type="Path2D" parent="."]
+texture_filter = 1
+position = Vector2(864, 1224)
+curve = SubResource("Curve2D_vxpvn")
+script = ExtResource("7_vamy5")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = ExtResource("8_co55q")
+enable_edge_texture = true
+edge_texture = ExtResource("9_h3gw8")
+current_edge_type = 0
+edge_offset = Vector2i(0, 0)
+line_texture_type = 1
+visible_collision = true
+metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(354, 1036)

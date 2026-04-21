@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxlbr0kwcvmiw"]
+
+[ext_resource type="PackedScene" uid="uid://b56w1cko06jmo" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.tscn" id="1_vaqnp"]
+[ext_resource type="Texture2D" uid="uid://bq50pvj51s52s" path="res://Levelstuffs/Utilities/ParallaxComponent/base_background.png" id="2_vw003"]
+
+[node name="TestBackgroundDaSilva" type="Node"]
+
+[node name="Red uhhh_" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_vaqnp")]
+scroll_base_scale = Vector2(0.05, 0.05)
+PLayer = NodePath("RedUhParallaxLayer")
+Sprite = NodePath("RedUhParallaxLayer/RedUhSprite")
+ParallaxType = 3
+ScrollSpeed = Vector2(10, 10)
+DynamicScrollSpeed = Vector2(0.05, 0.05)
+
+[node name="RedUhParallaxLayer" type="ParallaxLayer" parent="Red uhhh_"]
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="RedUhSprite" type="Sprite2D" parent="Red uhhh_/RedUhParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_vw003")
+centered = false
+region_enabled = true
+region_rect = Rect2(1785.35, 1782.27, 1024, 1024)
