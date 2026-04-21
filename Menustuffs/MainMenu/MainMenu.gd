@@ -34,6 +34,10 @@ func randomQuote():
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
 func _ready() -> void:
+	if OS.get_name() == "Web":
+		$MenuCanvas/RightAnchor/Opts/addons.modulate.a = 0.5
+		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
+	
 	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
 							versão %s - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % GameUtils.gameVersion
 	$MenuCanvas/Quote.text = randomQuote()
@@ -80,9 +84,17 @@ func goToMenu(menuName:String):
 		'opcoes':
 			change_self_scene("res://Menustuffs/OptionsMenu/OptionsMenu.tscn")
 		'addons':
-			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+			if OS.get_name() != "Web":
+				change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+			else:
+				CoolMenu.stop_sfx('Go')
+				CoolMenu.play_sfx('Back')
 		'sair':
-			get_tree().quit()
+			if OS.get_name() != "Web":
+				get_tree().quit()
+			else:
+				CoolMenu.stop_sfx('Go')
+				CoolMenu.play_sfx('Back')
 		_:
 			print(menuName)
 			CoolMenu.stop_sfx('Go')
