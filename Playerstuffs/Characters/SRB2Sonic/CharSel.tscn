@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7d75g8dic0q3"]
+
+[ext_resource type="Texture2D" uid="uid://dw1ifbox7hjkf" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Selection.png" id="1_2rs4o"]
+
+[node name="CharSel" type="Node2D"]
+
+[node name="SonicIdle" type="Sprite2D" parent="."]
+position = Vector2(0, -45)
+texture = ExtResource("1_2rs4o")

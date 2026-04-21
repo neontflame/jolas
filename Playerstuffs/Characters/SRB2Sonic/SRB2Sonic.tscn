@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://6jvfvons3w28"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_wtpuj"]
+[ext_resource type="Script" uid="uid://clqvfc7pb3c34" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/playerSRB2.gd" id="2_bcgp1"]
+[ext_resource type="Script" uid="uid://c13td0r18pceb" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/statemachineSRB2.gd" id="3_1yyof"]
+[ext_resource type="Script" uid="uid://ct1ulc6qx5m5i" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/floorStSRB2.gd" id="4_1yyof"]
+[ext_resource type="Script" uid="uid://bp6rq1fogbx5d" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/airStSRB2.gd" id="5_bcgp1"]
+[ext_resource type="Script" uid="uid://d3k8yxm0u4fu4" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/spinChargeStSRB2.gd" id="6_1hbx6"]
+[ext_resource type="SpriteFrames" uid="uid://fgipsrhn07u6" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/SRB2Sonic.tres" id="7_1yyof"]
+[ext_resource type="Script" uid="uid://beh845o843q4g" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/rollStSRB2.gd" id="7_bcgp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyp1u"]
+size = Vector2(40, 40)
+
+[node name="Player" node_paths=PackedStringArray("special_box") instance=ExtResource("1_wtpuj")]
+script = ExtResource("2_bcgp1")
+special_box = NodePath("SpecialCollide")
+FLOOR_ACCELERATION = 5.0
+AIR_ACCELERATION = 5
+SOFT_MAX_SPEED = 1000
+SLOPE_VEL_ADD = 30
+FLOOR_FRICTION = 0.95
+AIR_FRICTION = 0.95
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("3_1yyof")
+
+[node name="Floor" parent="StateMachine" index="0"]
+script = ExtResource("4_1yyof")
+
+[node name="Air" parent="StateMachine" index="1"]
+script = ExtResource("5_bcgp1")
+
+[node name="SpinCharge" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("6_1hbx6")
+
+[node name="Roll" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("7_bcgp1")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 0)
+scale = Vector2(0.311, 0.46)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = ExtResource("7_1yyof")
+animation = &"jump"
+frame_progress = 0.676425
+offset = Vector2(0, 8)
+
+[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_nyp1u")
+disabled = true

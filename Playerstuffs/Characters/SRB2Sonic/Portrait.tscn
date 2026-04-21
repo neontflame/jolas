@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=3 uid="uid://xv8oh1qlrh5v"]
+
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_15kjl"]
+[ext_resource type="Texture2D" uid="uid://btdlqab7k2t7q" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitAngry0002.png" id="2_ccx3i"]
+[ext_resource type="Texture2D" uid="uid://l8rl1vwf82dj" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitAngry0003.png" id="3_axcny"]
+[ext_resource type="Texture2D" uid="uid://ofmiyt2uvgvd" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitAngry0001.png" id="4_4t677"]
+[ext_resource type="Texture2D" uid="uid://qljwo8y5ew44" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portrait whuh0002.png" id="5_yvvc4"]
+[ext_resource type="Texture2D" uid="uid://c6034imon655y" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portrait whuh0003.png" id="6_k7hwr"]
+[ext_resource type="Texture2D" uid="uid://h3lsshrkpyx" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portrait whuh0001.png" id="7_ak4y6"]
+[ext_resource type="Texture2D" uid="uid://dha1tnxpppp20" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitHmm0002.png" id="8_sv1yq"]
+[ext_resource type="Texture2D" uid="uid://bmr3rlvicol1" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitHmm0003.png" id="9_ylsle"]
+[ext_resource type="Texture2D" uid="uid://b36xpylsjwb70" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitHmm0001.png" id="10_mdee2"]
+[ext_resource type="Texture2D" uid="uid://cktob4cc2whlo" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitYeheah0002.png" id="11_7gckb"]
+[ext_resource type="Texture2D" uid="uid://big80odqxejci" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitYeheah0003.png" id="12_t3xkf"]
+[ext_resource type="Texture2D" uid="uid://dendmhn2js5kv" path="res://Playerstuffs/Characters/Neon/Sprites/portraits/portraitYeheah0001.png" id="13_55eh0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vpsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ccx3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_axcny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4t677")
+}],
+"loop": false,
+"name": &"angry",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yvvc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k7hwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ak4y6")
+}],
+"loop": false,
+"name": &"confused",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_sv1yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ylsle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mdee2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7gckb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t3xkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_55eh0")
+}],
+"loop": false,
+"name": &"pointy",
+"speed": 12.0
+}]
+
+[node name="neonPort" type="Node2D"]
+script = ExtResource("1_15kjl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -65)
+sprite_frames = SubResource("SpriteFrames_2vpsd")

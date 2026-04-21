@@ -1,0 +1,141 @@
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://fgipsrhn07u6"]
+
+[ext_resource type="Texture2D" uid="uid://cros88bthirsa" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Dead.png" id="1_t0tdg"]
+[ext_resource type="Texture2D" uid="uid://bobe7uawi6eva" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Skid.png" id="2_t0tdg"]
+[ext_resource type="Texture2D" uid="uid://bkxnjmg5rj0l1" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Damage.png" id="4_7ta8k"]
+[ext_resource type="Texture2D" uid="uid://hqhbyu7vige4" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Idle.png" id="6_ckm4l"]
+[ext_resource type="Texture2D" uid="uid://beooenfdphvkx" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump1.png" id="9_tw5oa"]
+[ext_resource type="Texture2D" uid="uid://dmvqsj6724cxy" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump2.png" id="10_7r1y7"]
+[ext_resource type="Texture2D" uid="uid://bnqyh31fts4pp" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run1.png" id="11_3civk"]
+[ext_resource type="Texture2D" uid="uid://fgqro1alsxri" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump3.png" id="11_6ks13"]
+[ext_resource type="Texture2D" uid="uid://d3fn7xyy4ey75" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run2.png" id="12_bylnm"]
+[ext_resource type="Texture2D" uid="uid://c0yw81jk250k1" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump4.png" id="12_evwg4"]
+[ext_resource type="Texture2D" uid="uid://dsuo2c5f67ifs" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump5.png" id="13_2t0tn"]
+[ext_resource type="Texture2D" uid="uid://myqbqx0rax8e" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run3.png" id="13_fklq3"]
+[ext_resource type="Texture2D" uid="uid://buh5wtlgvppf1" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run4.png" id="14_f8xkw"]
+[ext_resource type="Texture2D" uid="uid://cu8g5rac2k4uc" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump6.png" id="14_nt1vd"]
+[ext_resource type="Texture2D" uid="uid://b43dk0tjlmjr4" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Wait1.png" id="19_1bgbp"]
+[ext_resource type="Texture2D" uid="uid://ddjw5tlc8bfjx" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Wait2.png" id="20_rcs2s"]
+[ext_resource type="Texture2D" uid="uid://dmjpdpeggjude" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk1.png" id="21_nstgt"]
+[ext_resource type="Texture2D" uid="uid://0csv16snywex" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk2.png" id="22_xe4se"]
+[ext_resource type="Texture2D" uid="uid://b24x8cd8gc07p" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk3.png" id="23_2fnsy"]
+[ext_resource type="Texture2D" uid="uid://epmyc1dm4sq6" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk4.png" id="24_u0wjk"]
+[ext_resource type="Texture2D" uid="uid://dsp7gab0phimx" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk5.png" id="25_h4wft"]
+[ext_resource type="Texture2D" uid="uid://cqlxun3anemhu" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk6.png" id="26_ieg6a"]
+[ext_resource type="Texture2D" uid="uid://mcph6xaowsvy" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk7.png" id="27_5wh3k"]
+[ext_resource type="Texture2D" uid="uid://do5q7k8qw25f5" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk8.png" id="28_cqui3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t0tdg")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t0tdg")
+}],
+"loop": false,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("6_ckm4l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7ta8k")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_tw5oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7r1y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6ks13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_evwg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2t0tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nt1vd")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3civk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bylnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fklq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f8xkw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_1bgbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_rcs2s")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_nstgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xe4se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_2fnsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u0wjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_h4wft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ieg6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5wh3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_cqui3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 20.0
+}]
