@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dys3tmfmtjg6n"]
+
+[ext_resource type="Script" uid="uid://b2osifqcmt5a" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/thok_fx.gd" id="1_cuf5g"]
+[ext_resource type="Texture2D" uid="uid://dqgl4mmfc18wc" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/CircleEffect.png" id="1_y4gqi"]
+
+[node name="ThokFX" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_y4gqi")
+script = ExtResource("1_cuf5g")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

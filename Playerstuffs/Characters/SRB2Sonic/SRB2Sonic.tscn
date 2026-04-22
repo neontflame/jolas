@@ -12,11 +12,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyp1u"]
 size = Vector2(40, 40)
 
-[node name="Player" node_paths=PackedStringArray("special_box") instance=ExtResource("1_wtpuj")]
+[node name="Player" node_paths=PackedStringArray("special_box", "spinFxTimer") instance=ExtResource("1_wtpuj")]
 script = ExtResource("2_bcgp1")
 special_box = NodePath("SpecialCollide")
-FLOOR_ACCELERATION = 5.0
-AIR_ACCELERATION = 5
+spinFxTimer = NodePath("SpinFxTimer")
+FLOOR_ACCELERATION = 20.0
+AIR_ACCELERATION = 20
+FLOOR_BRAKE = 20.0
 SOFT_MAX_SPEED = 1000
 SLOPE_VEL_ADD = 30
 FLOOR_FRICTION = 0.95
@@ -51,3 +53,8 @@ offset = Vector2(0, -4)
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_nyp1u")
 disabled = true
+
+[node name="SpinFxTimer" type="Timer" parent="." index="9"]
+wait_time = 0.05
+
+[connection signal="timeout" from="SpinFxTimer" to="." method="_on_spin_fx_timer_timeout"]

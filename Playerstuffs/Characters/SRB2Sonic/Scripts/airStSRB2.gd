@@ -10,19 +10,19 @@ func enter_state():
 		Player.plySprite.offset = Vector2(0, 8)
 		Player.play_char_sfx("ClassicSonicJump", "SRB2Sonic")
 		Player.plySprite.play('jump')
+		Player.canThok = true
 	
 func update():
 	var axis = Input.get_axis("ctrl_left", "ctrl_right")
 	
 	Player.handlePhys()
-	handleAnimations()
 	Player.handleMovement()
 	Player.handleCamera()
 	
 	if Player.jumping:
 		if PlayerUtils.is_jump_just_pressed() and Player.canThok:
+			Player.create_thok_fx()
 			Player.plySprite.speed_scale = 1.0
-			Player.motion.y = 0.0
 			Player.canThok = false
 			Player.generic_squish(false)
 			if axis != 0.0:
@@ -48,8 +48,3 @@ func exit_state():
 	Player.plySprite.offset = Vector2(0, -4)
 	Player.delete_hitboxes("spin_attack")
 	Player.canThok = true
-
-func handleAnimations():
-	if PlayerUtils.is_jump_just_pressed() && Player.jumpsDone <= Player.JUMP_COUNT:
-		Player.play_sfx('Jump', 10)
-		Player.plySprite.play('jump')

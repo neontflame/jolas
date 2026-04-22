@@ -6,8 +6,11 @@ var canThok: bool = true
 var spinCharge := 1000.0
 
 @export var special_box: CollisionShape2D
-
+@export var spinFxTimer: Timer
 var squash_tween: Tween
+
+var thokFx = preload("res://Playerstuffs/Characters/SRB2Sonic/Fx/ThokFX.tscn")
+
 #endregion
 
 func _physics_process(delta: float) -> void:
@@ -16,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		set_roll_collision(false)
 	
 	special_box.rotation = practicalAngle
+	print(motion)
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	super.connectAttack(_stunFrames, fromBehind, vel)
@@ -49,7 +53,15 @@ func spin_knockback() -> Vector2:
 	
 	return Vector2(x_value, y_value)
 
+func create_thok_fx():
+	var tfx = thokFx.instantiate() as Sprite2D
+	get_parent().add_child(tfx)
+	tfx.global_position = self.global_position
+	tfx.offset = self.plySprite.offset
+	tfx.rotation = practicalAngle
+
 func generic_squish(is_vertical: bool = true):
+	
 	if is_vertical:
 		plySprite.scale = Vector2(0.5, 1.5)
 	else:
@@ -57,3 +69,7 @@ func generic_squish(is_vertical: bool = true):
 	if squash_tween and squash_tween.is_valid(): squash_tween.kill()
 	squash_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	squash_tween.tween_property(plySprite, "scale", Vector2.ONE, 0.5)
+
+
+func _on_spin_fx_timer_timeout() -> void:
+	create_thok_fx()

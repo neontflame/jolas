@@ -9,6 +9,8 @@ func enter_state():
 	Player.generic_squish(false)
 
 func update():
+	spawn_thok_fxs()
+	
 	Player.handlePhys()
 	Player.handleMovement()
 	Player.handleCamera()
@@ -23,8 +25,20 @@ func update():
 	
 	if not Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_air)
+		Player.canThok = false
 		
 func exit_state():
 	Player.plySprite.offset = Vector2(0, -4)
 	Player.delete_hitboxes("spin_attack")
 	Player.walkingEnabled = true
+	Player.spinFxTimer.stop()
+
+func spawn_thok_fxs():
+	if abs(Player.motion.x) > 500.0:
+		if not Player.spinFxTimer.is_stopped():
+			return
+		Player.spinFxTimer.start()
+	else:
+		if Player.spinFxTimer.is_stopped():
+			return
+		Player.spinFxTimer.stop()

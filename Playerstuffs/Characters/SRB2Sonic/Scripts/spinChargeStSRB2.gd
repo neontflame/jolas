@@ -8,6 +8,7 @@ func enter_state():
 	Player.generic_squish(false)
 	Player.play_char_sfx("Spindash", "SRB2Sonic")
 	Player.plySprite.play("spin_charge")
+	Player.spinFxTimer.start()
 	
 func update():
 	var delta = get_physics_process_delta_time()

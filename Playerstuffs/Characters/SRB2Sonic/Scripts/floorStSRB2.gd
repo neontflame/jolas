@@ -17,6 +17,7 @@ func update():
 	Player.motion.x = clamp(Player.motion.x, -Player.SOFT_MAX_SPEED, Player.SOFT_MAX_SPEED)
 	
 	if not Player.is_on_floor():
+		Player.canThok = false
 		Player.change_state(Player.state_machine.st_air)
 	
 	if Input.is_action_pressed("ctrl_2"):
@@ -42,7 +43,7 @@ func handleAnimations() -> void:
 					Player.plySprite.play('brake')
 		elif abs(Player.motion.x) > Player.FLOOR_ACCELERATION:
 			Player.plySprite.speed_scale = max(abs(Player.motion.x) / 1000, 0.3)
-			if abs(Player.motion.x) > 800:
+			if abs(Player.motion.x) >= 1000:
 				Player.plySprite.play('run')
 			else:
 				Player.plySprite.play('walk')
