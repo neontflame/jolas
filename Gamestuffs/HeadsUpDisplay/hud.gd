@@ -74,7 +74,7 @@ func show_combo_hud():
 	if GPStats.charObject.combo == 1:
 		initial_pos = -64.0
 	else:
-		initial_pos = 20.0
+		initial_pos = 15.0
 	
 	comboText.position.y = initial_pos
 	if combo_tween and combo_tween.is_valid(): combo_tween.kill()

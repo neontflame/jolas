@@ -17,7 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 			JolasGame.instance.fadeIn(0.5, 
 			func(): 
 				print('ok agora volta')
-				JolasGame.instance.createLevel(levelInQuestion)
+				JolasGame.instance.createMap(levelInQuestion)
 				JolasGame.instance.respawnPlayer(false, vai)
 				JolasGame.instance.fadeOut(0.5)
 				)

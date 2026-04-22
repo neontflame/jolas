@@ -1,7 +1,7 @@
 extends Node2D
 class_name JolasGame
 
-var level:JolasLevel
+var map:JolasMap
 var playerInstance
 var dialogueInstance
 var isDial := false
@@ -23,7 +23,7 @@ static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	createLevel(GPStats.curMap)
+	createMap(GPStats.curMap)
 	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveNum)
 	
@@ -39,6 +39,7 @@ func _ready() -> void:
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
+	print(chara)
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
 	
 	if playerInstance: remove_child(playerInstance)
@@ -47,8 +48,9 @@ func createPlayer(chara:String, id:int = -1):
 	plyNode.add_child(playerInstance)
 	allChars.append(playerInstance)
 	
-	if level:
-		playerInstance.position = level.spawnpoint.position
+	if map:
+		if map.spawnpoint:
+			playerInstance.position = map.spawnpoint.position
 		
 	GPStats.setCharObject(playerInstance)
 
@@ -57,16 +59,16 @@ func removePlayer():
 		allChars.erase(playerInstance)
 		playerInstance.queue_free()
 
-func createLevel(lvl:String):
+func createMap(lvl:String):
 	print('proximo mapa: ' + lvl)
-	if level: level.free()
+	if map: map.free()
 	
-	level = load(GameUtils.get_map_path(lvl)).instantiate()
+	map = load(GameUtils.get_map_path(lvl)).instantiate()
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
-	lvlNode.add_child(level)
-	MapUtils.set_map(level)
+	lvlNode.add_child(map)
+	# MapUtils.set_map(map)
 	
-	GPStats.curMap = level.name
+	GPStats.curMap = map.name
 	SaveUtils.save_game(GPStats.saveNum)
 	if GameUtils.get_map_info(lvl).has('songFile'):
 		playBGM(GameUtils.get_map_info(lvl)['songFile'])
@@ -78,8 +80,8 @@ func createLevel(lvl:String):
 	hud.placeInfo.triggerPlaceInfo()
 
 func respawnPlayer(maxOutHP:bool = true, comeback:bool = false):
-	if level:
-		GPStats.charObject.position = (level.spawnpointBack.position if comeback else level.spawnpoint.position)
+	if map:
+		GPStats.charObject.position = (map.spawnpointBack.position if comeback else map.spawnpoint.position)
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
@@ -191,8 +193,8 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	allChars.append(pInst)
 	charDict[peer_id] = pInst
 	
-	if level:
-		pInst.position = level.spawnpoint.position
+	if map:
+		pInst.position = map.spawnpoint.position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
 	pInst.level_up()

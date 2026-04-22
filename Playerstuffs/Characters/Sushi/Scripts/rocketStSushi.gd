@@ -77,6 +77,7 @@ func handleRocketAnims():
 
 func exit_state():
 	Player.rocketIndicator.visible = false
+	Player.camOffset = Vector2.ZERO
 	
 func _input(event):
 	if event is InputEventMouseMotion:

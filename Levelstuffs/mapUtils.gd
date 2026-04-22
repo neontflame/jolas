@@ -1,9 +1,9 @@
 extends Node
 class_name MapUtils
 
-static var map:JolasLevel
+static var map:JolasMap
 
-static func set_map(lv:JolasLevel):
+static func set_map(lv:JolasMap):
 	map = lv
 
 static func spawn_object(name:String, pos:Vector2, variation:String = 'Default', additionalData:Dictionary = {}):
