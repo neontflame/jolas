@@ -76,10 +76,11 @@ func goToOtherPin(thepin:int, where:String):
 	
 	if myPin.goto[where] != '-1':
 		if myPin.goto[where].is_valid_int():
-			curSelected = int(myPin.goto[where])
-			$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
-			$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
-			CoolMenu.play_sfx('Tick')
+			if get_pin(int(myPin.goto[where])):
+				curSelected = int(myPin.goto[where])
+				$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
+				$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+				CoolMenu.play_sfx('Tick')
 		else:
 			changeMap(myPin.goto[where])
 			CoolMenu.play_sfx('Tick')

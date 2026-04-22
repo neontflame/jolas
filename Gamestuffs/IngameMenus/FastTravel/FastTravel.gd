@@ -33,7 +33,7 @@ func goToThing(mapId:String):
 	JolasGame.instance.fadeIn(0.5, 
 	func(): 
 		print('ok agora volta')
-		JolasGame.instance.createLevel(mapId)
+		JolasGame.instance.createMap(mapId)
 		JolasGame.instance.respawnPlayer(false, false)
 		JolasGame.instance.fadeOut(0.5)
 		)

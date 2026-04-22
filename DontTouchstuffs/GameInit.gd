@@ -1,6 +1,7 @@
+class_name GameInit
 extends Node2D
 
-func setupGameInfo():
+static func setupGameInfo():
 	OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
 	await OptionsUtils.get_controls_info()
 	await UnlockUtils.merge_to_vars()
@@ -16,7 +17,7 @@ func setupAutoloadMods():
 				GameUtils.queuedMods.append("user://" + mod)
 
 func _ready() -> void:
-	await setupGameInfo()
+	await GameInit.setupGameInfo()
 	await setupAutoloadMods()
 	
 	if DisplayServer.get_name() == "headless" \
