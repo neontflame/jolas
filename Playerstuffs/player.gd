@@ -12,6 +12,7 @@ var previous_state = null
 @export_group('Parameters')
 @export var FLOOR_ACCELERATION = 62.5
 @export var AIR_ACCELERATION = 30
+@export var FLOOR_BRAKE = 0.0
 @export var SOFT_MAX_SPEED = 600
 @export var GRAVITY = 25.0
 @export var JUMP_VELOCITY = -625
@@ -103,6 +104,9 @@ func _ready() -> void:
 		state.setup()
 	current_state = state_machine.st_floor
 	previous_state = state_machine.st_floor
+	
+	if FLOOR_BRAKE == 0:
+		FLOOR_BRAKE = FLOOR_ACCELERATION
 	PlayerUtils.set_default_zoom()
 
 func _enter_tree() -> void:
@@ -225,10 +229,16 @@ func handleMovement() -> void:
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
 			if (motion.x > -SOFT_MAX_SPEED * slopeFactor * deltaOne):
-				motion.x -= ACCELERATION * deltaOne
+				if (motion.x > 0 and is_on_floor()):
+					motion.x -= FLOOR_BRAKE * deltaOne
+				else:
+					motion.x -= ACCELERATION * deltaOne
 		elif Input.is_action_pressed("ctrl_right"):
 			if (motion.x < SOFT_MAX_SPEED * slopeFactor * deltaOne):
-				motion.x += ACCELERATION * deltaOne
+				if (motion.x < 0 and is_on_floor()):
+					motion.x += FLOOR_BRAKE * deltaOne
+				else:
+					motion.x += ACCELERATION * deltaOne
 		else:
 			motion.x = motion.x * (FRICTION * deltaOne)
 
