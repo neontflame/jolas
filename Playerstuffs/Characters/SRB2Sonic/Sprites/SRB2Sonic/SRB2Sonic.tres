@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://fgipsrhn07u6"]
+[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://fgipsrhn07u6"]
 
 [ext_resource type="Texture2D" uid="uid://cros88bthirsa" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Dead.png" id="1_t0tdg"]
 [ext_resource type="Texture2D" uid="uid://bobe7uawi6eva" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Skid.png" id="2_t0tdg"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://myqbqx0rax8e" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run3.png" id="13_fklq3"]
 [ext_resource type="Texture2D" uid="uid://buh5wtlgvppf1" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Run4.png" id="14_f8xkw"]
 [ext_resource type="Texture2D" uid="uid://cu8g5rac2k4uc" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Jump6.png" id="14_nt1vd"]
+[ext_resource type="Texture2D" uid="uid://p8mxl2ero5c" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Spindash1.png" id="15_tw5oa"]
+[ext_resource type="Texture2D" uid="uid://b2om8ofb3ddun" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Spindash2.png" id="16_7r1y7"]
+[ext_resource type="Texture2D" uid="uid://cned6ap1308ds" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Spindash3.png" id="17_6ks13"]
+[ext_resource type="Texture2D" uid="uid://bus8xq25iyg83" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Spindash4.png" id="18_evwg4"]
 [ext_resource type="Texture2D" uid="uid://b43dk0tjlmjr4" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Wait1.png" id="19_1bgbp"]
 [ext_resource type="Texture2D" uid="uid://ddjw5tlc8bfjx" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Wait2.png" id="20_rcs2s"]
 [ext_resource type="Texture2D" uid="uid://dmjpdpeggjude" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/SRB2Sonic/Walk1.png" id="21_nstgt"]
@@ -98,6 +102,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_tw5oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7r1y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6ks13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_evwg4")
+}],
+"loop": true,
+"name": &"spin_charge",
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,

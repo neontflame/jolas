@@ -5,5 +5,6 @@
 [node name="CharSel" type="Node2D"]
 
 [node name="SonicIdle" type="Sprite2D" parent="."]
-position = Vector2(0, -45)
+position = Vector2(0, -65)
+scale = Vector2(2, 2)
 texture = ExtResource("1_2rs4o")

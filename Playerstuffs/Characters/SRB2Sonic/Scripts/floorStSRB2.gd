@@ -1,6 +1,7 @@
 extends StatePattern
 
 func enter_state():
+	Player.generic_squish(false)
 	Player.canThok = true
 	Player.motion.y = 4
 	if not Player.plySprite.animation_finished.is_connected(animDone):
@@ -13,13 +14,15 @@ func update():
 	Player.handleCamera()
 	handleAnimations()
 	
+	Player.motion.x = clamp(Player.motion.x, -Player.SOFT_MAX_SPEED, Player.SOFT_MAX_SPEED)
+	
 	if not Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_air)
 	
 	if Input.is_action_pressed("ctrl_2"):
 		if abs(Player.motion.x) > 100.0:
 			Player.change_state(Player.state_machine.st_roll)
-			Player.play_sfx("Rolling", -10.0)
+			Player.play_sfx("Rolling")
 		else:
 			Player.change_state(Player.state_machine.st_spin_charge)
 	
@@ -38,7 +41,7 @@ func handleAnimations() -> void:
 				if (Player.movementEnabled && Player.walkingEnabled):
 					Player.plySprite.play('brake')
 		elif abs(Player.motion.x) > Player.FLOOR_ACCELERATION:
-			Player.plySprite.speed_scale = abs(Player.motion.x) / 1000;
+			Player.plySprite.speed_scale = max(abs(Player.motion.x) / 1000, 0.3)
 			if abs(Player.motion.x) > 800:
 				Player.plySprite.play('run')
 			else:
