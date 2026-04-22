@@ -29,7 +29,10 @@ func randomQuote():
 		'hihi quando',
 		'lembra daquela vez que EU e o speed tentamos nao rir',
 		'MINHA MAE É PARCIALMENTE PENDENDO A SER MENDIGA',
-		'cara vai se fuder\ncom a porra do seu mr beast'
+		'cara vai se fuder\ncom a porra do seu mr beast',
+		'gifted goons vs hard work goons',
+		'opa eaí webcore!',
+		'"20 dolares e 20 dolares"'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	

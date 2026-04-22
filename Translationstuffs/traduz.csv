@@ -47,3 +47,5 @@ multi_join_btn;Entrar;Join;参加する
 multi_host_btn_popup;OBS: apenas a porta será considerada;PS: only the port will be considered;ドアのみが対象となります
 multi_modwarning;Você só pode jogar com quem tiver os mesmos mods!;You can only play with whoever has the same mods!;同じMODを入れている人同士でしかプレイできません！
 oldsave_lvcount;Nível %s;Level %s;LEVEL %s
+delete_save_info;Deletar saves ui_toggle ;Delete savefiles ui_toggle ;
+go_back_from_delete;Selecionar saves ui_toggle ;Select savefiles ui_toggle ;
