@@ -8,6 +8,8 @@ var previous_state = null
 #endregion
 
 #region Params
+@export_category('Character Specific Interactions')
+@export var can_jump_mid_air: bool = true
 @export_category('Gameplay')
 @export_group('Parameters')
 @export var FLOOR_ACCELERATION = 62.5
@@ -207,14 +209,13 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or jumpsDone <= JUMP_COUNT):
+	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air)):
 		jumpsDone += 1
 		if isSonicPhys:
 			motion.y = JUMP_VELOCITY * deltaOne
 		else:
 			motion.y = JUMP_VELOCITY * deltaOne * -floorSinCos.y
 			motion.x += JUMP_VELOCITY * deltaOne * -floorSinCos.x
-		
 		motion.y -= abs(motion.x/2) * deltaOne * sin(get_floor_angle())
 		jumping = true
 		holding_jump = true

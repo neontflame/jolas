@@ -18,6 +18,8 @@ func update():
 		Player.change_state(Player.state_machine.st_floor)
 
 func handleAnimations():
-	if PlayerUtils.is_jump_just_pressed() && Player.jumpsDone <= Player.JUMP_COUNT:
+	if PlayerUtils.is_jump_just_pressed() and (Player.jumpsDone <= Player.JUMP_COUNT):
+		if not Player.is_on_floor() and not Player.can_jump_mid_air:
+			return
 		Player.play_sfx('Jump', 10)
 		Player.plySprite.play('jump')
