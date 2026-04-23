@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		set_roll_collision(false)
 	
 	special_box.rotation = practicalAngle
-	print(motion)
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	super.connectAttack(_stunFrames, fromBehind, vel)
