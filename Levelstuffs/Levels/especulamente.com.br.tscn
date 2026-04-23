@@ -18,6 +18,7 @@ point_count = 20
 script = ExtResource("1_n4e6f")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+infoCoisos = "especulamente.com.br"
 
 [node name="CurvedTerrains" type="Node2D" parent="."]
 
