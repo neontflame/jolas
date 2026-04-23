@@ -159,11 +159,11 @@ func _process(delta: float) -> void:
 			curSelected = wrap(curSelected + 1, 0, len(choices))
 			renderChoices()
 			$Sounds/TickSound.play()
-		if (Input.is_action_just_pressed('ui_accept')):
+		if (Input.is_action_just_pressed('ui_accept') || Input.is_action_just_pressed('ctrl_interact')):
 			redirectDiag = choices[curSelected][1]
 			$Sounds/GoSound.play()
 	
-	if (Input.is_action_just_pressed('ui_accept')):
+	if (Input.is_action_just_pressed('ui_accept') || Input.is_action_just_pressed('ctrl_interact')):
 		if diagText.visible_ratio != 1.0:
 			tween.kill()
 			diagText.visible_ratio = 1.0
