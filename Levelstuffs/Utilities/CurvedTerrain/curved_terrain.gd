@@ -160,18 +160,18 @@ func _get_property_list() -> Array[Dictionary]:
 			"usage": PROPERTY_USAGE_DEFAULT
 		})
 		
-		properties.append({
-			"name": "Debug Zone",
-			"type": TYPE_NIL,
-			"usage": PROPERTY_USAGE_CATEGORY
-		})
-		
-		properties.append({
-			"name": "visible_collision",
-			"type": TYPE_BOOL,
-			"hint": PROPERTY_HINT_FLAGS,
-			"usage": PROPERTY_USAGE_DEFAULT
-		})
+	properties.append({
+		"name": "Debug Zone",
+		"type": TYPE_NIL,
+		"usage": PROPERTY_USAGE_CATEGORY
+	})
+	
+	properties.append({
+		"name": "visible_collision",
+		"type": TYPE_BOOL,
+		"hint": PROPERTY_HINT_FLAGS,
+		"usage": PROPERTY_USAGE_DEFAULT
+	})
 	return properties
 #endregion
 

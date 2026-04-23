@@ -161,7 +161,6 @@ size = Vector2(119, 39)
 
 [node name="Player" instance=ExtResource("1_pwpvx")]
 script = ExtResource("2_ewxw4")
-can_jump_mid_air = false
 ATTACK_DMG = Dictionary[String, float]({
 "default": 3.0
 })

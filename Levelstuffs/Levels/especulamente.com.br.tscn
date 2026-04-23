@@ -1,21 +1,273 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlsdgprqmkwmf"]
+[gd_scene load_steps=15 format=3 uid="uid://dlsdgprqmkwmf"]
 
 [ext_resource type="Script" uid="uid://du7ydh736cfhc" path="res://Levelstuffs/Levels/especulamente.com.br.gd" id="1_n4e6f"]
 [ext_resource type="Texture2D" uid="uid://d2kl1ysebpxy2" path="res://Levelstuffs/Levels/especulamente.com.br/especulamente png.png" id="3_bxs3o"]
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="4_05r6y"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="4_ojujy"]
 
+[sub_resource type="Curve2D" id="Curve2D_bxs3o"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(-160.046, -75.6218, 160.046, 75.6218, 664, 1040, 0, 0, 0, 0, 1288, 1304, 0, 0, 0, 0, 1288, 1376, 146, 59, -146, -59, 664, 1096, 0, 0, 0, 0, 0, 704, 0, 0, 0, 0, 0, 640)
+}
+point_count = 6
+
 [sub_resource type="Curve2D" id="Curve2D_fuiis"]
 bake_interval = 32.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1288, 1304, 0, 0, 0, 0, 1280, 2216, 0, 0, 0, 0, 0, 2184, 0, 0, 0, 0, 0, 656, -351.091, -172.325, 351.091, 172.325, 664, 1040, 0, 0, 0, 0, 1288, 1304)
+"points": PackedVector2Array(0, 0, 0, 0, 1672, 1720, 0, 0, 0, 0, 2552, 1720, 0, 0, 0, 0, 2552, 1768, 0, 0, 0, 0, 1672, 1768)
 }
-point_count = 6
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_05r6y"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2112, 1720, 0, 0, 0, 0, 2552, 1720, 0, 0, 0, 0, 2552, 1768, 0, 0, 0, 0, 2112, 1768)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_ia32h"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2112, 1720, 0, 0, 0, 0, 2552, 1720, 0, 0, 0, 0, 2552, 1752, 0, 0, 0, 0, 2112, 1752)
+}
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_bxs3o"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.556863, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05r6y"]
+gradient = SubResource("Gradient_bxs3o")
+
+[sub_resource type="Curve2D" id="Curve2D_ovfd7"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2112, 1720, 0, 0, 0, 0, 2496, 1720, 0, 0, 0, 0, 2496, 1752, 0, 0, 0, 0, 2112, 1752)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_wrhdy"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1288, 296, 0, 0, 0, 0, 1288, 328, 0, 0, 0, 0, 2552, 328, 0, 0, 0, 0, 2552, 296)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_hyhft"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3840, 616, 235, -159, -235, 159, 3160, 1080, 0, 0, 0, 0, 2552, 1280, 0, 0, 0, 0, 2552, 1336, -153, 96, 153, -96, 3168, 1136, 0, 0, 0, 0, 3840, 680, 0, 0, 0, 0, 3840, 616)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_w1sb8"]
 
 [node name="especulamente_com_br" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
 script = ExtResource("1_n4e6f")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1920, 1504)
+scale = Vector2(2, 2)
+texture = ExtResource("3_bxs3o")
+metadata/_edit_lock_ = true
+
+[node name="CurvedTerrains" type="Node2D" parent="."]
+
+[node name="CurvedTerrain" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_bxs3o")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain2" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_fuiis")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain3" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(0, -104)
+curve = SubResource("Curve2D_05r6y")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain4" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(0, -224)
+curve = SubResource("Curve2D_ia32h")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain5" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -288)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain6" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -360)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain7" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -432)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain8" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -528)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain9" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -624)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain10" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(-432, -696)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain11" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(8, -696)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain12" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(8, -600)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain14" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(8, -392)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain13" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+position = Vector2(8, -504)
+curve = SubResource("Curve2D_ovfd7")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = true
+center_texture = SubResource("GradientTexture1D_05r6y")
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain15" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_wrhdy")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain16" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_hyhft")
+script = ExtResource("4_05r6y")
+is_platform_terrain = true
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
+[node name="CurvedTerrain17" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_w1sb8")
+script = ExtResource("4_05r6y")
+is_platform_terrain = false
+enable_center_texture = false
+enable_edge_texture = false
+visible_collision = false
+metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -45,18 +297,3 @@ comingBack = true
 position = Vector2(7163, 875)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1920, 1504)
-scale = Vector2(2, 2)
-texture = ExtResource("3_bxs3o")
-metadata/_edit_lock_ = true
-
-[node name="CurvedTerrain" type="Path2D" parent="."]
-texture_filter = 1
-curve = SubResource("Curve2D_fuiis")
-script = ExtResource("4_05r6y")
-is_platform_terrain = false
-enable_center_texture = false
-enable_edge_texture = false
-metadata/_custom_type_script = "uid://eydktikufi24"
