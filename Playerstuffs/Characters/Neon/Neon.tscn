@@ -178,7 +178,6 @@ script = ExtResource("3_asxp3")
 script = ExtResource("5_k3kgu")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-1.25, 4)
 scale = Vector2(0.46, 0.68)
 
 [node name="AnimatedSprite2D" parent="." index="3"]

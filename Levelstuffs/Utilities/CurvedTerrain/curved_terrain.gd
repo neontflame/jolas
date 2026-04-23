@@ -1,3 +1,4 @@
+@icon("res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.svg")
 @tool
 ## Sistema de terreno curvo baseado em Path2D.[br]
 ## Gera automaticamente:[br]
@@ -11,14 +12,23 @@ extends Path2D
 #region Tool Variables
 var is_platform_terrain: bool = false ## Ativa a One Way Collision, colisão de um lado para plataformas semissólidas
 
+## a distancia entre pontos gerada automaticamente.[br][br]
+##quanto menor, mais suave a curva mas mais pesado. [br][br]
+## por padrao usamos 32 pixels mesmo, mantem a consistencia de 8x8px de um jogo de pixel art assim e se mantem fluido e NORMALMENTE sem mtos problemas[br][br]
+## confere o bake interval no [Curve2D] se achar necessario
+var curve_bake_interval: float = 32.0:
+	set(v):
+		curve_bake_interval = v
+		if Engine.is_editor_hint():
+			call_deferred("generate_terrain")
+
 var enable_center_texture: bool = false: ## Habilita a textura central do terreno. Se desativado, será verde por padrão.
 	set(v):
 		enable_center_texture = v
 		notify_property_list_changed()
-		if enable_center_texture and polygon2D:
-			polygon2D.texture = null
-			polygon2D.texture = center_texture
-			polygon2D.queue_redraw()
+		if Engine.is_editor_hint():
+			call_deferred("generate_terrain")
+
 var center_texture: Texture2D: ## Mude a textura woah
 	set(v):
 		center_texture = v
@@ -29,8 +39,9 @@ var enable_edge_texture: bool = false: ## Habilita a textura da borda do terreno
 	set(v):
 		enable_edge_texture = v
 		notify_property_list_changed()
-		if enable_edge_texture and line2D:
-			line2D.queue_redraw()
+		if Engine.is_editor_hint():
+			call_deferred("generate_terrain")
+			
 var edge_texture: Texture2D: ## oooog textura custom do terreno
 	set(v):
 		edge_texture = v
@@ -71,11 +82,11 @@ var visible_collision: bool = false: ## ve a colisao do terreno e ve se ta tudo 
 #endregion
 
 #region Object Render Variables
-var polygon2D: Polygon2D
-var line2D: Line2D
-var collision_polygon2D: CollisionPolygon2D
+var polygon2D: Polygon2D ## polygon 2d para a textura central do terreno
+var line2D: Line2D ## line2d gerado pelo código para as texturas de ponta do terreno
+var collision_polygon2D: CollisionPolygon2D ## colisao da silva
 
-var last_curve := []
+var last_curve := [] ## a gente usa isso aqui pra comparar alterações de curva sempre que ela é mexida, pra evitar travamentos no inspetor
 #endregion
 
 #region Property List
@@ -83,13 +94,33 @@ func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 	
 	properties.append({
-		"name": "Platform Terrain",
+		"name": "Terrain Setup",
 		"type": TYPE_NIL,
 		"usage": PROPERTY_USAGE_CATEGORY
 	})
 	
 	properties.append({
 		"name": "is_platform_terrain",
+		"type": TYPE_BOOL,
+		"hint": PROPERTY_HINT_FLAGS,
+		"usage": PROPERTY_USAGE_DEFAULT
+	})
+	
+	properties.append({
+		"name": "curve_bake_interval",
+		"type": TYPE_FLOAT,
+		"hint": PROPERTY_HINT_FLAGS,
+		"usage": PROPERTY_USAGE_DEFAULT
+	})
+	
+	properties.append({
+		"name": "Debug Zone",
+		"type": TYPE_NIL,
+		"usage": PROPERTY_USAGE_CATEGORY
+	})
+	
+	properties.append({
+		"name": "visible_collision",
 		"type": TYPE_BOOL,
 		"hint": PROPERTY_HINT_FLAGS,
 		"usage": PROPERTY_USAGE_DEFAULT
@@ -159,19 +190,6 @@ func _get_property_list() -> Array[Dictionary]:
 			"hint_string": "None, Tile, Stretch",
 			"usage": PROPERTY_USAGE_DEFAULT
 		})
-		
-		properties.append({
-			"name": "Debug Zone",
-			"type": TYPE_NIL,
-			"usage": PROPERTY_USAGE_CATEGORY
-		})
-		
-		properties.append({
-			"name": "visible_collision",
-			"type": TYPE_BOOL,
-			"hint": PROPERTY_HINT_FLAGS,
-			"usage": PROPERTY_USAGE_DEFAULT
-		})
 	return properties
 #endregion
 
@@ -214,14 +232,12 @@ func _process(_delta):
 		last_curve = baked
 		generate_terrain()
 
-func generate_terrain():
+func generate_terrain(): ## gera o terreno sempre que a curva é atualizada
 	if not curve or curve.point_count == 0:
-		collision_polygon2D.polygon = []
-		polygon2D.polygon = []
-		line2D.points = []
+		clear_terrain()
 		return
 	
-	curve.bake_interval = 32.0
+	curve.bake_interval = curve_bake_interval
 	
 	var points = curve.get_baked_points()
 	var collider_points = curve.get_baked_points()
@@ -229,92 +245,114 @@ func generate_terrain():
 	if points.size() > 1:
 		points.append(points[0])
 	
+	update_polygon(points)
+	update_center_texture()
+	update_edges(points)
+	update_collision(collider_points)
+
+func clear_terrain(): ## limpa o terreno pra geração recomeçar
+	collision_polygon2D.polygon = []
+	polygon2D.polygon = []
+	line2D.points = []
+
+func update_polygon(points: PackedVector2Array): ## atualiza os pontos de curva da linha desenhada
 	polygon2D.polygon = points
-	
-	if enable_center_texture and center_texture != null:
-		polygon2D.texture = center_texture
-	else:
-		get_default_gradient(true)
-	
 	line2D.points = points
+
+func update_center_texture(): ## atualiza a textura central do terreno, ela se repete pelo terreno todo por padrao.
+	if not enable_center_texture:
+		get_default_gradient(false)
+		return
+	if not center_texture:
+		get_default_gradient(true)
+		return
+		
+	polygon2D.color = Color.WHITE
+	polygon2D.texture = center_texture
+
+func update_edges(points: PackedVector2Array): ## atualiza as pontas do terreno, podendo ser alterado a partir do
+	clear_extra_lines()
 	
+	if not enable_edge_texture:
+		get_default_line_color()
+		return
+	
+	if not edge_texture:
+		if enable_center_texture and not center_texture:
+			get_default_line_color(true)
+		return
+	
+	line2D.texture = edge_texture
+	line2D.width = edge_texture.get_size().x
+	line2D.default_color = Color.WHITE
+	line2D.texture_mode = line_texture_type
+	
+	var segments = generate_edge_segments(points)
+	create_edge_lines(segments)
+	
+	line2D.points = []
+
+func clear_extra_lines(): ## limpe linhas extras para redesenhar sempre que alterar as bordas do terreno
 	for child in get_children():
 		if child is Line2D and child != line2D:
 			child.queue_free()
-			
-	if enable_edge_texture:
-		if edge_texture:
-			line2D.texture = edge_texture
-			line2D.width = edge_texture.get_size().x
-			line2D.default_color = Color.WHITE
-			line2D.texture_mode = line_texture_type
-			
-			var pts = line2D.points
+## gere a borda visual nos cantos do terreno[br][br]
+## PS: gostaria MUITO de adicionar mais elementos visuais, como as pontas diminuirem e tambem ajustar melhor o offset, mas enfim, é a vida né kk
+func generate_edge_segments(pts: PackedVector2Array) -> Array:
+	var segments: Array = []
+	var current_segment: Array = []
 
-			# remove linhas antigas (mantém a principal se quiser debug)
-			for child in get_children():
-				if child is Line2D and child != line2D:
-					child.queue_free()
+	for i in range(pts.size()):
+		var p = pts[i]
+		
+		var dir_prev: Vector2
+		var dir_next: Vector2
 
-			var segments: Array = []
-			var current_segment: Array = []
-
-			for i in range(pts.size()):
-				var p = pts[i]
-				
-				var dir_prev: Vector2
-				var dir_next: Vector2
-
-				if i > 0:
-					dir_prev = (p - pts[i - 1]).normalized()
-				else:
-					dir_prev = (pts[i + 1] - p).normalized()
-
-				if i < pts.size() - 1:
-					dir_next = (pts[i + 1] - p).normalized()
-				else:
-					dir_next = (p - pts[i - 1]).normalized()
-
-				var dir = (dir_prev + dir_next).normalized()
-				var normal = Vector2(-dir.y, dir.x)
-				
-				var result = get_edge_point(p, normal)
-				
-				if result != null:
-					current_segment.append(result)
-				else:
-					if current_segment.size() > 1:
-						segments.append(current_segment.duplicate())
-					current_segment.clear()
-
-			# adiciona último segmento
-			if current_segment.size() > 1:
-				segments.append(current_segment)
-
-			# cria linhas separadas
-			for segment in segments:
-				var new_line := Line2D.new()
-				
-				new_line.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
-				new_line.texture = edge_texture
-				new_line.width = edge_texture.get_size().x
-				new_line.texture_mode = line_texture_type
-				
-				new_line.points = segment
-				
-				#if current_edge_type != edge_types.ALL_CORNERS:
-					#new_line.width_curve = create_width_curve()
-				
-				add_child(new_line)
-
-			# opcional: esconder a linha principal
-			line2D.points = []
+		if i > 0:
+			dir_prev = (p - pts[i - 1]).normalized()
 		else:
-			get_default_line_color(true)
-	else:
-		get_default_line_color()
-		pass
-	
+			dir_prev = (pts[i + 1] - p).normalized()
+
+		if i < pts.size() - 1:
+			dir_next = (pts[i + 1] - p).normalized()
+		else:
+			dir_next = (p - pts[i - 1]).normalized()
+
+		var dir = (dir_prev + dir_next)
+		if dir.length() == 0:
+			dir = dir_prev
+		
+		dir = dir.normalized()
+		var normal = Vector2(-dir.y, dir.x)
+		
+		var result = get_edge_point(p, normal)
+		
+		if result != null:
+			current_segment.append(result)
+		else:
+			if current_segment.size() > 1:
+				segments.append(current_segment.duplicate())
+			current_segment.clear()
+
+	if current_segment.size() > 1:
+		segments.append(current_segment)
+
+	return segments
+
+func create_edge_lines(segments: Array): ## edge texture da silva mlem
+	for segment in segments:
+		var new_line := Line2D.new()
+		
+		new_line.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+		new_line.texture = edge_texture
+		new_line.width = edge_texture.get_size().x
+		new_line.texture_mode = line_texture_type
+		
+		new_line.points = segment
+		
+		add_child(new_line)
+
+func update_collision(collider_points: PackedVector2Array): ## atualiza a colisao baseado na curva
 	if collider_points.size() > 2:
 		collision_polygon2D.polygon = collider_points
 	
@@ -342,19 +380,17 @@ func _are_points_equal(a: PackedVector2Array, b: PackedVector2Array) -> bool:
 #region Test Visuals
 func get_default_gradient(is_transparent: bool = false):
 	polygon2D.texture = null
+	polygon2D.color = Color.WHITE
 	var gradient := Gradient.new()
 	gradient.colors = []
 	gradient.offsets = []
 
 	var colors: Array[Color] = []
 	
-	if is_transparent:
-		polygon2D.color = Color.WHITE
-
+	if not is_transparent:
 		if colors.is_empty():
-			colors.append(Color.WHITE)
+			colors.append(Color.GREEN)
 	else:
-		polygon2D.texture = null
 		polygon2D.color = Color.TRANSPARENT
 		return
 
@@ -385,11 +421,11 @@ func get_default_line_color(is_transparent: bool = false):
 
 	var colors: Array[Color] = []
 	
-	if is_transparent:
+	if not is_transparent:
 		line2D.width = 1.0
 
 		if colors.is_empty():
-			colors.append(Color.WHITE)
+			colors.append(Color.GREEN)
 	else:
 		line2D.width = 0.0
 		return

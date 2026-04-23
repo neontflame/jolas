@@ -9,6 +9,7 @@ static var wiiMaps:Dictionary = {
 	'ctrl_quests': 'Minus',
 	'ctrl_pause': 'Plus',
 	'ctrl_interact': 'A',
+	'ui_toggle': 'Minus',
 	'ui_cancel': '1',
 	'ui_accept': '2'
 }
@@ -20,6 +21,7 @@ static var ps3Maps:Dictionary = {
 	'ctrl_quests': 'Select',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Triangle',
+	'ui_toggle': 'Select',
 	'ui_cancel': 'Circle',
 	'ui_accept': 'X'
 }
@@ -31,6 +33,7 @@ static var xbox360Maps:Dictionary = {
 	'ctrl_quests': 'Back',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'Back',
 	'ui_cancel': 'B',
 	'ui_accept': 'A'
 }
@@ -42,6 +45,7 @@ static var dreamcastMaps:Dictionary = {
 	'ctrl_quests': 'RTrigger',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'RTrigger',
 	'ui_cancel': 'B',
 	'ui_accept': 'A'
 }
@@ -53,6 +57,7 @@ static var gamecubeMaps:Dictionary = {
 	'ctrl_quests': 'Z',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'Z',
 	'ui_cancel': 'B',
 	'ui_accept': 'A'
 }

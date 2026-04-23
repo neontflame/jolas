@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene load_steps=17 format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://x04hyhpls548" path="res://Menustuffs/SaveMenu/SaveBox.tscn" id="5_8323x"]
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="5_x1y7c"]
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="6_desna"]
+[ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="11_0jemy"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="12_8323x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
 animations = [{
@@ -31,7 +34,25 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8323x")
+}],
+"loop": true,
+"name": &"delete",
+"speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jemy"]
+shader = ExtResource("11_0jemy")
+shader_parameter/line_color = Color(0, 0, 0, 0.443137)
+shader_parameter/line_thickness = 1.0
+shader_parameter/add_margins = true
+
+[sub_resource type="FontVariation" id="FontVariation_5vgxp"]
+base_font = ExtResource("12_8323x")
+spacing_glyph = 1
 
 [node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("savesNode")]
 script = ExtResource("1_86qpw")
@@ -66,27 +87,27 @@ texture = ExtResource("4_0jemy")
 
 [node name="SaveBox" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
 position = Vector2(-154, 25)
-rotation = -0.034906585
+rotation = -0.0349066
 
 [node name="SaveBox2" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(-2, 184.99995)
-rotation = 0.034906585
+position = Vector2(-2, 185)
+rotation = 0.0349066
 
 [node name="SaveBox3" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(174, 368.99994)
-rotation = -0.017453292
+position = Vector2(174, 369)
+rotation = -0.0174533
 
 [node name="SaveBox4" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(-129.99998, 547)
-rotation = 0.008726646
+position = Vector2(-130, 547)
+rotation = 0.00872665
 
 [node name="SaveBox5" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
 position = Vector2(22, 729)
-rotation = -0.034906585
+rotation = -0.0349066
 
 [node name="SaveBox6" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(198, 896.9998)
-rotation = 0.017453292
+position = Vector2(198, 897)
+rotation = 0.0174533
 
 [node name="SetaCool" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/Saves"]
 position = Vector2(-189, 82)
@@ -116,6 +137,20 @@ grow_vertical = 0
 
 [node name="Enter" parent="MenuCanvas/RightAnchor" instance=ExtResource("6_desna")]
 position = Vector2(-36, 0)
+
+[node name="DeleteLabel" type="RichTextLabel" parent="MenuCanvas/RightAnchor"]
+self_modulate = Color(1, 1, 1, 0.996078)
+material = SubResource("ShaderMaterial_0jemy")
+layout_mode = 0
+offset_left = -445.0
+offset_top = -48.0
+offset_right = 11.0
+offset_bottom = -9.0
+theme_override_fonts/normal_font = SubResource("FontVariation_5vgxp")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] Sandlerhell "
+horizontal_alignment = 2
 
 [node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
 visible = false

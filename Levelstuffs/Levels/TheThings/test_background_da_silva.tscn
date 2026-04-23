@@ -21,4 +21,4 @@ texture_repeat = 2
 texture = ExtResource("2_vw003")
 centered = false
 region_enabled = true
-region_rect = Rect2(1785.35, 1782.27, 1024, 1024)
+region_rect = Rect2(1913.27, 1910.19, 1024, 1024)

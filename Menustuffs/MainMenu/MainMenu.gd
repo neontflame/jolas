@@ -29,7 +29,11 @@ func randomQuote():
 		'hihi quando',
 		'lembra daquela vez que EU e o speed tentamos nao rir',
 		'MINHA MAE É PARCIALMENTE PENDENDO A SER MENDIGA',
-		'cara vai se fuder\ncom a porra do seu mr beast'
+		'cara vai se fuder\ncom a porra do seu mr beast',
+		'gifted goons vs hard work goons',
+		'opa eaí webcore!',
+		'"20 dolares e 20 dolares"',
+		'cara eu estou jolando cara'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
@@ -89,6 +93,8 @@ func goToMenu(menuName:String):
 			else:
 				CoolMenu.stop_sfx('Go')
 				CoolMenu.play_sfx('Back')
+		'sobre':
+			change_self_scene("res://Menustuffs/AboutMenu/AboutMenu.tscn")
 		'sair':
 			if OS.get_name() != "Web":
 				get_tree().quit()

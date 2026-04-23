@@ -101,6 +101,7 @@ func goBack():
 			get_tree().change_scene_to_file('res://DontTouchstuffs/QueuedModLoader.tscn')
 		else:
 			CoolMenu.curSelected = 4
+			await get_tree().process_frame
 			change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	else:
 		# e hora de voltar
