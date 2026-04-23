@@ -93,6 +93,8 @@ func goToMenu(menuName:String):
 			else:
 				CoolMenu.stop_sfx('Go')
 				CoolMenu.play_sfx('Back')
+		'sobre':
+			change_self_scene("res://Menustuffs/AboutMenu/AboutMenu.tscn")
 		'sair':
 			if OS.get_name() != "Web":
 				get_tree().quit()
