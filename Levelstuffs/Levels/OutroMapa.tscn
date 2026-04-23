@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsebxc1mw277y"]
+[gd_scene load_steps=6 format=3 uid="uid://bsebxc1mw277y"]
 
 [ext_resource type="Script" uid="uid://ix0rujox53fc" path="res://Levelstuffs/Levels/OutroMapa.gd" id="1_ue65o"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_d0je0"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_8wpb2"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="5_qp5dq"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_trijc"]
 
 [node name="OutroMapa" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
 script = ExtResource("1_ue65o")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+
+[node name="EspeculanteBackground" parent="." instance=ExtResource("5_qp5dq")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(177, 518)

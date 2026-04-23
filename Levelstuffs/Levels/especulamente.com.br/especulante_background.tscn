@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7126jtqd6ggh"]
+
+[ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="1_v4xj6"]
+[ext_resource type="Texture2D" uid="uid://cqbuyd05soqvb" path="res://Levelstuffs/Levels/especulamente.com.br/EspeculanteBackground.png" id="2_rv7cv"]
+
+[node name="EspeculanteBackground" type="Node"]
+
+[node name="ParallaxComponent" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0.1, 0.1)
+script = ExtResource("1_v4xj6")
+PLayer = NodePath("ParallaxLayer")
+Sprite = NodePath("ParallaxLayer/Sprite2D")
+ParallaxType = 2
+DynamicScrollSpeed = Vector2(0.1, 0.1)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxComponent"]
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxComponent/ParallaxLayer"]
+texture_repeat = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_rv7cv")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
