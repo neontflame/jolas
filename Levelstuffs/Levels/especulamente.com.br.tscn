@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlsdgprqmkwmf"]
+
+[ext_resource type="Script" uid="uid://du7ydh736cfhc" path="res://Levelstuffs/Levels/especulamente.com.br.gd" id="1_n4e6f"]
+[ext_resource type="Texture2D" uid="uid://d2kl1ysebpxy2" path="res://Levelstuffs/Levels/especulamente.com.br/especulamente png.png" id="3_bxs3o"]
+[ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="4_05r6y"]
+[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="4_ojujy"]
+
+[sub_resource type="Curve2D" id="Curve2D_fuiis"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1288, 1304, 0, 0, 0, 0, 1280, 2216, 0, 0, 0, 0, 0, 2184, 0, 0, 0, 0, 0, 656, -351.091, -172.325, 351.091, 172.325, 664, 1040, 0, 0, 0, 0, 1288, 1304)
+}
+point_count = 6
+
+[node name="especulamente_com_br" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
+script = ExtResource("1_n4e6f")
+spawnpoint = NodePath("Spawnpoint")
+spawnpointBack = NodePath("BackSpawnpoint")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(0, 93)
+color = Color(0.300067, 0.680304, 0.241194, 1)
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(320, 712)
+
+[node name="BackSpawnpoint" type="Node2D" parent="."]
+position = Vector2(6938, 947)
+
+[node name="Camera regions" type="Node2D" parent="."]
+
+[node name="Sandlers" type="Node2D" parent="."]
+
+[node name="GoToLevel" parent="." instance=ExtResource("4_ojujy")]
+position = Vector2(-175, 756)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "TheThing"
+comingBack = true
+
+[node name="GoToLevel2" parent="." instance=ExtResource("4_ojujy")]
+position = Vector2(7163, 875)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "OutroMapa"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1920, 1504)
+scale = Vector2(2, 2)
+texture = ExtResource("3_bxs3o")
+metadata/_edit_lock_ = true
+
+[node name="CurvedTerrain" type="Path2D" parent="."]
+texture_filter = 1
+curve = SubResource("Curve2D_fuiis")
+script = ExtResource("4_05r6y")
+is_platform_terrain = false
+enable_center_texture = false
+enable_edge_texture = false
+metadata/_custom_type_script = "uid://eydktikufi24"

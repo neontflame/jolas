@@ -32,7 +32,8 @@ func randomQuote():
 		'cara vai se fuder\ncom a porra do seu mr beast',
 		'gifted goons vs hard work goons',
 		'opa eaí webcore!',
-		'"20 dolares e 20 dolares"'
+		'"20 dolares e 20 dolares"',
+		'cara eu estou jolando cara'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
