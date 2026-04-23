@@ -1,5 +1,7 @@
 @tool
+@icon("res://Levelstuffs/Utilities/ParallaxComponent/parallax_component_icon.svg")
 extends ParallaxBackground
+class_name ParallaxComponent
 
 ## Referência para a ParallaxLayer usada no efeito.
 ## Necessária para configurar repetição (motion_mirroring).
