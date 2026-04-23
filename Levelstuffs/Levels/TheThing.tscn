@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=13 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
 [ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
 [ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
+[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/mola_quadrada_do_kiko.tscn" id="10_h3gw8"]
 
 [sub_resource type="Curve2D" id="Curve2D_vxpvn"]
 bake_interval = 32.0
@@ -133,9 +134,26 @@ position = Vector2(4678, 1254)
 position = Vector2(4219, 1150)
 
 [node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_7akha")]
-position = Vector2(1466, 1328)
+position = Vector2(1152, 1464)
 
 [node name="GoToLevel" parent="." instance=ExtResource("5_khcdk")]
 position = Vector2(19342, 1322)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerhell"
+
+[node name="MolaQuadradaDoKiko" parent="." instance=ExtResource("10_h3gw8")]
+position = Vector2(208, 1520)
+scale = Vector2(0.77, 0.48)
+spring_strength = 3000.0
+spring_speed = 0.2
+
+[node name="MolaQuadradaDoKiko3" parent="." instance=ExtResource("10_h3gw8")]
+position = Vector2(880, 888)
+scale = Vector2(0.77, 0.48)
+spring_strength = 1000.0
+
+[node name="MolaQuadradaDoKiko2" parent="." instance=ExtResource("10_h3gw8")]
+position = Vector2(216, 224)
+rotation = 2.32129
+scale = Vector2(2.805, 0.24)
+spring_strength = 3000.0
