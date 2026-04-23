@@ -10,7 +10,6 @@ class_name ParallaxComponent
 ## Sprite usado para scroll manual da textura (modo MOBILE).
 @export var Sprite: Sprite2D
 
-
 ## Define o tipo de comportamento do parallax:
 ## STATIC = fundo parado
 ## MOBILE = scroll manual da textura
