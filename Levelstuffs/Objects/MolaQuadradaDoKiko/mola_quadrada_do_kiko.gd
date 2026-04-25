@@ -13,7 +13,7 @@ class_name MolaQuadradaDoKiko
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export_category("Tech Stuff")
 @export var player_position: Marker2D
-@export var spring_sound: AudioStreamPlayer
+@export var spring_sound: AudioStreamPlayer2D
 
 var current_object: CharacterBody2D
 
@@ -65,6 +65,7 @@ func release_player():
 			current_object.velocity = spring_strength * Vector2.UP.rotated(rotation)
 			current_object = null
 
-func play_sfx(sfx: AudioStreamPlayer):
+func play_sfx(sfx: AudioStreamPlayer2D):
+	sfx.volume_db = GeneralUtils.get_volume_db('sfx')
 	sfx.play()
 	sfx.pitch_scale = randf_range(0.8, 1.2)

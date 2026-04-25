@@ -12,6 +12,7 @@ spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
 
 [node name="EspeculanteBackground" parent="." instance=ExtResource("5_qp5dq")]
+coolColor = Color(0.680261, 0.835274, 1, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(177, 518)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gamestuffs/NPCs/Sushitest.tscn" id="2_h803n"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_khcdk"]
-[ext_resource type="PackedScene" uid="uid://bxlbr0kwcvmiw" path="res://Levelstuffs/Levels/TheThings/test_background_da_silva.tscn" id="6_orxbo"]
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
 [ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
 [ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
@@ -25,7 +25,8 @@ script = ExtResource("1_h803n")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
 
-[node name="TestBackgroundDaSilva" parent="." instance=ExtResource("6_orxbo")]
+[node name="EspeculanteBackground" parent="." instance=ExtResource("2_h3gw8")]
+coolColor = Color(0.84, 0.84, 0.84, 1)
 
 [node name="TestTerrain" type="Path2D" parent="."]
 texture_filter = 1
@@ -33,6 +34,8 @@ position = Vector2(864, 1224)
 curve = SubResource("Curve2D_vxpvn")
 script = ExtResource("7_vamy5")
 is_platform_terrain = false
+curve_bake_interval = 32.0
+visible_collision = true
 enable_center_texture = true
 center_texture = ExtResource("8_co55q")
 enable_edge_texture = true
@@ -40,7 +43,6 @@ edge_texture = ExtResource("9_h3gw8")
 current_edge_type = 0
 edge_offset = Vector2i(0, 0)
 line_texture_type = 1
-visible_collision = true
 metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -142,7 +144,8 @@ scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerhell"
 
 [node name="MolaQuadradaDoKiko" parent="." instance=ExtResource("10_h3gw8")]
-position = Vector2(208, 1520)
+position = Vector2(37, 1527)
+rotation = 0.198968
 scale = Vector2(0.77, 0.48)
 spring_strength = 3000.0
 spring_speed = 0.2

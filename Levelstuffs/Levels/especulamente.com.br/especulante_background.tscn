@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7126jtqd6ggh"]
+[gd_scene load_steps=4 format=3 uid="uid://c7126jtqd6ggh"]
 
+[ext_resource type="Script" uid="uid://btlwdckxkixkb" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.gd" id="1_l1c1y"]
 [ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="1_v4xj6"]
 [ext_resource type="Texture2D" uid="uid://cqbuyd05soqvb" path="res://Levelstuffs/Levels/especulamente.com.br/EspeculanteBackground.png" id="2_rv7cv"]
 
-[node name="EspeculanteBackground" type="Node"]
+[node name="EspeculanteBackground" type="Node" node_paths=PackedStringArray("spritePica")]
+script = ExtResource("1_l1c1y")
+spritePica = NodePath("ParallaxComponent/ParallaxLayer/Sprite2D")
+coolColor = Color(0.38, 0.69, 1, 1)
 
 [node name="ParallaxComponent" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0.1, 0.1)
+scroll_ignore_camera_zoom = true
 script = ExtResource("1_v4xj6")
 PLayer = NodePath("ParallaxLayer")
 Sprite = NodePath("ParallaxLayer/Sprite2D")
