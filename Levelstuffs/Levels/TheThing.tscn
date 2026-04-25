@@ -68,6 +68,7 @@ enable_edge_texture = false
 metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(354, 1036)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
@@ -83,6 +84,7 @@ position = Vector2(564, 463)
 polygon = PackedVector2Array(-123, -135, 33, -118, -34, 82)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(177, 518)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
