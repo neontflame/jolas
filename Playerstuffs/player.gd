@@ -33,6 +33,7 @@ var previous_state = null
 @export var multiplayerName:RichTextLabel
 @export var coolCamera:Camera2D
 @export var hitboxCoisos:Node2D
+@export var floorCast: RayCast2D
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
@@ -42,6 +43,8 @@ var previous_state = null
 
 #region Interesitng Variables
 # Weeeeeeeeeeeird stuff goin on here. Tread Lightlyyyuhh
+var isPlayerGrounded: bool
+
 const WeirdMultiplier = 100
 signal updateShit(velocity:Vector2)
 var deltaOne:float = 1.0
@@ -138,6 +141,7 @@ func _physics_process(delta: float) -> void:
 		for hit in hitboxCoisos.get_children():
 			hit.fixAngles()
 	
+	print(velocity, motion)
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
 	
@@ -176,13 +180,10 @@ func handleSonicPhys() -> void:
 		up_direction = get_floor_normal()
 	else:
 		if up_direction != Vector2(0.0, -1.0):
-			# print('AIR TIME')
 			var prevmotion := Vector2(
 				motion.x * -up_direction.y - motion.y * up_direction.x,
 				motion.y * -up_direction.y + motion.x * up_direction.x,
 				)
-			# print(floorSinCos)
-			# print(prevmotion)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
 
@@ -273,7 +274,6 @@ func handlePhys() -> void:
 	else:
 		slopeAdd = 0
 		slopeFactor = 1.0
-	
 	# Not Physix but we ball
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)

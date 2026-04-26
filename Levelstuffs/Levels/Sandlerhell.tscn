@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdp8oyw0776yw"]
+[gd_scene load_steps=6 format=3 uid="uid://bdp8oyw0776yw"]
 
 [ext_resource type="Script" uid="uid://udvdewldk1nf" path="res://Levelstuffs/Levels/Sandlerhell.gd" id="1_a86g7"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="2_onl2j"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_plmiv"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="3_3fjsp"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="4_xb70q"]
 
@@ -9,6 +10,9 @@
 script = ExtResource("1_a86g7")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+
+[node name="EspeculanteBackground" parent="." instance=ExtResource("2_plmiv")]
+coolColor = Color(0.861333, 1, 0.74, 1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

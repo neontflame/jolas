@@ -88,7 +88,7 @@ libraries = {
 &"mola_quadrada_do_kiko": SubResource("AnimationLibrary_tmxdb")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_j3f0v")
 
 [connection signal="body_entered" from="MolaGames/Area2D" to="." method="_on_area_2d_body_entered"]

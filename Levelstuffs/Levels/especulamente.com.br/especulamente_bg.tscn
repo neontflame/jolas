@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="1_vo0xc"]
 
-[sub_resource type="Gradient" id="Gradient_qiwbv"]
+[sub_resource type="Gradient" id="Gradient_vo0xc"]
 offsets = PackedFloat32Array(0, 0.616883)
 colors = PackedColorArray(0.713726, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n3jbd"]
-gradient = SubResource("Gradient_qiwbv")
+gradient = SubResource("Gradient_vo0xc")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 repeat = 1
@@ -25,8 +25,8 @@ metadata/_custom_type_script = "uid://clf5iqelrjavx"
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxComponent"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxComponent/ParallaxLayer"]
-position = Vector2(0, -16)
-scale = Vector2(32.75, 8.25)
+position = Vector2(0, -64)
+scale = Vector2(79.5, 52.25)
 texture = SubResource("GradientTexture2D_n3jbd")
 centered = false
 region_enabled = true

@@ -70,6 +70,8 @@ static func text_replacery(string:String):
 	
 	return coolString
 
+## tipos especificos sao bgm e sfx! 
+## qualquer outra coisa vai como o volume master
 static func get_volume(type:String):
 	OptionsUtils.get_prefs_info()
 	
@@ -81,5 +83,6 @@ static func get_volume(type:String):
 		_:
 			return OptionsUtils.preferences['volMaster']
 
+## tipos especificos sao bgm e sfx E a msm coisa do get_volume
 static func get_volume_db(type:String, mod:float = 0.0):
 	return mod + linear_to_db(get_volume(type) + 0.001) 

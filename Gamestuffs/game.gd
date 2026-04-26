@@ -68,11 +68,15 @@ func createMap(lvl:String):
 	lvlNode.add_child(map)
 	# MapUtils.set_map(map)
 	
-	GPStats.curMap = map.name
+	if map.infoCoisos != "":
+		GPStats.curMap = map.infoCoisos
+	else:
+		GPStats.curMap = map.name
+		
 	SaveUtils.save_game(GPStats.saveNum)
 	if GameUtils.get_map_info(lvl).has('songFile'):
 		playBGM(GameUtils.get_map_info(lvl)['songFile'])
-		
+	
 	hud.placeInfo.queue_free()
 	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
 	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)

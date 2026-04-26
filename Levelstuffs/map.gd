@@ -3,6 +3,7 @@ class_name JolasMap
 
 @export var spawnpoint:Node2D
 @export var spawnpointBack:Node2D
+@export var infoCoisos:String = ""
 
 func _ready() -> void:
 	if get_tree().current_scene.name == name:

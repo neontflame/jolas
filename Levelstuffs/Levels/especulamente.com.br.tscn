@@ -1,38 +1,54 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlsdgprqmkwmf"]
+[gd_scene load_steps=10 format=3 uid="uid://dlsdgprqmkwmf"]
 
 [ext_resource type="Script" uid="uid://du7ydh736cfhc" path="res://Levelstuffs/Levels/especulamente.com.br.gd" id="1_n4e6f"]
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="2_ilxj3"]
-[ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="3_05r6y"]
-[ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="4_fuiis"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="4_ojujy"]
 [ext_resource type="PackedScene" uid="uid://c0r1ccjk1flop" path="res://Levelstuffs/Levels/especulamente.com.br/especulamente_bg.tscn" id="6_fuiis"]
 
 [sub_resource type="Curve2D" id="Curve2D_bxs3o"]
 bake_interval = 32.0
 _data = {
-"points": PackedVector2Array(0, 0, 211.75, -30.25, 512, 896, 0, 0, 48.4, -114.95, 768, 768, 0, 0, 0, 0, 1152, 640, 0, 0, 0, 0, 1536, 640, 0, 0, 0, 0, 1536, 512, 0, 0, 151.8, 0, 2176, 512, -97.381, -56.743, 97.381, 56.743, 2576, 768, 0, 0, 0, 0, 3072, 896, 0, 0, 0, 0, 3584, 896, 0, 0, 0, 0, 3584, 768, 0, 0, 0, 0, 3968, 768, 0, 0, 0, 0, 3968, 1280, 0, 0, 0, 0, 3584, 1280, 0, 0, 0, 0, 2688, 1280, 0, 0, 0, 0, 0, 1280, 0, 0, 0, 0, -160, 1280, 0, 0, 0, 0, -160, -384, 0, 0, 0, 0, -96, -384, 0, 0, 0, 0, -96, 896, 0, 0, 0, 0, 512, 896)
+"points": PackedVector2Array(0, 0, 211.75, -30.25, 512, 896, 0, 0, 48.4, -114.95, 768, 768, 0, 0, 0, 0, 1152, 640, 0, 0, 0, 0, 1536, 640, 0, 0, 0, 0, 1536, 512, 0, 0, 151.8, 0, 2176, 512, -97.381, -56.743, 97.381, 56.743, 2576, 768, 0, 0, 0, 0, 3072, 896, 0, 0, 0, 0, 3584, 896, 0, 0, 0, 0, 3584, 768, 0, 0, 0, 0, 3968, 768, 0, 0, 0, 0, 3968, 1712, 0, 0, 0, 0, -160, 1712, 0, 0, 0, 0, -160, -384, 0, 0, 0, 0, -96, -384, 0, 0, 0, 0, -96, 896, 0, 0, 0, 0, 512, 896)
 }
-point_count = 20
+point_count = 17
+
+[sub_resource type="Gradient" id="Gradient_05r6y"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.796078, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fuiis"]
+gradient = SubResource("Gradient_05r6y")
+
+[sub_resource type="Gradient" id="Gradient_bxs3o"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05r6y"]
+gradient = SubResource("Gradient_bxs3o")
+width = 2
+height = 2
 
 [node name="especulamente_com_br" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
 script = ExtResource("1_n4e6f")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+infoCoisos = "especulamente.com.br"
 
 [node name="CurvedTerrains" type="Node2D" parent="."]
 
 [node name="CurvedTerrain" type="Path2D" parent="CurvedTerrains"]
 texture_filter = 1
+position = Vector2(0, 2000)
 curve = SubResource("Curve2D_bxs3o")
 script = ExtResource("2_ilxj3")
 is_platform_terrain = false
 curve_bake_interval = 32.0
 visible_collision = false
 enable_center_texture = true
-center_texture = ExtResource("3_05r6y")
+center_texture = SubResource("GradientTexture2D_fuiis")
 enable_edge_texture = true
-edge_texture = ExtResource("4_fuiis")
-current_edge_type = 1
+edge_texture = SubResource("GradientTexture2D_05r6y")
+current_edge_type = 0
 edge_offset = Vector2i(0, 0)
 line_texture_type = 1
 metadata/_custom_type_script = "uid://eydktikufi24"
@@ -46,7 +62,7 @@ position = Vector2(0, 93)
 color = Color(0.300067, 0.680304, 0.241194, 1)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(64, 800)
+position = Vector2(64, 2800)
 
 [node name="BackSpawnpoint" type="Node2D" parent="."]
 position = Vector2(6938, 947)
@@ -56,7 +72,7 @@ position = Vector2(6938, 947)
 [node name="Sandlers" type="Node2D" parent="."]
 
 [node name="GoToLevel" parent="." instance=ExtResource("4_ojujy")]
-position = Vector2(-96, 752)
+position = Vector2(-96, 1360)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "TheThing"
 comingBack = true
