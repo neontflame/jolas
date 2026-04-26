@@ -264,7 +264,7 @@ func handlePhys() -> void:
 		practicalAngle = get_floor_normal().angle() + PI/2
 		floorSinCos = get_floor_normal()
 		
-		if (rad_to_deg(get_floor_angle()) > 3):
+		if (rad_to_deg(get_floor_angle()) > 5):
 			# sei la angulos sao estranhos
 			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
 		else:
