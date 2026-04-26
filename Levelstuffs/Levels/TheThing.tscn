@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=18 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
@@ -22,9 +22,26 @@ point_count = 6
 [sub_resource type="Curve2D" id="Curve2D_h3gw8"]
 bake_interval = 128.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, -384, -320, 0, 0, 0, 0, -384, 2048, 0, 0, 0, 0, 6208, 2048, 0, 0, 0, 0, 9664, 3584, 0, 0, 0, 0, 19784, 3648, 0, 0, 0, 0, 19784, -704, 0, 0, 0, 0, 19648, -704, 0, 0, 0, 0, 19648, 2624, 0, 0, 0, 0, 17192, 2624, 356.4, -2.2, -356.4, 2.2, 16704, 3008, 66, 107.8, -66, -107.8, 16192, 2624, 53.976, 59.7592, -53.976, -59.7592, 15552, 1216, 97.6709, 38.3171, -97.6709, -38.3171, 15360, 1088, 0, 0, 0, 0, 13576, 1088, 0, 0, 0, 0, 13248, 1024, 9.66306, -500.869, 4.83153, 264.124, 12576, 1344, -64.8863, -64.2033, 64.8863, 64.2033, 13120, 1792, -19.8074, -116.112, 19.8074, 116.112, 13264, 2000, 7, -209, -7, 209, 13264, 2432, 223.85, -37.51, -223.85, 37.51, 12736, 2752, 199.703, 30.5997, -199.703, -30.5997, 10752, 2688, 0, 0, 0, 0, 10176, 2432, 161.051, 83.7465, -161.051, -83.7465, 9552, 1952, 242.704, -14.1725, -242.704, 14.1725, 7608, 1064, 0, 0, 0, 0, 7040, 1088, 0, 0, 0, 0, 7040, 1216, 0, 0, 0, 0, 6592, 1216, 0, 0, 0, 0, 6592, 1344, 194.725, -54.1717, -194.725, 54.1717, 5888, 1344, 102.487, -17.5692, -102.487, 17.5692, 5376, 1592, 83.6, 26.4, -83.6, -26.4, 5096, 1592, 205.7, 8.47, 0, 0, 4096, 1280, 0, 0, 0, 0, 3208, 1280, 0, 0, -212.295, 39.5307, 2304, 1280, 258.49, -3.19578, -258.49, 3.19578, 1344, 1536, 0, 0, 0, 0, 0, 1528, 0, 0, 0, 0, 0, -320)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, -384, -320, 0, 0, 0, 0, -384, 2048, 0, 0, 0, 0, 6208, 2048, 0, 0, 0, 0, 9664, 3584, 0, 0, 0, 0, 19784, 3648, 0, 0, 0, 0, 19784, -704, 0, 0, 0, 0, 19648, -704, 0, 0, 0, 0, 19648, 2624, 0, 0, 0, 0, 17192, 2624, 356.4, -2.2, -356.4, 2.2, 16704, 3008, 66, 107.8, -66, -107.8, 16192, 2624, 53.976, 59.7592, -53.976, -59.7592, 15552, 1216, 128.471, 2.0171, 0, 0, 15360, 1088, 0, 0, 0, 0, 13576, 1088, 0, 0, 0, 0, 13248, 1024, 9.66306, -500.869, 4.83153, 264.124, 12576, 1344, -64.8863, -64.2033, 64.8863, 64.2033, 13120, 1792, -19.8074, -116.112, 19.8074, 116.112, 13264, 2000, 7, -209, -7, 209, 13264, 2432, 223.85, -37.51, 0, 0, 12736, 2752, 0, 0, -272.232, -4.0172, 10752, 2688, 790.904, 269.48, -1260.55, -165.045, 9552, 1952, 904.627, -17.0256, -242.704, 14.1725, 7608, 1064, 0, 0, 0, 0, 7040, 1088, 0, 0, 0, 0, 7040, 1216, 0, 0, 0, 0, 6592, 1216, 0, 0, 0, 0, 6592, 1344, 194.725, -54.1717, -194.725, 54.1717, 5888, 1344, 102.487, -17.5692, -102.487, 17.5692, 5376, 1592, 83.6, 26.4, -83.6, -26.4, 5096, 1592, 205.7, 8.47, 0, 0, 4096, 1280, 0, 0, 0, 0, 3208, 1280, 0, 0, -212.295, 39.5307, 2304, 1280, 258.49, -3.19578, -258.49, 3.19578, 1344, 1536, 0, 0, 0, 0, 0, 1528, 0, 0, 0, 0, 0, -320)
 }
-point_count = 38
+point_count = 37
+
+[sub_resource type="Curve2D" id="Curve2D_jr6rj"]
+bake_interval = 32.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 11136, 1984, -322.424, 0, 322.424, 0, 11456, 1656, 0, 0, 0, 0, 11776, 1984, 320.653, -3.54312, -320.653, 3.54312, 11456, 2304, 0, 0, 0, 0, 11136, 1984)
+}
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_jr6rj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dysm2"]
+gradient = SubResource("Gradient_jr6rj")
+width = 640
+height = 640
+fill_to = Vector2(0, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
@@ -32,6 +49,7 @@ point_count = 38
 script = ExtResource("1_h803n")
 spawnpoint = NodePath("Spawnpoint")
 spawnpointBack = NodePath("BackSpawnpoint")
+metadata/_edit_vertical_guides_ = [11136.0, 11200.0]
 
 [node name="EspeculanteBackground" parent="." instance=ExtResource("2_h3gw8")]
 coolColor = Color(0.84, 0.84, 0.84, 1)
@@ -67,6 +85,18 @@ center_texture = ExtResource("6_jr6rj")
 enable_edge_texture = false
 metadata/_custom_type_script = "uid://eydktikufi24"
 
+[node name="BigBall" type="Path2D" parent="CurvedTerrains"]
+texture_filter = 1
+curve = SubResource("Curve2D_jr6rj")
+script = ExtResource("7_vamy5")
+is_platform_terrain = false
+curve_bake_interval = 32.0
+visible_collision = false
+enable_center_texture = true
+center_texture = SubResource("GradientTexture2D_dysm2")
+enable_edge_texture = false
+metadata/_custom_type_script = "uid://eydktikufi24"
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2(354, 1036)
@@ -99,7 +129,7 @@ position = Vector2(37, 51)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(235, 1443)
+position = Vector2(11486.7, 1358.85)
 
 [node name="BackSpawnpoint" type="Node2D" parent="."]
 position = Vector2(19169, 2605)
