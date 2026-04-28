@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://demmw1ek786c1"]
+
+[ext_resource type="Script" uid="uid://0a0airokxxci" path="res://Gamestuffs/Dialoguestuffs/Editor/DialogueEditor.gd" id="1_kcu8i"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="1_tuwwo"]
+
+[node name="DialogueEditor" type="Node2D" node_paths=PackedStringArray("diagShitsContainer", "theScroll")]
+script = ExtResource("1_kcu8i")
+diagShitsContainer = NodePath("CanvasLayer/Control/ScrollContainer/DiagShitsContainer")
+theScroll = NodePath("CanvasLayer/Control/ScrollContainer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_tuwwo")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -379.0
+offset_top = -421.0
+offset_right = 421.0
+offset_bottom = -48.0
+
+[node name="DiagShitsContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(800, 373)
+layout_mode = 2
+
+[node name="questAssigner" type="TextEdit" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -370.0
+offset_top = 2.0
+offset_right = -96.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "questAssigned"
+
+[node name="questClear" type="TextEdit" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -90.0
+offset_top = 2.0
+offset_right = 184.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "questClear"
+
+[node name="Copy2Clipboard" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = -2.0
+offset_right = 411.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "copiar pra clipboard"
+
+[node name="AddDiag" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -372.0
+offset_top = -45.0
+offset_right = 411.0
+offset_bottom = -3.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "+ Adicionar diálogo"
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("1_tuwwo")
+
+[node name="dialogueName" type="TextEdit" parent="CanvasLayer/Control2"]
+layout_mode = 0
+offset_left = -370.0
+offset_top = -2.0
+offset_right = 259.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "qual dialogo voce quer puxar mano brother"
+
+[node name="diagLoad" type="Button" parent="CanvasLayer/Control2"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = -5.0
+offset_right = 407.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "carregar"
+
+[connection signal="pressed" from="CanvasLayer/Control/Copy2Clipboard" to="." method="_on_copy_2_clipboard_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/AddDiag" to="." method="_on_add_diag_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control2/diagLoad" to="." method="_on_diag_load_pressed"]

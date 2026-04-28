@@ -17,16 +17,21 @@
 shader = ExtResource("3_fec8x")
 shader_parameter/amount = 0.0
 
-[node name="Menu" type="Node2D" node_paths=PackedStringArray("camera")]
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("camera", "blurfx")]
 script = ExtResource("1_2rd20")
 camera = NodePath("Camera2D")
+blurfx = NodePath("Camera2D/BlurFx")
 
 [node name="MenuBg" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(352, 224)
 texture = ExtResource("1_r5uri")
 
-[node name="BlurFx" type="TextureRect" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0
+
+[node name="BlurFx" type="TextureRect" parent="Camera2D"]
 material = SubResource("ShaderMaterial_i30ho")
 offset_left = -410.0
 offset_top = -146.0
@@ -61,7 +66,3 @@ stream = ExtResource("10_3g3s7")
 stream = ExtResource("11_lo8pj")
 
 [node name="MenuBackground" parent="." instance=ExtResource("12_3g3s7")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-process_callback = 0

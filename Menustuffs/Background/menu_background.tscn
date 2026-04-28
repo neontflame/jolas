@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cium04o7swryj"]
+[gd_scene load_steps=10 format=3 uid="uid://cium04o7swryj"]
 
 [ext_resource type="PackedScene" uid="uid://b56w1cko06jmo" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.tscn" id="1_aixxa"]
 [ext_resource type="Texture2D" uid="uid://dbtfq2xwj2de5" path="res://Menustuffs/Commons/MenuBGSeparado/o mar.png" id="2_8acr0"]
 [ext_resource type="Texture2D" uid="uid://bsipd26y1o3bn" path="res://Menustuffs/Commons/MenuBGSeparado/o ceu.png" id="2_o12uw"]
 [ext_resource type="Texture2D" uid="uid://qb83w3jujodv" path="res://Menustuffs/Commons/MenuBGSeparado/as nuvens.png" id="3_41vpn"]
 [ext_resource type="Texture2D" uid="uid://cl665wgpfqbnb" path="res://Menustuffs/Commons/MenuBG.png" id="4_41vpn"]
+[ext_resource type="Shader" uid="uid://cw54roqcrdpj4" path="res://Shaders/wave.gdshader" id="4_j4por"]
 [ext_resource type="Texture2D" uid="uid://b6up1ojf0uept" path="res://Menustuffs/Commons/MenuBGSeparado/a ilha FFFFFFFFFUCKING EPICA what the FUUUUUUUUUCCKKKK.png" id="5_phlth"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j4por"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4por"]
+shader = ExtResource("4_j4por")
+shader_parameter/velocidade = 0.05
+shader_parameter/forca_onda = 0.085
 
 [node name="MenuBackground" type="Node"]
 
@@ -36,12 +45,14 @@ ScrollSpeed = Vector2(10, 0)
 motion_mirroring = Vector2(972, 264)
 
 [node name="NuvemSprite" type="Sprite2D" parent="Nuvem/NuvemPL"]
+modulate = Color(1, 1, 1, 0.352941)
 texture_repeat = 2
+material = SubResource("CanvasItemMaterial_j4por")
 position = Vector2(0, 48)
 texture = ExtResource("3_41vpn")
 centered = false
 region_enabled = true
-region_rect = Rect2(2754.47, 0, 972, 264)
+region_rect = Rect2(15018.3, 0, 972, 264)
 
 [node name="Wa\'er" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_aixxa")]
 scroll_base_scale = Vector2(0.1, 0.1)
@@ -55,6 +66,7 @@ motion_mirroring = Vector2(1024, 1024)
 
 [node name="Wa\'erSprite" type="Sprite2D" parent="Wa\'er/Wa\'erParallaxLayer"]
 texture_repeat = 2
+material = SubResource("ShaderMaterial_j4por")
 position = Vector2(0, 304)
 texture = ExtResource("2_8acr0")
 centered = false

@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://c3o1l3adjwwy5"]
+
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_wtjit"]
+[ext_resource type="Texture2D" uid="uid://djxqh361g1b3m" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0001.png" id="2_lw7oh"]
+[ext_resource type="Texture2D" uid="uid://b8r0nbtbtmiva" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0002.png" id="3_wtjit"]
+[ext_resource type="Texture2D" uid="uid://cnpmq7upjkvam" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0003.png" id="4_45bs4"]
+[ext_resource type="Texture2D" uid="uid://p2ykkc3gla0m" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitQue0001.png" id="5_7smf8"]
+[ext_resource type="Texture2D" uid="uid://bkte8xjufjirn" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitQue0002.png" id="6_f18vp"]
+[ext_resource type="Texture2D" uid="uid://htdwt4pqbh50" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitRelaxa0001.png" id="7_pxwgp"]
+[ext_resource type="Texture2D" uid="uid://b26j2incl5wjm" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitRelaxa0002.png" id="8_juq5r"]
+[ext_resource type="Texture2D" uid="uid://buvhk85gokxgf" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitRelaxa0003.png" id="9_lj3o4"]
+[ext_resource type="Texture2D" uid="uid://dc07fefiyhygm" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitHmmm0001.png" id="10_4qse6"]
+[ext_resource type="Texture2D" uid="uid://dwkrs67k1j4f1" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitHmmm0002.png" id="11_elm63"]
+[ext_resource type="Texture2D" uid="uid://belj58txjyulk" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitHmmm0003.png" id="12_ehgel"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iadqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lw7oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wtjit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_45bs4")
+}],
+"loop": false,
+"name": &"challenge",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7smf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f18vp")
+}],
+"loop": false,
+"name": &"confused",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pxwgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_juq5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lj3o4")
+}],
+"loop": false,
+"name": &"cool",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4qse6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_elm63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ehgel")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="fkndavidPort" type="Node2D"]
+script = ExtResource("1_wtjit")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-23, -101)
+sprite_frames = SubResource("SpriteFrames_iadqb")
+animation = &"challenge"

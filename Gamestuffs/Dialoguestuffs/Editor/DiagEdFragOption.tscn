@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8x5k2kfe5iwf"]
+
+[ext_resource type="Script" uid="uid://xx4floy1203l" path="res://Gamestuffs/Dialoguestuffs/Editor/DiagEdFragOption.gd" id="1_mb2o5"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_bottom = 41.0
+script = ExtResource("1_mb2o5")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 287.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "opçao texto"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 4.0
+offset_right = 542.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "opçao dialogo filename"
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_changed" from="LineEdit2" to="." method="_on_line_edit_2_text_changed"]

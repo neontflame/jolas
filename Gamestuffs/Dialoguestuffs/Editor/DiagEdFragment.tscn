@@ -1,0 +1,173 @@
+[gd_scene load_steps=4 format=3 uid="uid://hjum51haisyt"]
+
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="1_1077f"]
+[ext_resource type="Script" uid="uid://blkyhbf7ttkp2" path="res://Gamestuffs/Dialoguestuffs/Editor/DiagEdFragment.gd" id="2_aco56"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="3_1077f"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("choiceContainer")]
+clip_contents = true
+custom_minimum_size = Vector2(0, 152)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 786.0
+offset_bottom = 152.0
+theme = ExtResource("1_1077f")
+script = ExtResource("2_aco56")
+choiceContainer = NodePath("ifChoice/ScrollContainer/choiceContainer")
+
+[node name="Black" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.258824)
+position = Vector2(396.5, 67.5)
+scale = Vector2(12.7969, 2.54688)
+texture = ExtResource("3_1077f")
+
+[node name="DownButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 100.0
+offset_right = 780.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "\\/"
+
+[node name="UpButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 53.0
+offset_right = 779.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "/\\"
+
+[node name="DeleteThisShitButton" type="Button" parent="."]
+modulate = Color(1, 0.36, 0.36, 1)
+layout_mode = 0
+offset_left = 728.0
+offset_top = 5.0
+offset_right = 779.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+text = ">< "
+
+[node name="LineEditChar" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 6.0
+offset_right = 301.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "quem"
+
+[node name="LineEditEmotion" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 5.0
+offset_right = 465.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 18
+placeholder_text = "emoçao"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 96.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 18
+text = "char falando"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 9.0
+offset_right = 542.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 18
+text = "dialogo"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 10.0
+offset_right = 657.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 18
+text = "escolha"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 11.0
+offset_right = 591.0
+offset_bottom = 39.0
+
+[node name="ifDiag" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Label2" type="Label" parent="ifDiag"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 39.0
+offset_right = 96.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 18
+text = "fala o que"
+
+[node name="TextEdit" type="TextEdit" parent="ifDiag"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 646.0
+offset_bottom = 125.0
+theme_override_font_sizes/font_size = 18
+
+[node name="ifChoice" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="addButton" type="Button" parent="ifChoice"]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 61.0
+offset_right = 690.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="deleteButton" type="Button" parent="ifChoice"]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 61.0
+offset_right = 722.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
+theme_override_font_sizes/font_size = 18
+text = "-"
+
+[node name="Label2" type="Label" parent="ifChoice"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 39.0
+offset_right = 96.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 18
+text = "pense nisso"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ifChoice"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 52.0
+offset_right = 653.0
+offset_bottom = 143.0
+
+[node name="choiceContainer" type="VBoxContainer" parent="ifChoice/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="DeleteThisShitButton" to="." method="_on_delete_this_shit_button_pressed"]
+[connection signal="pressed" from="ifChoice/addButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="ifChoice/deleteButton" to="." method="_on_delete_button_pressed"]
