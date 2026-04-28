@@ -22,6 +22,7 @@ func setup(diag:Dictionary):
 			choiceContainer.add_child(newThingie)
 	elif diag.has("line"):
 		$ifDiag/TextEdit.text = diag["line"]
+	$OptionButton.selected = 1 if diag["position"] == 'right' else 0
 	
 func _physics_process(delta: float) -> void:
 	isChoice = $CheckButton.button_pressed
@@ -39,6 +40,7 @@ func makeJson():
 		dic["choice"] = coolArraye
 	else:
 		dic["line"] = $ifDiag/TextEdit.text
+	dic["position"] = $OptionButton.text
 	return dic
 
 func _on_add_button_pressed() -> void:

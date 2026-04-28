@@ -63,9 +63,9 @@ placeholder_text = "quem"
 
 [node name="LineEditEmotion" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 317.0
+offset_left = 309.0
 offset_top = 5.0
-offset_right = 465.0
+offset_right = 457.0
 offset_bottom = 43.0
 theme_override_font_sizes/font_size = 18
 placeholder_text = "emoçao"
@@ -79,29 +79,20 @@ offset_bottom = 42.0
 theme_override_font_sizes/font_size = 18
 text = "char falando"
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 484.0
-offset_top = 9.0
-offset_right = 542.0
-offset_bottom = 39.0
-theme_override_font_sizes/font_size = 18
-text = "dialogo"
-
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 599.0
+offset_left = 515.0
 offset_top = 10.0
-offset_right = 657.0
+offset_right = 573.0
 offset_bottom = 40.0
 theme_override_font_sizes/font_size = 18
-text = "escolha"
+text = "é escolha?"
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 0
-offset_left = 549.0
+offset_left = 472.0
 offset_top = 11.0
-offset_right = 591.0
+offset_right = 514.0
 offset_bottom = 39.0
 
 [node name="ifDiag" type="Control" parent="."]
@@ -165,6 +156,21 @@ offset_bottom = 143.0
 
 [node name="choiceContainer" type="VBoxContainer" parent="ifChoice/ScrollContainer"]
 layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 6.0
+offset_right = 719.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.361576, 0.361575, 0.361575, 1)
+theme_override_font_sizes/font_size = 18
+selected = 0
+item_count = 2
+popup/item_0/text = "left"
+popup/item_0/id = 0
+popup/item_1/text = "right"
+popup/item_1/id = 1
 
 [connection signal="pressed" from="DownButton" to="." method="_on_down_button_pressed"]
 [connection signal="pressed" from="UpButton" to="." method="_on_up_button_pressed"]
