@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc37lcidf852s"]
+[gd_scene load_steps=14 format=3 uid="uid://dc37lcidf852s"]
 
 [ext_resource type="Script" uid="uid://cix7dgur13ume" path="res://Menustuffs/Menu.gd" id="1_2rd20"]
 [ext_resource type="Texture2D" uid="uid://cl665wgpfqbnb" path="res://Menustuffs/Commons/MenuBG.png" id="1_r5uri"]
@@ -11,15 +11,18 @@
 [ext_resource type="AudioStream" uid="uid://cif1ajm7jfcqh" path="res://Gamestuffs/Sounds/Commons/back.ogg" id="9_2f15j"]
 [ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="10_3g3s7"]
 [ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="11_lo8pj"]
+[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Menustuffs/Background/menu_background.tscn" id="12_3g3s7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i30ho"]
 shader = ExtResource("3_fec8x")
 shader_parameter/amount = 0.0
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_2rd20")
+camera = NodePath("Camera2D")
 
 [node name="MenuBg" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(352, 224)
 texture = ExtResource("1_r5uri")
 
@@ -56,3 +59,9 @@ stream = ExtResource("10_3g3s7")
 
 [node name="Tick" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_lo8pj")
+
+[node name="MenuBackground" parent="." instance=ExtResource("12_3g3s7")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0

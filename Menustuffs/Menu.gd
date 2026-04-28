@@ -12,6 +12,8 @@ static var instance:Node2D
 
 static var comingFrom = ''
 
+@export var camera: Camera2D
+
 @onready var theMusics := [$BGMLayer1, $BGMLayer2, $BGMLayer3]
 var theVolumes:Array = [0.0, 0.0, 0.0]
 
@@ -28,6 +30,8 @@ func _ready() -> void:
 var sineWaveCoolio := 0.0
 
 func _process(delta: float) -> void:
+	camera.position.x -= 50.0 * delta
+	
 	sineWaveCoolio += delta/8.0
 	$MenuBg.position.x = (sin(sineWaveCoolio) * (96.0/2.0)) + 354.0
 	

@@ -19,6 +19,7 @@ enum Types {
 	STATIC,
 	MOBILE,
 	DYNAMIC,
+	DYNAMIC_SINGULAR,
 	MOBILE_DYNAMIC
 }
 
@@ -56,7 +57,7 @@ func _get_property_list() -> Array:
 		"name": "ParallaxType",
 		"type": TYPE_INT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": "STATIC, MOBILE, DYNAMIC, MOBILE_DYNAMIC",
+		"hint_string": "STATIC, MOBILE, DYNAMIC, DYNAMIC_SINGULAR, MOBILE_DYNAMIC",
 		"usage": PROPERTY_USAGE_DEFAULT
 	})
 	
@@ -69,7 +70,7 @@ func _get_property_list() -> Array:
 		})
 
 	## Só aparece quando há movimento dinâmico
-	if is_dynamic():
+	if is_dynamic() or ParallaxType == Types.DYNAMIC_SINGULAR:
 		Configs.append({
 			"name": "DynamicScrollSpeed",
 			"type": TYPE_VECTOR2,
@@ -106,6 +107,9 @@ func _process(delta: float) -> void:
 			scroll_base_scale = DynamicScrollSpeed
 		else:
 			print("ParallaxLayer não configurado!")
+	if ParallaxType == Types.DYNAMIC_SINGULAR:
+		scroll_base_scale = DynamicScrollSpeed
+		PLayer.motion_mirroring = Vector2.ZERO
 
 ## Retorna true se usa scroll manual
 func is_mobile():
