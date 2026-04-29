@@ -141,18 +141,18 @@ func _physics_process(delta: float) -> void:
 		for hit in hitboxCoisos.get_children():
 			hit.fixAngles()
 	
-	print(velocity, motion)
+	# print(velocity, motion)
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
 	
 	if comboFrames > 0:
-		comboFrames -= 1 * deltaOne
+		comboFrames -= 1
 	else:
 		if combo != 0: resetCombo()
 	
 	if current_state != state_machine.st_hurt:
 		if invulnFrames > 0:
-			invulnFrames -= 1 * deltaOne
+			invulnFrames -= 1
 			plySprite.self_modulate.a = 0.5
 		else:
 			plySprite.self_modulate.a = 1
@@ -206,18 +206,18 @@ func handleMovement() -> void:
 		FRICTION = AIR_FRICTION
 		
 	if (!movementEnabled):
-		motion.x = motion.x * (FRICTION * deltaOne)
+		motion.x = motion.x * (FRICTION)
 		return
 		
 	# jumpfuck
 	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air)):
 		jumpsDone += 1
 		if isSonicPhys:
-			motion.y = JUMP_VELOCITY * deltaOne
+			motion.y = JUMP_VELOCITY
 		else:
-			motion.y = JUMP_VELOCITY * deltaOne * -floorSinCos.y
-			motion.x += JUMP_VELOCITY * deltaOne * -floorSinCos.x
-		motion.y -= abs(motion.x/2) * deltaOne * sin(get_floor_angle())
+			motion.y = JUMP_VELOCITY * -floorSinCos.y
+			motion.x += JUMP_VELOCITY * -floorSinCos.x
+		motion.y -= abs(motion.x/2) * sin(get_floor_angle())
 		jumping = true
 		holding_jump = true
 		on_jump(jumpsDone)
@@ -230,13 +230,13 @@ func handleMovement() -> void:
 	motion.x += slopeAdd
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
-			if (motion.x > -SOFT_MAX_SPEED * slopeFactor * deltaOne):
+			if (motion.x > -SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x > 0 and is_on_floor()):
 					motion.x -= FLOOR_BRAKE * deltaOne
 				else:
 					motion.x -= ACCELERATION * deltaOne
 		elif Input.is_action_pressed("ctrl_right"):
-			if (motion.x < SOFT_MAX_SPEED * slopeFactor * deltaOne):
+			if (motion.x < SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x < 0 and is_on_floor()):
 					motion.x += FLOOR_BRAKE * deltaOne
 				else:
@@ -266,7 +266,7 @@ func handlePhys() -> void:
 		
 		if (rad_to_deg(get_floor_angle()) > 5):
 			# sei la angulos sao estranhos
-			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
+			slopeAdd = (SLOPE_VEL_ADD) * floorSinCos.x * slopeMult
 		else:
 			slopeAdd = 0
 		slopeFactor = 1.0 - (abs(floorSinCos.x) / 2.5)

@@ -33,10 +33,10 @@ func handleHorizontalMovement() -> void:
 		
 	# walkfucks
 	if Input.is_action_pressed("ctrl_left"):
-		if (motion.x > -SOFT_MAX_SPEED * deltaOne):
+		if (motion.x > -SOFT_MAX_SPEED):
 			motion.x -= ACCELERATION * deltaOne
 	elif Input.is_action_pressed("ctrl_right"):
-		if (motion.x < SOFT_MAX_SPEED * deltaOne):
+		if (motion.x < SOFT_MAX_SPEED):
 			motion.x += ACCELERATION * deltaOne
 	else:
 		motion.x = motion.x * (FRICTION * deltaOne)

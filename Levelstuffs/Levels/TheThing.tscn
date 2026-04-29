@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=21 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_khcdk"]
-[ext_resource type="Texture2D" uid="uid://bq50pvj51s52s" path="res://Levelstuffs/Utilities/ParallaxComponent/base_background.png" id="6_jr6rj"]
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
 [ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
 [ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
@@ -25,6 +24,21 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -320, 0, 0, 0, 0, -384, -320, 0, 0, 0, 0, -384, 2048, 0, 0, 0, 0, 6208, 2048, 0, 0, 0, 0, 9664, 3584, 0, 0, 0, 0, 19784, 3648, 0, 0, 0, 0, 19784, -704, 0, 0, 0, 0, 19648, -704, 0, 0, 0, 0, 19648, 2624, 0, 0, 0, 0, 17280, 2624, 598.059, 15.0614, -811.61, -19.769, 16704, 3008, 0, 0, 0, 0, 15424, 2048, 393.032, 3.58453, 0, 0, 14400, 1080, 0, 0, 0, 0, 13576, 1088, 0, 0, 0, 0, 13248, 1024, 9.66306, -500.869, 4.83153, 264.124, 12576, 1344, -64.8863, -64.2033, 64.8863, 64.2033, 13120, 1792, -19.8074, -116.112, 19.8074, 116.112, 13264, 2000, 7, -209, -7, 209, 13264, 2432, 223.85, -37.51, 0, 0, 12736, 2752, 0, 0, -272.232, -4.0172, 10752, 2688, 790.904, 269.48, -1260.55, -165.045, 9552, 1952, 904.627, -17.0256, -242.704, 14.1725, 7608, 1064, 0, 0, 0, 0, 7040, 1088, 0, 0, 0, 0, 7040, 1216, 0, 0, 0, 0, 6592, 1216, 0, 0, 0, 0, 6592, 1344, 194.725, -54.1717, -194.725, 54.1717, 5888, 1344, 102.487, -17.5692, -102.487, 17.5692, 5376, 1592, 83.6, 26.4, -83.6, -26.4, 5096, 1592, 205.7, 8.47, 0, 0, 4096, 1280, 0, 0, 0, 0, 3208, 1280, 0, 0, -212.295, 39.5307, 2304, 1280, 258.49, -3.19578, -258.49, 3.19578, 1344, 1536, 0, 0, 0, 0, 0, 1528, 0, 0, 0, 0, 0, -320)
 }
 point_count = 36
+
+[sub_resource type="Gradient" id="Gradient_h3gw8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.51, 0.51, 0.51, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jr6rj"]
+gradient = SubResource("Gradient_h3gw8")
+
+[sub_resource type="Gradient" id="Gradient_dysm2"]
+offsets = PackedFloat32Array(0.0101523)
+colors = PackedColorArray(0, 0, 0, 0.301961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ru0af"]
+gradient = SubResource("Gradient_dysm2")
+width = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jr6rj"]
 bake_interval = 32.0
@@ -81,8 +95,12 @@ is_platform_terrain = false
 curve_bake_interval = 128.0
 visible_collision = false
 enable_center_texture = true
-center_texture = ExtResource("6_jr6rj")
-enable_edge_texture = false
+center_texture = SubResource("GradientTexture1D_jr6rj")
+enable_edge_texture = true
+edge_texture = SubResource("GradientTexture1D_ru0af")
+current_edge_type = 0
+edge_offset = Vector2i(0, -1)
+line_texture_type = 1
 metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="BigBall" type="Path2D" parent="CurvedTerrains"]

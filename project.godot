@@ -176,6 +176,7 @@ locale/translation_remaps={
 "res://Menustuffs/SaveMenu/PassaporteVazio.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteVazioEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteVazioJP.png:ja")
 }
 locale/translations=PackedStringArray("res://Translationstuffs/traduz.en.translation", "res://Translationstuffs/traduz.ja.translation", "res://Translationstuffs/traduz.pt_BR.translation")
+locale/test="ja"
 locale/fallback="pt_BR"
 locale/locale_filter_mode=1
 locale/language_filter=["en", "es", "ja", "pt"]
