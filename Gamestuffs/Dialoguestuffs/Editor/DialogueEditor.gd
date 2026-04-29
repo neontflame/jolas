@@ -6,7 +6,10 @@ var coolTweenie:Tween
 func _on_diag_load_pressed() -> void:
 	for child in diagShitsContainer.get_children():
 		diagShitsContainer.remove_child(child)
+	
 	var pathness = 'res://Gamestuffs/Dialoguestuffs/Dialogues/' + $CanvasLayer/Control2/dialogueName.text + '.json'
+	if not ResourceLoader.exists(pathness): return
+	
 	var theJayson:Dictionary = JSON.parse_string(FileUtils.get_text_file_content(pathness))
 	if theJayson.has('questClear'):
 		$CanvasLayer/Control/questClear.text = theJayson['questClear']
@@ -53,7 +56,7 @@ func moveDiagDown(diag):
 
 func deleteDiag(diag):
 	diag.delete.disconnect(deleteDiag)
-	await diag.queue_free()
+	diag.queue_free()
 	refreshIndexes()
 
 func refreshIndexes():

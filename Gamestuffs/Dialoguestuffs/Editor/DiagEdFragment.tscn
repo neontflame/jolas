@@ -34,9 +34,9 @@ text = "\\/"
 [node name="UpButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 728.0
-offset_top = 53.0
+offset_top = 55.0
 offset_right = 779.0
-offset_bottom = 95.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
 theme_override_font_sizes/font_size = 18
 text = "/\\"
@@ -81,9 +81,9 @@ text = "char falando"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 515.0
+offset_left = 517.0
 offset_top = 10.0
-offset_right = 573.0
+offset_right = 593.0
 offset_bottom = 40.0
 theme_override_font_sizes/font_size = 18
 text = "é escolha?"
@@ -120,20 +120,20 @@ anchors_preset = 0
 
 [node name="addButton" type="Button" parent="ifChoice"]
 layout_mode = 0
-offset_left = 661.0
-offset_top = 61.0
-offset_right = 690.0
-offset_bottom = 103.0
+offset_left = 652.0
+offset_top = 55.0
+offset_right = 681.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
 theme_override_font_sizes/font_size = 18
 text = "+"
 
 [node name="deleteButton" type="Button" parent="ifChoice"]
 layout_mode = 0
-offset_left = 693.0
-offset_top = 61.0
-offset_right = 722.0
-offset_bottom = 103.0
+offset_left = 690.0
+offset_top = 55.0
+offset_right = 719.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.259294, 0.259294, 0.259294, 1)
 theme_override_font_sizes/font_size = 18
 text = "-"
@@ -151,7 +151,7 @@ text = "pense nisso"
 layout_mode = 0
 offset_left = 88.0
 offset_top = 52.0
-offset_right = 653.0
+offset_right = 647.0
 offset_bottom = 143.0
 
 [node name="choiceContainer" type="VBoxContainer" parent="ifChoice/ScrollContainer"]
