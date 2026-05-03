@@ -315,8 +315,9 @@ func level_up():
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
-		stop_sfx()
 		if !get_invuln():
+			# stop_sfx()
+			# await get_tree().create_timer(0.01).timeout
 			if current_state.name == 'Death':
 				return false
 			
