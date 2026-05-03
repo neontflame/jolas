@@ -60,4 +60,11 @@ func makeSlamParticle():
 	thingie.position = position + (randPos/3)
 	thingie.rotation = atan2(velocity.y, velocity.x)
 	thingie.z_index = z_index
-	
+
+func on_jump(jumpNum:int):
+	print(jumpNum)
+	if jumpNum > 2:
+		var thingie = GameUtils.get_char_asset("GTeto", "Misc/JumpFx.tscn").instantiate()
+		get_parent().add_child(thingie)
+		thingie.global_position = global_position
+		print('made thingie')

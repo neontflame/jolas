@@ -318,6 +318,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if !get_invuln():
 			# stop_sfx()
 			# await get_tree().create_timer(0.01).timeout
+			spawnNumber(hpLost)
 			if current_state.name == 'Death':
 				return false
 			
@@ -491,4 +492,10 @@ func setMotion(x:float, y:float, addX:bool = false, addY:bool = false):
 			motion.y += y
 	else:
 		motion.y = y
+
+func spawnNumber(quant):
+	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	get_parent().add_child(numble)
+	numble.global_position = global_position - Vector2(0, 32)
+	numble.set_text(quant)
 #endregion

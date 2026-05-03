@@ -4,6 +4,21 @@ func update():
 	super.update()
 	
 	if (Player.movementEnabled):
+		if Input.is_action_just_pressed("ctrl_2"):
+			Player.motion.y = min(min(abs(Player.motion.x), 1300) * -1.1, -600)
+			var params:Dictionary = {
+				"power": Player.ATTACK_DMG_LVL["slamLand"] * 0.75,
+				"owner_id": Player.playerID
+			}
+			MapUtils.spawn_object('GSlamFx', 
+								Player.position, 
+								"Default", 
+								params)
+			await get_tree().create_timer(0.01).timeout
+			Player.play_char_sfx('Bounce', 'GTeto')
+			Player.plySprite.play('gtSlam')
+			for i in range(10):
+				Player.makeSlamParticle()
 		if Input.is_action_just_pressed("ctrl_1") && Player.projCooldown <= 0:
 			# Player.projForce = Player.ATTACK_DMG_LVL["minProjectile"]
 			Player.change_state(Player.state_machine.st_charge_floor)

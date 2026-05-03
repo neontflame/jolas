@@ -52,25 +52,26 @@ func _process(delta: float) -> void:
 		plankle.self_modulate = plankle.self_modulate.lerp(Color(0.5, 0.4, 0.4), 0.2)
 	else:
 		plankle.self_modulate = plankle.self_modulate.lerp(Color(1, 1, 1), 0.2)
-	savesNode.position.x = lerp(	savesNode.position.x,
-										-176 - (saveSlots[CoolMenu.curSelected].position.x * 0.1),
-										0.2
-									)
-									
-	savesNode.position.y = lerp(	savesNode.position.y,
-										54 - (saveSlots[CoolMenu.curSelected].position.y * 0.75),
-										0.2
-									)
 
-	savesNode.get_node('SetaCool').position.x = lerp(	savesNode.get_node('SetaCool').position.x,
-										saveSlots[CoolMenu.curSelected].position.x - 42,
-										0.5
-									)
-	savesNode.get_node('SetaCool').position.y = lerp(	savesNode.get_node('SetaCool').position.y,
-										saveSlots[CoolMenu.curSelected].position.y + 56,
-										0.5
-									)
-	if !isSelected:
+	if !isSelected:	
+		savesNode.position.x = lerp(	savesNode.position.x,
+											-176 - (saveSlots[CoolMenu.curSelected].position.x * 0.1),
+											0.2
+										)
+										
+		savesNode.position.y = lerp(	savesNode.position.y,
+											54 - (saveSlots[CoolMenu.curSelected].position.y * 0.75),
+											0.2
+										)
+
+		savesNode.get_node('SetaCool').position.x = lerp(	savesNode.get_node('SetaCool').position.x,
+											saveSlots[CoolMenu.curSelected].position.x - 42,
+											0.5
+										)
+		savesNode.get_node('SetaCool').position.y = lerp(	savesNode.get_node('SetaCool').position.y,
+											saveSlots[CoolMenu.curSelected].position.y + 56,
+											0.5
+										)
 		if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_left"):
 			CoolMenu.play_sfx('Tick')
 			CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)

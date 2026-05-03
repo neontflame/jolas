@@ -147,7 +147,7 @@ position = Vector2(37, 51)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(14208.3, 924.781)
+position = Vector2(220, 1521)
 
 [node name="BackSpawnpoint" type="Node2D" parent="."]
 position = Vector2(19169, 2605)

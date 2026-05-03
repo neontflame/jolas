@@ -113,6 +113,7 @@ func onUntouched(body):
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	# print(vel)
+	spawnNumber(hpLost)
 	if isDead:
 		return false
 	if theHarmer:
@@ -179,3 +180,9 @@ func handlePlyHits(harmPlayer:bool = true):
 			touchedPlayer.yeowch(strength, 
 			(position.x < touchedPlayer.position.x)
 			)
+
+func spawnNumber(quant):
+	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	get_parent().add_child(numble)
+	numble.global_position = global_position - Vector2(0, 32)
+	numble.set_text(quant)
