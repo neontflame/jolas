@@ -315,6 +315,7 @@ func level_up():
 
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
+		stop_sfx()
 		if !get_invuln():
 			if current_state.name == 'Death':
 				return false
@@ -349,6 +350,9 @@ func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + name + ".ogg")
 	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
+
+func stop_sfx():
+	sfx_player.stop()
 
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln
@@ -467,4 +471,23 @@ func get_params(properties:Dictionary[String, Variant]):
 func onUnpause():
 	canSpeedZoomCam = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
 	PlayerUtils.set_default_zoom()
+
+func setMotion(x:float, y:float, addX:bool = false, addY:bool = false):
+	if addX:
+		if (x < motion.x and sign(x) == -1)\
+		or (x > motion.x and sign(x) == 1):
+			motion.x += x * 2
+		else:
+			motion.x += x
+	else:
+		motion.x = x
+	
+	if addY:
+		if (y < motion.y and sign(y) == -1)\
+		or (y > motion.y and sign(y) == 1):
+			motion.y += y * 2
+		else:
+			motion.y += y
+	else:
+		motion.y = y
 #endregion

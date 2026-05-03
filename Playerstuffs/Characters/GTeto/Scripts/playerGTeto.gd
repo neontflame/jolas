@@ -6,6 +6,14 @@ var slamDunking:bool = false
 var previousPos:Vector2 = Vector2(0, 0)
 var posDifference:Vector2 = Vector2(0, 0)
 
+var projectileDodgit:bool = false
+var lastSec:float = 0.0
+var chargeTween:Tween
+
+func _ready() -> void:
+	super._ready()
+	chargeTween = get_tree().create_tween()
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if (projCooldown > 0):
@@ -13,6 +21,8 @@ func _physics_process(delta: float) -> void:
 	if previousPos != position:
 		posDifference = position - previousPos
 		previousPos = posDifference
+	if is_on_floor():
+		projectileDodgit = false
 	
 func handleHorizontalMovement() -> void:
 	# Go my acceleratione.
@@ -50,3 +60,4 @@ func makeSlamParticle():
 	thingie.position = position + (randPos/3)
 	thingie.rotation = atan2(velocity.y, velocity.x)
 	thingie.z_index = z_index
+	

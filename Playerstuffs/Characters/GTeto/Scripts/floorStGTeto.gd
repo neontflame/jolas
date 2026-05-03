@@ -5,8 +5,17 @@ func update():
 	
 	if (Player.movementEnabled):
 		if Input.is_action_just_pressed("ctrl_1") && Player.projCooldown <= 0:
-			Player.projForce = Player.ATTACK_DMG_LVL["minProjectile"]
+			# Player.projForce = Player.ATTACK_DMG_LVL["minProjectile"]
 			Player.change_state(Player.state_machine.st_charge_floor)
+			Player.play_char_sfx('Charge', 'GTeto')
+			Player.chargeTween = get_tree().create_tween()
+			Player.chargeTween.tween_method(
+				func(v:float): 
+				Player.projForce = v
+				,
+				(Player.ATTACK_DMG_LVL["minProjectile"] if Player.projForce == 0 else Player.projForce),
+				Player.ATTACK_DMG_LVL["maxProjectile"], 
+				1.5 - Player.lastSec)
 
 func handleAnimations() -> void:
 	if Player.is_on_floor():

@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://bedugdx6kuo35"]
+
+[ext_resource type="Script" uid="uid://crukdh3wbo1lk" path="res://Levelstuffs/Objects/GProjectile/GProjectile.gd" id="1_khtvc"]
+[ext_resource type="Texture2D" uid="uid://b5w0cxhno2wwc" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big explode0001.png" id="2_khtvc"]
+[ext_resource type="Texture2D" uid="uid://b5hvolptifvce" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big explode0002.png" id="3_g03ur"]
+[ext_resource type="Texture2D" uid="uid://baqmjis3f50lt" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big explode0003.png" id="4_3p6s6"]
+[ext_resource type="Texture2D" uid="uid://ds3xojgh6qa8b" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big explode0004.png" id="5_5kujx"]
+[ext_resource type="Texture2D" uid="uid://b1sjrhjuysk67" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big0001.png" id="6_mfh3a"]
+[ext_resource type="Texture2D" uid="uid://b20tfojtu4klf" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big0002.png" id="7_e61kd"]
+[ext_resource type="Texture2D" uid="uid://btn7fhyjhfevo" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil big0003.png" id="8_8uiln"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4isx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_khtvc")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_g03ur")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_3p6s6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_5kujx")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mfh3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e61kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8uiln")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5qhf"]
+size = Vector2(39, 25)
+
+[node name="GProjectile" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_khtvc")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4isx2")
+animation = &"projectile"
+frame_progress = 0.696964
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+scale = Vector2(1.99, 2.17)
+shape = SubResource("RectangleShape2D_f5qhf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]
