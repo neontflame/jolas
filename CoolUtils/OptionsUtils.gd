@@ -34,7 +34,8 @@ static var bindList:Array = [
 		["ctrl_1", "Especial 2"],
 		["ctrl_interact", "Interagir"],
 		["ctrl_pause", "Pausa"],
-		["ctrl_quests", "Quests"]
+		["ctrl_quests", "Quests"],
+		["ctrl_inventory", "Inventário"]
 	]
 
 # Preferencios

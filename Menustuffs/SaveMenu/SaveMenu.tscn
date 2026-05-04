@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene load_steps=16 format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="6_desna"]
 [ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="11_0jemy"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="12_8323x"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="13_8323x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
 animations = [{
@@ -49,10 +49,6 @@ shader = ExtResource("11_0jemy")
 shader_parameter/line_color = Color(0, 0, 0, 0.443137)
 shader_parameter/line_thickness = 1.0
 shader_parameter/add_margins = true
-
-[sub_resource type="FontVariation" id="FontVariation_5vgxp"]
-base_font = ExtResource("12_8323x")
-spacing_glyph = 1
 
 [node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("savesNode")]
 script = ExtResource("1_86qpw")
@@ -146,8 +142,7 @@ offset_left = -445.0
 offset_top = -48.0
 offset_right = 11.0
 offset_bottom = -9.0
-theme_override_fonts/normal_font = SubResource("FontVariation_5vgxp")
-theme_override_font_sizes/normal_font_size = 18
+theme = ExtResource("13_8323x")
 bbcode_enabled = true
 text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] Sandlerhell "
 horizontal_alignment = 2

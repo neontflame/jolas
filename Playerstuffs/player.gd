@@ -448,7 +448,10 @@ func on_jump(jumpNum:int):
 #region Utilidades (Multiplayer)
 # coisos que existem Explicitamente pra serem usados no multiplayer
 func get_multi_status():
-	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
+	if GPStats.is_multiplayer:
+		if JolasGame.instance:
+			return is_multiplayer_authority() and (not JolasGame.instance.hud.isWriting)
+	return true
 
 func send_params():
 	if len(MULTI_SENDOVER) <= 0: return

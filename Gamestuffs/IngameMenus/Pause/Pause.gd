@@ -72,6 +72,8 @@ func doSomething(opt:StringName):
 		'exit':
 			SaveUtils.save_game(GPStats.saveNum)
 			for hudchild in JolasGame.instance.hud.get_children(true):
+				if hudchild is AudioStreamPlayer\
+				or hudchild is Timer: continue
 				hudchild.visible = false
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')

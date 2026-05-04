@@ -169,12 +169,13 @@ func _process(_delta: float) -> void:
 	GPStats.process(_delta)
 	
 	if not isDial and not isMenu:
-		if Input.is_action_just_pressed("ctrl_pause"):
-			pauseGame()
-			ingameMenu.makeMenu('Pause')
-		if Input.is_action_just_pressed("ctrl_quests"):
-			pauseGame()
-			ingameMenu.makeMenu('Quests')
+		if not hud.isWriting:
+			if Input.is_action_just_pressed("ctrl_pause"):
+				pauseGame()
+				ingameMenu.makeMenu('Pause')
+			if Input.is_action_just_pressed("ctrl_quests"):
+				pauseGame()
+				ingameMenu.makeMenu('Quests')
 		
 #region Multiplayer
 func join_mp_game():

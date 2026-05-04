@@ -1,6 +1,7 @@
 extends Node2D
 class_name HeadsUpDisplay
 
+@export_category('Hud shit')
 @export var canvasLayer:CanvasLayer
 @export var playerIcon:Sprite2D
 @export var levelLabel:Label
@@ -17,8 +18,17 @@ var combo_tween: Tween
 @export var questIcon:Node2D
 @export var placeInfo:PlaceDisplayerIngame
 
+@export var notifsNode:Node2D
+
+@export var sfxPlayer:AudioStreamPlayer
+@export_category('Online hud shit')
+@export var onlineElements:Control
+var isWriting:bool = false
+var textWait:Timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	onlineElements.visible = GPStats.is_multiplayer
 	playerIcon.texture = GameUtils.get_char_asset(GPStats.char, "Icon.png")
 	var customHUD = GameUtils.get_char_asset(GPStats.char, "HUD.tscn")
 	if customHUD:
@@ -67,6 +77,19 @@ func _process(delta: float) -> void:
 			)
 	)
 	
+	if GPStats.is_multiplayer:
+		if not isWriting:
+			if Input.is_key_label_pressed(KEY_T):
+				onlineElements.get_node('MsgTxt').grab_focus()
+				isWriting = true
+		isWriting = onlineElements.get_node('MsgTxt').has_focus()
+		onlineElements.get_node('MsgTxt').visible = isWriting
+		if isWriting:
+			if Input.is_key_label_pressed(KEY_ENTER):
+				var messageFormat:String = "<%s> %s" % [GameUtils.username, onlineElements.get_node('MsgTxt').text]
+				MultiplayerMayhem._player_send_msg.rpc(GPStats.charObject.get_multiplayer_authority(), messageFormat)
+				onlineElements.get_node('MsgTxt').text = ''
+				onlineElements.get_node('MsgTxt').release_focus()
 	
 func show_combo_hud():
 	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)
@@ -87,3 +110,22 @@ func hide_combo_hud():
 	combo_tween.tween_property(comboText, "position:y", -64.0, 0.5)
 	await combo_tween.finished
 	comboText.text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]" + GeneralUtils.display_number(GPStats.charObject.combo)
+
+func play_sfx(name:String, volumeDB:float = 0.0):
+	if sfxPlayer.playing: sfxPlayer.stop()
+	sfxPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + name + ".ogg")
+	sfxPlayer.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfxPlayer.play()
+
+func add_to_msg_log(coolText:String):
+	if textWait:
+		textWait.queue_free()
+	var logshit:RichTextLabel = onlineElements.get_node('MsgLogTxt')
+	logshit.visible = true
+	logshit.text += str(coolText)
+	play_sfx('MSNMessage')
+	textWait = Timer.new()
+	add_child(textWait)
+	textWait.start(5.0)
+	await textWait.timeout
+	logshit.visible = false

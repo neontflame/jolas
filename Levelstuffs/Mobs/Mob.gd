@@ -37,6 +37,8 @@ var previous_state = null
 
 @export var sfx_player:AudioStreamPlayer2D
 
+@export var healthBar:Bar
+
 @export_category('Animations')
 @export var leSprite:AnimatedSprite2D
 #endregion 
@@ -72,11 +74,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
+	
+	healthBar.progress = hp / maxHP
+	healthBar.visible = not (isDead or not detectingPlayer)
+	
 	if stunFrames > 0:
 		stunFrames -= 1 * deltaOne
 		return
 	if current_state.has_method('update'): current_state.update()
-	$Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
+	# $Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
 	move_and_slide()
 
 func handlePhys():
@@ -113,9 +119,9 @@ func onUntouched(body):
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	# print(vel)
-	spawnNumber(hpLost)
 	if isDead:
 		return false
+	spawnNumber(hpLost)
 	if theHarmer:
 		theHarmer.increaseCombo()
 	stunFrames = 2.0

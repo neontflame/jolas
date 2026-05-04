@@ -59,7 +59,8 @@ func release_player():
 		if current_object is PlayerObject:
 			current_object.motion = spring_strength * Vector2.UP.rotated(rotation)
 			current_object.walkingEnabled = true
-			current_object.change_state(current_object.state_machine.st_air)
+			# Ok uh isso quebra o online por algum motivo ent
+			# current_object.change_state(current_object.state_machine.st_air)
 			current_object = null
 		elif current_object is MobObject:
 			current_object.velocity = spring_strength * Vector2.UP.rotated(rotation)
