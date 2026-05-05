@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://jqlx4a5ag0fr"]
+
+[ext_resource type="Script" uid="uid://decpf6jc5ewx7" path="res://Gamestuffs/IngameMenus/Inventory/InventorySlot.gd" id="1_ft2nm"]
+[ext_resource type="Texture2D" uid="uid://dadsny857yjfx" path="res://Gamestuffs/IngameMenus/Inventory/slot.png" id="1_pn5s0"]
+
+[node name="InventorySlot" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(68, 70)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ft2nm")
+
+[node name="Slot" type="Sprite2D" parent="."]
+texture = ExtResource("1_pn5s0")
+centered = false
+
+[node name="CoolIcon" type="Sprite2D" parent="."]
+position = Vector2(32, 31)

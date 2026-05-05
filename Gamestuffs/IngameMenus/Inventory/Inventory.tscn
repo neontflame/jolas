@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2745lnhanv8m"]
+
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="1_pdbbp"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="2_7c26n"]
+[ext_resource type="Texture2D" uid="uid://dr6kyl7vljte1" path="res://Gamestuffs/IngameMenus/Inventory/inventoryCoiso.png" id="3_pph8o"]
+[ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Gamestuffs/Fonts/tahoma.ttf" id="4_pllxa"]
+[ext_resource type="Texture2D" uid="uid://hgttt817agr" path="res://Gamestuffs/IngameMenus/Inventory/setaNormal.png" id="5_fchlu"]
+[ext_resource type="Texture2D" uid="uid://dowr4scvedhmu" path="res://Gamestuffs/IngameMenus/Inventory/setaPress1.png" id="6_a1tda"]
+[ext_resource type="Texture2D" uid="uid://dah2neqyjm50a" path="res://Gamestuffs/IngameMenus/Inventory/setaPress2.png" id="7_fgnjw"]
+[ext_resource type="PackedScene" uid="uid://jqlx4a5ag0fr" path="res://Gamestuffs/IngameMenus/Inventory/InventorySlot.tscn" id="8_vnuy0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i08sr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fchlu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_a1tda")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_fgnjw")
+}],
+"loop": false,
+"name": &"press",
+"speed": 24.0
+}]
+
+[node name="Inventory" type="Node2D"]
+
+[node name="MenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("1_pdbbp")]
+position = Vector2(54, 39)
+
+[node name="Control" type="Control" parent="MenuCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 20.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7c26n")
+
+[node name="InventoryThing" type="Sprite2D" parent="MenuCanvas/Control"]
+position = Vector2(8, 8)
+texture = ExtResource("3_pph8o")
+
+[node name="Label" type="Label" parent="MenuCanvas/Control/InventoryThing"]
+offset_left = -115.0
+offset_top = 177.0
+offset_right = 104.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pllxa")
+theme_override_font_sizes/font_size = 14
+text = "Página X de X"
+horizontal_alignment = 1
+
+[node name="SetaRight" type="AnimatedSprite2D" parent="MenuCanvas/Control/InventoryThing"]
+position = Vector2(271, 21)
+sprite_frames = SubResource("SpriteFrames_i08sr")
+
+[node name="SetaLeft" type="AnimatedSprite2D" parent="MenuCanvas/Control/InventoryThing"]
+position = Vector2(-271, 21)
+sprite_frames = SubResource("SpriteFrames_i08sr")
+flip_h = true
+
+[node name="GridContainer" type="GridContainer" parent="MenuCanvas/Control/InventoryThing"]
+custom_minimum_size = Vector2(483, 274)
+offset_left = -248.0
+offset_top = -127.0
+offset_right = 252.0
+offset_bottom = 147.0
+columns = 7
+
+[node name="InventorySlot" parent="MenuCanvas/Control/InventoryThing/GridContainer" instance=ExtResource("8_vnuy0")]
+layout_mode = 2
