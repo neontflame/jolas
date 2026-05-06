@@ -176,6 +176,9 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("ctrl_quests"):
 				pauseGame()
 				ingameMenu.makeMenu('Quests')
+			if Input.is_action_just_pressed("ctrl_inventory"):
+				pauseGame()
+				ingameMenu.makeMenu('Inventory')
 		
 #region Multiplayer
 func join_mp_game():

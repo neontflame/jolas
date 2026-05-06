@@ -44,6 +44,7 @@ static func load_info_from_save(saveNum:int):
 		maxHP = 10
 		curMap = GameUtils.defaultMap
 		exploredMaps = []
+		InventoryUtils.inventory = []
 		QuestUtils.clear_all()
 	else:
 		level = save['level']
@@ -54,3 +55,5 @@ static func load_info_from_save(saveNum:int):
 		if (save.has("assignedQuests") and save.has("clearedQuests")):
 			QuestUtils.assignedQuests = save['assignedQuests']
 			QuestUtils.clearedQuests = save['clearedQuests']
+		if (save.has("inventory")):
+			InventoryUtils.inventory = save['inventory']

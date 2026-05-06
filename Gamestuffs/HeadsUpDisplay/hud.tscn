@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=24 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_taoro"]
 [ext_resource type="PackedScene" uid="uid://b5s5rj5po17bk" path="res://Gamestuffs/HeadsUpDisplay/questIcon.tscn" id="12_5tfyd"]
 [ext_resource type="PackedScene" uid="uid://cdob43vo7sjc4" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn" id="13_fndli"]
+[ext_resource type="PackedScene" uid="uid://bcsask4ppob0g" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.tscn" id="13_grt4r"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="14_m2u84"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="15_grt4r"]
 
@@ -47,7 +48,7 @@ fallbacks = Array[Font]([SubResource("FontVariation_xitcb")])
 base_font = ExtResource("2_fccik")
 spacing_top = -10
 
-[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -60,6 +61,7 @@ xpBar = NodePath("CanvasLayer/Bars/XPBar")
 testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
 comboText = NodePath("CanvasLayer/RightAnchor/ComboText")
 questIcon = NodePath("CanvasLayer/QuestIcon")
+inventoryIcon = NodePath("CanvasLayer/InventoryIcon")
 placeInfo = NodePath("CanvasLayer/Control/PlaceInfo")
 notifsNode = NodePath("CanvasLayer/RightAnchor/Notifs")
 sfxPlayer = NodePath("AudioStreamPlayer")
@@ -189,6 +191,9 @@ position = Vector2(40, 96)
 
 [node name="QuestIcon" parent="CanvasLayer" instance=ExtResource("12_5tfyd")]
 position = Vector2(34, 136)
+
+[node name="InventoryIcon" parent="CanvasLayer" instance=ExtResource("13_grt4r")]
+position = Vector2(33, 211)
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

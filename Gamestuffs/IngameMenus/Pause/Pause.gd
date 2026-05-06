@@ -53,6 +53,7 @@ func doSomething(opt:StringName):
 		'resume':
 			JolasGame.instance.unpauseGame()
 			JolasGame.instance.hud.questIcon.rerenderCtrl()
+			JolasGame.instance.hud.inventoryIcon.rerenderCtrl()
 			GPStats.charObject.onUnpause()
 			# CoolMenu.instance.tweenOut()
 			CoolMenu.play_sfx('Wrap')

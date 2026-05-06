@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=22 format=3 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_so8ub"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_khcdk"]
+[ext_resource type="PackedScene" uid="uid://bk8h65886ui4k" path="res://Gamestuffs/NPCs/Queixo.tscn" id="7_jr6rj"]
 [ext_resource type="Script" uid="uid://eydktikufi24" path="res://Levelstuffs/Utilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
 [ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
 [ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
@@ -155,6 +156,9 @@ position = Vector2(19169, 2605)
 [node name="TestNpc" parent="." instance=ExtResource("2_h803n")]
 position = Vector2(2869, 1263)
 dialogue = "diagTest"
+
+[node name="QueixoNpc" parent="." instance=ExtResource("7_jr6rj")]
+position = Vector2(6735, 1218)
 
 [node name="Camera regions" type="Node2D" parent="."]
 visible = false

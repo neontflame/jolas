@@ -37,6 +37,9 @@ animations = [{
 position = Vector2(1, 0)
 maxHP = 30.0
 xpGrant = 16.0
+possibleDrops = Dictionary[String, int]({
+"jola": 2
+})
 
 [node name="Default" parent="StateMachine" index="0"]
 script = ExtResource("2_bxyn8")

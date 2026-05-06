@@ -30,6 +30,13 @@ static func spawn_object_online(name:String, pos:Vector2, variation:String = 'De
 		object.apply_additional_data(additionalData)
 	return object
 
+static func spawn_item(name:String, pos:Vector2):
+	var object = load("res://Gamestuffs/Itemstuffs/" + name + "/Item.tscn").instantiate()
+	map.add_child(object)
+	object.position = pos
+	object.launch(Vector2.UP, 10.0)
+	return object
+
 ## auto-explicativo!
 ## *molder* precisa ter uma propriedade "polygon"
 static func mold_smartshape(molded:SS2D_Shape, molder:Variant, close_shape:bool = true):

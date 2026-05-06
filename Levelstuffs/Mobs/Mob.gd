@@ -27,6 +27,9 @@ var previous_state = null
 
 @export var USES_BODY_AS_HITBOX:bool = true
 
+## uma chance de 1 em quantos pra dropar esse item ?
+@export var possibleDrops:Dictionary[String, int] = {}
+
 @export_group('Technical shit')
 @export var collisions:CollisionShape2D
 
@@ -140,6 +143,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
+		dropItems()
 		isDead = true
 	else:
 		change_state(state_machine.st_hurt)
@@ -192,3 +196,9 @@ func spawnNumber(quant):
 	get_parent().add_child(numble)
 	numble.global_position = global_position - Vector2(0, 32)
 	numble.set_text(quant)
+
+func dropItems():
+	if len(possibleDrops) > 0:
+		for itemcool in possibleDrops:
+			if randi_range(1, possibleDrops[itemcool]) == 1:
+				MapUtils.spawn_item(itemcool, global_position)

@@ -16,6 +16,7 @@ class_name HeadsUpDisplay
 var combo_tween: Tween
 
 @export var questIcon:Node2D
+@export var inventoryIcon:Node2D
 @export var placeInfo:PlaceDisplayerIngame
 
 @export var notifsNode:Node2D
@@ -129,3 +130,11 @@ func add_to_msg_log(coolText:String):
 	textWait.start(5.0)
 	await textWait.timeout
 	logshit.visible = false
+
+func create_notif(msg:String, icon:String, sound:String):
+	for child in notifsNode.get_children():
+		if child is Node2D:
+			child.position.y += 32
+	var newNotif = load("res://Gamestuffs/HeadsUpDisplay/Notif.tscn").instantiate()
+	notifsNode.add_child(newNotif)
+	newNotif.setup(msg, icon, sound)

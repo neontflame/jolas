@@ -61,7 +61,9 @@ static func text_replacery(string:String):
 		["ctrl_interact", "Interact"],
 		["ui_toggle", "Toggle"],
 		["ui_accept", "Accept"],
-		["ui_cancel", "Cancel"]
+		["ui_cancel", "Cancel"],
+		["ui_next_page", "Next Page"],
+		["ui_prev_page", "Previous Page"],
 	]
 	
 	var coolString:String = string

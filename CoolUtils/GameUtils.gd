@@ -55,6 +55,7 @@ static func get_maps():
 		
 	return trueLvlList
 
+#region Chars
 static func get_char_preview(char:String):
 	return get_char_asset(char, 'CharSel.tscn')
 	
@@ -87,7 +88,9 @@ static func get_char_asset_path(char:String, asset:String):
 static func existing_char(char:String):
 	if ResourceLoader.list_directory("res://Playerstuffs/Characters/" + char + "/"): return char
 	else: return 'Neon'
-	
+#endregion
+
+#region Mapas
 static func get_map_info(lvl:String):
 	var lvlStuffOg = "res://Levelstuffs/Levels/" + lvl + ".json"
 	var lvlStuff = FileUtils.get_localized_file(lvlStuffOg)
@@ -107,3 +110,31 @@ static func get_map_info(lvl:String):
 
 static func get_map_path(map:String):
 	return "res://Levelstuffs/Levels/" + map + ".tscn"
+#endregion
+
+#region Itens
+static func get_item_info(item:String):
+	var itemStuff = get_item_asset_path(item, "Info.json")
+	var itemInfo = '' 
+	if !ResourceLoader.exists(itemStuff):
+		itemInfo = '{
+	"name": "Placeholder",
+	"desc": "Esse item lorem ipsum dolor sit amet"
+	}'
+	else:
+		itemInfo = FileUtils.get_text_file_content(itemStuff)
+	var itemGotten = JSON.parse_string(itemInfo)
+	return itemGotten
+
+static func get_item_asset(item:String, asset:String):
+	var itemPath = get_item_asset_path(item, asset)
+	# print(itemPath + (" exists" if load(itemPath) else " doesnt exist"))
+	if ResourceLoader.exists(itemPath):
+		return load(itemPath)
+	else:
+		return null
+	
+static func get_item_asset_path(item:String, asset:String):
+	var itemPath = "res://Gamestuffs/Itemstuffs/" + item + "/" + asset
+	return FileUtils.get_localized_file(itemPath)
+#endregion

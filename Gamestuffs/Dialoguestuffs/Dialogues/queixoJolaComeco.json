@@ -1,0 +1,30 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "queixao",
+			"line": "cara eu to mt triste",
+			"mood": "sad",
+			"position": "left"
+		},
+		"line2": {
+			"char": "queixao",
+			"line": "tao triste",
+			"mood": "sad",
+			"position": "left"
+		},
+		"line3": {
+			"char": "queixao",
+			"line": "tipo",
+			"mood": "default",
+			"position": "left"
+		},
+		"line4": {
+			"char": "queixao",
+			"line": "absurdamente triste",
+			"mood": "sad",
+			"position": "left"
+		}
+	},
+	"questAssigned": "queixoEAsJolas",
+	"questClear": ""
+}

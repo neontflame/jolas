@@ -1,13 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2745lnhanv8m"]
+[gd_scene load_steps=27 format=3 uid="uid://c2745lnhanv8m"]
 
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="1_pdbbp"]
+[ext_resource type="Script" uid="uid://bn0v8mdp8wqun" path="res://Gamestuffs/IngameMenus/Inventory/InventoryMenu.gd" id="1_vnuy0"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="2_7c26n"]
 [ext_resource type="Texture2D" uid="uid://dr6kyl7vljte1" path="res://Gamestuffs/IngameMenus/Inventory/inventoryCoiso.png" id="3_pph8o"]
+[ext_resource type="Script" uid="uid://rh2yvua2y4pn" path="res://Gamestuffs/IngameMenus/Inventory/Inventory.gd" id="4_7c26n"]
 [ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Gamestuffs/Fonts/tahoma.ttf" id="4_pllxa"]
 [ext_resource type="Texture2D" uid="uid://hgttt817agr" path="res://Gamestuffs/IngameMenus/Inventory/setaNormal.png" id="5_fchlu"]
 [ext_resource type="Texture2D" uid="uid://dowr4scvedhmu" path="res://Gamestuffs/IngameMenus/Inventory/setaPress1.png" id="6_a1tda"]
 [ext_resource type="Texture2D" uid="uid://dah2neqyjm50a" path="res://Gamestuffs/IngameMenus/Inventory/setaPress2.png" id="7_fgnjw"]
 [ext_resource type="PackedScene" uid="uid://jqlx4a5ag0fr" path="res://Gamestuffs/IngameMenus/Inventory/InventorySlot.tscn" id="8_vnuy0"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="9_fgnjw"]
+[ext_resource type="Texture2D" uid="uid://i465vi4u6nxi" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0001.png" id="11_vnuy0"]
+[ext_resource type="Texture2D" uid="uid://e02negmpfjp2" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0002.png" id="12_i08sr"]
+[ext_resource type="Texture2D" uid="uid://b7w4s263vgulo" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0003.png" id="13_n1f3x"]
+[ext_resource type="Texture2D" uid="uid://dqw7aj6aqela5" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0004.png" id="14_rsp54"]
+[ext_resource type="Texture2D" uid="uid://cv234ihccibs8" path="res://Gamestuffs/IngameMenus/Quests/questThing2.png" id="16_rsp54"]
+[ext_resource type="Script" uid="uid://b1g4lg0ft7kte" path="res://Gamestuffs/IngameMenus/Inventory/ItemThingDesc.gd" id="17_t6vsj"]
+[ext_resource type="FontFile" uid="uid://bfyut4smlslp3" path="res://Gamestuffs/Fonts/tahomabd.ttf" id="18_34v14"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i08sr"]
 animations = [{
@@ -31,7 +41,213 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Inventory" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6vsj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vnuy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i08sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_n1f3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rsp54")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_n1f3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_i08sr"]
+resource_name = "getIn"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(0.406126, 0.0853775, 1),
+"update": 0,
+"values": [Vector2(1.25, 0), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_rsp54"]
+resource_name = "getOut"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.766667),
+"transitions": PackedFloat32Array(0.183011, 0.0853775, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 1.05), Vector2(1.25, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_lg38x"]
+resource_name = "showAbout"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(-1080, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(755, 8), Vector2(16, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_l7xhp"]
+resource_name = "hideAbout"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-1080, 8), Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(16, 8), Vector2(755, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6vsj"]
+_data = {
+&"RESET": SubResource("Animation_n1f3x"),
+&"getIn": SubResource("Animation_i08sr"),
+&"getOut": SubResource("Animation_rsp54"),
+&"hideAbout": SubResource("Animation_l7xhp"),
+&"showAbout": SubResource("Animation_lg38x")
+}
+
+[node name="Inventory" type="Node2D" node_paths=PackedStringArray("anim")]
+script = ExtResource("1_vnuy0")
+anim = NodePath("AnimationPlayer")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 
@@ -59,9 +275,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7c26n")
 
-[node name="InventoryThing" type="Sprite2D" parent="MenuCanvas/Control"]
+[node name="InventoryThing" type="Sprite2D" parent="MenuCanvas/Control" node_paths=PackedStringArray("itemsContainer", "pageLabel", "rightArrow", "leftArrow", "selectIndicator")]
 position = Vector2(8, 8)
 texture = ExtResource("3_pph8o")
+script = ExtResource("4_7c26n")
+itemsContainer = NodePath("GridContainer")
+pageLabel = NodePath("Label")
+rightArrow = NodePath("SetaRight")
+leftArrow = NodePath("SetaLeft")
+selectIndicator = NodePath("Indicator")
 
 [node name="Label" type="Label" parent="MenuCanvas/Control/InventoryThing"]
 offset_left = -115.0
@@ -78,10 +300,36 @@ horizontal_alignment = 1
 position = Vector2(271, 21)
 sprite_frames = SubResource("SpriteFrames_i08sr")
 
+[node name="Label" type="RichTextLabel" parent="MenuCanvas/Control/InventoryThing/SetaRight"]
+offset_left = -39.0
+offset_top = 19.0
+offset_right = 31.0
+offset_bottom = 59.0
+theme_override_colors/default_color = Color(0.4, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_fgnjw")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "ui_next_page"
+scroll_active = false
+horizontal_alignment = 1
+
 [node name="SetaLeft" type="AnimatedSprite2D" parent="MenuCanvas/Control/InventoryThing"]
 position = Vector2(-271, 21)
 sprite_frames = SubResource("SpriteFrames_i08sr")
 flip_h = true
+
+[node name="Label" type="RichTextLabel" parent="MenuCanvas/Control/InventoryThing/SetaLeft"]
+offset_left = -33.0
+offset_top = 19.0
+offset_right = 37.0
+offset_bottom = 59.0
+theme_override_colors/default_color = Color(0.4, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("9_fgnjw")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "ui_prev_page"
+scroll_active = false
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MenuCanvas/Control/InventoryThing"]
 custom_minimum_size = Vector2(483, 274)
@@ -93,3 +341,64 @@ columns = 7
 
 [node name="InventorySlot" parent="MenuCanvas/Control/InventoryThing/GridContainer" instance=ExtResource("8_vnuy0")]
 layout_mode = 2
+
+[node name="Indicator" type="AnimatedSprite2D" parent="MenuCanvas/Control/InventoryThing"]
+position = Vector2(-216, -95)
+sprite_frames = SubResource("SpriteFrames_t6vsj")
+autoplay = "default"
+frame_progress = 0.231128
+
+[node name="ItemDesc" type="Sprite2D" parent="MenuCanvas/Control"]
+position = Vector2(755, 8)
+texture = ExtResource("16_rsp54")
+script = ExtResource("17_t6vsj")
+
+[node name="ItemContent" type="RichTextLabel" parent="MenuCanvas/Control/ItemDesc"]
+offset_left = -109.0
+offset_top = -143.0
+offset_right = 202.0
+offset_bottom = 158.0
+theme = ExtResource("2_7c26n")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_pllxa")
+theme_override_fonts/bold_font = ExtResource("18_34v14")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee[b]eeeeeeee[/b]eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+
+[node name="GoBack" type="RichTextLabel" parent="MenuCanvas/Control/ItemDesc"]
+offset_left = -191.0
+offset_top = 170.0
+offset_right = 196.0
+offset_bottom = 214.0
+theme = ExtResource("2_7c26n")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_pllxa")
+theme_override_fonts/bold_font = ExtResource("18_34v14")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "ui_cancel Voltar"
+scroll_active = false
+
+[node name="ItemName" type="Label" parent="MenuCanvas/Control/ItemDesc"]
+offset_left = -201.0
+offset_top = -193.0
+offset_right = 191.0
+offset_bottom = -163.0
+theme_override_colors/font_color = Color(0.6, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pllxa")
+theme_override_font_sizes/font_size = 24
+text = "Nome do item"
+
+[node name="InventorySlot" parent="MenuCanvas/Control/ItemDesc" instance=ExtResource("8_vnuy0")]
+offset_left = -183.0
+offset_top = -136.0
+offset_right = -115.0
+offset_bottom = -66.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t6vsj")
+}
