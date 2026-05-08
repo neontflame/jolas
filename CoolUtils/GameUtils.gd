@@ -14,7 +14,7 @@ static var defaultMap:String = 'TheThing'
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'Passo', 'FknDavid', 'Queixao']
 
 static var majorVersion:int = 0
-static var minorVersion:int = 7
+static var minorVersion:int = 8
 static var patchVersion:int = 0
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 

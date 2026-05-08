@@ -235,6 +235,20 @@ func playBGM(trackName:String):
 	bgmStream.play()
 	bgmStream.finished.connect(func():curTrackName="")
 
+func fadeBGM(sec:float = 1.0, nextSong:String = ""):
+	var mustween = get_tree().create_tween()
+	mustween.tween_method(func(v):
+		bgmStream.volume_db = v
+		if v <= -99.0:
+			bgmStream.stop()
+			
+			if nextSong != "":
+				playBGM(nextSong),
+		GeneralUtils.get_volume_db('bgm'),
+		-100.0,
+		sec
+		)
+	
 func stopBGM():
 	bgmStream.stop()
 #endregion

@@ -24,7 +24,7 @@ func _on_body_entered(body):
 func crossfire():
 	# print('yeouch')
 	for body in get_overlapping_bodies():
-		if body is MobObject:
+		if body is MobObject or body is BossObject:
 			if body != fxOwner:
 				if fxOwner is PlayerObject: 
 					body.theHarmer = fxOwner

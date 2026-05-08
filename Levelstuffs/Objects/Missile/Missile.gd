@@ -28,7 +28,7 @@ func on_hit():
 		var distance:float = body.position.distance_to(position)
 		if distance > objHeight/2: distance = objHeight/2
 		# BOILERPLATE INSANO
-		if body is MobObject:
+		if body is MobObject or body is BossObject:
 			if body != projectileOwner:
 				if projectileOwner is PlayerObject: body.theHarmer = projectileOwner
 				body.yeowch(baseDamage * power, (body.position.x > position.x))

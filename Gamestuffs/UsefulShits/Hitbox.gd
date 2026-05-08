@@ -53,8 +53,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	var knockAngleRad = deg_to_rad(knockAngle)
 	var forceCtor = Vector2(knockback * sin(knockAngleRad), knockback * cos(knockAngleRad))
-	if body is PlayerObject or body is MobObject:
-		if body is MobObject:
+	if body is PlayerObject or body is MobObject or body is BossObject:
+		if body is MobObject or body is BossObject:
 			body.theHarmer = proprietor
 			if body.isDead:
 				return

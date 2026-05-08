@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwrifkr1erwwu"]
+
+[ext_resource type="Script" uid="uid://c51ej8qs1iiil" path="res://Levelstuffs/Levels/Sandlerdomain.gd" id="1_1pu2r"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_gq6mc"]
+[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_4gkxx"]
+[ext_resource type="PackedScene" uid="uid://cmp2r0r1gy28r" path="res://Levelstuffs/Bosses/BigSandler/BigSandler.tscn" id="5_2bicp"]
+[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_yyatf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6mc"]
+size = Vector2(811, 1047)
+
+[node name="Sandlerdomain" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack", "boss", "bossRoom")]
+script = ExtResource("1_1pu2r")
+spawnpoint = NodePath("Spawnpoint")
+spawnpointBack = NodePath("BackSpawnpoint")
+hasBossRoom = true
+boss = NodePath("BossShit/BigSandler")
+bossRoom = NodePath("BossShit/BossDetect")
+
+[node name="EspeculanteBackground" parent="." instance=ExtResource("2_gq6mc")]
+coolColor = Color(0.67, 0.2546, 0.2546, 1)
+
+[node name="EdgyCoiso" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(3844, -213, 4742, -225, 4700, 860, 3839, 849)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(177, 518)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.78, 0, 0, 1)
+polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-271, 53, 941, 46, 941, -47, 1336, -47, 1336, 17, 1935, 27, 2218, 48, 2489, 137, 2784, 234, 2983, 264, 3280, 264, 3592, 254, 4456, 265, 4469, -709, 3718, -707, 3706, 64, 3610, 67, 3617, -227, 3627, -659, 3613, -815, 4871, -841, 5002, -842, 5012, 108, 4933, 592, 4866, 821, 1967, 834, -482, 250, -482, -794, -280, -753)
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(174, 436)
+
+[node name="BackSpawnpoint" type="Node2D" parent="."]
+position = Vector2(4861, 600)
+
+[node name="Camera regions" type="Node2D" parent="."]
+
+[node name="CameraBound" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(1005, 385)
+scale = Vector2(10.26, 3.91)
+continuousX = true
+
+[node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(2796, 451)
+scale = Vector2(10.26, 3.91)
+continuousX = true
+
+[node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(4259, 491)
+scale = Vector2(3.95, 3.418)
+
+[node name="enemigos" type="Node2D" parent="."]
+
+[node name="GoToLevel" parent="." instance=ExtResource("5_yyatf")]
+position = Vector2(-112, 1170)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "Sandlerhell"
+comingBack = true
+
+[node name="BossShit" type="Node2D" parent="."]
+
+[node name="BossDetect" type="Area2D" parent="BossShit"]
+position = Vector2(3867, -187)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossShit/BossDetect"]
+position = Vector2(395.5, 513.5)
+shape = SubResource("RectangleShape2D_gq6mc")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="BigSandler" parent="BossShit" instance=ExtResource("5_2bicp")]
+position = Vector2(4501, 600)

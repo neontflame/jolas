@@ -11,7 +11,7 @@ func launch(direction:Vector2, speed:float):
 
 func _on_body_entered(body):
 	if body == projectileOwner: return
-	if body is MobObject and body.isDead: return
+	if (body is MobObject or body is BossObject) and body.isDead: return
 	super._on_body_entered(body)
 
 func before_hit():
@@ -22,7 +22,7 @@ func before_hit():
 func on_hit():
 	for body in get_overlapping_bodies():
 		# BOILERPLATE INSANO
-		if body is MobObject:
+		if body is MobObject or body is BossObject:
 			if not body.isDead:
 				if body != projectileOwner:
 					if projectileOwner is PlayerObject: 
