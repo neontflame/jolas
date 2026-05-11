@@ -1,7 +1,7 @@
 extends Node2D
 class_name Bar
 
-var progress:float = 1.0
+var progress: float = 1.0
 
 func _physics_process(_delta: float) -> void:
 	$FilledBar.visible = (progress > 0)

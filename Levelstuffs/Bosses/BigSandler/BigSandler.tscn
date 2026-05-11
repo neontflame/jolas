@@ -167,27 +167,33 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="BigSandler" instance=ExtResource("1_qtkih")]
+[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura") instance=ExtResource("1_qtkih")]
 script = ExtResource("2_eyt61")
-maxHP = 100.0
+FUCKING_aura = NodePath("FuckingAura")
+maxHP = 1.0
 CUSTOM_BOSS_MUSIC = "happy.ogg"
 
 [node name="Default" parent="StateMachine" index="0"]
 script = ExtResource("3_d0kok")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-visible = false
+position = Vector2(0, 200)
 sprite_frames = SubResource("SpriteFrames_vl1wa")
-animation = &"default"
+animation = &"dead"
+frame = 2
+frame_progress = 1.0
+offset = Vector2(0, -200)
 
 [node name="ActualCollision" parent="." index="2"]
 scale = Vector2(1.87, 3.055)
 
 [node name="TinyBar" parent="." index="6"]
-visible = false
 position = Vector2(0, -210)
 scale = Vector2(5, 1)
 
 [node name="FuckingAura" type="AnimatedSprite2D" parent="." index="7"]
+visible = false
 position = Vector2(5, -16)
 sprite_frames = SubResource("SpriteFrames_rbp3q")
+frame = 4
+frame_progress = 1.0

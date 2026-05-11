@@ -58,7 +58,8 @@ script = ExtResource("1_21dun")
 [node name="objSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r45iu")
 animation = &"projectile"
-frame_progress = 0.666669
+frame = 1
+frame_progress = 0.95196
 
 [node name="MissileCollide" type="CollisionShape2D" parent="."]
 position = Vector2(3, -5)

@@ -5,7 +5,7 @@ var velocity:Vector2 = Vector2(0,0)
 var cooldown:int = 10
 
 var projectileOwner # a gente ta usando essa variavel
-var power := 1
+@export var power: float = 1
 
 var used:bool = false
 
