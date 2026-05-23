@@ -73,7 +73,7 @@ animations = [{
 "speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 6.0,
 "texture": ExtResource("9_nutsf")
 }, {
 "duration": 1.0,
@@ -149,6 +149,14 @@ animations = [{
 "frames": [{
 "duration": 5.0,
 "texture": ExtResource("27_d0kok")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("27_d0kok")
 }, {
 "duration": 1.0,
 "texture": ExtResource("28_nutsf")
@@ -163,14 +171,15 @@ animations = [{
 "texture": ExtResource("31_kmqfq")
 }],
 "loop": false,
-"name": &"default",
+"name": &"entrance",
 "speed": 12.0
 }]
 
-[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura") instance=ExtResource("1_qtkih")]
+[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura", "attack_timer") instance=ExtResource("1_qtkih")]
 script = ExtResource("2_eyt61")
-FUCKING_aura = NodePath("FuckingAura")
-maxHP = 1.0
+FUCKING_aura = NodePath("SandlerSpecific/FuckingAura")
+attack_timer = NodePath("SandlerSpecific/AttackTimer")
+maxHP = 67.0
 CUSTOM_BOSS_MUSIC = "happy.ogg"
 
 [node name="Default" parent="StateMachine" index="0"]
@@ -179,9 +188,7 @@ script = ExtResource("3_d0kok")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 200)
 sprite_frames = SubResource("SpriteFrames_vl1wa")
-animation = &"dead"
-frame = 2
-frame_progress = 1.0
+animation = &"clickThrow"
 offset = Vector2(0, -200)
 
 [node name="ActualCollision" parent="." index="2"]
@@ -191,9 +198,16 @@ scale = Vector2(1.87, 3.055)
 position = Vector2(0, -210)
 scale = Vector2(5, 1)
 
-[node name="FuckingAura" type="AnimatedSprite2D" parent="." index="7"]
+[node name="SandlerSpecific" type="Node2D" parent="." index="7"]
+
+[node name="FuckingAura" type="AnimatedSprite2D" parent="SandlerSpecific" index="0"]
 visible = false
 position = Vector2(5, -16)
 sprite_frames = SubResource("SpriteFrames_rbp3q")
-frame = 4
-frame_progress = 1.0
+autoplay = "default"
+
+[node name="AttackTimer" type="Timer" parent="SandlerSpecific" index="1"]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="SandlerSpecific/AttackTimer" to="StateMachine/Default" method="_on_attack_timer_timeout"]

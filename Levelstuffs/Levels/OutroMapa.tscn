@@ -73,3 +73,8 @@ position = Vector2(-112, 1170)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerhell"
 comingBack = true
+
+[node name="GoToLevel2" parent="." instance=ExtResource("5_trijc")]
+position = Vector2(5000, 728)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "Sandlerdomain"

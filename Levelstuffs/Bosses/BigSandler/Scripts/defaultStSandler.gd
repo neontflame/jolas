@@ -1,18 +1,23 @@
 extends "res://Levelstuffs/Bosses/StatePatternism/defaultSt.gd"
 
-var isAttacking:bool = false
+func enter_state() -> void:
+	match Boss.current_attack_state:
+		Boss.attack_state.NONE:
+			Boss.leSprite.play('default')
+			if Boss.attack_timer.is_stopped():
+				Boss.attack_timer.start(3.0)
+		Boss.attack_state.THROW:
+			Boss.leSprite.play('clickThrow')
+			if Boss.attack_timer.is_stopped():
+				Boss.attack_timer.start(3.0)
+		Boss.attack_state.SANDLER_WAVE:
+			Boss.leSprite.play('clickStart')
+			if Boss.attack_timer.is_stopped():
+				Boss.attack_timer.start(3.0)
+		Boss.attack_state.SANDLER_REVERT:
+			Boss.leSprite.play('clickClick')
+			if Boss.attack_timer.is_stopped():
+				Boss.attack_timer.start(3.0)
 
 func update():
 	super.update()
-	if not isAttacking:
-		attackClick()
-
-func attackClick():
-	isAttacking = true
-	Boss.leSprite.play('clickStart')
-	await get_tree().create_timer(3).timeout
-	Boss.leSprite.play('clickClick')
-	await get_tree().create_timer(1).timeout
-	Boss.leSprite.play('clickThrow')
-	await get_tree().create_timer(0.5).timeout
-	isAttacking = false

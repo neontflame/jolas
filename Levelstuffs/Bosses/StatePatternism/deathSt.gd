@@ -5,6 +5,7 @@ var getOuttaHereTriggered := false
 
 func enter_state():
 	Boss.leSprite.play('dead')
+	Boss.attack_timer.stop()
 
 func update():
 	if timerBeforeDeath > 0:
