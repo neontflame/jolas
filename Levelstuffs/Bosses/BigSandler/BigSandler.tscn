@@ -175,10 +175,11 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura", "attack_timer") instance=ExtResource("1_qtkih")]
+[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura", "attack_timer", "mini_sandler_timer") instance=ExtResource("1_qtkih")]
 script = ExtResource("2_eyt61")
 FUCKING_aura = NodePath("SandlerSpecific/FuckingAura")
 attack_timer = NodePath("SandlerSpecific/AttackTimer")
+mini_sandler_timer = NodePath("SandlerSpecific/SandlerTimers")
 maxHP = 67.0
 CUSTOM_BOSS_MUSIC = "happy.ogg"
 
@@ -188,7 +189,9 @@ script = ExtResource("3_d0kok")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 200)
 sprite_frames = SubResource("SpriteFrames_vl1wa")
-animation = &"clickThrow"
+animation = &"clickStart"
+frame = 6
+frame_progress = 1.0
 offset = Vector2(0, -200)
 
 [node name="ActualCollision" parent="." index="2"]
@@ -210,4 +213,6 @@ autoplay = "default"
 process_callback = 0
 one_shot = true
 
-[connection signal="timeout" from="SandlerSpecific/AttackTimer" to="StateMachine/Default" method="_on_attack_timer_timeout"]
+[node name="SandlerTimers" type="Timer" parent="SandlerSpecific" index="2"]
+process_callback = 0
+wait_time = 0.1

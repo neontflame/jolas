@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_yyatf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6mc"]
-size = Vector2(1071, 1047)
+size = Vector2(1871, 1047)
 
 [node name="Sandlerdomain" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack", "boss", "bossRoom")]
 script = ExtResource("1_1pu2r")
@@ -32,7 +32,7 @@ color = Color(0.78, 0, 0, 1)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-271, 53, 941, 46, 941, -47, 1336, -47, 1336, 17, 1935, 27, 2218, 48, 2489, 137, 2784, 234, 2983, 264, 3280, 264, 3599, 250, 4751, 250, 4751, -710, 3727, -710, 3727, 58, 3599, 58, 3599, -838, 4871, -841, 5002, -842, 5012, 108, 4933, 592, 4866, 821, 1967, 834, -482, 250, -482, -794, -280, -753)
+polygon = PackedVector2Array(-271, 53, 941, 46, 941, -47, 1336, -47, 1336, 17, 1935, 27, 2218, 48, 2489, 137, 2784, 234, 2983, 264, 3280, 264, 3599, 250, 5551, 234, 5551, -710, 3727, -710, 3727, 58, 3599, 58, 3599, -838, 5711, -838, 6087, 250, 5983, 826, 4866, 821, 1967, 834, -482, 250, -482, -794, -280, -753)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(174, 436)
@@ -53,8 +53,8 @@ scale = Vector2(10.26, 3.91)
 continuousX = true
 
 [node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_4gkxx")]
-position = Vector2(4448, 304)
-scale = Vector2(5.949, 5.148)
+position = Vector2(4768, 320)
+scale = Vector2(10.979, 5.26)
 idealZoom = 0.75
 
 [node name="enemigos" type="Node2D" parent="."]
@@ -73,10 +73,18 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossShit/BossDetect"]
-position = Vector2(525.5, 513.5)
+position = Vector2(925.5, 513.5)
 shape = SubResource("RectangleShape2D_gq6mc")
 debug_color = Color(0, 0, 0, 0.42)
 
-[node name="BigSandler" parent="BossShit" node_paths=PackedStringArray("projectile_target_node") instance=ExtResource("5_2bicp")]
+[node name="BigSandler" parent="BossShit" node_paths=PackedStringArray("projectile_target_node", "left_limit", "right_limit") instance=ExtResource("5_2bicp")]
 position = Vector2(4800, 592)
 projectile_target_node = NodePath("..")
+left_limit = NodePath("../LeftLimit")
+right_limit = NodePath("../RightLimit")
+
+[node name="LeftLimit" type="Marker2D" parent="BossShit"]
+position = Vector2(3968, -64)
+
+[node name="RightLimit" type="Marker2D" parent="BossShit"]
+position = Vector2(5632, -64)

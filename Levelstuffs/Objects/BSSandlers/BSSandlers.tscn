@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicpxsxa0vmgb"]
+
+[ext_resource type="Script" uid="uid://cp3bwxix14ia1" path="res://Levelstuffs/Objects/BSSandlers/Resources/bs_sandlers.gd" id="1_5u85n"]
+[ext_resource type="SpriteFrames" uid="uid://b6koguxmry1pj" path="res://Levelstuffs/Objects/BSSandlers/Resources/sandlers_sprite_frames.tres" id="2_pk3vi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4tam"]
+size = Vector2(64, 64)
+
+[node name="BSSandlers" type="Area2D" node_paths=PackedStringArray("sandler_sprite", "sand_collision")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_5u85n")
+sandler_sprite = NodePath("objSprite")
+sand_collision = NodePath("MissileCollide")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(0.581818, 0.646465)
+sprite_frames = ExtResource("2_pk3vi")
+animation = &"explode"
+autoplay = "projectile"
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n4tam")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]
