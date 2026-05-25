@@ -203,6 +203,13 @@ locale/fallback="pt_BR"
 locale/locale_filter_mode=1
 locale/language_filter=["en", "es", "ja", "pt"]
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="LoopRed"
+2d_physics/layer_4="LoopBlue"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3
