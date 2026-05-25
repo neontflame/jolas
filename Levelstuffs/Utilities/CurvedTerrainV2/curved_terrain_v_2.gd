@@ -12,6 +12,12 @@ class_name CurvedTerrainV2
 		visible_collision = v
 		update_platform()
 
+## Colore o terreno baseado no seu tipo de terreno. Ative isso para saber visualmente a camada dos objetos, e desative para adicionar materiais.
+@export var visible_color_type: bool = false:
+	set(v):
+		visible_color_type = v
+		update_platform()
+
 enum types {
 	REGULAR, ## Padrão, sem nada demais.
 	PLATFORM, ## Plataforma semissólida, ativa o One Way Collision do Collision Polygon filho (quando tiver um)
@@ -103,7 +109,7 @@ func setup_collision_layers() -> void:
 func modulate_based_on_layer():
 	if not obj_shape:
 		return
-	if not Engine.is_editor_hint():
+	if not Engine.is_editor_hint() or not visible_color_type:
 		obj_shape.modulate = Color.WHITE
 		return
 		

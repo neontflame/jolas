@@ -23,8 +23,8 @@ func _ready() -> void:
 	animation_player.speed_scale = spring_speed
 
 func _draw() -> void:
-	if not Engine.is_editor_hint():
-		return
+	#if not Engine.is_editor_hint():
+		#return
 	draw_line(player_position.position, (player_position.position + spring_strength * Vector2.UP) * 0.75, Color.GREEN, 8.0)
 
 func _physics_process(_delta: float) -> void:
@@ -63,7 +63,7 @@ func release_player():
 			# current_object.change_state(current_object.state_machine.st_air)
 			current_object = null
 		elif current_object is MobObject:
-			current_object.velocity = spring_strength * Vector2.UP.rotated(rotation)
+			current_object.velocity = (spring_strength * Vector2.UP.rotated(rotation))
 			current_object = null
 
 func play_sfx(sfx: AudioStreamPlayer2D):
