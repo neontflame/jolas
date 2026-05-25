@@ -33,7 +33,8 @@ func randomQuote():
 		'gifted goons vs hard work goons',
 		'opa eaí webcore!',
 		'"20 dolares e 20 dolares"',
-		'cara eu estou jolando cara'
+		'cara eu estou jolando cara',
+		'ESSA NÃO É UMA CALL DE GAMEDEV'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	

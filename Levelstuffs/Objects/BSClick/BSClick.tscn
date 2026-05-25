@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://di3ka5pvlhhe1"]
+
+[ext_resource type="Script" uid="uid://crukdh3wbo1lk" path="res://Levelstuffs/Objects/GProjectile/GProjectile.gd" id="1_74fl0"]
+[ext_resource type="Texture2D" uid="uid://dhs74csrfcqdv" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0001.png" id="2_2sq1j"]
+[ext_resource type="Texture2D" uid="uid://vkpn2hh65pl5" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0002.png" id="3_70eph"]
+[ext_resource type="Texture2D" uid="uid://c0mtpu4b4obom" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0003.png" id="4_0krrb"]
+[ext_resource type="Texture2D" uid="uid://bjdirnkx854ch" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0004.png" id="5_snvje"]
+[ext_resource type="Texture2D" uid="uid://fglep5mc88pc" path="res://Levelstuffs/Objects/BSClick/clickcontrole0001.png" id="6_i7fpj"]
+[ext_resource type="Texture2D" uid="uid://t3gayxge6wdw" path="res://Levelstuffs/Objects/BSClick/clickcontrole0002.png" id="7_5xlbo"]
+[ext_resource type="Texture2D" uid="uid://dl120cqd05hcf" path="res://Levelstuffs/Objects/BSClick/clickcontrole0003.png" id="8_m1rtn"]
+[ext_resource type="Texture2D" uid="uid://4pycflmtccwc" path="res://Levelstuffs/Objects/BSClick/clickcontrole0004.png" id="9_28g3d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r45iu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2sq1j")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_70eph")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_0krrb")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_snvje")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_i7fpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5xlbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m1rtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_28g3d")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4tam"]
+size = Vector2(110, 111)
+
+[node name="BSClick" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_74fl0")
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r45iu")
+animation = &"projectile"
+frame = 1
+frame_progress = 0.95196
+
+[node name="MissileCollide" type="CollisionShape2D" parent="."]
+position = Vector2(3, -5)
+shape = SubResource("RectangleShape2D_n4tam")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="objSprite" to="." method="_on_animation_finished"]

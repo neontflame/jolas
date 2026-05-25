@@ -37,6 +37,9 @@ animations = [{
 position = Vector2(1, 0)
 maxHP = 30.0
 xpGrant = 16.0
+possibleDrops = Dictionary[String, int]({
+"jola": 2
+})
 
 [node name="Default" parent="StateMachine" index="0"]
 script = ExtResource("2_bxyn8")
@@ -47,3 +50,9 @@ script = ExtResource("3_bxyn8")
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_62dbl")
 animation = &"default"
+
+[node name="ActualCollision" parent="." index="2"]
+scale = Vector2(0.855, 0.78)
+
+[node name="TinyBar" parent="." index="7"]
+position = Vector2(0, -70)

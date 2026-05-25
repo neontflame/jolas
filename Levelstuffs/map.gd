@@ -5,6 +5,11 @@ class_name JolasMap
 @export var spawnpointBack:Node2D
 @export var infoCoisos:String = ""
 
+@export var hasBossRoom:bool = false
+@export var boss:BossObject
+@export var bossRoom:Area2D
+var allPlayersInBossRoom:bool = false
+
 func _ready() -> void:
 	if get_tree().current_scene.name == name:
 		await GameInit.setupGameInfo()
@@ -15,3 +20,16 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
 		return
 	MapUtils.set_map(self)
+	if hasBossRoom:
+		bossRoom.body_entered.connect(onEnterBossRoom)
+
+func onEnterBossRoom(body:Node2D):
+	for player in JolasGame.instance.allChars:
+		if not bossRoom.get_overlapping_bodies().has(player):
+			print('Ih crl')
+			return
+	
+	if not allPlayersInBossRoom:
+		print('FOI')
+		boss.awake()
+		allPlayersInBossRoom = true

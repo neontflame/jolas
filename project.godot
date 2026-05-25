@@ -36,7 +36,7 @@ MultiplayerMayhem="*res://Gamestuffs/Multiplayer/Multiplayer.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=500
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
 [editor_plugins]
@@ -145,10 +145,32 @@ ctrl_quests={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":92,"key_label":0,"unicode":93,"location":0,"echo":false,"script":null)
 ]
 }
+ctrl_inventory={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":93,"key_label":0,"unicode":91,"location":0,"echo":false,"script":null)
+]
+}
 ui_toggle={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":2,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":4,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+ctrl_online_chat={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":116,"location":0,"echo":false,"script":null)
+]
+}
+ui_next_page={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
+]
+}
+ui_prev_page={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
 
@@ -159,6 +181,7 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translation_remaps={
+"res://Gamestuffs/IngameMenus/Inventory/inventoryCoiso.png": PackedStringArray("res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoEN.png:en", "res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoJP.png:ja"),
 "res://Menustuffs/DipshitMenu/EscolhaSeuMane.png": PackedStringArray("res://Menustuffs/DipshitMenu/ChooseYourDipshit.png:en"),
 "res://Menustuffs/MainMenu/Logo.png": PackedStringArray("res://Menustuffs/MainMenu/JPLocale/Logo0002.png:ja"),
 "res://Menustuffs/MainMenu/jolarAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarAtivoJP.png:ja"),
@@ -179,6 +202,13 @@ locale/translations=PackedStringArray("res://Translationstuffs/traduz.en.transla
 locale/fallback="pt_BR"
 locale/locale_filter_mode=1
 locale/language_filter=["en", "es", "ja", "pt"]
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="LoopRed"
+2d_physics/layer_4="LoopBlue"
 
 [rendering]
 

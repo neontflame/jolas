@@ -22,6 +22,9 @@ func _physics_process(delta: float) -> void:
 	
 	if canTalk:
 		if Input.is_action_just_pressed("ctrl_interact"):
-			var extraCoiso:String = (' ' + GPStats.char if dialogoPorChar else '')
-			JolasGame.instance.playDialogue(dialogue + extraCoiso)
+			playDialogue()
 			talkedTo = true
+
+func playDialogue():
+	var extraCoiso:String = (('.%s' % GPStats.char) if dialogoPorChar else '')
+	JolasGame.instance.playDialogue(dialogue + extraCoiso)

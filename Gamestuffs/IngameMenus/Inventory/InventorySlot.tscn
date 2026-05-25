@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://jqlx4a5ag0fr"]
+
+[ext_resource type="Script" uid="uid://decpf6jc5ewx7" path="res://Gamestuffs/IngameMenus/Inventory/InventorySlot.gd" id="1_ft2nm"]
+[ext_resource type="Texture2D" uid="uid://dadsny857yjfx" path="res://Gamestuffs/IngameMenus/Inventory/slot.png" id="1_pn5s0"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="3_55bxk"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="4_q5mfv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilsnn"]
+shader = ExtResource("3_55bxk")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 2.0
+shader_parameter/add_margins = true
+
+[node name="InventorySlot" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(68, 70)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ft2nm")
+
+[node name="Slot" type="Sprite2D" parent="."]
+texture = ExtResource("1_pn5s0")
+centered = false
+
+[node name="CoolIcon" type="Sprite2D" parent="."]
+position = Vector2(32, 31)
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_ilsnn")
+layout_mode = 0
+offset_left = 20.0
+offset_top = 38.0
+offset_right = 60.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("4_q5mfv")
+theme_override_font_sizes/font_size = 18
+text = "20"
+horizontal_alignment = 2

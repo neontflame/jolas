@@ -1,0 +1,12 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "queixao",
+			"line": "voce me decepciona",
+			"mood": "default",
+			"position": "left"
+		}
+	},
+	"questAssigned": "",
+	"questClear": ""
+}

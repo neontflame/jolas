@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://xtk7v5p5ybfk"]
+
+[ext_resource type="Script" uid="uid://do5fvcksagryp" path="res://Gamestuffs/Itemstuffs/PhysicalItem.gd" id="1_ij4ip"]
+[ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="2_oyxbj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_btvmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oyxbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4smi7"]
+size = Vector2(127, 128)
+
+[node name="PhysicalItem" type="Area2D"]
+script = ExtResource("1_ij4ip")
+
+[node name="RWallCast" type="RayCast2D" parent="."]
+target_position = Vector2(18, 0)
+
+[node name="LWallCast" type="RayCast2D" parent="."]
+target_position = Vector2(-18, 0)
+
+[node name="CeilCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+
+[node name="objSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_btvmy")
+
+[node name="ItemCollide" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4smi7")

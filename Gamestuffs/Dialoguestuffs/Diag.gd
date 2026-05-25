@@ -41,10 +41,6 @@ func parseDialogue(diagFile:String):
 	redirectDiag = ""
 	var pathness:String = FileUtils.get_localized_file('res://Gamestuffs/Dialoguestuffs/Dialogues/' + diagFile + '.json')
 	theJayson = JSON.parse_string(FileUtils.get_text_file_content(pathness))
-	if theJayson.has('questClear') and theJayson['questClear'] != "":
-		QuestUtils.conclude(theJayson['questClear'])
-	if theJayson.has('questAssigned') and theJayson['questAssigned'] != "":
-		QuestUtils.assign(theJayson['questAssigned'])
 	dialogueQuantity = len(theJayson['dialogue'])
 		
 	if blurTween != null: blurTween.kill()
@@ -175,6 +171,10 @@ func _process(delta: float) -> void:
 					parseDialogue(redirectDiag)
 					return
 				else:
+					if theJayson.has('questClear') and theJayson['questClear'] != "":
+						QuestUtils.conclude(theJayson['questClear'])
+					if theJayson.has('questAssigned') and theJayson['questAssigned'] != "":
+						QuestUtils.assign(theJayson['questAssigned'])
 					if portrite: portrite.visible = false
 					speechBubble.visible = false
 					charName.visible = false

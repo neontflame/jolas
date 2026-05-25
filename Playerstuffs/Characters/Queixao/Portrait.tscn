@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bptf55d8swvun"]
+
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_p5ll5"]
+[ext_resource type="Texture2D" uid="uid://vf2vvmhpbwao" path="res://Playerstuffs/Characters/Queixao/Sprites/Portraits/queixao neutro.png" id="2_ciaci"]
+[ext_resource type="Texture2D" uid="uid://blyb4k7cyu26l" path="res://Playerstuffs/Characters/Queixao/Sprites/Portraits/queixao feliz.png" id="3_g6r50"]
+[ext_resource type="Texture2D" uid="uid://dbhok87obl38d" path="res://Playerstuffs/Characters/Queixao/Sprites/Portraits/queixao triste.png" id="4_rs6jj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6batl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ciaci")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g6r50")
+}],
+"loop": false,
+"name": &"happy",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rs6jj")
+}],
+"loop": false,
+"name": &"sad",
+"speed": 12.0
+}]
+
+[node name="queixaoPort" type="Node2D"]
+script = ExtResource("1_p5ll5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-34, -90)
+sprite_frames = SubResource("SpriteFrames_6batl")

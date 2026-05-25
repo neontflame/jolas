@@ -27,6 +27,9 @@ var previous_state = null
 
 @export var USES_BODY_AS_HITBOX:bool = true
 
+## uma chance de 1 em quantos pra dropar esse item ?
+@export var possibleDrops:Dictionary[String, int] = {}
+
 @export_group('Technical shit')
 @export var collisions:CollisionShape2D
 
@@ -36,6 +39,8 @@ var previous_state = null
 @export var playerDetector:Area2D
 
 @export var sfx_player:AudioStreamPlayer2D
+
+@export var healthBar:Bar
 
 @export_category('Animations')
 @export var leSprite:AnimatedSprite2D
@@ -72,11 +77,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
+	
+	healthBar.progress = hp / maxHP
+	healthBar.visible = not (isDead or not detectingPlayer)
+	
 	if stunFrames > 0:
 		stunFrames -= 1 * deltaOne
 		return
 	if current_state.has_method('update'): current_state.update()
-	$Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
+	# $Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
 	move_and_slide()
 
 func handlePhys():
@@ -115,6 +124,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 	# print(vel)
 	if isDead:
 		return false
+	spawnNumber(hpLost)
 	if theHarmer:
 		theHarmer.increaseCombo()
 	stunFrames = 2.0
@@ -133,6 +143,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
+		dropItems()
 		isDead = true
 	else:
 		change_state(state_machine.st_hurt)
@@ -179,3 +190,15 @@ func handlePlyHits(harmPlayer:bool = true):
 			touchedPlayer.yeowch(strength, 
 			(position.x < touchedPlayer.position.x)
 			)
+
+func spawnNumber(quant):
+	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	get_parent().add_child(numble)
+	numble.global_position = global_position - Vector2(0, 32)
+	numble.set_text(quant)
+
+func dropItems():
+	if len(possibleDrops) > 0:
+		for itemcool in possibleDrops:
+			if randi_range(1, possibleDrops[itemcool]) == 1:
+				MapUtils.spawn_item(itemcool, global_position)

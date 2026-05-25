@@ -104,6 +104,8 @@ func _register_player(new_player_info):
 	player_connected.emit(new_player_id, new_player_info)
 
 func _on_player_disconnected(id):
+	if not players[id]["name"] == '':
+		rpc('_player_send_msg', id, players[id]["name"] + ' saiu da sala\n')
 	players.erase(id)
 	player_disconnected.emit(id)
 
@@ -111,6 +113,9 @@ func _on_connected_ok():
 	var peer_id = multiplayer.get_unique_id()
 	players[peer_id] = player_info
 	player_connected.emit(peer_id, player_info)
+	if player_info["name"] == '': return
+	rpc('_player_send_msg', peer_id, player_info["name"] + ' entrou na sala\n')
+
 
 func _on_connected_fail():
 	print('Fuck.')
@@ -139,7 +144,8 @@ func _player_make_hitbox(playerId:Variant, offset:Vector2, scale:Vector2, _damag
 func _player_delete_hitboxes(playerId:Variant, hitboxId:String = ''):
 	for char in JolasGame.instance.plyNode.get_children():
 		if char.get_multiplayer_authority() == playerId:
-			char.delete_hitboxes_actual(hitboxId)
+			if char.has_method('delete_hitboxes_actual'):
+				char.delete_hitboxes_actual(hitboxId)
 
 @rpc("any_peer", "reliable")
 func _player_send_params(playerId:Variant, properties:Dictionary[String, Variant]):
@@ -147,3 +153,7 @@ func _player_send_params(playerId:Variant, properties:Dictionary[String, Variant
 		if char.get_multiplayer_authority() == playerId:
 			if char.has_method('get_params'):
 				char.get_params(properties)
+
+@rpc("any_peer", "call_local", "reliable")
+func _player_send_msg(playerId:Variant, message:String):
+	JolasGame.instance.hud.add_to_msg_log(message)

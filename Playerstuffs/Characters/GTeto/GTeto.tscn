@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bvn014sqhfrsx"]
+[gd_scene load_steps=43 format=3 uid="uid://bvn014sqhfrsx"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hg04w"]
 [ext_resource type="Script" uid="uid://dahgyhomvwubr" path="res://Playerstuffs/Characters/GTeto/Scripts/playerGTeto.gd" id="2_0kway"]
@@ -33,8 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://b7vub7m1k471d" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto jump.png" id="23_ustwx"]
 [ext_resource type="Texture2D" uid="uid://bcp6dd7cxwu3s" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0001.png" id="24_utfa8"]
 [ext_resource type="Texture2D" uid="uid://tv0q08t4hll5" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0002.png" id="25_2dhqi"]
+[ext_resource type="Texture2D" uid="uid://dkl2x0yggls6k" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto The Powerfulest0001.png" id="26_f4va4"]
 [ext_resource type="Texture2D" uid="uid://gx1sy3gelg8v" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0003.png" id="26_uycj4"]
 [ext_resource type="Texture2D" uid="uid://dh103ro4xmesj" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0004.png" id="27_5srw2"]
+[ext_resource type="Texture2D" uid="uid://c77o1jb3pe2hv" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto The Powerfulest0002.png" id="27_m6nla"]
 [ext_resource type="Texture2D" uid="uid://clh1udpw87e5l" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0001.png" id="28_i567o"]
 [ext_resource type="Texture2D" uid="uid://bv36mw72v6fcx" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0002.png" id="29_dhtg4"]
 [ext_resource type="Texture2D" uid="uid://bswo5w3fydfoe" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0003.png" id="30_0isye"]
@@ -132,6 +134,17 @@ animations = [{
 "loop": false,
 "name": &"gtShootFloor",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_f4va4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_m6nla")
+}],
+"loop": false,
+"name": &"gtShootMax",
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -247,5 +260,5 @@ scale = Vector2(0.39, 0.86)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_47cw4")
-animation = &"gtSlamLand"
+animation = &"gtSlam"
 offset = Vector2(0, -10.675)

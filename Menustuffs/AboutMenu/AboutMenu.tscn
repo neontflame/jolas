@@ -65,10 +65,9 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 26.0
 bbcode_enabled = true
 text = "[color=FFFF00]PROGRAMAÇãO:[/color] Neon T. Flame, brenonerb"
 fit_content = true
@@ -80,10 +79,9 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control2"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 26.0
 bbcode_enabled = true
 text = "[color=FFFF00]ARTE:[/color] Neon T. Flame, SketcherSquared, brenonerb"
 fit_content = true
@@ -95,10 +93,9 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control3"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 26.0
 bbcode_enabled = true
 text = "[color=FFFF00]MÚSICA (Originais):[/color] Neon T. Flame"
 fit_content = true
@@ -110,26 +107,25 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control5"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 26.0
 bbcode_enabled = true
 text = "[color=FFFF00]MÚSICA (Fontes):[/color] Sonic Unleashed"
 fit_content = true
 
 [node name="Control4" type="Control" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 224)
+clip_contents = true
+custom_minimum_size = Vector2(400, 228)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control4"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_constants/line_separation = -3
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 296.0
+theme_override_constants/line_separation = -6
 bbcode_enabled = true
 text = "[color=FFFF00]SONS (Fontes):[/color]
 Super Smash Bros. 64
@@ -139,7 +135,9 @@ Half-Life 2
 Wii Menu
 Scratch
 Fancy Pants Adventures
-"
+Ristar
+MSN Messenger
+xat.com"
 fit_content = true
 
 [node name="Control6" type="Control" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
@@ -149,10 +147,9 @@ size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control6"]
 layout_mode = 0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 376.0
-offset_bottom = 22.0
-theme_override_font_sizes/normal_font_size = 18
+offset_bottom = 26.0
 bbcode_enabled = true
 text = "[color=AAAAFF]jolas.: Desbravações Abound[/color] VERSÃO coolVer"
 fit_content = true

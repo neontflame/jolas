@@ -141,18 +141,18 @@ func _physics_process(delta: float) -> void:
 		for hit in hitboxCoisos.get_children():
 			hit.fixAngles()
 	
-	print(velocity, motion)
+	# print(velocity, motion)
 	velocity = motion.rotated(up_direction.angle() + PI/2)
 	move_and_slide()
 	
 	if comboFrames > 0:
-		comboFrames -= 1 * deltaOne
+		comboFrames -= 1
 	else:
 		if combo != 0: resetCombo()
 	
 	if current_state != state_machine.st_hurt:
 		if invulnFrames > 0:
-			invulnFrames -= 1 * deltaOne
+			invulnFrames -= 1
 			plySprite.self_modulate.a = 0.5
 		else:
 			plySprite.self_modulate.a = 1
@@ -206,18 +206,18 @@ func handleMovement() -> void:
 		FRICTION = AIR_FRICTION
 		
 	if (!movementEnabled):
-		motion.x = motion.x * (FRICTION * deltaOne)
+		motion.x = motion.x * (FRICTION)
 		return
 		
 	# jumpfuck
 	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air)):
 		jumpsDone += 1
 		if isSonicPhys:
-			motion.y = JUMP_VELOCITY * deltaOne
+			motion.y = JUMP_VELOCITY
 		else:
-			motion.y = JUMP_VELOCITY * deltaOne * -floorSinCos.y
-			motion.x += JUMP_VELOCITY * deltaOne * -floorSinCos.x
-		motion.y -= abs(motion.x/2) * deltaOne * sin(get_floor_angle())
+			motion.y = JUMP_VELOCITY * -floorSinCos.y
+			motion.x += JUMP_VELOCITY * -floorSinCos.x
+		motion.y -= abs(motion.x/2) * sin(get_floor_angle())
 		jumping = true
 		holding_jump = true
 		on_jump(jumpsDone)
@@ -230,13 +230,13 @@ func handleMovement() -> void:
 	motion.x += slopeAdd
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
-			if (motion.x > -SOFT_MAX_SPEED * slopeFactor * deltaOne):
+			if (motion.x > -SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x > 0 and is_on_floor()):
 					motion.x -= FLOOR_BRAKE * deltaOne
 				else:
 					motion.x -= ACCELERATION * deltaOne
 		elif Input.is_action_pressed("ctrl_right"):
-			if (motion.x < SOFT_MAX_SPEED * slopeFactor * deltaOne):
+			if (motion.x < SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x < 0 and is_on_floor()):
 					motion.x += FLOOR_BRAKE * deltaOne
 				else:
@@ -266,7 +266,7 @@ func handlePhys() -> void:
 		
 		if (rad_to_deg(get_floor_angle()) > 5):
 			# sei la angulos sao estranhos
-			slopeAdd = (SLOPE_VEL_ADD * deltaOne) * floorSinCos.x * slopeMult
+			slopeAdd = (SLOPE_VEL_ADD) * floorSinCos.x * slopeMult
 		else:
 			slopeAdd = 0
 		slopeFactor = 1.0 - (abs(floorSinCos.x) / 2.5)
@@ -316,6 +316,9 @@ func level_up():
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
 		if !get_invuln():
+			# stop_sfx()
+			# await get_tree().create_timer(0.01).timeout
+			spawnNumber(hpLost)
 			if current_state.name == 'Death':
 				return false
 			
@@ -349,6 +352,9 @@ func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
 	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + name + ".ogg")
 	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
 	sfx_player.play()
+
+func stop_sfx():
+	sfx_player.stop()
 
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln
@@ -442,7 +448,10 @@ func on_jump(jumpNum:int):
 #region Utilidades (Multiplayer)
 # coisos que existem Explicitamente pra serem usados no multiplayer
 func get_multi_status():
-	return (GPStats.is_multiplayer && is_multiplayer_authority()) || (!GPStats.is_multiplayer)
+	if GPStats.is_multiplayer:
+		if JolasGame.instance:
+			return is_multiplayer_authority() and (not JolasGame.instance.hud.isWriting)
+	return true
 
 func send_params():
 	if len(MULTI_SENDOVER) <= 0: return
@@ -467,4 +476,29 @@ func get_params(properties:Dictionary[String, Variant]):
 func onUnpause():
 	canSpeedZoomCam = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
 	PlayerUtils.set_default_zoom()
+
+func setMotion(x:float, y:float, addX:bool = false, addY:bool = false):
+	if addX:
+		if (x < motion.x and sign(x) == -1)\
+		or (x > motion.x and sign(x) == 1):
+			motion.x += x * 2
+		else:
+			motion.x += x
+	else:
+		motion.x = x
+	
+	if addY:
+		if (y < motion.y and sign(y) == -1)\
+		or (y > motion.y and sign(y) == 1):
+			motion.y += y * 2
+		else:
+			motion.y += y
+	else:
+		motion.y = y
+
+func spawnNumber(quant):
+	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	get_parent().add_child(numble)
+	numble.global_position = global_position - Vector2(0, 32)
+	numble.set_text(quant)
 #endregion

@@ -12,6 +12,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is PlayerObject:
 		print('vai ' + str(comingBack))
 		if body.get_multi_status():
+			if not JolasGame.instance.isMenu: GPStats.charObject.process_mode = Node.PROCESS_MODE_DISABLED
 			print('vai')
 			triggeredGoto = true
 			JolasGame.instance.fadeIn(0.5, 
@@ -20,4 +21,5 @@ func _on_body_entered(body: Node2D) -> void:
 				JolasGame.instance.createMap(levelInQuestion)
 				JolasGame.instance.respawnPlayer(false, vai)
 				JolasGame.instance.fadeOut(0.5)
+				if not JolasGame.instance.isMenu: GPStats.charObject.process_mode = Node.PROCESS_MODE_INHERIT
 				)

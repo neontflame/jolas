@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cur2gbeak6s0i"]
+[gd_scene load_steps=12 format=3 uid="uid://cur2gbeak6s0i"]
 
 [ext_resource type="Script" uid="uid://brbkmhxprxey7" path="res://Levelstuffs/Mobs/Mob.gd" id="1_odjvr"]
 [ext_resource type="Script" uid="uid://deeeo8l0243xr" path="res://Levelstuffs/Mobs/MobStateMachine.gd" id="2_roppu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dq32mfrkrguyk" path="res://Levelstuffs/Mobs/StatePatternism/defaultSt.gd" id="3_roppu"]
 [ext_resource type="Script" uid="uid://c764epcbow7k4" path="res://Levelstuffs/Mobs/StatePatternism/hurtSt.gd" id="4_mdl05"]
 [ext_resource type="Script" uid="uid://cej4ef60qr7qh" path="res://Levelstuffs/Mobs/StatePatternism/deathSt.gd" id="5_hgoir"]
+[ext_resource type="PackedScene" uid="uid://whj8dgxik0b5" path="res://Gamestuffs/UsefulShits/TinyBar.tscn" id="7_oo2om"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hgoir"]
 animations = [{
@@ -42,7 +43,7 @@ size = Vector2(127, 126)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgoir"]
 radius = 498.049
 
-[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "leSprite")]
+[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "healthBar", "leSprite")]
 collision_layer = 2
 script = ExtResource("1_odjvr")
 ACCELERATION = 10.0
@@ -51,6 +52,7 @@ collArea = NodePath("CollidesWithPlayer")
 collAreaCollision = NodePath("CollidesWithPlayer/CollisionShape2D")
 playerDetector = NodePath("PlayerDetector")
 sfx_player = NodePath("AudioStreamPlayer2D")
+healthBar = NodePath("TinyBar")
 leSprite = NodePath("AnimatedSprite2D")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -90,12 +92,16 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_hgoir")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -68.0
 offset_top = -120.0
 offset_right = 69.0
 offset_bottom = -97.0
 text = "10/10"
 horizontal_alignment = 1
+
+[node name="TinyBar" parent="." instance=ExtResource("7_oo2om")]
+position = Vector2(0, -82)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="pd_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="pd_body_exited"]

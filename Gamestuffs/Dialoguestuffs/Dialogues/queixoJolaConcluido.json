@@ -1,0 +1,12 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "queixao",
+			"line": "eu tambem to no jogo :)",
+			"mood": "happy",
+			"position": "left"
+		}
+	},
+	"questAssigned": "",
+	"questClear": "queixoEAsJolas"
+}

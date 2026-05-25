@@ -27,6 +27,7 @@ func goToThing(mapId:String):
 	
 	JolasGame.instance.unpauseGame()
 	JolasGame.instance.hud.questIcon.rerenderCtrl()
+	JolasGame.instance.hud.inventoryIcon.rerenderCtrl()
 	GPStats.charObject.onUnpause()
 	CoolMenu.instance.unmakeMenu()
 	

@@ -169,12 +169,16 @@ func _process(_delta: float) -> void:
 	GPStats.process(_delta)
 	
 	if not isDial and not isMenu:
-		if Input.is_action_just_pressed("ctrl_pause"):
-			pauseGame()
-			ingameMenu.makeMenu('Pause')
-		if Input.is_action_just_pressed("ctrl_quests"):
-			pauseGame()
-			ingameMenu.makeMenu('Quests')
+		if not hud.isWriting:
+			if Input.is_action_just_pressed("ctrl_pause"):
+				pauseGame()
+				ingameMenu.makeMenu('Pause')
+			if Input.is_action_just_pressed("ctrl_quests"):
+				pauseGame()
+				ingameMenu.makeMenu('Quests')
+			if Input.is_action_just_pressed("ctrl_inventory"):
+				pauseGame()
+				ingameMenu.makeMenu('Inventory')
 		
 #region Multiplayer
 func join_mp_game():
@@ -231,6 +235,20 @@ func playBGM(trackName:String):
 	bgmStream.play()
 	bgmStream.finished.connect(func():curTrackName="")
 
+func fadeBGM(sec:float = 1.0, nextSong:String = ""):
+	var mustween = get_tree().create_tween()
+	mustween.tween_method(func(v):
+		bgmStream.volume_db = v
+		if v <= -99.0:
+			bgmStream.stop()
+			
+			if nextSong != "":
+				playBGM(nextSong),
+		GeneralUtils.get_volume_db('bgm'),
+		-100.0,
+		sec
+		)
+	
 func stopBGM():
 	bgmStream.stop()
 #endregion

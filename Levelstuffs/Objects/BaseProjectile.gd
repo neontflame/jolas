@@ -5,9 +5,12 @@ var velocity:Vector2 = Vector2(0,0)
 var cooldown:int = 10
 
 var projectileOwner # a gente ta usando essa variavel
-var power := 1
+@export var power: float = 1
 
-var used:bool = false
+var used: bool = false
+
+func _ready() -> void:
+	area_entered.connect(on_area_entered)
 
 func launch(direction:Vector2, speed:float):
 	velocity = direction * speed    
@@ -22,6 +25,9 @@ func _on_body_entered(body):
 		before_hit()
 		call_deferred("on_hit")
 		# print(body.name + " entered!")
+
+func on_area_entered(area: Area2D):
+	pass
 
 func before_hit():
 	pass

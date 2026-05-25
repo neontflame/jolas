@@ -9,6 +9,7 @@ clip_contents = true
 custom_minimum_size = Vector2(398, 32)
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("4_xrvu5")
 script = ExtResource("1_ml7t4")
 
 [node name="bg" type="Sprite2D" parent="."]
@@ -40,7 +41,6 @@ offset_right = 336.0
 offset_bottom = 29.0
 mouse_filter = 2
 theme = ExtResource("4_xrvu5")
-theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Botões de controle"
 fit_content = true

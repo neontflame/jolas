@@ -53,6 +53,7 @@ func doSomething(opt:StringName):
 		'resume':
 			JolasGame.instance.unpauseGame()
 			JolasGame.instance.hud.questIcon.rerenderCtrl()
+			JolasGame.instance.hud.inventoryIcon.rerenderCtrl()
 			GPStats.charObject.onUnpause()
 			# CoolMenu.instance.tweenOut()
 			CoolMenu.play_sfx('Wrap')
@@ -72,6 +73,8 @@ func doSomething(opt:StringName):
 		'exit':
 			SaveUtils.save_game(GPStats.saveNum)
 			for hudchild in JolasGame.instance.hud.get_children(true):
+				if hudchild is AudioStreamPlayer\
+				or hudchild is Timer: continue
 				hudchild.visible = false
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')
