@@ -32,6 +32,7 @@ var previous_state = null
 @export var sfx_player:AudioStreamPlayer2D
 @export var multiplayerName:RichTextLabel
 @export var coolCamera:Camera2D
+var base_camera_offset: Vector2
 @export var hitboxCoisos:Node2D
 @export var floorCast: RayCast2D
 
@@ -113,6 +114,8 @@ func _ready() -> void:
 	if FLOOR_BRAKE == 0:
 		FLOOR_BRAKE = FLOOR_ACCELERATION
 	PlayerUtils.set_default_zoom()
+	
+	setup_camera()
 
 func _enter_tree() -> void:
 	# CODIGO DE QUANDO ENTRA NO MULTIPLAYER FAVOR NAO MEXER !!!
@@ -280,17 +283,50 @@ func handlePhys() -> void:
 
 var idealerZoom = 1.0
 
+func setup_camera():
+	coolCamera.position_smoothing_enabled = false
+	await get_tree().process_frame
+	coolCamera.position_smoothing_enabled = true
+
 func handleCamera() -> void:
-	$Camera2D.position.x = lerp($Camera2D.position.x, (velocity.x / 10) + camOffset.x, 0.2) + randf_range(-camShakeForce, camShakeForce)
-	$Camera2D.position.y = lerp($Camera2D.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
-	
+	#neon_cam()
+	neon_zoom()
+	breno_cam()
+
+func neon_cam():
+	coolCamera.position.x = lerp(coolCamera.position.x, (velocity.x / 10) + camOffset.x, 0.2) + randf_range(-camShakeForce, camShakeForce)
+	coolCamera.position.y = lerp(coolCamera.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
+
+func neon_zoom():
 	if (abs(motion.x) > SOFT_MAX_SPEED * 1.25) && canSpeedZoomCam:
 		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom - 0.15)
 	else:
 		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom)
-	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealerZoom, 0.05), 
-								lerp($Camera2D.zoom.y, idealerZoom, 0.05))
+	coolCamera.zoom = Vector2(	lerp(coolCamera.zoom.x, idealerZoom, 0.05), 
+								lerp(coolCamera.zoom.y, idealerZoom, 0.05))
 
+func breno_cam():
+	var delta = get_physics_process_delta_time()
+	var screen_half_x = get_viewport_rect().size.x * 0.8 / coolCamera.zoom.x
+	var screen_half_y = get_viewport_rect().size.y * 1.2 / coolCamera.zoom.y
+	var forward_offset_x = base_camera_offset.x
+	if abs(get_real_velocity().x) > 100.0:
+		forward_offset_x += 300.0 * sign(get_real_velocity().x)
+
+	var predicted_x = global_position.x + forward_offset_x
+
+	var margin_left  = coolCamera.limit_left + screen_half_x + 5
+	var margin_right = coolCamera.limit_right - screen_half_x - 5
+
+	var can_move_forward = predicted_x > margin_left and predicted_x < margin_right
+
+	if can_move_forward:
+		# pode avançar pra frente
+		coolCamera.offset.x = lerp(coolCamera.offset.x, forward_offset_x, delta)
+	else:
+		# não pode... volta
+		coolCamera.offset.x = lerp(coolCamera.offset.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
+		
 # roubei do breno creditos pra ele
 func change_state(new_state):
 	if new_state != null:

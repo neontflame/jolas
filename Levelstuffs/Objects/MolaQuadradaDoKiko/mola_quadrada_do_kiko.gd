@@ -3,9 +3,9 @@ extends Node2D
 class_name MolaQuadradaDoKiko
 
 @export_category("SpringSetup")
-@export_range(0.0, 10000.0) var spring_strength: float = 1000.0:
+@export_range(0.0, 10000.0) var launch_force: float = 1000.0:
 	set(v):
-		spring_strength = v
+		launch_force = v
 		queue_redraw()
 
 @export_range(0.1, 2.0) var spring_speed: float = 1.0
@@ -23,9 +23,14 @@ func _ready() -> void:
 	animation_player.speed_scale = spring_speed
 
 func _draw() -> void:
-	#if not Engine.is_editor_hint():
-		#return
-	draw_line(player_position.position, (player_position.position + spring_strength * Vector2.UP) * 0.75, Color.GREEN, 8.0)
+	var preview_size := launch_force * 0.35
+
+	draw_line(
+		player_position.position,
+		player_position.position + get_launch_direction() * preview_size,
+		Color.GREEN,
+		8.0
+	)
 
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -53,20 +58,30 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func release_player():
 	if not current_object or Engine.is_editor_hint():
 		return
+		
 	play_sfx(spring_sound)
 	
-	if current_object:
-		if current_object is PlayerObject:
-			current_object.motion = spring_strength * Vector2.UP.rotated(rotation)
-			current_object.walkingEnabled = true
-			# Ok uh isso quebra o online por algum motivo ent
-			# current_object.change_state(current_object.state_machine.st_air)
-			current_object = null
-		elif current_object is MobObject:
-			current_object.velocity = (spring_strength * Vector2.UP.rotated(rotation))
-			current_object = null
+	if current_object is PlayerObject:
+		current_object.motion = get_launch_velocity(current_object)
+		current_object.walkingEnabled = true
+	
+	elif current_object is MobObject:
+		current_object.velocity = get_launch_velocity(current_object)
+	
+	current_object = null
+
+#region Utilities
+func get_launch_direction() -> Vector2:
+	return Vector2.UP.rotated(rotation)
+
+func get_launch_velocity(body) -> Vector2:
+	var gravity_ratio: float = 25.0 / body.GRAVITY
+	var gravity_modifier: float = pow(gravity_ratio, 0.35)
+
+	return get_launch_direction() * launch_force * gravity_modifier
 
 func play_sfx(sfx: AudioStreamPlayer2D):
 	sfx.volume_db = GeneralUtils.get_volume_db('sfx')
 	sfx.play()
 	sfx.pitch_scale = randf_range(0.8, 1.2)
+#endregion
