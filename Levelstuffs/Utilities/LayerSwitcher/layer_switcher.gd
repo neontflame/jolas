@@ -3,8 +3,8 @@ extends Area2D
 class_name LayerSwitcher
 
 enum layers {
-	Red_Layer,
-	Blue_Layer
+	Red_Judas,
+	Blue_Judas
 }
 
 @export var switch_to: layers: ## Mude essa variável para mudar qual será a camada interativa com o Player. Evite usar isso com inimigos.
@@ -19,7 +19,7 @@ func _ready() -> void:
 	change_object_color()
 
 func change_object_color():
-	if switch_to == layers.Red_Layer:
+	if switch_to == layers.Red_Judas:
 		visual_rect.color = Color.RED
 	else:
 		visual_rect.color = Color.BLUE
@@ -27,7 +27,7 @@ func change_object_color():
 func switch_layer(body: Node2D):
 	if body is PlayerObject:
 		print("oie")
-		if switch_to == layers.Red_Layer:
+		if switch_to == layers.Red_Judas:
 			body.collision_mask = (1 << 0) | (1 << 2)
 		else:
 			body.collision_mask = (1 << 0) | (1 << 3)
