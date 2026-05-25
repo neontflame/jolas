@@ -36,7 +36,7 @@ MultiplayerMayhem="*res://Gamestuffs/Multiplayer/Multiplayer.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=500
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [editor_plugins]
