@@ -330,7 +330,10 @@ func breno_cam():
 	var margin_right = coolCamera.limit_right - screen_half_x - 5
 
 	var can_move_forward = predicted_x > margin_left and predicted_x < margin_right
-
+	
+	if coolCamera.offset.y != 0.0:
+		coolCamera.offset.y = lerp(coolCamera.offset.y, 0.0, 0.1)
+	
 	if can_move_forward:
 		# pode avançar pra frente
 		coolCamera.offset.x = lerp(coolCamera.offset.x, forward_offset_x, delta)

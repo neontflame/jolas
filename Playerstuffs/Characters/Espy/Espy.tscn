@@ -157,14 +157,12 @@ scale = Vector2(0.395, 0.775)
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_36c40")
-animation = &"bubbleIn"
-frame_progress = 0.46067
+animation = &"bubbleLaunch"
 offset = Vector2(-4, 0)
 
 [node name="EspyFX" type="Node2D" parent="." index="8"]
 
 [node name="ABubbleEmQuestao" type="Sprite2D" parent="EspyFX" index="0"]
-scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("25_2mobk")
 
 [node name="ASetaQueDizPraOndeElaTaSendoArremessada" type="Sprite2D" parent="EspyFX" index="1"]

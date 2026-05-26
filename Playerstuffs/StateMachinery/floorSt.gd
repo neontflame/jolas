@@ -1,9 +1,7 @@
 extends StatePattern
 
 func enter_state():
-	# print('Enter Floor')
 	Player.motion.y = 4
-	Player.bubble_blasted = false
 	if not Player.plySprite.animation_finished.is_connected(animDone):
 		Player.plySprite.animation_finished.connect(animDone)
 	pass
@@ -15,8 +13,6 @@ func update():
 	handleAnimations()
 	
 	if not Player.is_on_floor():
-		# this jit cracks ar
-		print("to no ar cradcks")
 		Player.change_state(Player.state_machine.st_air)
 	
 func handleAnimations() -> void:
