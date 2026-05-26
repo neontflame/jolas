@@ -7,7 +7,6 @@ func update():
 	if Player.canDoCharge:
 		Player.handlePhys()
 		Player.handleMovement()
-		Player.handleCamera()
 		Player.camOffset.x = (-Player.charge if Player.plySprite.flip_h else Player.charge) / 10
 		
 		if Player.is_on_floor():
@@ -21,6 +20,7 @@ func update():
 			Player.plySprite.play('specialCharge')
 			
 		if Input.is_action_pressed("ctrl_2") && Player.canDoCharge:
+			Player.handleCameraSpecial()
 			Player.charge = lerp(Player.charge, 1920.0, 0.05)
 			Player.shakeForce = Player.charge * 0.005
 			# voce pode agora mudar de direçao no ar
@@ -28,6 +28,8 @@ func update():
 				Player.plySprite.flip_h = false;
 			if Input.is_action_pressed("ctrl_left"):
 				Player.plySprite.flip_h = true;
+		else:
+			Player.handleCamera()
 				
 		if Input.is_action_just_released("ctrl_2") && Player.canDoCharge:
 			Player.shakeForce = 0

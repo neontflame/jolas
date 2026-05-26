@@ -22,16 +22,15 @@ color = Color(0, 0.364706, 0.780392, 1)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-276, -80, -74, -80, -74, -16, 157, -19, 211, 15, 303, 14, 380, 35, 432, 37, 475, 56, 858, 57, 858, 1, 1256, 3, 1258, -44, 1421, -47, 1422, -94, 1583, -95, 1581, -142, 1834, -143, 1833, -52, 1941, -53, 1935, 27, 2563, 25, 2561, 97, 2752, 98, 2752, 169, 2921, 214, 2921, 555, 3426, 549, 3423, 406, 3195, 396, 3195, 336, 3425, 339, 3592, 254, 4196, 253, 4389, 114, 4862.08, 109.444, 4843, -705, 4186, -842, 4871, -841, 5002, -842, 5012, 108, 4933, 592, 4866, 821, 1967, 834, 1554, 247, -482, 250, -482, -794, 1012, -784, 1007, -477, 823, -458, 736, -371, 309, -371, 235, -297, 162, -311, 102, -467, -41, -486, -73, -702, -280, -753)
+polygon = PackedVector2Array(-276, -80, -74, -80, -74, -16, 157, -19, 211, 15, 303, 14, 380, 35, 432, 37, 475, 56, 858, 57, 858, 1, 1256, 3, 1258, -44, 1421, -47, 1422, -94, 1583, -95, 1581, -142, 1834, -143, 1833, -52, 1941, -53, 1935, 27, 2563, 25, 2561, 97, 2752, 98, 2752, 169, 2921, 214, 2921, 555, 3426, 549, 3423, 406, 3195, 396, 3195, 336, 3425, 339, 3592, 254, 4196, 253, 4389, 114, 4923, 111, 4920, -751, 4186, -842, 4871, -841, 5127, -837, 5120, 105, 4933, 592, 4866, 821, 1967, 834, 1554, 247, -482, 250, -482, -794, 1012, -784, 1007, -477, 823, -458, 736, -371, 309, -371, 235, -297, 162, -311, 102, -467, -41, -486, -73, -702, -280, -753)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(174, 436)
 
 [node name="BackSpawnpoint" type="Node2D" parent="."]
-position = Vector2(4861, 600)
+position = Vector2(4783, 602)
 
 [node name="Camera regions" type="Node2D" parent="."]
-visible = false
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(1038, 230)
@@ -45,7 +44,7 @@ continuousX = true
 
 [node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(4564, 332)
-scale = Vector2(5.42, 5.08)
+scale = Vector2(4.455, 5.08)
 continuousX = true
 
 [node name="enemigos" type="Node2D" parent="."]
@@ -75,6 +74,6 @@ levelInQuestion = "Sandlerhell"
 comingBack = true
 
 [node name="GoToLevel2" parent="." instance=ExtResource("5_trijc")]
-position = Vector2(5000, 728)
+position = Vector2(5084, 668)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerdomain"

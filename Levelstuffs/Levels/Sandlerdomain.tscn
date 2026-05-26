@@ -60,7 +60,7 @@ idealZoom = 0.75
 [node name="enemigos" type="Node2D" parent="."]
 
 [node name="GoToLevel" parent="." instance=ExtResource("5_yyatf")]
-position = Vector2(-128, 656)
+position = Vector2(-109, 656)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
 comingBack = true

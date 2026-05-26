@@ -133,7 +133,7 @@ func _enter_tree() -> void:
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
 	while stunFrames > 0:
-		stunFrames -= 1 * deltaOne
+		stunFrames -= 1
 		return
 	if current_state.has_method("update"): current_state.update()
 	
@@ -235,26 +235,26 @@ func handleMovement() -> void:
 		if Input.is_action_pressed("ctrl_left"):
 			if (motion.x > -SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x > 0 and is_on_floor()):
-					motion.x -= FLOOR_BRAKE * deltaOne
+					motion.x -= FLOOR_BRAKE
 				else:
-					motion.x -= ACCELERATION * deltaOne
+					motion.x -= ACCELERATION
 		elif Input.is_action_pressed("ctrl_right"):
 			if (motion.x < SOFT_MAX_SPEED * slopeFactor):
 				if (motion.x < 0 and is_on_floor()):
-					motion.x += FLOOR_BRAKE * deltaOne
+					motion.x += FLOOR_BRAKE
 				else:
-					motion.x += ACCELERATION * deltaOne
+					motion.x += ACCELERATION
 		else:
-			motion.x = motion.x * (FRICTION * deltaOne)
+			motion.x = motion.x * (FRICTION)
 
 func handlePhys() -> void:
 	# Air Physicque
 	if not is_on_floor():
 		practicalAngle = 0.0
 		if (holding_jump): 
-			motion.y += (GRAVITY / 1.5) * deltaOne
+			motion.y += (GRAVITY / 1.5)
 		else: 
-			motion.y += GRAVITY * deltaOne
+			motion.y += GRAVITY
 		
 	if is_on_ceiling():
 		motion.y = 10
@@ -311,7 +311,7 @@ func breno_cam():
 	var screen_half_y = get_viewport_rect().size.y * 1.2 / coolCamera.zoom.y
 	var forward_offset_x = base_camera_offset.x
 	if abs(get_real_velocity().x) > 100.0:
-		forward_offset_x += 300.0 * sign(get_real_velocity().x)
+		forward_offset_x += 200.0 * sign(get_real_velocity().x)
 
 	var predicted_x = global_position.x + forward_offset_x
 

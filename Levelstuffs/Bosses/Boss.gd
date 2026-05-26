@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 
 func handlePhys():
 	if !is_on_floor():
-		velocity.y += GRAVITY * deltaOne
+		velocity.y += GRAVITY
 		
 	if is_on_wall():
 		velocity.x = 0

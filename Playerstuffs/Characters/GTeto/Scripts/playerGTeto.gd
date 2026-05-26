@@ -38,18 +38,18 @@ func handleHorizontalMovement() -> void:
 		FRICTION = AIR_FRICTION
 		
 	if (!movementEnabled):
-		motion.x = motion.x * (FRICTION * deltaOne)
+		motion.x = motion.x * (FRICTION)
 		return
 		
 	# walkfucks
 	if Input.is_action_pressed("ctrl_left"):
 		if (motion.x > -SOFT_MAX_SPEED):
-			motion.x -= ACCELERATION * deltaOne
+			motion.x -= ACCELERATION
 	elif Input.is_action_pressed("ctrl_right"):
 		if (motion.x < SOFT_MAX_SPEED):
-			motion.x += ACCELERATION * deltaOne
+			motion.x += ACCELERATION
 	else:
-		motion.x = motion.x * (FRICTION * deltaOne)
+		motion.x = motion.x * (FRICTION)
 
 func makeSlamParticle():
 	var rrrect = player_collisions.shape.get_rect()

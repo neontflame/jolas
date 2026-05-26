@@ -16,8 +16,8 @@ func _physics_process(delta: float) -> void:
 		nonZeroXVel = motion.x
 
 func handleCameraSpecial() -> void:
-	super.handleCamera()
-	coolCamera.position.x = lerp(coolCamera.position.x, (-charge if plySprite.flip_h else charge) / 10, 0.2)
+	neon_zoom()
+	coolCamera.offset.x = lerp(coolCamera.offset.x, (-charge if plySprite.flip_h else charge) / 10, 0.1)
 
 func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
 	super.connectAttack(_stunFrames, fromBehind, vel)

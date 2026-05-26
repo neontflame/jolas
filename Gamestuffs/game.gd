@@ -239,10 +239,11 @@ func fadeBGM(sec:float = 1.0, nextSong:String = ""):
 	var mustween = get_tree().create_tween()
 	mustween.tween_method(func(v):
 		bgmStream.volume_db = v
-		if v <= -99.0:
+		if v <= -99.5:
 			bgmStream.stop()
 			
 			if nextSong != "":
+				mustween.kill()
 				playBGM(nextSong),
 		GeneralUtils.get_volume_db('bgm'),
 		-100.0,

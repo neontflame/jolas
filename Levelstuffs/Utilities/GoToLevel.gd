@@ -2,11 +2,15 @@ extends Area2D
 @export var levelInQuestion:String = ""
 @export var comingBack:bool = false
 var triggeredGoto := false
+var canGoNow = false
 
 func _enter_tree() -> void:
 	triggeredGoto = false
-	
+	await get_tree().create_timer(0.05).timeout
+	canGoNow = true
+
 func _on_body_entered(body: Node2D) -> void:
+	if not canGoNow: return
 	var vai:bool = bool(comingBack)
 	if triggeredGoto: return
 	if body is PlayerObject:
