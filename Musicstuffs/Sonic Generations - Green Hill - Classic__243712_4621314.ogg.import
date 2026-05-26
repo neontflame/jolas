@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://46vmdc0e3oro"
+path="res://.godot/imported/Sonic Generations - Green Hill - Classic__243712_4621314.ogg-8a835da1c797910fdd6eb902bf7fa5eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicstuffs/Sonic Generations - Green Hill - Classic__243712_4621314.ogg"
+dest_files=["res://.godot/imported/Sonic Generations - Green Hill - Classic__243712_4621314.ogg-8a835da1c797910fdd6eb902bf7fa5eb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

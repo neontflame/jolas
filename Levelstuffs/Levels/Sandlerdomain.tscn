@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwrifkr1erwwu"]
+[gd_scene load_steps=8 format=3 uid="uid://dwrifkr1erwwu"]
 
 [ext_resource type="Script" uid="uid://c51ej8qs1iiil" path="res://Levelstuffs/Levels/Sandlerdomain.gd" id="1_1pu2r"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_gq6mc"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_4gkxx"]
+[ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_gq6mc"]
 [ext_resource type="PackedScene" uid="uid://cmp2r0r1gy28r" path="res://Levelstuffs/Bosses/BigSandler/BigSandler.tscn" id="5_2bicp"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_yyatf"]
 
@@ -22,7 +23,7 @@ coolColor = Color(0.67, 0.2546, 0.2546, 1)
 
 [node name="EdgyCoiso" type="Polygon2D" parent="."]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(3844, -213, 4742, -225, 4700, 860, 3839, 849)
+polygon = PackedVector2Array(3844, -213, 5749, -232, 5753, 842, 3839, 849)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(177, 518)
@@ -53,11 +54,29 @@ scale = Vector2(10.26, 3.91)
 continuousX = true
 
 [node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_4gkxx")]
-position = Vector2(4768, 320)
-scale = Vector2(10.979, 5.26)
+position = Vector2(4784.81, 320)
+scale = Vector2(9.499, 5.26)
 idealZoom = 0.75
 
 [node name="enemigos" type="Node2D" parent="."]
+
+[node name="TemplateMob" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(1492, 384)
+
+[node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2081, 480)
+
+[node name="TemplateMob3" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2283, 490)
+
+[node name="TemplateMob4" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2466, 504)
+
+[node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2636, 546)
+
+[node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2791, 618)
 
 [node name="GoToLevel" parent="." instance=ExtResource("5_yyatf")]
 position = Vector2(-109, 656)
