@@ -17,7 +17,7 @@ var previous_state = null
 @export var FLOOR_BRAKE = 0.0
 @export var SOFT_MAX_SPEED = 600
 @export var GRAVITY = 25.0
-@export var JUMP_VELOCITY = -625
+@export var JUMP_VELOCITY = -750
 @export var SLOPE_VEL_ADD = 30
 @export var FLOOR_FRICTION = 0.9125
 @export var AIR_FRICTION = 0.9995
@@ -86,7 +86,7 @@ var holding_jump:bool = false
 
 var up_override:bool = false
 
-var isSonicPhys:bool = false
+var isSonicPhys: bool = true
 var practicalAngle := 0.0
 
 var movementEnabled:bool = true
@@ -169,7 +169,6 @@ func _physics_process(delta: float) -> void:
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
 
 func handleSonicPhys() -> void:
-	isSonicPhys = true
 	player_collisions.rotation = practicalAngle
 	plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.2)
 		
@@ -213,9 +212,10 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air)):
+	if can_player_jump():
 		jumpsDone += 1
 		if isSonicPhys:
+			print("pode pular")
 			motion.y = JUMP_VELOCITY
 		else:
 			motion.y = JUMP_VELOCITY * -floorSinCos.y
@@ -225,9 +225,14 @@ func handleMovement() -> void:
 		holding_jump = true
 		on_jump(jumpsDone)
 	
-	if holding_jump:
-		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
-			holding_jump = false
+	#if holding_jump:
+		#if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
+			#holding_jump = false
+	
+	if jumping:
+		if Input.is_action_just_released("ctrl_jump") and motion.y < 0.0:
+			motion.y /= 2.0
+			jumping = false
 	
 	# walkfucks
 	motion.x += slopeAdd
@@ -246,6 +251,9 @@ func handleMovement() -> void:
 					motion.x += ACCELERATION
 		else:
 			motion.x = motion.x * (FRICTION)
+
+func can_player_jump() -> bool:
+	return PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air))
 
 func handlePhys() -> void:
 	# Air Physicque

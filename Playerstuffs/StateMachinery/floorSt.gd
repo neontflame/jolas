@@ -14,6 +14,7 @@ func update():
 	handleAnimations()
 	
 	if not Player.is_on_floor():
+		print("to no ar cradcks")
 		Player.change_state(Player.state_machine.st_air)
 	
 func handleAnimations() -> void:

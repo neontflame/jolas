@@ -76,7 +76,7 @@ func update():
 
 func handleAnimations():
 	super.handleAnimations()
-	if Player.jumping && Player.motion.y > 0:
+	if Player.motion.y > 0:
 		Player.plySprite.play('fall')
 
 func doDash():
