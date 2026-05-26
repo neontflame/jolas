@@ -27,10 +27,13 @@ func update():
 	handleAnimations()
 	Player.handleMovement()
 	Player.handleCamera()
+	Player.apply_player_gravity()
 	
-	if Input.is_action_pressed("ctrl_1"):
-		if not Player.rebounding:
+	if Input.is_action_just_pressed("ctrl_1"):
+		if not Player.rebounding and not Player.reboundQueued:
+			Player.play_sfx("InstaShield")
 			Player.reboundQueued = true
+			Player.rebound_ready_animation(10.0)
 	
 	if Player.is_on_floor():
 		if Player.rebounding:
@@ -51,7 +54,7 @@ func update():
 	
 	if Player.is_on_wall() and isDashing:
 		Player.delete_hitboxes('airdash')
-		theCooldown = get_tree().create_timer(0.25)
+		theCooldown = get_tree().create_timer(0.25, false)
 		
 		hasDashed = false
 		isDashing = false
@@ -61,9 +64,13 @@ func update():
 		Player.play_char_sfx('Wallkick', 'Passo')
 		
 		if Player.is_wall_to_left():
+			check_ce_kill()
+			Player.plySprite.skew = 0.0
 			Player.motion.x = 500
 			Player.plySprite.flip_h = true
 		if Player.is_wall_to_right():
+			check_ce_kill()
+			Player.plySprite.skew = 0.0
 			Player.motion.x = -500
 			Player.plySprite.flip_h = false
 
@@ -81,7 +88,7 @@ func doDash():
 						105,
 						'airdash')
 	
-	var flipped:bool = 	Input.is_action_pressed("ctrl_left") \
+	var flipped: bool = Input.is_action_pressed("ctrl_left") \
 						or not Input.is_action_pressed("ctrl_right") \
 						and Player.plySprite.flip_h
 	
@@ -92,6 +99,11 @@ func doDash():
 	else:
 		Player.motion.x += -155 if flipped else 155
 	
+	if Player.motion.x > 0.0:
+		Player.plySprite.flip_h = false
+	else:
+		Player.plySprite.flip_h = true
+	cool_effect(Player.plySprite.flip_h)
 	Player.jumping = false
 	Player.invulnFrames = 24.0
 	isDashing = true
@@ -104,3 +116,17 @@ func exit_state():
 	Player.delete_hitboxes('rebound')
 	isDashing = false
 	hasDashed = false
+
+var ce_tween: Tween
+
+func cool_effect(is_flipped: bool = false):
+	var multiplier = -1.0 if is_flipped else 1.0
+	var initial_value = 0.75 * sign(multiplier)
+	Player.plySprite.skew = initial_value
+	check_ce_kill() 
+	ce_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	ce_tween.tween_property(Player.plySprite, "skew", 0.0, 0.5)
+
+func check_ce_kill():
+	if ce_tween and ce_tween.is_valid():
+		ce_tween.kill()

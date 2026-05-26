@@ -13,6 +13,7 @@ func update():
 	hurtTimer_process()
 	
 	Player.handlePhys()
+	Player.apply_player_gravity()
 	# Player.handleMovement()
 	Player.handleCamera()
 

@@ -21,13 +21,18 @@ func update():
 			
 		if Input.is_action_pressed("ctrl_2") && Player.canDoCharge:
 			Player.handleCameraSpecial()
+			Player.apply_player_gravity(10.0)
+			
+			if Player.motion.y < 0.0:
+				Player.motion.y = lerp(Player.motion.y, 0.0, 0.05)
+			
 			Player.charge = lerp(Player.charge, 1920.0, 0.05)
 			Player.shakeForce = Player.charge * 0.005
 			# voce pode agora mudar de direçao no ar
 			if Input.is_action_pressed("ctrl_right"):
-				Player.plySprite.flip_h = false;
+				Player.plySprite.flip_h = false
 			if Input.is_action_pressed("ctrl_left"):
-				Player.plySprite.flip_h = true;
+				Player.plySprite.flip_h = true
 		else:
 			Player.handleCamera()
 				
@@ -66,7 +71,7 @@ func update():
 	if Player.isSpecialing:
 		Player.handlePhys()
 		Player.handleCamera()
-		
+		Player.apply_player_gravity()
 		if Player.is_on_wall():
 			if Player.plySprite.flip_h:
 				Player.motion.x = abs(Player.nonZeroXVel) * 0.325

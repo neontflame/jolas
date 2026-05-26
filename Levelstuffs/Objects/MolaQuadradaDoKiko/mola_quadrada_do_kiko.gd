@@ -20,16 +20,22 @@ var current_object: CharacterBody2D
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		queue_redraw()
+	set_notify_transform(true)
 	animation_player.speed_scale = spring_speed
 
 func _draw() -> void:
 	var preview_size := launch_force * 0.35
-
+	
+	# Compensa a escala global do node
+	var scale_compensation := Vector2.ONE / global_scale
+	
+	var direction := get_launch_direction() * preview_size
+	
 	draw_line(
 		player_position.position,
-		player_position.position + get_launch_direction() * preview_size,
+		player_position.position + (direction * scale_compensation),
 		Color.GREEN,
-		8.0
+		8.0 / global_scale.length()
 	)
 
 func _physics_process(_delta: float) -> void:
@@ -84,4 +90,9 @@ func play_sfx(sfx: AudioStreamPlayer2D):
 	sfx.volume_db = GeneralUtils.get_volume_db('sfx')
 	sfx.play()
 	sfx.pitch_scale = randf_range(0.8, 1.2)
+	
+func _notification(what):
+	if what == NOTIFICATION_TRANSFORM_CHANGED:
+		print("oi")
+		queue_redraw()
 #endregion

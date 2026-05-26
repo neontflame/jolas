@@ -31,7 +31,7 @@ var previous_state = null
 @export var player_collisions:CollisionShape2D
 @export var sfx_player:AudioStreamPlayer2D
 @export var multiplayerName:RichTextLabel
-@export var coolCamera:Camera2D
+@export var coolCamera: Camera2D
 var base_camera_offset: Vector2
 @export var hitboxCoisos:Node2D
 @export var floorCast: RayCast2D
@@ -249,12 +249,6 @@ func handleMovement() -> void:
 
 func handlePhys() -> void:
 	# Air Physicque
-	if not is_on_floor():
-		practicalAngle = 0.0
-		if (holding_jump): 
-			motion.y += (GRAVITY / 1.5)
-		else: 
-			motion.y += GRAVITY
 		
 	if is_on_ceiling():
 		motion.y = 10
@@ -282,6 +276,15 @@ func handlePhys() -> void:
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)
 
 var idealerZoom = 1.0
+
+func apply_player_gravity(custom_gravity: float = GRAVITY):
+	var delta = get_physics_process_delta_time()
+	var gravity_value = (custom_gravity * 60.0) * delta
+	if not is_on_floor():
+		if is_on_ceiling():
+			motion.y = 10
+		practicalAngle = 0.0
+		motion.y += gravity_value
 
 func setup_camera():
 	coolCamera.position_smoothing_enabled = false

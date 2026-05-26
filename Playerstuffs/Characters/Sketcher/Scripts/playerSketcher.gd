@@ -34,7 +34,11 @@ var reboundCountdown := 0.0
 var isSliding:bool = false
 signal slideTriggered
 
-var isBoosting:bool = false
+var isBoosting:bool = false:
+	set(v):
+		isBoosting = v
+		if isBoosting:
+			activate_boost()
 
 var ctrl1diff = 12 # 5 frames
 var canDash:bool = true
@@ -102,6 +106,8 @@ func handleBoost():
 		)
 		
 	ELECTRICITY -= ELEC_USAGE['boost']
+
+func activate_boost():
 	if Input.is_action_pressed("ctrl_left") \
 	or not Input.is_action_pressed("ctrl_right") and plySprite.flip_h:
 		if (motion.x > -BOOST_MIN_SPEED):

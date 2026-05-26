@@ -33,7 +33,7 @@ func handleMovement():
 				change_state(state_machine.st_dash)
 				dashTriggered = true
 				dashCooldown = 24.0
-		if Input.is_action_pressed("ctrl_2"):
+		if Input.is_action_just_pressed("ctrl_2"):
 			throwEm()
 
 func throwEm():

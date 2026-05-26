@@ -47,7 +47,7 @@ func handleStep(dashstep:int):
 				Player.dashTriggered = true
 				Player.plySprite.play("dash")
 				Player.plySprite.flip_h = fuckingAngle.x < 0
-				Player.velToVector(Player.dashSpeed, fuckingAngle)
+				Player.velToVector(define_david_speed(), fuckingAngle)
 				Player.make_hitbox_timed(hitSeconds,
 					Vector2(1.0, 2.0), 
 					Vector2(4.14, 6.25), 
@@ -76,6 +76,9 @@ func handleStep(dashstep:int):
 				Player.dashCooldown = 0.0 #wavedavid
 		_:
 			pass
+
+func define_david_speed():
+	return Player.dashSpeed if Player.motion.length() < 1200.0 else Player.motion.length()
 
 # Normal straight dashes set Madeline's speed to 240 pixels per second, 
 # and normal diagonal dashes set it to around 170. If Madeline has a 
