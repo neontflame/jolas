@@ -49,7 +49,7 @@ func update():
 	
 	if Player.invulnFrames <= 0.0 and isDashing:
 		Player.delete_hitboxes('airdash')
-		Player.plySprite.play('fall')
+		# Player.plySprite.play('fall')
 		isDashing = false
 	
 	if Player.is_on_wall() and isDashing:
@@ -76,7 +76,7 @@ func update():
 
 func handleAnimations():
 	super.handleAnimations()
-	if Player.motion.y > 0:
+	if Player.motion.y > 0 and not isDashing:
 		Player.plySprite.play('fall')
 
 func doDash():
