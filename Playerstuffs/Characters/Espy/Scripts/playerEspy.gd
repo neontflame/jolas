@@ -32,3 +32,9 @@ func rotate_arrow_based_on_input():
 	var input = Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down")
 	if input != Vector2.ZERO:
 		bubble_aim = input
+
+func hitbox_connect(hit:OffensiveHitbox, type:String):
+	if type == 'boss':
+		motion.x = motion.x * -0.8
+	if hit.coolId == "jumpbox":
+		motion.y = abs(motion.y) * -1.025

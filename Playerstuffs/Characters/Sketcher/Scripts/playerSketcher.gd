@@ -253,8 +253,8 @@ func sweeping_mob(dir:StringName) -> Array:
 				mob = downSweep.get_collider()
 	return [isTrued, mob]
 
-func handleMovement() -> void:
-	super.handleMovement()
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
+	super.handleMovement(new_floor_acceleration, new_air_acceleration, new_soft_max_speed)
 	if GPStats.charObject != self: return
 	handleSlide()
 	handleRebounds()
@@ -295,7 +295,7 @@ func handleSlide():
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln || isBoosting || current_state.name == 'Dash'
 	
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	

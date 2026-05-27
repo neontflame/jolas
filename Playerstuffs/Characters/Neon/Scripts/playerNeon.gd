@@ -29,6 +29,6 @@ func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vec
 func level_up():
 	super.level_up()
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(2, (hitboxCoisos.scale.x == -1), Vector2(250, -250))

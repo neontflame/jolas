@@ -507,7 +507,7 @@ func delete_hitboxes_actual(hitboxId:String = ''):
 				hitboxes.erase(hit)
 				hit.queue_free()
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	pass
 
 func hitbox_exists(hitboxId:String = ''):
