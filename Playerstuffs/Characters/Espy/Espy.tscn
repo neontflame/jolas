@@ -139,7 +139,6 @@ script = ExtResource("2_npxxq")
 bolha_sprite = NodePath("EspyFX/ABubbleEmQuestao")
 setaralho = NodePath("EspyFX/ASetaQueDizPraOndeElaTaSendoArremessada")
 run_button_multiplier = 1.5
-can_jump_mid_air = false
 FLOOR_ACCELERATION = 15.0
 FLOOR_BRAKE = 30.0
 SLOPE_VEL_ADD = 30.0

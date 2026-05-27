@@ -203,7 +203,7 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	charDict[peer_id] = pInst
 	
 	if map:
-		pInst.position = map.spawnpoint.position
+		pInst.position = map.get_node("Spawnpoint").position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
 	pInst.level_up()

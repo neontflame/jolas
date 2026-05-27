@@ -22,6 +22,14 @@ func update():
 	Player.rotate_arrow_based_on_input()
 	Player.setaralho.rotation = lerp_angle(Player.setaralho.rotation, Player.bubble_aim.angle(), 0.25)
 	
+	if Input.is_action_just_pressed("ctrl_1"):
+		bubble_pop()
+		Player.play_char_sfx("balloonPop", "Espy")
+		Player.plySprite.play("fall")
+		Player.JUMP_COUNT = 2
+		Player.jumping = true
+		Player.change_state(Player.state_machine.st_air)
+		
 	if Input.is_action_just_released("ctrl_2"):
 		release_espy()
 

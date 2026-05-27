@@ -4,6 +4,7 @@ func enter_state():
 	Player.can_bubble_blast = true
 	Player.bubble_blasted = false
 	Player.motion.y = 1.0
+	Player.JUMP_COUNT = 1
 
 func update():
 	Player.handlePhys()
