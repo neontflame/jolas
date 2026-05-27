@@ -111,7 +111,7 @@ offset_top = -4.0
 offset_right = 376.0
 offset_bottom = 26.0
 bbcode_enabled = true
-text = "[color=FFFF00]MÚSICA (Fontes):[/color] Sonic Unleashed"
+text = "[color=FFFF00]MÚSICA (Fontes):[/color] Sonic Unleashed/Generations"
 fit_content = true
 
 [node name="Control4" type="Control" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
@@ -123,15 +123,15 @@ size_flags_vertical = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control4"]
 layout_mode = 0
 offset_top = -4.0
-offset_right = 376.0
+offset_right = 397.0
 offset_bottom = 296.0
 theme_override_constants/line_separation = -6
 bbcode_enabled = true
 text = "[color=FFFF00]SONS (Fontes):[/color]
 Super Smash Bros. 64
-Sonic CD/Adventure/Advance 2/Rush/Generations
+Sonic CD/3&K/Adventure/Advance 2/Rush/Generations
 SMW2: Yoshi's Island
-Half-Life 2
+Half-Life 2/Half-Life
 Wii Menu
 Scratch
 Fancy Pants Adventures
