@@ -16,7 +16,7 @@ func _ready() -> void:
 		var mapName = get_tree().current_scene.scene_file_path.get_file().get_basename()
 		GPStats.curMap = mapName
 		#GPStats.char = GameUtils.get_chars().pick_random()
-		GPStats.char = 'Espy'
+		GPStats.char = 'Passo'
 		GPStats.saveNum = 999
 		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
 		return

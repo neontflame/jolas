@@ -3943,11 +3943,12 @@ scale = Vector2(16, 16)
 [node name="LoopPattern3" type="Node2D" parent="CurvedTerrains"]
 position = Vector2(18432, 128)
 
-[node name="RedLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3"]
+[node name="RedLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" node_paths=PackedStringArray("obj_shape")]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_bxs3o")
 terrain_type = 2
+obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
 
 [node name="SS2D_Shape" type="Node2D" parent="CurvedTerrains/LoopPattern3/RedLayer"]
@@ -3962,11 +3963,12 @@ visible = false
 polygon = PackedVector2Array(2496, 2176, 2496, 2432, 2176, 2432, 2215.79, 2429.13, 2251.31, 2421, 2282.8, 2408.38, 2310.5, 2392, 2334.63, 2372.63, 2355.44, 2351, 2388, 2304, 2410.06, 2257, 2423.5, 2216, 2432, 2176)
 metadata/_edit_lock_ = true
 
-[node name="BlueLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3"]
+[node name="BlueLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" node_paths=PackedStringArray("obj_shape")]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("2_bxs3o")
 terrain_type = 3
+obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
 
 [node name="SS2D_Shape" type="Node2D" parent="CurvedTerrains/LoopPattern3/BlueLayer"]
@@ -3981,8 +3983,9 @@ visible = false
 polygon = PackedVector2Array(2176, 2432, 1856, 2432, 1856, 2176, 1920, 2176, 1924, 2216, 1933.5, 2257, 1952, 2304, 1965.56, 2327.88, 1982.5, 2351, 2003.19, 2372.63, 2028, 2392, 2057.31, 2408.38, 2091.5, 2421, 2130.94, 2429.13)
 metadata/_edit_lock_ = true
 
-[node name="WhiteTeto" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3"]
+[node name="WhiteTeto" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" node_paths=PackedStringArray("obj_shape")]
 script = ExtResource("2_bxs3o")
+obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
 
 [node name="SS2D_Shape" type="Node2D" parent="CurvedTerrains/LoopPattern3/WhiteTeto"]

@@ -35,8 +35,8 @@ func shootEm(gunber:int):
 		else:
 			motion.x -= GUN_SPEED_ADD
 
-func handleMovement():
-	super.handleMovement()
+func handleMovement(FLOOR_ACCELERATION) -> void:
+	super()
 	if movementEnabled:
 		if Input.is_action_pressed("ctrl_2"):
 			shootEm(0)
