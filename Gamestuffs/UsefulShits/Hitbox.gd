@@ -61,4 +61,4 @@ func _on_body_entered(body: Node2D) -> void:
 		var connects = body.yeowch(damage, (knockAngle < 270.0 && knockAngle > 90.0), forceCtor) #case in point
 		if proprietor.has_method('hitbox_connect'): 
 			if connects:
-				proprietor.hitbox_connect(self)
+				proprietor.hitbox_connect(self, 'boss' if body is BossObject else ('player' if body is PlayerObject else 'mob'))

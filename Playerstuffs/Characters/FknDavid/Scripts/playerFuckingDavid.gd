@@ -79,7 +79,7 @@ func makeAfterimage():
 	add_child(afterimg)
 	afterimg.grabInfo(self)
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	

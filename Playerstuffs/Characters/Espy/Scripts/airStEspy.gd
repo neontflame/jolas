@@ -3,6 +3,14 @@ extends "res://Playerstuffs/StateMachinery/airSt.gd"
 func enter_state():
 	if not Player.bubble_blasted:
 		super()
+		if Player.jumping:
+			Player.make_hitbox(Vector2(0.0, 42.0),
+				Vector2(3.0, 1.3),
+				Player.ATTACK_DMG_LVL['default'],
+				0.0,
+				0.0,
+				"jumpbox"
+			)
 		return
 	Player.shakeForce = 0.0
 	Player.plySprite.play("bubbleLaunch")
@@ -28,3 +36,7 @@ func update():
 
 func custom_espy_animation():
 	Player.plySprite.rotation = Player.motion.angle()
+
+func exit_state():
+	super()
+	Player.delete_hitboxes("jumpbox")

@@ -21,7 +21,7 @@ func is_wall_to_right():
 		return true
 	return false
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	var flipped:bool = 	Input.is_action_pressed("ctrl_left") \
 						or not Input.is_action_pressed("ctrl_right") \
 						and plySprite.flip_h

@@ -295,7 +295,7 @@ func handleSlide():
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln || isBoosting || current_state.name == 'Dash'
 	
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	
