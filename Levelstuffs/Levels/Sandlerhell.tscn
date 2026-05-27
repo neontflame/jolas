@@ -102,7 +102,7 @@ position = Vector2(6385, 977)
 position = Vector2(-175, 756)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "TheThing"
-comingBack = true
+whereToSpawn = "BackSpawnpoint"
 
 [node name="GoToLevel2" parent="." instance=ExtResource("4_xb70q")]
 position = Vector2(7163, 875)

@@ -22,6 +22,7 @@ func update():
 	Player.handlePhys()
 	Player.handleCamera()
 	if !Player.is_on_floor():
+		Player.apply_player_gravity()
 		Player.handleHorizontalMovement()
 		
 	if Player.movementEnabled and not Player.projectileDodgit:

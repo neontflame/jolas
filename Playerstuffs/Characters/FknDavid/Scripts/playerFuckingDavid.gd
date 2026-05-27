@@ -24,8 +24,8 @@ func _process(_delta: float) -> void:
 	if dashTriggered and is_on_floor():
 		dashTriggered = false
 
-func handleMovement():
-	super.handleMovement()
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
+	super.handleMovement(new_floor_acceleration, new_air_acceleration, new_soft_max_speed)
 	if movementEnabled:
 		if Input.is_action_just_pressed("ctrl_1"):
 			print(dashCooldown)

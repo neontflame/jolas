@@ -42,7 +42,7 @@ coolId = 2
 isRelevant = false
 goto = Dictionary[String, String]({
 "DOWN": "1",
-"LEFT": "-1",
+"LEFT": "4",
 "RIGHT": "3",
 "UP": "-1"
 })
@@ -69,7 +69,7 @@ goto = Dictionary[String, String]({
 "RIGHT": "2",
 "UP": "-1"
 })
-placeId = "especulamente.com.br"
+placeId = "GreenHawntZone"
 
 [node name="PlaceGoThing" type="Sprite2D" parent="."]
 position = Vector2(-87, 43)

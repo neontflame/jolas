@@ -18,6 +18,7 @@ func enter_state():
 func update():
 	Player.handlePhys()
 	Player.handleCamera()
+	Player.apply_player_gravity()
 	if Player.slamDunking:
 		Player.makeSlamParticle()
 	

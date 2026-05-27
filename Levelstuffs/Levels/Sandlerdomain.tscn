@@ -10,10 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6mc"]
 size = Vector2(1871, 1047)
 
-[node name="Sandlerdomain" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack", "boss", "bossRoom")]
+[node name="Sandlerdomain" type="Node2D" node_paths=PackedStringArray("boss", "bossRoom")]
 script = ExtResource("1_1pu2r")
-spawnpoint = NodePath("Spawnpoint")
-spawnpointBack = NodePath("BackSpawnpoint")
 hasBossRoom = true
 boss = NodePath("BossShit/BigSandler")
 bossRoom = NodePath("BossShit/BossDetect")
@@ -35,6 +33,19 @@ polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-271, 53, 941, 46, 941, -47, 1336, -47, 1336, 17, 1935, 27, 2218, 48, 2489, 137, 2784, 234, 2983, 264, 3280, 264, 3599, 250, 5551, 234, 5551, -710, 3727, -710, 3727, 58, 3599, 58, 3599, -838, 5711, -838, 6087, 250, 5983, 826, 4866, 821, 1967, 834, -482, 250, -482, -794, -280, -753)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3724, 569)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+color = Color(0.78, 0, 0, 1)
+polygon = PackedVector2Array(-439, 275, -542, 306, -461, 409)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-6, 262, 51, 249, 51, -18, -12, -2)
+disabled = true
+
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(174, 436)
 
@@ -42,6 +53,7 @@ position = Vector2(174, 436)
 position = Vector2(4861, 600)
 
 [node name="Camera regions" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_4gkxx")]
 position = Vector2(1005, 385)
@@ -82,7 +94,7 @@ position = Vector2(2791, 618)
 position = Vector2(-109, 656)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
-comingBack = true
+whereToSpawn = "BackSpawnpoint"
 
 [node name="BossShit" type="Node2D" parent="."]
 

@@ -31,16 +31,18 @@ func _draw() -> void:
 	
 	var direction := Vector2.UP * preview_size
 	
-	draw_line(
-		player_position.position,
-		player_position.position + (direction * scale_compensation),
-		Color.GREEN,
-		8.0 / global_scale.length()
-	)
+	if Engine.is_editor_hint():
+		draw_line(
+			player_position.position,
+			player_position.position + (direction * scale_compensation),
+			Color.GREEN,
+			8.0 / global_scale.length()
+		)
 
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	$MolaGames/MolaCima.scale.y = 1 / $MolaGames.scale.y
 	if current_object:
 		if current_object is PlayerObject:
 			current_object.motion = Vector2.ZERO
@@ -81,10 +83,9 @@ func get_launch_direction() -> Vector2:
 	return Vector2.UP.rotated(rotation)
 
 func get_launch_velocity(body) -> Vector2:
-	var gravity_ratio: float = 25.0 / body.GRAVITY
-	var gravity_modifier: float = pow(gravity_ratio, 0.35)
-
-	return get_launch_direction() * launch_force * gravity_modifier
+	var gravity_ratio: float = 1 - (sqrt(25.0 / body.GRAVITY) - 1)
+	
+	return get_launch_direction() * launch_force * gravity_ratio
 
 func play_sfx(sfx: AudioStreamPlayer2D):
 	sfx.volume_db = GeneralUtils.get_volume_db('sfx')

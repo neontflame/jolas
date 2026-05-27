@@ -32,7 +32,7 @@ func exit_state():
 func release_espy():
 	Player.make_hitbox(Vector2.ZERO,
 		Vector2(6.0, 6.0),
-		Player.ATTACK_DMG_LVL['default'],
+		Player.ATTACK_DMG_LVL['launch'],
 		0.0,
 		0.0,
 		"bubble"

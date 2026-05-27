@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://53fv6vjohi3d"]
 
 [ext_resource type="Script" uid="uid://yp2j13la815y" path="res://Levelstuffs/Bosses/Boss.gd" id="1_avpis"]
-[ext_resource type="Script" uid="uid://deeeo8l0243xr" path="res://Levelstuffs/Mobs/MobStateMachine.gd" id="2_5o6jy"]
+[ext_resource type="Script" uid="uid://cau2i8ujw8qv5" path="res://Levelstuffs/Bosses/BossStateMachine.gd" id="2_5o6jy"]
 [ext_resource type="Script" uid="uid://bmynioou1hao7" path="res://Levelstuffs/Bosses/StatePatternism/defaultSt.gd" id="3_0sn2m"]
 [ext_resource type="Script" uid="uid://dx5n3p2yc7sht" path="res://Levelstuffs/Bosses/StatePatternism/hurtSt.gd" id="4_xo06a"]
 [ext_resource type="Script" uid="uid://cg5tpv641l6ny" path="res://Levelstuffs/Bosses/StatePatternism/deathSt.gd" id="5_f6vbd"]

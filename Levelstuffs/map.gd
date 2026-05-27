@@ -1,8 +1,9 @@
 extends Node2D
 class_name JolasMap
 
-@export var spawnpoint:Node2D
-@export var spawnpointBack:Node2D
+# agora nos so usamos os nomes dos nodes mesmo #Lol
+# @export var spawnpoint:Node2D
+# @export var spawnpointBack:Node2D
 @export var infoCoisos:String = ""
 
 @export var hasBossRoom:bool = false
@@ -15,18 +16,20 @@ func _ready() -> void:
 		await GameInit.setupGameInfo()
 		var mapName = get_tree().current_scene.scene_file_path.get_file().get_basename()
 		GPStats.curMap = mapName
-		#GPStats.char = GameUtils.get_chars().pick_random()
-		GPStats.char = 'Passo'
+		GPStats.char = GameUtils.get_chars().pick_random()
+		# GPStats.char = 'Passo'
 		GPStats.saveNum = 999
 		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
 		return
 	MapUtils.set_map(self)
-	await get_tree().process_frame
+	await get_tree().create_timer(0.05).timeout
 	if hasBossRoom:
 		bossRoom.body_entered.connect(onEnterBossRoom)
 
 func onEnterBossRoom(body:Node2D):
 	for player in JolasGame.instance.allChars:
+		if GPStats.is_multiplayer and (player.curMap != GPStats.curMap):
+			return
 		if not bossRoom.get_overlapping_bodies().has(player):
 			print('Ih crl')
 			return
@@ -34,4 +37,11 @@ func onEnterBossRoom(body:Node2D):
 	if not allPlayersInBossRoom:
 		print('FOI')
 		boss.awake()
+		bossStart()
 		allPlayersInBossRoom = true
+
+func bossStart():
+	pass
+
+func bossEnd():
+	pass

@@ -143,6 +143,10 @@ can_jump_mid_air = false
 FLOOR_ACCELERATION = 15.0
 FLOOR_BRAKE = 30.0
 SLOPE_VEL_ADD = 30.0
+ATTACK_DMG = Dictionary[String, float]({
+"default": 2.0,
+"launch": 5.0
+})
 
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_nklo0")

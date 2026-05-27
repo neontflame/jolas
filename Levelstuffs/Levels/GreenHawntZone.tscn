@@ -1,6 +1,6 @@
-[gd_scene load_steps=374 format=4 uid="uid://dlsdgprqmkwmf"]
+[gd_scene load_steps=375 format=4 uid="uid://dlsdgprqmkwmf"]
 
-[ext_resource type="Script" uid="uid://du7ydh736cfhc" path="res://Levelstuffs/Levels/especulamente.com.br.gd" id="1_n4e6f"]
+[ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Levelstuffs/map.gd" id="1_f3d5j"]
 [ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Levelstuffs/Utilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="2_bxs3o"]
 [ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="3_wrhdy"]
 [ext_resource type="Script" uid="uid://bwcf4pjgprn0k" path="res://addons/rmsmartshape/shapes/point.gd" id="4_hyhft"]
@@ -18,9 +18,10 @@
 [ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="14_ydqcc"]
 [ext_resource type="Script" uid="uid://d218yx0d1ilsn" path="res://addons/rmsmartshape/normal_range.gd" id="15_fg5dv"]
 [ext_resource type="Script" uid="uid://nc5bfedvnpgm" path="res://addons/rmsmartshape/materials/shape_material.gd" id="16_kha80"]
-[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/mola_quadrada_do_kiko.tscn" id="19_2n7jk"]
+[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="19_2n7jk"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="19_xn4kh"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="20_0pgj7"]
+[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="22_pf4o8"]
 
 [sub_resource type="Resource" id="Resource_8f0vi"]
 script = ExtResource("4_hyhft")
@@ -597,14 +598,14 @@ curve_bake_interval = 20.0
 [sub_resource type="ArrayMesh" id="ArrayMesh_a8j7f"]
 _surfaces = [{
 "aabb": AABB(-891.26, -97.1853, 0, 1536, 192, 1e-05),
-"attribute_data": PackedByteArray("/////zzSlUEA8ipAPNKVQQDyKkD/////ACwzQQDyKkAALDNBAPIqQP/////EE3fAiGvdP8QTd8CIa90//////y2X08GIa90/LZfTwYhr3T//////LZfTwWp3PsAtl9PBanc+wP/////xWpfBanc+wPFal8Fqdz7A/////5tlHsEOExrAm2UewQ4TGsD/////pngVQIgpOT6meBVAiCk5Pv////8ALDNBHuZJPwAsM0Ee5kk//////zzSlUEe5kk/PNKVQR7mST8="),
+"attribute_data": PackedByteArray("/////zjSlUEA8ipAONKVQQDyKkD/////+CszQQDyKkD4KzNBAPIqQP/////hE3fAiWvdP+ETd8CJa90//////zGX08GJa90/MZfTwYlr3T//////MZfTwWp3PsAxl9PBanc+wP/////1WpfBanc+wPVal8Fqdz7A/////6ZlHsEOExrApmUewQ4TGsD/////d3gVQI4pOT53eBVAjik5Pv/////4KzNBH+ZJP/grM0Ef5kk//////zjSlUEf5kk/ONKVQR/mST8="),
 "format": 34359742527,
 "index_count": 27,
 "index_data": PackedByteArray("AAABAAIAAgADAAQABAAFAAYAAAACAAQABAAGAAcAAAAEAAcAAAAHAAgACAAJAAkACQAAAAgA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 10,
-"vertex_data": PackedByteArray("YC8hRCChvUIAAAAAwF7CQyChvUIAAAAAAIX2wkBCe0IAAAAAoNBexEBCe0IAAAAAoNBexOBewsIAAAAAoNAexOBewsIAAAAA9Eukwz60m8IAAAAAMNCuQhBeIkEAAAAAwF7CQ4CE9kEAAAAAYC8hRICE9kEAAAAA/////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////78=")
+"vertex_data": PackedByteArray("XC8hRCChvUIAAAAAuF7CQyChvUIAAAAAH4X2wkFCe0IAAAAApNBexEFCe0IAAAAApNBexOBewsIAAAAApNAexOBewsIAAAAAAEykwz60m8IAAAAA/s+uQhNeIkEAAAAAuF7CQ4GE9kEAAAAAXC8hRIGE9kEAAAAA/////////7//////////v/////////+//////////7//////////v/////////+//////////7///////v//v/////////+//////////78=")
 }]
 
 [sub_resource type="Resource" id="Resource_iu0oh"]
@@ -626,7 +627,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("oNBexHr41cIAAAAAoNBexPPwZ8IAAAAAoBBaxPTwZ8IAAAAAoBBaxHr41cIAAAAA/3//f////z//f/9//v//P/9//3/+//8//3//f////z8=")
+"vertex_data": PackedByteArray("pNBexHr41cIAAAAApNBexPPwZ8IAAAAApBBaxPTwZ8IAAAAApBBaxHr41cIAAAAA/3//f////z//f/9//v//P/9//3/+//8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_uie6j"]
@@ -641,14 +642,14 @@ force_no_tiling = true
 [sub_resource type="ArrayMesh" id="ArrayMesh_3jftn"]
 _surfaces = [{
 "aabb": AABB(-872.26, -106.988, 0, 1498, 177.002, 1e-05),
-"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////+nXuVAAACAP6de5UAAAIA//////6de5UAAAAAAp17lQAAAAAD/////g3aDQQAAgD+DdoNBAACAP/////+DdoNBAAAAAIN2g0EAAAAA/////46I6kEAAIA/jojqQQAAgD//////jojqQQAAAACOiOpBAAAAAP////8lEBpCAACAPyUQGkIAAIA//////yUQGkIAAAAAJRAaQgAAAAD/////79k2QgAAgD/v2TZCAACAP//////v2TZCAAAAAO/ZNkIAAAAA"),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////+nXuVAAACAP6de5UAAAIA//////6de5UAAAAAAp17lQAAAAAD/////gXaDQQAAgD+BdoNBAACAP/////+BdoNBAAAAAIF2g0EAAAAA/////4uI6kEAAIA/i4jqQQAAgD//////i4jqQQAAAACLiOpBAAAAAP////8lEBpCAACAPyUQGkIAAIA//////yUQGkIAAAAAJRAaQgAAAAD/////79k2QgAAgD/v2TZCAACAP//////v2TZCAAAAAO/ZNkIAAAAA"),
 "format": 34359742527,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABQAEAAYABQAGAAcABwAGAAgABwAIAAkACQAIAAoACQAKAAsA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray("oBBaxHr41cIAAAAAoBBaxPTwZ8IAAAAAkx8fxEoMaMIAAAAA37wexLf51cIAAAAAJfKmwzo0HMIAAAAAkaGjw28zr8IAAAAAbwCkQpi/Q0IAAAAATYexQsDuzz4AAAAAB7PBQ1v3i0IAAAAAuYnCQz0YqEEAAAAAYG8cRIYHjEIAAAAAYG8cRBkeqEEAAAAA/3//f/v/AUD/f/9/+/8BQP9//38d/A4+/3//fxz8Dj7/f/9/nvBPOP9//3+e8E84/3//f1LwKTj/f/9/U/ApOP9//3+/+989/3//f7/74D3/f/9//v//P/9//3/+//8/")
+"vertex_data": PackedByteArray("pBBaxHr41cIAAAAApBBaxPTwZ8IAAAAAlx8fxEoMaMIAAAAA47wexLf51cIAAAAAMfKmwzk0HMIAAAAAnaGjw24zr8IAAAAAPQCkQpe/Q0IAAAAAHYexQoDvzz4AAAAA/7LBQ1r3i0IAAAAAsYnCQz4YqEEAAAAAXG8cRIYHjEIAAAAAXG8cRBweqEEAAAAA/3//f/v/AUD/f/9/+/8BQP9//38d/A4+/3//fxz8Dj7/f/9/nvBPOP9//3+e8E84/3//f1LwKTj/f/9/U/ApOP9//3+/+989/3//f7/74D3/f/9//v//P/9//3/+//8/")
 }]
 
 [sub_resource type="Resource" id="Resource_a8j7f"]
@@ -670,7 +671,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("YG8cRBkeqEEAAAAAYG8cRIYHjEIAAAAAYC8hRIYHjEIAAAAAYC8hRBoeqEEAAAAA/3//f/7//z//f/9/////P/9//3////8//3//f/7//z8=")
+"vertex_data": PackedByteArray("XG8cRBweqEEAAAAAXG8cRIYHjEIAAAAAXC8hRIYHjEIAAAAAXC8hRBseqEEAAAAA/3//f/7//z//f/9/////P/9//3////8//3//f/7//z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_kujti"]
@@ -3786,11 +3787,8 @@ fill_mesh_offset = 0.0
 render_offset = 0.0
 metadata/_custom_type_script = "uid://nc5bfedvnpgm"
 
-[node name="especulamente_com_br" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
-script = ExtResource("1_n4e6f")
-spawnpoint = NodePath("Spawnpoint")
-spawnpointBack = NodePath("BackSpawnpoint")
-infoCoisos = "especulamente.com.br"
+[node name="GreenHawntZone" type="Node2D"]
+script = ExtResource("1_f3d5j")
 
 [node name="EspeculanteBackground" parent="." instance=ExtResource("20_0pgj7")]
 coolColor = Color(0.742769, 0.867066, 1, 1)
@@ -4197,7 +4195,7 @@ metadata/_edit_lock_ = true
 position = Vector2(256, 2752)
 
 [node name="BackSpawnpoint" type="Node2D" parent="."]
-position = Vector2(6938, 947)
+position = Vector2(21392, 2539)
 
 [node name="Camera regions" type="Node2D" parent="."]
 
@@ -4228,12 +4226,13 @@ position = Vector2(19680, 2496)
 position = Vector2(-96, 1360)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "TheThing"
-comingBack = true
+whereToSpawn = "GHZSpawnpoint"
 
 [node name="GoToLevel2" parent="." instance=ExtResource("4_ojujy")]
 position = Vector2(21536, 1792)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
+whereToSpawn = "GHZSpawnpoint"
 
 [node name="MolaQuadradaDoKiko" parent="." instance=ExtResource("19_2n7jk")]
 position = Vector2(6240, 3296)
@@ -4248,3 +4247,8 @@ launch_force = 2000.0
 position = Vector2(18016, 3456)
 scale = Vector2(1.5, 0.5)
 launch_force = 2000.0
+
+[node name="CameraBound" parent="." instance=ExtResource("22_pf4o8")]
+visible = false
+position = Vector2(10672, 3143)
+scale = Vector2(107.44, 27.3)

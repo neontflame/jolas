@@ -35,6 +35,6 @@ func goToThing(mapId:String):
 	func(): 
 		print('ok agora volta')
 		JolasGame.instance.createMap(mapId)
-		JolasGame.instance.respawnPlayer(false, false)
+		JolasGame.instance.respawnPlayer(false, "Spawnpoint")
 		JolasGame.instance.fadeOut(0.5)
 		)
