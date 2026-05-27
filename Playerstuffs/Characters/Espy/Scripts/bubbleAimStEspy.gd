@@ -9,7 +9,6 @@ func enter_state():
 		Player.motion.y = -200.0
 	Player.plySprite.play("bubbleIn")
 	Player.plySprite.flip_h = false
-	Player.practicalAngle = 0.0
 	Player.play_char_sfx("s3BubbleShield", "Espy")
 	tween_dat_shit()
 
@@ -17,6 +16,7 @@ func update():
 	if deaccelerate_tween.finished:
 		Player.apply_player_gravity(5.0)
 	
+	Player.practicalAngle = lerp_angle(Player.practicalAngle, 0.0, 0.1)
 	if Input.is_action_pressed("ctrl_2"):
 		Player.bubble_aim_camera()
 	Player.rotate_arrow_based_on_input()
@@ -27,9 +27,9 @@ func update():
 
 func exit_state():
 	kill_tweens(deaccelerate_tween)
+	bubble_pop()
 
 func release_espy():
-	bubble_pop()
 	Player.make_hitbox(Vector2.ZERO,
 		Vector2(6.0, 6.0),
 		Player.ATTACK_DMG_LVL['default'],

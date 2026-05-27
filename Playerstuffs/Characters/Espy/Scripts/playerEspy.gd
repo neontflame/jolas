@@ -16,10 +16,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	print(coolCamera.offset)
 
 func bubble_aim_camera():
-	coolCamera.offset = lerp(coolCamera.offset, bubble_aim.normalized() * 200.0, 0.1)
+	var target_offset = bubble_aim.normalized() * 200.0
+	coolCamera.offset = coolCamera.offset.lerp(target_offset, 0.1)
 
 func can_activate_bubble():
 	if Input.is_action_just_pressed("ctrl_2") and can_bubble_blast:

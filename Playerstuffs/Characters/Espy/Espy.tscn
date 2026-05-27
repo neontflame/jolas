@@ -138,6 +138,7 @@ animations = [{
 script = ExtResource("2_npxxq")
 bolha_sprite = NodePath("EspyFX/ABubbleEmQuestao")
 setaralho = NodePath("EspyFX/ASetaQueDizPraOndeElaTaSendoArremessada")
+can_jump_mid_air = false
 SLOPE_VEL_ADD = 30
 
 [node name="StateMachine" parent="." index="0"]

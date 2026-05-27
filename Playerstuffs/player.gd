@@ -340,7 +340,25 @@ func breno_cam():
 	else:
 		# não pode... volta
 		coolCamera.offset.x = lerp(coolCamera.offset.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
-		
+
+func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
+	var screen_half_x = get_viewport_rect().size.x / coolCamera.zoom.x
+	var screen_half_y = get_viewport_rect().size.y / coolCamera.zoom.y
+
+	var predicted = global_position + desired_offset
+
+	var min_x = coolCamera.limit_left + screen_half_x
+	var max_x = coolCamera.limit_right - screen_half_x
+
+	var min_y = coolCamera.limit_top + screen_half_y
+	var max_y = coolCamera.limit_bottom - screen_half_y
+
+	predicted.x = clamp(predicted.x, min_x, max_x)
+	predicted.y = clamp(predicted.y, min_y, max_y)
+	
+	print(predicted)
+	return predicted - global_position
+
 # roubei do breno creditos pra ele
 func change_state(new_state):
 	if new_state != null:
