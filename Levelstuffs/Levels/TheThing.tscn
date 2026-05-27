@@ -222,8 +222,6 @@ position = Vector2(1152, 1464)
 position = Vector2(37, 1527)
 rotation = 0.198968
 scale = Vector2(0.77, 0.48)
-spring_strength = 3000.0
-spring_speed = 0.2
 
 [node name="MolaQuadradaDoKiko3" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(880, 888)
@@ -233,49 +231,42 @@ scale = Vector2(0.77, 0.48)
 position = Vector2(837, 330)
 rotation = 0.776672
 scale = Vector2(0.77, 0.48)
-spring_strength = 2507.94
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko5" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(1006, 84)
 rotation = 2.19911
 scale = Vector2(0.72, 0.449)
-spring_strength = 2507.94
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko6" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(1262, 338)
 rotation = 0.776672
 scale = Vector2(0.77, 0.48)
-spring_strength = 2507.94
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko7" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(1431, 92)
 rotation = 2.19911
 scale = Vector2(0.72, 0.449)
-spring_strength = 2507.94
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko8" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(1747, 392)
 rotation = 0.776672
 scale = Vector2(0.77, 0.48)
-spring_strength = 2507.94
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko9" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(1916, 146)
 rotation = 1.50971
 scale = Vector2(0.72, 0.449)
-spring_strength = 10000.0
 spring_speed = 2.0
 
 [node name="MolaQuadradaDoKiko2" parent="StageGizmos" instance=ExtResource("10_h3gw8")]
 position = Vector2(216, 224)
 rotation = 2.32129
 scale = Vector2(2.805, 0.24)
-spring_strength = 3000.0
 
 [node name="GoToLevel" parent="StageGizmos" instance=ExtResource("5_khcdk")]
 position = Vector2(19342, 1322)

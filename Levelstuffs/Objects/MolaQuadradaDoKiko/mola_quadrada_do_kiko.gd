@@ -29,7 +29,7 @@ func _draw() -> void:
 	# Compensa a escala global do node
 	var scale_compensation := Vector2.ONE / global_scale
 	
-	var direction := get_launch_direction() * preview_size
+	var direction := Vector2.UP * preview_size
 	
 	draw_line(
 		player_position.position,
