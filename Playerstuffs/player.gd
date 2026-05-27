@@ -12,16 +12,18 @@ var previous_state = null
 @export var can_jump_mid_air: bool = true
 @export_category('Gameplay')
 @export_group('Parameters')
-@export var FLOOR_ACCELERATION = 62.5
-@export var AIR_ACCELERATION = 30
-@export var FLOOR_BRAKE = 0.0
-@export var SOFT_MAX_SPEED = 600
-@export var GRAVITY = 25.0
-@export var JUMP_VELOCITY = -750
-@export var SLOPE_VEL_ADD = 30
-@export var FLOOR_FRICTION = 0.9125
-@export var AIR_FRICTION = 0.9995
-@export var JUMP_COUNT = 1
+@export var FLOOR_ACCELERATION: float = 62.5
+@export var AIR_ACCELERATION: float = 30.0
+@export var FLOOR_BRAKE: float = 0.0
+@export var SOFT_MAX_SPEED: float = 600.0
+@export var GRAVITY: float = 25.0
+@export var JUMP_VELOCITY: float = -750
+@export var SLOPE_VEL_ADD: float = 30.0
+@export var FLOOR_FRICTION: float = 0.9125
+@export var AIR_FRICTION: float = 0.9995
+@export var JUMP_COUNT: int = 1
+
+var acceleration_modifiers: Dictionary = {}
 
 @export var ATTACK_DMG:Dictionary[String, float] = {
 	'default': 1
@@ -45,6 +47,7 @@ var base_camera_offset: Vector2
 #region Interesitng Variables
 # Weeeeeeeeeeeird stuff goin on here. Tread Lightlyyyuhh
 var isPlayerGrounded: bool
+
 
 const WeirdMultiplier = 100
 signal updateShit(velocity:Vector2)
@@ -195,16 +198,16 @@ var slopeFactor = 0.0
 var ACCELERATION := 0.0
 var FRICTION := 0.0
 
-func handleMovement() -> void:
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
 	if not get_multi_status(): return
 	# Go my acceleratione.
 	if is_on_floor():
-		ACCELERATION = FLOOR_ACCELERATION
+		ACCELERATION = new_floor_acceleration
 		FRICTION = FLOOR_FRICTION
 		jumpsDone = 1
 		jumping = false
 	else:
-		ACCELERATION = AIR_ACCELERATION
+		ACCELERATION = new_air_acceleration
 		FRICTION = AIR_FRICTION
 		
 	if (!movementEnabled):
@@ -238,13 +241,13 @@ func handleMovement() -> void:
 	motion.x += slopeAdd
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
-			if (motion.x > -SOFT_MAX_SPEED * slopeFactor):
+			if (motion.x > -new_soft_max_speed * slopeFactor):
 				if (motion.x > 0 and is_on_floor()):
 					motion.x -= FLOOR_BRAKE
 				else:
 					motion.x -= ACCELERATION
 		elif Input.is_action_pressed("ctrl_right"):
-			if (motion.x < SOFT_MAX_SPEED * slopeFactor):
+			if (motion.x < new_soft_max_speed * slopeFactor):
 				if (motion.x < 0 and is_on_floor()):
 					motion.x += FLOOR_BRAKE
 				else:
@@ -254,6 +257,12 @@ func handleMovement() -> void:
 
 func can_player_jump() -> bool:
 	return PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air))
+
+func get_floor_acceleration(accel_modifier: float = FLOOR_ACCELERATION) -> float:
+	return accel_modifier
+
+func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float:
+	return air_accel_modifier
 
 func handlePhys() -> void:
 	# Air Physicque

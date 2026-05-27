@@ -9,6 +9,8 @@ var can_bubble_blast: bool = true
 
 var bubble_aim: Vector2
 
+@export var run_button_multiplier: float = 1.5
+
 func _ready() -> void:
 	super()
 	bolha_sprite.scale = Vector2.ZERO

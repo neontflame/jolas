@@ -4,6 +4,7 @@ func enter_state():
 	if not Player.bubble_blasted:
 		super()
 		return
+	Player.shakeForce = 0.0
 	Player.plySprite.play("bubbleLaunch")
 
 func update():
