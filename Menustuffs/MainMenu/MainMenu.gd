@@ -44,7 +44,7 @@ func _ready() -> void:
 		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
 	
 	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
-							versão %s - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % GameUtils.gameVersion
+							versão %s (%s) - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % [GameUtils.gameVersion, GameUtils.captionVersion]
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():

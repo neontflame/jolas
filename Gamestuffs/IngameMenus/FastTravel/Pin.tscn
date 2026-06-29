@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dpc3c1btrxg4p"]
+[gd_scene load_steps=6 format=3 uid="uid://dpc3c1btrxg4p"]
 
 [ext_resource type="Script" uid="uid://djkf3qb68ap1h" path="res://Gamestuffs/IngameMenus/FastTravel/Pin.gd" id="1_renhi"]
 [ext_resource type="Texture2D" uid="uid://dufqdvgysmphk" path="res://Gamestuffs/IngameMenus/FastTravel/mapPinIrrelevant.png" id="2_cp035"]
@@ -23,9 +23,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Pin" type="Node2D" unique_id=432733768]
+[sub_resource type="CircleShape2D" id="CircleShape2D_renhi"]
+custom_solver_bias = 0.129
+radius = 12.0
+
+[node name="Pin" type="Node2D"]
 script = ExtResource("1_renhi")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=526316481]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_apvy3")
 animation = &"relevant"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_renhi")
+visibility_mode = 1
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_touch_screen_button_released"]

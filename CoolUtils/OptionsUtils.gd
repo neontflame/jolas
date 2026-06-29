@@ -7,22 +7,28 @@ static var preferences:Dictionary = {
 static var keyBince:Dictionary = {
 }
 
-# internalName:String
+#internalName:String
 #visibleName:String
 #optionery:Array[String]
 #defValue:Variant
+#mobileStatus:int
+	# -1: aparece em ambos
+	# 0: so aparece em desktop
+	# 1: so aparece em mobile
+
 static var coolOptiones:Array = [
-	['pref', 'Preferências', [], 0], # label
-		['buttonType', 'Tipos de botões na UI', ['btn_wii', 'btn_x360', 'btn_ps3', 'btn_gcn', 'btn_dc', 'btn_kb'], 0], #lembre-se de sempre usar o indice e nao o nome em si!
-	['vols', 'Volumes', [], 0], # label
-		['volMaster', 'Mestre', ['slider'], 1.0],
-		['volSFX', 'Efeitos sonoros', ['slider'], 1.0],
-		['volBGM', 'Música', ['slider'], 1.0],
-	['conts', 'Controles e Gameplay', [], 0], # label
-		['tapJump', '"Tap Jump"', ['opt_no', 'opt_yes'], 1],
-		['keybinds', 'Keybinds', [''], 0],
-		['speedZoom', 'Zoom menor em alta vel.', ['opt_no', 'opt_yes'], 1],
-		['genZoom', 'Zoom da câmera', ['slider'], 0.5]
+	['pref', 'Preferências', [], 0, 0], # label
+		['buttonType', 'Tipos de botões na UI', ['btn_wii', 'btn_x360', 'btn_ps3', 'btn_gcn', 'btn_dc', 'btn_kb'], 0, 0], #lembre-se de sempre usar o indice e nao o nome em si!
+	['vols', 'Volumes', [], 0, -1], # label
+		['volMaster', 'Mestre', ['slider'], 1.0, -1],
+		['volSFX', 'Efeitos sonoros', ['slider'], 1.0, -1],
+		['volBGM', 'Música', ['slider'], 1.0, -1],
+	['conts', 'Controles e Gameplay', [], 0, -1], # label
+		['tapJump', '"Tap Jump"', ['opt_no', 'opt_yes'], 1, -1],
+		['keybinds', 'Keybinds', [''], 0, 0],
+		['touchControls', 'Controles de toque', [''], 0, 1],
+		['speedZoom', 'Zoom menor em alta vel.', ['opt_no', 'opt_yes'], 1, -1],
+		['genZoom', 'Zoom da câmera', ['slider'], 0.5, -1]
 ]
 static var bindList:Array = [
 		["ctrl_left", "Esquerda"],

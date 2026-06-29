@@ -52,7 +52,7 @@ position = Vector2(0, 48)
 texture = ExtResource("3_41vpn")
 centered = false
 region_enabled = true
-region_rect = Rect2(15018.3, 0, 972, 264)
+region_rect = Rect2(24972.8, 0, 972, 264)
 
 [node name="Wa\'er" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_aixxa")]
 scroll_base_scale = Vector2(0.1, 0.1)

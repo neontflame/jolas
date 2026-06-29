@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://denxkkowup8rn"]
+[gd_scene load_steps=16 format=3 uid="uid://denxkkowup8rn"]
 
 [ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Diag.gd" id="1_1ie7r"]
 [ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="2_3mn5t"]
@@ -7,13 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_x2y7r"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_i3gq3"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="9_6sqdm"]
+[ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="9_lem3t"]
+[ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="10_i3gq3"]
 [ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="10_lpuaw"]
+[ext_resource type="Texture2D" uid="uid://dtvdyfkyc7c87" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Solto.png" id="11_dj7fd"]
+[ext_resource type="Texture2D" uid="uid://bux8o3ix7ds4y" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Press0002.png" id="12_jad5l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lem3t"]
 shader = ExtResource("9_6sqdm")
 shader_parameter/amount = 0.0
 
-[node name="DialogueScene" type="Node2D" unique_id=1619398082 node_paths=PackedStringArray("blurBGFx", "diagControl", "charName", "speechBubble", "diagText", "port_LeftPos", "port_RightPos")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj3f5"]
+size = Vector2(61.125, 36.01)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dgpe"]
+radius = 38.12
+
+[node name="DialogueScene" type="Node2D" node_paths=PackedStringArray("blurBGFx", "diagControl", "charName", "speechBubble", "diagText", "mobileControls", "port_LeftPos", "port_RightPos")]
 z_index = 1192
 script = ExtResource("1_1ie7r")
 blurBGFx = NodePath("DialogueCanvas/BlurFx")
@@ -21,34 +31,35 @@ diagControl = NodePath("DialogueCanvas/Control")
 charName = NodePath("DialogueCanvas/Control/CharName")
 speechBubble = NodePath("DialogueCanvas/Control/BalaoDeFala")
 diagText = NodePath("DialogueCanvas/Control/RichTextLabel")
+mobileControls = NodePath("DialogueCanvas/MobileControlly")
 port_LeftPos = NodePath("DialogueCanvas/Control/PortraitLeftPos")
 port_RightPos = NodePath("DialogueCanvas/Control/PortraitRightPos")
 
-[node name="Sounds" type="Node" parent="." unique_id=2008273160]
+[node name="Sounds" type="Node" parent="."]
 
-[node name="TickSound" type="AudioStreamPlayer" parent="Sounds" unique_id=1931368914]
+[node name="TickSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("2_x2y7r")
 
-[node name="GoSound" type="AudioStreamPlayer" parent="Sounds" unique_id=558271737]
+[node name="GoSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("3_3mn5t")
 
-[node name="DialogueCanvas" type="CanvasLayer" parent="." unique_id=1769638368]
+[node name="DialogueCanvas" type="CanvasLayer" parent="."]
 follow_viewport_scale = 0.001
 
-[node name="BlurFx" type="TextureRect" parent="DialogueCanvas" unique_id=357777515]
+[node name="BlurFx" type="TextureRect" parent="DialogueCanvas"]
 material = SubResource("ShaderMaterial_lem3t")
 anchors_preset = -1
 anchor_left = -11.135
-anchor_top = -6.3550005
-anchor_right = 12.344001
-anchor_bottom = 8.056001
+anchor_top = -6.355
+anchor_right = 12.344
+anchor_bottom = 8.056
 offset_left = 8111.0
-offset_top = 2652.5002
+offset_top = 2652.5
 offset_right = 7283.96
-offset_bottom = 2197.4202
+offset_bottom = 2197.42
 texture = ExtResource("10_lpuaw")
 
-[node name="Control" type="Control" parent="DialogueCanvas" unique_id=387880689]
+[node name="Control" type="Control" parent="DialogueCanvas"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,34 +73,71 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CharName" type="Sprite2D" parent="DialogueCanvas/Control" unique_id=790369206]
+[node name="CharName" type="Sprite2D" parent="DialogueCanvas/Control"]
 z_index = 9
 position = Vector2(310, 157)
 texture = ExtResource("3_x2y7r")
 
-[node name="BalaoDeFala" type="Sprite2D" parent="DialogueCanvas/Control" unique_id=1330956191]
+[node name="BalaoDeFala" type="Sprite2D" parent="DialogueCanvas/Control"]
 z_index = 7
 position = Vector2(14, 208)
 texture = ExtResource("2_3mn5t")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCanvas/Control" unique_id=642082819]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueCanvas/Control"]
 z_index = 10
 layout_mode = 0
 offset_left = -353.0
 offset_top = 174.0
-offset_right = 405.0
+offset_right = 354.0
 offset_bottom = 256.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/paragraph_separation = -6
 theme_override_fonts/normal_font = ExtResource("7_i3gq3")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "voce esta me deixando [shake amp=50]bravo...[/shake]"
 fit_content = true
 
-[node name="PortraitRightPos" type="Node2D" parent="DialogueCanvas/Control" unique_id=540960534]
+[node name="PortraitRightPos" type="Node2D" parent="DialogueCanvas/Control"]
 position = Vector2(275, 127)
 
-[node name="PortraitLeftPos" type="Node2D" parent="DialogueCanvas/Control" unique_id=34611940]
+[node name="PortraitLeftPos" type="Node2D" parent="DialogueCanvas/Control"]
 position = Vector2(-235, 127)
+
+[node name="MobileControlly" type="Control" parent="DialogueCanvas"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="OptionUp" type="TouchScreenButton" parent="DialogueCanvas/MobileControlly"]
+z_index = 8
+position = Vector2(-36, -103)
+texture_normal = ExtResource("9_lem3t")
+texture_pressed = ExtResource("10_i3gq3")
+shape = SubResource("RectangleShape2D_xj3f5")
+action = "ui_up"
+
+[node name="OptionDown" type="TouchScreenButton" parent="DialogueCanvas/MobileControlly"]
+z_index = 8
+position = Vector2(20, -25)
+rotation = -3.14159
+texture_normal = ExtResource("9_lem3t")
+texture_pressed = ExtResource("10_i3gq3")
+shape = SubResource("RectangleShape2D_xj3f5")
+action = "ui_down"
+
+[node name="OptionYes" type="TouchScreenButton" parent="DialogueCanvas/MobileControlly"]
+z_index = 8
+position = Vector2(-31, -18)
+scale = Vector2(0.65, 0.65)
+texture_normal = ExtResource("11_dj7fd")
+texture_pressed = ExtResource("12_jad5l")
+shape = SubResource("CircleShape2D_4dgpe")
+action = "ui_accept"

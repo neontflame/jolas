@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ctr7sp1ptwpe4"]
+[gd_scene load_steps=37 format=3 uid="uid://ctr7sp1ptwpe4"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hou52"]
 [ext_resource type="Script" uid="uid://dti35yo5dmmfq" path="res://Playerstuffs/Characters/Sushi/Scripts/statemachineSushi.gd" id="2_6k7s2"]
@@ -23,10 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://cochwi0tku3r7" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRun0003.png" id="11_6yxng"]
 [ext_resource type="Texture2D" uid="uid://ch13p2rcwf7e0" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0001.png" id="12_8umtg"]
 [ext_resource type="Texture2D" uid="uid://dnkwfknw7ahkg" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0002.png" id="13_1ujpi"]
+[ext_resource type="Texture2D" uid="uid://bvjnw2gxa3c51" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle0002.png" id="14_ax3lu"]
 [ext_resource type="Texture2D" uid="uid://hdeueawn8lc1" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0003.png" id="14_brnb8"]
 [ext_resource type="Texture2D" uid="uid://yt4aiu0ogvv3" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0004.png" id="15_5hri0"]
+[ext_resource type="Texture2D" uid="uid://cdgm5a51ppkii" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle0003.png" id="15_ialdw"]
 [ext_resource type="Texture2D" uid="uid://bh5ggc7egiglw" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiRocketFloor0005.png" id="16_ax3lu"]
+[ext_resource type="Texture2D" uid="uid://b65ail6wae5rm" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle0004.png" id="16_oyaog"]
 [ext_resource type="Texture2D" uid="uid://dpgxwbr66q4xf" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0001.png" id="17_ialdw"]
+[ext_resource type="Texture2D" uid="uid://d3qnjwlbqqili" path="res://Playerstuffs/Characters/Sushi/Sprites/sushi idle0005.png" id="17_imtfe"]
 [ext_resource type="Texture2D" uid="uid://beh1oi8mf1wx6" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0002.png" id="18_oyaog"]
 [ext_resource type="Texture2D" uid="uid://bk8swkq0othjl" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0003.png" id="19_imtfe"]
 [ext_resource type="Texture2D" uid="uid://c6d2auhvgkgb4" path="res://Playerstuffs/Characters/Sushi/Sprites/sushiWalk0004.png" id="20_yup0q"]
@@ -60,12 +64,24 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 160.0,
 "texture": ExtResource("3_6k7s2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("14_ax3lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ialdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_oyaog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_imtfe")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -162,8 +178,7 @@ animations = [{
 script = ExtResource("2_t8ely")
 rocketIndicator = NodePath("RocketIndicator")
 FLOOR_ACCELERATION = 60.0
-AIR_ACCELERATION = 40
-SOFT_MAX_SPEED = 500
+SLOPE_VEL_ADD = 30.0
 
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("2_6k7s2")
@@ -186,6 +201,8 @@ scale = Vector2(0.49, 0.755)
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_v6070")
 animation = &"default"
+frame = 4
+frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="RocketIndicator" type="Sprite2D" parent="." index="6"]

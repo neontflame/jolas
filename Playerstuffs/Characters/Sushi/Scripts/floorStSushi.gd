@@ -15,3 +15,7 @@ func update():
 	
 	if Input.is_action_just_pressed("ctrl_2"):
 		Player.change_state(Player.state_machine.st_rocket_floor)
+
+func animDone():
+	if Player.plySprite.animation == "default":
+		Player.plySprite.set_frame_and_progress(2, 0.0)

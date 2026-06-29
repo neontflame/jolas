@@ -547,7 +547,7 @@ position = Vector2(6735, 1218)
 [node name="Camera regions" type="Node2D" parent="."]
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_so8ub")]
-position = Vector2(1677, 1221)
+position = Vector2(1677, 1220)
 scale = Vector2(16.825, 4.3)
 continuousX = true
 continuousY = true

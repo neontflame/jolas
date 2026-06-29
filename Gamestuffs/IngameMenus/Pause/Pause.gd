@@ -1,6 +1,7 @@
 extends "res://Menustuffs/Submenu.gd"
 
 @export var checkestMark:Sprite2D
+@export var mobilery:Node2D
 
 var checkPositiones:Array[Vector2] = [
 	Vector2(-87.0, -39.0),
@@ -25,6 +26,18 @@ func _ready() -> void:
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('newThing')
 	$MenuCanvas/Control/SaveBox.renderPaused()
+	
+	if GameUtils.isMobile:
+		for mobthing in mobilery.get_children():
+			mobthing.doThing.connect(func(id):
+				if CoolMenu.curSelected == id:
+					doSomething(optssss[CoolMenu.curSelected])
+				if CoolMenu.curSelected != id:
+					selectry(id - CoolMenu.curSelected)
+				)
+	else:
+		mobilery.queue_free()
+	
 	await get_tree().create_timer(0.01).timeout
 	selectry(0)
 

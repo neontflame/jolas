@@ -7,7 +7,7 @@ func update():
 	if Player.canDoCharge:
 		Player.handlePhys()
 		Player.handleMovement()
-		Player.camOffset.x = (-Player.charge if Player.plySprite.flip_h else Player.charge) / 10
+		Player.base_camera_offset.x = (-Player.charge if Player.plySprite.flip_h else Player.charge) / 10
 		
 		if Player.is_on_floor():
 			Player.canDoCharge = false
@@ -38,7 +38,7 @@ func update():
 				
 		if Input.is_action_just_released("ctrl_2") && Player.canDoCharge:
 			Player.shakeForce = 0
-			Player.camOffset.x = 0
+			Player.base_camera_offset.x = 0
 			Player.plySprite.play('specialGo')
 			Player.play_sfx('Release', 0)
 			if Player.plySprite.flip_h:

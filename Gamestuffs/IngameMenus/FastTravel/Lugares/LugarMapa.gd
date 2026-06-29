@@ -52,6 +52,19 @@ func _process(delta: float) -> void:
 #region Pin utils
 func setup_pins():
 	for pin in thePins:
+		var penis = pin as MapaPin
+		penis.press.connect(func(id:int):
+				if canSelect:
+					if curSelected == id:
+						CoolMenu.play_sfx('Go')
+						canSelect = false
+						Submenu.instance.goToThing(get_pin(curSelected).placeId)
+					if curSelected != id:
+						curSelected = id
+						$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
+						$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+						CoolMenu.play_sfx('Tick'))
+		
 		for key in pin.goto.keys():
 			if pin.goto[key].is_valid_int() && pin.goto[key] != '-1':
 				if get_pin(int(pin.goto[key])) == null:

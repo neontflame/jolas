@@ -24,9 +24,11 @@ func makeOption(coolId:int, internalName:String, visibleName:String, optionery:A
 func makeOptions():
 	var integer:int = 0
 	for optione in OptionsUtils.coolOptiones:
-		var opt = makeOption(integer, optione[0], optione[1], optione[2], optione[3])
-		if (opt.validOpts != []):
-			integer += 1
+		if ((optione[4] == -1 or optione[4] == 1) and GameUtils.isMobile) \
+		or (not GameUtils.isMobile and optione[4] < 1):
+			var opt = makeOption(integer, optione[0], optione[1], optione[2], optione[3])
+			if (opt.validOpts != []):
+				integer += 1
 	
 	CoolMenu.maxSelected = integer
 	CoolMenu.curSelected = 0

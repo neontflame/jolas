@@ -22,6 +22,7 @@ var combo_tween: Tween
 @export var notifsNode:Node2D
 
 @export var sfxPlayer:AudioStreamPlayer
+
 @export_category('Online hud shit')
 @export var onlineElements:Control
 var isWriting:bool = false
@@ -34,6 +35,13 @@ func _ready() -> void:
 	var customHUD = GameUtils.get_char_asset(GPStats.char, "HUD.tscn")
 	if customHUD:
 		canvasLayer.add_child(customHUD.instantiate())
+	
+	if GameUtils.isMobile:
+		var mobHUD = load("res://Gamestuffs/HeadsUpDisplay/mobileHud.tscn")
+		canvasLayer.add_child(mobHUD.instantiate())
+		comboText.position.x -= 51.0
+		
+	
 	comboText.position.y = -64.0
 	
 	while GPStats.charObject == null:

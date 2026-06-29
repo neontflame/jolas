@@ -9,6 +9,9 @@ signal dialogue_end
 @export var charName:Sprite2D
 @export var speechBubble:Sprite2D
 @export var diagText:RichTextLabel
+
+@export var mobileControls:Control
+
 @export_category('Portrait Positions')
 @export var port_LeftPos:Node2D
 @export var port_RightPos:Node2D
@@ -114,6 +117,8 @@ func runDiag(diagNum: int):
 		diagText.text = GeneralUtils.text_replacery(CoolDial['line'])
 		diagText.visible_ratio = 0.0
 		
+		triggerMobileShits('line')
+		
 		tween = create_tween()
 		tween.tween_property(
 								diagText, 
@@ -139,6 +144,7 @@ func runDiag(diagNum: int):
 		
 		choices = CoolDial['choice']
 		renderChoices()
+		triggerMobileShits('choice')
 
 func _process(delta: float) -> void:
 	# $DialogueCanvas.transform.origin.x = GeneralUtils.get_res_difference().x
@@ -210,3 +216,17 @@ func renderChoices():
 		diagText.text += ('> ' if choices[curSelected] == ch else '  ')
 		diagText.text += GeneralUtils.text_replacery(ch[0])
 		diagText.text += '\n'
+
+func triggerMobileShits(type:String):
+	if GameUtils.isMobile:
+		diagText.size.x = 702.0
+		if type == 'line':
+			for controlly in mobileControls.get_children():
+				controlly.visible = (controlly.name == "OptionYes")
+		if type == 'choice':
+			for controlly in mobileControls.get_children():
+				controlly.visible = true
+	else:
+		diagText.size.x = 749.0
+		for controlly in mobileControls.get_children():
+			controlly.queue_free()
