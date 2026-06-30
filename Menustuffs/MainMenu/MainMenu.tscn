@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cmfb6a66cild4"]
+[gd_scene load_steps=25 format=3 uid="uid://cmfb6a66cild4"]
 
 [ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
 [ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dg8j4ypg1kyva" path="res://Menustuffs/MainMenu/sairInativo.png" id="12_3md7f"]
 [ext_resource type="Texture2D" uid="uid://ygt1a50ik8nu" path="res://Menustuffs/MainMenu/addonsAtivo.png" id="12_qa50y"]
 [ext_resource type="Texture2D" uid="uid://6yka0huh70vj" path="res://Menustuffs/MainMenu/addonsInativo.png" id="13_un3ih"]
+[ext_resource type="Script" uid="uid://c5t625hf4qdy5" path="res://CoolUtils/ScriptsUteisOuAlgo/idTouchy.gd" id="16_un3ih"]
 
 [sub_resource type="SystemFont" id="SystemFont_rdp1e"]
 font_names = PackedStringArray("Arial")
@@ -134,8 +135,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainMenu" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5deut"]
+size = Vector2(252.085, 21.955)
+
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("mobilery")]
 script = ExtResource("1_yqxuh")
+mobilery = NodePath("MenuCanvas/RightAnchor/OptsMobile")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 
@@ -216,6 +221,49 @@ position = Vector2(0, 168)
 sprite_frames = SubResource("SpriteFrames_e4pto")
 animation = &"inactive"
 centered = false
+
+[node name="OptsMobile" type="Node2D" parent="MenuCanvas/RightAnchor"]
+
+[node name="IdTouchy" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, -68)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
+
+[node name="IdTouchy2" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, -42)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+id = 1
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
+
+[node name="IdTouchy3" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, -1)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+id = 2
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
+
+[node name="IdTouchy4" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, 23)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+id = 3
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
+
+[node name="IdTouchy5" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, 61)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+id = 4
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
+
+[node name="IdTouchy6" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+position = Vector2(-94, 101)
+shape = SubResource("RectangleShape2D_5deut")
+script = ExtResource("16_un3ih")
+id = 5
+metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
 [node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
 visible = false

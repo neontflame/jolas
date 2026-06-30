@@ -2,7 +2,7 @@ extends Node
 class_name GameUtils
 
 static var isMobile:bool = false
-static var testingMobile:bool = true
+static var testingMobile:bool = false
 
 static var loadedMods:Array = []
 static var loadedModsFolderless:Array = []
