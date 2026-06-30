@@ -3,7 +3,7 @@ extends Submenu
 func _ready() -> void:
 	CoolMenu.blurAmount = 2
 	CoolMenu.activeMusicLayers = 3
-	var cool = $MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/Control6/RichTextLabel
+	var cool = $MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer/RichTextLabel6
 	cool.text = cool.text.replace('coolVer', GameUtils.gameVersion)
 
 func _process(delta: float) -> void:

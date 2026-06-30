@@ -113,13 +113,6 @@ xat.com"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[color=AAAAFF]jolas.: Desbravações Abound[/color] VERSÃO coolVer"
-fit_content = true
-horizontal_alignment = 1
-
 [node name="RichTextLabel7" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
@@ -127,5 +120,12 @@ bbcode_enabled = true
 text = "[color=FFFF00]ADDONS USADOS:[/color] 
 SmartShape2D
 Virtual Joystick"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=AAAAFF]jolas.: Desbravações Abound[/color] VERSÃO coolVer"
 fit_content = true
 horizontal_alignment = 1
