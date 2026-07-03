@@ -55,6 +55,7 @@ func parseDialogue(diagFile:String):
 		0.5     # Duration
 	)
 	dialogueLoaded = true
+	await get_tree().create_timer(1/60).timeout
 	runDiag(1)
 
 var CoolDial:Dictionary

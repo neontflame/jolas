@@ -24,7 +24,7 @@ static func spawn_object(name:String, pos:Vector2, variation:String = 'Default',
 
 static func spawn_object_online(name:String, pos:Vector2, variation:String = 'Default', additionalData:Dictionary = {}):
 	var object = load("res://Levelstuffs/Objects/" + name + "/" + variation + ".tscn").instantiate()
-	map.add_child(object)
+	map.call_deferred('add_child', object)
 	object.position = pos
 	if object.has_method("apply_additional_data") && additionalData != {}:
 		object.apply_additional_data(additionalData)
@@ -32,7 +32,7 @@ static func spawn_object_online(name:String, pos:Vector2, variation:String = 'De
 
 static func spawn_item(name:String, pos:Vector2):
 	var object = load("res://Gamestuffs/Itemstuffs/" + name + "/Item.tscn").instantiate()
-	map.add_child(object)
+	map.call_deferred('add_child', object)
 	object.position = pos
 	object.launch(Vector2.UP, 10.0)
 	return object

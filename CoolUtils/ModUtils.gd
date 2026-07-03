@@ -8,13 +8,14 @@ static func get_mod_info(mod:String):
 	if !FileAccess.file_exists(modStuff):
 		modInfo = '{
 		"restartsGame": false,
-		"requiredVersion": "%s"
+		"requiredVersion": "%s",
+		"runOnLoad": []
 		}' % GameUtils.gameVersion
 	else:
 		modInfo = FileUtils.get_text_file_content(modStuff)
 	var modGotten = JSON.parse_string(modInfo)
 	return modGotten
-	
+
 static func is_mod_compatible(mod:String):
 	var info = get_mod_info(mod)
 	# print(info)

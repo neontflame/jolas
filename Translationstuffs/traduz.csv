@@ -2,6 +2,7 @@ key;pt_BR;en;ja
 loading_game_info;Carregando informações salvas...;Loading saved info...;保存された情報を読み込んでいます...
 please_wait;Favor aguardar...;Please wait...;お待ちください...
 mod_of_mods_loaded;{loaded_mods} de {queued_mods} mods carregados;{loaded_mods} of {queued_mods} mods loaded;{queued_mods} つの MOD のうち {loaded_mods} つがロードされました
+script_of_scripts_run;{loaded_scripts} de {queued_scripts} scripts carregados;{loaded_scripts} of {queued_scripts} scripts loaded;{queued_scripts}つのスクリプトのうち{loaded_scripts}つが読み込まれました
 opt_yes;Sim;Yes;はい
 opt_no;Não;No;いいえ
 pref;Preferências;Preferences;一般的な設定
@@ -19,6 +20,7 @@ volBGM;Música;Music;音楽
 conts;Controles e Gameplay;Controls and Gameplay;コントロールとゲームプレイ
 tapJump;"Tap Jump";Tap Jump;「タップジャンプ」
 keybinds;Keybinds;Keybinds;キーバインド
+touchControls;Controles de toque;Touch controls;タッチ操作
 speedZoom;Zoom menor em alta vel.;Zoom out on high speed;高速でズームを小さくする
 genZoom;Zoom da câmera;Camera zoom;カメラのズーム
 tab_opts;Opções;Options;オプション

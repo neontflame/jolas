@@ -38,6 +38,7 @@ shader_parameter/add_margins = true
 
 [sub_resource type="SystemFont" id="SystemFont_u453t"]
 font_names = PackedStringArray("MS UI Gothic")
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_xitcb"]
 base_font = SubResource("SystemFont_u453t")
@@ -68,6 +69,7 @@ sfxPlayer = NodePath("AudioStreamPlayer")
 onlineElements = NodePath("CanvasLayer/OnlineStuffs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="LevelSquare" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_43w4t")
