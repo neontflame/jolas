@@ -137,6 +137,7 @@ position = Vector2(46, 482)
 texture = ExtResource("3_o5vmj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="Bars" type="Node" parent="CanvasLayer"]
 

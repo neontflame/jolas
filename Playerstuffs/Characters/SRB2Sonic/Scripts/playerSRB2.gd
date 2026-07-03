@@ -16,13 +16,10 @@ var thokFx = preload("res://Playerstuffs/Characters/SRB2Sonic/Fx/ThokFX.tscn")
 func _ready() -> void:
 	super._ready()
 	if GPStats.char == "SRB2Sonic":
-		await get_tree().process_frame
-		var coolHud = GameUtils.get_char_asset('SRB2Sonic', 'HeadsUpDisplay/hud.tscn').instantiate()
-		if JolasGame.instance.hud:
-			JolasGame.instance.hud.add_sibling(coolHud)
-			await get_tree().process_frame
-			JolasGame.instance.remove_child(JolasGame.instance.hud)
-		JolasGame.instance.hud = coolHud
+		if OptionsUtils.preferences.has('srb2Hud'):
+			if OptionsUtils.preferences['srb2Hud'] == 1:
+				await get_tree().process_frame
+				JolasGame.instance.makeHud(GameUtils.get_char_asset_path('SRB2Sonic', 'HeadsUpDisplay/hud.tscn'))
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)

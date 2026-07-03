@@ -16,6 +16,7 @@ size = Vector2(40, 40)
 script = ExtResource("2_bcgp1")
 special_box = NodePath("SpecialCollide")
 spinFxTimer = NodePath("SpinFxTimer")
+can_jump_mid_air = false
 FLOOR_ACCELERATION = 15.0
 AIR_ACCELERATION = 20.0
 FLOOR_BRAKE = 20.0
