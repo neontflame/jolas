@@ -13,7 +13,8 @@ var charDict:Dictionary = {}
 @export var coolFade:TextureRect
 @export var plyNode:Node2D
 @export var lvlNode:Node2D
-@export var hud:HeadsUpDisplay
+@export var whereHud:Node2D
+var hud:HeadsUpDisplay
 @export var bgmStream:AudioStreamPlayer
 @export var ingameMenu:Node2D
 
@@ -23,6 +24,7 @@ static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	makeHud()
 	createMap(GPStats.curMap)
 	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveNum)
@@ -34,6 +36,15 @@ func _ready() -> void:
 			join_mp_game()
 	
 	JolasGame.instance = self
+
+func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
+	for child in whereHud.get_children():
+		child.free()
+	hud = null
+	
+	var newHud = load(where).instantiate()
+	whereHud.add_child(newHud)
+	hud = newHud
 
 #region Os Auxiliares
 # The Joy of Creation

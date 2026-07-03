@@ -1,33 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://6j45bvm3jouo"]
+[gd_scene load_steps=6 format=3 uid="uid://6j45bvm3jouo"]
 
 [ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/game.gd" id="1_wmjmx"]
-[ext_resource type="PackedScene" uid="uid://c87scbdosa8xd" path="res://Gamestuffs/HeadsUpDisplay/hud.tscn" id="2_ll7to"]
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="3_5r2sg"]
 [ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://Gamestuffs/Multiplayer/Multiplayer.gd" id="3_ll7to"]
 [ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://Gamestuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
 [ext_resource type="PackedScene" uid="uid://cwltciujlq6jq" path="res://Gamestuffs/IngameMenus/IngameMenu.tscn" id="6_tn4rb"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "hud", "bgmStream", "ingameMenu")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "whereHud", "bgmStream", "ingameMenu")]
 script = ExtResource("1_wmjmx")
 coolFade = NodePath("CanvasLayer/Fade")
 plyNode = NodePath("Players")
 lvlNode = NodePath("Level")
-hud = NodePath("Hud")
+whereHud = NodePath("HereGoHuds")
 bgmStream = NodePath("AudioStreamPlayer")
 ingameMenu = NodePath("IngameMenu")
 
-[node name="Hud" parent="." instance=ExtResource("2_ll7to")]
-z_index = 512
+[node name="HereGoHuds" type="Node2D" parent="."]
 
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Players" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = 2
 
 [node name="Fade" type="TextureRect" parent="CanvasLayer"]
 visible = false
+z_index = 5
 offset_left = -605.0
 offset_top = -277.0
 offset_right = 1302.0
@@ -45,7 +44,7 @@ script = ExtResource("4_f3ii1")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="IngameMenu" parent="." instance=ExtResource("6_tn4rb")]
-z_index = 100
+z_index = 10
 
 [connection signal="bye_bye" from="Multiplayer" to="." method="bye_bye"]
 [connection signal="player_connected" from="Multiplayer" to="." method="_on_player_connected"]

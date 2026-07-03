@@ -90,6 +90,12 @@ func loadMod(mod:String):
 				ProjectSettings.load_resource_pack(mod)
 				GameUtils.loadedMods.append(mod)
 				GameUtils.loadedModsFolderless.append(mod.get_file())
+				# carregar scripts !!!
+				# pra quem for maluco e fizer algum mod maluco que precise
+				if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
+					for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
+						var script = load(modscript).new()
+						get_tree().root.add_child(script)
 			CoolMenu.play_sfx('Go')
 
 func goBack():

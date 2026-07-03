@@ -40,7 +40,6 @@ func _ready() -> void:
 		var mobHUD = load("res://Gamestuffs/HeadsUpDisplay/mobileHud.tscn")
 		canvasLayer.add_child(mobHUD.instantiate())
 		comboText.position.x -= 51.0
-		
 	
 	comboText.position.y = -64.0
 	
@@ -52,6 +51,8 @@ func _ready() -> void:
 		GPStats.charObject.comboReset.connect(hide_combo_hud)
 	else:
 		print("sinais nao conectados")
+	
+	JolasGame.instance.hud = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
