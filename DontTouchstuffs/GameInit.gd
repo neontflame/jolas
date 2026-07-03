@@ -2,6 +2,9 @@ class_name GameInit
 extends Node2D
 
 static func setupGameInfo():
+	GameUtils.isMobile = 	OS.has_feature("mobile") \
+							or GameUtils.testingMobile
+	
 	OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
 	await OptionsUtils.get_controls_info()
 	await UnlockUtils.merge_to_vars()

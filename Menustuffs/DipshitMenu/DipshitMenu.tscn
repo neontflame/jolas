@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://vk0j7euhewop"]
+[gd_scene load_steps=14 format=3 uid="uid://vk0j7euhewop"]
 
 [ext_resource type="Script" uid="uid://ckfxpag2jfue2" path="res://Menustuffs/DipshitMenu/DipshitMenu.gd" id="1_1fg5c"]
 [ext_resource type="Texture2D" uid="uid://vj3pw103g4sl" path="res://Menustuffs/DipshitMenu/EscolhaSeuMane.png" id="1_v7kdm"]
@@ -9,34 +9,14 @@
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_a3aa5"]
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="7_x8tw6"]
 [ext_resource type="Texture2D" uid="uid://c4xnwpqlk0y0j" path="res://Menustuffs/Commons/SetaAtiva1.png" id="8_6m5v3"]
-[ext_resource type="Texture2D" uid="uid://dj3fu1fed2o8e" path="res://Menustuffs/Commons/SetaAtiva2.png" id="9_1558m"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="10_ky6fr"]
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="11_6m5v3"]
 
 [sub_resource type="SystemFont" id="SystemFont_485od"]
 font_names = PackedStringArray("Verdana")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pobul"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_x8tw6")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_6m5v3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_1558m")
-}],
-"loop": false,
-"name": &"press",
-"speed": 12.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_x8tw6"]
+radius = 19.31
 
 [node name="DipshitMenu" type="Node2D"]
 script = ExtResource("1_1fg5c")
@@ -133,14 +113,20 @@ vertical_alignment = 2
 [node name="IconSelect" type="Node2D" parent="MenuCanvas/MidAnchor"]
 position = Vector2(-380, -230)
 
-[node name="SetaRight" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/IconSelect"]
-position = Vector2(721, 127)
-sprite_frames = SubResource("SpriteFrames_pobul")
+[node name="SetaRight" type="TouchScreenButton" parent="MenuCanvas/MidAnchor/IconSelect"]
+position = Vector2(711, 115)
+texture_normal = ExtResource("7_x8tw6")
+texture_pressed = ExtResource("8_6m5v3")
+shape = SubResource("CircleShape2D_x8tw6")
+action = "ui_right"
 
-[node name="SetaLeft" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/IconSelect"]
-position = Vector2(345, 127)
-sprite_frames = SubResource("SpriteFrames_pobul")
-flip_h = true
+[node name="SetaLeft" type="TouchScreenButton" parent="MenuCanvas/MidAnchor/IconSelect"]
+position = Vector2(358, 114)
+scale = Vector2(-1, 1)
+texture_normal = ExtResource("7_x8tw6")
+texture_pressed = ExtResource("8_6m5v3")
+shape = SubResource("CircleShape2D_x8tw6")
+action = "ui_left"
 
 [node name="Icons" type="Node2D" parent="MenuCanvas/MidAnchor/IconSelect"]
 

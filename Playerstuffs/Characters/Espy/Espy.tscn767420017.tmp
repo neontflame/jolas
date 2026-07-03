@@ -1,0 +1,148 @@
+[gd_scene load_steps=23 format=3 uid="uid://bj05kyg31vnx4"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_0miae"]
+[ext_resource type="Texture2D" uid="uid://cmhl1wjgcmfj7" path="res://Playerstuffs/Characters/Espy/Sprites/espy bighurt0001.png" id="2_iu5eo"]
+[ext_resource type="Script" uid="uid://b42uyhp2rbg54" path="res://Playerstuffs/Characters/Espy/Scripts/playerEspy.gd" id="2_npxxq"]
+[ext_resource type="Script" uid="uid://dothc8626yvd0" path="res://Playerstuffs/Characters/Espy/Scripts/statemachineEspy.gd" id="3_nklo0"]
+[ext_resource type="Texture2D" uid="uid://cqu5cnjpjuwvf" path="res://Playerstuffs/Characters/Espy/Sprites/espy bighurt0002.png" id="3_npxxq"]
+[ext_resource type="Texture2D" uid="uid://chq8rv64pr81m" path="res://Playerstuffs/Characters/Espy/Sprites/espy bighurt0003.png" id="4_nklo0"]
+[ext_resource type="Texture2D" uid="uid://by4uiotti4xjf" path="res://Playerstuffs/Characters/Espy/Sprites/espy bighurt0004.png" id="5_vyjxe"]
+[ext_resource type="Texture2D" uid="uid://dwwv2h7d4ub5u" path="res://Playerstuffs/Characters/Espy/Sprites/espy brake.png" id="6_howso"]
+[ext_resource type="Texture2D" uid="uid://djwf8igol4lsf" path="res://Playerstuffs/Characters/Espy/Sprites/espy bubble.png" id="7_jq3hp"]
+[ext_resource type="Texture2D" uid="uid://cdyuax5gyhfa1" path="res://Playerstuffs/Characters/Espy/Sprites/espy launch.png" id="8_2mobk"]
+[ext_resource type="Texture2D" uid="uid://c8x64321l8nnq" path="res://Playerstuffs/Characters/Espy/Sprites/espy idle.png" id="9_d8bqu"]
+[ext_resource type="Texture2D" uid="uid://cbs7sw6ul4ldk" path="res://Playerstuffs/Characters/Espy/Sprites/espy double jump0001.png" id="10_luhco"]
+[ext_resource type="Texture2D" uid="uid://dpeadi0am2m8o" path="res://Playerstuffs/Characters/Espy/Sprites/espy double jump0002.png" id="11_q33jt"]
+[ext_resource type="Texture2D" uid="uid://c3at4w3hg53jr" path="res://Playerstuffs/Characters/Espy/Sprites/espy double jump0003.png" id="12_cb5qi"]
+[ext_resource type="Texture2D" uid="uid://bhll337o0v1fk" path="res://Playerstuffs/Characters/Espy/Sprites/espy hurt0001.png" id="13_dndgu"]
+[ext_resource type="Texture2D" uid="uid://75oyctjpqnkw" path="res://Playerstuffs/Characters/Espy/Sprites/espy hurt0002.png" id="14_g5egb"]
+[ext_resource type="Texture2D" uid="uid://b1tetmtp78thq" path="res://Playerstuffs/Characters/Espy/Sprites/espy jump.png" id="15_dd0vl"]
+[ext_resource type="Texture2D" uid="uid://b5j0kxmbj7ykp" path="res://Playerstuffs/Characters/Espy/Sprites/espy run0001.png" id="16_wukdg"]
+[ext_resource type="Texture2D" uid="uid://dnj83iu4ilnc3" path="res://Playerstuffs/Characters/Espy/Sprites/espy run0002.png" id="17_ty3bw"]
+[ext_resource type="Texture2D" uid="uid://dpd2ry0snp332" path="res://Playerstuffs/Characters/Espy/Sprites/espy walk0001.png" id="18_n8h8i"]
+[ext_resource type="Texture2D" uid="uid://ou1pe8ismynx" path="res://Playerstuffs/Characters/Espy/Sprites/espy walk0002.png" id="19_e8qwo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36c40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iu5eo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_npxxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nklo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vyjxe")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_howso")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jq3hp")
+}],
+"loop": true,
+"name": &"bubbleIn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2mobk")
+}],
+"loop": true,
+"name": &"bubbleLaunch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_d8bqu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_luhco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q33jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cb5qi")
+}],
+"loop": false,
+"name": &"doubleJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_dndgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g5egb")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_dd0vl")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_wukdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ty3bw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_n8h8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_e8qwo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" instance=ExtResource("1_0miae")]
+script = ExtResource("2_npxxq")
+SLOPE_VEL_ADD = 30
+
+[node name="StateMachine" parent="." index="0"]
+script = ExtResource("3_nklo0")
+
+[node name="BubbleAim" type="Node" parent="StateMachine" index="4"]
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.395, 0.775)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_36c40")
+animation = &"bubbleLaunch"
+frame_progress = 0.922387
+offset = Vector2(-4, 0)

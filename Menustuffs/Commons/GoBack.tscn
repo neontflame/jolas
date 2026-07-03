@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2fvcyowj5mkg"]
+[gd_scene load_steps=5 format=3 uid="uid://b2fvcyowj5mkg"]
 
 [ext_resource type="Script" uid="uid://bjq21xdxjnpmy" path="res://Menustuffs/Commons/GoWherever.gd" id="1_f4nn3"]
 [ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="1_ln7y5"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_d7p41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4nn3"]
+size = Vector2(160, 48)
 
 [node name="GoBack" type="Node2D"]
 script = ExtResource("1_f4nn3")
@@ -20,3 +23,9 @@ theme_override_fonts/normal_font = ExtResource("3_d7p41")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "ui_cancel"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(37, 0)
+shape = SubResource("RectangleShape2D_f4nn3")
+action = "ui_cancel"
+visibility_mode = 1

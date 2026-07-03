@@ -34,7 +34,11 @@ var reboundCountdown := 0.0
 var isSliding:bool = false
 signal slideTriggered
 
-var isBoosting:bool = false
+var isBoosting:bool = false:
+	set(v):
+		isBoosting = v
+		if isBoosting:
+			activate_boost()
 
 var ctrl1diff = 12 # 5 frames
 var canDash:bool = true
@@ -102,6 +106,8 @@ func handleBoost():
 		)
 		
 	ELECTRICITY -= ELEC_USAGE['boost']
+
+func activate_boost():
 	if Input.is_action_pressed("ctrl_left") \
 	or not Input.is_action_pressed("ctrl_right") and plySprite.flip_h:
 		if (motion.x > -BOOST_MIN_SPEED):
@@ -247,8 +253,8 @@ func sweeping_mob(dir:StringName) -> Array:
 				mob = downSweep.get_collider()
 	return [isTrued, mob]
 
-func handleMovement() -> void:
-	super.handleMovement()
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
+	super.handleMovement(new_floor_acceleration, new_air_acceleration, new_soft_max_speed)
 	if GPStats.charObject != self: return
 	handleSlide()
 	handleRebounds()
@@ -289,7 +295,7 @@ func handleSlide():
 func get_invuln():
 	return (invulnFrames > 0) || fullInvuln || isBoosting || current_state.name == 'Dash'
 	
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	

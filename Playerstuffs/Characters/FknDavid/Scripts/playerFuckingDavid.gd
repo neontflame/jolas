@@ -24,8 +24,8 @@ func _process(_delta: float) -> void:
 	if dashTriggered and is_on_floor():
 		dashTriggered = false
 
-func handleMovement():
-	super.handleMovement()
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
+	super.handleMovement(new_floor_acceleration, new_air_acceleration, new_soft_max_speed)
 	if movementEnabled:
 		if Input.is_action_just_pressed("ctrl_1"):
 			print(dashCooldown)
@@ -33,7 +33,7 @@ func handleMovement():
 				change_state(state_machine.st_dash)
 				dashTriggered = true
 				dashCooldown = 24.0
-		if Input.is_action_pressed("ctrl_2"):
+		if Input.is_action_just_pressed("ctrl_2"):
 			throwEm()
 
 func throwEm():
@@ -79,7 +79,7 @@ func makeAfterimage():
 	add_child(afterimg)
 	afterimg.grabInfo(self)
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
 	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
 	

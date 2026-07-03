@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 
 func handlePhys():
 	if !is_on_floor():
-		velocity.y += GRAVITY * deltaOne
+		velocity.y += GRAVITY
 		
 	if is_on_wall():
 		velocity.x = 0
@@ -130,12 +130,12 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 	hp -= hpLost
 	on_hurt(hpLost, {'vel': vel, 'fromBehind': fromBehind})
 	if (hp <= 0):
-		hp = 0
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
 		change_state(state_machine.st_death)
 		dropItems()
 		isDead = true
+		MapUtils.map.bossEnd()
 	else:
 		change_state(state_machine.st_hurt)
 	return true

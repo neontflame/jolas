@@ -13,6 +13,8 @@ func update():
 	handleAnimations()
 	Player.handleMovement()
 	Player.handleCamera()
+	Player.apply_player_gravity()
+	
 	
 	if Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_floor)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://doi0o1xbqps58"]
+
+[ext_resource type="Texture2D" uid="uid://c8x64321l8nnq" path="res://Playerstuffs/Characters/Espy/Sprites/espy idle.png" id="1_hme35"]
+
+[node name="CharSel" type="Node2D"]
+
+[node name="EspyIdle" type="Sprite2D" parent="."]
+position = Vector2(-5, -51)
+texture = ExtResource("1_hme35")

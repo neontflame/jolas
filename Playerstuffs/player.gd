@@ -12,16 +12,18 @@ var previous_state = null
 @export var can_jump_mid_air: bool = true
 @export_category('Gameplay')
 @export_group('Parameters')
-@export var FLOOR_ACCELERATION = 62.5
-@export var AIR_ACCELERATION = 30
-@export var FLOOR_BRAKE = 0.0
-@export var SOFT_MAX_SPEED = 600
-@export var GRAVITY = 25.0
-@export var JUMP_VELOCITY = -625
-@export var SLOPE_VEL_ADD = 30
-@export var FLOOR_FRICTION = 0.9125
-@export var AIR_FRICTION = 0.9995
-@export var JUMP_COUNT = 1
+@export var FLOOR_ACCELERATION: float = 62.5
+@export var AIR_ACCELERATION: float = 30.0
+@export var FLOOR_BRAKE: float = 0.0
+@export var SOFT_MAX_SPEED: float = 600.0
+@export var GRAVITY: float = 25.0
+@export var JUMP_VELOCITY: float = -750
+@export var SLOPE_VEL_ADD: float = 30.0
+@export var FLOOR_FRICTION: float = 0.9125
+@export var AIR_FRICTION: float = 0.9995
+@export var JUMP_COUNT: int = 1
+
+var acceleration_modifiers: Dictionary = {}
 
 @export var ATTACK_DMG:Dictionary[String, float] = {
 	'default': 1
@@ -31,7 +33,8 @@ var previous_state = null
 @export var player_collisions:CollisionShape2D
 @export var sfx_player:AudioStreamPlayer2D
 @export var multiplayerName:RichTextLabel
-@export var coolCamera:Camera2D
+@export var coolCamera: Camera2D
+var base_camera_offset: Vector2
 @export var hitboxCoisos:Node2D
 @export var floorCast: RayCast2D
 
@@ -44,6 +47,7 @@ var previous_state = null
 #region Interesitng Variables
 # Weeeeeeeeeeeird stuff goin on here. Tread Lightlyyyuhh
 var isPlayerGrounded: bool
+
 
 const WeirdMultiplier = 100
 signal updateShit(velocity:Vector2)
@@ -85,7 +89,7 @@ var holding_jump:bool = false
 
 var up_override:bool = false
 
-var isSonicPhys:bool = false
+var isSonicPhys: bool = true
 var practicalAngle := 0.0
 
 var movementEnabled:bool = true
@@ -113,6 +117,8 @@ func _ready() -> void:
 	if FLOOR_BRAKE == 0:
 		FLOOR_BRAKE = FLOOR_ACCELERATION
 	PlayerUtils.set_default_zoom()
+	
+	setup_camera()
 
 func _enter_tree() -> void:
 	# CODIGO DE QUANDO ENTRA NO MULTIPLAYER FAVOR NAO MEXER !!!
@@ -130,7 +136,7 @@ func _enter_tree() -> void:
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
 	while stunFrames > 0:
-		stunFrames -= 1 * deltaOne
+		stunFrames -= 1
 		return
 	if current_state.has_method("update"): current_state.update()
 	
@@ -166,7 +172,6 @@ func _physics_process(delta: float) -> void:
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
 
 func handleSonicPhys() -> void:
-	isSonicPhys = true
 	player_collisions.rotation = practicalAngle
 	plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.2)
 		
@@ -193,16 +198,16 @@ var slopeFactor = 0.0
 var ACCELERATION := 0.0
 var FRICTION := 0.0
 
-func handleMovement() -> void:
+func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
 	if not get_multi_status(): return
 	# Go my acceleratione.
 	if is_on_floor():
-		ACCELERATION = FLOOR_ACCELERATION
+		ACCELERATION = new_floor_acceleration
 		FRICTION = FLOOR_FRICTION
 		jumpsDone = 1
 		jumping = false
 	else:
-		ACCELERATION = AIR_ACCELERATION
+		ACCELERATION = new_air_acceleration
 		FRICTION = AIR_FRICTION
 		
 	if (!movementEnabled):
@@ -210,9 +215,10 @@ func handleMovement() -> void:
 		return
 		
 	# jumpfuck
-	if PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air)):
+	if can_player_jump():
 		jumpsDone += 1
 		if isSonicPhys:
+			print("pode pular")
 			motion.y = JUMP_VELOCITY
 		else:
 			motion.y = JUMP_VELOCITY * -floorSinCos.y
@@ -222,36 +228,44 @@ func handleMovement() -> void:
 		holding_jump = true
 		on_jump(jumpsDone)
 	
-	if holding_jump:
-		if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
-			holding_jump = false
+	#if holding_jump:
+		#if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
+			#holding_jump = false
+	
+	if jumping:
+		if Input.is_action_just_released("ctrl_jump") and motion.y < 0.0:
+			motion.y /= 2.0
+			jumping = false
 	
 	# walkfucks
 	motion.x += slopeAdd
 	if walkingEnabled:
 		if Input.is_action_pressed("ctrl_left"):
-			if (motion.x > -SOFT_MAX_SPEED * slopeFactor):
+			if (motion.x > -new_soft_max_speed * slopeFactor):
 				if (motion.x > 0 and is_on_floor()):
-					motion.x -= FLOOR_BRAKE * deltaOne
+					motion.x -= FLOOR_BRAKE
 				else:
-					motion.x -= ACCELERATION * deltaOne
+					motion.x -= ACCELERATION
 		elif Input.is_action_pressed("ctrl_right"):
-			if (motion.x < SOFT_MAX_SPEED * slopeFactor):
+			if (motion.x < new_soft_max_speed * slopeFactor):
 				if (motion.x < 0 and is_on_floor()):
-					motion.x += FLOOR_BRAKE * deltaOne
+					motion.x += FLOOR_BRAKE
 				else:
-					motion.x += ACCELERATION * deltaOne
+					motion.x += ACCELERATION
 		else:
-			motion.x = motion.x * (FRICTION * deltaOne)
+			motion.x = motion.x * (FRICTION)
+
+func can_player_jump() -> bool:
+	return PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air))
+
+func get_floor_acceleration(accel_modifier: float = FLOOR_ACCELERATION) -> float:
+	return accel_modifier
+
+func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float:
+	return air_accel_modifier
 
 func handlePhys() -> void:
 	# Air Physicque
-	if not is_on_floor():
-		practicalAngle = 0.0
-		if (holding_jump): 
-			motion.y += (GRAVITY / 1.5) * deltaOne
-		else: 
-			motion.y += GRAVITY * deltaOne
 		
 	if is_on_ceiling():
 		motion.y = 10
@@ -280,16 +294,79 @@ func handlePhys() -> void:
 
 var idealerZoom = 1.0
 
+func apply_player_gravity(custom_gravity: float = GRAVITY):
+	var delta = get_physics_process_delta_time()
+	var gravity_value = (custom_gravity * 60.0) * delta
+	if not is_on_floor():
+		if is_on_ceiling():
+			motion.y = 10
+		practicalAngle = 0.0
+		motion.y += gravity_value
+
+func setup_camera():
+	coolCamera.position_smoothing_enabled = false
+	await get_tree().process_frame
+	coolCamera.position_smoothing_enabled = true
+
 func handleCamera() -> void:
-	$Camera2D.position.x = lerp($Camera2D.position.x, (velocity.x / 10) + camOffset.x, 0.2) + randf_range(-camShakeForce, camShakeForce)
-	$Camera2D.position.y = lerp($Camera2D.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
-	
+	#neon_cam()
+	neon_zoom()
+	breno_cam()
+
+func neon_cam():
+	coolCamera.position.x = lerp(coolCamera.position.x, (velocity.x / 10) + camOffset.x, 0.2) + randf_range(-camShakeForce, camShakeForce)
+	coolCamera.position.y = lerp(coolCamera.position.y, ((velocity.y if is_on_floor else -velocity.y) / 10) + camOffset.y, 0.2) + randf_range(-camShakeForce, camShakeForce)
+
+func neon_zoom():
 	if (abs(motion.x) > SOFT_MAX_SPEED * 1.25) && canSpeedZoomCam:
 		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom - 0.15)
 	else:
 		idealerZoom = PlayerUtils.get_camera_zoom(idealZoom)
-	$Camera2D.zoom = Vector2(	lerp($Camera2D.zoom.x, idealerZoom, 0.05), 
-								lerp($Camera2D.zoom.y, idealerZoom, 0.05))
+	coolCamera.zoom = Vector2(	lerp(coolCamera.zoom.x, idealerZoom, 0.05), 
+								lerp(coolCamera.zoom.y, idealerZoom, 0.05))
+
+func breno_cam():
+	var delta = get_physics_process_delta_time()
+	var screen_half_x = get_viewport_rect().size.x * 0.8 / coolCamera.zoom.x
+	var screen_half_y = get_viewport_rect().size.y * 1.2 / coolCamera.zoom.y
+	var forward_offset_x = base_camera_offset.x
+	if abs(get_real_velocity().x) > 100.0:
+		forward_offset_x += 200.0 * sign(get_real_velocity().x)
+
+	var predicted_x = global_position.x + forward_offset_x
+
+	var margin_left  = coolCamera.limit_left + screen_half_x + 5
+	var margin_right = coolCamera.limit_right - screen_half_x - 5
+
+	var can_move_forward = predicted_x > margin_left and predicted_x < margin_right
+	
+	if coolCamera.offset.y != 0.0:
+		coolCamera.offset.y = lerp(coolCamera.offset.y, 0.0, 0.1)
+	
+	if can_move_forward:
+		# pode avançar pra frente
+		coolCamera.offset.x = lerp(coolCamera.offset.x, forward_offset_x, delta)
+	else:
+		# não pode... volta
+		coolCamera.offset.x = lerp(coolCamera.offset.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
+
+func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
+	var screen_half_x = get_viewport_rect().size.x / coolCamera.zoom.x
+	var screen_half_y = get_viewport_rect().size.y / coolCamera.zoom.y
+
+	var predicted = global_position + desired_offset
+
+	var min_x = coolCamera.limit_left + screen_half_x
+	var max_x = coolCamera.limit_right - screen_half_x
+
+	var min_y = coolCamera.limit_top + screen_half_y
+	var max_y = coolCamera.limit_bottom - screen_half_y
+
+	predicted.x = clamp(predicted.x, min_x, max_x)
+	predicted.y = clamp(predicted.y, min_y, max_y)
+	
+	print(predicted)
+	return predicted - global_position
 
 # roubei do breno creditos pra ele
 func change_state(new_state):
@@ -430,7 +507,7 @@ func delete_hitboxes_actual(hitboxId:String = ''):
 				hitboxes.erase(hit)
 				hit.queue_free()
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	pass
 
 func hitbox_exists(hitboxId:String = ''):

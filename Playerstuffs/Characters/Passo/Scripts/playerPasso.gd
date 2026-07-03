@@ -21,7 +21,7 @@ func is_wall_to_right():
 		return true
 	return false
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	var flipped:bool = 	Input.is_action_pressed("ctrl_left") \
 						or not Input.is_action_pressed("ctrl_right") \
 						and plySprite.flip_h
@@ -42,3 +42,11 @@ func hitbox_connect(hit:OffensiveHitbox):
 		plySprite.flip_h = flipped
 		motion.x = 200 if flipped else -200
 		delete_hitboxes('airdash')
+
+func rebound_ready_animation(value: float = 5.0):
+	plySprite.modulate = Color(value, value, value)
+	
+	var r_tween = create_tween().set_ease(
+		Tween.EASE_OUT).set_trans(
+			Tween.TRANS_QUART)
+	r_tween.tween_property(plySprite, "modulate", Color(1.0, 1.0, 1.0), 0.2)

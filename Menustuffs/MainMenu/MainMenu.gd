@@ -5,6 +5,8 @@ var menuNames:Array = []
 
 var isSelected:bool = false
 
+@export var mobilery:Node2D
+
 func randomQuote():
 	var quotes := [
 		'bosta em lata',
@@ -44,11 +46,23 @@ func _ready() -> void:
 		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
 	
 	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
-							versão %s - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % GameUtils.gameVersion
+							versão %s (%s) - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % [GameUtils.gameVersion, GameUtils.captionVersion]
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():
 		menuCoolios.append(child)
+	
+	if GameUtils.isMobile:
+		for mobthing in mobilery.get_children():
+			mobthing.doThing.connect(func(id):
+				if CoolMenu.curSelected == id:
+					goToMenu(menuCoolios[CoolMenu.curSelected].name)
+				if CoolMenu.curSelected != id:
+					CoolMenu.play_sfx('Tick')
+					CoolMenu.curSelected = id
+				)
+	else:
+		mobilery.queue_free()
 	
 	CoolMenu.maxSelected = len(menuCoolios)
 	CoolMenu.blurAmount = 0.0

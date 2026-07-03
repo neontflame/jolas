@@ -11,7 +11,6 @@ func enter_state():
 			await get_tree().process_frame
 		Player.motion.x = Player.motion.x * 1.025
 		Player.motion.y = abs(Player.lastInterestingYv) * -1.2
-		print(Player.rebounding)
 
 func handleAnimations() -> void:
 	if not Player.rebounding:

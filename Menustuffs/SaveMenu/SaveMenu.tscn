@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene load_steps=19 format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="5_x1y7c"]
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="6_desna"]
 [ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
+[ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="10_5vgxp"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="11_0jemy"]
+[ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="11_hacn3"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="13_8323x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
@@ -43,6 +45,9 @@ animations = [{
 "name": &"delete",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6e1n"]
+size = Vector2(61.125, 36.01)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0jemy"]
 shader = ExtResource("11_0jemy")
@@ -109,6 +114,48 @@ rotation = 0.0174533
 position = Vector2(-189, 82)
 sprite_frames = SubResource("SpriteFrames_omsxf")
 centered = false
+
+[node name="MobileShit" type="Node" parent="MenuCanvas"]
+
+[node name="TopAnchor" type="Control" parent="MenuCanvas/MobileShit"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="OptionUp" type="TouchScreenButton" parent="MenuCanvas/MobileShit/TopAnchor"]
+z_index = 8
+position = Vector2(0, 19)
+texture_normal = ExtResource("10_5vgxp")
+texture_pressed = ExtResource("11_hacn3")
+shape = SubResource("RectangleShape2D_s6e1n")
+action = "ui_up"
+
+[node name="BottomAnchor" type="Control" parent="MenuCanvas/MobileShit"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OptionDown" type="TouchScreenButton" parent="MenuCanvas/MobileShit/BottomAnchor"]
+z_index = 8
+position = Vector2(56, 29)
+rotation = -3.14159
+texture_normal = ExtResource("10_5vgxp")
+texture_pressed = ExtResource("11_hacn3")
+shape = SubResource("RectangleShape2D_s6e1n")
+action = "ui_down"
 
 [node name="LeftAnchor" type="Control" parent="MenuCanvas"]
 layout_mode = 3

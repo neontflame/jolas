@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bbhguj3f8adm8"]
+[gd_scene load_steps=6 format=3 uid="uid://bbhguj3f8adm8"]
 
 [ext_resource type="Script" uid="uid://dfgcbul3rd7qa" path="res://Gamestuffs/IngameMenus/FastTravel/Lugares/LugarMapa.gd" id="1_aywg7"]
 [ext_resource type="Texture2D" uid="uid://dbwn1cg68yjxh" path="res://Gamestuffs/IngameMenus/FastTravel/Lugares/mapaDeTestes.png" id="1_o84g8"]
@@ -6,70 +6,93 @@
 [ext_resource type="Texture2D" uid="uid://bd5aopvrphewb" path="res://Gamestuffs/IngameMenus/FastTravel/placeGoThing.png" id="4_tun8v"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="5_tun8v"]
 
-[node name="MapaDeTestes" type="Node2D" unique_id=56169299]
+[node name="MapaDeTestes" type="Node2D"]
 script = ExtResource("1_aywg7")
 
-[node name="MapaDeTestes" type="Sprite2D" parent="." unique_id=497931961]
+[node name="MapaDeTestes" type="Sprite2D" parent="."]
 texture = ExtResource("1_o84g8")
 
-[node name="Pins" type="Node2D" parent="." unique_id=11138046]
+[node name="Pins" type="Node2D" parent="."]
 
-[node name="Pin" parent="Pins" unique_id=432733768 instance=ExtResource("2_4kjkx")]
+[node name="Pin" parent="Pins" instance=ExtResource("2_4kjkx")]
 position = Vector2(-87, 53)
 goto = Dictionary[String, String]({
 "DOWN": "-1",
 "LEFT": "-1",
 "RIGHT": "1",
-"UP": "1"
+"UP": "4"
 })
 placeId = "TheThing"
 
-[node name="Pin2" parent="Pins" unique_id=994024770 instance=ExtResource("2_4kjkx")]
+[node name="Pin2" parent="Pins" instance=ExtResource("2_4kjkx")]
 position = Vector2(-7, 24)
 coolId = 1
 isRelevant = false
 goto = Dictionary[String, String]({
-"DOWN": "0",
+"DOWN": "-1",
 "LEFT": "0",
 "RIGHT": "-1",
 "UP": "2"
 })
 placeId = "Sandlerhell"
 
-[node name="Pin3" parent="Pins" unique_id=1593033098 instance=ExtResource("2_4kjkx")]
+[node name="Pin3" parent="Pins" instance=ExtResource("2_4kjkx")]
 position = Vector2(23, -31)
 coolId = 2
 isRelevant = false
 goto = Dictionary[String, String]({
 "DOWN": "1",
-"LEFT": "-1",
-"RIGHT": "-1",
+"LEFT": "4",
+"RIGHT": "3",
 "UP": "-1"
 })
 placeId = "OutroMapa"
 
-[node name="PlaceGoThing" type="Sprite2D" parent="." unique_id=1410134871]
+[node name="Pin4" parent="Pins" instance=ExtResource("2_4kjkx")]
+position = Vector2(111, -47)
+coolId = 3
+goto = Dictionary[String, String]({
+"DOWN": "-1",
+"LEFT": "2",
+"RIGHT": "-1",
+"UP": "-1"
+})
+placeId = "Sandlerdomain"
+
+[node name="Pin5" parent="Pins" instance=ExtResource("2_4kjkx")]
+position = Vector2(-100, -45)
+coolId = 4
+isRelevant = false
+goto = Dictionary[String, String]({
+"DOWN": "0",
+"LEFT": "-1",
+"RIGHT": "2",
+"UP": "-1"
+})
+placeId = "GreenHawntZone"
+
+[node name="PlaceGoThing" type="Sprite2D" parent="."]
 position = Vector2(-87, 43)
 texture = ExtResource("4_tun8v")
 offset = Vector2(0, -10)
 
-[node name="PlaceName" type="Label" parent="." unique_id=1843198917]
+[node name="PlaceName" type="Label" parent="."]
 offset_left = -211.0
 offset_top = 147.0
 offset_right = -1.0
 offset_bottom = 177.0
 theme = ExtResource("5_tun8v")
-theme_override_colors/font_color = Color(0.2509804, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25098, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Nome do lugar"
 
-[node name="RegName" type="Label" parent="." unique_id=287194055]
+[node name="RegName" type="Label" parent="."]
 offset_left = 2.0
 offset_top = 146.0
 offset_right = 213.0
 offset_bottom = 176.0
 theme = ExtResource("5_tun8v")
-theme_override_colors/font_color = Color(0.2509804, 0, 0, 1)
+theme_override_colors/font_color = Color(0.25098, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Nome da região"
 horizontal_alignment = 2

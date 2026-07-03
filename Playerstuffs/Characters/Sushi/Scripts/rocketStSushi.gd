@@ -52,7 +52,7 @@ func update():
 	pass
 
 func goBack():
-	Player.camOffset = Vector2.ZERO
+	Player.base_camera_offset = Vector2.ZERO
 	if Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_floor)
 	else:
@@ -69,7 +69,7 @@ func handleRocketAnims():
 	Player.plySprite.play('rocketLauncher', 0)
 	Player.plySprite.set_frame(sushiFrame) # codigo com alma
 	var addedAngle := 90
-	Player.camOffset = Vector2(
+	Player.base_camera_offset = Vector2(
 						sin(deg_to_rad(Player.rocketAngle + addedAngle)) * 100,
 						cos(deg_to_rad(Player.rocketAngle + addedAngle)) * -100
 						)
@@ -77,7 +77,7 @@ func handleRocketAnims():
 
 func exit_state():
 	Player.rocketIndicator.visible = false
-	Player.camOffset = Vector2.ZERO
+	Player.base_camera_offset = Vector2.ZERO
 	
 func _input(event):
 	if event is InputEventMouseMotion:

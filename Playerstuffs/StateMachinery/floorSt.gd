@@ -1,7 +1,6 @@
 extends StatePattern
 
 func enter_state():
-	# print('Enter Floor')
 	Player.motion.y = 4
 	if not Player.plySprite.animation_finished.is_connected(animDone):
 		Player.plySprite.animation_finished.connect(animDone)

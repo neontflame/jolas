@@ -1,15 +1,175 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsebxc1mw277y"]
+[gd_scene load_steps=30 format=4 uid="uid://bsebxc1mw277y"]
 
 [ext_resource type="Script" uid="uid://ix0rujox53fc" path="res://Levelstuffs/Levels/OutroMapa.gd" id="1_ue65o"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_d0je0"]
+[ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Levelstuffs/Utilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="3_pyyvb"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_8wpb2"]
+[ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="4_duv05"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="5_qp5dq"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_trijc"]
+[ext_resource type="Script" uid="uid://bwcf4pjgprn0k" path="res://addons/rmsmartshape/shapes/point.gd" id="5_uujrh"]
+[ext_resource type="Script" uid="uid://bo5f7qe27jfje" path="res://addons/rmsmartshape/shapes/point_array.gd" id="6_jkiv4"]
+[ext_resource type="Script" uid="uid://llobjh5hvry" path="res://addons/rmsmartshape/shapes/mesh.gd" id="7_7ln5x"]
+[ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Levelstuffs/Levels/GreenHill/checkered.png" id="8_nfnv6"]
+[ext_resource type="Texture2D" uid="uid://cvnmxl0pv4fv5" path="res://Levelstuffs/Levels/GreenHill/leftCornerGrass.png" id="9_lm7r3"]
+[ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Levelstuffs/Levels/GreenHill/grass.png" id="10_pjvdg"]
+[ext_resource type="Texture2D" uid="uid://dlm8c0ljl1b5o" path="res://Levelstuffs/Levels/GreenHill/edging.png" id="11_nabj4"]
+[ext_resource type="Resource" uid="uid://co6hvtipelu3x" path="res://Levelstuffs/Levels/GreenHill/FloorResource.tres" id="12_n3fp3"]
 
-[node name="OutroMapa" type="Node2D" node_paths=PackedStringArray("spawnpoint", "spawnpointBack")]
+[sub_resource type="Resource" id="Resource_qccto"]
+script = ExtResource("5_uujrh")
+position = Vector2(-56, 1192)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_r3m6q"]
+script = ExtResource("5_uujrh")
+position = Vector2(176, 1248)
+point_in = Vector2(-128, -64)
+point_out = Vector2(104, 72)
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_wgyth"]
+script = ExtResource("5_uujrh")
+position = Vector2(384, 1328)
+point_in = Vector2(-96, 0)
+point_out = Vector2(-344, 16)
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_2bpg7"]
+script = ExtResource("5_uujrh")
+position = Vector2(-72, 1408)
+point_in = Vector2(136, 88)
+point_out = Vector2(16, -64)
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_6rxk0"]
+script = ExtResource("5_uujrh")
+position = Vector2(-56, 1192)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_h80y3"]
+script = ExtResource("6_jkiv4")
+_points = {
+0: SubResource("Resource_qccto"),
+1: SubResource("Resource_r3m6q"),
+2: SubResource("Resource_wgyth"),
+4: SubResource("Resource_2bpg7"),
+5: SubResource("Resource_6rxk0")
+}
+_point_order = PackedInt32Array(0, 1, 2, 4, 5)
+_constraints = {
+Vector2i(0, 5): 15
+}
+_next_key = 6
+_material_overrides = {}
+tessellation_stages = 3
+tessellation_tolerance = 6.0
+curve_bake_interval = 20.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qgdai"]
+_surfaces = [{
+"aabb": AABB(-72, 1192, 0, 456, 242.875, 1e-05),
+"attribute_data": PackedByteArray("//////Lw8D09PAxC8vDwPT08DEL/////WloSQKYlDkJaWhJApiUOQv////8eHp5AW1oSQh4enkBbWhJC/////3h4FUE9fBtCeHgVQT18G0L/////8fAwQcTDG0Lx8DBBxMMbQv////88vPdAWyIdQjy890BbIh1C/////8TDA0AQDyVCxMMDQBAPJUL/////EA97P5c+J0IQD3s/lz4nQv////8QD/w+0/UnQhAP/D7T9SdC/////wDx8DuXVihCAPHwO5dWKEL/////amn+vkxQKEJqaf6+TFAoQv////+Ih4W/W9InQoiHhb9b0idC/////wDA078uzCZCAMDTvy7MJkL/////aWkBQT08GkJpaQFBPTwaQv////+lBQtBLgUbQqUFC0EuBRtC/////5eWFsAuLSVCl5YWwC4tJUL/////PDyoQD18H0I8PKhAPXwfQv/////x8PC/xMMLQvHw8L/EwwtC"),
+"format": 34359742527,
+"index_count": 51,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACAAJAAoACgALAAwAAAACAA0ADgADAAUABgAIAAoACgAMAA8ADQAOAAUAEAAGAAoAAAANAAUAEAAKAA8AAAAFABAAAAAQAA8ADwARABEAEQAAAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AABAQQCAlUQAAAAAAICrQgCIl0QAAAAAAAAwQwAAnEQAAAAAANCiQwC0pUQAAAAAAADAQwAApkQAAAAAAJyHQ4B0p0QAAAAAAACcQgDgr0QAAAAAAGAlQoAyskQAAAAAAOjFQTD1skQAAAAAAAAEQQBcs0QAAAAAAFAOwVBVs0QAAAAAAMDbwYDPskQAAAAAAPxAwvC4sUQAAAAAAICNQwBgpEQAAAAAALaXQ4A1pUQAAAAAAACQwgAAsEQAAAAAAMA6QwD0qUQAAAAAAABgwgAAlUQAAAAA//////7//7///////v//v//////+//+///////7//7///////v//v//////+//+///////7//7///////v//v//////+//+///////7//7///////v//v//////+//+///////7//7///////v//v/////////+//////////7///////v//v//////+//+/")
+}]
+
+[sub_resource type="Resource" id="Resource_x6fxd"]
+script = ExtResource("7_7ln5x")
+texture = ExtResource("8_nfnv6")
+mesh = SubResource("ArrayMesh_qgdai")
+z_index = -10
+z_as_relative = true
+show_behind_parent = false
+force_no_tiling = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_323v8"]
+_surfaces = [{
+"aabb": AABB(-58.3019, 1182.22, 0, 21.8446, 51.7928, 1e-05),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
+"format": 34359742527,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAACAAMA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("trJdwvHGk0QAAAAAJjVpwj3kmUQAAAAAuVYdwlBAmkQAAAAASdQRwgQjlEQAAAAA/3//fyLvkTf/f/9/Iu+RN/9//38i75E3/3//fyLvkTc=")
+}]
+
+[sub_resource type="Resource" id="Resource_nqgjv"]
+script = ExtResource("7_7ln5x")
+texture = ExtResource("9_lm7r3")
+mesh = SubResource("ArrayMesh_323v8")
+z_index = 2
+z_as_relative = true
+show_behind_parent = false
+force_no_tiling = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_17lbq"]
+_surfaces = [{
+"aabb": AABB(-39.3347, 1185.09, 0, 423.733, 182.073, 1e-05),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8QxLk/AACAPxDEuT8AAIA//////xDEuT8AAAAAEMS5PwAAAAD/////F9NqQAAAgD8X02pAAACAP/////8X02pAAAAAABfTakAAAAAA/////y0d0UAAAIA/LR3RQAAAgD//////LR3RQAAAAAAtHdFAAAAAAP////8b+yVBAACAPxv7JUEAAIA//////xv7JUEAAAAAG/slQQAAAAD/////18AxQQAAgD/XwDFBAACAP//////XwDFBAAAAANfAMUEAAAAA/////z6qPUEAAIA/Pqo9QQAAgD//////Pqo9QQAAAAA+qj1BAAAAAP////8YeVpBAACAPxh5WkEAAIA//////xh5WkEAAAAAGHlaQQAAAAA="),
+"format": 34359742527,
+"index_count": 42,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABQAEAAYABQAGAAcABwAGAAgABwAIAAkACQAIAAoACQAKAAsACwAKAAwACwAMAA0ADQAMAA4ADQAOAA8A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("SdQRwgQjlEQAAAAAuVYdwlBAmkQAAAAAsN/TQA1ZmkQAAAAAVqRVQetHlEQAAAAAG5WUQgg2nEQAAAAAj0OxQrBalkQAAAAAeFUeQ5pdoEQAAAAAcnM0Q2zmmkQAAAAAmDeFQwnNqEQAAAAAfpmPQ8tAo0QAAAAARvGSQwj1qUQAAAAAlOiYQzoEpEQAAAAAerGgQ/aRqkQAAAAANlijQyp7pEQAAAAABzS/Q13lqkQAAAAA/zLAQ6nGpEQAAAAA/3//f3n9vD7/f/9/4P3wPv9//3+E8kI5/3//fxryDTn/f/9/BuIDMf9//38E4gIx/3//fw/Vhyr/f/9/CtWFKv9//3/n1nMr/3//fw/Xhyv/f/9/AOYAM/9//38/5iAz/3//f1HzqTn/f/9/XPOuOf9//3/f+m89/3//f/j6fD0=")
+}]
+
+[sub_resource type="Resource" id="Resource_lgnuw"]
+script = ExtResource("7_7ln5x")
+texture = ExtResource("10_pjvdg")
+mesh = SubResource("ArrayMesh_17lbq")
+z_index = 2
+z_as_relative = true
+show_behind_parent = false
+force_no_tiling = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rx6ew"]
+_surfaces = [{
+"aabb": AABB(-73.7688, 1190.5, 0, 459.768, 246.372, 1e-05),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////+b7YBAAACAP5vtgEAAAIA//////5vtgEAAAAAAm+2AQAAAAAD/////H+4HQQAAgD8f7gdBAACAP/////8f7gdBAAAAAB/uB0EAAAAA/////xPLY0EAAIA/E8tjQQAAgD//////E8tjQQAAAAATy2NBAAAAAP/////Boa1BAACAP8GhrUEAAIA//////8GhrUEAAAAAwaGtQQAAAAD/////I8y3QQAAgD8jzLdBAACAP/////8jzLdBAAAAACPMt0EAAAAA/////+h3wkEAAIA/6HfCQQAAgD//////6HfCQQAAAADod8JBAAAAAP////9QIN5BAACAP1Ag3kEAAIA//////1Ag3kEAAAAAUCDeQQAAAAD//////OMJQgAAgD/84wlCAACAP//////84wlCAAAAAPzjCUIAAAAA/////xZtHkIAAIA/Fm0eQgAAgD//////Fm0eQgAAAAAWbR5CAAAAAP////9mfTpCAACAP2Z9OkIAAIA//////2Z9OkIAAAAAZn06QgAAAAD/////WjZEQgAAgD9aNkRCAACAP/////9aNkRCAAAAAFo2REIAAAAA/////3FlSEIAAIA/cWVIQgAAgD//////cWVIQgAAAABxZUhCAAAAAP/////XXkxCAACAP9deTEIAAIA//////9deTEIAAAAA115MQgAAAAD/////SG1QQgAAgD9IbVBCAACAP/////9IbVBCAAAAAEhtUEIAAAAA/////2TuVEIAAIA/ZO5UQgAAgD//////ZO5UQgAAAABk7lRCAAAAAP/////CQlpCAACAP8JCWkIAAIA//////8JCWkIAAAAAwkJaQgAAAAD/////DcJgQgAAgD8NwmBCAACAP/////8NwmBCAAAAAA3CYEIAAAAA/////wAAikIAAIA/AACKQgAAgD//////AACKQgAAAAAAAIpCAAAAAA=="),
+"format": 34359742527,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABQAEAAYABQAGAAcABwAGAAgABwAIAAkACQAIAAoACQAKAAsACwAKAAwACwAMAA0ADQAMAA4ADQAOAA8ADwAOABAADwAQABEAEQAQABIAEQASABMAEwASABQAEwAUABUAFQAUABYAFQAWABcAFwAWABgAFwAYABkAGQAYABoAGQAaABsAGwAaABwAGwAcAB0AHQAcAB4AHQAeAB8AHwAeACAAHwAgACEAIQAgACIAIQAiACMAIwAiACQAIwAkACUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("+ERlwtjPlEQAAAAACLtawigwlUQAAAAAmJo7QWW/lUQAAAAAaGVEQZtAlUQAAAAATlSqQjLFl0QAAAAAsqusQs5Kl0QAAAAA5xgvQxw5nEQAAAAAGecwQ+TGm0QAAAAAhBONQ/iZpEQAAAAAfOyNQwgmpEQAAAAAqXeXQ5NzpUQAAAAAV/SXQ233pEQAAAAATLSiQ6DzpUQAAAAAtOuiQ2B0pUQAAAAAIAC/Q/YBpkQAAAAA4P/AQwr+pUQAAAAATXGHQ2Y1p0QAAAAAs8aHQ5qzp0QAAAAALB46Q0i3qUQAAAAA1GE7Q7gwqkQAAAAA40uaQhimr0QAAAAAHbSdQugZsEQAAAAAYC8iQs/3sUQAAAAAoJAoQjFtskQAAAAASJzBQYm3skQAAAAAuDPKQdcys0QAAAAAox4BQUIcs0QAAAAAXeEGQb6bs0QAAAAAQpUKwb8Vs0QAAAAAvgoSweGUs0QAAAAACOLWwYiSskQAAAAA+J3gwXgMs0QAAAAAnGw9wqB/sUQAAAAAZItEwkDysUQAAAAAZHaMwiHir0QAAAAAnImTwt8dsEQAAAAACLtawigwlUQAAAAA+ERlwtjPlEQAAAAA/3//fwz4Bjz/f/9/6ff1O/9//3/G8GM4/3//f8vwZTj/f/9/AOIAMf9//38A4gAx/3//fwDVgCr/f/9/ANWAKv9//38u15cr/3//fy/Xlyv/f/9/U+YpM/9//39U5ioz/3//fxT1ijr/f/9/E/WKOv9//39IhaQC/3//f5u7zR3/f/9/URNWNv9//39RE1c2/3//f/sfAjD/f/9/+x8CMP9//3/4KIMr/3//f/gogyv/f/9/yiaaLP9//3/KJpos/3//f+gbCzL/f/9/5hsMMv9//3+aCrI6/3//f5kKszr/f/9/dA25Rv9//39zDblG/3//f/sefU//f/9/+h59T/9//38QKgdV/3//fyEqEFX/f/9/7FP1af9//3/bU+1p/3//f/aIhHv/f/9/9oiEew==")
+}]
+
+[sub_resource type="Resource" id="Resource_g2n2j"]
+script = ExtResource("7_7ln5x")
+texture = ExtResource("11_nabj4")
+mesh = SubResource("ArrayMesh_rx6ew")
+z_index = 0
+z_as_relative = true
+show_behind_parent = false
+force_no_tiling = false
+
+[node name="OutroMapa" type="Node2D"]
 script = ExtResource("1_ue65o")
-spawnpoint = NodePath("Spawnpoint")
-spawnpointBack = NodePath("BackSpawnpoint")
 
 [node name="EspeculanteBackground" parent="." instance=ExtResource("5_qp5dq")]
 coolColor = Color(0.680261, 0.835274, 1, 1)
@@ -22,30 +182,56 @@ color = Color(0, 0.364706, 0.780392, 1)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-276, -80, -74, -80, -74, -16, 157, -19, 211, 15, 303, 14, 380, 35, 432, 37, 475, 56, 858, 57, 858, 1, 1256, 3, 1258, -44, 1421, -47, 1422, -94, 1583, -95, 1581, -142, 1834, -143, 1833, -52, 1941, -53, 1935, 27, 2563, 25, 2561, 97, 2752, 98, 2752, 169, 2921, 214, 2921, 555, 3426, 549, 3423, 406, 3195, 396, 3195, 336, 3425, 339, 3592, 254, 4196, 253, 4389, 114, 4862.08, 109.444, 4843, -705, 4186, -842, 4871, -841, 5002, -842, 5012, 108, 4933, 592, 4866, 821, 1967, 834, 1554, 247, -482, 250, -482, -794, 1012, -784, 1007, -477, 823, -458, 736, -371, 309, -371, 235, -297, 162, -311, 102, -467, -41, -486, -73, -702, -280, -753)
+polygon = PackedVector2Array(-276, -80, -74, -80, -74, -16, 157, -19, 211, 15, 303, 14, 380, 35, 432, 37, 475, 56, 858, 57, 858, 1, 1256, 3, 1258, -44, 1421, -47, 1422, -94, 1583, -95, 1581, -142, 1834, -143, 1833, -52, 1941, -53, 1935, 27, 2563, 25, 2561, 97, 2752, 98, 2752, 169, 2921, 214, 2919, 474, 3071, 474, 3063, 530, 2757, 534, 1998, 534, 1985, 332, 481, 320, -215, 233, -209, 810, 279, 810, 622, 938, 1335, 938, 1337, 809, 1967, 810, 1967, 946, 2695, 946, 2695, 818, 2983, 818, 2983, 754, 3547, 550, 3549, 392, 3311, 386, 3311, 338, 3425, 339, 3592, 254, 4196, 253, 4389, 114, 4923, 111, 4920, -751, 4186, -842, 4871, -841, 5127, -837, 5120, 105, 4933, 592, 4866, 821, 3214, 978, 1798, 1290, -421, 1363, -482, 250, -482, -794, 1012, -784, 1007, -477, 823, -458, 736, -371, 309, -371, 235, -297, 162, -311, 102, -467, -41, -486, -73, -702, -280, -753)
+
+[node name="CurvedTerrainV2" type="StaticBody2D" parent="." node_paths=PackedStringArray("obj_shape")]
+script = ExtResource("3_pyyvb")
+obj_shape = NodePath("SS2D_Shape")
+metadata/_custom_type_script = "uid://2gjr7be5sgfd"
+
+[node name="SS2D_Shape" type="Node2D" parent="CurvedTerrainV2"]
+script = ExtResource("4_duv05")
+_points = SubResource("Resource_h80y3")
+_meshes = Array[ExtResource("7_7ln5x")]([SubResource("Resource_x6fxd"), SubResource("Resource_nqgjv"), SubResource("Resource_lgnuw"), SubResource("Resource_g2n2j")])
+shape_material = ExtResource("12_n3fp3")
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedTerrainV2"]
+visible = false
+polygon = PackedVector2Array(-56, 1192, 12, 1196, 85.75, 1212.25, 176, 1248, 283, 1315, 303.422, 1321.67, 325.625, 1325.63, 384, 1328, 271.219, 1339.64, 186.75, 1359.63, 78, 1407, 41.3438, 1425.58, 24.7383, 1431.66, 8.25, 1434.88, -8.89453, 1434.67, -27.4688, 1430.48, -48.2461, 1421.78, -72, 1408)
+metadata/_edit_lock_ = true
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(174, 436)
 
+[node name="GHZSpawnpoint" type="Node2D" parent="."]
+position = Vector2(192, 1208)
+
 [node name="BackSpawnpoint" type="Node2D" parent="."]
-position = Vector2(4861, 600)
+position = Vector2(4783, 602)
 
 [node name="Camera regions" type="Node2D" parent="."]
-visible = false
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(1038, 230)
 scale = Vector2(10.26, 3.91)
 continuousX = true
 
+[node name="CameraBound4" parent="Camera regions" instance=ExtResource("3_d0je0")]
+position = Vector2(1624, 1112)
+scale = Vector2(18.44, 3.91)
+continuousX = true
+continuousY = true
+
 [node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(3205, 568)
 scale = Vector2(11.735, 6.54)
 continuousX = true
+continuousY = true
 
 [node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(4564, 332)
-scale = Vector2(5.42, 5.08)
+scale = Vector2(4.455, 5.08)
 continuousX = true
 
 [node name="enemigos" type="Node2D" parent="."]
@@ -65,16 +251,25 @@ position = Vector2(3521, 773)
 [node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_8wpb2")]
 position = Vector2(3521, 998)
 
+[node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_8wpb2")]
+position = Vector2(2463, 1398)
+
 [node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_8wpb2")]
 position = Vector2(4054, 715)
 
 [node name="GoToLevel" parent="." instance=ExtResource("5_trijc")]
-position = Vector2(-112, 1170)
-scale = Vector2(3.535, 154.325)
+position = Vector2(-96, -16)
+scale = Vector2(3.535, 77.715)
 levelInQuestion = "Sandlerhell"
-comingBack = true
+whereToSpawn = "BackSpawnpoint"
+
+[node name="GoToLevel3" parent="." instance=ExtResource("5_trijc")]
+position = Vector2(-24, 1512)
+scale = Vector2(3.535, 77.715)
+levelInQuestion = "GreenHawntZone"
+whereToSpawn = "BackSpawnpoint"
 
 [node name="GoToLevel2" parent="." instance=ExtResource("5_trijc")]
-position = Vector2(5000, 728)
+position = Vector2(5084, 668)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerdomain"

@@ -15,6 +15,9 @@ func _ready() -> void:
 	var coolNumberist:int = 0
 	changeDelStuff()
 	
+	if not GameUtils.isMobile:
+		$MenuCanvas/MobileShit.queue_free()
+	
 	for kid in savesNode.get_children():
 		if kid is SaveBox:
 			kid.saveId = coolNumberist

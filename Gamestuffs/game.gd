@@ -49,8 +49,8 @@ func createPlayer(chara:String, id:int = -1):
 	allChars.append(playerInstance)
 	
 	if map:
-		if map.spawnpoint:
-			playerInstance.position = map.spawnpoint.position
+		if map.get_node("Spawnpoint"):
+			playerInstance.position = map.get_node("Spawnpoint").position
 		
 	GPStats.setCharObject(playerInstance)
 
@@ -83,9 +83,10 @@ func createMap(lvl:String):
 	hud.placeInfo.position = Vector2(20.0, 21.0)
 	hud.placeInfo.triggerPlaceInfo()
 
-func respawnPlayer(maxOutHP:bool = true, comeback:bool = false):
+func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
+	await get_tree().process_frame
 	if map:
-		GPStats.charObject.position = (map.spawnpointBack.position if comeback else map.spawnpoint.position)
+		GPStats.charObject.position = map.get_node(spawnNode).position
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
@@ -202,7 +203,7 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	charDict[peer_id] = pInst
 	
 	if map:
-		pInst.position = map.spawnpoint.position
+		pInst.position = map.get_node("Spawnpoint").position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
 	pInst.level_up()
@@ -239,10 +240,11 @@ func fadeBGM(sec:float = 1.0, nextSong:String = ""):
 	var mustween = get_tree().create_tween()
 	mustween.tween_method(func(v):
 		bgmStream.volume_db = v
-		if v <= -99.0:
+		if v <= -99.5:
 			bgmStream.stop()
 			
 			if nextSong != "":
+				mustween.kill()
 				playBGM(nextSong),
 		GeneralUtils.get_volume_db('bgm'),
 		-100.0,

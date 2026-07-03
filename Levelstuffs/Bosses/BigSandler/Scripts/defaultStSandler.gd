@@ -21,3 +21,5 @@ func enter_state() -> void:
 
 func update():
 	super.update()
+	if Boss.hp <= 0:
+		Boss.change_state(Boss.state_machine.st_death)

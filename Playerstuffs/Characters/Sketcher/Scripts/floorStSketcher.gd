@@ -5,6 +5,16 @@ func enter_state():
 	if !Player.slideTriggered.is_connected(onSlide):
 		Player.slideTriggered.connect(onSlide)
 
+func update():
+	if not Player.isBoosting or sign(Player.motion.x) == sign(Player.slopeAdd):
+		Player.handleMovement()
+	Player.handlePhys()
+	Player.handleCamera()
+	handleAnimations()
+	
+	if not Player.is_on_floor():
+		Player.change_state(Player.state_machine.st_air)
+
 func handleAnimations() -> void:
 	if Player.isSliding:
 		if Player.plySprite.animation != 'slide':
