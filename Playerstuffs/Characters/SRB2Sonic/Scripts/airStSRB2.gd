@@ -13,6 +13,7 @@ func enter_state():
 		Player.canThok = true
 	
 func update():
+	Player.apply_player_gravity()
 	var axis = Input.get_axis("ctrl_left", "ctrl_right")
 	
 	Player.handlePhys()

@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://drmfsuuq6jfm3"
+path="res://.godot/imported/SONIC2ALPHABET.png-575ef1740c04453db5a85895cf9e6f1e.fontdata"
+
+[deps]
+
+source_file="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ALPHABET.png"
+dest_files=["res://.godot/imported/SONIC2ALPHABET.png-575ef1740c04453db5a85895cf9e6f1e.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'A\'-\'Z\'", "\'1\'-\'9\'", "\'0\'", "\'*\'", "\'x\'", "\' \'")
+kerning_pairs=PackedStringArray()
+columns=26
+rows=2
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

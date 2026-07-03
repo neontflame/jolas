@@ -13,6 +13,17 @@ var thokFx = preload("res://Playerstuffs/Characters/SRB2Sonic/Fx/ThokFX.tscn")
 
 #endregion
 
+func _ready() -> void:
+	super._ready()
+	if GPStats.char == "SRB2Sonic":
+		await get_tree().process_frame
+		var coolHud = GameUtils.get_char_asset('SRB2Sonic', 'HeadsUpDisplay/hud.tscn').instantiate()
+		if JolasGame.instance.hud:
+			JolasGame.instance.hud.add_sibling(coolHud)
+			await get_tree().process_frame
+			JolasGame.instance.remove_child(JolasGame.instance.hud)
+		JolasGame.instance.hud = coolHud
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if current_state == state_machine.st_hurt:
@@ -26,7 +37,7 @@ func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vec
 func level_up():
 	super.level_up()
 
-func hitbox_connect(hit:OffensiveHitbox):
+func hitbox_connect(hit:OffensiveHitbox, type:String):
 	connectAttack(2, true, spin_knockback())
 
 func set_roll_collision(setter: bool):

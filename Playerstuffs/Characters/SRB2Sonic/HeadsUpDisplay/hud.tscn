@@ -1,0 +1,356 @@
+[gd_scene load_steps=31 format=3 uid="uid://dcph586p0w20d"]
+
+[ext_resource type="Script" uid="uid://dfv2mesg45grq" path="res://Playerstuffs/Characters/SRB2Sonic/HeadsUpDisplay/hudSRB2.gd" id="1_f60hx"]
+[ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_3ovr4"]
+[ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_o5vmj"]
+[ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="7_12byc"]
+[ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="8_i31om"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="9_brho0"]
+[ext_resource type="FontFile" uid="uid://5rpwmij82xd3" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2NUM.png" id="9_esd4i"]
+[ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_hwafb"]
+[ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_yvh1p"]
+[ext_resource type="PackedScene" uid="uid://b5s5rj5po17bk" path="res://Gamestuffs/HeadsUpDisplay/questIcon.tscn" id="12_d82eu"]
+[ext_resource type="PackedScene" uid="uid://bcsask4ppob0g" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.tscn" id="13_8djgu"]
+[ext_resource type="PackedScene" uid="uid://cdob43vo7sjc4" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn" id="14_tlvbi"]
+[ext_resource type="FontFile" uid="uid://drmfsuuq6jfm3" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ALPHABET.png" id="15_12byc"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="15_kmpot"]
+[ext_resource type="Texture2D" uid="uid://bi8c6cq0tahfp" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2EXP.png" id="16_12byc"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="16_dwb5i"]
+[ext_resource type="FontFile" uid="uid://bv6nckg5gcdn7" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ALPHABETLevels.png" id="16_i31om"]
+[ext_resource type="Texture2D" uid="uid://boyqepxuvw3s" path="res://Playerstuffs/Characters/SRB2Sonic/Icon.png" id="17_brho0"]
+[ext_resource type="Texture2D" uid="uid://bjlybbcl8403h" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ITEMS.png" id="17_i31om"]
+[ext_resource type="Texture2D" uid="uid://db877ib4u8tg1" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2QUESTS.png" id="18_brho0"]
+[ext_resource type="Texture2D" uid="uid://m5xtnpmt8afw" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2COMBO.png" id="19_hwafb"]
+[ext_resource type="Texture2D" uid="uid://bq7p0g48ggulr" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2COMBORED.png" id="20_yvh1p"]
+
+[sub_resource type="FontVariation" id="FontVariation_5tfyd"]
+base_font = ExtResource("11_yvh1p")
+spacing_glyph = -4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43w4t"]
+shader = ExtResource("2_3ovr4")
+shader_parameter/shift_hue = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_otgxo"]
+shader = ExtResource("16_dwb5i")
+shader_parameter/line_color = Color(0, 0, 0, 0.396078)
+shader_parameter/line_thickness = 2.0
+shader_parameter/add_margins = true
+
+[sub_resource type="SystemFont" id="SystemFont_u453t"]
+font_names = PackedStringArray("MS UI Gothic")
+
+[sub_resource type="FontVariation" id="FontVariation_xitcb"]
+base_font = SubResource("SystemFont_u453t")
+baseline_offset = -0.315
+
+[sub_resource type="FontVariation" id="FontVariation_0ecn0"]
+fallbacks = Array[Font]([SubResource("FontVariation_xitcb")])
+base_font = ExtResource("9_brho0")
+spacing_top = -10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hwafb"]
+shader = ExtResource("2_3ovr4")
+shader_parameter/shift_hue = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d82eu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_hwafb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_hwafb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yvh1p")
+}],
+"loop": true,
+"name": &"none",
+"speed": 2.0
+}]
+
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("inventoryText", "questText", "comboSprite", "comboLabel", "levelCharName", "canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
+script = ExtResource("1_f60hx")
+inventoryText = NodePath("CanvasLayer/Node2D/InventoryText")
+questText = NodePath("CanvasLayer/Node2D/QuestText")
+comboSprite = NodePath("CanvasLayer/Node2D/Sonic2combo")
+comboLabel = NodePath("CanvasLayer/Node2D/Sonic2combo/ComboText")
+levelCharName = NodePath("CanvasLayer/BottomLeftAnchor/CharNameLabel")
+canvasLayer = NodePath("CanvasLayer")
+playerIcon = NodePath("CanvasLayer/BottomLeftAnchor/PlayerIcon")
+levelLabel = NodePath("CanvasLayer/BottomLeftAnchor/LevelLabel")
+levelSquare = NodePath("IPretendIDoNotSeeIt/LevelSquare")
+hpText = NodePath("CanvasLayer/Bars/HPText")
+xpText = NodePath("CanvasLayer/Node2D/XPText")
+hpBar = NodePath("CanvasLayer/Bars/HPBar")
+xpBar = NodePath("IPretendIDoNotSeeIt/XPBar")
+testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
+comboText = NodePath("IPretendIDoNotSeeIt/ComboText")
+questIcon = NodePath("IPretendIDoNotSeeIt/QuestIcon")
+inventoryIcon = NodePath("IPretendIDoNotSeeIt/InventoryIcon")
+placeInfo = NodePath("CanvasLayer/Control/PlaceInfo")
+notifsNode = NodePath("CanvasLayer/RightAnchor/Notifs")
+sfxPlayer = NodePath("AudioStreamPlayer")
+onlineElements = NodePath("CanvasLayer/OnlineStuffs")
+
+[node name="IPretendIDoNotSeeIt" type="Node2D" parent="."]
+visible = false
+
+[node name="XPBar" type="NinePatchRect" parent="IPretendIDoNotSeeIt"]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 225.0
+offset_bottom = 80.0
+texture = ExtResource("10_hwafb")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="QuestIcon" parent="IPretendIDoNotSeeIt" instance=ExtResource("12_d82eu")]
+position = Vector2(34, 136)
+
+[node name="InventoryIcon" parent="IPretendIDoNotSeeIt" instance=ExtResource("13_8djgu")]
+position = Vector2(33, 211)
+
+[node name="ComboText" type="RichTextLabel" parent="IPretendIDoNotSeeIt"]
+offset_left = 16.0
+offset_top = -64.0
+offset_right = 792.0
+offset_bottom = 5.0
+theme_override_fonts/normal_font = SubResource("FontVariation_5tfyd")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
+horizontal_alignment = 2
+
+[node name="LevelSquare" type="Sprite2D" parent="IPretendIDoNotSeeIt"]
+material = SubResource("ShaderMaterial_43w4t")
+use_parent_material = true
+position = Vector2(46, 482)
+texture = ExtResource("3_o5vmj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bars" type="Node" parent="CanvasLayer"]
+
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+position = Vector2(32, 16)
+texture = ExtResource("7_12byc")
+centered = false
+
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 129.0
+offset_bottom = 32.0
+texture = ExtResource("8_i31om")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
+offset_left = 190.0
+offset_top = 16.0
+offset_right = 262.0
+offset_bottom = 27.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_esd4i")
+theme_override_font_sizes/font_size = 11
+text = "1000/1000"
+
+[node name="RightAnchor" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
+layout_mode = 0
+offset_left = -328.0
+offset_top = -1.0
+offset_right = 32.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("9_brho0")
+theme_override_font_sizes/font_size = 18
+text = "FPS: 60"
+horizontal_alignment = 2
+
+[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor"]
+position = Vector2(40, 37)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 41.0
+grow_horizontal = 2
+
+[node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("14_tlvbi")]
+visible = false
+position = Vector2(20, 21)
+
+[node name="OnlineStuffs" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme = ExtResource("15_kmpot")
+
+[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 399.0
+offset_bottom = 34.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Escreva alguma coisa aqui!"
+caret_blink = true
+
+[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs"]
+visible = false
+material = SubResource("ShaderMaterial_otgxo")
+layout_mode = 0
+offset_top = -175.0
+offset_right = 417.0
+theme_override_fonts/normal_font = SubResource("FontVariation_0ecn0")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+justification_flags = 131
+
+[node name="BottomLeftAnchor" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer/BottomLeftAnchor"]
+position = Vector2(48, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_brho0")
+
+[node name="CharNameLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+material = SubResource("ShaderMaterial_hwafb")
+layout_mode = 0
+offset_left = 69.0
+offset_top = -5.0
+offset_right = 149.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("16_i31om")
+text = "Sonic"
+uppercase = true
+
+[node name="CoolX" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 11.0
+offset_right = 92.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("15_12byc")
+text = "x"
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 11.0
+offset_right = 149.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("15_12byc")
+text = "1"
+horizontal_alignment = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+position = Vector2(32, 48)
+
+[node name="Sonic2exp" type="Sprite2D" parent="CanvasLayer/Node2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("16_12byc")
+centered = false
+
+[node name="XPText" type="Label" parent="CanvasLayer/Node2D"]
+offset_left = 64.0
+offset_right = 136.0
+offset_bottom = 13.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_esd4i")
+theme_override_font_sizes/font_size = 11
+text = "320/320"
+horizontal_alignment = 2
+
+[node name="Sonic2items" type="Sprite2D" parent="CanvasLayer/Node2D"]
+position = Vector2(0, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("17_i31om")
+centered = false
+
+[node name="InventoryText" type="Label" parent="CanvasLayer/Node2D"]
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_esd4i")
+theme_override_font_sizes/font_size = 11
+text = "999"
+horizontal_alignment = 2
+
+[node name="Sonic2quests" type="Sprite2D" parent="CanvasLayer/Node2D"]
+position = Vector2(0, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("18_brho0")
+centered = false
+
+[node name="QuestText" type="Label" parent="CanvasLayer/Node2D"]
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 77.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_esd4i")
+theme_override_font_sizes/font_size = 11
+text = "5"
+horizontal_alignment = 2
+
+[node name="Sonic2combo" type="AnimatedSprite2D" parent="CanvasLayer/Node2D"]
+position = Vector2(0, 96)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_d82eu")
+animation = &"none"
+frame_progress = 0.591221
+centered = false
+
+[node name="ComboText" type="Label" parent="CanvasLayer/Node2D/Sonic2combo"]
+offset_left = 48.0
+offset_right = 80.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("9_esd4i")
+theme_override_font_sizes/font_size = 11
+text = "0"
+horizontal_alignment = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

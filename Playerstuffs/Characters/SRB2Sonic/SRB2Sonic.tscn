@@ -16,13 +16,13 @@ size = Vector2(40, 40)
 script = ExtResource("2_bcgp1")
 special_box = NodePath("SpecialCollide")
 spinFxTimer = NodePath("SpinFxTimer")
-FLOOR_ACCELERATION = 20.0
-AIR_ACCELERATION = 20
+FLOOR_ACCELERATION = 15.0
+AIR_ACCELERATION = 20.0
 FLOOR_BRAKE = 20.0
-SOFT_MAX_SPEED = 1000
-SLOPE_VEL_ADD = 30
+SOFT_MAX_SPEED = 1000.0
+SLOPE_VEL_ADD = 30.0
 FLOOR_FRICTION = 0.95
-AIR_FRICTION = 0.95
+AIR_FRICTION = 1.0
 
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_1yyof")
