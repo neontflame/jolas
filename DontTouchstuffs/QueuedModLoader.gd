@@ -16,7 +16,9 @@ func _enter_tree() -> void:
 			for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
 				scriptsToRun.append(modscript)
 		renderTexty()
-		await get_tree().process_frame
+		await get_tree().create_timer(0.05).timeout
+	
+	await get_tree().create_timer(0.1).timeout
 	
 	GameUtils.queuedMods = []
 	
@@ -27,7 +29,7 @@ func _enter_tree() -> void:
 		await get_tree().process_frame
 		renderTextySkript()
 		
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
 
 func renderTexty():

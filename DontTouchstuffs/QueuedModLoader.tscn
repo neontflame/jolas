@@ -37,8 +37,7 @@ offset_right = 794.0
 offset_bottom = 40.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_qrkeq")
-text = "1 de 2 mods carregados
-"
+text = "!!!"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 4.0
@@ -47,30 +46,7 @@ offset_right = 202.0
 offset_bottom = 478.0
 theme_override_constants/line_spacing = 2
 theme_override_fonts/font = SubResource("SystemFont_qrkeq")
-text = "a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a"
+text = "Hey!"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 5.0
