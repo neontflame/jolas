@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dstyjwj26qn5m"
-path="res://.godot/imported/passo wallkick0002.png-3a51fac3734a4ce980edaf177a73880a.ctex"
+uid="uid://h5lyt103kbme"
+path="res://.godot/imported/nuvensLayer1.png-edf194b28fb23c3db2fad7373e667b56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Passo/Sprites/passo wallkick0002.png"
-dest_files=["res://.godot/imported/passo wallkick0002.png-3a51fac3734a4ce980edaf177a73880a.ctex"]
+source_file="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer1.png"
+dest_files=["res://.godot/imported/nuvensLayer1.png-edf194b28fb23c3db2fad7373e667b56.ctex"]
 
 [params]
 

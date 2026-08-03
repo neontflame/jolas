@@ -61,9 +61,10 @@ horizontal_alignment = 2
 [node name="OptSlider" type="HSlider" parent="Option"]
 visible = false
 offset_left = 242.0
-offset_top = 9.0
+offset_top = 5.0
 offset_right = 389.0
-offset_bottom = 25.0
+offset_bottom = 26.0
+theme = ExtResource("4_xrvu5")
 max_value = 1.0
 step = 0.01
 

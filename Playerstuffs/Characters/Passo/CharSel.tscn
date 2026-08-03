@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm0l4nusegeoc"]
-
-[ext_resource type="Texture2D" uid="uid://caffpefrxa06u" path="res://Playerstuffs/Characters/Passo/Sprites/passo idle.png" id="1_gdqoy"]
-
-[node name="CharSel" type="Node2D"]
-
-[node name="PassoIdle" type="Sprite2D" parent="."]
-position = Vector2(-10, -57)
-texture = ExtResource("1_gdqoy")

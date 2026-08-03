@@ -18,6 +18,7 @@ class_name ParallaxComponent
 enum Types {
 	STATIC,
 	MOBILE,
+	MOBILE_X_ONLY,
 	DYNAMIC,
 	DYNAMIC_SINGULAR,
 	MOBILE_DYNAMIC
@@ -57,7 +58,7 @@ func _get_property_list() -> Array:
 		"name": "ParallaxType",
 		"type": TYPE_INT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": "STATIC, MOBILE, DYNAMIC, DYNAMIC_SINGULAR, MOBILE_DYNAMIC",
+		"hint_string": "STATIC, MOBILE, MOBILE_X_ONLY, DYNAMIC, DYNAMIC_SINGULAR, MOBILE_DYNAMIC",
 		"usage": PROPERTY_USAGE_DEFAULT
 	})
 	
@@ -91,7 +92,10 @@ func _process(delta: float) -> void:
 	## Scroll manual da textura
 	if is_mobile():
 		if PLayer and Sprite:
-			PLayer.motion_mirroring = Sprite.region_rect.size
+			if ParallaxType == Types.MOBILE_X_ONLY:
+				PLayer.motion_mirroring.x = Sprite.region_rect.size.x
+			else:
+				PLayer.motion_mirroring = Sprite.region_rect.size
 		else:
 			print("ParallaxLayer não configurado!")
 
@@ -113,7 +117,7 @@ func _process(delta: float) -> void:
 
 ## Retorna true se usa scroll manual
 func is_mobile():
-	return ParallaxType == Types.MOBILE or ParallaxType == Types.MOBILE_DYNAMIC
+	return ParallaxType == Types.MOBILE or ParallaxType == Types.MOBILE_DYNAMIC or ParallaxType == Types.MOBILE_X_ONLY
 
 ## Retorna true se usa scroll dinâmico
 func is_dynamic():

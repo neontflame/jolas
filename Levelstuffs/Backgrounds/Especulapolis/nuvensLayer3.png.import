@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpmtpksjmjly"
-path="res://.godot/imported/passo estrela0004.png-7027c24213de3c2ba6505c954fd1d565.ctex"
+uid="uid://bmi1hild1lp3e"
+path="res://.godot/imported/nuvensLayer3.png-06da86ee581607a8f2c38b97b427f359.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Passo/Sprites/passo estrela0004.png"
-dest_files=["res://.godot/imported/passo estrela0004.png-7027c24213de3c2ba6505c954fd1d565.ctex"]
+source_file="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer3.png"
+dest_files=["res://.godot/imported/nuvensLayer3.png-06da86ee581607a8f2c38b97b427f359.ctex"]
 
 [params]
 
