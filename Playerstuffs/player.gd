@@ -329,7 +329,7 @@ func breno_cam():
 	var delta = get_physics_process_delta_time()
 	var screen_half_x = get_viewport_rect().size.x * 0.8 / coolCamera.zoom.x
 	var screen_half_y = get_viewport_rect().size.y * 1.2 / coolCamera.zoom.y
-	var forward_offset_x = base_camera_offset.x
+	var forward_offset_x = camOffset.x
 	if abs(get_real_velocity().x) > 100.0:
 		forward_offset_x += 200.0 * sign(get_real_velocity().x)
 
@@ -340,15 +340,15 @@ func breno_cam():
 
 	var can_move_forward = predicted_x > margin_left and predicted_x < margin_right
 	
-	if coolCamera.offset.y != 0.0:
-		coolCamera.offset.y = lerp(coolCamera.offset.y, 0.0, 0.1)
+	if coolCamera.position.y != 0.0:
+		coolCamera.position.y = lerp(coolCamera.position.y, 0.0, 0.1)
 	
 	if can_move_forward:
 		# pode avançar pra frente
-		coolCamera.offset.x = lerp(coolCamera.offset.x, forward_offset_x, delta)
+		coolCamera.position.x = lerp(coolCamera.position.x, forward_offset_x, delta)
 	else:
 		# não pode... volta
-		coolCamera.offset.x = lerp(coolCamera.offset.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
+		coolCamera.position.x = lerp(coolCamera.position.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
 
 func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 	var screen_half_x = get_viewport_rect().size.x / coolCamera.zoom.x

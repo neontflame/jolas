@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://dpn4bk7w2bk3i"]
+[gd_scene load_steps=38 format=3 uid="uid://dpn4bk7w2bk3i"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_pwpvx"]
 [ext_resource type="Script" uid="uid://bysn73mcwwj6e" path="res://Playerstuffs/Characters/Neon/Scripts/playerNeon.gd" id="2_ewxw4"]
 [ext_resource type="Script" uid="uid://bfky7k3mhic0l" path="res://Playerstuffs/Characters/Neon/Scripts/statemachineNeon.gd" id="3_0onri"]
 [ext_resource type="Script" uid="uid://dni6db0hfw75n" path="res://Playerstuffs/Characters/Neon/Scripts/airStNeon.gd" id="3_asxp3"]
 [ext_resource type="Texture2D" uid="uid://dgdfnf85axlmo" path="res://Playerstuffs/Characters/Neon/Sprites/neon brake.png" id="4_0nyvt"]
+[ext_resource type="Script" uid="uid://d4ee040kauey0" path="res://Playerstuffs/Characters/Neon/Scripts/defaultStNeon.gd" id="4_8244u"]
 [ext_resource type="Script" uid="uid://cgtsk4hvyjdcm" path="res://Playerstuffs/Characters/Neon/Scripts/floorStNeon.gd" id="4_shed0"]
 [ext_resource type="Script" uid="uid://b6ylylstvd0da" path="res://Playerstuffs/Characters/Neon/Scripts/extraStNeon.gd" id="5_k3kgu"]
 [ext_resource type="Texture2D" uid="uid://hn1btwdaixm7" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0001.png" id="6_k3kgu"]
@@ -184,10 +185,13 @@ ATTACK_DMG = Dictionary[String, float]({
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_0onri")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource("4_8244u")
+
+[node name="Floor" parent="StateMachine" index="1"]
 script = ExtResource("4_shed0")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" index="2"]
 script = ExtResource("3_asxp3")
 
 [node name="ExtraState" type="Node" parent="StateMachine" index="3"]

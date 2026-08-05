@@ -45,6 +45,7 @@ func _physics_process(_delta: float) -> void:
 	$MolaGames/MolaCima.scale.y = 1 / $MolaGames.scale.y
 	if current_object:
 		if current_object is PlayerObject:
+			current_object.change_state(current_object.state_machine.st_default)
 			current_object.motion = Vector2.ZERO
 			current_object.global_position = (player_position.global_position - Vector2(0.0, (current_object.player_collisions.shape.size.y) / 2).rotated(rotation))
 		elif current_object is MobObject:
@@ -70,6 +71,8 @@ func release_player():
 	play_sfx(spring_sound)
 	
 	if current_object is PlayerObject:
+		current_object.change_state(current_object.state_machine.st_air)
+		await get_tree().process_frame # perdao isso VAI ocorrer novamente
 		current_object.motion = get_launch_velocity(current_object)
 		current_object.walkingEnabled = true
 	

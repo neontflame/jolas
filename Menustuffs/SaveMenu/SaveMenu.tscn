@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene load_steps=17 format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="6_desna"]
 [ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
 [ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="10_5vgxp"]
-[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="11_0jemy"]
 [ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="11_hacn3"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="13_8323x"]
 
@@ -48,12 +47,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6e1n"]
 size = Vector2(61.125, 36.01)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jemy"]
-shader = ExtResource("11_0jemy")
-shader_parameter/line_color = Color(0, 0, 0, 0.443137)
-shader_parameter/line_thickness = 1.0
-shader_parameter/add_margins = true
 
 [node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("savesNode")]
 script = ExtResource("1_86qpw")
@@ -183,13 +176,14 @@ position = Vector2(-36, 0)
 
 [node name="DeleteLabel" type="RichTextLabel" parent="MenuCanvas/RightAnchor"]
 self_modulate = Color(1, 1, 1, 0.996078)
-material = SubResource("ShaderMaterial_0jemy")
 layout_mode = 0
 offset_left = -445.0
 offset_top = -48.0
 offset_right = 11.0
 offset_bottom = -9.0
 theme = ExtResource("13_8323x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 bbcode_enabled = true
 text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] Sandlerhell "
 horizontal_alignment = 2

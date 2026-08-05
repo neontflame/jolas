@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv0kwtpveitw3"]
+[gd_scene load_steps=13 format=3 uid="uid://bv0kwtpveitw3"]
 
 [ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/state_pattern.gd" id="3_auq01"]
 [ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
 [ext_resource type="Script" uid="uid://dene0qklmyw2y" path="res://Playerstuffs/StateMachinery/deathSt.gd" id="6_43xdi"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
@@ -134,7 +135,6 @@ floor_snap_length = 32.0
 platform_floor_layers = 4294901761
 platform_wall_layers = 1
 script = ExtResource("3_6t5aa")
-SLOPE_VEL_ADD = 27
 player_collisions = NodePath("CollisionShape2D")
 sfx_player = NodePath("SfxPlayer")
 multiplayerName = NodePath("MultiplayerName")
@@ -145,6 +145,10 @@ plySprite = NodePath("AnimatedSprite2D")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("13_ld8br")
+
+[node name="Default" type="Node" parent="StateMachine"]
+script = ExtResource("3_auq01")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
 
 [node name="Floor" type="Node" parent="StateMachine"]
 script = ExtResource("14_mv4eb")

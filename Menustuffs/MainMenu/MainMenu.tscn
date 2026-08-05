@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
 [ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_yqxuh"]
 [ext_resource type="Texture2D" uid="uid://dar2tl1qdu5lg" path="res://Menustuffs/MainMenu/jolarAtivo.png" id="3_rdp1e"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_un3ih"]
 [ext_resource type="Texture2D" uid="uid://bsg2pwbokixtf" path="res://Menustuffs/MainMenu/jolarInativo.png" id="4_qa50y"]
 [ext_resource type="Texture2D" uid="uid://1e0vaoq46p76" path="res://Menustuffs/MainMenu/jolarCoopAtivo.png" id="5_un3ih"]
 [ext_resource type="Texture2D" uid="uid://c5k55ajppvjb0" path="res://Menustuffs/MainMenu/jolarCoopInativo.png" id="6_5deut"]
@@ -155,7 +155,7 @@ offset_top = 91.0
 offset_right = 480.0
 offset_bottom = 121.0
 theme_override_constants/line_spacing = -11
-theme_override_fonts/font = ExtResource("2_yqxuh")
+theme_override_fonts/font = ExtResource("3_un3ih")
 theme_override_font_sizes/font_size = 18
 text = "insira uma quote engraçadinha aqui ou algo do tipo"
 

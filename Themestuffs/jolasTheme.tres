@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d1mj1wuv26ris" path="res://Themestuffs/scrollbar Held.png" id="6_ise18"]
 [ext_resource type="Texture2D" uid="uid://brhj1lwlqn6fn" path="res://Themestuffs/slider press.png" id="6_y56hf"]
 [ext_resource type="Texture2D" uid="uid://bsco6pcb8k1wd" path="res://Themestuffs/slider focu.png" id="7_ise18"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_q0jbd"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="10_oxydb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sukos"]
 texture = ExtResource("1_ygp53")
@@ -84,7 +84,7 @@ baseline_offset = -0.215
 
 [sub_resource type="FontVariation" id="FontVariation_ygp53"]
 fallbacks = Array[Font]([SubResource("FontVariation_eslxe")])
-base_font = ExtResource("7_q0jbd")
+base_font = ExtResource("10_oxydb")
 spacing_top = -4
 
 [resource]

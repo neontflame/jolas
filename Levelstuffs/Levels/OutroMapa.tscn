@@ -219,7 +219,7 @@ continuousX = true
 
 [node name="CameraBound4" parent="Camera regions" instance=ExtResource("3_d0je0")]
 position = Vector2(1624, 1112)
-scale = Vector2(18.44, 3.91)
+scale = Vector2(15.985, 3.91)
 continuousX = true
 continuousY = true
 

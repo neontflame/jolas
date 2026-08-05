@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=27 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dhjdp07qe725o" path="res://Gamestuffs/HeadsUpDisplay/XpLabel.png" id="7_4f5kr"]
 [ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="8_piegi"]
 [ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="9_i2avg"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="9_otgxo"]
 [ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_1a2va"]
 [ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_taoro"]
 [ext_resource type="PackedScene" uid="uid://b5s5rj5po17bk" path="res://Gamestuffs/HeadsUpDisplay/questIcon.tscn" id="12_5tfyd"]
@@ -25,6 +26,14 @@ shader_parameter/shift_hue = 0.0
 font_names = PackedStringArray("Arial")
 font_weight = 750
 subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_u453t"]
+base_font = ExtResource("9_otgxo")
+spacing_glyph = -1
+
+[sub_resource type="FontVariation" id="FontVariation_pv5il"]
+base_font = ExtResource("9_otgxo")
+spacing_glyph = -1
 
 [sub_resource type="FontVariation" id="FontVariation_5tfyd"]
 base_font = ExtResource("11_taoro")
@@ -126,13 +135,13 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="HPText" type="Label" parent="CanvasLayer/Bars"]
-offset_left = 170.0
-offset_top = 23.0
-offset_right = 253.0
+offset_left = 172.0
+offset_top = 21.0
+offset_right = 255.0
 offset_bottom = 53.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = SubResource("FontVariation_u453t")
 theme_override_font_sizes/font_size = 18
-text = "1000/1000"
+text = "125/125"
 horizontal_alignment = 2
 
 [node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
@@ -147,11 +156,11 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="XPText" type="Label" parent="CanvasLayer/Bars"]
-offset_left = 186.0
-offset_top = 55.0
-offset_right = 269.0
+offset_left = 188.0
+offset_top = 53.0
+offset_right = 271.0
 offset_bottom = 85.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = SubResource("FontVariation_pv5il")
 theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
@@ -183,7 +192,7 @@ offset_left = -328.0
 offset_top = 58.0
 offset_right = 32.0
 offset_bottom = 88.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = ExtResource("9_otgxo")
 theme_override_font_sizes/font_size = 18
 text = "FPS: 60"
 horizontal_alignment = 2
@@ -209,6 +218,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 
 [node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("13_fndli")]
+visible = false
 position = Vector2(20, 21)
 
 [node name="OnlineStuffs" type="Control" parent="CanvasLayer"]

@@ -4236,6 +4236,7 @@ whereToSpawn = "GHZSpawnpoint"
 
 [node name="MolaQuadradaDoKiko" parent="." instance=ExtResource("19_2n7jk")]
 position = Vector2(6240, 3296)
+rotation = 0.0523599
 launch_force = 2000.0
 
 [node name="MolaQuadradaDoKiko2" parent="." instance=ExtResource("19_2n7jk")]
@@ -4245,6 +4246,7 @@ launch_force = 2000.0
 
 [node name="MolaQuadradaDoKiko3" parent="." instance=ExtResource("19_2n7jk")]
 position = Vector2(18016, 3456)
+rotation = 0.109956
 scale = Vector2(1.5, 0.5)
 launch_force = 2000.0
 
