@@ -48,9 +48,8 @@ var base_camera_offset: Vector2
 # Weeeeeeeeeeeird stuff goin on here. Tread Lightlyyyuhh
 var isPlayerGrounded: bool
 
-
 const WeirdMultiplier = 100
-signal updateShit(velocity:Vector2)
+# signal updateShit(velocity:Vector2)
 var deltaOne:float = 1.0
 var floorSinCos := Vector2(0.0, 0.0)
 var idealZoom := 1.0
@@ -73,13 +72,16 @@ var jumpsDone:int = 1
 var hitboxes:Array = []
 
 @onready var ATTACK_DMG_LVL:Dictionary = ATTACK_DMG.duplicate(true)
-
 @onready var canSpeedZoomCam:bool = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
+
+var flooredFrames := 0
 #endregion
 
 #region Variables That Could Be of Assistance
 ## isso e o que voce vai estar usando ao inves do velocity
-var motion := Vector2(0.0, 0.0)
+var motion := Vector2.ZERO
+var prevAirMotion := Vector2.ZERO
+
 var jumping:bool = false
 var holding_jump:bool = false
 
@@ -140,7 +142,7 @@ func _physics_process(delta: float) -> void:
 		return
 	if current_state.has_method("update"): current_state.update()
 	
-	updateShit.emit(motion)
+	# updateShit.emit(motion)
 	var coolFlip = (-1 if plySprite.flip_h else 1)
 	if hitboxCoisos.scale.x != coolFlip:
 		hitboxCoisos.scale.x = coolFlip
@@ -171,12 +173,20 @@ func _physics_process(delta: float) -> void:
 	
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
 
+var cameFromAir:bool = false
+
 func handleSonicPhys() -> void:
 	player_collisions.rotation = practicalAngle
-	plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.2)
-		
+	if is_on_floor(): plySprite.rotation = practicalAngle
+	else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
 	# Sonic Physix
 	if is_on_floor():
+		if cameFromAir:
+			motion = prevAirMotion.rotated(-(get_floor_normal().angle() + PI/2))
+			cameFromAir = false
+			on_land() 	# Ok eu acho q isso e prova o suficiente de q o 
+						# codigo de fisica do jogador e meio bagunçado pra crl
+						# mas a gente bola
 		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
 			# print('Get Outta Here')
 			motion.y = -50
@@ -184,6 +194,8 @@ func handleSonicPhys() -> void:
 			up_direction = Vector2(0.0, -1.0)
 		up_direction = get_floor_normal()
 	else:
+		cameFromAir = true
+		flooredFrames = 0
 		if up_direction != Vector2(0.0, -1.0):
 			var prevmotion := Vector2(
 				motion.x * -up_direction.y - motion.y * up_direction.x,
@@ -269,12 +281,13 @@ func handlePhys() -> void:
 		
 	if is_on_ceiling():
 		motion.y = 10
-	if is_on_wall():
+	if is_on_wall() and flooredFrames >= 3:
 		motion.x = 0
 	
 	# Floor Physicque
 	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
 	if is_on_floor():
+		flooredFrames += 1
 		practicalAngle = get_floor_normal().angle() + PI/2
 		floorSinCos = get_floor_normal()
 		
@@ -288,6 +301,7 @@ func handlePhys() -> void:
 	else:
 		slopeAdd = 0
 		slopeFactor = 1.0
+		prevAirMotion = motion
 	# Not Physix but we ball
 	plySprite.position.x = randf_range(-shakeForce, shakeForce)
 	plySprite.position.y = randf_range(-shakeForce, shakeForce)
@@ -519,6 +533,12 @@ func hitbox_exists(hitboxId:String = ''):
 
 #region Utilidades (Scripting)
 func on_jump(jumpNum:int):
+	pass
+
+func on_land():
+	pass
+
+func on_spring(vel:Vector2):
 	pass
 #endregion
 
