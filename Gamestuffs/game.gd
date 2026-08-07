@@ -165,12 +165,15 @@ func endDialogue() -> void:
 	dialogueInstance.disconnect('dialogue_end', endDialogue)
 	remove_child(dialogueInstance)
 
-func playDialogue(diagName:String):
+# todo: fazer algo que deixe voce inicializar dialogo sem especificar o tipo
+## tipos de dialogo por enquanto incluem:
+## - DiagCharacters
+func playDialogue(diagName:String, type:String = "DiagCharacters"):
 	if !isDial:
 		isDial = true
 		pauseGame()
 		if dialogueInstance: dialogueInstance.queue_free()
-		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/DialogueScene.tscn").instantiate()
+		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/%s.tscn" % type).instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)

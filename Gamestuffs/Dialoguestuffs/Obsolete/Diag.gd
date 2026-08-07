@@ -22,10 +22,8 @@ var theJayson:Dictionary
 var dialogueQuantity:int = 0
 var dialogueLoaded:bool = false
 var curDialogue:int = 1
-var intendedText:String = ''
 var portrite # zomg reference!
 
-var numTimer := 3
 var tween:Tween
 var blurTween:Tween
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://denxkkowup8rn"]
 
-[ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Diag.gd" id="1_1ie7r"]
+[ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Obsolete/Diag.gd" id="1_1ie7r"]
 [ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="2_3mn5t"]
 [ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="2_x2y7r"]
 [ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="3_3mn5t"]
 [ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_x2y7r"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_i3gq3"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="8_lem3t"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="9_6sqdm"]
 [ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="9_lem3t"]
 [ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="10_i3gq3"]
@@ -92,7 +92,7 @@ offset_right = 354.0
 offset_bottom = 256.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_i3gq3")
+theme_override_fonts/normal_font = ExtResource("8_lem3t")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "voce esta me deixando [shake amp=50]bravo...[/shake]"
