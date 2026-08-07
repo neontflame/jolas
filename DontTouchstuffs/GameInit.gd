@@ -5,7 +5,8 @@ static func setupGameInfo():
 	GameUtils.isMobile = 	OS.has_feature("mobile") \
 							or GameUtils.testingMobile
 	
-	OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
+	#OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
+	await OptionsUtils.join_prefs_from_info()
 	await OptionsUtils.get_controls_info()
 	await UnlockUtils.merge_to_vars()
 	await QuestUtils.clear_all()

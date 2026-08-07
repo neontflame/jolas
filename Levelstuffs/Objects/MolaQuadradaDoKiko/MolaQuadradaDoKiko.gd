@@ -92,7 +92,8 @@ func get_launch_velocity(body) -> Vector2:
 	return get_launch_direction() * launch_force * gravity_ratio
 
 func play_sfx(sfx: AudioStreamPlayer2D):
-	sfx.volume_db = GeneralUtils.get_volume_db('sfx')
+	# sfx.volume_db = GeneralUtils.get_volume_db('sfx')
+	# reliquia de um tempo passado...
 	sfx.play()
 	sfx.pitch_scale = randf_range(0.8, 1.2)
 	

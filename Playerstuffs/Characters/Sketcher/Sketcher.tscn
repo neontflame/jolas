@@ -271,8 +271,6 @@ dashLine = NodePath("DashLine")
 boostLine = NodePath("BoostLine")
 boostSprite = NodePath("BoostSprite")
 FLOOR_ACCELERATION = 80.0
-AIR_ACCELERATION = 40
-SOFT_MAX_SPEED = 725
 GRAVITY = 22.5
 ATTACK_DMG = Dictionary[String, float]({
 "boost": 7.0,
@@ -287,10 +285,10 @@ MULTI_SENDOVER = Array[String](["ELECTRICITY", "isParkouring", "isBoosting", "ev
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_3hf1s")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" index="1"]
 script = ExtResource("3_2ar5l")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" index="2"]
 script = ExtResource("4_mc72d")
 
 [node name="Dash" type="Node" parent="StateMachine" index="4"]
@@ -373,6 +371,7 @@ shape = SubResource("CircleShape2D_gf1t6")
 stream = ExtResource("41_dsjf8")
 volume_db = -80.0
 attenuation = 1.31951
+bus = &"SFX"
 
 [node name="BoostSprite" type="AnimatedSprite2D" parent="." index="14"]
 visible = false

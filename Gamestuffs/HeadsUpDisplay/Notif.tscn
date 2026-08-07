@@ -42,3 +42,4 @@ text = "text"
 horizontal_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

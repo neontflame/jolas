@@ -154,13 +154,13 @@ func on_hurt(hpLost:float, extra:Dictionary):
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
-	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
 func play_boss_sfx(name:String, boss:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Levelstuffs/Bosses/" + boss + "/Sounds/" + name + ".ogg")
-	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
 #woah uma coisa Simulando o player ?

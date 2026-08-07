@@ -152,13 +152,13 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
-	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
 func play_mob_sfx(name:String, mob:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
 	sfx_player.stream = load("res://Levelstuffs/Mobs/" + mob + "/Sounds/" + name + ".ogg")
-	sfx_player.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
 #woah uma coisa Simulando o player ?

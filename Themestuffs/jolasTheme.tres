@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://cbuy6erl2dfb7"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://cbuy6erl2dfb7"]
 
 [ext_resource type="Texture2D" uid="uid://by8xvpvh1tlhy" path="res://Themestuffs/button disabled.png" id="1_ygp53"]
 [ext_resource type="Texture2D" uid="uid://ll8upoeinug" path="res://Themestuffs/button focus.png" id="2_eslxe"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://d1mj1wuv26ris" path="res://Themestuffs/scrollbar Held.png" id="6_ise18"]
 [ext_resource type="Texture2D" uid="uid://brhj1lwlqn6fn" path="res://Themestuffs/slider press.png" id="6_y56hf"]
 [ext_resource type="Texture2D" uid="uid://bsco6pcb8k1wd" path="res://Themestuffs/slider focu.png" id="7_ise18"]
+[ext_resource type="Texture2D" uid="uid://dag1raodigeia" path="res://Themestuffs/grabFill.png" id="8_q0jbd"]
+[ext_resource type="Texture2D" uid="uid://c8o2ci3ydasxh" path="res://Themestuffs/grabFillHighlight.png" id="9_or2ba"]
+[ext_resource type="Texture2D" uid="uid://cr7dftlkltj5n" path="res://Themestuffs/grabEmpty.png" id="10_6vh35"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="10_oxydb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sukos"]
@@ -47,6 +50,27 @@ texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ktpj6"]
+texture = ExtResource("8_q0jbd")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54oru"]
+texture = ExtResource("9_or2ba")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p8ua2"]
+texture = ExtResource("10_6vh35")
+texture_margin_left = 5.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j8iwa"]
 texture = ExtResource("5_y56hf")
@@ -90,6 +114,11 @@ spacing_top = -4
 [resource]
 default_font = SubResource("FontVariation_ygp53")
 default_font_size = 18
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.18, 0.18, 0.18, 0.501961)
+Button/colors/font_focus_color = Color(0.277932, 0.388975, 0.648842, 1)
+Button/colors/font_hover_color = Color(0.39, 0.39, 0.39, 1)
+Button/colors/font_pressed_color = Color(0.4, 0.6, 0.8, 1)
 Button/styles/disabled = SubResource("StyleBoxTexture_sukos")
 Button/styles/focus = SubResource("StyleBoxTexture_wp1tn")
 Button/styles/hover = SubResource("StyleBoxTexture_e2lnx")
@@ -98,6 +127,9 @@ Button/styles/pressed = SubResource("StyleBoxTexture_u5xkt")
 HSlider/icons/grabber = ExtResource("5_oxydb")
 HSlider/icons/grabber_disabled = ExtResource("6_y56hf")
 HSlider/icons/grabber_highlight = ExtResource("7_ise18")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ktpj6")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_54oru")
+HSlider/styles/slider = SubResource("StyleBoxTexture_p8ua2")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_j8iwa")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_xxd78")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_vtilg")

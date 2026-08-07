@@ -243,7 +243,7 @@ func playBGM(trackName:String):
 	curTrackName = trackName
 	
 	bgmStream.stream = load(pathness)
-	bgmStream.volume_db = GeneralUtils.get_volume_db('bgm')
+	bgmStream.volume_db = 0.0
 	bgmStream.play()
 	bgmStream.finished.connect(func():curTrackName="")
 
@@ -257,7 +257,7 @@ func fadeBGM(sec:float = 1.0, nextSong:String = ""):
 			if nextSong != "":
 				mustween.kill()
 				playBGM(nextSong),
-		GeneralUtils.get_volume_db('bgm'),
+		0.0,
 		-100.0,
 		sec
 		)

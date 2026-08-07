@@ -44,25 +44,31 @@ z_index = 1
 
 [node name="BGMLayer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_rrh7q")
+bus = &"Musica"
 parameters/looping = true
 
 [node name="BGMLayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fec8x")
+bus = &"Musica"
 parameters/looping = true
 
 [node name="BGMLayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_m101x")
+bus = &"Musica"
 parameters/looping = true
 
 [node name="SFX" type="Node" parent="."]
 
 [node name="Back" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("9_2f15j")
+bus = &"SFX"
 
 [node name="Go" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_3g3s7")
+bus = &"SFX"
 
 [node name="Tick" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_lo8pj")
+bus = &"SFX"
 
 [node name="MenuBackground" parent="." instance=ExtResource("12_3g3s7")]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=28 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
 [ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_36asn"]
+[ext_resource type="FontFile" uid="uid://c7k7iuojc1khg" path="res://Gamestuffs/Fonts/ariblk.ttf" id="4_u453t"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="5_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://dupgsvqcnqs4i" path="res://Gamestuffs/HeadsUpDisplay/HpLabel.png" id="6_5ep0j"]
 [ext_resource type="Texture2D" uid="uid://dhjdp07qe725o" path="res://Gamestuffs/HeadsUpDisplay/XpLabel.png" id="7_4f5kr"]
@@ -22,10 +23,9 @@
 shader = ExtResource("2_t1xeu")
 shader_parameter/shift_hue = 0.0
 
-[sub_resource type="SystemFont" id="SystemFont_7gr8i"]
-font_names = PackedStringArray("Arial")
-font_weight = 750
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_rpc58"]
+base_font = ExtResource("4_u453t")
+spacing_glyph = -6
 
 [sub_resource type="FontVariation" id="FontVariation_u453t"]
 base_font = ExtResource("9_otgxo")
@@ -92,7 +92,7 @@ offset_top = -21.0
 offset_right = 100.0
 offset_bottom = 79.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.513726)
-theme_override_fonts/font = SubResource("SystemFont_7gr8i")
+theme_override_fonts/font = SubResource("FontVariation_rpc58")
 theme_override_font_sizes/font_size = 70
 text = "1"
 horizontal_alignment = 1

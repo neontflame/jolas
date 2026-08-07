@@ -63,6 +63,21 @@ static func get_prefs_info():
 	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
 	return saveGotten
 
+static func join_prefs_from_info():
+	preferences.merge(await get_prefs_info(), true)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("Master"),
+		OptionsUtils.preferences["volMaster"]
+	)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("Musica"),
+		OptionsUtils.preferences["volBGM"]
+	)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("SFX"),
+		OptionsUtils.preferences["volSFX"]
+	)
+
 static func get_default_prefs() -> Dictionary:
 	var emptyDict:Dictionary = {}
 	for optione in coolOptiones:

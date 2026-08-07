@@ -96,5 +96,6 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_j3f0v")
+bus = &"SFX"
 
 [connection signal="body_entered" from="MolaGames/Area2D" to="." method="_on_area_2d_body_entered"]

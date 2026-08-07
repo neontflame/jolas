@@ -42,6 +42,7 @@ spawn_path = NodePath("..")
 script = ExtResource("4_f3ii1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Musica"
 
 [node name="IngameMenu" parent="." instance=ExtResource("6_tn4rb")]
 z_index = 10

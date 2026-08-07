@@ -83,7 +83,6 @@ func handleBoost():
 	boostSprite.rotation = plySprite.rotation
 	boostSprite.flip_h = (motion.x < 0)
 	boostSprite.offset.x = (30 if motion.x < 0 else -30)
-	$Windstuff.volume_db = GeneralUtils.get_volume_db('sfx', 0)
 	if not isBoosting:
 		$Windstuff.stop()
 		return

@@ -46,7 +46,6 @@ func _process(delta: float) -> void:
 
 static func play_sfx(sfxName:String):
 	if !CoolMenu.instance: return
-	CoolMenu.instance.get_node('SFX/' + sfxName).volume_db = GeneralUtils.get_volume_db('sfx', 0)
 	CoolMenu.instance.get_node('SFX/' + sfxName).play()
 	
 static func stop_sfx(sfxName:String):
@@ -56,7 +55,7 @@ static func stop_sfx(sfxName:String):
 func manageTrackVolumes():
 	for vol in range(len(theMusics)):
 		if vol < CoolMenu.activeMusicLayers:
-			theVolumes[vol] = GeneralUtils.get_volume_db('bgm', 0)
+			theVolumes[vol] = 0.0
 		else:
 			theVolumes[vol] = linear_to_db(0.0)
 	for trackNum in range(len(theMusics)):

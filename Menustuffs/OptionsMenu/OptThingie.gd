@@ -108,3 +108,21 @@ func youreDraggingIt(changery:bool):
 func sliderDraggest(value: float) -> void:
 	CoolMenu.play_sfx('Tick')
 	OptionsUtils.preferences[optInternal] = $Option/OptSlider.value
+	match optInternal:
+		"volMaster":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("Master"),
+				OptionsUtils.preferences[optInternal]
+			)
+		"volBGM":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("Musica"),
+				OptionsUtils.preferences[optInternal]
+			)
+		"volSFX":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("SFX"),
+				OptionsUtils.preferences[optInternal]
+			)
+		_:
+			pass

@@ -124,7 +124,7 @@ func hide_combo_hud():
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfxPlayer.playing: sfxPlayer.stop()
 	sfxPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + name + ".ogg")
-	sfxPlayer.volume_db = GeneralUtils.get_volume_db('sfx', volumeDB)
+	sfxPlayer.volume_db = volumeDB
 	sfxPlayer.play()
 
 func add_to_msg_log(coolText:String):
