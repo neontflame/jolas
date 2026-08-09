@@ -1,8 +1,10 @@
 extends Node2D
+class_name NPC
+
 var talkedTo:bool = false
 var canTalk:bool = false
 @export var dialogue:String = ''
-@export var dialogoPorChar:bool = false
+# @export var dialogoPorChar:bool = false
 @export var questCleared:String = ''
 
 func _ready() -> void:
@@ -12,10 +14,12 @@ func _ready() -> void:
 func _body_entered(body: Node2D) -> void:
 	if body is PlayerObject:
 		canTalk = true
+		interaction(true)
 
 func _body_exited(body: Node2D) -> void:
 	if body is PlayerObject:
 		canTalk = false
+		interaction(false)
 
 func _physics_process(delta: float) -> void:
 	$InteractText.visible = canTalk
@@ -26,5 +30,9 @@ func _physics_process(delta: float) -> void:
 			talkedTo = true
 
 func playDialogue():
-	var extraCoiso:String = (('.%s' % GPStats.char) if dialogoPorChar else '')
-	JolasGame.instance.playDialogue(dialogue + extraCoiso)
+	JolasGame.instance.playDialogue(dialogue)
+
+#region Scripcios
+func interaction(able:bool):
+	pass
+#endregion

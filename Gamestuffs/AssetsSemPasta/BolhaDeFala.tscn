@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dahmnu7fl7m3a"]
+
+[ext_resource type="Script" uid="uid://b06fmrfw7qrwk" path="res://Gamestuffs/AssetsSemPasta/BolhaDeFala.gd" id="1_pjsrs"]
+[ext_resource type="Texture2D" uid="uid://ydm50sqpu2e1" path="res://Gamestuffs/AssetsSemPasta/bolhaBolha.png" id="2_1dupa"]
+[ext_resource type="FontFile" uid="uid://bjsecpljprics" path="res://Gamestuffs/Fonts/ARIALNB.TTF" id="3_pvvtv"]
+[ext_resource type="Texture2D" uid="uid://dei6plai1p803" path="res://Gamestuffs/AssetsSemPasta/bolhaCoiso.png" id="4_18dfv"]
+[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="5_1dupa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2r4wc"]
+texture = ExtResource("2_1dupa")
+texture_margin_left = 14.0
+texture_margin_top = 9.0
+texture_margin_right = 14.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="FontVariation" id="FontVariation_pjsrs"]
+base_font = ExtResource("3_pvvtv")
+baseline_offset = -0.085
+
+[node name="BolhaDeFala" type="Node2D" node_paths=PackedStringArray("rtlabel")]
+script = ExtResource("1_pjsrs")
+rtlabel = NodePath("NinePatchRect/RichTextLabel")
+audioStream = ExtResource("5_1dupa")
+volume_em_dB = null
+text = "eah"
+
+[node name="NinePatchRect" type="PanelContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -53.0
+offset_right = 72.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2r4wc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -3
+theme_override_fonts/normal_font = SubResource("FontVariation_pjsrs")
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "eah"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BolhaCoiso" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("4_18dfv")
+
+[node name="Tickness" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_1dupa")
+bus = &"SFX"

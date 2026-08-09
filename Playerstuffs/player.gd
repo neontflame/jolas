@@ -244,10 +244,11 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 		#if motion.y >= 0 || !PlayerUtils.is_jump_pressed():
 			#holding_jump = false
 	
-	if jumping:
-		if Input.is_action_just_released("ctrl_jump") and motion.y < 0.0:
-			motion.y /= 2.0
-			jumping = false
+	if jumping and holding_jump:
+		if PlayerUtils.is_jump_released() and motion.y < 0.0:
+			print("eugh")
+			motion.y = motion.y / 1.5
+			holding_jump = false
 	
 	# walkfucks
 	motion.x += slopeAdd

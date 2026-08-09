@@ -538,13 +538,14 @@ position = Vector2(1858, 579)
 position = Vector2(19169, 2605)
 
 [node name="TestNpc" parent="." instance=ExtResource("2_h803n")]
-position = Vector2(2869, 1263)
+position = Vector2(2869, 1282)
 dialogue = "diagTest"
 
 [node name="QueixoNpc" parent="." instance=ExtResource("7_jr6rj")]
 position = Vector2(6735, 1218)
 
 [node name="Camera regions" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" instance=ExtResource("3_so8ub")]
 position = Vector2(1677, 1220)

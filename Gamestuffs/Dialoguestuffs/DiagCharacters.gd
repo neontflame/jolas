@@ -30,10 +30,20 @@ func opener(diagjson:Dictionary):
 		portrite.position = portraitPos.position + Vector2(200, 0)
 		portrite.intendedPos = portraitPos.position
 
+var playCharSound:bool = false
 func animate(diag):
-	super.animate(diag)
-	if portrite != null && !portrite.ptrt.is_playing(): 
-		portrite.ptrt.play(str(diag['mood']))
+	playCharSound = false
+	if portrite != null:
+		if portrite.talksound != null:
+			playCharSound = true
+		if !portrite.ptrt.is_playing(): 
+			portrite.ptrt.play(str(diag['mood']))
+	if playCharSound:
+		if not portrite.talksoundWaits \
+		or (portrite.talksoundWaits and not portrite.talksound.playing):
+			portrite.talksound.play()
+	else:
+		$Sounds/TickSound.play()
 
 func set_visibles(visibility:bool):
 	flippable.visible = visibility

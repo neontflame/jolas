@@ -34,11 +34,11 @@ var curSelected:int = 0
 func _ready() -> void:
 	curDialogue = 0
 	dialogueLoaded = false
-	parseDialogue('diagTool')
+	# parseDialogue('diagTool')
 
 func parseDialogue(diagFile:String):
 	redirectDiag = ""
-	var pathness:String = FileUtils.get_localized_file('res://Gamestuffs/Dialoguestuffs/Dialogues/' + diagFile + '.json')
+	var pathness:String = DiagUtils.get_dialogue_path(diagFile)
 	diagJson = JSON.parse_string(FileUtils.get_text_file_content(pathness))
 	dialogueQuantity = len(diagJson['dialogue'])
 		

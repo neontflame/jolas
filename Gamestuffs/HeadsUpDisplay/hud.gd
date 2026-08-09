@@ -140,7 +140,18 @@ func add_to_msg_log(coolText:String):
 	await textWait.timeout
 	logshit.visible = false
 
+var notif_cooldown := 0.5  # seconds between notifs
+var last_notif_time := -INF
+
 func create_notif(msg:String, icon:String, sound:String):
+	var now = Time.get_ticks_msec() / 1000.0
+	var wait_time = (last_notif_time + notif_cooldown) - now
+	if wait_time > 0:
+		last_notif_time += notif_cooldown
+		await get_tree().create_timer(wait_time).timeout
+	else:
+		last_notif_time = now
+
 	for child in notifsNode.get_children():
 		if child is Node2D:
 			child.position.y += 32
