@@ -86,7 +86,7 @@ func goToGame():
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value
 						if value >= 1:
-							get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
+							GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 						,  
 					0.0,  # Start value
 					1.0,  # End value

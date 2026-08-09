@@ -6,7 +6,8 @@ var canGoNow = false
 
 func _enter_tree() -> void:
 	triggeredGoto = false
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().process_frame
+	await get_tree().process_frame
 	canGoNow = true
 
 func _on_body_entered(body: Node2D) -> void:

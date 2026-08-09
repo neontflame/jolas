@@ -2,8 +2,6 @@ extends Node2D
 class_name DiagPortrait
 
 @onready var ptrt = $AnimatedSprite2D
-@export var talksound:AudioStreamPlayer = null
-@export var talksoundWaits:bool = true
 
 var intendedPos := Vector2(0, 0)
 

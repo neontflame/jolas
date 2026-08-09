@@ -10,12 +10,16 @@ var customTalkies:DiagTalksound
 
 var playCharSound:bool = false
 
+var playsVoiceline:bool = false
+
 #region Scripting
 func opener(diagjson:Dictionary):
 	if portrite != null: 
 		portrite.queue_free()
+		portrite = null
 	
 	var character: String = diagjson['char'].capitalize()
+	print(character, " -> ", DiagUtils.get_portrait_path(character))
 	if DiagUtils.get_portrait_path(character):
 		charName.visible = true
 		charName.texture = DiagUtils.get_coolname(character)
@@ -32,28 +36,36 @@ func opener(diagjson:Dictionary):
 	if portrite != null:
 		portrite.position = portraitPos.position + Vector2(200, 0)
 		portrite.intendedPos = portraitPos.position
-	
+		
 	if DiagUtils.get_talksound_path(character):
 		playCharSound = true
 		customTalkies = DiagUtils.get_talksound(character)
 		$Sounds/DiagSound.stream = customTalkies.talkStream
 	else:
 		playCharSound = false
+	
+	if diagjson.has("voiceline") and diagjson["voiceline"] != '':
+		playsVoiceline = true
+		$Sounds/DiagSound.stream = DiagUtils.get_voiceline(character, diagjson["voiceline"])
+	else: playsVoiceline = false
 
 
 func runDiag(diagNum:int):
 	super.runDiag(diagNum)
+	if playsVoiceline:
+		$Sounds/DiagSound.play()
 
 func animate(diag):
 	if portrite != null:
 		if !portrite.ptrt.is_playing(): 
 			portrite.ptrt.play(str(diag['mood']))
-	if playCharSound:
-		if not customTalkies.talksoundWaits \
-		or (customTalkies.talksoundWaits and not $Sounds/DiagSound.playing):
-			portrite.talksound.play()
-	else:
-		$Sounds/TickSound.play()
+	if not playsVoiceline:
+		if playCharSound:
+			if not customTalkies.talksoundWaits \
+			or (customTalkies.talksoundWaits and not $Sounds/DiagSound.playing):
+				$Sounds/DiagSound.play()
+		else:
+			$Sounds/TickSound.play()
 
 func set_visibles(visibility:bool):
 	flippable.visible = visibility

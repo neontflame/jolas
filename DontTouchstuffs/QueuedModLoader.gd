@@ -30,7 +30,7 @@ func _enter_tree() -> void:
 		renderTextySkript()
 		
 	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+	GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
 
 func renderTexty():
 	$Label.text = tr('mod_of_mods_loaded').format(

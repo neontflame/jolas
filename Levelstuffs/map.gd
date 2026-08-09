@@ -19,7 +19,7 @@ func _ready() -> void:
 		GPStats.char = GameUtils.get_chars().pick_random()
 		# GPStats.char = 'Passo'
 		GPStats.saveNum = 999
-		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
+		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 		return
 	MapUtils.set_map(self)
 	await get_tree().create_timer(0.05).timeout

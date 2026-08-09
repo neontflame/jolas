@@ -48,7 +48,8 @@ func fadeAway():
 	var cooltweenie = get_tree().create_tween()
 	cooltweenie.tween_method(
 		func(v):
-			$objSprite.self_modulate.a = v
+			if $objSprite:
+				$objSprite.self_modulate.a = v
 			if v <= 0.01:
 				queue_free(),
 			1.0, 0.0, 1.0)

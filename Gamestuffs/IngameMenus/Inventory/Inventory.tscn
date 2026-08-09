@@ -180,34 +180,6 @@ tracks/2/keys = {
 "values": [Vector2(8, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_lg38x"]
-resource_name = "showAbout"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(8, 8), Vector2(-1080, 8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Vector2(755, 8), Vector2(16, 8)]
-}
-
 [sub_resource type="Animation" id="Animation_l7xhp"]
 resource_name = "hideAbout"
 step = 0.0333333
@@ -234,6 +206,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(16, 8), Vector2(755, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_lg38x"]
+resource_name = "showAbout"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/InventoryThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(-1080, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuCanvas/Control/ItemDesc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(755, 8), Vector2(16, 8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6vsj"]
@@ -379,7 +379,7 @@ theme_override_fonts/bold_font = ExtResource("18_34v14")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "ui_cancel Voltar"
+text = "[b][color=880000]ui_cancel[/color][/b] Voltar"
 scroll_active = false
 
 [node name="ItemName" type="Label" parent="MenuCanvas/Control/ItemDesc"]

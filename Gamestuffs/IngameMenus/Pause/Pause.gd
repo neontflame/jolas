@@ -97,7 +97,7 @@ func doSomething(opt:StringName):
 			else:
 				CoolMenu.curSelected = 0
 			JolasGame.instance.fadeIn(1.0, func():
-				get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+				GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
 				)
 				
 		_:

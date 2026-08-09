@@ -72,3 +72,7 @@ static func text_replacery(string:String):
 		coolString = coolString.replace(replacery[0], replacery[1])
 	
 	return coolString
+
+static func loadScene(scene:String):
+	LoadingScene.goToScene = scene
+	SpecificAutoloadForSpecificReasons.get_tree().change_scene_to_file("res://DontTouchstuffs/LoadingScene.tscn")

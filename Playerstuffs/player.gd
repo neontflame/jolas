@@ -321,6 +321,8 @@ func apply_player_gravity(custom_gravity: float = GRAVITY):
 func setup_camera():
 	coolCamera.position_smoothing_enabled = false
 	await get_tree().process_frame
+	await get_tree().process_frame
+	coolCamera.reset_smoothing()
 	coolCamera.position_smoothing_enabled = true
 
 func handleCamera() -> void:

@@ -46,9 +46,9 @@ func _ready() -> void:
 				GameUtils.loadedModsFolderless.append(mod.get_file())
 			print('Total de mods carregados: %s' % len(GameUtils.queuedMods))
 			GameUtils.queuedMods = []
-		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
+		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 	else:
 		if len(GameUtils.queuedMods) > 0:
 			get_tree().change_scene_to_file("res://DontTouchstuffs/QueuedModLoader.tscn")
 		else:
-			get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+			GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")

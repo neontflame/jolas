@@ -101,12 +101,14 @@ func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
+	GPStats.charObject.setup_camera()
 
 #acaba os treco de player
 var fadeTween:Tween = create_tween()
 func fadeOut(sec:float, callThat:Callable = func():pass):
 	fadeTween.kill()
 	
+	await get_tree().process_frame
 	fadeTween = create_tween()
 	fadeTween.tween_method(
 		func(value): 
@@ -236,7 +238,7 @@ func removeFromPeerID(peer_id:Variant):
 
 func bye_bye() -> void:
 	CoolMenu.comingFrom = 'OnlineMenu'
-	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+	GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
 #endregion
 
 #region Música
