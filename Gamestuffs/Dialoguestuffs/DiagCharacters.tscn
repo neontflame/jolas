@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvhspg25ndcqs"]
+
+[ext_resource type="PackedScene" uid="uid://bmxjfcdw3vlwl" path="res://Gamestuffs/Dialoguestuffs/DiagBase.tscn" id="1_o3rj6"]
+[ext_resource type="Script" uid="uid://cpeix3b7q7psm" path="res://Gamestuffs/Dialoguestuffs/DiagCharacters.gd" id="2_qx8vr"]
+[ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_6kpy3"]
+[ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="4_vogol"]
+
+[node name="DiagCharacters" node_paths=PackedStringArray("flippable", "charName", "portraitPos") instance=ExtResource("1_o3rj6")]
+script = ExtResource("2_qx8vr")
+flippable = NodePath("DiagCanvas/Meioificador/Flippable")
+charName = NodePath("DiagCanvas/Meioificador/Flippable/CharName")
+portraitPos = NodePath("DiagCanvas/Meioificador/Flippable/PortraitPos")
+
+[node name="RichTextLabel" parent="DiagCanvas/Meioificador" index="0"]
+offset_right = 361.0
+theme_override_font_sizes/normal_font_size = 16
+
+[node name="Flippable" type="Node2D" parent="DiagCanvas/Meioificador" index="1"]
+position = Vector2(20, 21)
+
+[node name="CharName" type="Sprite2D" parent="DiagCanvas/Meioificador/Flippable" index="0"]
+z_index = 9
+position = Vector2(290, 136)
+texture = ExtResource("3_6kpy3")
+
+[node name="BalaoDeFala" type="Sprite2D" parent="DiagCanvas/Meioificador/Flippable" index="1"]
+z_index = 7
+position = Vector2(-6, 187)
+texture = ExtResource("4_vogol")
+
+[node name="PortraitPos" type="Node2D" parent="DiagCanvas/Meioificador/Flippable" index="2"]
+position = Vector2(275, 108)

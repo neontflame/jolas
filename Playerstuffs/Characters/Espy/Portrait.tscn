@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsvh1cnkfr0pn"]
+
+[ext_resource type="Texture2D" uid="uid://t7gt0yh4ao6r" path="res://Playerstuffs/Characters/Espy/Sprites/Portraits/bruh.png" id="1_4yv3y"]
+[ext_resource type="Texture2D" uid="uid://cfh7j5j623eif" path="res://Playerstuffs/Characters/Espy/Sprites/Portraits/eoq.png" id="2_w3t31"]
+[ext_resource type="Texture2D" uid="uid://140fhxkapgsw" path="res://Playerstuffs/Characters/Espy/Sprites/Portraits/neutra.png" id="3_j3bbc"]
+[ext_resource type="Texture2D" uid="uid://dnm8r6mowxkml" path="res://Playerstuffs/Characters/Espy/Sprites/Portraits/espy explications.png" id="4_eaubn"]
+[ext_resource type="Texture2D" uid="uid://snm3jt0oqx02" path="res://Playerstuffs/Characters/Espy/Sprites/Portraits/aww.png" id="5_uc0m7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ak7to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4yv3y")
+}],
+"loop": true,
+"name": &"bruh",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w3t31")
+}],
+"loop": true,
+"name": &"confused",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j3bbc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_eaubn")
+}],
+"loop": true,
+"name": &"explica",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_uc0m7")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}]
+
+[node name="espyPort" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -78)
+sprite_frames = SubResource("SpriteFrames_ak7to")

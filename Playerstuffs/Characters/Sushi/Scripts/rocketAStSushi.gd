@@ -7,5 +7,7 @@ func enter_state():
 
 func update():
 	super.update()
+	Player.apply_player_gravity()
+	
 	if Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_rocket_floor)

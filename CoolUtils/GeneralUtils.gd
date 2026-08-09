@@ -37,6 +37,14 @@ static func check_array_compat(array1:Array, array2:Array):
 	# tem q ver dos dois lados neh
 	return true
 
+static func check_array_compat_lenient(array1:Array, array2:Array):
+	for thingOne in array1:
+		for thingTwo in array2:
+			if thingOne is String and thingTwo is String:
+				if thingTwo.contains(thingOne) or thingOne.contains(thingTwo):
+					return true
+	return false
+
 static func text_replacery(string:String):
 	# isso e pra ser usado com BBCODE !!!!! RAAHH
 	var stringReplacies:Array = [
@@ -48,10 +56,14 @@ static func text_replacery(string:String):
 		["ctrl_2", "CtrlTwo"],
 		["ctrl_jump", "Jump"],
 		["ctrl_quests", "Quests"],
+		["ctrl_inventory", "Inventory"],
 		["ctrl_pause", "Pause"],
 		["ctrl_interact", "Interact"],
+		["ui_toggle", "Toggle"],
 		["ui_accept", "Accept"],
-		["ui_cancel", "Cancel"]
+		["ui_cancel", "Cancel"],
+		["ui_next_page", "Next Page"],
+		["ui_prev_page", "Previous Page"],
 	]
 	
 	var coolString:String = string
@@ -60,17 +72,3 @@ static func text_replacery(string:String):
 		coolString = coolString.replace(replacery[0], replacery[1])
 	
 	return coolString
-
-static func get_volume(type:String):
-	OptionsUtils.get_prefs_info()
-	
-	match (type):
-		'bgm':
-			return OptionsUtils.preferences['volMaster'] * OptionsUtils.preferences['volBGM']
-		'sfx':
-			return OptionsUtils.preferences['volMaster'] * OptionsUtils.preferences['volSFX']
-		_:
-			return OptionsUtils.preferences['volMaster']
-
-static func get_volume_db(type:String, mod:float = 0.0):
-	return mod + linear_to_db(get_volume(type) + 0.001) 

@@ -12,20 +12,20 @@ static var instance:Node2D
 
 static var comingFrom = ''
 
+@export var camera: Camera2D
+@export var blurfx:TextureRect
+
 @onready var theMusics := [$BGMLayer1, $BGMLayer2, $BGMLayer3]
 var theVolumes:Array = [0.0, 0.0, 0.0]
 
 func _ready() -> void:
 	CoolMenu.instance = self
 	CoolMenu.curMenu = 'Main'
+	
+	manageTrackVolumes()
+	
 	for track in theMusics:
 		track.play()
-		
-	print(OS.get_executable_path().get_base_dir())
-	OptionsUtils.preferences.merge(OptionsUtils.get_prefs_info(), true)
-	OptionsUtils.get_controls_info()
-	UnlockUtils.merge_to_vars()
-	QuestUtils.clear_all()
 	
 	if CoolMenu.comingFrom != '':
 		$MainMenu.change_self_scene('res://Menustuffs/' + comingFrom + '/' + comingFrom + '.tscn')
@@ -34,29 +34,30 @@ func _ready() -> void:
 var sineWaveCoolio := 0.0
 
 func _process(delta: float) -> void:
+	camera.position.x -= 50.0 * delta
+	# camera.position.x = (sin(sineWaveCoolio) * (96.0/2.0)) + 354.0
+	
 	sineWaveCoolio += delta/8.0
 	$MenuBg.position.x = (sin(sineWaveCoolio) * (96.0/2.0)) + 354.0
 	
-	$BlurFx.material.set_shader_parameter("amount", lerp($BlurFx.material.get_shader_parameter("amount"), blurAmount, 0.2))
+	blurfx.material.set_shader_parameter("amount", lerp(blurfx.material.get_shader_parameter("amount"), blurAmount, 0.2))
 	
-	for vol in range(len(theMusics)):
-		if vol < CoolMenu.activeMusicLayers:
-			# print('Get N')
-			theVolumes[vol] = GeneralUtils.get_volume_db('bgm', 0)
-		else:
-			# print('Get out')
-			theVolumes[vol] = linear_to_db(0.0)
-	# print(CoolMenu.activeMusicLayers, ' music layers, ', theVolumes)
-	
-	for trackNum in range(len(theMusics)):
-		var coolume = lerp(theMusics[trackNum].volume_db, theVolumes[trackNum], 0.2)
-		theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum])
+	manageTrackVolumes()
 
 static func play_sfx(sfxName:String):
 	if !CoolMenu.instance: return
-	CoolMenu.instance.get_node('SFX/' + sfxName).volume_db = GeneralUtils.get_volume_db('sfx', 0)
 	CoolMenu.instance.get_node('SFX/' + sfxName).play()
 	
 static func stop_sfx(sfxName:String):
 	if !CoolMenu.instance: return
 	CoolMenu.instance.get_node('SFX/' + sfxName).stop()
+
+func manageTrackVolumes():
+	for vol in range(len(theMusics)):
+		if vol < CoolMenu.activeMusicLayers:
+			theVolumes[vol] = 0.0
+		else:
+			theVolumes[vol] = linear_to_db(0.0)
+	for trackNum in range(len(theMusics)):
+		var coolume = theVolumes[trackNum]
+		theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum]) 

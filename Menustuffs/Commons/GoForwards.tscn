@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://etanojolbpsh"]
+[gd_scene load_steps=5 format=3 uid="uid://etanojolbpsh"]
 
 [ext_resource type="Script" uid="uid://bjq21xdxjnpmy" path="res://Menustuffs/Commons/GoWherever.gd" id="1_4xo0k"]
 [ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="1_awdr3"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_eh2jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo0k"]
+size = Vector2(160, 48)
 
 [node name="GoForwards" type="Node2D"]
 script = ExtResource("1_4xo0k")
@@ -21,3 +24,9 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "ui_accept "
 horizontal_alignment = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(-27, 0)
+shape = SubResource("RectangleShape2D_4xo0k")
+action = "ui_accept"
+visibility_mode = 1

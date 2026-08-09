@@ -19,7 +19,7 @@ func makeMenu(menu:StringName):
 
 func unmakeMenu():
 	theVolModifier = 0
-	JolasGame.instance.bgmStream.volume_db = GeneralUtils.get_volume_db('bgm', theVolModifier)
+	JolasGame.instance.bgmStream.volume_db = theVolModifier
 	if menucools != null: menucools.queue_free()
 	JolasGame.instance.isMenu = false
 	tweenOut()
@@ -46,4 +46,4 @@ func tweenOut():
 
 func _process(delta: float) -> void:
 	if JolasGame.instance.isMenu: 
-		JolasGame.instance.bgmStream.volume_db = GeneralUtils.get_volume_db('bgm', theVolModifier)
+		JolasGame.instance.bgmStream.volume_db = theVolModifier

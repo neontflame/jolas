@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b6koguxmry1pj"]
+
+[ext_resource type="Texture2D" uid="uid://dhs74csrfcqdv" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0001.png" id="1_65r36"]
+[ext_resource type="Texture2D" uid="uid://vkpn2hh65pl5" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0002.png" id="2_4g6vv"]
+[ext_resource type="Texture2D" uid="uid://c0mtpu4b4obom" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0003.png" id="3_w4ics"]
+[ext_resource type="Texture2D" uid="uid://bjdirnkx854ch" path="res://Playerstuffs/Characters/GTeto/Sprites/ObjectsFx/gprojetil explode0004.png" id="4_0afx0"]
+[ext_resource type="Texture2D" uid="uid://es48yaitcq1y" path="res://Levelstuffs/Mobs/Sandler/EleMeDaMedo.png" id="5_103ok"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_65r36")
+}, {
+"duration": 1.5,
+"texture": ExtResource("2_4g6vv")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_w4ics")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_0afx0")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_103ok")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 16.0
+}]

@@ -1,6 +1,7 @@
 extends "res://Menustuffs/Submenu.gd"
 
 @export var checkestMark:Sprite2D
+@export var mobilery:Node2D
 
 var checkPositiones:Array[Vector2] = [
 	Vector2(-87.0, -39.0),
@@ -19,11 +20,24 @@ var optssss:Array[StringName] = [
 var canControl:bool = true
 
 func _ready() -> void:
+	print("para com essa porra")
 	CoolMenu.curSelected = 0
 	CoolMenu.maxSelected = len(optssss)
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('newThing')
 	$MenuCanvas/Control/SaveBox.renderPaused()
+	
+	if GameUtils.isMobile:
+		for mobthing in mobilery.get_children():
+			mobthing.doThing.connect(func(id):
+				if CoolMenu.curSelected == id:
+					doSomething(optssss[CoolMenu.curSelected])
+				if CoolMenu.curSelected != id:
+					selectry(id - CoolMenu.curSelected)
+				)
+	else:
+		mobilery.queue_free()
+	
 	await get_tree().create_timer(0.01).timeout
 	selectry(0)
 
@@ -52,6 +66,7 @@ func doSomething(opt:StringName):
 		'resume':
 			JolasGame.instance.unpauseGame()
 			JolasGame.instance.hud.questIcon.rerenderCtrl()
+			JolasGame.instance.hud.inventoryIcon.rerenderCtrl()
 			GPStats.charObject.onUnpause()
 			# CoolMenu.instance.tweenOut()
 			CoolMenu.play_sfx('Wrap')
@@ -71,6 +86,8 @@ func doSomething(opt:StringName):
 		'exit':
 			SaveUtils.save_game(GPStats.saveNum)
 			for hudchild in JolasGame.instance.hud.get_children(true):
+				if hudchild is AudioStreamPlayer\
+				or hudchild is Timer: continue
 				hudchild.visible = false
 			CoolMenu.play_sfx('Wrap')
 			$AnimationPlayer.play('getOut')

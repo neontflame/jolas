@@ -5,7 +5,7 @@ static var mapaCoiso
 static var instance
 
 var curSelected:int = 0
-var canSelect:bool = true
+var canSelect:bool = false
 
 var thePins:Array = []
 
@@ -18,6 +18,8 @@ func _ready() -> void:
 	whereAmI()
 	$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
 	$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+	
+	canSelect = true
 
 func change_self_scene(coolscene:String):
 	if Submenu.saveMenu: Submenu.saveMenu.queue_free()
@@ -50,6 +52,19 @@ func _process(delta: float) -> void:
 #region Pin utils
 func setup_pins():
 	for pin in thePins:
+		var penis = pin as MapaPin
+		penis.press.connect(func(id:int):
+				if canSelect:
+					if curSelected == id:
+						CoolMenu.play_sfx('Go')
+						canSelect = false
+						Submenu.instance.goToThing(get_pin(curSelected).placeId)
+					if curSelected != id:
+						curSelected = id
+						$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
+						$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+						CoolMenu.play_sfx('Tick'))
+		
 		for key in pin.goto.keys():
 			if pin.goto[key].is_valid_int() && pin.goto[key] != '-1':
 				if get_pin(int(pin.goto[key])) == null:
@@ -74,10 +89,11 @@ func goToOtherPin(thepin:int, where:String):
 	
 	if myPin.goto[where] != '-1':
 		if myPin.goto[where].is_valid_int():
-			curSelected = int(myPin.goto[where])
-			$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
-			$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
-			CoolMenu.play_sfx('Tick')
+			if get_pin(int(myPin.goto[where])):
+				curSelected = int(myPin.goto[where])
+				$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
+				$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+				CoolMenu.play_sfx('Tick')
 		else:
 			changeMap(myPin.goto[where])
 			CoolMenu.play_sfx('Tick')

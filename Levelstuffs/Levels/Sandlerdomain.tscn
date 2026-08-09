@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwrifkr1erwwu"]
+
+[ext_resource type="Script" uid="uid://c51ej8qs1iiil" path="res://Levelstuffs/Levels/Sandlerdomain.gd" id="1_1pu2r"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_gq6mc"]
+[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Levelstuffs/Utilities/CameraBound.tscn" id="3_4gkxx"]
+[ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Levelstuffs/Mobs/Sandler/Sandler.tscn" id="4_gq6mc"]
+[ext_resource type="PackedScene" uid="uid://cmp2r0r1gy28r" path="res://Levelstuffs/Bosses/BigSandler/BigSandler.tscn" id="5_2bicp"]
+[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="5_yyatf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6mc"]
+size = Vector2(1871, 1047)
+
+[node name="Sandlerdomain" type="Node2D" node_paths=PackedStringArray("boss", "bossRoom")]
+script = ExtResource("1_1pu2r")
+hasBossRoom = true
+boss = NodePath("BossShit/BigSandler")
+bossRoom = NodePath("BossShit/BossDetect")
+
+[node name="EspeculanteBackground" parent="." instance=ExtResource("2_gq6mc")]
+coolColor = Color(0.67, 0.2546, 0.2546, 1)
+
+[node name="EdgyCoiso" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(3844, -213, 5749, -232, 5753, 842, 3839, 849)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(177, 518)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.78, 0, 0, 1)
+polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-271, 53, 941, 46, 941, -47, 1336, -47, 1336, 17, 1935, 27, 2218, 48, 2489, 137, 2784, 234, 2983, 264, 3280, 264, 3599, 250, 5551, 234, 5551, -710, 3727, -710, 3727, 58, 3599, 58, 3599, -838, 5711, -838, 6087, 250, 5983, 826, 4866, 821, 1967, 834, -482, 250, -482, -794, -280, -753)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3724, 569)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+color = Color(0.78, 0, 0, 1)
+polygon = PackedVector2Array(-439, 275, -542, 306, -461, 409)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-6, 262, 51, 249, 51, -18, -12, -2)
+disabled = true
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(174, 436)
+
+[node name="BackSpawnpoint" type="Node2D" parent="."]
+position = Vector2(4861, 600)
+
+[node name="Camera regions" type="Node2D" parent="."]
+visible = false
+
+[node name="CameraBound" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(1005, 385)
+scale = Vector2(10.26, 3.91)
+continuousX = true
+
+[node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(2796, 451)
+scale = Vector2(10.26, 3.91)
+continuousX = true
+
+[node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_4gkxx")]
+position = Vector2(4784.81, 320)
+scale = Vector2(9.499, 5.26)
+idealZoom = 0.75
+
+[node name="enemigos" type="Node2D" parent="."]
+
+[node name="TemplateMob" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(1492, 384)
+
+[node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2081, 480)
+
+[node name="TemplateMob3" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2283, 490)
+
+[node name="TemplateMob4" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2466, 504)
+
+[node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2636, 546)
+
+[node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_gq6mc")]
+position = Vector2(2791, 618)
+
+[node name="GoToLevel" parent="." instance=ExtResource("5_yyatf")]
+position = Vector2(-109, 656)
+scale = Vector2(3.535, 154.325)
+levelInQuestion = "OutroMapa"
+whereToSpawn = "BackSpawnpoint"
+
+[node name="BossShit" type="Node2D" parent="."]
+
+[node name="BossDetect" type="Area2D" parent="BossShit"]
+position = Vector2(3867, -187)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossShit/BossDetect"]
+position = Vector2(925.5, 513.5)
+shape = SubResource("RectangleShape2D_gq6mc")
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="BigSandler" parent="BossShit" node_paths=PackedStringArray("projectile_target_node", "left_limit", "right_limit") instance=ExtResource("5_2bicp")]
+position = Vector2(4800, 592)
+projectile_target_node = NodePath("..")
+left_limit = NodePath("../LeftLimit")
+right_limit = NodePath("../RightLimit")
+
+[node name="LeftLimit" type="Marker2D" parent="BossShit"]
+position = Vector2(3968, -64)
+
+[node name="RightLimit" type="Marker2D" parent="BossShit"]
+position = Vector2(5632, -64)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqncgeshg8a4m"]
+
+[ext_resource type="Texture2D" uid="uid://cxgenucvfop25" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david idle.png" id="1_6cq8x"]
+
+[node name="CharSel" type="Node2D"]
+
+[node name="FuckingDavidIdle" type="Sprite2D" parent="."]
+position = Vector2(-3, -73)
+texture = ExtResource("1_6cq8x")

@@ -5,8 +5,8 @@ static var saveNum := 0
 
 static var char := 'Neon'
 static var xp := 0
-static var level := 3
-static var charObject:PlayerObject
+static var level := 7
+static var charObject: PlayerObject
 static var maxHP := 10
 static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
 static var curMap := 'TheThing'
@@ -44,6 +44,7 @@ static func load_info_from_save(saveNum:int):
 		maxHP = 10
 		curMap = GameUtils.defaultMap
 		exploredMaps = []
+		InventoryUtils.inventory = []
 		QuestUtils.clear_all()
 	else:
 		level = save['level']
@@ -54,3 +55,5 @@ static func load_info_from_save(saveNum:int):
 		if (save.has("assignedQuests") and save.has("clearedQuests")):
 			QuestUtils.assignedQuests = save['assignedQuests']
 			QuestUtils.clearedQuests = save['clearedQuests']
+		if (save.has("inventory")):
+			InventoryUtils.inventory = save['inventory']

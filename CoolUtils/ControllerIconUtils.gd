@@ -7,10 +7,14 @@ static var wiiMaps:Dictionary = {
 	'ctrl_1': '1',
 	'ctrl_2': '2',
 	'ctrl_quests': 'Minus',
+	'ctrl_inventory': 'B',
 	'ctrl_pause': 'Plus',
 	'ctrl_interact': 'A',
+	'ui_toggle': 'Minus',
 	'ui_cancel': '1',
-	'ui_accept': '2'
+	'ui_accept': '2',
+	'ui_next_page': 'Plus',
+	'ui_prev_page': 'Minus'
 }
 
 static var ps3Maps:Dictionary = {
@@ -18,10 +22,14 @@ static var ps3Maps:Dictionary = {
 	'ctrl_2': 'X',
 	'ctrl_jump': 'Square',
 	'ctrl_quests': 'Select',
+	'ctrl_inventory': 'R1',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Triangle',
+	'ui_toggle': 'Select',
 	'ui_cancel': 'Circle',
-	'ui_accept': 'X'
+	'ui_accept': 'X',
+	'ui_next_page': 'R2',
+	'ui_prev_page': 'L2'
 }
 
 static var xbox360Maps:Dictionary = {
@@ -29,10 +37,14 @@ static var xbox360Maps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_quests': 'Back',
+	'ctrl_inventory': 'RButton',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'Back',
 	'ui_cancel': 'B',
-	'ui_accept': 'A'
+	'ui_accept': 'A',
+	'ui_next_page': 'RTrigger',
+	'ui_prev_page': 'LTrigger'
 }
 
 static var dreamcastMaps:Dictionary = {
@@ -40,10 +52,14 @@ static var dreamcastMaps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_quests': 'RTrigger',
+	'ctrl_inventory': 'LTrigger',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'RTrigger',
 	'ui_cancel': 'B',
-	'ui_accept': 'A'
+	'ui_accept': 'A',
+	'ui_next_page': 'RTrigger',
+	'ui_prev_page': 'LTrigger'
 }
 
 static var gamecubeMaps:Dictionary = {
@@ -51,10 +67,14 @@ static var gamecubeMaps:Dictionary = {
 	'ctrl_2': 'A',
 	'ctrl_jump': 'X',
 	'ctrl_quests': 'Z',
+	'ctrl_inventory': 'R',
 	'ctrl_pause': 'Start',
 	'ctrl_interact': 'Y',
+	'ui_toggle': 'Z',
 	'ui_cancel': 'B',
-	'ui_accept': 'A'
+	'ui_accept': 'A',
+	'ui_next_page': 'R',
+	'ui_prev_page': 'L'
 }
 
 static var ps3Butts:Dictionary = {
@@ -149,6 +169,24 @@ static var buttonNames:Dictionary = {
 	}
 }
 
+static var coolKeymap:Dictionary = {
+	"BracketLeft": "[",
+	"BracketRight": "]",
+	"ParenLeft": "(",
+	"ParenRight": ")",
+	"BraceLeft": "{",
+	"BraceRight": "}",
+	"BackSlash": "\\",
+	"Plus": "+",
+	"Minus": "-",
+	"Equals": "=",
+	"Comma": ",",
+	"Period": ".",
+	"Slash": "/",
+	"Colon": ":",
+	"Semicolon": ";",
+}
+
 # Input events
 static func get_event_bind_bbcode(event:InputEvent):
 	var coolReturns
@@ -163,7 +201,7 @@ static func get_event_bind_bbcode(event:InputEvent):
 	if coolReturns == null:
 		coolReturns = get_button_name(event)
 	if OptionsUtils.get_prefs_info()['buttonType'] == 5 || coolReturns == null:
-		coolReturns = event.as_text()
+		coolReturns = get_key_symbol(event.as_text())
 	return coolReturns
 
 static func get_generic_bind_bbcode(event:InputEvent, butts:Dictionary, folder:String):
@@ -195,7 +233,7 @@ static func get_button_name(event:InputEvent):
 # Action icons
 static func get_action_bind_bbcode(action:StringName):
 	var coolReturns
-	var actionEvent = InputMap.action_get_events(action)[0]
+	var actionEvent:InputEvent = InputMap.action_get_events(action)[0]
 	if OptionsUtils.get_prefs_info()['buttonType'] == 0: # Wii
 		coolReturns = get_wii_action_bbcode(action)
 	if OptionsUtils.get_prefs_info()['buttonType'] == 1: # X360
@@ -209,9 +247,25 @@ static func get_action_bind_bbcode(action:StringName):
 	if coolReturns == null:
 		coolReturns = get_button_name(actionEvent)
 	if OptionsUtils.get_prefs_info()['buttonType'] == 5 || coolReturns == null:
-		coolReturns = actionEvent.as_text()
+		coolReturns = "%s" % get_key_symbol(actionEvent.as_text())
 	return coolReturns
+
+static func get_key_symbol(key:String):
+	if coolKeymap.has(key):
+		return coolKeymap[key]
 	
+	var regex = RegEx.new()
+	regex.compile("\\s*\\(.*?\\)")
+	
+	var replacements:Dictionary = {
+		' (Physical)': '',
+		'Joypad Button ': 'Btn'
+	}
+	var replacies:String = regex.sub(key, "", true)
+	for rep in replacements:
+		replacies = replacies.replace(rep, replacements[rep])
+	return replacies
+
 static func get_wii_action_bbcode(action:StringName):
 	var coolSauce = null
 	if wiiMaps.has(action):

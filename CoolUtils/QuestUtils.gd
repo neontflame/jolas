@@ -22,12 +22,18 @@ static func conclude(questName:String, additionalPerks:Callable = func():pass):
 	assignedQuests.erase(questName)
 	clearedQuests.append(questName)
 	GPStats.xp += get_info(questName)['xpReward']
+
+	JolasGame.instance.hud.create_notif('+%s XP por completar quest' % get_info(questName)['xpReward'],'newQuest','Quest')
 	if get_info(questName).has("unlocksChar"):
 		UnlockUtils.unlock_char(get_info(questName)["unlocksChar"])
+		JolasGame.instance.hud.create_notif('%s agora é jogável' % GameUtils.get_char_info(get_info(questName)["unlocksChar"])["name"],'newFriend','NewChar')
 	additionalPerks.call()
+	
+	#notifs
 
 static func get_info(questName:String):
-	var queStuff = "res://Gamestuffs/Quests/%s.json" % questName
+	var queStuffRaw = "res://Gamestuffs/Quests/%s.json" % questName
+	var queStuff = FileUtils.get_localized_file(queStuffRaw)
 	var questInfo = '' 
 	if !ResourceLoader.exists(queStuff):
 		questInfo = '{

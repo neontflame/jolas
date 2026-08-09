@@ -1,6 +1,17 @@
+class_name GameInit
 extends Node2D
 
-func _ready() -> void:
+static func setupGameInfo():
+	GameUtils.isMobile = 	OS.has_feature("mobile") \
+							or GameUtils.testingMobile
+	
+	#OptionsUtils.preferences.merge(await OptionsUtils.get_prefs_info(), true)
+	await OptionsUtils.join_prefs_from_info()
+	await OptionsUtils.get_controls_info()
+	await UnlockUtils.merge_to_vars()
+	await QuestUtils.clear_all()
+
+func setupAutoloadMods():
 	for argument in OS.get_cmdline_args():
 		var arguString:String = str(argument)
 		if arguString.begins_with("--mods="):
@@ -8,6 +19,10 @@ func _ready() -> void:
 			var modsSplit = initSplit[1].split(",")
 			for mod in modsSplit:
 				GameUtils.queuedMods.append("user://" + mod)
+
+func _ready() -> void:
+	await GameInit.setupGameInfo()
+	await setupAutoloadMods()
 	
 	if DisplayServer.get_name() == "headless" \
 	or "--server" in OS.get_cmdline_user_args():
@@ -28,6 +43,7 @@ func _ready() -> void:
 				print('Carregando mod: %s' % mod)
 				ProjectSettings.load_resource_pack(mod)
 				GameUtils.loadedMods.append(mod)
+				GameUtils.loadedModsFolderless.append(mod.get_file())
 			print('Total de mods carregados: %s' % len(GameUtils.queuedMods))
 			GameUtils.queuedMods = []
 		get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")

@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://x04hyhpls548"]
+[gd_scene load_steps=11 format=3 uid="uid://x04hyhpls548"]
 
 [ext_resource type="Script" uid="uid://con14lmbu1nji" path="res://Menustuffs/SaveMenu/SaveBox.gd" id="1_movk3"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="2_178rs"]
 [ext_resource type="Texture2D" uid="uid://c63k3r66nl6v0" path="res://Menustuffs/SaveMenu/Passaporte.png" id="2_m5t5b"]
 [ext_resource type="Texture2D" uid="uid://4y87rkyncgl3" path="res://Menustuffs/SaveMenu/PassaporteVazio.png" id="3_8xmhf"]
 [ext_resource type="Texture2D" uid="uid://b7wd0qvwax60o" path="res://Menustuffs/SaveMenu/PassaporteMod.png" id="4_m0t24"]
+[ext_resource type="FontFile" uid="uid://c7k7iuojc1khg" path="res://Gamestuffs/Fonts/ariblk.ttf" id="6_8xmhf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ringp"]
 animations = [{
@@ -40,28 +41,32 @@ blend_mode = 2
 font_names = PackedStringArray("Verdana")
 subpixel_positioning = 0
 
-[node name="SaveBox" type="Node2D" unique_id=1059506168]
+[sub_resource type="FontVariation" id="FontVariation_m0t24"]
+base_font = ExtResource("6_8xmhf")
+spacing_glyph = -8
+
+[node name="SaveBox" type="Node2D"]
 script = ExtResource("1_movk3")
 
-[node name="SaveBox" type="AnimatedSprite2D" parent="." unique_id=859131192]
+[node name="SaveBox" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ringp")
 centered = false
 
-[node name="FullSave" type="Node2D" parent="." unique_id=124065928]
+[node name="FullSave" type="Node2D" parent="."]
 
-[node name="CanvasGroup" type="CanvasGroup" parent="FullSave" unique_id=685480025]
+[node name="CanvasGroup" type="CanvasGroup" parent="FullSave"]
 
-[node name="Icon" type="Sprite2D" parent="FullSave/CanvasGroup" unique_id=1315667898]
+[node name="Icon" type="Sprite2D" parent="FullSave/CanvasGroup"]
 position = Vector2(58, 61)
 texture = ExtResource("2_178rs")
 
-[node name="Polygon2D" type="Polygon2D" parent="FullSave/CanvasGroup" unique_id=332348156]
+[node name="Polygon2D" type="Polygon2D" parent="FullSave/CanvasGroup"]
 material = SubResource("CanvasItemMaterial_m5t5b")
 position = Vector2(-1, -4)
 invert_enabled = true
 polygon = PackedVector2Array(10, 10, 110, 10, 110, 139, 10, 139)
 
-[node name="CurMap" type="Label" parent="FullSave" unique_id=1628018136]
+[node name="CurMap" type="Label" parent="FullSave"]
 offset_left = 112.0
 offset_top = 78.0
 offset_right = 378.0
@@ -71,7 +76,7 @@ theme_override_fonts/font = SubResource("SystemFont_movk3")
 theme_override_font_sizes/font_size = 13
 text = "Mapa de testes"
 
-[node name="CurChar" type="Label" parent="FullSave" unique_id=1031603577]
+[node name="CurChar" type="Label" parent="FullSave"]
 offset_left = 112.0
 offset_top = 49.0
 offset_right = 311.0
@@ -80,25 +85,25 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "Neon T. Flame"
 
-[node name="Timespan" type="Label" parent="FullSave" unique_id=366111586]
+[node name="Timespan" type="Label" parent="FullSave"]
 visible = false
 offset_left = 219.0
 offset_top = 7.0
 offset_right = 399.0
 offset_bottom = 28.0
-theme_override_colors/font_color = Color(0.54509807, 0.7254902, 1, 1)
+theme_override_colors/font_color = Color(0.545098, 0.72549, 1, 1)
 theme_override_fonts/font = SubResource("SystemFont_movk3")
 text = "0h 0min"
 horizontal_alignment = 2
 
-[node name="LvCount" type="Label" parent="FullSave" unique_id=1907397064]
+[node name="LvCount" type="Label" parent="FullSave"]
 offset_left = 307.0
-offset_top = 29.0
+offset_top = 24.0
 offset_right = 402.0
-offset_bottom = 91.0
+offset_bottom = 96.0
 theme_override_colors/font_color = Color(0.4, 0.6, 1, 1)
-theme_override_fonts/font = SubResource("SystemFont_movk3")
+theme_override_fonts/font = SubResource("FontVariation_m0t24")
 theme_override_font_sizes/font_size = 50
-text = "5"
+text = "50"
 
-[node name="EmptySave" type="Node2D" parent="." unique_id=1114227226]
+[node name="EmptySave" type="Node2D" parent="."]

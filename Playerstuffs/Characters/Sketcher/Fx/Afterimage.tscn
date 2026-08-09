@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://bikshfr6h0u5p"]
+[gd_scene load_steps=3 format=3 uid="uid://bikshfr6h0u5p"]
 
 [ext_resource type="Script" uid="uid://d0q5kk0rndvch" path="res://Playerstuffs/Characters/Sketcher/Fx/Afterimage.gd" id="1_mrndc"]
 [ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="1_s6egw"]
 
-[node name="Afterimage" type="Node2D" unique_id=1137662210]
+[node name="Afterimage" type="Node2D"]
 show_behind_parent = true
 script = ExtResource("1_mrndc")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=630092069]
-self_modulate = Color(0.8574442, 3.967455, 3.967455, 0.4627451)
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.857444, 3.96745, 3.96745, 0.462745)
 show_behind_parent = true
 texture = ExtResource("1_s6egw")
 offset = Vector2(0, -7)

@@ -1,33 +1,64 @@
-[gd_scene format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=28 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
 [ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_36asn"]
+[ext_resource type="FontFile" uid="uid://c7k7iuojc1khg" path="res://Gamestuffs/Fonts/ariblk.ttf" id="4_u453t"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="5_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://dupgsvqcnqs4i" path="res://Gamestuffs/HeadsUpDisplay/HpLabel.png" id="6_5ep0j"]
 [ext_resource type="Texture2D" uid="uid://dhjdp07qe725o" path="res://Gamestuffs/HeadsUpDisplay/XpLabel.png" id="7_4f5kr"]
 [ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="8_piegi"]
 [ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="9_i2avg"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="9_otgxo"]
 [ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_1a2va"]
 [ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_taoro"]
 [ext_resource type="PackedScene" uid="uid://b5s5rj5po17bk" path="res://Gamestuffs/HeadsUpDisplay/questIcon.tscn" id="12_5tfyd"]
 [ext_resource type="PackedScene" uid="uid://cdob43vo7sjc4" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn" id="13_fndli"]
+[ext_resource type="PackedScene" uid="uid://bcsask4ppob0g" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.tscn" id="13_grt4r"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="14_m2u84"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="15_grt4r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43w4t"]
 shader = ExtResource("2_t1xeu")
 shader_parameter/shift_hue = 0.0
 
-[sub_resource type="SystemFont" id="SystemFont_7gr8i"]
-font_names = PackedStringArray("Arial")
-font_weight = 750
-subpixel_positioning = 0
+[sub_resource type="FontVariation" id="FontVariation_rpc58"]
+base_font = ExtResource("4_u453t")
+spacing_glyph = -6
+
+[sub_resource type="FontVariation" id="FontVariation_u453t"]
+base_font = ExtResource("9_otgxo")
+spacing_glyph = -1
+
+[sub_resource type="FontVariation" id="FontVariation_pv5il"]
+base_font = ExtResource("9_otgxo")
+spacing_glyph = -1
 
 [sub_resource type="FontVariation" id="FontVariation_5tfyd"]
 base_font = ExtResource("11_taoro")
 spacing_glyph = -4
 
-[node name="Hud" type="Node2D" unique_id=1574224645 node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "placeInfo")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_otgxo"]
+shader = ExtResource("15_grt4r")
+shader_parameter/line_color = Color(0, 0, 0, 0.396078)
+shader_parameter/line_thickness = 2.0
+shader_parameter/add_margins = true
+
+[sub_resource type="SystemFont" id="SystemFont_u453t"]
+font_names = PackedStringArray("MS UI Gothic")
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_xitcb"]
+base_font = SubResource("SystemFont_u453t")
+baseline_offset = -0.315
+
+[sub_resource type="FontVariation" id="FontVariation_0ecn0"]
+fallbacks = Array[Font]([SubResource("FontVariation_xitcb")])
+base_font = ExtResource("2_fccik")
+spacing_top = -10
+
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -40,54 +71,59 @@ xpBar = NodePath("CanvasLayer/Bars/XPBar")
 testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
 comboText = NodePath("CanvasLayer/RightAnchor/ComboText")
 questIcon = NodePath("CanvasLayer/QuestIcon")
+inventoryIcon = NodePath("CanvasLayer/InventoryIcon")
 placeInfo = NodePath("CanvasLayer/Control/PlaceInfo")
+notifsNode = NodePath("CanvasLayer/RightAnchor/Notifs")
+sfxPlayer = NodePath("AudioStreamPlayer")
+onlineElements = NodePath("CanvasLayer/OnlineStuffs")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1395271806]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer" unique_id=1666058654]
+[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_43w4t")
 use_parent_material = true
 position = Vector2(40, 16)
 texture = ExtResource("3_36asn")
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer" unique_id=1607570722]
+[node name="LevelLabel" type="Label" parent="CanvasLayer"]
 offset_left = -38.0
 offset_top = -21.0
 offset_right = 100.0
 offset_bottom = 79.0
-theme_override_colors/font_color = Color(1, 1, 1, 0.5137255)
-theme_override_fonts/font = SubResource("SystemFont_7gr8i")
+theme_override_colors/font_color = Color(1, 1, 1, 0.513726)
+theme_override_fonts/font = SubResource("FontVariation_rpc58")
 theme_override_font_sizes/font_size = 70
 text = "1"
 horizontal_alignment = 1
 
-[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer" unique_id=1826259876]
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(62, 65)
 texture = ExtResource("5_t1xeu")
 
-[node name="Bars" type="Node" parent="CanvasLayer" unique_id=1781242768]
+[node name="Bars" type="Node" parent="CanvasLayer"]
 
-[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1095992270]
+[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(88, 16)
 texture = ExtResource("6_5ep0j")
 centered = false
 
-[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=750366070]
+[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(107, 54)
 texture = ExtResource("7_4f5kr")
 centered = false
 
-[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1317421494]
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(112, 32)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=281244592]
+[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(128, 64)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=1444966525]
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
 offset_left = 112.0
 offset_top = 32.0
 offset_right = 209.0
@@ -98,17 +134,17 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="HPText" type="Label" parent="CanvasLayer/Bars" unique_id=1061605119]
-offset_left = 170.0
-offset_top = 23.0
-offset_right = 253.0
+[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
+offset_left = 172.0
+offset_top = 21.0
+offset_right = 255.0
 offset_bottom = 53.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = SubResource("FontVariation_u453t")
 theme_override_font_sizes/font_size = 18
-text = "1000/1000"
+text = "125/125"
 horizontal_alignment = 2
 
-[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=2104607320]
+[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 225.0
@@ -119,17 +155,17 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="XPText" type="Label" parent="CanvasLayer/Bars" unique_id=339376321]
-offset_left = 186.0
-offset_top = 55.0
-offset_right = 269.0
+[node name="XPText" type="Label" parent="CanvasLayer/Bars"]
+offset_left = 188.0
+offset_top = 53.0
+offset_right = 271.0
 offset_bottom = 85.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = SubResource("FontVariation_pv5il")
 theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
 
-[node name="RightAnchor" type="Control" parent="CanvasLayer" unique_id=40230390]
+[node name="RightAnchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -138,33 +174,39 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor" unique_id=444815792]
+[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor"]
 layout_mode = 0
-offset_left = -200.0
-offset_top = 10.0
-offset_right = 28.0
-offset_bottom = 79.0
+offset_left = -744.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = 5.0
 theme_override_fonts/normal_font = SubResource("FontVariation_5tfyd")
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]12"
+text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
 horizontal_alignment = 2
 
-[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor" unique_id=1523833424]
+[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
 layout_mode = 0
 offset_left = -328.0
 offset_top = 58.0
 offset_right = 32.0
 offset_bottom = 88.0
-theme_override_fonts/font = ExtResource("2_fccik")
+theme_override_fonts/font = ExtResource("9_otgxo")
 theme_override_font_sizes/font_size = 18
 text = "FPS: 60"
 horizontal_alignment = 2
 
-[node name="QuestIcon" parent="CanvasLayer" unique_id=1447934783 instance=ExtResource("12_5tfyd")]
+[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor"]
+position = Vector2(40, 96)
+
+[node name="QuestIcon" parent="CanvasLayer" instance=ExtResource("12_5tfyd")]
 position = Vector2(34, 136)
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=217545555]
+[node name="InventoryIcon" parent="CanvasLayer" instance=ExtResource("13_grt4r")]
+position = Vector2(33, 211)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -175,5 +217,44 @@ offset_right = 20.0
 offset_bottom = 41.0
 grow_horizontal = 2
 
-[node name="PlaceInfo" parent="CanvasLayer/Control" unique_id=1452514052 instance=ExtResource("13_fndli")]
+[node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("13_fndli")]
+visible = false
 position = Vector2(20, 21)
+
+[node name="OnlineStuffs" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme = ExtResource("14_m2u84")
+
+[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 399.0
+offset_bottom = 34.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Escreva alguma coisa aqui!"
+caret_blink = true
+
+[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs"]
+visible = false
+material = SubResource("ShaderMaterial_otgxo")
+layout_mode = 0
+offset_top = -175.0
+offset_right = 417.0
+theme_override_fonts/normal_font = SubResource("FontVariation_0ecn0")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+justification_flags = 131
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

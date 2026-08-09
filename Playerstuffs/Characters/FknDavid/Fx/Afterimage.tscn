@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8o1lsw7qih0y"]
+
+[ext_resource type="Script" uid="uid://d0q5kk0rndvch" path="res://Playerstuffs/Characters/Sketcher/Fx/Afterimage.gd" id="1_2m4v5"]
+[ext_resource type="Texture2D" uid="uid://cxgenucvfop25" path="res://Playerstuffs/Characters/FknDavid/Sprites/fucking david idle.png" id="2_2m4v5"]
+
+[node name="Afterimage" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_2m4v5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.623702, 0.799422, 0.941164, 0.462745)
+show_behind_parent = true
+texture = ExtResource("2_2m4v5")
+offset = Vector2(0, -7)

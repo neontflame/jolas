@@ -44,9 +44,9 @@ func reload():
 		i += 1
 
 func _process(delta: float) -> void:
-	$MenuCanvas/MidAnchor/ModLabel.text = str(len(GameUtils.loadedMods)) + (' mod carregado' if len(GameUtils.loadedMods) == 1 else ' mods carregados')
+	$MenuCanvas/MidAnchor/ModLabel.text = tr_n('mod_loaded_single', 'mod_loaded_plural', len(GameUtils.loadedMods)) % len(GameUtils.loadedMods)
 	if len(GameUtils.queuedMods) > 0:
-		$MenuCanvas/MidAnchor/ModLabel.text += ', ' + str(len(GameUtils.queuedMods)) + (' mod em fila' if len(GameUtils.queuedMods) == 1 else ' mods em fila')
+		$MenuCanvas/MidAnchor/ModLabel.text += tr_n('mod_queued_single', 'mod_queued_plural', len(GameUtils.queuedMods)) % len(GameUtils.queuedMods)
 	
 	for coolfile in boxWithABunchOfShitInIt.get_children():
 		if CoolMenu.curSelected != -1:
@@ -89,6 +89,13 @@ func loadMod(mod:String):
 			else:
 				ProjectSettings.load_resource_pack(mod)
 				GameUtils.loadedMods.append(mod)
+				GameUtils.loadedModsFolderless.append(mod.get_file())
+				# carregar scripts !!!
+				# pra quem for maluco e fizer algum mod maluco que precise
+				if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
+					for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
+						var script = load(modscript).new()
+						get_tree().root.add_child(script)
 			CoolMenu.play_sfx('Go')
 
 func goBack():
@@ -100,6 +107,7 @@ func goBack():
 			get_tree().change_scene_to_file('res://DontTouchstuffs/QueuedModLoader.tscn')
 		else:
 			CoolMenu.curSelected = 4
+			await get_tree().process_frame
 			change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	else:
 		# e hora de voltar

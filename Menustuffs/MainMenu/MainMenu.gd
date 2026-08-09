@@ -5,6 +5,8 @@ var menuNames:Array = []
 
 var isSelected:bool = false
 
+@export var mobilery:Node2D
+
 func randomQuote():
 	var quotes := [
 		'bosta em lata',
@@ -29,17 +31,38 @@ func randomQuote():
 		'hihi quando',
 		'lembra daquela vez que EU e o speed tentamos nao rir',
 		'MINHA MAE É PARCIALMENTE PENDENDO A SER MENDIGA',
-		'cara vai se fuder\ncom a porra do seu mr beast'
+		'cara vai se fuder\ncom a porra do seu mr beast',
+		'gifted goons vs hard work goons',
+		'opa eaí webcore!',
+		'"20 dolares e 20 dolares"',
+		'cara eu estou jolando cara',
+		'ESSA NÃO É UMA CALL DE GAMEDEV'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
 func _ready() -> void:
+	if OS.get_name() == "Web":
+		$MenuCanvas/RightAnchor/Opts/addons.modulate.a = 0.5
+		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
+	
 	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
-							versão %s - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % GameUtils.gameVersion
+							versão %s (%s) - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % [GameUtils.gameVersion, GameUtils.captionVersion]
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():
 		menuCoolios.append(child)
+	
+	if GameUtils.isMobile:
+		for mobthing in mobilery.get_children():
+			mobthing.doThing.connect(func(id):
+				if CoolMenu.curSelected == id:
+					goToMenu(menuCoolios[CoolMenu.curSelected].name)
+				if CoolMenu.curSelected != id:
+					CoolMenu.play_sfx('Tick')
+					CoolMenu.curSelected = id
+				)
+	else:
+		mobilery.queue_free()
 	
 	CoolMenu.maxSelected = len(menuCoolios)
 	CoolMenu.blurAmount = 0.0
@@ -80,9 +103,19 @@ func goToMenu(menuName:String):
 		'opcoes':
 			change_self_scene("res://Menustuffs/OptionsMenu/OptionsMenu.tscn")
 		'addons':
-			change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+			if OS.get_name() != "Web":
+				change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+			else:
+				CoolMenu.stop_sfx('Go')
+				CoolMenu.play_sfx('Back')
+		'sobre':
+			change_self_scene("res://Menustuffs/AboutMenu/AboutMenu.tscn")
 		'sair':
-			get_tree().quit()
+			if OS.get_name() != "Web":
+				get_tree().quit()
+			else:
+				CoolMenu.stop_sfx('Go')
+				CoolMenu.play_sfx('Back')
 		_:
 			print(menuName)
 			CoolMenu.stop_sfx('Go')

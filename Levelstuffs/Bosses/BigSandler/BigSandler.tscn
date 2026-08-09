@@ -1,0 +1,218 @@
+[gd_scene load_steps=35 format=3 uid="uid://cmp2r0r1gy28r"]
+
+[ext_resource type="PackedScene" uid="uid://53fv6vjohi3d" path="res://Levelstuffs/Bosses/TemplateBoss.tscn" id="1_qtkih"]
+[ext_resource type="Script" uid="uid://b6i3jewogyngx" path="res://Levelstuffs/Bosses/BigSandler/Scripts/bigSandlerBoss.gd" id="2_eyt61"]
+[ext_resource type="Texture2D" uid="uid://bgj0jwcgi3y6g" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0004.png" id="2_rei66"]
+[ext_resource type="Script" uid="uid://d10c7iyj88eyt" path="res://Levelstuffs/Bosses/BigSandler/Scripts/defaultStSandler.gd" id="3_d0kok"]
+[ext_resource type="Texture2D" uid="uid://b5gfruegyuiyj" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0005.png" id="3_pxle5"]
+[ext_resource type="Texture2D" uid="uid://ck2a4721qleko" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0001.png" id="4_dbg6q"]
+[ext_resource type="Texture2D" uid="uid://b5ikxug1y567h" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0002.png" id="5_0xs5n"]
+[ext_resource type="Texture2D" uid="uid://c42rtx2rtv8ox" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0003.png" id="6_6tco7"]
+[ext_resource type="Texture2D" uid="uid://c5klvgcw6rrsw" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0006.png" id="7_eyt61"]
+[ext_resource type="Texture2D" uid="uid://bltchgaedjork" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler click0007.png" id="8_d0kok"]
+[ext_resource type="Texture2D" uid="uid://bxov62u42xott" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler throw click0001.png" id="9_nutsf"]
+[ext_resource type="Texture2D" uid="uid://bdwmfgpeuc1ou" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler throw click0002.png" id="10_x3kmj"]
+[ext_resource type="Texture2D" uid="uid://djv4swc64rwcy" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler throw click0003.png" id="11_h52kk"]
+[ext_resource type="Texture2D" uid="uid://dphym6li526fq" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler throw click0004.png" id="12_kmqfq"]
+[ext_resource type="Texture2D" uid="uid://cjg563k74qp4a" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler throw click0005.png" id="13_rbp3q"]
+[ext_resource type="Texture2D" uid="uid://po72evcc11es" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler petrify0001.png" id="14_nqoea"]
+[ext_resource type="Texture2D" uid="uid://bmevankjbp4d5" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler petrify0002.png" id="15_lbi8h"]
+[ext_resource type="Texture2D" uid="uid://bu7iw61fctpov" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler petrify0003.png" id="16_3nkq2"]
+[ext_resource type="Texture2D" uid="uid://bil0uc87cwvqf" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler idle0001.png" id="17_p8tsq"]
+[ext_resource type="Texture2D" uid="uid://7ao43bwfu8jy" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler idle0002.png" id="18_u2rgr"]
+[ext_resource type="Texture2D" uid="uid://6i36dx4kqeee" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler idle0003.png" id="19_o607e"]
+[ext_resource type="Texture2D" uid="uid://b20h55gmoi0hc" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler idle0004.png" id="20_jxqe0"]
+[ext_resource type="Texture2D" uid="uid://b212cjnv1sq6t" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler hurt0001.png" id="21_8tjwu"]
+[ext_resource type="Texture2D" uid="uid://jbiw07q7yj16" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler hurt0002.png" id="22_dx3ti"]
+[ext_resource type="Texture2D" uid="uid://bqdfxar6alcn7" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler hurt0003.png" id="23_lp8v7"]
+[ext_resource type="Texture2D" uid="uid://bijrb7cfo6mud" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler hurt0004.png" id="24_bbkmq"]
+[ext_resource type="Texture2D" uid="uid://11mgylsfel3b" path="res://Levelstuffs/Bosses/BigSandler/Sprites/sandler hurt0005.png" id="25_0imbj"]
+[ext_resource type="Texture2D" uid="uid://w4by61li0i3p" path="res://Levelstuffs/Bosses/BigSandler/Sprites/AURA MALIGNA0001.png" id="27_d0kok"]
+[ext_resource type="Texture2D" uid="uid://bpjbetj7rtwet" path="res://Levelstuffs/Bosses/BigSandler/Sprites/AURA MALIGNA0002.png" id="28_nutsf"]
+[ext_resource type="Texture2D" uid="uid://cu8wx0nmsy8io" path="res://Levelstuffs/Bosses/BigSandler/Sprites/AURA MALIGNA0003.png" id="29_x3kmj"]
+[ext_resource type="Texture2D" uid="uid://bu4hac8blqaao" path="res://Levelstuffs/Bosses/BigSandler/Sprites/AURA MALIGNA0004.png" id="30_h52kk"]
+[ext_resource type="Texture2D" uid="uid://fcwejfcxksfw" path="res://Levelstuffs/Bosses/BigSandler/Sprites/AURA MALIGNA0005.png" id="31_kmqfq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vl1wa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rei66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pxle5")
+}],
+"loop": false,
+"name": &"clickClick",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dbg6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0xs5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6tco7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rei66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pxle5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eyt61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d0kok")
+}],
+"loop": false,
+"name": &"clickStart",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("9_nutsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x3kmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h52kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kmqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rbp3q")
+}],
+"loop": false,
+"name": &"clickThrow",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_nqoea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lbi8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3nkq2")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_p8tsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u2rgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_o607e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_jxqe0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_8tjwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_dx3ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_lp8v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bbkmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0imbj")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rbp3q"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("27_d0kok")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("27_d0kok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_nutsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_x3kmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_h52kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_kmqfq")
+}],
+"loop": false,
+"name": &"entrance",
+"speed": 12.0
+}]
+
+[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura", "attack_timer", "mini_sandler_timer") instance=ExtResource("1_qtkih")]
+script = ExtResource("2_eyt61")
+FUCKING_aura = NodePath("SandlerSpecific/FuckingAura")
+attack_timer = NodePath("SandlerSpecific/AttackTimer")
+mini_sandler_timer = NodePath("SandlerSpecific/SandlerTimers")
+maxHP = 67.0
+CUSTOM_BOSS_MUSIC = "happy.ogg"
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource("3_d0kok")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 200)
+sprite_frames = SubResource("SpriteFrames_vl1wa")
+animation = &"clickStart"
+frame = 6
+frame_progress = 1.0
+offset = Vector2(0, -200)
+
+[node name="ActualCollision" parent="." index="2"]
+scale = Vector2(1.87, 3.055)
+
+[node name="TinyBar" parent="." index="6"]
+position = Vector2(0, -210)
+scale = Vector2(5, 1)
+
+[node name="SandlerSpecific" type="Node2D" parent="." index="7"]
+
+[node name="FuckingAura" type="AnimatedSprite2D" parent="SandlerSpecific" index="0"]
+visible = false
+position = Vector2(5, -16)
+sprite_frames = SubResource("SpriteFrames_rbp3q")
+autoplay = "default"
+
+[node name="AttackTimer" type="Timer" parent="SandlerSpecific" index="1"]
+process_callback = 0
+one_shot = true
+
+[node name="SandlerTimers" type="Timer" parent="SandlerSpecific" index="2"]
+process_callback = 0
+wait_time = 0.1

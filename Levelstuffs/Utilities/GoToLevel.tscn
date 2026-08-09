@@ -1,0 +1,15 @@
+[gd_scene load_steps=0 format=3 uid="uid://sterqndmf51e"]
+
+[ext_resource type="Script" uid="uid://csu2c5kwcsp2y" path="res://Levelstuffs/Utilities/GoToLevel.gd" id="1_hqign"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sg27"]
+
+[node name="GoToLevel" type="Area2D" unique_id=1728564638]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_hqign")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492141890]
+shape = SubResource("RectangleShape2D_2sg27")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

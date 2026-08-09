@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene load_steps=17 format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://x04hyhpls548" path="res://Menustuffs/SaveMenu/SaveBox.tscn" id="5_8323x"]
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="5_x1y7c"]
 [ext_resource type="PackedScene" uid="uid://etanojolbpsh" path="res://Menustuffs/Commons/GoForwards.tscn" id="6_desna"]
+[ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
+[ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="10_5vgxp"]
+[ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="11_hacn3"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="13_8323x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
 animations = [{
@@ -31,7 +35,18 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8323x")
+}],
+"loop": true,
+"name": &"delete",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6e1n"]
+size = Vector2(61.125, 36.01)
 
 [node name="SaveMenu" type="Node2D" node_paths=PackedStringArray("savesNode")]
 script = ExtResource("1_86qpw")
@@ -66,32 +81,74 @@ texture = ExtResource("4_0jemy")
 
 [node name="SaveBox" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
 position = Vector2(-154, 25)
-rotation = -0.034906585
+rotation = -0.0349066
 
 [node name="SaveBox2" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(-2, 184.99995)
-rotation = 0.034906585
+position = Vector2(-2, 185)
+rotation = 0.0349066
 
 [node name="SaveBox3" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(174, 368.99994)
-rotation = -0.017453292
+position = Vector2(174, 369)
+rotation = -0.0174533
 
 [node name="SaveBox4" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(-129.99998, 547)
-rotation = 0.008726646
+position = Vector2(-130, 547)
+rotation = 0.00872665
 
 [node name="SaveBox5" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
 position = Vector2(22, 729)
-rotation = -0.034906585
+rotation = -0.0349066
 
 [node name="SaveBox6" parent="MenuCanvas/MidAnchor/Saves" instance=ExtResource("5_8323x")]
-position = Vector2(198, 896.9998)
-rotation = 0.017453292
+position = Vector2(198, 897)
+rotation = 0.0174533
 
 [node name="SetaCool" type="AnimatedSprite2D" parent="MenuCanvas/MidAnchor/Saves"]
 position = Vector2(-189, 82)
 sprite_frames = SubResource("SpriteFrames_omsxf")
 centered = false
+
+[node name="MobileShit" type="Node" parent="MenuCanvas"]
+
+[node name="TopAnchor" type="Control" parent="MenuCanvas/MobileShit"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="OptionUp" type="TouchScreenButton" parent="MenuCanvas/MobileShit/TopAnchor"]
+z_index = 8
+position = Vector2(0, 19)
+texture_normal = ExtResource("10_5vgxp")
+texture_pressed = ExtResource("11_hacn3")
+shape = SubResource("RectangleShape2D_s6e1n")
+action = "ui_up"
+
+[node name="BottomAnchor" type="Control" parent="MenuCanvas/MobileShit"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OptionDown" type="TouchScreenButton" parent="MenuCanvas/MobileShit/BottomAnchor"]
+z_index = 8
+position = Vector2(56, 29)
+rotation = -3.14159
+texture_normal = ExtResource("10_5vgxp")
+texture_pressed = ExtResource("11_hacn3")
+shape = SubResource("RectangleShape2D_s6e1n")
+action = "ui_down"
 
 [node name="LeftAnchor" type="Control" parent="MenuCanvas"]
 layout_mode = 3
@@ -116,6 +173,20 @@ grow_vertical = 0
 
 [node name="Enter" parent="MenuCanvas/RightAnchor" instance=ExtResource("6_desna")]
 position = Vector2(-36, 0)
+
+[node name="DeleteLabel" type="RichTextLabel" parent="MenuCanvas/RightAnchor"]
+self_modulate = Color(1, 1, 1, 0.996078)
+layout_mode = 0
+offset_left = -445.0
+offset_top = -48.0
+offset_right = 11.0
+offset_bottom = -9.0
+theme = ExtResource("13_8323x")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+bbcode_enabled = true
+text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] Sandlerhell "
+horizontal_alignment = 2
 
 [node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
 visible = false

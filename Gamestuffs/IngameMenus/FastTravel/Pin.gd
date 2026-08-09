@@ -11,6 +11,10 @@ class_name MapaPin
 }
 @export var placeId:String = 'placeholder'
 
+var isPressed:bool = false
+
+signal press(id:int)
+
 func _ready() -> void:
 	if not GPStats.exploredMaps.has(placeId):
 		queue_free()
@@ -21,3 +25,12 @@ func setRelevant(val:bool):
 		$AnimatedSprite2D.play('relevant')
 	else:
 		$AnimatedSprite2D.play('irrelevant')
+
+func _on_touch_screen_button_pressed() -> void:
+	if GameUtils.isMobile:
+		if not isPressed:
+			isPressed = true
+			press.emit(coolId)
+		
+func _on_touch_screen_button_released() -> void:
+	isPressed = false

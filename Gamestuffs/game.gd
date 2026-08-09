@@ -1,7 +1,7 @@
 extends Node2D
 class_name JolasGame
 
-var level:JolasLevel
+var map:JolasMap
 var playerInstance
 var dialogueInstance
 var isDial := false
@@ -13,7 +13,8 @@ var charDict:Dictionary = {}
 @export var coolFade:TextureRect
 @export var plyNode:Node2D
 @export var lvlNode:Node2D
-@export var hud:HeadsUpDisplay
+@export var whereHud:Node2D
+var hud:HeadsUpDisplay
 @export var bgmStream:AudioStreamPlayer
 @export var ingameMenu:Node2D
 
@@ -23,7 +24,8 @@ static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	createLevel(GPStats.curMap)
+	makeHud()
+	createMap(GPStats.curMap)
 	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveNum)
 	
@@ -35,10 +37,20 @@ func _ready() -> void:
 	
 	JolasGame.instance = self
 
+func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
+	for child in whereHud.get_children():
+		child.free()
+	hud = null
+	
+	var newHud = load(where).instantiate()
+	whereHud.add_child(newHud)
+	hud = newHud
+
 #region Os Auxiliares
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
+	print(chara)
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
 	
 	if playerInstance: remove_child(playerInstance)
@@ -47,8 +59,9 @@ func createPlayer(chara:String, id:int = -1):
 	plyNode.add_child(playerInstance)
 	allChars.append(playerInstance)
 	
-	if level:
-		playerInstance.position = level.spawnpoint.position
+	if map:
+		if map.get_node("Spawnpoint"):
+			playerInstance.position = map.get_node("Spawnpoint").position
 		
 	GPStats.setCharObject(playerInstance)
 
@@ -57,28 +70,34 @@ func removePlayer():
 		allChars.erase(playerInstance)
 		playerInstance.queue_free()
 
-func createLevel(lvl:String):
-	if level: level.queue_free()
+func createMap(lvl:String):
+	print('proximo mapa: ' + lvl)
+	if map: map.free()
 	
-	level = load(GameUtils.get_map_path(lvl)).instantiate()
+	map = load(GameUtils.get_map_path(lvl)).instantiate()
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
-	lvlNode.add_child(level)
-	MapUtils.set_map(level)
+	lvlNode.add_child(map)
+	# MapUtils.set_map(map)
 	
-	GPStats.curMap = level.name
+	if map.infoCoisos != "":
+		GPStats.curMap = map.infoCoisos
+	else:
+		GPStats.curMap = map.name
+		
 	SaveUtils.save_game(GPStats.saveNum)
 	if GameUtils.get_map_info(lvl).has('songFile'):
 		playBGM(GameUtils.get_map_info(lvl)['songFile'])
-		
+	
 	hud.placeInfo.queue_free()
 	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
 	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
 	hud.placeInfo.position = Vector2(20.0, 21.0)
 	hud.placeInfo.triggerPlaceInfo()
 
-func respawnPlayer(maxOutHP:bool = true, comeback:bool = false):
-	if level:
-		GPStats.charObject.position = (level.spawnpointBack.position if comeback else level.spawnpoint.position)
+func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
+	await get_tree().process_frame
+	if map:
+		GPStats.charObject.position = map.get_node(spawnNode).position
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
@@ -146,12 +165,15 @@ func endDialogue() -> void:
 	dialogueInstance.disconnect('dialogue_end', endDialogue)
 	remove_child(dialogueInstance)
 
-func playDialogue(diagName:String):
+# todo: fazer algo que deixe voce inicializar dialogo sem especificar o tipo
+## tipos de dialogo por enquanto incluem:
+## - DiagCharacters
+func playDialogue(diagName:String, type:String = "DiagCharacters"):
 	if !isDial:
 		isDial = true
 		pauseGame()
 		if dialogueInstance: dialogueInstance.queue_free()
-		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/DialogueScene.tscn").instantiate()
+		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/%s.tscn" % type).instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)
@@ -162,12 +184,16 @@ func _process(_delta: float) -> void:
 	GPStats.process(_delta)
 	
 	if not isDial and not isMenu:
-		if Input.is_action_just_pressed("ctrl_pause"):
-			pauseGame()
-			ingameMenu.makeMenu('Pause')
-		if Input.is_action_just_pressed("ctrl_quests"):
-			pauseGame()
-			ingameMenu.makeMenu('Quests')
+		if not hud.isWriting:
+			if Input.is_action_just_pressed("ctrl_pause"):
+				pauseGame()
+				ingameMenu.makeMenu('Pause')
+			if Input.is_action_just_pressed("ctrl_quests"):
+				pauseGame()
+				ingameMenu.makeMenu('Quests')
+			if Input.is_action_just_pressed("ctrl_inventory"):
+				pauseGame()
+				ingameMenu.makeMenu('Inventory')
 		
 #region Multiplayer
 func join_mp_game():
@@ -190,8 +216,8 @@ func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	allChars.append(pInst)
 	charDict[peer_id] = pInst
 	
-	if level:
-		pInst.position = level.spawnpoint.position
+	if map:
+		pInst.position = map.get_node("Spawnpoint").position
 		
 	pInst.movementEnabled = pInst.get_multi_status()
 	pInst.level_up()
@@ -220,10 +246,25 @@ func playBGM(trackName:String):
 	curTrackName = trackName
 	
 	bgmStream.stream = load(pathness)
-	bgmStream.volume_db = GeneralUtils.get_volume_db('bgm')
+	bgmStream.volume_db = 0.0
 	bgmStream.play()
 	bgmStream.finished.connect(func():curTrackName="")
 
+func fadeBGM(sec:float = 1.0, nextSong:String = ""):
+	var mustween = get_tree().create_tween()
+	mustween.tween_method(func(v):
+		bgmStream.volume_db = v
+		if v <= -99.5:
+			bgmStream.stop()
+			
+			if nextSong != "":
+				mustween.kill()
+				playBGM(nextSong),
+		0.0,
+		-100.0,
+		sec
+		)
+	
 func stopBGM():
 	bgmStream.stop()
 #endregion

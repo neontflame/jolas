@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 			change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn', 1)
 
 func goToThing(mapId:String):
+	print(mapId)
 	canControl = false
 	CoolMenu.play_sfx('Wrap')
 	$AnimationPlayer.play('getOut')
@@ -26,13 +27,14 @@ func goToThing(mapId:String):
 	
 	JolasGame.instance.unpauseGame()
 	JolasGame.instance.hud.questIcon.rerenderCtrl()
+	JolasGame.instance.hud.inventoryIcon.rerenderCtrl()
 	GPStats.charObject.onUnpause()
 	CoolMenu.instance.unmakeMenu()
 	
 	JolasGame.instance.fadeIn(0.5, 
 	func(): 
 		print('ok agora volta')
-		JolasGame.instance.createLevel(mapId)
-		JolasGame.instance.respawnPlayer(false, false)
+		JolasGame.instance.createMap(mapId)
+		JolasGame.instance.respawnPlayer(false, "Spawnpoint")
 		JolasGame.instance.fadeOut(0.5)
 		)

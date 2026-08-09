@@ -36,10 +36,10 @@ func setup():
 	if isLabel:
 		$Title.visible = true
 		$Option.visible = false
-		$Title/TitleName.text = optName
+		$Title/TitleName.text = tr(optInternal)
 		return
 		
-	$Option/OptName.text = optName
+	$Option/OptName.text = tr(optInternal)
 	
 	mouse_entered.connect(is_moused)
 	mouse_exited.connect(un_moused)
@@ -61,6 +61,8 @@ func _process(delta: float) -> void:
 							0.2)
 	
 	if selected:
+		if Input.is_action_just_pressed("ui_delete"):
+			revertThing()
 		if validOpts == ['slider']:
 			if Input.is_action_pressed("ui_right"):
 				$Option/OptSlider.value += 0.02
@@ -85,11 +87,20 @@ func un_moused():
 func changeThing(howMany:int):
 	curOpt = wrap(int(curOpt) + howMany, 0, len(validOpts))
 	if optInternal != 'keybinds':
-		$Option/OptChoice.text = '< ' + validOpts[curOpt] + ' >'
+		$Option/OptChoice.text = '< ' + tr(validOpts[curOpt]) + ' >'
 		OptionsUtils.preferences[optInternal] = curOpt
 	if optInternal == 'keybinds':
 		goToOptions.emit()
 	CoolMenu.play_sfx('Tick')
+
+func revertThing():
+	for optThing in OptionsUtils.coolOptiones:
+		if optThing[0] == optInternal:
+			curOpt = optThing[3]
+			if validOpts == ['slider']: $Option/OptSlider.value = curOpt
+			else: $Option/OptChoice.text = '< ' + tr(validOpts[curOpt]) + ' >'
+			CoolMenu.play_sfx('Back')
+	OptionsUtils.preferences[optInternal] = curOpt
 
 func youreDraggingIt(changery:bool):
 	CoolMenu.play_sfx('Go')
@@ -97,3 +108,21 @@ func youreDraggingIt(changery:bool):
 func sliderDraggest(value: float) -> void:
 	CoolMenu.play_sfx('Tick')
 	OptionsUtils.preferences[optInternal] = $Option/OptSlider.value
+	match optInternal:
+		"volMaster":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("Master"),
+				OptionsUtils.preferences[optInternal]
+			)
+		"volBGM":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("Musica"),
+				OptionsUtils.preferences[optInternal]
+			)
+		"volSFX":
+			AudioServer.set_bus_volume_linear(
+				AudioServer.get_bus_index("SFX"),
+				OptionsUtils.preferences[optInternal]
+			)
+		_:
+			pass

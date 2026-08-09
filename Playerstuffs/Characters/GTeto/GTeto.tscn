@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bvn014sqhfrsx"]
+[gd_scene load_steps=43 format=3 uid="uid://bvn014sqhfrsx"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_hg04w"]
 [ext_resource type="Script" uid="uid://dahgyhomvwubr" path="res://Playerstuffs/Characters/GTeto/Scripts/playerGTeto.gd" id="2_0kway"]
@@ -33,8 +33,10 @@
 [ext_resource type="Texture2D" uid="uid://b7vub7m1k471d" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto jump.png" id="23_ustwx"]
 [ext_resource type="Texture2D" uid="uid://bcp6dd7cxwu3s" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0001.png" id="24_utfa8"]
 [ext_resource type="Texture2D" uid="uid://tv0q08t4hll5" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0002.png" id="25_2dhqi"]
+[ext_resource type="Texture2D" uid="uid://dkl2x0yggls6k" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto The Powerfulest0001.png" id="26_f4va4"]
 [ext_resource type="Texture2D" uid="uid://gx1sy3gelg8v" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0003.png" id="26_uycj4"]
 [ext_resource type="Texture2D" uid="uid://dh103ro4xmesj" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto run0004.png" id="27_5srw2"]
+[ext_resource type="Texture2D" uid="uid://c77o1jb3pe2hv" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto The Powerfulest0002.png" id="27_m6nla"]
 [ext_resource type="Texture2D" uid="uid://clh1udpw87e5l" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0001.png" id="28_i567o"]
 [ext_resource type="Texture2D" uid="uid://bv36mw72v6fcx" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0002.png" id="29_dhtg4"]
 [ext_resource type="Texture2D" uid="uid://bswo5w3fydfoe" path="res://Playerstuffs/Characters/GTeto/Sprites/gteto walk0003.png" id="30_0isye"]
@@ -135,6 +137,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("26_f4va4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_m6nla")
+}],
+"loop": false,
+"name": &"gtShootMax",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("18_h6tm1")
 }],
 "loop": true,
@@ -206,7 +219,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="GTeto" unique_id=440724726 instance=ExtResource("1_hg04w")]
+[node name="GTeto" instance=ExtResource("1_hg04w")]
 script = ExtResource("2_0kway")
 FLOOR_ACCELERATION = 50.0
 AIR_ACCELERATION = 32
@@ -218,34 +231,34 @@ FLOOR_FRICTION = 0.925
 JUMP_COUNT = 3
 ATTACK_DMG = Dictionary[String, float]({
 "default": 1.0,
-"maxProjectile": 5.0,
-"minProjectile": 1.0,
+"maxProjectile": 10.0,
+"minProjectile": 2.0,
 "slam": 4.0,
 "slamLand": 5.0
 })
 
-[node name="StateMachine" parent="." index="0" unique_id=151957281]
+[node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_8bapk")
 
-[node name="Floor" parent="StateMachine" index="0" unique_id=1423393479]
+[node name="Floor" parent="StateMachine" index="0"]
 script = ExtResource("3_pjnwn")
 
-[node name="Air" parent="StateMachine" index="1" unique_id=1274865026]
+[node name="Air" parent="StateMachine" index="1"]
 script = ExtResource("4_8bapk")
 
-[node name="GTChargeFloor" type="Node" parent="StateMachine" index="4" unique_id=1955716699]
+[node name="GTChargeFloor" type="Node" parent="StateMachine" index="4"]
 script = ExtResource("5_ok1yj")
 
-[node name="GTChargeAir" type="Node" parent="StateMachine" index="5" unique_id=84712468]
+[node name="GTChargeAir" type="Node" parent="StateMachine" index="5"]
 script = ExtResource("7_02u55")
 
-[node name="GTSlam" type="Node" parent="StateMachine" index="6" unique_id=1375234819]
+[node name="GTSlam" type="Node" parent="StateMachine" index="6"]
 script = ExtResource("8_02u55")
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=202819032]
+[node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.39, 0.86)
 
-[node name="AnimatedSprite2D" parent="." index="3" unique_id=1252310965]
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_47cw4")
-animation = &"gtSlamLand"
+animation = &"gtSlam"
 offset = Vector2(0, -10.675)

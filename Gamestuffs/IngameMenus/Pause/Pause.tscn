@@ -1,37 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7iqlwncc1i4h"]
+[gd_scene load_steps=11 format=3 uid="uid://c7iqlwncc1i4h"]
 
 [ext_resource type="Script" uid="uid://cbv761oijodsn" path="res://Gamestuffs/IngameMenus/Pause/Pause.gd" id="1_08ach"]
 [ext_resource type="Texture2D" uid="uid://crv2u65c0ct2i" path="res://Gamestuffs/IngameMenus/Pause/papelPausa.png" id="2_wdebl"]
 [ext_resource type="Texture2D" uid="uid://difj8im222qwa" path="res://Gamestuffs/IngameMenus/Pause/checkmarcoiso.png" id="3_131kf"]
 [ext_resource type="PackedScene" uid="uid://x04hyhpls548" path="res://Menustuffs/SaveMenu/SaveBox.tscn" id="4_u6xle"]
+[ext_resource type="Script" uid="uid://c5t625hf4qdy5" path="res://CoolUtils/ScriptsUteisOuAlgo/idTouchy.gd" id="4_wdebl"]
 
-[sub_resource type="Animation" id="Animation_08ach"]
-resource_name = "newThing"
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../SaveBox:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.120742, 1),
-"update": 0,
-"values": [Vector2(-1, -481), Vector2(-1, -193)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 0.0769465, 1),
-"update": 0,
-"values": [Vector2(1.5, 0), Vector2(0.9, 1.1), Vector2(1, 1)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_131kf"]
+size = Vector2(276.23, 45)
 
 [sub_resource type="Animation" id="Animation_wdebl"]
 length = 0.001
@@ -88,6 +64,34 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(0.9, 1.1), Vector2(1.5, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_08ach"]
+resource_name = "newThing"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../SaveBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.120742, 1),
+"update": 0,
+"values": [Vector2(-1, -481), Vector2(-1, -193)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 0.0769465, 1),
+"update": 0,
+"values": [Vector2(1.5, 0), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u6xle"]
 _data = {
 &"RESET": SubResource("Animation_wdebl"),
@@ -95,9 +99,10 @@ _data = {
 &"newThing": SubResource("Animation_08ach")
 }
 
-[node name="Pause" type="Node2D" node_paths=PackedStringArray("checkestMark")]
+[node name="Pause" type="Node2D" node_paths=PackedStringArray("checkestMark", "mobilery")]
 script = ExtResource("1_08ach")
 checkestMark = NodePath("MenuCanvas/Control/PapelPausa/Checkmarcoiso")
+mobilery = NodePath("MenuCanvas/Control/PapelPausa/Mobilacios")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 
@@ -122,6 +127,37 @@ texture = ExtResource("2_wdebl")
 [node name="Checkmarcoiso" type="Sprite2D" parent="MenuCanvas/Control/PapelPausa"]
 position = Vector2(-87, -39)
 texture = ExtResource("3_131kf")
+
+[node name="Mobilacios" type="Node2D" parent="MenuCanvas/Control/PapelPausa"]
+
+[node name="RetomarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+position = Vector2(-5, -35)
+shape = SubResource("RectangleShape2D_131kf")
+visibility_mode = 1
+script = ExtResource("4_wdebl")
+
+[node name="TeleportarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+position = Vector2(-0.119995, 16)
+skew = -0.202458
+shape = SubResource("RectangleShape2D_131kf")
+visibility_mode = 1
+script = ExtResource("4_wdebl")
+id = 1
+
+[node name="OpMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+position = Vector2(5, 63)
+shape = SubResource("RectangleShape2D_131kf")
+visibility_mode = 1
+script = ExtResource("4_wdebl")
+id = 2
+
+[node name="SairMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+position = Vector2(1, 111)
+skew = 0.122173
+shape = SubResource("RectangleShape2D_131kf")
+visibility_mode = 1
+script = ExtResource("4_wdebl")
+id = 3
 
 [node name="SaveBox" parent="MenuCanvas/Control" instance=ExtResource("4_u6xle")]
 position = Vector2(-1, -193)

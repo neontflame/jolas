@@ -9,11 +9,14 @@
 [node name="Back" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(257, 284)
 stream = ExtResource("1_2no7w")
+bus = &"SFX"
 
 [node name="Go" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(257, 284)
 stream = ExtResource("2_yw620")
+bus = &"SFX"
 
 [node name="Tick" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(257, 284)
 stream = ExtResource("3_htmqo")
+bus = &"SFX"

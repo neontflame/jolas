@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://4rudnxugxis"]
+
+[ext_resource type="Texture2D" uid="uid://cplkd4aew8hml" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao1Solto.png" id="1_7vb5s"]
+[ext_resource type="PackedScene" uid="uid://biby83srm8sug" path="res://addons/virtual_joystick/virtual_joystick_scene_adjust.tscn" id="1_lmu47"]
+[ext_resource type="Texture2D" uid="uid://n7dr7lwkajne" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao1Press0002.png" id="2_lmu47"]
+[ext_resource type="Texture2D" uid="uid://dtvdyfkyc7c87" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Solto.png" id="3_6a403"]
+[ext_resource type="Texture2D" uid="uid://bux8o3ix7ds4y" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Press0002.png" id="4_fca4p"]
+[ext_resource type="Texture2D" uid="uid://b4yrafr4bjeiw" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoASolto.png" id="5_sex76"]
+[ext_resource type="Texture2D" uid="uid://cm02ub2btmt60" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoAPress0002.png" id="6_41i3b"]
+[ext_resource type="Texture2D" uid="uid://cxu8oicc5t06i" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoPause.png" id="7_3nkiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3ls3"]
+size = Vector2(94.46, 63.055)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpa0y"]
+radius = 45.93
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3ls3"]
+radius = 36.95
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuu8i"]
+size = Vector2(44.82, 44.695)
+
+[node name="MobileControlShits" type="Node"]
+
+[node name="MobileTopLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestsButton" type="TouchScreenButton" parent="MobileTopLeft"]
+position = Vector2(47, 136)
+shape = SubResource("RectangleShape2D_s3ls3")
+action = "ctrl_quests"
+
+[node name="InventoryButton" type="TouchScreenButton" parent="MobileTopLeft"]
+position = Vector2(47, 211)
+shape = SubResource("RectangleShape2D_s3ls3")
+action = "ctrl_inventory"
+
+[node name="MobileDownLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Virtual Joystick" parent="MobileDownLeft" instance=ExtResource("1_lmu47")]
+layout_mode = 1
+offset_left = 30.0
+offset_top = -170.0
+offset_right = 193.0
+offset_bottom = -12.0
+pressed_color = Color(1, 0.906667, 0.65, 1)
+clampzone_size = 54.0
+action_left = "ctrl_left"
+action_right = "ctrl_right"
+action_up = "ctrl_up"
+action_down = "ctrl_down"
+
+[node name="MobileDownRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="1Button" type="TouchScreenButton" parent="MobileDownRight"]
+position = Vector2(-172, -57)
+texture_normal = ExtResource("1_7vb5s")
+texture_pressed = ExtResource("2_lmu47")
+shape = SubResource("CircleShape2D_lpa0y")
+action = "ctrl_1"
+
+[node name="2Button" type="TouchScreenButton" parent="MobileDownRight"]
+position = Vector2(-82, -110)
+texture_normal = ExtResource("3_6a403")
+texture_pressed = ExtResource("4_fca4p")
+shape = SubResource("CircleShape2D_lpa0y")
+action = "ctrl_2"
+
+[node name="AButton" type="TouchScreenButton" parent="MobileDownRight"]
+position = Vector2(-171, -145)
+texture_normal = ExtResource("5_sex76")
+texture_pressed = ExtResource("6_41i3b")
+shape = SubResource("CircleShape2D_s3ls3")
+action = "ctrl_interact"
+
+[node name="MobileTopRight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="PauseButton" type="TouchScreenButton" parent="MobileTopRight"]
+position = Vector2(-12, 12)
+texture_normal = ExtResource("7_3nkiv")
+shape = SubResource("RectangleShape2D_tuu8i")
+action = "ctrl_pause"

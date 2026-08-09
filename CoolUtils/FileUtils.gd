@@ -1,6 +1,13 @@
 extends Node
 class_name FileUtils
 
+static func get_localized_file(filePath):
+	var localizedFilePath = '%s.%s.%s' % [filePath.get_basename(), TranslationServer.get_locale(), filePath.get_extension()]
+	if ResourceLoader.exists(localizedFilePath):
+		return localizedFilePath
+	else:
+		return filePath
+
 static func get_text_file_content(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	var content = file.get_as_text()

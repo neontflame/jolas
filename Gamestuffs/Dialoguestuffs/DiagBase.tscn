@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmxjfcdw3vlwl"]
+
+[ext_resource type="Script" uid="uid://bpr32idv8lxij" path="res://Gamestuffs/Dialoguestuffs/DiagBase.gd" id="1_cdchi"]
+[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="2_wr4nb"]
+[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="3_5m4cj"]
+[ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="4_eth1b"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="5_ky4a6"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="6_3s6d1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv072"]
+shader = ExtResource("4_eth1b")
+shader_parameter/amount = 0.0
+
+[node name="DiagBase" type="Node2D" node_paths=PackedStringArray("blurBGFx", "diagControl", "diagText")]
+script = ExtResource("1_cdchi")
+blurBGFx = NodePath("DiagCanvas/BlurFx")
+diagControl = NodePath("DiagCanvas/Meioificador")
+diagText = NodePath("DiagCanvas/Meioificador/RichTextLabel")
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="TickSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("2_wr4nb")
+bus = &"SFX"
+
+[node name="GoSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_5m4cj")
+bus = &"SFX"
+
+[node name="DiagCanvas" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
+
+[node name="BlurFx" type="TextureRect" parent="DiagCanvas"]
+material = SubResource("ShaderMaterial_dv072")
+anchors_preset = -1
+anchor_left = -11.135
+anchor_top = -6.355
+anchor_right = 12.344
+anchor_bottom = 8.056
+offset_left = 8111.0
+offset_top = 2652.5
+offset_right = 7283.96
+offset_bottom = 2197.42
+texture = ExtResource("5_ky4a6")
+
+[node name="Meioificador" type="Control" parent="DiagCanvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DiagCanvas/Meioificador"]
+z_index = 10
+layout_mode = 0
+offset_left = -353.0
+offset_top = 174.0
+offset_right = 403.0
+offset_bottom = 256.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3s6d1")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "voce esta me deixando [wave amp=50]bravo...[/wave]"
+fit_content = true
