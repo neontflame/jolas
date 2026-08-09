@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DiagTalksound" load_steps=6 format=3 uid="uid://q8w300bw0h6q"]
+
+[ext_resource type="Script" uid="uid://c0nu0k2qwolns" path="res://Gamestuffs/Dialoguestuffs/DiagTalksound.gd" id="1_xater"]
+[ext_resource type="AudioStream" uid="uid://bk657hqme7rl0" path="res://Playerstuffs/Characters/Neon/Sounds/fala-01.wav" id="2_y6vqj"]
+[ext_resource type="AudioStream" uid="uid://c4qgytxirq6ih" path="res://Playerstuffs/Characters/Neon/Sounds/fala-02.wav" id="3_mkxwy"]
+[ext_resource type="AudioStream" uid="uid://dokqhs5r1jbhg" path="res://Playerstuffs/Characters/Neon/Sounds/fala-03.wav" id="4_hpwse"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xs0rl"]
+random_pitch = 1.13
+streams_count = 3
+stream_0/stream = ExtResource("2_y6vqj")
+stream_1/stream = ExtResource("3_mkxwy")
+stream_2/stream = ExtResource("4_hpwse")
+stream_2/weight = 0.3
+
+[resource]
+script = ExtResource("1_xater")
+talkStream = SubResource("AudioStreamRandomizer_xs0rl")
+talksoundWaits = true
+metadata/_custom_type_script = "uid://c0nu0k2qwolns"

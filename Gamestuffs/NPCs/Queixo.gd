@@ -6,5 +6,7 @@ func playDialogue():
 			JolasGame.instance.playDialogue('queixoJolaConcluido')
 		else:
 			JolasGame.instance.playDialogue('queixoJolaPendente')
+	elif QuestUtils.clearedQuests.has('queixoEAsJolas'):
+		JolasGame.instance.playDialogue('queixoJolaConcluido')
 	else:
 		JolasGame.instance.playDialogue(dialogue)

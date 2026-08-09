@@ -11,6 +11,8 @@ flippable = NodePath("DiagCanvas/Meioificador/Flippable")
 charName = NodePath("DiagCanvas/Meioificador/Flippable/CharName")
 portraitPos = NodePath("DiagCanvas/Meioificador/Flippable/PortraitPos")
 
+[node name="DiagSound" type="AudioStreamPlayer" parent="Sounds" index="2"]
+
 [node name="RichTextLabel" parent="DiagCanvas/Meioificador" index="0"]
 offset_right = 361.0
 theme_override_font_sizes/normal_font_size = 16

@@ -6,6 +6,9 @@ extends DiagBase
 @export var portraitPos:Node2D
 
 var portrite # zomg reference!
+var customTalkies:DiagTalksound
+
+var playCharSound:bool = false
 
 #region Scripting
 func opener(diagjson:Dictionary):
@@ -29,18 +32,25 @@ func opener(diagjson:Dictionary):
 	if portrite != null:
 		portrite.position = portraitPos.position + Vector2(200, 0)
 		portrite.intendedPos = portraitPos.position
+	
+	if DiagUtils.get_talksound_path(character):
+		playCharSound = true
+		customTalkies = DiagUtils.get_talksound(character)
+		$Sounds/DiagSound.stream = customTalkies.talkStream
+	else:
+		playCharSound = false
 
-var playCharSound:bool = false
+
+func runDiag(diagNum:int):
+	super.runDiag(diagNum)
+
 func animate(diag):
-	playCharSound = false
 	if portrite != null:
-		if portrite.talksound != null:
-			playCharSound = true
 		if !portrite.ptrt.is_playing(): 
 			portrite.ptrt.play(str(diag['mood']))
 	if playCharSound:
-		if not portrite.talksoundWaits \
-		or (portrite.talksoundWaits and not portrite.talksound.playing):
+		if not customTalkies.talksoundWaits \
+		or (customTalkies.talksoundWaits and not $Sounds/DiagSound.playing):
 			portrite.talksound.play()
 	else:
 		$Sounds/TickSound.play()

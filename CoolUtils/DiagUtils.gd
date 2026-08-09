@@ -36,3 +36,19 @@ static func get_coolname(char:String):
 		if ResourceLoader.exists(possible):
 			return load(possible)
 	return null
+
+static func get_talksound_path(char:String):
+	var possibilities:Array = [
+		GameUtils.get_char_asset_path(char, 'Talksound.tres'),
+		"res://Gamestuffs/NPCs/?/Talksound.tres"
+	]
+	for possible in possibilities:
+		possible = possible.replace('?', char)
+		if ResourceLoader.exists(possible):
+			return possible
+	return null
+
+static func get_talksound(char:String):
+	if get_talksound_path(char) != null:
+		return load(get_talksound_path(char))
+	return null
