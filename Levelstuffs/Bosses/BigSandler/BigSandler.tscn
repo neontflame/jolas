@@ -180,7 +180,8 @@ script = ExtResource("2_eyt61")
 FUCKING_aura = NodePath("SandlerSpecific/FuckingAura")
 attack_timer = NodePath("SandlerSpecific/AttackTimer")
 mini_sandler_timer = NodePath("SandlerSpecific/SandlerTimers")
-maxHP = 67.0
+maxHP = 300.0
+xpGrant = 100.0
 CUSTOM_BOSS_MUSIC = "happy.ogg"
 
 [node name="Default" parent="StateMachine" index="0"]

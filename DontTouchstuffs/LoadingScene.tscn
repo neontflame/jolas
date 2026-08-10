@@ -9,8 +9,8 @@
 script = ExtResource("1_7pqmv")
 
 [node name="Black" type="Sprite2D" parent="."]
-position = Vector2(395, 242)
-scale = Vector2(14.7969, 9.39063)
+position = Vector2(438, 226)
+scale = Vector2(24.1641, 12.0234)
 texture = ExtResource("2_anq2u")
 
 [node name="White2" type="Sprite2D" parent="."]

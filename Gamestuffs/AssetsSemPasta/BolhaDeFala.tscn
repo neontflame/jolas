@@ -21,7 +21,6 @@ baseline_offset = -0.085
 script = ExtResource("1_pjsrs")
 rtlabel = NodePath("NinePatchRect/RichTextLabel")
 audioStream = ExtResource("5_1dupa")
-volume_em_dB = null
 text = "eah"
 
 [node name="NinePatchRect" type="PanelContainer" parent="."]

@@ -76,8 +76,14 @@
 			"char": "neon",
 			"mood": "confused",
 			"choice": [
-				["SIM!!!", "matarSketcher"],
-				["nao wtf qual e o seu problema", "naoMatarSketcher"]
+				[
+					"SIM!!!",
+					"matarSketcher"
+				],
+				[
+					"nao wtf qual e o seu problema",
+					"naoMatarSketcher"
+				]
 			],
 			"position": "right",
 			"specialfx": "none"

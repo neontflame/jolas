@@ -36,7 +36,8 @@ func randomQuote():
 		'opa eaí webcore!',
 		'"20 dolares e 20 dolares"',
 		'cara eu estou jolando cara',
-		'ESSA NÃO É UMA CALL DE GAMEDEV'
+		'ESSA NÃO É UMA CALL DE GAMEDEV',
+		'nem te conto'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	

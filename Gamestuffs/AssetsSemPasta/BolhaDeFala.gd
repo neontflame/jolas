@@ -4,6 +4,12 @@ extends Node2D
 var tween:Tween
 var numberOfVisibles:int = 0
 
+@export var charTalksound:DiagTalksound = null:
+	set(value):
+		charTalksound = value
+		if is_node_ready():
+			$Tickness.stream = charTalksound.talkStream
+
 @export var rtlabel:RichTextLabel
 
 @export_category("Trecos de audio ou algo do tipo sei laaaaa")
@@ -27,7 +33,10 @@ var numberOfVisibles:int = 0
 
 func _ready() -> void:
 	rtlabel.text = text
-	$Tickness.stream = audioStream
+	if charTalksound:
+		$Tickness.stream = charTalksound.talkStream
+	else:
+		$Tickness.stream = audioStream
 	$Tickness.volume_db = volume_em_dB
 
 func textUndertales(letterTime:float = 0.03):
@@ -47,5 +56,10 @@ func noUndertales():
 
 func _physics_process(delta: float) -> void:
 	if numberOfVisibles < rtlabel.visible_characters:
-		$Tickness.play()
+		if charTalksound:
+			if (charTalksound.talksoundWaits and not $Tickness.playing)\
+			or not charTalksound.talksoundWaits:
+				$Tickness.play()
+		else:
+			$Tickness.play()
 		numberOfVisibles = rtlabel.visible_characters

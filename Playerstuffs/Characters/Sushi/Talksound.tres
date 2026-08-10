@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DiagTalksound" load_steps=7 format=3 uid="uid://vd4pba2kchme"]
+
+[ext_resource type="Script" uid="uid://c0nu0k2qwolns" path="res://Gamestuffs/Dialoguestuffs/DiagTalksound.gd" id="1_1g8nf"]
+[ext_resource type="AudioStream" uid="uid://cjpg2crtntdp" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-01.wav" id="2_1odew"]
+[ext_resource type="AudioStream" uid="uid://bwn03hsi1318k" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-02.wav" id="3_0aom4"]
+[ext_resource type="AudioStream" uid="uid://bd281p62vun8x" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-03.wav" id="4_6288f"]
+[ext_resource type="AudioStream" uid="uid://ber21l4ett7de" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-04.wav" id="5_0aom4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_to4qc"]
+random_pitch = 1.13
+streams_count = 4
+stream_0/stream = ExtResource("2_1odew")
+stream_0/weight = 0.25
+stream_1/stream = ExtResource("3_0aom4")
+stream_1/weight = 0.95
+stream_2/stream = ExtResource("4_6288f")
+stream_3/stream = ExtResource("5_0aom4")
+stream_3/weight = 1.1
+
+[resource]
+script = ExtResource("1_1g8nf")
+talkStream = SubResource("AudioStreamRandomizer_to4qc")
+talksoundWaits = true
+metadata/_custom_type_script = "uid://c0nu0k2qwolns"

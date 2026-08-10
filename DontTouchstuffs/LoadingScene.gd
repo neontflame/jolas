@@ -3,7 +3,7 @@ class_name LoadingScene
 
 static var goToScene:String = "res://Menustuffs/Menu.tscn"
 
-var loading_status:int
+var loading_status:int = 0.0
 var progress:Array[float]
 
 func _ready() -> void:
