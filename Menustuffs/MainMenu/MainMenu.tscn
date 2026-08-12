@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmfb6a66cild4"]
+[gd_scene load_steps=26 format=3 uid="uid://cmfb6a66cild4"]
 
 [ext_resource type="Texture2D" uid="uid://b0hfd3ci78dsx" path="res://Menustuffs/MainMenu/Logo.png" id="1_1hf02"]
 [ext_resource type="Script" uid="uid://b73fjh04wkr63" path="res://Menustuffs/MainMenu/MainMenu.gd" id="1_yqxuh"]
 [ext_resource type="Texture2D" uid="uid://dar2tl1qdu5lg" path="res://Menustuffs/MainMenu/jolarAtivo.png" id="3_rdp1e"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_un3ih"]
+[ext_resource type="FontFile" uid="uid://cxbk2javwo03u" path="res://Gamestuffs/Fonts/arial.ttf" id="4_8uvje"]
 [ext_resource type="Texture2D" uid="uid://bsg2pwbokixtf" path="res://Menustuffs/MainMenu/jolarInativo.png" id="4_qa50y"]
+[ext_resource type="FontFile" uid="uid://b3h36wuhhjlft" path="res://Gamestuffs/Fonts/arialbd.ttf" id="5_e4a6g"]
 [ext_resource type="Texture2D" uid="uid://1e0vaoq46p76" path="res://Menustuffs/MainMenu/jolarCoopAtivo.png" id="5_un3ih"]
 [ext_resource type="Texture2D" uid="uid://c5k55ajppvjb0" path="res://Menustuffs/MainMenu/jolarCoopInativo.png" id="6_5deut"]
 [ext_resource type="Texture2D" uid="uid://dcocxpxypatvu" path="res://Menustuffs/MainMenu/opcoesAtivo.png" id="7_8uvje"]
@@ -16,10 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://ygt1a50ik8nu" path="res://Menustuffs/MainMenu/addonsAtivo.png" id="12_qa50y"]
 [ext_resource type="Texture2D" uid="uid://6yka0huh70vj" path="res://Menustuffs/MainMenu/addonsInativo.png" id="13_un3ih"]
 [ext_resource type="Script" uid="uid://c5t625hf4qdy5" path="res://CoolUtils/ScriptsUteisOuAlgo/idTouchy.gd" id="16_un3ih"]
-
-[sub_resource type="SystemFont" id="SystemFont_rdp1e"]
-font_names = PackedStringArray("Arial")
-subpixel_positioning = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ou8cy"]
 animations = [{
@@ -159,15 +157,18 @@ theme_override_fonts/font = ExtResource("3_un3ih")
 theme_override_font_sizes/font_size = 18
 text = "insira uma quote engraçadinha aqui ou algo do tipo"
 
-[node name="Label" type="Label" parent="MenuCanvas"]
+[node name="Label" type="RichTextLabel" parent="MenuCanvas"]
 offset_left = 3.0
 offset_top = 420.0
 offset_right = 544.0
 offset_bottom = 497.0
-theme_override_colors/font_color = Color(0, 0, 0.6, 1)
-theme_override_fonts/font = SubResource("SystemFont_rdp1e")
-theme_override_font_sizes/font_size = 12
-text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
+theme_override_colors/default_color = Color(0, 0, 0.6, 1)
+theme_override_fonts/normal_font = ExtResource("4_8uvje")
+theme_override_fonts/bold_font = ExtResource("5_e4a6g")
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 13
+bbcode_enabled = true
+text = "jogo feito por [b]neontflame[/b], direitos autorais uhhhhhh pipipi popopo???
 termo \"jolas\" cunhado por hawnt, sketcher e zummy"
 vertical_alignment = 2
 

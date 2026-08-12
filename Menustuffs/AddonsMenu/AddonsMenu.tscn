@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqfjq6dvakk2m" path="res://Menustuffs/AddonsMenu/FileThingie.tscn" id="4_tkxuk"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_wkwuq"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="5_j52uq"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_0xtj2"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="5_jkh6q"]
 [ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="11_c7k3o"]
 
 [node name="AddonsMenu" type="Node2D" node_paths=PackedStringArray("boxWithABunchOfShitInIt")]
@@ -56,7 +56,7 @@ offset_left = -183.0
 offset_top = -206.0
 offset_right = 214.0
 offset_bottom = -176.0
-theme_override_fonts/font = ExtResource("6_0xtj2")
+theme_override_fonts/font = ExtResource("5_jkh6q")
 theme_override_font_sizes/font_size = 18
 text = "user://Lmfao idk"
 text_overrun_behavior = 3

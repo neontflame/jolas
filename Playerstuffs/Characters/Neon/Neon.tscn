@@ -205,6 +205,11 @@ sprite_frames = SubResource("SpriteFrames_rhcf3")
 animation = &"default"
 frame_progress = 0.245725
 
+[node name="MultiplayerName" parent="." index="6"]
+visible = true
+offset_top = -77.0
+offset_bottom = -37.0
+
 [node name="SpecialCollide" type="CollisionShape2D" parent="." index="7"]
 position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_nyp1u")

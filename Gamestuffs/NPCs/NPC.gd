@@ -12,6 +12,7 @@ func _ready() -> void:
 	$InteractText.visible = false
 
 func _body_entered(body: Node2D) -> void:
+	$InteractText.text = ControllerIconUtils.get_action_bind_bbcode('ctrl_interact')
 	if body is PlayerObject:
 		canTalk = true
 		interaction(true)

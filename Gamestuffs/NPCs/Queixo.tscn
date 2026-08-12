@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp5e40nfm5fxd" path="res://Gamestuffs/NPCs/Queixo.gd" id="1_a8kkw"]
 [ext_resource type="Texture2D" uid="uid://dsqrg37ihdek0" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao idle.png" id="2_a8kkw"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="3_6rlpj"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_a8kkw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8bld3"]
 animations = [{
@@ -40,7 +40,7 @@ offset_left = -68.0
 offset_top = -184.0
 offset_right = 68.0
 offset_bottom = -152.0
-theme_override_fonts/normal_font = ExtResource("3_6rlpj")
+theme_override_fonts/normal_font = ExtResource("3_a8kkw")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Interagir"

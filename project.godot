@@ -26,11 +26,15 @@ run/main_scene="uid://b1m18oeu0ix3m"
 config/use_custom_user_dir=true
 config/custom_user_dir_name=".jolas"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0.224298, 0.3506, 0.710711, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://bdikxum6nhrcp"
 config/icon="uid://bep52erpdihdj"
 
 [autoload]
 
+FpsCounter="*res://DontTouchstuffs/FPSCounter.tscn"
 MultiplayerMayhem="*res://Gamestuffs/Multiplayer/Multiplayer.gd"
 SpecificAutoloadForSpecificReasons="*res://DontTouchstuffs/SpecificAutoloadForSpecificReasons.tscn"
 

@@ -19,6 +19,7 @@ static var keyBince:Dictionary = {
 static var coolOptiones:Array = [
 	['pref', 'Preferências', [], 0, 0], # label
 		['buttonType', 'Tipos de botões na UI', ['btn_wii', 'btn_x360', 'btn_ps3', 'btn_gcn', 'btn_dc', 'btn_kb'], 0, 0], #lembre-se de sempre usar o indice e nao o nome em si!
+		['fpsCounter', 'Contador de FPS', ['opt_no', 'opt_yes'], 0, -1],
 	['vols', 'Volumes', [], 0, -1], # label
 		['volMaster', 'Mestre', ['slider'], 1.0, -1],
 		['volSFX', 'Efeitos sonoros', ['slider'], 1.0, -1],

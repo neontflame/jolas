@@ -190,12 +190,11 @@ script = ExtResource("3_d0kok")
 [node name="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(0, 200)
 sprite_frames = SubResource("SpriteFrames_vl1wa")
-animation = &"clickStart"
-frame = 6
-frame_progress = 1.0
+animation = &"default"
 offset = Vector2(0, -200)
 
 [node name="ActualCollision" parent="." index="2"]
+visible = false
 scale = Vector2(1.87, 3.055)
 
 [node name="TinyBar" parent="." index="6"]

@@ -13,18 +13,18 @@ dest_files=["res://.godot/imported/arialbd.ttf-24454ae7706ac227534ff703c42a405a.
 [params]
 
 Rendering=null
-antialiasing=0
-generate_mipmaps=false
+antialiasing=1
+generate_mipmaps=true
 disable_embedded_bitmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=false
-force_autohinter=true
+force_autohinter=false
 modulate_color_glyphs=true
-hinting=0
+hinting=2
 subpixel_positioning=0
-keep_rounding_remainders=true
+keep_rounding_remainders=false
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

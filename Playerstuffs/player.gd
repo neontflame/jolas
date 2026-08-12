@@ -282,7 +282,7 @@ func handlePhys() -> void:
 		
 	if is_on_ceiling():
 		motion.y = 10
-	if is_on_wall() and flooredFrames >= 3:
+	if (is_on_wall() and flooredFrames >= 3) or is_on_wall_only():
 		motion.x = 0
 	
 	# Floor Physicque

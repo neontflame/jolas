@@ -17,7 +17,8 @@ func renderSave():
 		$EmptySave.visible = false
 		$FullSave.visible = true
 		# player info
-		$FullSave/CanvasGroup/Icon.texture = GameUtils.get_char_asset(coolSaveness["player"], "Icon.png")
+		
+		$FullSave/CanvasGroup/Icon.texture = GameUtils.get_char_asset(coolSaveness["player"], "IconCard.png")
 		
 		var hueShift = fmod((coolSaveness["level"] - 1) * 7.5, 100.0) / 100.0
 		$FullSave/LvCount.text = str(GeneralUtils.display_number(coolSaveness["level"]))
@@ -35,7 +36,7 @@ func renderPaused():
 	$EmptySave.visible = false
 	$FullSave.visible = true
 	# player info
-	$FullSave/CanvasGroup/Icon.texture = GameUtils.get_char_asset(GPStats.char, "Icon.png")
+	$FullSave/CanvasGroup/Icon.texture = GameUtils.get_char_asset(GPStats.char, "IconCard.png")
 	
 	var hueShift = fmod((GPStats.level - 1) * 7.5, 100.0) / 100.0
 	$FullSave/LvCount.text = str(GeneralUtils.display_number(GPStats.level))

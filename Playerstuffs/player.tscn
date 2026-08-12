@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
 [ext_resource type="Script" uid="uid://dene0qklmyw2y" path="res://Playerstuffs/StateMachinery/deathSt.gd" id="6_43xdi"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="7_uawoe"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="9_auq01"]
 [ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/state_machine.gd" id="13_ld8br"]
 [ext_resource type="Script" uid="uid://u65cs2bew2dh" path="res://Playerstuffs/StateMachinery/floorSt.gd" id="14_mv4eb"]
 [ext_resource type="Script" uid="uid://bfcpscdta4eqm" path="res://Playerstuffs/StateMachinery/airSt.gd" id="15_axjgi"]
@@ -191,10 +191,12 @@ replication_config = SubResource("SceneReplicationConfig_uawoe")
 [node name="MultiplayerName" type="RichTextLabel" parent="."]
 visible = false
 offset_left = -93.0
-offset_top = -90.0
+offset_top = -93.0
 offset_right = 92.0
-offset_bottom = -50.0
-theme_override_fonts/normal_font = ExtResource("7_uawoe")
+offset_bottom = -53.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.405)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("9_auq01")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "nome de usuario"

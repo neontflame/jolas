@@ -17,9 +17,9 @@ static var defaultMap:String = 'TheThing'
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Espy', 'Queixao']
 
 static var majorVersion:int = 0
-static var minorVersion:int = 10
+static var minorVersion:int = 9
 static var patchVersion:int = 0
-static var captionVersion:String = 'DEMO'
+static var captionVersion:String = 'Legacy'
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
 static func get_chars():

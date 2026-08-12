@@ -1,7 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene load_steps=23 format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="2_fccik"]
 [ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_36asn"]
 [ext_resource type="FontFile" uid="uid://c7k7iuojc1khg" path="res://Gamestuffs/Fonts/ariblk.ttf" id="4_u453t"]
@@ -17,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cdob43vo7sjc4" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn" id="13_fndli"]
 [ext_resource type="PackedScene" uid="uid://bcsask4ppob0g" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.tscn" id="13_grt4r"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="14_m2u84"]
-[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="15_grt4r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43w4t"]
 shader = ExtResource("2_t1xeu")
@@ -39,26 +37,11 @@ spacing_glyph = -1
 base_font = ExtResource("11_taoro")
 spacing_glyph = -4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_otgxo"]
-shader = ExtResource("15_grt4r")
-shader_parameter/line_color = Color(0, 0, 0, 0.396078)
-shader_parameter/line_thickness = 2.0
-shader_parameter/add_margins = true
-
-[sub_resource type="SystemFont" id="SystemFont_u453t"]
-font_names = PackedStringArray("MS UI Gothic")
-subpixel_positioning = 0
-
-[sub_resource type="FontVariation" id="FontVariation_xitcb"]
-base_font = SubResource("SystemFont_u453t")
-baseline_offset = -0.315
-
 [sub_resource type="FontVariation" id="FontVariation_0ecn0"]
-fallbacks = Array[Font]([SubResource("FontVariation_xitcb")])
-base_font = ExtResource("2_fccik")
+base_font = ExtResource("9_otgxo")
 spacing_top = -10
 
-[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
+[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -68,7 +51,6 @@ hpText = NodePath("CanvasLayer/Bars/HPText")
 xpText = NodePath("CanvasLayer/Bars/XPText")
 hpBar = NodePath("CanvasLayer/Bars/HPBar")
 xpBar = NodePath("CanvasLayer/Bars/XPBar")
-testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
 comboText = NodePath("CanvasLayer/RightAnchor/ComboText")
 questIcon = NodePath("CanvasLayer/QuestIcon")
 inventoryIcon = NodePath("CanvasLayer/InventoryIcon")
@@ -101,7 +83,7 @@ horizontal_alignment = 1
 position = Vector2(62, 65)
 texture = ExtResource("5_t1xeu")
 
-[node name="Bars" type="Node" parent="CanvasLayer"]
+[node name="Bars" type="Node2D" parent="CanvasLayer"]
 
 [node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
 position = Vector2(88, 16)
@@ -186,17 +168,6 @@ bbcode_enabled = true
 text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
 horizontal_alignment = 2
 
-[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
-layout_mode = 0
-offset_left = -328.0
-offset_top = 58.0
-offset_right = 32.0
-offset_bottom = 88.0
-theme_override_fonts/font = ExtResource("9_otgxo")
-theme_override_font_sizes/font_size = 18
-text = "FPS: 60"
-horizontal_alignment = 2
-
 [node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor"]
 position = Vector2(40, 96)
 
@@ -245,10 +216,11 @@ caret_blink = true
 
 [node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs"]
 visible = false
-material = SubResource("ShaderMaterial_otgxo")
 layout_mode = 0
 offset_top = -175.0
 offset_right = 417.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.441)
+theme_override_constants/outline_size = 7
 theme_override_fonts/normal_font = SubResource("FontVariation_0ecn0")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true

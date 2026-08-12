@@ -7,6 +7,7 @@ opt_yes;Sim;Yes;はい
 opt_no;Não;No;いいえ
 pref;Preferências;Preferences;一般的な設定
 buttonType;Tipos de botões na UI;UI buttons;UI のボタンの種類
+fpsCounter;Contador de FPS;FPS counter;FPSカウンター
 btn_wii;Wii;Wii;Wii
 btn_x360;Xbox 360;Xbox 360;Xbox360
 btn_ps3;PS3;PS3;PS3
@@ -28,6 +29,7 @@ mod_loaded_single;%s mod carregado;%s mod loaded;%sつのMODがロードされ�
 mod_loaded_plural;%s mods carregados;%s mods loaded;%sつのMODをロードしました
 mod_queued_single;, %s mod em fila;, %s mod queued;、キューに入っているMODが%sつ
 mod_queued_plural;, %s mods em fila;, %s mods queued;、キューに入っているMODが%sつ
+loading;Carregando... (%s);Loading... (%s);LOADING (%s)
 ctrl_left;Esquerda;Left;左
 ctrl_down;Baixo;Down;下
 ctrl_up;Cima;Up;上

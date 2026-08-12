@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dowr4scvedhmu" path="res://Gamestuffs/IngameMenus/Inventory/setaPress1.png" id="6_a1tda"]
 [ext_resource type="Texture2D" uid="uid://dah2neqyjm50a" path="res://Gamestuffs/IngameMenus/Inventory/setaPress2.png" id="7_fgnjw"]
 [ext_resource type="PackedScene" uid="uid://jqlx4a5ag0fr" path="res://Gamestuffs/IngameMenus/Inventory/InventorySlot.tscn" id="8_vnuy0"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="9_fgnjw"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="10_rsp54"]
 [ext_resource type="Texture2D" uid="uid://i465vi4u6nxi" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0001.png" id="11_vnuy0"]
 [ext_resource type="Texture2D" uid="uid://e02negmpfjp2" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0002.png" id="12_i08sr"]
 [ext_resource type="Texture2D" uid="uid://b7w4s263vgulo" path="res://Gamestuffs/IngameMenus/Inventory/selectThing0003.png" id="13_n1f3x"]
@@ -306,7 +306,7 @@ offset_top = 19.0
 offset_right = 31.0
 offset_bottom = 59.0
 theme_override_colors/default_color = Color(0.4, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_fgnjw")
+theme_override_fonts/normal_font = ExtResource("10_rsp54")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "ui_next_page"
@@ -324,7 +324,7 @@ offset_top = 19.0
 offset_right = 37.0
 offset_bottom = 59.0
 theme_override_colors/default_color = Color(0.4, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("9_fgnjw")
+theme_override_fonts/normal_font = ExtResource("10_rsp54")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "ui_prev_page"

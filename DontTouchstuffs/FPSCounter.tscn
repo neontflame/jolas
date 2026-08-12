@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5loat7ktx8o5"]
+
+[ext_resource type="Script" uid="uid://b5wsp1nsw2p4y" path="res://DontTouchstuffs/FPSCounter.gd" id="1_cpg2e"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="2_cpg2e"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("testLabel")]
+script = ExtResource("1_cpg2e")
+testLabel = NodePath("CanvasLayer/RichTextLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer"]
+offset_left = 11.0
+offset_right = 492.0
+offset_bottom = 25.0
+theme_override_constants/line_spacing = -10
+theme_override_fonts/font = ExtResource("2_cpg2e")
+theme_override_font_sizes/font_size = 16
+text = "FPS: ? | Memória: ? MB"
