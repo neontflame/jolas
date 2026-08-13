@@ -38,3 +38,5 @@ func hitbox_connect(hit:OffensiveHitbox, type:String):
 		motion.x = motion.x * -0.8
 	if hit.coolId == "jumpbox":
 		motion.y = abs(motion.y) * -1.025
+	else:
+		motion.y = abs(motion.y) * -1.05

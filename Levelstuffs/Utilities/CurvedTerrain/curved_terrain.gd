@@ -256,6 +256,7 @@ func clear_terrain(): ## limpa o terreno pra geração recomeçar
 	line2D.points = []
 
 func update_polygon(points: PackedVector2Array): ## atualiza os pontos de curva da linha desenhada
+	
 	polygon2D.polygon = points
 	line2D.points = points
 

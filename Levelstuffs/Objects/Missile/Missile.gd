@@ -3,6 +3,8 @@ class_name Missile
 
 var baseDamage := 4.0
 
+var exPlayed := false
+
 #Set the velocity of the bullet
 #Call this right after creating the bullet to make it start moving
 func launch(direction:Vector2, speed:float):
@@ -18,7 +20,9 @@ func before_hit():
 
 func on_hit():
 	# print('kaboom')
-	play_sfx('Objects/RocketExplode')
+	if not exPlayed:
+		play_sfx('Objects/RocketExplode')
+		exPlayed = true
 	var strength:float = 243.75 + (power * 12.5 * 2)
 	if strength > 500:
 		strength = 500

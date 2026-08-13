@@ -20,6 +20,9 @@ var hud:HeadsUpDisplay
 
 var curTrackName:String = ""
 
+static var isChangingMap := false
+static var isGonnaCrash := false #If you fail me. I will kill you
+
 static var instance:JolasGame
 
 # Called when the node enters the scene tree for the first time.
@@ -70,7 +73,7 @@ func removePlayer():
 		allChars.erase(playerInstance)
 		playerInstance.queue_free()
 
-func createMap(lvl:String):
+func createMap(lvl:String, playerGoTo:String = ""):
 	print('proximo mapa: ' + lvl)
 	if map: map.free()
 	
@@ -79,6 +82,7 @@ func createMap(lvl:String):
 	lvlNode.add_child(map)
 	# MapUtils.set_map(map)
 	
+	await get_tree().process_frame
 	if map.infoCoisos != "":
 		GPStats.curMap = map.infoCoisos
 	else:
@@ -87,17 +91,24 @@ func createMap(lvl:String):
 	SaveUtils.save_game(GPStats.saveNum)
 	if GameUtils.get_map_info(lvl).has('songFile'):
 		playBGM(GameUtils.get_map_info(lvl)['songFile'])
-	
+		
 	hud.placeInfo.queue_free()
 	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
 	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
 	hud.placeInfo.position = Vector2(20.0, 21.0)
 	hud.placeInfo.triggerPlaceInfo()
+	
+	#potential
+	if playerGoTo != "":
+		respawnPlayer(false, playerGoTo)
+		if not isMenu:
+			GPStats.charObject.process_mode = Node.PROCESS_MODE_INHERIT
+			JolasGame.isChangingMap = false
 
 func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
-	await get_tree().process_frame
 	if map:
-		GPStats.charObject.position = map.get_node(spawnNode).position
+		if map.get_node_or_null(spawnNode):
+			GPStats.charObject.position = map.get_node(spawnNode).position
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
@@ -106,8 +117,9 @@ func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
 #acaba os treco de player
 var fadeTween:Tween = create_tween()
 func fadeOut(sec:float, callThat:Callable = func():pass):
-	fadeTween.kill()
-	
+	if fadeTween:
+		fadeTween.kill()
+		
 	await get_tree().process_frame
 	fadeTween = create_tween()
 	fadeTween.tween_method(
@@ -123,7 +135,8 @@ func fadeOut(sec:float, callThat:Callable = func():pass):
 	)
 
 func fadeIn(sec:float, callThat:Callable = func():pass):
-	fadeTween.kill()
+	if fadeTween:
+		fadeTween.kill()
 	
 	coolFade.visible = true
 	fadeTween = create_tween()

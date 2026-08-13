@@ -259,8 +259,10 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	handleRebounds()
 	if Input.is_action_pressed('ctrl_2') && hasElec():
 		handleParkour()
+		floor_max_angle = deg_to_rad(180.0)
 		isParkouring = true
 	else:
+		floor_max_angle = deg_to_rad(60.0)
 		isParkouring = false
 	if Input.is_action_just_pressed("ctrl_down") and is_on_floor():
 		isSliding = true

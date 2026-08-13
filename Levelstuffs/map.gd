@@ -17,12 +17,12 @@ func _ready() -> void:
 		var mapName = get_tree().current_scene.scene_file_path.get_file().get_basename()
 		GPStats.curMap = mapName
 		GPStats.char = GameUtils.get_chars().pick_random()
-		# GPStats.char = 'Passo'
 		GPStats.saveNum = 999
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 		return
 	MapUtils.set_map(self)
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().process_frame
+	await get_tree().process_frame
 	if hasBossRoom:
 		bossRoom.body_entered.connect(onEnterBossRoom)
 
