@@ -212,7 +212,7 @@ static func get_generic_bind_bbcode(event:InputEvent, butts:Dictionary, folder:S
 			coolSauce += controllerIconPath + folder + '/' + butts['buttons'][event.button_index] + '.png'
 			coolSauce += '[/img]'
 	if event is InputEventJoypadMotion:
-		print(event.axis)
+		# print(event.axis)
 		if butts['axis'].has(event.axis):
 			coolSauce = '[img]'
 			coolSauce += controllerIconPath + folder + '/' + butts['axis'][event.axis] + '.png'

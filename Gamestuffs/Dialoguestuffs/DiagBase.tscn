@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmxjfcdw3vlwl"]
 
 [ext_resource type="Script" uid="uid://bpr32idv8lxij" path="res://Gamestuffs/Dialoguestuffs/DiagBase.gd" id="1_cdchi"]
-[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="2_wr4nb"]
-[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="3_5m4cj"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="2_wr4nb"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="3_5m4cj"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="4_eth1b"]
 [ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="5_ky4a6"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="6_3s6d1"]

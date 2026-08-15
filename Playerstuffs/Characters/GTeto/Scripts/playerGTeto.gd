@@ -62,7 +62,7 @@ func makeSlamParticle():
 	thingie.z_index = z_index
 
 func on_jump(jumpNum:int):
-	print(jumpNum)
+	super.on_jump(jumpNum)
 	if jumpNum > 2:
 		var thingie = GameUtils.get_char_asset("GTeto", "Misc/JumpFx.tscn").instantiate()
 		get_parent().add_child(thingie)

@@ -17,16 +17,16 @@ func _on_body_entered(body: Node2D) -> void:
 	if JolasGame.isChangingMap: return
 	
 	if body is PlayerObject:
-		print('vai ' + whereToGo)
+		print('[GoToLevel] vai ' + whereToGo)
 		JolasGame.isChangingMap = true
 		if body.get_multi_status():
 			if not JolasGame.instance.isMenu: 
 				GPStats.charObject.process_mode = Node.PROCESS_MODE_DISABLED
-			print('vai')
+			print('[GoToLevel] vai')
 			triggeredGoto = true
 			JolasGame.instance.fadeIn(0.5, 
 			func(): 
-				print('ok agora volta')
+				print('[GoToLevel] ok agora volta')
 				JolasGame.instance.createMap(levelInQuestion, whereToGo)
 				JolasGame.instance.fadeOut(0.5)
 				)

@@ -45,11 +45,11 @@ func _ready() -> void:
 	while GPStats.charObject == null:
 		await get_tree().process_frame
 	if GPStats.charObject:
-		print("sinais prontos")
+		print("[HUD] sinais prontos")
 		GPStats.charObject.comboIncrease.connect(show_combo_hud)
 		GPStats.charObject.comboReset.connect(hide_combo_hud)
 	else:
-		print("sinais nao conectados")
+		print("[HUD] sinais nao conectados")
 	
 	JolasGame.instance.hud = self
 
@@ -119,7 +119,7 @@ func hide_combo_hud():
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfxPlayer.playing: sfxPlayer.stop()
-	sfxPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + name + ".ogg")
+	sfxPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + name + ".wav")
 	sfxPlayer.volume_db = volumeDB
 	sfxPlayer.play()
 

@@ -8,9 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://wybjlolx8mip" path="res://Musicstuffs/menu/menuLayer1.ogg" id="4_rrh7q"]
 [ext_resource type="AudioStream" uid="uid://g2q1nrtdpu7f" path="res://Musicstuffs/menu/menuLayer2.ogg" id="5_fec8x"]
 [ext_resource type="AudioStream" uid="uid://b2exfij2ykgn6" path="res://Musicstuffs/menu/menuLayer3.ogg" id="6_m101x"]
-[ext_resource type="AudioStream" uid="uid://cif1ajm7jfcqh" path="res://Gamestuffs/Sounds/Commons/back.ogg" id="9_2f15j"]
-[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="10_3g3s7"]
-[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="11_lo8pj"]
+[ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Gamestuffs/Sounds/Commons/back.wav" id="9_2f15j"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="10_3g3s7"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="11_lo8pj"]
 [ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Menustuffs/Background/menu_background.tscn" id="12_3g3s7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i30ho"]

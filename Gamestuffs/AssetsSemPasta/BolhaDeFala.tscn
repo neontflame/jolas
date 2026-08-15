@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ydm50sqpu2e1" path="res://Gamestuffs/AssetsSemPasta/bolhaBolha.png" id="2_1dupa"]
 [ext_resource type="FontFile" uid="uid://bjsecpljprics" path="res://Gamestuffs/Fonts/ARIALNB.TTF" id="3_pvvtv"]
 [ext_resource type="Texture2D" uid="uid://dei6plai1p803" path="res://Gamestuffs/AssetsSemPasta/bolhaCoiso.png" id="4_18dfv"]
-[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="5_1dupa"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="5_1dupa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2r4wc"]
 texture = ExtResource("2_1dupa")

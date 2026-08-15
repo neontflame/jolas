@@ -16,6 +16,7 @@ extends PlayerObject
 @export var leftWallSweep:RayCast2D
 
 @export var homingArea:Area2D
+@export var homingSweep:RayCast2D
 
 @export var dashLine:Line2D
 @export var boostLine:Line2D
@@ -86,7 +87,7 @@ func handleBoost():
 	if not isBoosting:
 		$Windstuff.stop()
 		return
-	
+		
 	if not hasElec():
 		delete_hitboxes('boost')
 		isBoosting = false
@@ -151,32 +152,9 @@ func handlePhys():
 		if evryFrame % 5 == 0:
 			makeAfterimage()
 
-func handleSonicPhys() -> void:
-	isSonicPhys = true
-	player_collisions.rotation = practicalAngle
-	plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.2)
-		
-	# Sonic Physix
-	if is_on_floor():
-		# print(abs(motion.x), ' ', SOFT_MAX_SPEED, ' ')
-		if (up_direction.y > -0.4) && (abs(motion.x) < SOFT_MAX_SPEED):
-			if not isParkouring:
-				# print('Get Outta Here')
-				motion.y = -50
-				print(motion)
-				up_direction = Vector2(0.0, -1.0)
-		up_direction = get_floor_normal()
-	else:
-		if up_direction != Vector2(0.0, -1.0):
-			# print('AIR TIME')
-			var prevmotion := Vector2(
-				motion.x * -up_direction.y - motion.y * up_direction.x,
-				motion.y * -up_direction.y + motion.x * up_direction.x,
-				)
-			# print(floorSinCos)
-			# print(prevmotion)
-			up_direction = Vector2(0.0, -1.0)
-			motion = prevmotion
+func on_fall_from_slope():
+	if not isParkouring:
+		super.on_fall_from_slope()
 
 var previousMotionY := 0.0
 var isRebounding := false
@@ -190,8 +168,10 @@ func handleRebounds():
 			if PlayerUtils.is_jump_pressed() && reboundsDone < REBOUND_LIMIT:
 				if -abs(previousMotionY) < JUMP_VELOCITY:
 					motion.y = -abs(previousMotionY) - 50
-					reboundsDone += 1
-					ELECTRICITY += ELEC_USAGE['rebound_reward']
+				else:
+					motion.y = JUMP_VELOCITY - 50
+				reboundsDone += 1
+				ELECTRICITY += ELEC_USAGE['rebound_reward']
 		if reboundCountdown <= 0.0:
 			reboundsDone = 0
 

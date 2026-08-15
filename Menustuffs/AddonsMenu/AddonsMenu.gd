@@ -22,7 +22,7 @@ func reload():
 	for file in DirAccess.get_files_at(curPath):
 		curItems.append(file)
 		
-	print(curItems)
+	# print(curItems)
 	if curPath != root:
 		curItems.push_front('../')
 	CoolMenu.maxSelected = len(curItems)
@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 				goBack()
 			elif curItems[CoolMenu.curSelected].ends_with('/'):
 				curPath += curItems[CoolMenu.curSelected]
-				print(curPath)
+				# print(curPath)
 				reload()
 				CoolMenu.play_sfx('Tick')
 			elif curItems[CoolMenu.curSelected].ends_with('.pck') || curItems[CoolMenu.curSelected].ends_with('.zip') :
@@ -113,12 +113,12 @@ func goBack():
 		# e hora de voltar
 		var lessPath:Array = curPath.split('/')
 		lessPath.resize(lessPath.size() - 2)
-		print(lessPath)
+		# print(lessPath)
 		
 		curPath = ''
 		for lesser in lessPath:
 			curPath += lesser
 			curPath += '/'
 			
-		print(curPath)
+		# print(curPath)
 		reload()

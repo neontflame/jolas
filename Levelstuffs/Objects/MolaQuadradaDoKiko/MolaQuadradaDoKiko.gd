@@ -88,9 +88,10 @@ func get_launch_direction() -> Vector2:
 	return Vector2.UP.rotated(rotation)
 
 func get_launch_velocity(body) -> Vector2:
-	var gravity_ratio: float = 1 - (sqrt(25.0 / body.GRAVITY) - 1)
+	var gravity_ratio: float = sqrt(body.GRAVITY / 25.0)
+	# print('ratio da mola: ', gravity_ratio)
 	
-	return get_launch_direction() * launch_force * gravity_ratio
+	return get_launch_direction() * launch_force * Vector2(1, gravity_ratio)
 
 func play_sfx(sfx: AudioStreamPlayer2D):
 	# sfx.volume_db = GeneralUtils.get_volume_db('sfx')

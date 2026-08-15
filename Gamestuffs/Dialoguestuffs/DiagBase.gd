@@ -160,7 +160,7 @@ func _process(delta: float) -> void:
 						func(value): 
 							blurBGFx.material.set_shader_parameter("amount", value)
 							if value <= 0:
-								print('endest')
+								print('cabou dialogo')
 								dialogue_end.emit()
 							,  
 						2.75,  # Start value

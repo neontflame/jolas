@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://b3vatl0xu0515" path="res://Gamestuffs/IngameMenus/IngameMenu.gd" id="1_8m1h5"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="2_mbqe1"]
 [ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="3_vyrye"]
-[ext_resource type="AudioStream" uid="uid://cif1ajm7jfcqh" path="res://Gamestuffs/Sounds/Commons/back.ogg" id="4_q4ubd"]
-[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="5_bptd1"]
-[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="6_hxhvq"]
-[ext_resource type="AudioStream" uid="uid://ccpvonrt456p8" path="res://Gamestuffs/Sounds/Commons/BOARD-SELECT.ogg" id="7_mbqe1"]
-[ext_resource type="AudioStream" uid="uid://jomyoexqj1mu" path="res://Gamestuffs/Sounds/Commons/wrap.ogg" id="8_vyrye"]
+[ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Gamestuffs/Sounds/Commons/back.wav" id="4_q4ubd"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="5_bptd1"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="6_hxhvq"]
+[ext_resource type="AudioStream" uid="uid://bffbmcyjdkjfo" path="res://Gamestuffs/Sounds/Commons/BOARD-SELECT.wav" id="7_mbqe1"]
+[ext_resource type="AudioStream" uid="uid://skikfx7dtkw4" path="res://Gamestuffs/Sounds/Commons/wrap.wav" id="8_vyrye"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vebjx"]
 shader = ExtResource("2_mbqe1")

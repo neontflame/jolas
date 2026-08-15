@@ -1,7 +1,7 @@
 extends Node2D
 
 func setup(msg:String, icon:String, sound:String):
-	$AudioStreamPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + sound + ".ogg")
+	$AudioStreamPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + sound + ".wav")
 	$AudioStreamPlayer.play()
 	$Label.text = msg
 	$NinePatchRect.size = $Label.get_minimum_size() + Vector2(43 + 3, 9 + 6)

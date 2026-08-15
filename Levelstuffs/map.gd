@@ -31,11 +31,11 @@ func onEnterBossRoom(body:Node2D):
 		if GPStats.is_multiplayer and (player.curMap != GPStats.curMap):
 			return
 		if not bossRoom.get_overlapping_bodies().has(player):
-			print('Ih crl')
+			print('[JOLASMAP] Ih crl')
 			return
 	
 	if not allPlayersInBossRoom:
-		print('FOI')
+		print('[JOLASMAP] FOI')
 		boss.awake()
 		bossStart()
 		allPlayersInBossRoom = true

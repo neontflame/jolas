@@ -57,7 +57,7 @@ func create_game():
 
 	players[1] = player_info
 	player_connected.emit(1, player_info)
-	print('Server aberto na porta %s' % GameUtils.portEntered)
+	print('[MULTIPLAYER] Server aberto na porta %s' % GameUtils.portEntered)
 
 func remove_multiplayer_peer():
 	if multiplayer != null:
@@ -77,7 +77,7 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size():
-			print('yeah dude')
+			print('[MULTIPLAYER] yeah dude')
 
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
@@ -96,7 +96,7 @@ func _register_player(new_player_info):
 		
 		if !GeneralUtils.check_array_compat(server_mods, joining_mods) \
 		and !GeneralUtils.check_array_compat_lenient(server_mods, joining_mods_foldless):
-			print('Mod mismatch! Kicking peer:', new_player_id)
+			print('[MULTIPLAYER] Mod mismatch! Kicking peer:', new_player_id)
 			multiplayer.multiplayer_peer.disconnect_peer(new_player_id)
 			return # STOP execution here. Do not add to dict.
 			
@@ -118,7 +118,7 @@ func _on_connected_ok():
 
 
 func _on_connected_fail():
-	print('Fuck.')
+	print('[MULTIPLAYER] Fuck. (connection fail)')
 	remove_multiplayer_peer()
 
 func _on_server_disconnected():

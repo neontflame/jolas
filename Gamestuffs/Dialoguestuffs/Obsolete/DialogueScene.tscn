@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c4j8hf1vby0ep" path="res://Gamestuffs/Dialoguestuffs/Obsolete/Diag.gd" id="1_1ie7r"]
 [ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="2_3mn5t"]
-[ext_resource type="AudioStream" uid="uid://cs0gesu2ispb7" path="res://Gamestuffs/Sounds/Commons/tick.ogg" id="2_x2y7r"]
-[ext_resource type="AudioStream" uid="uid://qv46ji4ycvg3" path="res://Gamestuffs/Sounds/Commons/go.ogg" id="3_3mn5t"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="2_x2y7r"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="3_3mn5t"]
 [ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_x2y7r"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="8_lem3t"]
 [ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Shaders/blur.gdshader" id="9_6sqdm"]

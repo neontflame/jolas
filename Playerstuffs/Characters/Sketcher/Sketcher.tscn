@@ -40,7 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://catgon0yccmfn" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0002.png" id="22_dsjf8"]
 [ext_resource type="Texture2D" uid="uid://cmeocfvne7tji" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0003.png" id="23_tp0le"]
 [ext_resource type="Texture2D" uid="uid://b8t7xmildj8bu" path="res://Playerstuffs/Characters/Sketcher/Sprites/JakeWalk0004.png" id="24_ts5rf"]
-[ext_resource type="AudioStream" uid="uid://cr7ifqnger810" path="res://Playerstuffs/Characters/Sketcher/Sounds/BoostWind.ogg" id="41_dsjf8"]
+[ext_resource type="AudioStream" uid="uid://xchmajx5r0qx" path="res://Playerstuffs/Characters/Sketcher/Sounds/BoostWind.wav" id="41_dsjf8"]
 [ext_resource type="Texture2D" uid="uid://ctp5ffjotufje" path="res://Playerstuffs/Characters/Sketcher/Sprites/Fx/boost  effect0001.png" id="42_tp0le"]
 [ext_resource type="Texture2D" uid="uid://ksic5jf27ghc" path="res://Playerstuffs/Characters/Sketcher/Sprites/Fx/boost  effect0002.png" id="43_ts5rf"]
 [ext_resource type="Texture2D" uid="uid://u2vkemnegsfa" path="res://Playerstuffs/Characters/Sketcher/Sprites/Fx/boost  effect0003.png" id="44_7odvg"]
@@ -248,7 +248,7 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="Sketcher" node_paths=PackedStringArray("rightSweep", "leftSweep", "downSweep", "rightWallSweep", "leftWallSweep", "homingArea", "dashLine", "boostLine", "boostSprite") instance=ExtResource("1_avxmv")]
+[node name="Sketcher" node_paths=PackedStringArray("rightSweep", "leftSweep", "downSweep", "rightWallSweep", "leftWallSweep", "homingArea", "homingSweep", "dashLine", "boostLine", "boostSprite") instance=ExtResource("1_avxmv")]
 script = ExtResource("2_2ar5l")
 SLIDE_FRICTION = 0.995
 ELEC_GAUGE_MAX = 20.0
@@ -267,6 +267,7 @@ downSweep = NodePath("AnimatedSprite2D/FloorSweeps/FloorSweep")
 rightWallSweep = NodePath("AnimatedSprite2D/WallSweeps/RightSweep")
 leftWallSweep = NodePath("AnimatedSprite2D/WallSweeps/LeftSweep")
 homingArea = NodePath("HomingArea")
+homingSweep = NodePath("HomingLine")
 dashLine = NodePath("DashLine")
 boostLine = NodePath("BoostLine")
 boostSprite = NodePath("BoostSprite")
@@ -359,7 +360,11 @@ position = Vector2(2, -13)
 target_position = Vector2(-96, 0)
 collision_mask = 3
 
-[node name="HomingArea" type="Area2D" parent="." index="12"]
+[node name="HomingLine" type="RayCast2D" parent="." index="12"]
+target_position = Vector2(0, 0)
+collision_mask = 3
+
+[node name="HomingArea" type="Area2D" parent="." index="13"]
 visible = false
 collision_layer = 3
 collision_mask = 3
@@ -367,13 +372,12 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea" index="0"]
 shape = SubResource("CircleShape2D_gf1t6")
 
-[node name="Windstuff" type="AudioStreamPlayer2D" parent="." index="13"]
+[node name="Windstuff" type="AudioStreamPlayer2D" parent="." index="14"]
 stream = ExtResource("41_dsjf8")
-volume_db = -80.0
 attenuation = 1.31951
 bus = &"SFX"
 
-[node name="BoostSprite" type="AnimatedSprite2D" parent="." index="14"]
+[node name="BoostSprite" type="AnimatedSprite2D" parent="." index="15"]
 visible = false
 self_modulate = Color(1, 1, 1, 0.505882)
 sprite_frames = SubResource("SpriteFrames_tfu3w")

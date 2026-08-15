@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_sdvf2"]
 [ext_resource type="Texture2D" uid="uid://bs0yvs4glmh1h" path="res://Menustuffs/DipshitMenu/DipshitBox.png" id="5_ohf5w"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="6_6m5v3"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="6_a3aa5"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="6_a3aa5"]
 [ext_resource type="Texture2D" uid="uid://sv4n5mpw2k4m" path="res://Menustuffs/Commons/SetaInativa.png" id="7_x8tw6"]
 [ext_resource type="Texture2D" uid="uid://c4xnwpqlk0y0j" path="res://Menustuffs/Commons/SetaAtiva1.png" id="8_6m5v3"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="10_ky6fr"]

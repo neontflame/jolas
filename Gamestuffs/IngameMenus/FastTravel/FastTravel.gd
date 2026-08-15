@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 			change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn', 1)
 
 func goToThing(mapId:String):
-	print(mapId)
+	print("[FASTTRAVEL] Id do mapa: ", mapId)
 	canControl = false
 	CoolMenu.play_sfx('Wrap')
 	$AnimationPlayer.play('getOut')
@@ -33,7 +33,7 @@ func goToThing(mapId:String):
 	
 	JolasGame.instance.fadeIn(0.5, 
 	func(): 
-		print('ok agora volta')
+		print('[FASTTRAVEL] ok agora volta')
 		JolasGame.instance.createMap(mapId)
 		JolasGame.instance.respawnPlayer(false, "Spawnpoint")
 		JolasGame.instance.fadeOut(0.5)

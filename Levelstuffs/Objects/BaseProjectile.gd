@@ -52,6 +52,6 @@ func apply_additional_data(data: Dictionary):
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if $AudioStreamPlayer2D.playing: $AudioStreamPlayer2D.stop()
-	$AudioStreamPlayer2D.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
+	$AudioStreamPlayer2D.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".wav")
 	$AudioStreamPlayer2D.volume_db = volumeDB
 	$AudioStreamPlayer2D.play()

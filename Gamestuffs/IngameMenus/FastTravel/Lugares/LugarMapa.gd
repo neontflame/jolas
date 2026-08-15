@@ -85,7 +85,7 @@ func get_pin(thepin:int):
 
 func goToOtherPin(thepin:int, where:String):
 	var myPin = get_pin(thepin)
-	print(myPin.goto)
+	print("[LUGARMAPA] Pin direciona pra: ", myPin.goto)
 	
 	if myPin.goto[where] != '-1':
 		if myPin.goto[where].is_valid_int():

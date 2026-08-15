@@ -71,19 +71,25 @@ func exit_state():
 
 # fonte: https://forum.godotengine.org/t/help-finding-nearest-object-and-working-out-the-proper-code-i-just-realized-i-need-this-done-in-the-next-six-days/57537
 func find_closest() -> Variant:
+	var sweep:RayCast2D = Player.homingSweep
 	var mobbies = Player.homingArea.get_overlapping_bodies()
 	var lowest_distance = INF    # Initialized as infinity to avoid unintended behaviour at large distances
 	var closest_mob
 	for mob in mobbies:
-		if mob is MobObject:
+		if mob is MobObject or mob is BossObject:
 			if mob.isDead: continue
 			var distance = mob.global_position.distance_squared_to(Player.global_position)
 			# Check whether the distance to the animal is lower
 			# than the previously checked animals
 			if distance < lowest_distance:
+				sweep.target_position = mob.global_position - Player.global_position
+				print(sweep.target_position)
+				sweep.force_raycast_update()
 				closest_mob = mob       # Set this animal as the closest animal
 				lowest_distance = distance    # Update the lowest distance found
-
+	# check for walls!
+	if not (sweep.get_collider() is MobObject or sweep.get_collider() is BossObject):
+		return null
 	# This is an if-statement that evaluates whether an animal was found
 	# It will usually only run if there are no valid animal instances
 	if !is_instance_valid(closest_mob) or lowest_distance == INF:

@@ -53,7 +53,7 @@ func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
-	print(chara)
+	print("[GAME] Criando char ", chara)
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
 	
 	if playerInstance: remove_child(playerInstance)
@@ -74,7 +74,7 @@ func removePlayer():
 		playerInstance.queue_free()
 
 func createMap(lvl:String, playerGoTo:String = ""):
-	print('proximo mapa: ' + lvl)
+	print('[GAME] Criando mapa ' + lvl)
 	if map: map.free()
 	
 	map = load(GameUtils.get_map_path(lvl)).instantiate()

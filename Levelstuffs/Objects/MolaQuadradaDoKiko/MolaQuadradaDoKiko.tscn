@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bbittutg7ooka" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.gd" id="1_mwj7q"]
 [ext_resource type="Texture2D" uid="uid://bs5w46fegdnvt" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/molaCoiso.png" id="2_0jm0m"]
 [ext_resource type="Texture2D" uid="uid://yua6e7d1dyei" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/molaCima.png" id="3_3w600"]
-[ext_resource type="AudioStream" uid="uid://drekgdukn8xvk" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/Sounds/FancySpring.ogg" id="3_j3f0v"]
+[ext_resource type="AudioStream" uid="uid://cq82etijoas4b" path="res://Levelstuffs/Objects/MolaQuadradaDoKiko/Sounds/FancySpring.wav" id="3_j3f0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr4ie"]
 size = Vector2(128, 16)

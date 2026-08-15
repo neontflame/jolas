@@ -22,5 +22,5 @@ func _process(delta: float) -> void:
 			# When done loading, change to the target scene:
 			get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(LoadingScene.goToScene))
 		ResourceLoader.THREAD_LOAD_FAILED:
-			print("Nvm")
+			print("[LOADINGSCENE] Nvm")
 			get_tree().change_scene_to_file("res://DontTouchstuffs/GameInit.tscn")

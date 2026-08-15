@@ -20,7 +20,7 @@ var optssss:Array[StringName] = [
 var canControl:bool = true
 
 func _ready() -> void:
-	print("para com essa porra")
+	print("[PAUSE] para com essa porra")
 	CoolMenu.curSelected = 0
 	CoolMenu.maxSelected = len(optssss)
 	CoolMenu.play_sfx('Unwrap')
@@ -104,4 +104,4 @@ func doSomething(opt:StringName):
 			canControl = true
 			CoolMenu.stop_sfx('Go')
 			CoolMenu.play_sfx('Back')
-			print('nao implementei ainda :X')
+			print('[PAUSE] nao implementei ainda :X')

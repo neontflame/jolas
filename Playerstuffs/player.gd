@@ -189,9 +189,7 @@ func handleSonicPhys() -> void:
 						# mas a gente bola
 		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
 			# print('Get Outta Here')
-			motion.y = -50
-			print(motion)
-			up_direction = Vector2(0.0, -1.0)
+			on_fall_from_slope()
 		up_direction = get_floor_normal()
 	else:
 		cameFromAir = true
@@ -203,6 +201,7 @@ func handleSonicPhys() -> void:
 				)
 			up_direction = Vector2(0.0, -1.0)
 			motion = prevmotion
+
 
 var slopeMult := 1
 var slopeAdd = 0
@@ -216,8 +215,6 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	if is_on_floor():
 		ACCELERATION = new_floor_acceleration
 		FRICTION = FLOOR_FRICTION
-		jumpsDone = 1
-		jumping = false
 	else:
 		ACCELERATION = new_air_acceleration
 		FRICTION = AIR_FRICTION
@@ -230,7 +227,7 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	if can_player_jump():
 		jumpsDone += 1
 		if isSonicPhys:
-			print("pode pular")
+			# print("pode pular")
 			motion.y = JUMP_VELOCITY
 		else:
 			motion.y = JUMP_VELOCITY * -floorSinCos.y
@@ -246,7 +243,7 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	
 	if jumping and holding_jump:
 		if PlayerUtils.is_jump_released() and motion.y < 0.0:
-			print("eugh")
+			# print("eugh")
 			motion.y = motion.y / 1.5
 			holding_jump = false
 	
@@ -278,13 +275,6 @@ func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float
 	return air_accel_modifier
 
 func handlePhys() -> void:
-	# Air Physicque
-		
-	if is_on_ceiling():
-		motion.y = 10
-	if (is_on_wall() and flooredFrames >= 3) or is_on_wall_only():
-		motion.x = 0
-	
 	# Floor Physicque
 	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
 	if is_on_floor():
@@ -317,6 +307,10 @@ func apply_player_gravity(custom_gravity: float = GRAVITY):
 			motion.y = 10
 		practicalAngle = 0.0
 		motion.y += gravity_value
+	if is_on_ceiling():
+		motion.y = abs(motion.y) * 0.5
+	if (is_on_wall() and flooredFrames >= 3) or is_on_wall_only():
+		motion.x = 0
 
 func setup_camera():
 	coolCamera.position_smoothing_enabled = false
@@ -435,15 +429,15 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 				change_state(state_machine.st_hurt)
 			return true
 	
-func play_sfx(name:String, volumeDB:float = 0.0):
+func play_sfx(soundName:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + name + ".ogg")
+	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + soundName + ".wav")
 	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
-func play_char_sfx(name:String, char:String, volumeDB:float = 0.0):
+func play_char_sfx(soundName:String, char:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + name + ".ogg")
+	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + soundName + ".wav")
 	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 
@@ -539,10 +533,17 @@ func on_jump(jumpNum:int):
 	pass
 
 func on_land():
-	pass
+	jumpsDone = 1
+	jumping = false
 
 func on_spring(vel:Vector2):
 	pass
+
+func on_fall_from_slope():
+	motion.y = -50
+	print(motion)
+	up_direction = Vector2(0.0, -1.0)
+
 #endregion
 
 #region Utilidades (Multiplayer)

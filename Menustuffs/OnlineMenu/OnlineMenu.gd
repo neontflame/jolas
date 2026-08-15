@@ -6,8 +6,6 @@ var canControl:bool = true
 func _ready() -> void:
 	CoolMenu.blurAmount = 2
 	CoolMenu.activeMusicLayers = 3
-	
-	print('Dude i hope')
 
 func _enter_tree() -> void:	
 	$MenuCanvas/MidAnchor/UsrTxt.text = SaveUtils.get_online_info()['name']
@@ -73,6 +71,7 @@ func goToGame():
 	canControl = false
 	CoolMenu.activeMusicLayers = 0
 	CoolMenu.play_sfx('Go')
+	SaveUtils.save_online()
 	
 	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:
 		mapToGoTo = GameUtils.defaultMap

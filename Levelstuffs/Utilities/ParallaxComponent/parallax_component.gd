@@ -97,12 +97,12 @@ func _process(delta: float) -> void:
 			else:
 				PLayer.motion_mirroring = Sprite.region_rect.size
 		else:
-			print("ParallaxLayer não configurado!")
+			print("[PARALLAXCOMPONENT] ParallaxLayer não configurado!")
 
 		if Sprite:
 			Sprite.region_rect.position += ScrollSpeed * delta
 		else:
-			print("Sprite não configurado!")
+			print("[PARALLAXCOMPONENT] Sprite não configurado!")
 
 	## Scroll baseado no sistema da engine
 	if is_dynamic():
@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 			PLayer.motion_mirroring = Sprite.region_rect.size
 			scroll_base_scale = DynamicScrollSpeed
 		else:
-			print("ParallaxLayer não configurado!")
+			print("[PARALLAXCOMPONENT] ParallaxLayer não configurado!")
 	if ParallaxType == Types.DYNAMIC_SINGULAR:
 		scroll_base_scale = DynamicScrollSpeed
 		PLayer.motion_mirroring = Vector2.ZERO
