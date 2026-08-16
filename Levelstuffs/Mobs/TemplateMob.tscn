@@ -43,7 +43,7 @@ size = Vector2(127, 126)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgoir"]
 radius = 498.049
 
-[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "healthBar", "leSprite")]
+[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "healthBar", "screen_notifier", "leSprite")]
 collision_layer = 2
 script = ExtResource("1_odjvr")
 ACCELERATION = 10.0
@@ -53,6 +53,7 @@ collAreaCollision = NodePath("CollidesWithPlayer/CollisionShape2D")
 playerDetector = NodePath("PlayerDetector")
 sfx_player = NodePath("AudioStreamPlayer2D")
 healthBar = NodePath("TinyBar")
+screen_notifier = NodePath("VisibleOnScreenNotifier2D")
 leSprite = NodePath("AnimatedSprite2D")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -103,6 +104,8 @@ horizontal_alignment = 1
 
 [node name="TinyBar" parent="." instance=ExtResource("7_oo2om")]
 position = Vector2(0, -82)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="pd_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="pd_body_exited"]

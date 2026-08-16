@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://o3wj6f0bfd61"]
+
+[ext_resource type="Texture2D" uid="uid://cbhl3bn1qqim1" path="res://Levelstuffs/Mobs/RoBawnt/Sprites/robawnt_prototype4.png" id="1_xy2eg"]
+[ext_resource type="Texture2D" uid="uid://dcjm0sk1uglv2" path="res://Levelstuffs/Mobs/RoBawnt/Sprites/robawnt_prototype1.png" id="2_xy2eg"]
+[ext_resource type="Texture2D" uid="uid://8ly6h53fd4v2" path="res://Levelstuffs/Mobs/RoBawnt/Sprites/robawnt_prototype2.png" id="3_eeqy3"]
+[ext_resource type="Texture2D" uid="uid://crjm8pe1iw0c0" path="res://Levelstuffs/Mobs/RoBawnt/Sprites/robawnt_prototype3.png" id="4_oixkw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xy2eg")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xy2eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eeqy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oixkw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xy2eg")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}]

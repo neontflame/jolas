@@ -14,9 +14,9 @@ var previous_state = null
 #region Params
 @export_group('Parameters')
 @export var ACCELERATION = 62.5
-@export var MAX_SPEED = 600
+@export var MAX_SPEED = 600.0
 @export var GRAVITY = 25.0
-@export var JUMP_VELOCITY = -625
+@export var JUMP_VELOCITY = -625.0
 @export var FRICTION = 0.9125
 
 @export var maxHP:float = 10
@@ -42,6 +42,8 @@ var previous_state = null
 
 @export var healthBar:Bar
 
+@export var screen_notifier: VisibleOnScreenNotifier2D
+
 @export_category('Animations')
 @export var leSprite:AnimatedSprite2D
 #endregion 
@@ -58,11 +60,15 @@ var theHarmer:PlayerObject
 var isHurting := false
 var isDead := false
 var stunFrames := 0.0
+
+var isEnabled: bool = false
 #endregion
 
 func _ready() -> void:
 	collAreaCollision.shape = collisions.shape
 	collAreaCollision.scale = collisions.scale
+	
+	screen_notifier.screen_entered.connect(on_screen_entered)
 	
 	# comece a state machine
 	for state in state_machine.get_children():
@@ -202,3 +208,8 @@ func dropItems():
 		for itemcool in possibleDrops:
 			if randi_range(1, possibleDrops[itemcool]) == 1:
 				MapUtils.spawn_item(itemcool, global_position)
+
+#region Scripting
+func on_screen_entered() -> void:
+	isEnabled = true
+#endregion

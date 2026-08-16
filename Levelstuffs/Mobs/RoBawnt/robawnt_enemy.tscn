@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c235ewedswe5c"]
+
+[ext_resource type="PackedScene" uid="uid://cur2gbeak6s0i" path="res://Levelstuffs/Mobs/TemplateMob.tscn" id="1_ooaau"]
+[ext_resource type="SpriteFrames" uid="uid://o3wj6f0bfd61" path="res://Levelstuffs/Mobs/RoBawnt/Resources/robawnt_spriteframes.tres" id="2_cieje"]
+[ext_resource type="Script" uid="uid://dkjmkfwtr3my5" path="res://Levelstuffs/Mobs/RoBawnt/robawnt_enemy.gd" id="2_yfo1n"]
+[ext_resource type="Script" uid="uid://cgl08ml3klbmm" path="res://Levelstuffs/Mobs/RoBawnt/Scripts/robawnt_defaultSt.gd" id="3_4weo6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cieje"]
+size = Vector2(65, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4weo6"]
+size = Vector2(96, 20)
+
+[node name="RobawntEnemy" node_paths=PackedStringArray("left_rc", "right_rc", "wall_shapecast") instance=ExtResource("1_ooaau")]
+script = ExtResource("2_yfo1n")
+initial_side = 2
+left_rc = NodePath("HawntNodes/Raycasts/Left")
+right_rc = NodePath("HawntNodes/Raycasts/Right")
+wall_shapecast = NodePath("HawntNodes/WallShapeCast")
+ACCELERATION = 62.5
+MAX_SPEED = 200.0
+maxHP = 200.0
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource("3_4weo6")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_cieje")
+animation = &"dead"
+autoplay = "default"
+frame_progress = 0.243409
+
+[node name="ActualCollision" parent="." index="2"]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_cieje")
+
+[node name="PlayerDetector" parent="." index="5"]
+visible = false
+
+[node name="HawntNodes" type="Node2D" parent="." index="9"]
+
+[node name="Raycasts" type="Node2D" parent="HawntNodes" index="0"]
+
+[node name="Left" type="RayCast2D" parent="HawntNodes/Raycasts" index="0"]
+position = Vector2(-48, 64)
+target_position = Vector2(-48, 48)
+collision_mask = 3
+
+[node name="Right" type="RayCast2D" parent="HawntNodes/Raycasts" index="1"]
+position = Vector2(48, 64)
+target_position = Vector2(48, 48)
+collision_mask = 3
+
+[node name="WallShapeCast" type="ShapeCast2D" parent="HawntNodes" index="1"]
+shape = SubResource("RectangleShape2D_4weo6")
+target_position = Vector2(0, 64)

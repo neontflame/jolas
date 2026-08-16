@@ -25,8 +25,7 @@ func change_object_color():
 		visual_rect.color = Color.BLUE
 
 func switch_layer(body: Node2D):
-	if body is PlayerObject:
-		print("oie")
+	if body is PlayerObject or body is MobObject:
 		if switch_to == layers.Red_Judas:
 			body.collision_mask = (1 << 0) | (1 << 2)
 		else:
