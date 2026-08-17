@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv0kwtpveitw3"]
+[gd_scene load_steps=14 format=3 uid="uid://bv0kwtpveitw3"]
 
 [ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/state_pattern.gd" id="3_auq01"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(127, 127.636)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auq01"]
+size = Vector2(32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rtyar"]
 animations = [{
@@ -125,7 +128,7 @@ properties/16/path = NodePath(".:invulnFrames")
 properties/16/spawn = true
 properties/16/replication_mode = 2
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "multiplayerName", "coolCamera", "hitboxCoisos", "plySprite")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "multiplayerName", "coolCamera", "hitboxCoisos", "leftWallness", "rightWallness", "plySprite")]
 collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -140,6 +143,8 @@ sfx_player = NodePath("SfxPlayer")
 multiplayerName = NodePath("MultiplayerName")
 coolCamera = NodePath("Camera2D")
 hitboxCoisos = NodePath("HitboxCoisos")
+leftWallness = NodePath("CollisionShape2D/LeftWallness")
+rightWallness = NodePath("CollisionShape2D/RightWallness")
 plySprite = NodePath("AnimatedSprite2D")
 
 [node name="StateMachine" type="Node" parent="."]
@@ -172,6 +177,16 @@ position_smoothing_speed = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, 2)
 shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="LeftWallness" type="ShapeCast2D" parent="CollisionShape2D"]
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_auq01")
+target_position = Vector2(-64, 0)
+
+[node name="RightWallness" type="ShapeCast2D" parent="CollisionShape2D"]
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_auq01")
+target_position = Vector2(64, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 2)

@@ -60,6 +60,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body is PlayerObject:
 			current_object = body
 			current_object.walkingEnabled = false
+			current_object.on_pre_spring()
 			animation_player.play("mola_quadrada_do_kiko/boingoing")
 		if body is MobObject:
 			current_object = body

@@ -73,9 +73,9 @@ func update():
 		Player.handleCamera()
 		Player.apply_player_gravity()
 		if Player.is_on_wall():
-			if Player.plySprite.flip_h:
+			if Player.is_on_wall_side('left'):
 				Player.motion.x = abs(Player.nonZeroXVel) * 0.325
-			else:
+			if Player.is_on_wall_side('right'):
 				Player.motion.x = abs(Player.nonZeroXVel) * -0.325
 				
 			Player.motion.y = abs(Player.nonZeroXVel) * -0.35

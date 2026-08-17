@@ -38,6 +38,9 @@ var acceleration_modifiers: Dictionary = {}
 var base_camera_offset: Vector2
 @export var hitboxCoisos:Node2D
 
+@export var leftWallness:ShapeCast2D
+@export var rightWallness:ShapeCast2D
+
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
 
@@ -94,6 +97,8 @@ var up_override:bool = false
 var isSonicPhys: bool = true
 var practicalAngle := 0.0
 
+var spriteRotatesByItself: bool = true
+
 var movementEnabled:bool = true
 var walkingEnabled:bool = true #mostly for abilities to use
 
@@ -137,6 +142,7 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
+	regenWallCollmasks()
 	while stunFrames > 0:
 		stunFrames -= 1
 		return
@@ -177,8 +183,9 @@ var cameFromAir:bool = false
 
 func handleSonicPhys() -> void:
 	player_collisions.rotation = practicalAngle
-	if is_on_floor(): plySprite.rotation = practicalAngle
-	else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
+	if not spriteRotatesByItself:
+		if is_on_floor(): plySprite.rotation = practicalAngle
+		else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
 	# Sonic Physix
 	if is_on_floor():
 		if cameFromAir:
@@ -265,15 +272,6 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 		else:
 			motion.x = motion.x * (FRICTION)
 
-func can_player_jump() -> bool:
-	return PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air))
-
-func get_floor_acceleration(accel_modifier: float = FLOOR_ACCELERATION) -> float:
-	return accel_modifier
-
-func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float:
-	return air_accel_modifier
-
 func handlePhys() -> void:
 	# Floor Physicque
 	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
@@ -312,6 +310,7 @@ func apply_player_gravity(custom_gravity: float = GRAVITY):
 	if (is_on_wall() and flooredFrames >= 3) or is_on_wall_only():
 		motion.x = 0
 
+#region Camera
 func setup_camera():
 	coolCamera.position_smoothing_enabled = false
 	await get_tree().process_frame
@@ -378,6 +377,7 @@ func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 	
 	print(predicted)
 	return predicted - global_position
+#endregion 
 
 # roubei do breno creditos pra ele
 func change_state(new_state):
@@ -448,11 +448,11 @@ func get_invuln():
 	return (invulnFrames > 0) || fullInvuln
 
 #region Ataques e Hitboxes
-func connectAttack(_stunFrames:float, vel:Vector2 = Vector2(0, 0)):
+func connectAttack(_stunFrames:float, vel:Vector2 = Vector2.ZERO):
 	# increaseCombo()
 	# print(_stunFrames)
 	stunFrames = _stunFrames
-	if vel != Vector2(0, 0):
+	if vel != Vector2.ZERO:
 		motion.y = vel.y
 		motion.x = vel.x
 
@@ -474,7 +474,7 @@ func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float,
 	if m_api.multiplayer_peer is ENetMultiplayerPeer:
 		MultiplayerMayhem._player_make_hitbox.rpc(get_multiplayer_authority(), offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 	
-	make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
+	return make_hitbox_actual(offset, scale, _damage, _knockback, _knockAngle, hitboxId)
 
 func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	if GPStats.is_multiplayer && curMap != GPStats.curMap: return
@@ -493,6 +493,7 @@ func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback
 	hitboxCoisos.add_child(hitbox)
 	hitbox.coolId = hitboxId
 	hitbox.fixAngles()
+	return hitbox
 
 ## e tipo o [method make_hitbox] so que com segundos antes
 func make_hitbox_timed(seconds:float, offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
@@ -535,6 +536,9 @@ func on_jump(jumpNum:int):
 func on_land():
 	jumpsDone = 1
 	jumping = false
+
+func on_pre_spring():
+	pass
 
 func on_spring(vel:Vector2):
 	pass
@@ -604,4 +608,31 @@ func spawnNumber(quant):
 	get_parent().add_child(numble)
 	numble.global_position = global_position - Vector2(0, 32)
 	numble.set_text(quant)
+
+func regenWallCollmasks():
+	if leftWallness.collision_mask != collision_mask:
+		leftWallness.collision_mask = collision_mask
+	if rightWallness.collision_mask != collision_mask:
+		rightWallness.collision_mask = collision_mask
+func is_on_wall_side(side:StringName, sensitive:bool = false):
+	match side:
+		'left':
+			if sensitive:
+				return leftWallness.is_colliding()
+			return is_on_wall() && leftWallness.is_colliding()
+		'right':
+			if sensitive:
+				return rightWallness.is_colliding()
+			return is_on_wall() && rightWallness.is_colliding()
+		_:
+			return is_on_wall()
+
+func can_player_jump() -> bool:
+	return PlayerUtils.is_jump_just_pressed() and (is_on_floor() or (jumpsDone <= JUMP_COUNT and can_jump_mid_air))
+
+func get_floor_acceleration(accel_modifier: float = FLOOR_ACCELERATION) -> float:
+	return accel_modifier
+
+func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float:
+	return air_accel_modifier
 #endregion

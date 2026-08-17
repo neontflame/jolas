@@ -13,21 +13,25 @@ func update():
 		Player.handlePhys()
 		Player.handleCamera()
 		if Player.isGonnaHook:
-			Player.apply_player_gravity(5.0)
+			Player.apply_player_gravity(Player.GRAVITY / 2)
 			acquireTarget()
 			Player.caudaRaycast.rotation = theAim.angle()
 			Player.plySprite.play("caudaPrepare")
-		else:
+		if not Player.isGonnaHook:
 			handleAnimations()
 			Player.handleMovement()
 			Player.apply_player_gravity()
 		
-		if Input.is_action_just_pressed("ctrl_2"):
-			Player.isGonnaHook = true
+		if Input.is_action_just_pressed("ctrl_2") && !Player.spinny:
+			if Player.hooksTried < Player.hookChances:
+				Player.isGonnaHook = true
 		
 		if Input.is_action_just_released("ctrl_2"):
 			if Player.isGonnaHook:
 				Player.hookOnto(theAim)
+	else:
+		if Input.is_action_just_pressed("ctrl_2") and Player.canSpinny:
+			Player.getSpinny()
 
 func acquireTarget():
 	var input = Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down")

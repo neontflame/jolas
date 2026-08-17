@@ -29,8 +29,10 @@ func update():
 	
 	if Player.bubble_blasted:
 		custom_espy_animation()
-		if Player.is_on_wall():
-			Player.motion.x = -prevMotionX * 0.5
+		if Player.is_on_wall_side('left'):
+			Player.motion.x = abs(prevMotionX) * -0.5
+		if Player.is_on_wall_side('right'):
+			Player.motion.x = abs(prevMotionX) * 0.5
 		if Player.is_on_ceiling():
 			Player.motion.y = abs(Player.motion.y)
 	else:

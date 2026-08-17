@@ -187,6 +187,10 @@ caudaLine = NodePath("CaudaStuff/CaudaLine")
 caudaEnd = NodePath("CaudaStuff/BrenoCaudaTip")
 targetSpr = NodePath("Target")
 hookChances = 2
+ATTACK_DMG = Dictionary[String, float]({
+"default": 2.0,
+"hookie": 5.0
+})
 
 [node name="Air" parent="StateMachine" index="2"]
 script = ExtResource("3_dbayo")
@@ -222,5 +226,5 @@ frame_progress = 0.246446
 
 [node name="AnimatedSprite2D" parent="." index="6"]
 sprite_frames = SubResource("SpriteFrames_0lagk")
-animation = &"caudaPrepare"
+animation = &"caudaSpin"
 offset = Vector2(0, 1)

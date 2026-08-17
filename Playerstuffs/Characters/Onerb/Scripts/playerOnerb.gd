@@ -24,11 +24,15 @@ var hookedOntoPos:Vector2 = Vector2.ZERO
 
 var hooking:int = false
 var isGonnaHook:bool = false
+var spinny:bool = false
 
 @export var hookChances:int = 2
 var hooksTried:int = 0
 
 var pastMotion:Vector2
+var coolMotion:Vector2
+
+var canSpinny:bool = true
 
 func hookOnto(aim:Vector2):
 	isGonnaHook = false
@@ -45,6 +49,8 @@ func hookOnto(aim:Vector2):
 	
 	caudaRaycast.collision_mask = collision_mask || collision_layer
 	caudaRaycast.rotation = get_angle_to(hookedOntoPos)
+	
+	plySprite.flip_h = (hookedOntoPos.x < global_position.x)
 	motion = Vector2.from_angle(caudaRaycast.rotation)
 	
 	tweenEngracinho = create_tween()
@@ -87,6 +93,8 @@ func hookOntoPt2():
 	
 	var leTime:float = ((uhhhhhhPos / 300) * tweenTime)
 	
+	coolMotion = Vector2.from_angle(theAngle).round() * storedMotion * 2
+	
 	tweenProprio = create_tween()
 	# indentaçao meio estranha mas a gente bola
 	tweenProprio.tween_method(func(value):
@@ -95,8 +103,13 @@ func hookOntoPt2():
 		global_position = value
 		if test_move(global_transform, diff):
 			cancelHookOnto()
+			delete_hitboxes("hookie")
 			await get_tree().process_frame
 			motion = Vector2.from_angle(theAngle).round() * storedMotion * 2
+			if is_on_wall_side('left', true):
+				motion.x = (storedMotion / 2)
+			if is_on_wall_side('right', true):
+				motion.x = -(storedMotion / 2)
 			print(motion)
 		,
 	global_position,
@@ -114,7 +127,6 @@ func hookOntoPt2():
 	
 	tweenProprio.finished.connect(func():
 		hooking = HookStatus.UNHOOKED
-		motion = Vector2.from_angle(theAngle).round() * storedMotion
 	)
 
 func cancelHookOnto():
@@ -126,8 +138,52 @@ func cancelHookOnto():
 		if tweenProprio.is_valid(): tweenProprio.kill()
 	hooking = HookStatus.UNHOOKED
 
-func _process(delta: float) -> void:
+func getSpinny():
+	cancelHookOnto()
+	if hooking == HookStatus.GOING:
+		motion = coolMotion
+	else:
+		motion = pastMotion
+	jumping = false
+	jumpsDone = 0
+	spinny = true
+	plySprite.play("caudaSpin")
+	var hits = make_hitbox(Vector2.ZERO,
+		Vector2(7, 7),
+		ATTACK_DMG_LVL['default'],
+		50,
+		-45,
+		"speeeen"
+	)
+	hits.rotation_degrees = 45
+	plySprite.rotation_degrees = 0
+
+func noSpinny():
+	delete_hitboxes("speeeen")
+	spinny = false
+
+var spinnyOftened:bool = false
+func spinny_everySoOften():
+	if spinnyOftened: return
+	spinnyOftened = true
+	delete_hitboxes("speeeen")
+	var hits = make_hitbox(Vector2.ZERO,
+		Vector2(7, 7),
+		ATTACK_DMG_LVL['default'],
+		50,
+		-45,
+		"speeeen"
+	)
+	hits.rotation_degrees = 45
+	play_sfx("Whoosh", -5.0)
+
+func _process(_delta: float) -> void:
 	caudaEnd.position = caudaLine.get_point_position(1)
+
+func hitbox_connect(hit:OffensiveHitbox, type:String):
+	# print('connec')
+	motion.y = abs(motion.y) * -1.095
+	connectAttack(4)
 
 func _physics_process(delta: float) -> void:
 	if hooking == HookStatus.UNHOOKED:
@@ -142,6 +198,16 @@ func _physics_process(delta: float) -> void:
 		targetSpr.position = Vector2.from_angle(caudaRaycast.rotation) * 256
 	targetSpr.visible = isGonnaHook
 	
+	if spinny:
+		spriteRotatesByItself = true
+		plySprite.rotation_degrees += (-45 if plySprite.flip_h else 45)
+		if fmod(plySprite.rotation_degrees, 360) == 0:
+			spinny_everySoOften()
+		else:
+			spinnyOftened = false
+	else:
+		spriteRotatesByItself = false
+	
 	if is_on_floor():
 		isGonnaHook = false
 		hooksTried = 0
@@ -149,3 +215,17 @@ func _physics_process(delta: float) -> void:
 func on_respawn(maxOutHp:bool):
 	isGonnaHook = false
 	cancelHookOnto()
+
+func on_land():
+	super.on_land()
+	noSpinny()
+	canSpinny = true
+
+func on_jump(jumpCount:int):
+	super.on_jump(jumpCount)
+	noSpinny()
+
+func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
+	cancelHookOnto()
+	noSpinny()
+	super.yeowch(hpLost, vel)
