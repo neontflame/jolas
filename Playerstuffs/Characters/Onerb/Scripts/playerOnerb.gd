@@ -1,0 +1,141 @@
+extends PlayerObject
+
+# o NEON usando um ENUM?????
+# could such a thing EXIST??????????
+enum HookStatus {
+	UNHOOKED,
+	TAIL_THROWN,
+	GOING
+}
+
+@export var caudaVision:Node2D
+
+@export var caudaRaycast:ShapeCast2D
+@export var caudaLine:Line2D
+@export var caudaEnd:Sprite2D
+@export var targetSpr:AnimatedSprite2D
+
+var tweenEngracinho:Tween
+var tweenEngracinhoDois:Tween
+var tweenProprio:Tween #tweena o breno
+var tweenTime:float = 0.25
+
+var hookedOntoPos:Vector2 = Vector2.ZERO
+
+var hooking:int = false
+var isGonnaHook:bool = false
+
+@export var hookChances:int = 2
+var hooksTried:int = 0
+
+var pastMotion:Vector2
+
+func hookOnto(aim:Vector2):
+	isGonnaHook = false
+	if hooksTried >= hookChances: return
+	hooksTried += 1
+	plySprite.play("caudaThrow")
+	
+	hooking = HookStatus.TAIL_THROWN
+	
+	if caudaRaycast.is_colliding():
+		hookedOntoPos = caudaRaycast.get_collision_point(0)
+	else:
+		hookedOntoPos = global_position + (aim * 256)
+	
+	caudaRaycast.collision_mask = collision_mask || collision_layer
+	caudaRaycast.rotation = get_angle_to(hookedOntoPos)
+	motion = Vector2.from_angle(caudaRaycast.rotation)
+	
+	tweenEngracinho = create_tween()
+	# indentaçao meio estranha mas a gente bola
+	tweenEngracinho.tween_method(func(value):
+		caudaLine.set_point_position(1, value),
+	caudaLine.get_point_position(0),
+	hookedOntoPos - global_position, 
+	tweenTime)
+	
+	if caudaRaycast.is_colliding():
+		tweenEngracinho.finished.connect(hookOntoPt2)
+	else:
+		tweenEngracinho.finished.connect(hookOntoPtFail)
+
+func hookOntoPtFail():
+	plySprite.play("caudaPullback")
+	tweenEngracinhoDois = create_tween()
+	# indentaçao meio estranha mas a gente bola
+	tweenEngracinhoDois.tween_method(func(value):
+		caudaLine.set_point_position(1, value),
+	caudaLine.get_point_position(1),
+	caudaLine.get_point_position(0), 
+	tweenTime)
+	
+	tweenEngracinhoDois.finished.connect(func():
+		hooking = HookStatus.UNHOOKED
+		plySprite.play("jump")
+		motion = pastMotion
+	)
+
+func hookOntoPt2():
+	plySprite.play("caudaPullback")
+	hooking = HookStatus.GOING
+	var storedMotion = max(abs(pastMotion.x), abs(pastMotion.y))
+	var theAngle = caudaRaycast.rotation
+	
+	var uhhhhhhPos:float = global_position.distance_to(hookedOntoPos)
+	
+	var leTime:float = ((uhhhhhhPos / 300) * tweenTime)
+	
+	tweenProprio = create_tween()
+	# indentaçao meio estranha mas a gente bola
+	tweenProprio.tween_method(func(value):
+		var diff:Vector2 = value - global_position
+		
+		global_position = value
+		if test_move(global_transform, diff):
+			cancelHookOnto()
+			await get_tree().process_frame
+			motion = Vector2.from_angle(theAngle).round() * storedMotion * 2
+			print(motion)
+		,
+	global_position,
+	hookedOntoPos, 
+	leTime)
+	
+	tweenEngracinhoDois = create_tween()
+	# indentaçao meio estranha mas a gente bola
+	tweenEngracinhoDois.tween_method(func(value):
+		caudaLine.set_point_position(1, value)
+		,
+	caudaLine.get_point_position(1),
+	caudaLine.get_point_position(0), 
+	leTime)
+	
+	tweenProprio.finished.connect(func():
+		hooking = HookStatus.UNHOOKED
+		motion = Vector2.from_angle(theAngle).round() * storedMotion
+	)
+
+func cancelHookOnto():
+	if tweenEngracinho.is_valid(): tweenEngracinho.kill()
+	if tweenEngracinhoDois.is_valid(): tweenEngracinhoDois.kill()
+	if tweenProprio.is_valid(): tweenProprio.kill()
+	hooking = HookStatus.UNHOOKED
+
+func _physics_process(delta: float) -> void:
+	if hooking == HookStatus.UNHOOKED:
+		pastMotion = motion
+		
+	super._physics_process(delta)
+	caudaVision.visible = hooking
+	caudaEnd.position = caudaLine.get_point_position(1)
+	caudaEnd.rotation = caudaRaycast.rotation
+	if caudaRaycast.is_colliding():
+		targetSpr.global_position = caudaRaycast.get_collision_point(0)
+	else:
+		targetSpr.position = Vector2.from_angle(caudaRaycast.rotation) * 256
+	targetSpr.visible = isGonnaHook
+	
+	if is_on_floor():
+		isGonnaHook = false
+		hooksTried = 0

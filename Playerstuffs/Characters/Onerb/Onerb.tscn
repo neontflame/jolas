@@ -1,0 +1,227 @@
+[gd_scene load_steps=35 format=3 uid="uid://cx45rc2oh6axa"]
+
+[ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_08l24"]
+[ext_resource type="Script" uid="uid://bgwkirasqgqur" path="res://Playerstuffs/Characters/Onerb/Scripts/playerOnerb.gd" id="2_8dmbm"]
+[ext_resource type="Texture2D" uid="uid://xpd6ujxjb1s" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/breno cauda.png" id="2_p6cfn"]
+[ext_resource type="Texture2D" uid="uid://lfgofiffrs7k" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/breno caudaTip.png" id="3_8dmbm"]
+[ext_resource type="Script" uid="uid://makxwcukxga1" path="res://Playerstuffs/Characters/Onerb/Scripts/airStOnerb.gd" id="3_dbayo"]
+[ext_resource type="Texture2D" uid="uid://bwg8703fua2wf" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0001.png" id="4_dbayo"]
+[ext_resource type="Texture2D" uid="uid://dyp4tqgdvgilp" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0002.png" id="5_3co13"]
+[ext_resource type="Texture2D" uid="uid://cgdlb12h3puge" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (2).png" id="6_5l64d"]
+[ext_resource type="Texture2D" uid="uid://ddisk7d71rcsl" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (3).png" id="7_04p00"]
+[ext_resource type="Texture2D" uid="uid://queg57nfdx76" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (4).png" id="8_6dntj"]
+[ext_resource type="Texture2D" uid="uid://co8m0xypja5xo" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (1).png" id="9_o3dgy"]
+[ext_resource type="Texture2D" uid="uid://dl58omkrtve65" path="res://Playerstuffs/Characters/Onerb/Sprites/breno brake.png" id="10_yv138"]
+[ext_resource type="Texture2D" uid="uid://bbd5ca2c6kj83" path="res://Playerstuffs/Characters/Onerb/Sprites/breno caudaPrepare.png" id="11_63gov"]
+[ext_resource type="Texture2D" uid="uid://dxs4dog3p6nvl" path="res://Playerstuffs/Characters/Onerb/Sprites/breno caudaThrow (2).png" id="12_s18vl"]
+[ext_resource type="Texture2D" uid="uid://bo2wto10hdcyn" path="res://Playerstuffs/Characters/Onerb/Sprites/breno caudaSpin.png" id="13_pnms4"]
+[ext_resource type="Texture2D" uid="uid://bb11ssltywt6u" path="res://Playerstuffs/Characters/Onerb/Sprites/breno caudaThrow (1).png" id="14_ode4i"]
+[ext_resource type="Texture2D" uid="uid://kyltwmex0t4g" path="res://Playerstuffs/Characters/Onerb/Sprites/breno idle (1).png" id="15_3mm2h"]
+[ext_resource type="Texture2D" uid="uid://crveso8gnncn5" path="res://Playerstuffs/Characters/Onerb/Sprites/breno idle (2).png" id="16_htfl2"]
+[ext_resource type="Texture2D" uid="uid://buver50nrqxh1" path="res://Playerstuffs/Characters/Onerb/Sprites/breno idle (3).png" id="17_3mr1n"]
+[ext_resource type="Texture2D" uid="uid://bek2d2yn1ucha" path="res://Playerstuffs/Characters/Onerb/Sprites/breno nyouch (2).png" id="18_yk4fy"]
+[ext_resource type="Texture2D" uid="uid://b5cqj20qc7klf" path="res://Playerstuffs/Characters/Onerb/Sprites/breno nyouch (1).png" id="19_yd7xk"]
+[ext_resource type="Texture2D" uid="uid://bqg5ddg6e6uu6" path="res://Playerstuffs/Characters/Onerb/Sprites/breno jump (2).png" id="20_xlvsj"]
+[ext_resource type="Texture2D" uid="uid://su6ra81dbbvv" path="res://Playerstuffs/Characters/Onerb/Sprites/breno jump (3).png" id="21_4d45s"]
+[ext_resource type="Texture2D" uid="uid://m8rbv6p4ccmo" path="res://Playerstuffs/Characters/Onerb/Sprites/breno jump (1).png" id="22_bniru"]
+[ext_resource type="Texture2D" uid="uid://dn16dv3snnbur" path="res://Playerstuffs/Characters/Onerb/Sprites/breno run (1).png" id="23_fltkx"]
+[ext_resource type="Texture2D" uid="uid://c61x5e0et18tp" path="res://Playerstuffs/Characters/Onerb/Sprites/breno run (2).png" id="24_dx5d5"]
+[ext_resource type="Texture2D" uid="uid://py5rbt6y4dfe" path="res://Playerstuffs/Characters/Onerb/Sprites/breno run (3).png" id="25_51hpu"]
+[ext_resource type="Texture2D" uid="uid://c2pcga48k62d1" path="res://Playerstuffs/Characters/Onerb/Sprites/breno walk (1).png" id="26_jfc80"]
+[ext_resource type="Texture2D" uid="uid://bxbxuuhmhuqk7" path="res://Playerstuffs/Characters/Onerb/Sprites/breno walk (2).png" id="27_0yg73"]
+[ext_resource type="Texture2D" uid="uid://u6dkbleebpdl" path="res://Playerstuffs/Characters/Onerb/Sprites/breno walk (3).png" id="28_d1pje"]
+[ext_resource type="Texture2D" uid="uid://xku1j0sjxlfs" path="res://Playerstuffs/Characters/Onerb/Sprites/breno walk (4).png" id="29_u0n33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dmbm"]
+size = Vector2(40, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dfayk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dbayo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3co13")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lagk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5l64d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_04p00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6dntj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o3dgy")
+}],
+"loop": true,
+"name": &"battleSpin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yv138")
+}],
+"loop": true,
+"name": &"brake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_63gov")
+}],
+"loop": true,
+"name": &"caudaPrepare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_s18vl")
+}],
+"loop": true,
+"name": &"caudaPullback",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_pnms4")
+}],
+"loop": true,
+"name": &"caudaSpin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ode4i")
+}],
+"loop": true,
+"name": &"caudaThrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_3mm2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_htfl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3mr1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_yk4fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yd7xk")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_xlvsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4d45s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bniru")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fltkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dx5d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_51hpu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_jfc80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0yg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_d1pje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u0n33")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
+
+[node name="Player" node_paths=PackedStringArray("caudaVision", "caudaRaycast", "caudaLine", "caudaEnd", "targetSpr") instance=ExtResource("1_08l24")]
+script = ExtResource("2_8dmbm")
+caudaVision = NodePath("CaudaStuff")
+caudaRaycast = NodePath("CaudaTechnical/CaudaCast")
+caudaLine = NodePath("CaudaStuff/CaudaLine")
+caudaEnd = NodePath("CaudaStuff/BrenoCaudaTip")
+targetSpr = NodePath("Target")
+hookChances = 2
+
+[node name="Air" parent="StateMachine" index="2"]
+script = ExtResource("3_dbayo")
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(0.52, 0.92)
+
+[node name="CaudaTechnical" type="Node2D" parent="." index="3"]
+
+[node name="CaudaCast" type="ShapeCast2D" parent="CaudaTechnical" index="0"]
+shape = SubResource("RectangleShape2D_8dmbm")
+target_position = Vector2(292, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="CaudaStuff" type="Node2D" parent="." index="4"]
+
+[node name="CaudaLine" type="Line2D" parent="CaudaStuff" index="0"]
+points = PackedVector2Array(0, 14, 106, -3)
+texture = ExtResource("2_p6cfn")
+texture_mode = 1
+end_cap_mode = 1
+
+[node name="BrenoCaudaTip" type="Sprite2D" parent="CaudaStuff" index="1"]
+position = Vector2(108, -2)
+texture = ExtResource("3_8dmbm")
+centered = false
+offset = Vector2(0, -6)
+
+[node name="Target" type="AnimatedSprite2D" parent="." index="5"]
+position = Vector2(253, 0)
+sprite_frames = SubResource("SpriteFrames_dfayk")
+frame_progress = 0.147687
+
+[node name="AnimatedSprite2D" parent="." index="6"]
+sprite_frames = SubResource("SpriteFrames_0lagk")
+animation = &"caudaSpin"
+offset = Vector2(0, 1)

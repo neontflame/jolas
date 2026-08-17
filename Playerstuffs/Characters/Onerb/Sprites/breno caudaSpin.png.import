@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc2p1s573ory2"
-path="res://.godot/imported/breno sprites0011.png-d7e3b665c2fd5331d6df427e09c5bae5.ctex"
+uid="uid://bo2wto10hdcyn"
+path="res://.godot/imported/breno caudaSpin.png-fbcb6389a6694ef091b7ebe74702cb67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno sprites0011.png"
-dest_files=["res://.godot/imported/breno sprites0011.png-d7e3b665c2fd5331d6df427e09c5bae5.ctex"]
+source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno caudaSpin.png"
+dest_files=["res://.godot/imported/breno caudaSpin.png-fbcb6389a6694ef091b7ebe74702cb67.ctex"]
 
 [params]
 

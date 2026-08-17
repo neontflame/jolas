@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4nfgkhlc0a1c"
-path="res://.godot/imported/breno sprites0015.png-c52345dd507d1e3601901317510e105f.ctex"
+uid="uid://co8m0xypja5xo"
+path="res://.godot/imported/breno sonicbattlespin (1).png-c061392385ff85c3980dc660d77617ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno sprites0015.png"
-dest_files=["res://.godot/imported/breno sprites0015.png-c52345dd507d1e3601901317510e105f.ctex"]
+source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (1).png"
+dest_files=["res://.godot/imported/breno sonicbattlespin (1).png-c061392385ff85c3980dc660d77617ec.ctex"]
 
 [params]
 

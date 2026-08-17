@@ -14,7 +14,7 @@ static var username:String = ''
 
 static var defaultMap:String = 'TheThing'
 
-static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Espy', 'Queixao']
+static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
 
 static var majorVersion:int = 0
 static var minorVersion:int = 9

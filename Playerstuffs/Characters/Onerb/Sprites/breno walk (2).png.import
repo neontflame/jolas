@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh4jgt8hxs2p2"
-path="res://.godot/imported/breno sprites0024.png-eaeeb95a02c11d48022582326bc41cd5.ctex"
+uid="uid://bxbxuuhmhuqk7"
+path="res://.godot/imported/breno walk (2).png-5c5d069332fb0cff40686082a1c01823.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno sprites0024.png"
-dest_files=["res://.godot/imported/breno sprites0024.png-eaeeb95a02c11d48022582326bc41cd5.ctex"]
+source_file="res://Playerstuffs/Characters/Onerb/Sprites/breno walk (2).png"
+dest_files=["res://.godot/imported/breno walk (2).png-5c5d069332fb0cff40686082a1c01823.ctex"]
 
 [params]
 

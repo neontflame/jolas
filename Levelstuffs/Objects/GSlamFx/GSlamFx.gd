@@ -29,14 +29,14 @@ func crossfire():
 				if fxOwner is PlayerObject: 
 					body.theHarmer = fxOwner
 				var thisKnockVel:Vector2 = knockLocity
-				if body.position.x > position.x:
+				if body.position.x < position.x:
 					thisKnockVel.x *= -1
 				body.yeowch(power, thisKnockVel)
 		
 		if body is PlayerObject:
 			if body != fxOwner:
 				var thisKnockVel:Vector2 = knockLocity
-				if body.position.x > position.x:
+				if body.position.x < position.x:
 					thisKnockVel.x *= -1
 				body.yeowch(power, thisKnockVel)
 
