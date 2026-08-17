@@ -1,3 +1,4 @@
+@icon("uid://bnwgwk0kxuq4y")
 extends CharacterBody2D
 class_name PlayerObject
 

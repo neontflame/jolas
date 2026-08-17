@@ -1,3 +1,4 @@
+@icon("uid://xnav228uyus6")
 extends CharacterBody2D
 class_name MobObject
 
@@ -127,7 +128,6 @@ func onUntouched(body):
 
 # woah mais coisas copiadas do player
 func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
-	# print(vel)
 	if isDead:
 		return false
 	spawnNumber(hpLost)
@@ -142,8 +142,11 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 	if medianVel >= 800:
 		play_sfx('Hit3')
 	hp -= hpLost
+	
+	var harmer_pos: Vector2 = theHarmer.global_position - global_position
+	
 	velocity.y = vel.y
-	velocity.x = (vel.x if fromBehind else -vel.x)
+	velocity.x = (vel.x if harmer_pos.x > 0 else -vel.x)
 	if (hp <= 0):
 		hp = 0
 		if theHarmer: 

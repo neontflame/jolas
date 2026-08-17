@@ -1,3 +1,4 @@
+@icon("uid://c33sc3mggdipf")
 extends Node2D
 class_name JolasMap
 
