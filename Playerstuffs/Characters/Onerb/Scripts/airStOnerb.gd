@@ -16,6 +16,7 @@ func update():
 			Player.apply_player_gravity(5.0)
 			acquireTarget()
 			Player.caudaRaycast.rotation = theAim.angle()
+			Player.plySprite.play("caudaPrepare")
 		else:
 			handleAnimations()
 			Player.handleMovement()

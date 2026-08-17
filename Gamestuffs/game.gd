@@ -39,6 +39,7 @@ func _ready() -> void:
 			join_mp_game()
 	
 	JolasGame.instance = self
+	isChangingMap = false
 
 func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
 	for child in whereHud.get_children():
@@ -112,6 +113,7 @@ func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
+	GPStats.charObject.on_respawn(maxOutHP)
 	GPStats.charObject.setup_camera()
 
 #acaba os treco de player

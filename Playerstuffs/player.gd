@@ -544,6 +544,8 @@ func on_fall_from_slope():
 	print(motion)
 	up_direction = Vector2(0.0, -1.0)
 
+func on_respawn(maxOutHp:bool):
+	pass
 #endregion
 
 #region Utilidades (Multiplayer)

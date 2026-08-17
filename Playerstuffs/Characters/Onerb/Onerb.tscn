@@ -200,7 +200,6 @@ scale = Vector2(0.52, 0.92)
 shape = SubResource("RectangleShape2D_8dmbm")
 target_position = Vector2(292, 0)
 collision_mask = 3
-collide_with_areas = true
 
 [node name="CaudaStuff" type="Node2D" parent="." index="4"]
 
@@ -219,9 +218,9 @@ offset = Vector2(0, -6)
 [node name="Target" type="AnimatedSprite2D" parent="." index="5"]
 position = Vector2(253, 0)
 sprite_frames = SubResource("SpriteFrames_dfayk")
-frame_progress = 0.147687
+frame_progress = 0.246446
 
 [node name="AnimatedSprite2D" parent="." index="6"]
 sprite_frames = SubResource("SpriteFrames_0lagk")
-animation = &"caudaSpin"
+animation = &"caudaPrepare"
 offset = Vector2(0, 1)

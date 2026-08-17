@@ -65,7 +65,8 @@ func hookOntoPtFail():
 	tweenEngracinhoDois = create_tween()
 	# indentaçao meio estranha mas a gente bola
 	tweenEngracinhoDois.tween_method(func(value):
-		caudaLine.set_point_position(1, value),
+		caudaLine.set_point_position(1, value)
+		,
 	caudaLine.get_point_position(1),
 	caudaLine.get_point_position(0), 
 	tweenTime)
@@ -117,10 +118,16 @@ func hookOntoPt2():
 	)
 
 func cancelHookOnto():
-	if tweenEngracinho.is_valid(): tweenEngracinho.kill()
-	if tweenEngracinhoDois.is_valid(): tweenEngracinhoDois.kill()
-	if tweenProprio.is_valid(): tweenProprio.kill()
+	if tweenEngracinho:
+		if tweenEngracinho.is_valid(): tweenEngracinho.kill()
+	if tweenEngracinhoDois:
+		if tweenEngracinhoDois.is_valid(): tweenEngracinhoDois.kill()
+	if tweenProprio:
+		if tweenProprio.is_valid(): tweenProprio.kill()
 	hooking = HookStatus.UNHOOKED
+
+func _process(delta: float) -> void:
+	caudaEnd.position = caudaLine.get_point_position(1)
 
 func _physics_process(delta: float) -> void:
 	if hooking == HookStatus.UNHOOKED:
@@ -128,7 +135,6 @@ func _physics_process(delta: float) -> void:
 		
 	super._physics_process(delta)
 	caudaVision.visible = hooking
-	caudaEnd.position = caudaLine.get_point_position(1)
 	caudaEnd.rotation = caudaRaycast.rotation
 	if caudaRaycast.is_colliding():
 		targetSpr.global_position = caudaRaycast.get_collision_point(0)
@@ -139,3 +145,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		isGonnaHook = false
 		hooksTried = 0
+
+func on_respawn(maxOutHp:bool):
+	isGonnaHook = false
+	cancelHookOnto()
