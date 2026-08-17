@@ -60,7 +60,7 @@ scale = Vector2(1, 0.143939)
 texture = ExtResource("3_41vpn")
 centered = false
 region_enabled = true
-region_rect = Rect2(184036, 0, 972, 264)
+region_rect = Rect2(184229, 0, 972, 264)
 
 [node name="NuvensTopo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -82,7 +82,7 @@ material = SubResource("CanvasItemMaterial_1mgcj")
 texture = ExtResource("5_0jhij")
 centered = false
 region_enabled = true
-region_rect = Rect2(150561, 0, 2048, 148)
+region_rect = Rect2(150754, 0, 2048, 148)
 
 [node name="NuvensTopo2" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -104,7 +104,7 @@ position = Vector2(0, 56)
 texture = ExtResource("6_t3oja")
 centered = false
 region_enabled = true
-region_rect = Rect2(74764.7, 0, 2048, 148)
+region_rect = Rect2(74861.3, 0, 2048, 148)
 
 [node name="NuvensTopo3" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -126,7 +126,7 @@ position = Vector2(0, 136)
 texture = ExtResource("7_0jhij")
 centered = false
 region_enabled = true
-region_rect = Rect2(37346.1, 0, 2048, 148)
+region_rect = Rect2(37394.4, 0, 2048, 148)
 
 [node name="Wa\'er" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_aixxa")]
 scroll_base_scale = Vector2(0.1, 0)
