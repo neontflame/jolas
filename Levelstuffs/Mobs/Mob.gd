@@ -183,7 +183,8 @@ func inputSimulation(xInput:int, yInput:int):
 		if abs(velocity.x) < MAX_SPEED:
 			velocity.x += ACCELERATION * xInput
 	elif is_on_floor():
-		velocity.x = velocity.x * FRICTION
+		if FRICTION:
+			velocity.x = velocity.x * FRICTION
 	
 	if yInput == -1:
 		if is_on_floor():

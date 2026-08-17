@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://pfbvf7uaonxl"]
+[gd_scene load_steps=67 format=4 uid="uid://pfbvf7uaonxl"]
 
 [ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Levelstuffs/Levels/TheThing.gd" id="1_h803n"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Levelstuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://g0b38vd65h31" path="res://Levelstuffs/Levels/GreenHill/rightCornerGrass.png" id="12_3v0ck"]
 [ext_resource type="Texture2D" uid="uid://dlm8c0ljl1b5o" path="res://Levelstuffs/Levels/GreenHill/edging.png" id="13_jmo4h"]
 [ext_resource type="Resource" uid="uid://co6hvtipelu3x" path="res://Levelstuffs/Levels/GreenHill/FloorResource.tres" id="14_xx0l7"]
+[ext_resource type="PackedScene" uid="uid://c235ewedswe5c" path="res://Levelstuffs/Mobs/RoBawnt/robawnt_enemy.tscn" id="19_kjgon"]
 
 [sub_resource type="Curve2D" id="Curve2D_h3gw8"]
 bake_interval = 128.0
@@ -611,6 +612,10 @@ position = Vector2(4219, 1150)
 
 [node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_7akha")]
 position = Vector2(1152, 1464)
+
+[node name="RobawntEnemy" parent="enemigos" instance=ExtResource("19_kjgon")]
+position = Vector2(624, 1472)
+initial_side = 0
 
 [node name="StageGizmos" type="Node2D" parent="."]
 
