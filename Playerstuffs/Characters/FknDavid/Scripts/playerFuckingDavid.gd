@@ -81,5 +81,5 @@ func makeAfterimage():
 
 func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
-	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
+	connectAttack(5.0)
 	

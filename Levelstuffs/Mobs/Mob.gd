@@ -28,6 +28,8 @@ var previous_state = null
 
 @export var USES_BODY_AS_HITBOX:bool = true
 
+@export var KNOCKBACK_ON_PLY_BODY_HIT:Vector2 = Vector2(250, -250)
+
 ## uma chance de 1 em quantos pra dropar esse item ?
 @export var possibleDrops:Dictionary[String, int] = {}
 
@@ -97,7 +99,11 @@ func _physics_process(delta: float) -> void:
 
 func handlePhys():
 	if !is_on_floor():
-		velocity.y += GRAVITY
+		# null check pq testando uma vez descobrimos que 
+		# o henry so fucking matou o jogo ao inves do mob
+		# boa """"""""henry""""""""
+		# -neon
+		if GRAVITY != null: velocity.y += GRAVITY
 		
 	if is_on_wall():
 		velocity.x = 0
@@ -127,7 +133,7 @@ func onUntouched(body):
 		touchingPlayer = false
 
 # woah mais coisas copiadas do player
-func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	if isDead:
 		return false
 	spawnNumber(hpLost)
@@ -143,10 +149,11 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		play_sfx('Hit3')
 	hp -= hpLost
 	
-	var harmer_pos: Vector2 = theHarmer.global_position - global_position
+	# var harmer_pos: Vector2 = theHarmer.global_position - global_position
 	
 	velocity.y = vel.y
-	velocity.x = (vel.x if harmer_pos.x > 0 else -vel.x)
+	# velocity.x = (vel.x if harmer_pos.x > 0 else -vel.x)
+	velocity.x = vel.x
 	if (hp <= 0):
 		hp = 0
 		if theHarmer: 
@@ -196,9 +203,7 @@ func handlePlyHits(harmPlayer:bool = true):
 	if touchingPlayer && USES_BODY_AS_HITBOX:
 		if harmPlayer:
 			theHarmer = null
-			touchedPlayer.yeowch(strength, 
-			(position.x < touchedPlayer.position.x)
-			)
+			touchedPlayer.yeowch(strength, KNOCKBACK_ON_PLY_BODY_HIT)
 
 func spawnNumber(quant):
 	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()

@@ -29,6 +29,8 @@ var previous_state = null
 
 @export var CUSTOM_BOSS_MUSIC:String = ""
 
+@export var KNOCKBACK_ON_PLY_BODY_HIT:Vector2 = Vector2(250, -250)
+
 ## uma chance de 1 em quantos pra dropar esse item ?
 @export var possibleDrops:Dictionary[String, int] = {}
 
@@ -119,7 +121,7 @@ func onUntouched(body):
 		touchingPlayer = false
 
 # woah mais coisas copiadas do player
-func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	# print(vel)
 	if isDead or current_state == state_machine.st_dormant:
 		return false
@@ -128,7 +130,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 		theHarmer.increaseCombo()
 	stunFrames = 2.0
 	hp -= hpLost
-	on_hurt(hpLost, {'vel': vel, 'fromBehind': fromBehind})
+	on_hurt(hpLost, {'vel': vel})
 	if (hp <= 0):
 		if theHarmer: 
 			theHarmer.add_xp(xpGrant)
@@ -149,7 +151,7 @@ func on_hurt(hpLost:float, extra:Dictionary):
 	if medianVel >= 800:
 		play_sfx('Hit3')
 	velocity.y = extra['vel'].y
-	velocity.x = (extra['vel'].x if extra['fromBehind'] else -extra['vel'].x)
+	velocity.x = extra['vel'].x
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
@@ -189,9 +191,7 @@ func handlePlyHits(harmPlayer:bool = true):
 	if touchingPlayer && USES_BODY_AS_HITBOX:
 		if harmPlayer:
 			theHarmer = null
-			touchedPlayer.yeowch(strength, 
-			(position.x < touchedPlayer.position.x)
-			)
+			touchedPlayer.yeowch(strength, KNOCKBACK_ON_PLY_BODY_HIT)
 
 func spawnNumber(quant):
 	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()

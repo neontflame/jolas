@@ -3,6 +3,7 @@ class_name BSSandler
 
 @export var sandler_sprite: AnimatedSprite2D
 @export var sand_collision: CollisionShape2D
+var knockVel:Vector2 = Vector2(250, -250)
 
 func _on_body_entered(body):
 	if body == projectileOwner: return
@@ -22,12 +23,18 @@ func on_hit():
 				if body != projectileOwner:
 					if projectileOwner is PlayerObject: 
 						body.theHarmer = projectileOwner
-					body.yeowch(power, (body.position.x > position.x))
+					var thisKnockVel:Vector2 = knockVel
+					if body.position.x > position.x:
+						thisKnockVel.x *= -1
+					body.yeowch(power, thisKnockVel)
 				used = true
 		
 		if body is PlayerObject:
 			if body != projectileOwner:
-				body.yeowch(power, (body.position.x > position.x))
+				var thisKnockVel:Vector2 = knockVel
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(power, thisKnockVel)
 			used = true
 
 func on_area_entered(area: Area2D):

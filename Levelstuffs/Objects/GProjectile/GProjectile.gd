@@ -1,6 +1,8 @@
 extends BaseProjectile    
 class_name GProjectile
 
+var knockVel:Vector2 = Vector2(250, -150)
+
 #Set the velocity of the bullet
 #Call this right after creating the bullet to make it start moving
 func launch(direction:Vector2, speed:float):
@@ -27,12 +29,18 @@ func on_hit():
 				if body != projectileOwner:
 					if projectileOwner is PlayerObject: 
 						body.theHarmer = projectileOwner
-					body.yeowch(power, (body.position.x > position.x))
+					var thisKnockVel:Vector2 = knockVel
+					if body.position.x > position.x:
+						thisKnockVel.x *= -1
+					body.yeowch(power, thisKnockVel)
 				used = true
 		
 		if body is PlayerObject:
 			if body != projectileOwner:
-				body.yeowch(power, (body.position.x > position.x))
+				var thisKnockVel:Vector2 = knockVel
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(power, thisKnockVel)
 			used = true
 
 func _on_animation_finished() -> void:

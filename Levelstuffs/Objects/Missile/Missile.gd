@@ -5,6 +5,8 @@ var baseDamage := 4.0
 
 var exPlayed := false
 
+var knockVel:Vector2 = Vector2(250, -250)
+
 #Set the velocity of the bullet
 #Call this right after creating the bullet to make it start moving
 func launch(direction:Vector2, speed:float):
@@ -35,7 +37,10 @@ func on_hit():
 		if body is MobObject or body is BossObject:
 			if body != projectileOwner:
 				if projectileOwner is PlayerObject: body.theHarmer = projectileOwner
-				body.yeowch(baseDamage * power, (body.position.x > position.x))
+				var thisKnockVel:Vector2 = knockVel
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(baseDamage * power, thisKnockVel)
 			used = true
 			var coolSpeeds:float = (abs(body.velocity.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50
 			if abs(body.velocity.x) < body.MAX_SPEED:
@@ -52,7 +57,10 @@ func on_hit():
 				
 		if body is PlayerObject:
 			if body != projectileOwner:
-				body.yeowch(baseDamage * power, (body.position.x > position.x))
+				var thisKnockVel:Vector2 = knockVel
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(baseDamage * power, thisKnockVel)
 			used = true
 			# programar na construct requer paciencia
 			var coolSpeeds:float = (abs(body.motion.x) + (strength * (0.015 * abs(objHeight/2 - distance))) * 0.75) + 50

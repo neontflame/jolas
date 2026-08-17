@@ -4222,40 +4222,132 @@ position = Vector2(21392, 2539)
 
 [node name="TemplateMob" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(11104, 3264)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob2" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(10496, 3136)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob3" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(13792, 3168)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob4" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(14848, 3040)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob5" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(18368, 3424)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob6" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(19104, 3520)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="TemplateMob7" parent="Enemies" instance=ExtResource("19_xn4kh")]
 position = Vector2(19680, 2496)
+MAX_SPEED = null
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
 
 [node name="RobawntEnemy5" parent="Enemies" instance=ExtResource("20_ge8wn")]
 position = Vector2(3280, 3264)
 initial_side = 1
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+xpGrant = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
+possibleDrops = null
 
 [node name="RobawntEnemy6" parent="Enemies" instance=ExtResource("20_ge8wn")]
 position = Vector2(3808, 3264)
 initial_side = 0
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+xpGrant = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
+possibleDrops = null
 
 [node name="RobawntEnemy7" parent="Enemies" instance=ExtResource("20_ge8wn")]
 position = Vector2(4112, 3264)
 initial_side = 1
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+xpGrant = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
+possibleDrops = null
 
 [node name="RobawntEnemy8" parent="Enemies" instance=ExtResource("20_ge8wn")]
 position = Vector2(6672, 3200)
 initial_side = 1
+GRAVITY = null
+JUMP_VELOCITY = null
+FRICTION = null
+level = null
+strength = null
+xpGrant = null
+USES_BODY_AS_HITBOX = null
+KNOCKBACK_ON_PLY_BODY_HIT = null
+possibleDrops = null
 
 [node name="GoToLevel" parent="." instance=ExtResource("4_ojujy")]
 position = Vector2(-96, 1360)

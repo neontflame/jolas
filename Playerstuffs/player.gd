@@ -402,7 +402,7 @@ func level_up():
 	# print('seus ataques agora sao:')
 	# print(ATTACK_DMG_LVL)
 
-func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
+func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	if get_multi_status():
 		if !get_invuln():
 			# stop_sfx()
@@ -422,7 +422,7 @@ func yeowch(hpLost:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -2
 			stunFrames = 2
 			hp -= hpLost
 			motion.y = vel.y
-			motion.x = (abs(vel.x) if fromBehind else -abs(vel.x))
+			motion.x = vel.x
 			invulnFrames = 120.0
 			if (hp <= 0):
 				change_state(state_machine.st_death)
@@ -449,13 +449,13 @@ func get_invuln():
 	return (invulnFrames > 0) || fullInvuln
 
 #region Ataques e Hitboxes
-func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(0, 0)):
+func connectAttack(_stunFrames:float, vel:Vector2 = Vector2(0, 0)):
 	# increaseCombo()
 	# print(_stunFrames)
 	stunFrames = _stunFrames
 	if vel != Vector2(0, 0):
 		motion.y = vel.y
-		motion.x = (vel.x if fromBehind else -vel.x)
+		motion.x = vel.x
 
 func increaseCombo():
 	comboFrames = 180.0

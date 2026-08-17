@@ -197,6 +197,7 @@ func handleParkour():
 			#motion.x = -900
 			#motion.y = -500
 
+# Ah ss essa parte aqui inteira e completamente nao usada #whoopsie
 func sweep_mob(dir:StringName):
 	vaultCooldown = 15.0
 	print('vaulted')
@@ -205,7 +206,7 @@ func sweep_mob(dir:StringName):
 	sweeping_mob(dir)[1].stunFrames = 15
 	global_position.y = (sweeping_mob(dir)[1].global_position.y - 
 						(sweeping_mob(dir)[1].collisions.shape.get_rect().size.y / 2))
-	sweeping_mob(dir)[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(50.0, 200.0))
+	sweeping_mob(dir)[1].yeowch(ATTACK_DMG_LVL['vault'], Vector2(-50.0, 200.0))
 
 func sweeping_mob(dir:StringName) -> Array:
 	var isTrued := false
@@ -278,7 +279,7 @@ func get_invuln():
 	
 func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
-	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
+	connectAttack(5.0)
 	
 	match hit.coolId:
 		'slide':

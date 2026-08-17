@@ -1,6 +1,8 @@
 extends BaseProjectile    
 class_name FuckingItems
 
+var knockVel:Vector2 = Vector2(225, -200)
+
 var allItems:Array = ['godot', 'tetris', 'violino', 'piano']
 var maxLifetime = 2
 #Set the velocity of the bullet
@@ -62,13 +64,17 @@ func on_hit():
 				if body != projectileOwner:
 					if projectileOwner is PlayerObject: 
 						body.theHarmer = projectileOwner
-					body.yeowch(power, (body.position.x > position.x))
+					if body.position.x > position.x:
+						knockVel.x *= -1
+					body.yeowch(power, knockVel)
 				used = true
 				after_hit()
 		
 		if body is PlayerObject:
 			if body != projectileOwner:
-				body.yeowch(power, (body.position.x > position.x))
+				if body.position.x > position.x:
+					knockVel.x *= -1
+				body.yeowch(power, knockVel)
 			used = true
 			after_hit()
 

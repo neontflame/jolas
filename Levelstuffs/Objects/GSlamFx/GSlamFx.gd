@@ -28,11 +28,17 @@ func crossfire():
 			if body != fxOwner:
 				if fxOwner is PlayerObject: 
 					body.theHarmer = fxOwner
-				body.yeowch(power, (body.position.x > position.x), knockLocity)
+				var thisKnockVel:Vector2 = knockLocity
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(power, thisKnockVel)
 		
 		if body is PlayerObject:
 			if body != fxOwner:
-				body.yeowch(power, (body.position.x > position.x), knockLocity)
+				var thisKnockVel:Vector2 = knockLocity
+				if body.position.x > position.x:
+					thisKnockVel.x *= -1
+				body.yeowch(power, thisKnockVel)
 
 func _on_animation_finished() -> void:
 	queue_free()
