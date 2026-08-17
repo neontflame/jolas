@@ -3850,6 +3850,7 @@ _points = SubResource("Resource_s4ot1")
 _meshes = Array[ExtResource("6_ovfd7")]([SubResource("Resource_0in2b"), SubResource("Resource_c068w"), SubResource("Resource_ydqcc"), SubResource("Resource_th2fn"), SubResource("Resource_fxg48"), SubResource("Resource_y3uhf"), SubResource("Resource_wglfl"), SubResource("Resource_mjnko"), SubResource("Resource_eh7ws"), SubResource("Resource_cdqqa"), SubResource("Resource_kg12u"), SubResource("Resource_f510i"), SubResource("Resource_1kwae"), SubResource("Resource_c60r2"), SubResource("Resource_l2inv"), SubResource("Resource_7xq6n"), SubResource("Resource_lr78d"), SubResource("Resource_y4y53"), SubResource("Resource_vd70w"), SubResource("Resource_5gk1s"), SubResource("Resource_ps5a7"), SubResource("Resource_4of2h"), SubResource("Resource_1k8dm"), SubResource("Resource_l2ef1"), SubResource("Resource_urev2"), SubResource("Resource_gtfsy")])
 shape_material = ExtResource("12_7ifn5")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedTerrains/MegaTerrain1"]
 visible = false
@@ -4253,8 +4254,8 @@ position = Vector2(4112, 3264)
 initial_side = 1
 
 [node name="RobawntEnemy8" parent="Enemies" instance=ExtResource("20_ge8wn")]
-position = Vector2(4640, 3264)
-initial_side = 0
+position = Vector2(6672, 3200)
+initial_side = 1
 
 [node name="GoToLevel" parent="." instance=ExtResource("4_ojujy")]
 position = Vector2(-96, 1360)

@@ -75,6 +75,7 @@ hit_from_inside = true
 position = Vector2(48, 64)
 target_position = Vector2(48, 48)
 collision_mask = 3
+hit_from_inside = true
 
 [node name="Murs" type="RayCast2D" parent="HawntNodes/Raycasts" index="2"]
 position = Vector2(0, 16)
