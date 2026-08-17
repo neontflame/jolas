@@ -64,17 +64,19 @@ func on_hit():
 				if body != projectileOwner:
 					if projectileOwner is PlayerObject: 
 						body.theHarmer = projectileOwner
+					var thisKnockVel:Vector2 = knockVel
 					if body.position.x > position.x:
-						knockVel.x *= -1
-					body.yeowch(power, knockVel)
+						thisKnockVel.x *= -1
+					body.yeowch(power, thisKnockVel)
 				used = true
 				after_hit()
 		
 		if body is PlayerObject:
 			if body != projectileOwner:
+				var thisKnockVel:Vector2 = knockVel
 				if body.position.x > position.x:
-					knockVel.x *= -1
-				body.yeowch(power, knockVel)
+					thisKnockVel.x *= -1
+				body.yeowch(power, thisKnockVel)
 			used = true
 			after_hit()
 
