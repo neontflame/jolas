@@ -37,7 +37,6 @@ var acceleration_modifiers: Dictionary = {}
 @export var coolCamera: Camera2D
 var base_camera_offset: Vector2
 @export var hitboxCoisos:Node2D
-@export var floorCast: RayCast2D
 
 @export_category('Animations')
 @export var plySprite:AnimatedSprite2D
