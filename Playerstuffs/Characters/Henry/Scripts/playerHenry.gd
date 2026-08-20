@@ -1,17 +1,20 @@
 extends PlayerObject
 
-var gunCooldowns:Array[float] = [0.0, 0.0] #i want you to meet my daughters GUN NUMBER 1 AND GUN NUMBER 2
+var gunCooldowns:Array[int] = [0, 0] #i want you to meet my daughters GUN NUMBER 1 AND GUN NUMBER 2
 @export var GUN_SPEED_ADD = 50.0
 
 func _process(delta: float) -> void:
 	for coold in range(len(gunCooldowns)):
-		if gunCooldowns[coold] > 0.0:
-			gunCooldowns[coold] -= deltaOne
+		if gunCooldowns[coold] > 0:
+			gunCooldowns[coold] -= 1
 
 func shootEm(gunber:int):
-	if gunCooldowns[gunber] > 0.0: return
+	var gunmanSpeed:float = GUN_SPEED_ADD
+	if is_on_floor():
+		gunmanSpeed = GUN_SPEED_ADD * 4
+	if gunCooldowns[gunber] > 0: return
 	jumping = false
-	gunCooldowns[gunber] = 10.0
+	gunCooldowns[gunber] = 10
 	
 	makeGunClip(gunber)
 	play_char_sfx('Pistol', 'Henry', -2)
@@ -22,18 +25,18 @@ func shootEm(gunber:int):
 	ATTACK_DMG_LVL['default'],
 	1000, 335, 'gun')
 	
-	motion.y -= 50
+	# motion.y -= 2
 	if Input.is_action_pressed("ctrl_left") \
 	or not Input.is_action_pressed("ctrl_right") and plySprite.flip_h:
-		if motion.x > GUN_SPEED_ADD:
-			motion.x += GUN_SPEED_ADD * 1.25
+		if motion.x > gunmanSpeed:
+			motion.x += gunmanSpeed * 1.25
 		else:
-			motion.x += GUN_SPEED_ADD
+			motion.x += gunmanSpeed
 	else:
-		if motion.x < -GUN_SPEED_ADD:
-			motion.x -= GUN_SPEED_ADD * 1.25
+		if motion.x < -gunmanSpeed:
+			motion.x -= gunmanSpeed * 1.25
 		else:
-			motion.x -= GUN_SPEED_ADD
+			motion.x -= gunmanSpeed
 
 func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_acceleration: float = AIR_ACCELERATION, new_soft_max_speed: float = SOFT_MAX_SPEED) -> void:
 	super.handleMovement(new_floor_acceleration, new_air_acceleration, new_soft_max_speed)
@@ -41,13 +44,13 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 		if Input.is_action_pressed("ctrl_2"):
 			shootEm(0)
 		if Input.is_action_just_released("ctrl_2"):
-			if gunCooldowns[0] > 0.0:
-				gunCooldowns[0] = 0.0
+			if gunCooldowns[0] > 0:
+				gunCooldowns[0] = 0
 		if Input.is_action_pressed("ctrl_1"):
 			shootEm(1)
 		if Input.is_action_just_released("ctrl_2"):
-			if gunCooldowns[1] > 0.0:
-				gunCooldowns[1] = 0.0
+			if gunCooldowns[1] > 0:
+				gunCooldowns[1] = 0
 
 func makeGunClip(gunber:int):
 	var gunPos:Array[Vector2] = [

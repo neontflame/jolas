@@ -21,7 +21,7 @@ func enter_state():
 	dashStep = 1
 	initFrames = 3.0
 	dashFrames = 15.0
-	hitSeconds = ((dashFrames + 6.0)/60) * Player.deltaOne
+	hitSeconds = ((dashFrames + 6.0)/60)
 	Player.jumping = false
 	Player.plySprite.play("chargedash")
 	print("Hi dash")
@@ -35,7 +35,7 @@ func handleStep(dashstep:int):
 	match dashstep:
 		1:
 			if initFrames > 0:
-				initFrames -= Player.deltaOne
+				initFrames -= 1
 			
 			fuckingAngle = Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down")
 			
@@ -61,7 +61,7 @@ func handleStep(dashstep:int):
 				dashStep = 2
 		2:
 			if dashFrames > 0:
-				dashFrames -= Player.deltaOne
+				dashFrames -= 1
 			
 			if not Player.is_on_floor():
 				leftFloor = true

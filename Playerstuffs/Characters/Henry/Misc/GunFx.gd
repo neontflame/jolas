@@ -11,11 +11,9 @@ func _ready() -> void:
 	)
 
 func _physics_process(delta: float) -> void:
-	var deltaOne = delta * 60
-	
 	theClip.position += velocity
-	theClip.self_modulate.a -= 0.05 * deltaOne
-	velocity.y += 1 * deltaOne
+	theClip.self_modulate.a -= 0.05
+	velocity.y += 1
 	
 	if theClip.self_modulate.a <= 0.0:
 		queue_free()

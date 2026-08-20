@@ -17,7 +17,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if (projCooldown > 0):
-		projCooldown -= 1 * deltaOne
+		projCooldown -= 1
 	if previousPos != position:
 		posDifference = position - previousPos
 		previousPos = posDifference

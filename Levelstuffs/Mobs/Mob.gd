@@ -4,8 +4,6 @@ class_name MobObject
 
 # ok uhhhhhhhhhh O mob e basicamente um player so que mais cutdown
 # iuhul
-var deltaOne := 0.0
-
 #region State Machine
 @onready var state_machine: Node = $StateMachine
 var current_state = null
@@ -85,13 +83,11 @@ func _ready() -> void:
 	collArea.connect("body_exited", onUntouched)
 
 func _physics_process(delta: float) -> void:
-	deltaOne = delta * 60
-	
 	healthBar.progress = hp / maxHP
 	healthBar.visible = not (isDead or not detectingPlayer)
 	
 	if stunFrames > 0:
-		stunFrames -= 1 * deltaOne
+		stunFrames -= 1
 		return
 	if current_state.has_method('update'): current_state.update()
 	# $Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)

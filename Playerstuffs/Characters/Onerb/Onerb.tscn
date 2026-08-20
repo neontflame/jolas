@@ -187,6 +187,9 @@ caudaLine = NodePath("CaudaStuff/CaudaLine")
 caudaEnd = NodePath("CaudaStuff/BrenoCaudaTip")
 targetSpr = NodePath("Target")
 hookChances = 2
+FLOOR_ACCELERATION = 50.0
+SOFT_MAX_SPEED = 700.0
+GRAVITY = 23.0
 ATTACK_DMG = Dictionary[String, float]({
 "default": 2.0,
 "hookie": 5.0
@@ -226,5 +229,5 @@ frame_progress = 0.246446
 
 [node name="AnimatedSprite2D" parent="." index="6"]
 sprite_frames = SubResource("SpriteFrames_0lagk")
-animation = &"caudaSpin"
+animation = &"caudaThrow"
 offset = Vector2(0, 1)

@@ -57,19 +57,20 @@ var deltaOne:float = 1.0
 var floorSinCos := Vector2(0.0, 0.0)
 var idealZoom := 1.0
 
-var shakeForce := 0.0
-var camShakeForce := 0.0
+var shakeForce:float = 0.0
+var camShakeForce:float = 0.0
+var revertShake:bool = false
 
-var hp := 0.0
-var invulnFrames := 30.0
-var fullInvuln := false
+var hp:float = 0.0
+var invulnFrames:int = 30
+var fullInvuln:bool = false
 
-var combo := 0
-var comboFrames := 0.0
+var combo:int = 0
+var comboFrames:int = 0
 signal comboIncrease
 signal comboReset
 
-var stunFrames := 0.0
+var stunFrames:int = 0
 var jumpsDone:int = 1
 
 var hitboxes:Array = []
@@ -77,7 +78,7 @@ var hitboxes:Array = []
 @onready var ATTACK_DMG_LVL:Dictionary = ATTACK_DMG.duplicate(true)
 @onready var canSpeedZoomCam:bool = (OptionsUtils.get_prefs_info()['speedZoom'] == 1)
 
-var flooredFrames := 0
+var flooredFrames:int = 0
 #endregion
 
 #region Variables That Could Be of Assistance
@@ -97,7 +98,7 @@ var up_override:bool = false
 var isSonicPhys: bool = true
 var practicalAngle := 0.0
 
-var spriteRotatesByItself: bool = true
+var spriteRotatesByItself: bool = false
 
 var movementEnabled:bool = true
 var walkingEnabled:bool = true #mostly for abilities to use
@@ -164,12 +165,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if combo != 0: resetCombo()
 	
-	if current_state != state_machine.st_hurt:
-		if invulnFrames > 0:
-			invulnFrames -= 1
-			plySprite.self_modulate.a = 0.5
-		else:
-			plySprite.self_modulate.a = 1
+
 	
 	if GPStats.is_multiplayer:
 		if is_multiplayer_authority():
@@ -177,15 +173,29 @@ func _physics_process(delta: float) -> void:
 			send_params()
 		visible = (curMap == GPStats.curMap)
 	
+	handleSpriteShenanigans()
 	handleSonicPhys() #Everyone gets a Sonic Physics now.
+
+func handleSpriteShenanigans():
+	if current_state != state_machine.st_hurt:
+		if invulnFrames > 0:
+			invulnFrames -= 1
+			plySprite.self_modulate.a = 0.5
+		else:
+			plySprite.self_modulate.a = 1
+	
+	if not spriteRotatesByItself:
+		if is_on_floor(): plySprite.rotation = practicalAngle
+		else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
+	
+	plySprite.position.x = randf_range(-shakeForce, shakeForce)
+	plySprite.position.y = randf_range(-shakeForce, shakeForce)
 
 var cameFromAir:bool = false
 
 func handleSonicPhys() -> void:
 	player_collisions.rotation = practicalAngle
-	if not spriteRotatesByItself:
-		if is_on_floor(): plySprite.rotation = practicalAngle
-		else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
+
 	# Sonic Physix
 	if is_on_floor():
 		if cameFromAir:
@@ -291,9 +301,6 @@ func handlePhys() -> void:
 		slopeAdd = 0
 		slopeFactor = 1.0
 		prevAirMotion = motion
-	# Not Physix but we ball
-	plySprite.position.x = randf_range(-shakeForce, shakeForce)
-	plySprite.position.y = randf_range(-shakeForce, shakeForce)
 
 var idealerZoom = 1.0
 
@@ -359,6 +366,7 @@ func breno_cam():
 	else:
 		# não pode... volta
 		coolCamera.position.x = lerp(coolCamera.position.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
+	coolCamera.position += Vector2(1, 1) * randf_range(-camShakeForce, camShakeForce)
 
 func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 	var screen_half_x = get_viewport_rect().size.x / coolCamera.zoom.x
