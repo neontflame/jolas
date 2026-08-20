@@ -68,6 +68,7 @@ func createPlayer(chara:String, id:int = -1):
 			playerInstance.position = map.get_node("Spawnpoint").position
 		
 	GPStats.setCharObject(playerInstance)
+	GPStats.charObject.on_respawn(true)
 
 func removePlayer():
 	if playerInstance: 

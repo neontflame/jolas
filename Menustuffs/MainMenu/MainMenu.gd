@@ -48,9 +48,13 @@ func _ready() -> void:
 		$MenuCanvas/RightAnchor/Opts/addons.modulate.a = 0.5
 		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
 	
-	$MenuCanvas/Label.text = "[b]versão %s (%s)[/b]
+	var versionStringness:String = GameUtils.gameVersion
+	if GameUtils.captionVersion != null && GameUtils.captionVersion != "":
+		versionStringness += " (%s)" % GameUtils.captionVersion
+	
+	$MenuCanvas/Label.text = "[b]versão %s[/b]
 jogo feito por [b]neontflame[/b], direitos autorais uhhhhhh pipipi popopo???
-termo \"jolas\" cunhado por hawnt, sketcher e zummy" % [GameUtils.gameVersion, GameUtils.captionVersion]
+termo \"jolas\" cunhado por hawnt, sketcher e zummy" % versionStringness
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():

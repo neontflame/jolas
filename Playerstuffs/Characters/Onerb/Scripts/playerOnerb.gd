@@ -15,6 +15,8 @@ enum HookStatus {
 @export var caudaEnd:Sprite2D
 @export var targetSpr:AnimatedSprite2D
 
+@export var hookableNonFloors:Array = []
+
 var tweenEngracinho:Tween
 var tweenEngracinhoDois:Tween
 var tweenProprio:Tween #tweena o breno
@@ -43,7 +45,10 @@ func hookOnto(aim:Vector2):
 	hooking = HookStatus.TAIL_THROWN
 	
 	if caudaRaycast.is_colliding():
-		hookedOntoPos = caudaRaycast.get_collision_point(0)
+		if caudaRaycast.get_collider(0) is Area2D:
+			hookedOntoPos = caudaRaycast.get_collider(0).global_position
+		else:
+			hookedOntoPos = caudaRaycast.get_collision_point(0)
 	else:
 		hookedOntoPos = global_position + (aim * 256)
 	
@@ -145,7 +150,7 @@ func getSpinny():
 	else:
 		motion = pastMotion
 	jumping = false
-	jumpsDone = 0
+	jumpsDone = JUMP_COUNT # Isto arruma ok
 	spinny = true
 	plySprite.play("caudaSpin")
 	var hits = make_hitbox(Vector2.ZERO,
@@ -215,6 +220,9 @@ func _physics_process(delta: float) -> void:
 func on_respawn(maxOutHp:bool):
 	isGonnaHook = false
 	cancelHookOnto()
+	for i in range(2):
+		await get_tree().process_frame
+	registerHookables()
 
 func on_land():
 	super.on_land()
@@ -229,3 +237,12 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	cancelHookOnto()
 	noSpinny()
 	super.yeowch(hpLost, vel)
+
+func registerHookables():
+	caudaRaycast.clear_exceptions()
+	for child in JolasGame.instance.map.get_children():
+		if child is Area2D:
+			var script = child.get_script()
+			var leClass = child.get_script().get_global_name() if script else ""
+			if not hookableNonFloors.has(leClass):
+				caudaRaycast.add_exception(child)

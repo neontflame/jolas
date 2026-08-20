@@ -126,6 +126,9 @@ func _ready() -> void:
 		FLOOR_BRAKE = FLOOR_ACCELERATION
 	PlayerUtils.set_default_zoom()
 	
+	leftWallness.add_exception(self)
+	rightWallness.add_exception(self)
+	
 	setup_camera()
 
 func _enter_tree() -> void:
