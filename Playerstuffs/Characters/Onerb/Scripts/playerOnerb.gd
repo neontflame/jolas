@@ -100,10 +100,20 @@ func hookOntoPt2():
 	
 	coolMotion = Vector2.from_angle(theAngle).round() * storedMotion * 2
 	
+	var hookiehit = make_hitbox(Vector2.ZERO,
+		Vector2(3.78, 6.25),
+		ATTACK_DMG_LVL['default'],
+		30,
+		-45,
+		"hookie"
+	)
+	
 	tweenProprio = create_tween()
 	# indentaçao meio estranha mas a gente bola
 	tweenProprio.tween_method(func(value):
 		var diff:Vector2 = value - global_position
+		
+		hookiehit.knockAngle = deg_to_rad(diff.angle())
 		
 		global_position = value
 		if test_move(global_transform, diff):
@@ -115,7 +125,7 @@ func hookOntoPt2():
 				motion.x = (storedMotion / 2)
 			if is_on_wall_side('right', true):
 				motion.x = -(storedMotion / 2)
-			print(motion)
+			# print(motion)
 		,
 	global_position,
 	hookedOntoPos, 
@@ -239,10 +249,10 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	super.yeowch(hpLost, vel)
 
 func registerHookables():
+	print("[breno] Ok registrando !")
 	caudaRaycast.clear_exceptions()
-	for child in JolasGame.instance.map.get_children():
-		if child is Area2D:
-			var script = child.get_script()
-			var leClass = child.get_script().get_global_name() if script else ""
-			if not hookableNonFloors.has(leClass):
-				caudaRaycast.add_exception(child)
+	for child in MapUtils.map.find_children("*", "Area2D", true, false):
+		var script = child.get_script()
+		var leClass = child.get_script().get_global_name() if script else ""
+		if not hookableNonFloors.has(leClass):
+			caudaRaycast.add_exception(child)
