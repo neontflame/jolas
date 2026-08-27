@@ -4,14 +4,6 @@ class_name GameUtils
 static var isMobile:bool = false
 static var testingMobile:bool = false
 
-static var loadedMods:Array = []
-static var loadedModsFolderless:Array = []
-static var queuedMods:Array = []
-
-static var ipEntered:String = '127.0.0.1'
-static var portEntered:int = 7000
-static var username:String = ''
-
 static var defaultMap:String = 'TheThing'
 
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
@@ -21,6 +13,11 @@ static var minorVersion:int = 10
 static var patchVersion:int = 0
 static var captionVersion:String = ''
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
+
+static var loadedMods:Array = []
+static var loadedModsFolderless:Array = []
+static var queuedMods:Array = []
+
 
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")

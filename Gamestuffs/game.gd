@@ -217,7 +217,7 @@ func _process(_delta: float) -> void:
 func join_mp_game():
 	removePlayer()
 	removeFromPeerID(multiplayer.get_unique_id())
-	$Multiplayer.join_game(GameUtils.ipEntered)
+	$Multiplayer.join_game(OnlineUtils.ipEntered)
 
 func create_mp_game():
 	removePlayer()

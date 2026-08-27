@@ -140,7 +140,7 @@ func _enter_tree() -> void:
 		
 		if is_multiplayer_authority():
 			GPStats.charObject = self
-			multiplayerName.text = GameUtils.username
+			multiplayerName.text = OnlineUtils.username
 			multiplayerName.visible = true
 			multiplayerName.position.y = player_collisions.position.y - (player_collisions.shape.get_rect().size.y / 2) - 24
 	
@@ -168,8 +168,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		if combo != 0: resetCombo()
 	
-
-	
 	if GPStats.is_multiplayer:
 		if is_multiplayer_authority():
 			curMap = GPStats.curMap
@@ -191,8 +189,9 @@ func handleSpriteShenanigans():
 		if is_on_floor(): plySprite.rotation = practicalAngle
 		else: plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.1)
 	
-	plySprite.position.x = randf_range(-shakeForce, shakeForce)
-	plySprite.position.y = randf_range(-shakeForce, shakeForce)
+	if current_state != state_machine.st_death:
+		plySprite.position.x = randf_range(-shakeForce, shakeForce)
+		plySprite.position.y = randf_range(-shakeForce, shakeForce)
 
 var cameFromAir:bool = false
 

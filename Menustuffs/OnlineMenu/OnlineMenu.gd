@@ -30,9 +30,12 @@ func _process(delta: float) -> void:
 		GPStats.is_multiplayer = false
 		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	
-	GameUtils.username = $MenuCanvas/MidAnchor/UsrTxt.text
-	GameUtils.ipEntered = $MenuCanvas/MidAnchor/IPTxt.text
-	GameUtils.portEntered = int($MenuCanvas/MidAnchor/PortTxt.text)
+	OnlineUtils.username = $MenuCanvas/MidAnchor/UsrTxt.text
+	OnlineUtils.ipEntered = $MenuCanvas/MidAnchor/IPTxt.text
+	OnlineUtils.portEntered = int($MenuCanvas/MidAnchor/PortTxt.text)
+	
+	MultiplayerMayhem.PORT = OnlineUtils.portEntered
+	MultiplayerMayhem.player_info["name"] = OnlineUtils.username
 	
 	if $MenuCanvas/MidAnchor/UsrTxt.text != '' && $MenuCanvas/MidAnchor/IPTxt.text != '':
 		var coisoInt = int($MenuCanvas/MidAnchor/PortTxt.text)

@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3c5dnewhdngd"]
+
+[ext_resource type="PackedScene" uid="uid://b56w1cko06jmo" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.tscn" id="1_dym7j"]
+[ext_resource type="Texture2D" uid="uid://bsipd26y1o3bn" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/o ceu.png" id="2_b3fho"]
+[ext_resource type="Texture2D" uid="uid://qb83w3jujodv" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/as nuvens.png" id="3_2ednj"]
+[ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="4_l4fwh"]
+[ext_resource type="Texture2D" uid="uid://h5lyt103kbme" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer1.png" id="5_5o6b3"]
+[ext_resource type="Texture2D" uid="uid://d0owywkja2mea" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer2.png" id="6_85x3q"]
+[ext_resource type="Texture2D" uid="uid://bmi1hild1lp3e" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer3.png" id="7_v8bxa"]
+[ext_resource type="Shader" uid="uid://cw54roqcrdpj4" path="res://Shaders/wave.gdshader" id="8_krba8"]
+[ext_resource type="Texture2D" uid="uid://dbtfq2xwj2de5" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/o mar.png" id="9_hbkkp"]
+[ext_resource type="Texture2D" uid="uid://cl665wgpfqbnb" path="res://Menustuffs/Commons/MenuBG.png" id="11_1urif"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j4por"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1mgcj"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4por"]
+shader = ExtResource("8_krba8")
+shader_parameter/velocidade = 0.05
+shader_parameter/forca_onda = 0.085
+
+[node name="BGEspeculapolisPreCity" type="Node"]
+
+[node name="Ceu" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
+scroll_base_scale = Vector2(0, 0)
+PLayer = NodePath("CeuPL")
+Sprite = NodePath("CeuPL/CeuSprite")
+
+[node name="CeuPL" type="ParallaxLayer" parent="Ceu"]
+motion_mirroring = Vector2(972, 402)
+
+[node name="CeuSprite" type="Sprite2D" parent="Ceu/CeuPL"]
+texture_repeat = 2
+position = Vector2(0, -96)
+texture = ExtResource("2_b3fho")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 972, 402)
+
+[node name="Nuvem" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
+scroll_base_scale = Vector2(0, 0)
+PLayer = NodePath("NuvemPL")
+Sprite = NodePath("NuvemPL/NuvemSprite")
+ParallaxType = 1
+ScrollSpeed = Vector2(10, 0)
+
+[node name="NuvemPL" type="ParallaxLayer" parent="Nuvem"]
+motion_mirroring = Vector2(972, 264)
+
+[node name="NuvemSprite" type="Sprite2D" parent="Nuvem/NuvemPL"]
+modulate = Color(1, 1, 1, 0.054902)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_j4por")
+position = Vector2(0, 268)
+scale = Vector2(1, 0.143939)
+texture = ExtResource("3_2ednj")
+centered = false
+region_enabled = true
+region_rect = Rect2(185043, 0, 972, 264)
+
+[node name="NuvensTopo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+scroll_ignore_camera_zoom = true
+script = ExtResource("4_l4fwh")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer1")
+ParallaxType = 2
+ScrollSpeed = Vector2(10, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer1" type="Sprite2D" parent="NuvensTopo/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.219608)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+texture = ExtResource("5_5o6b3")
+centered = false
+region_enabled = true
+region_rect = Rect2(151568, 0, 2048, 148)
+
+[node name="NuvensTopo2" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+script = ExtResource("4_l4fwh")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer2")
+ParallaxType = 2
+ScrollSpeed = Vector2(5, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo2"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer2" type="Sprite2D" parent="NuvensTopo2/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.105882)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+position = Vector2(0, 56)
+texture = ExtResource("6_85x3q")
+centered = false
+region_enabled = true
+region_rect = Rect2(75268.7, 0, 2048, 148)
+
+[node name="NuvensTopo3" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+script = ExtResource("4_l4fwh")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer3")
+ParallaxType = 2
+ScrollSpeed = Vector2(2.5, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo3"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer3" type="Sprite2D" parent="NuvensTopo3/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.0470588)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+position = Vector2(0, 136)
+texture = ExtResource("7_v8bxa")
+centered = false
+region_enabled = true
+region_rect = Rect2(37598, 0, 2048, 148)
+
+[node name="Wa\'er" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
+scroll_base_scale = Vector2(0.1, 0)
+PLayer = NodePath("Wa\'erParallaxLayer")
+Sprite = NodePath("Wa\'erParallaxLayer/Wa\'erSprite")
+ParallaxType = 2
+ScrollSpeed = Vector2(0, 0)
+
+[node name="Wa\'erParallaxLayer" type="ParallaxLayer" parent="Wa\'er"]
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="Wa\'erSprite" type="Sprite2D" parent="Wa\'er/Wa\'erParallaxLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j4por")
+position = Vector2(0, 304)
+texture = ExtResource("9_hbkkp")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[node name="MenuBg" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(352, 224)
+texture = ExtResource("11_1urif")

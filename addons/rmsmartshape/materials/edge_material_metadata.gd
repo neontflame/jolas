@@ -22,7 +22,7 @@ class_name SS2D_Material_Edge_Metadata
 ## z index for an edge.
 @export var z_as_relative: bool = true : set = set_z_as_relative
 ## Distance from center.
-@export_range (-1.5, 1.5, 0.1) var offset: float = 0.0 : set = set_offset
+@export_range (-3, 3, 0.1) var offset: float = 0.0 : set = set_offset
 
 
 func _to_string() -> String:

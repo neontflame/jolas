@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	player_collisions.disabled = isSpecialing
 	$SpecialCollide.disabled = !isSpecialing
-	if abs(motion.x) > 2 && !is_on_wall():
+	if abs(motion.x) > 40 && !is_on_wall():
 		nonZeroXVel = motion.x
 
 func handleCameraSpecial() -> void:

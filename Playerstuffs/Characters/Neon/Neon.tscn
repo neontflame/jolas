@@ -200,6 +200,12 @@ script = ExtResource("5_k3kgu")
 [node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.46, 0.68)
 
+[node name="LeftWallness" parent="CollisionShape2D" index="0"]
+collision_mask = 3
+
+[node name="RightWallness" parent="CollisionShape2D" index="1"]
+collision_mask = 3
+
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
 animation = &"default"

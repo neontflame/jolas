@@ -1,0 +1,175 @@
+[gd_scene load_steps=13 format=3 uid="uid://b41bk5icyu1cb"]
+
+[ext_resource type="PackedScene" uid="uid://b56w1cko06jmo" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.tscn" id="1_yvl6a"]
+[ext_resource type="Texture2D" uid="uid://c2crkcjyop81i" path="res://Levelstuffs/Backgrounds/Especulapolis/ceu azul.png" id="2_ps4cy"]
+[ext_resource type="Texture2D" uid="uid://qb83w3jujodv" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/as nuvens.png" id="3_dmnvh"]
+[ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="4_rf4vj"]
+[ext_resource type="Texture2D" uid="uid://h5lyt103kbme" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer1.png" id="5_a4iva"]
+[ext_resource type="Texture2D" uid="uid://d0owywkja2mea" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer2.png" id="6_e0tth"]
+[ext_resource type="Texture2D" uid="uid://bmi1hild1lp3e" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer3.png" id="7_8hlou"]
+[ext_resource type="Texture2D" uid="uid://di22l45jpr30l" path="res://Levelstuffs/Backgrounds/Especulapolis/prediosFundoer.png" id="8_k3nf4"]
+[ext_resource type="Texture2D" uid="uid://b87qdghn3uoaj" path="res://Levelstuffs/Backgrounds/Especulapolis/fundoPredios.png" id="9_yvl6a"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j4por"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1mgcj"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ps4cy"]
+
+[node name="BGEspeculapolisCity" type="Node"]
+
+[node name="Ceu" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_yvl6a")]
+scroll_base_scale = Vector2(0, 0.1)
+PLayer = NodePath("CeuPL")
+Sprite = NodePath("CeuPL/CeuSprite")
+ParallaxType = 5
+ScrollSpeed = Vector2(0, 0)
+DynamicScrollSpeed = Vector2(0, 0.1)
+
+[node name="CeuPL" type="ParallaxLayer" parent="Ceu"]
+motion_mirroring = Vector2(972, 608)
+
+[node name="CeuSprite" type="Sprite2D" parent="Ceu/CeuPL"]
+self_modulate = Color(1, 1.08, 1.08, 1)
+texture_repeat = 2
+position = Vector2(0, -96)
+texture = ExtResource("2_ps4cy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 2.3066, 972, 608)
+
+[node name="Nuvem" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_yvl6a")]
+scroll_base_scale = Vector2(0, 0)
+PLayer = NodePath("NuvemPL")
+Sprite = NodePath("NuvemPL/NuvemSprite")
+ParallaxType = 1
+ScrollSpeed = Vector2(10, 0)
+
+[node name="NuvemPL" type="ParallaxLayer" parent="Nuvem"]
+motion_mirroring = Vector2(972, 264)
+
+[node name="NuvemSprite" type="Sprite2D" parent="Nuvem/NuvemPL"]
+modulate = Color(1, 1, 1, 0.054902)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_j4por")
+position = Vector2(0, 268)
+scale = Vector2(1, 0.143939)
+texture = ExtResource("3_dmnvh")
+centered = false
+region_enabled = true
+region_rect = Rect2(209722, 0, 972, 264)
+
+[node name="NuvensTopo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+scroll_ignore_camera_zoom = true
+script = ExtResource("4_rf4vj")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer1")
+ParallaxType = 2
+ScrollSpeed = Vector2(10, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer1" type="Sprite2D" parent="NuvensTopo/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.219608)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+texture = ExtResource("5_a4iva")
+centered = false
+region_enabled = true
+region_rect = Rect2(176247, 0, 2048, 148)
+
+[node name="NuvensTopo2" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+script = ExtResource("4_rf4vj")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer2")
+ParallaxType = 2
+ScrollSpeed = Vector2(5, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo2"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer2" type="Sprite2D" parent="NuvensTopo2/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.105882)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+position = Vector2(0, 56)
+texture = ExtResource("6_e0tth")
+centered = false
+region_enabled = true
+region_rect = Rect2(87608.3, 0, 2048, 148)
+
+[node name="NuvensTopo3" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_scale = Vector2(0, 0)
+script = ExtResource("4_rf4vj")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/NuvensLayer3")
+ParallaxType = 2
+ScrollSpeed = Vector2(2.5, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo3"]
+motion_mirroring = Vector2(2048, 0)
+
+[node name="NuvensLayer3" type="Sprite2D" parent="NuvensTopo3/Parallax2D"]
+self_modulate = Color(1, 1, 1, 0.0470588)
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_1mgcj")
+position = Vector2(0, 136)
+texture = ExtResource("7_8hlou")
+centered = false
+region_enabled = true
+region_rect = Rect2(43767.8, 0, 2048, 148)
+
+[node name="CidadeFundo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_offset = Vector2(0, -200)
+scroll_base_scale = Vector2(0.4, 0.1)
+scroll_limit_end = Vector2(0, 1000)
+scroll_ignore_camera_zoom = true
+script = ExtResource("4_rf4vj")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/CidadeFundo")
+ParallaxType = 2
+ScrollSpeed = Vector2(0, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="CidadeFundo"]
+motion_mirroring = Vector2(1560, 0)
+
+[node name="CidadeFundo" type="Sprite2D" parent="CidadeFundo/Parallax2D"]
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_ps4cy")
+position = Vector2(0, 296)
+texture = ExtResource("8_k3nf4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1560, 811)
+
+[node name="PrediosMenosFundo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
+scroll_base_offset = Vector2(0, -200)
+scroll_base_scale = Vector2(0.64, 0.2)
+scroll_limit_end = Vector2(0, 1400)
+scroll_ignore_camera_zoom = true
+script = ExtResource("4_rf4vj")
+PLayer = NodePath("Parallax2D")
+Sprite = NodePath("Parallax2D/PrediosMenosFundo")
+ParallaxType = 2
+ScrollSpeed = Vector2(0, 0)
+metadata/_custom_type_script = "uid://clf5iqelrjavx"
+
+[node name="Parallax2D" type="ParallaxLayer" parent="PrediosMenosFundo"]
+motion_mirroring = Vector2(1560, 0)
+
+[node name="PrediosMenosFundo" type="Sprite2D" parent="PrediosMenosFundo/Parallax2D"]
+texture_repeat = 2
+position = Vector2(0, 488)
+texture = ExtResource("9_yvl6a")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1560, 858)

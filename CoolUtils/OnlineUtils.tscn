@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmhnvl66mr6k8"]
+
+[ext_resource type="Script" uid="uid://cglnu5lr6bx3t" path="res://CoolUtils/OnlineUtils.gd" id="1_sw0n6"]
+
+[node name="OnlineUtils" type="Node2D"]
+script = ExtResource("1_sw0n6")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 240.0
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

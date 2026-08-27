@@ -36,6 +36,7 @@ robawnt_voices = NodePath("AudioStreamPlayer")
 ACCELERATION = 800.0
 MAX_SPEED = 200.0
 maxHP = 200.0
+strength = 5.0
 
 [node name="Default" parent="StateMachine" index="0"]
 script = ExtResource("3_4weo6")

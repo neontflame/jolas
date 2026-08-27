@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 		onlineElements.get_node('MsgTxt').visible = isWriting
 		if isWriting:
 			if Input.is_key_label_pressed(KEY_ENTER):
-				var messageFormat:String = "<%s> %s" % [GameUtils.username, onlineElements.get_node('MsgTxt').text]
+				var messageFormat:String = "<%s> %s" % [OnlineUtils.username, onlineElements.get_node('MsgTxt').text]
 				MultiplayerMayhem._player_send_msg.rpc(GPStats.charObject.get_multiplayer_authority(), messageFormat)
 				onlineElements.get_node('MsgTxt').text = ''
 				onlineElements.get_node('MsgTxt').release_focus()

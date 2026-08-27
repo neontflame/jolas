@@ -65,9 +65,9 @@ static func delete_save(slot:int):
 static func save_online():
 	var saveStuff = FileAccess.open('user://onlineInfo.json', FileAccess.WRITE)
 	var saveInfo:Dictionary = {
-		"name": GameUtils.username,
-		"ip": GameUtils.ipEntered,
-		"port": int(GameUtils.portEntered),
+		"name": OnlineUtils.username,
+		"ip": OnlineUtils.ipEntered,
+		"port": int(OnlineUtils.portEntered),
 		"saveSlot": GPStats.saveNum,
 		"char": GPStats.char
 	}

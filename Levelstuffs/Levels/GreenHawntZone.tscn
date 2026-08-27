@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Levelstuffs/map.gd" id="1_f3d5j"]
 [ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Levelstuffs/Utilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="2_bxs3o"]
-[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Menustuffs/Background/menu_background.tscn" id="2_pf4o8"]
+[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="2_pf4o8"]
 [ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="3_wrhdy"]
 [ext_resource type="Script" uid="uid://bwcf4pjgprn0k" path="res://addons/rmsmartshape/shapes/point.gd" id="4_hyhft"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Levelstuffs/Utilities/GoToLevel.tscn" id="4_ojujy"]

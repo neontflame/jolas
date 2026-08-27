@@ -36,7 +36,7 @@ func _ready() -> void:
 			var arguString:String = str(argument)
 			if arguString.begins_with("--port="):
 				var initSplit = arguString.split("=")
-				GameUtils.portEntered = int(initSplit[1])
+				OnlineUtils.portEntered = int(initSplit[1])
 		
 		if len(GameUtils.queuedMods) > 0:
 			for mod in GameUtils.queuedMods:

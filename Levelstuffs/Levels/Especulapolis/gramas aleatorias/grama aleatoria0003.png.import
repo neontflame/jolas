@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsipd26y1o3bn"
-path="res://.godot/imported/o ceu.png-8bec638aad846329dd455d9e1fad00a0.ctex"
+uid="uid://b5fjnbl6s3tdf"
+path="res://.godot/imported/grama aleatoria0003.png-ab20e69d21dc1bfd4e7342fb87227088.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menustuffs/Commons/MenuBGSeparado/o ceu.png"
-dest_files=["res://.godot/imported/o ceu.png-8bec638aad846329dd455d9e1fad00a0.ctex"]
+source_file="res://Levelstuffs/Levels/Especulapolis/gramas aleatorias/grama aleatoria0003.png"
+dest_files=["res://.godot/imported/grama aleatoria0003.png-ab20e69d21dc1bfd4e7342fb87227088.ctex"]
 
 [params]
 

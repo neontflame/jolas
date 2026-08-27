@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://cium04o7swryj"]
 
 [ext_resource type="PackedScene" uid="uid://b56w1cko06jmo" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.tscn" id="1_aixxa"]
-[ext_resource type="Texture2D" uid="uid://dbtfq2xwj2de5" path="res://Menustuffs/Commons/MenuBGSeparado/o mar.png" id="2_8acr0"]
-[ext_resource type="Texture2D" uid="uid://bsipd26y1o3bn" path="res://Menustuffs/Commons/MenuBGSeparado/o ceu.png" id="2_o12uw"]
-[ext_resource type="Texture2D" uid="uid://qb83w3jujodv" path="res://Menustuffs/Commons/MenuBGSeparado/as nuvens.png" id="3_41vpn"]
+[ext_resource type="Texture2D" uid="uid://dbtfq2xwj2de5" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/o mar.png" id="2_8acr0"]
+[ext_resource type="Texture2D" uid="uid://bsipd26y1o3bn" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/o ceu.png" id="2_o12uw"]
+[ext_resource type="Texture2D" uid="uid://qb83w3jujodv" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/as nuvens.png" id="3_41vpn"]
 [ext_resource type="Texture2D" uid="uid://cl665wgpfqbnb" path="res://Menustuffs/Commons/MenuBG.png" id="4_41vpn"]
 [ext_resource type="Shader" uid="uid://cw54roqcrdpj4" path="res://Shaders/wave.gdshader" id="4_j4por"]
 [ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Levelstuffs/Utilities/ParallaxComponent/parallax_component.gd" id="4_xvxt8"]
 [ext_resource type="Texture2D" uid="uid://h5lyt103kbme" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer1.png" id="5_0jhij"]
-[ext_resource type="Texture2D" uid="uid://b6up1ojf0uept" path="res://Menustuffs/Commons/MenuBGSeparado/a ilha FFFFFFFFFUCKING EPICA what the FUUUUUUUUUCCKKKK.png" id="5_phlth"]
+[ext_resource type="Texture2D" uid="uid://b6up1ojf0uept" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/a ilha FFFFFFFFFUCKING EPICA what the FUUUUUUUUUCCKKKK.png" id="5_phlth"]
 [ext_resource type="Texture2D" uid="uid://d0owywkja2mea" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer2.png" id="6_t3oja"]
 [ext_resource type="Texture2D" uid="uid://bmi1hild1lp3e" path="res://Levelstuffs/Backgrounds/Especulapolis/nuvensLayer3.png" id="7_0jhij"]
 
@@ -60,7 +60,7 @@ scale = Vector2(1, 0.143939)
 texture = ExtResource("3_41vpn")
 centered = false
 region_enabled = true
-region_rect = Rect2(184229, 0, 972, 264)
+region_rect = Rect2(184757, 0, 972, 264)
 
 [node name="NuvensTopo" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -82,7 +82,7 @@ material = SubResource("CanvasItemMaterial_1mgcj")
 texture = ExtResource("5_0jhij")
 centered = false
 region_enabled = true
-region_rect = Rect2(150754, 0, 2048, 148)
+region_rect = Rect2(151282, 0, 2048, 148)
 
 [node name="NuvensTopo2" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -104,7 +104,7 @@ position = Vector2(0, 56)
 texture = ExtResource("6_t3oja")
 centered = false
 region_enabled = true
-region_rect = Rect2(74861.3, 0, 2048, 148)
+region_rect = Rect2(75125.7, 0, 2048, 148)
 
 [node name="NuvensTopo3" type="ParallaxBackground" parent="." node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_scale = Vector2(0, 0)
@@ -126,7 +126,7 @@ position = Vector2(0, 136)
 texture = ExtResource("7_0jhij")
 centered = false
 region_enabled = true
-region_rect = Rect2(37394.4, 0, 2048, 148)
+region_rect = Rect2(37526.5, 0, 2048, 148)
 
 [node name="Wa\'er" parent="." node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_aixxa")]
 scroll_base_scale = Vector2(0.1, 0)

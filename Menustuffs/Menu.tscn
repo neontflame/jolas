@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Gamestuffs/Sounds/Commons/back.wav" id="9_2f15j"]
 [ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="10_3g3s7"]
 [ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="11_lo8pj"]
-[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Menustuffs/Background/menu_background.tscn" id="12_3g3s7"]
+[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="12_3g3s7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i30ho"]
 shader = ExtResource("3_fec8x")

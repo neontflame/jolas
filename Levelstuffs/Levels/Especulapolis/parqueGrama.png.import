@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbtfq2xwj2de5"
-path="res://.godot/imported/o mar.png-199fd5856cbdd92fe2090d5f02ad9934.ctex"
+uid="uid://cqq8b2588ar01"
+path="res://.godot/imported/parqueGrama.png-e718eb644e38ef2d421ad2ae86543047.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menustuffs/Commons/MenuBGSeparado/o mar.png"
-dest_files=["res://.godot/imported/o mar.png-199fd5856cbdd92fe2090d5f02ad9934.ctex"]
+source_file="res://Levelstuffs/Levels/Especulapolis/parqueGrama.png"
+dest_files=["res://.godot/imported/parqueGrama.png-e718eb644e38ef2d421ad2ae86543047.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@ signal player_disconnected(peer_id)
 signal server_disconnected
 signal bye_bye
 
-var PORT = GameUtils.portEntered
+var PORT = 7000
 const DEFAULT_SERVER_IP = "127.0.0.1" # IPv4 localhost
 const MAX_CONNECTIONS = 20
 
@@ -21,7 +21,7 @@ var players = {}
 # For example, the value of "name" can be set to something the player
 # entered in a UI scene.
 var player_info = 	{
-					"name": GameUtils.username,
+					"name": "Guest",
 					"char": GPStats.char,
 					"loaded-mods": GameUtils.loadedMods,
 					"loaded-mods-folderless": GameUtils.loadedModsFolderless,
@@ -57,7 +57,8 @@ func create_game():
 
 	players[1] = player_info
 	player_connected.emit(1, player_info)
-	print('[MULTIPLAYER] Server aberto na porta %s' % GameUtils.portEntered)
+	print('[MULTIPLAYER] Server aberto na porta %s' % OnlineUtils.portEntered)
+	OnlineUtils.sendServerHeartbeat()
 
 func remove_multiplayer_peer():
 	if multiplayer != null:

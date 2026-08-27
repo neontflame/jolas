@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=19 format=3 uid="uid://cmu7q65a2h2cj"]
+
+[ext_resource type="Script" uid="uid://0lhxan4cqrc1" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_u3c6n"]
+[ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_lxkdr"]
+[ext_resource type="Texture2D" uid="uid://bvkw2jrl4e41n" path="res://Levelstuffs/Levels/Especulapolis/sidewalkies.png" id="3_f75ou"]
+[ext_resource type="Script" uid="uid://d218yx0d1ilsn" path="res://addons/rmsmartshape/normal_range.gd" id="4_3orj6"]
+[ext_resource type="Texture2D" uid="uid://b731av4dgn6rv" path="res://Levelstuffs/Levels/Especulapolis/rua0002.png" id="5_5hxkl"]
+[ext_resource type="Texture2D" uid="uid://d3shih52qc3mx" path="res://Levelstuffs/Levels/Especulapolis/rua0001.png" id="6_64opo"]
+[ext_resource type="Script" uid="uid://nc5bfedvnpgm" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_vhk8s"]
+
+[sub_resource type="Resource" id="Resource_mnden"]
+script = ExtResource("2_lxkdr")
+textures = Array[Texture2D]([ExtResource("3_f75ou")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+textures_taper_corner_left = Array[Texture2D]([])
+textures_taper_corner_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_71yuv"]
+script = ExtResource("4_3orj6")
+begin = 27.0
+distance = 127.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_m3t0r"]
+script = ExtResource("1_u3c6n")
+edge_material = SubResource("Resource_mnden")
+normal_range = SubResource("Resource_71yuv")
+weld = true
+taper_sharp_corners = false
+render = true
+z_index = 0
+z_as_relative = true
+offset = -0.3
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Resource" id="Resource_dkmeq"]
+script = ExtResource("2_lxkdr")
+textures = Array[Texture2D]([ExtResource("5_5hxkl")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+textures_taper_corner_left = Array[Texture2D]([])
+textures_taper_corner_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 1
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_0xq7o"]
+script = ExtResource("4_3orj6")
+begin = 315.0
+distance = 270.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_7jc26"]
+script = ExtResource("1_u3c6n")
+edge_material = SubResource("Resource_dkmeq")
+normal_range = SubResource("Resource_0xq7o")
+weld = true
+taper_sharp_corners = true
+render = true
+z_index = 1
+z_as_relative = true
+offset = -2.5
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Resource" id="Resource_u8swd"]
+script = ExtResource("2_lxkdr")
+textures = Array[Texture2D]([ExtResource("6_64opo")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+textures_taper_corner_left = Array[Texture2D]([])
+textures_taper_corner_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_lj56i"]
+script = ExtResource("4_3orj6")
+begin = 35.0
+distance = 87.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_7t78s"]
+script = ExtResource("1_u3c6n")
+edge_material = SubResource("Resource_u8swd")
+normal_range = SubResource("Resource_lj56i")
+weld = true
+taper_sharp_corners = true
+render = true
+z_index = -2
+z_as_relative = true
+offset = -1.9
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Gradient" id="Gradient_jqog0"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.458824, 0.458824, 0.486275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qwvra"]
+gradient = SubResource("Gradient_jqog0")
+
+[resource]
+script = ExtResource("7_vhk8s")
+_edge_meta_materials = Array[ExtResource("1_u3c6n")]([SubResource("Resource_m3t0r"), SubResource("Resource_7jc26"), SubResource("Resource_7t78s")])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_qwvra")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 1.0
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(8, 4)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
+metadata/_custom_type_script = "uid://nc5bfedvnpgm"
