@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d2xixesaek0mp"]
+
+[ext_resource type="Script" uid="uid://bx8l0wlfp6d" path="res://Miscstuffs/EpicBgVisualizer.gd" id="1_w5vw2"]
+[ext_resource type="PackedScene" uid="uid://b41bk5icyu1cb" path="res://Levelstuffs/Backgrounds/Especulapolis/BGEspeculapolisCity.tscn" id="2_yligg"]
+[ext_resource type="AudioStream" uid="uid://cexsqsu6dem3r" path="res://Musicstuffs/CircuitCityJ'mix.ogg" id="3_yligg"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="4_uk6ig"]
+
+[node name="Node2D" type="Node2D" unique_id=330480847]
+script = ExtResource("1_w5vw2")
+
+[node name="BGEspeculapolisCity" parent="." unique_id=1154943098 instance=ExtResource("2_yligg")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=777174733]
+offset = Vector2(0, 1000)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=305987561]
+stream = ExtResource("3_yligg")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=360643048]
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer" unique_id=1894547624]
+offset_left = 20.0
+offset_top = 12.0
+offset_right = 785.0
+offset_bottom = 54.0
+theme = ExtResource("4_uk6ig")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.619)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Especulápolis (Circuit City [color=#70c0ff]J'mix[/color])"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=1198586409]
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 785.0
+offset_bottom = 82.0
+theme = ExtResource("4_uk6ig")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.619)
+theme_override_constants/outline_size = 6
+bbcode_enabled = true
+text = "[color=gray]Original:[/color] Circuit City (CAWCAKNIGHT)"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer" unique_id=1865221530]
+offset_left = 20.0
+offset_top = 84.0
+offset_right = 785.0
+offset_bottom = 134.0
+theme = ExtResource("4_uk6ig")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.619)
+theme_override_constants/line_separation = -6
+theme_override_constants/outline_size = 6
+bbcode_enabled = true
+text = "[color=yellow]Composição:[/color] brenonerb
+[color=yellow]Arranjo:[/color] Neon T. Flame"
+fit_content = true

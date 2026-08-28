@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7iqlwncc1i4h"]
+[gd_scene format=3 uid="uid://c7iqlwncc1i4h"]
 
 [ext_resource type="Script" uid="uid://cbv761oijodsn" path="res://Gamestuffs/IngameMenus/Pause/Pause.gd" id="1_08ach"]
 [ext_resource type="Texture2D" uid="uid://crv2u65c0ct2i" path="res://Gamestuffs/IngameMenus/Pause/papelPausa.png" id="2_wdebl"]
@@ -99,14 +99,14 @@ _data = {
 &"newThing": SubResource("Animation_08ach")
 }
 
-[node name="Pause" type="Node2D" node_paths=PackedStringArray("checkestMark", "mobilery")]
+[node name="Pause" type="Node2D" unique_id=1761419770 node_paths=PackedStringArray("checkestMark", "mobilery")]
 script = ExtResource("1_08ach")
 checkestMark = NodePath("MenuCanvas/Control/PapelPausa/Checkmarcoiso")
 mobilery = NodePath("MenuCanvas/Control/PapelPausa/Mobilacios")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=253534443]
 
-[node name="Control" type="Control" parent="MenuCanvas"]
+[node name="Control" type="Control" parent="MenuCanvas" unique_id=1783703022]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,23 +120,23 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PapelPausa" type="Sprite2D" parent="MenuCanvas/Control"]
+[node name="PapelPausa" type="Sprite2D" parent="MenuCanvas/Control" unique_id=1560355780]
 position = Vector2(-174, 25)
 texture = ExtResource("2_wdebl")
 
-[node name="Checkmarcoiso" type="Sprite2D" parent="MenuCanvas/Control/PapelPausa"]
+[node name="Checkmarcoiso" type="Sprite2D" parent="MenuCanvas/Control/PapelPausa" unique_id=178999171]
 position = Vector2(-87, -39)
 texture = ExtResource("3_131kf")
 
-[node name="Mobilacios" type="Node2D" parent="MenuCanvas/Control/PapelPausa"]
+[node name="Mobilacios" type="Node2D" parent="MenuCanvas/Control/PapelPausa" unique_id=1938067456]
 
-[node name="RetomarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+[node name="RetomarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios" unique_id=160041707]
 position = Vector2(-5, -35)
 shape = SubResource("RectangleShape2D_131kf")
 visibility_mode = 1
 script = ExtResource("4_wdebl")
 
-[node name="TeleportarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+[node name="TeleportarMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios" unique_id=3588235]
 position = Vector2(-0.119995, 16)
 skew = -0.202458
 shape = SubResource("RectangleShape2D_131kf")
@@ -144,14 +144,14 @@ visibility_mode = 1
 script = ExtResource("4_wdebl")
 id = 1
 
-[node name="OpMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+[node name="OpMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios" unique_id=2133355888]
 position = Vector2(5, 63)
 shape = SubResource("RectangleShape2D_131kf")
 visibility_mode = 1
 script = ExtResource("4_wdebl")
 id = 2
 
-[node name="SairMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios"]
+[node name="SairMob" type="TouchScreenButton" parent="MenuCanvas/Control/PapelPausa/Mobilacios" unique_id=44313491]
 position = Vector2(1, 111)
 skew = 0.122173
 shape = SubResource("RectangleShape2D_131kf")
@@ -159,11 +159,9 @@ visibility_mode = 1
 script = ExtResource("4_wdebl")
 id = 3
 
-[node name="SaveBox" parent="MenuCanvas/Control" instance=ExtResource("4_u6xle")]
+[node name="SaveBox" parent="MenuCanvas/Control" unique_id=582241323 instance=ExtResource("4_u6xle")]
 position = Vector2(-1, -193)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1370850463]
 root_node = NodePath("../MenuCanvas/Control/PapelPausa")
-libraries = {
-&"": SubResource("AnimationLibrary_u6xle")
-}
+libraries/ = SubResource("AnimationLibrary_u6xle")

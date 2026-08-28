@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DiagTalksound" load_steps=7 format=3 uid="uid://vd4pba2kchme"]
+[gd_resource type="Resource" script_class="DiagTalksound" format=3 uid="uid://vd4pba2kchme"]
 
 [ext_resource type="Script" uid="uid://c0nu0k2qwolns" path="res://Gamestuffs/Dialoguestuffs/DiagTalksound.gd" id="1_1g8nf"]
 [ext_resource type="AudioStream" uid="uid://cjpg2crtntdp" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-01.wav" id="2_1odew"]

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://cbuy6erl2dfb7"]
+[gd_resource type="Theme" format=3 uid="uid://cbuy6erl2dfb7"]
 
 [ext_resource type="Texture2D" uid="uid://by8xvpvh1tlhy" path="res://Themestuffs/button disabled.png" id="1_ygp53"]
 [ext_resource type="Texture2D" uid="uid://ll8upoeinug" path="res://Themestuffs/button focus.png" id="2_eslxe"]
@@ -93,21 +93,7 @@ texture_margin_top = 6.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 
-[sub_resource type="SystemFont" id="SystemFont_ygp53"]
-font_names = PackedStringArray("MS Gothic")
-disable_embedded_bitmaps = false
-hinting = 0
-subpixel_positioning = 0
-
-[sub_resource type="FontVariation" id="FontVariation_eslxe"]
-base_font = SubResource("SystemFont_ygp53")
-variation_embolden = 0.22
-variation_transform = Transform2D(0.855, -0.075, 0.065, 1, 0, 0)
-spacing_top = 5
-baseline_offset = -0.215
-
 [sub_resource type="FontVariation" id="FontVariation_ygp53"]
-fallbacks = Array[Font]([SubResource("FontVariation_eslxe")])
 base_font = ExtResource("10_oxydb")
 spacing_top = -4
 
