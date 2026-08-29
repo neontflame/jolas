@@ -11,6 +11,7 @@ func update():
 	Player.handleMovement()
 	Player.handleCamera()
 	handleAnimations()
+	Player.apply_player_gravity()
 	
 	if not Player.is_on_floor():
 		Player.change_state(Player.state_machine.st_air)

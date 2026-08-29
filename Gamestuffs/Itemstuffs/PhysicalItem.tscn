@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xtk7v5p5ybfk"]
+[gd_scene format=3 uid="uid://xtk7v5p5ybfk"]
 
 [ext_resource type="Script" uid="uid://do5fvcksagryp" path="res://Gamestuffs/Itemstuffs/PhysicalItem.gd" id="1_ij4ip"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="2_oyxbj"]
@@ -9,7 +9,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_oyxbj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -17,21 +17,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4smi7"]
 size = Vector2(127, 128)
 
-[node name="PhysicalItem" type="Area2D"]
+[node name="PhysicalItem" type="Area2D" unique_id=1080685141]
 script = ExtResource("1_ij4ip")
 
-[node name="RWallCast" type="RayCast2D" parent="."]
+[node name="RWallCast" type="RayCast2D" parent="." unique_id=1413326286]
 target_position = Vector2(18, 0)
 
-[node name="LWallCast" type="RayCast2D" parent="."]
+[node name="LWallCast" type="RayCast2D" parent="." unique_id=1922255408]
 target_position = Vector2(-18, 0)
 
-[node name="CeilCast" type="RayCast2D" parent="."]
+[node name="CeilCast" type="RayCast2D" parent="." unique_id=800161007]
 target_position = Vector2(0, -16)
 
-[node name="objSprite" type="AnimatedSprite2D" parent="."]
+[node name="objSprite" type="AnimatedSprite2D" parent="." unique_id=512622675]
 sprite_frames = SubResource("SpriteFrames_btvmy")
 
-[node name="ItemCollide" type="CollisionShape2D" parent="."]
+[node name="ItemCollide" type="CollisionShape2D" parent="." unique_id=1971468727]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_4smi7")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

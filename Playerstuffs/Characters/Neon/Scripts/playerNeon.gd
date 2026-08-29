@@ -25,7 +25,16 @@ func connectAttack(_stunFrames:float, vel:Vector2 = Vector2(250, -250)):
 		delete_hitboxes()
 		plySprite.play('specialBounceback')
 		isSpecialing = false
-	
+
+func regenWallCollmasks():
+	super.regenWallCollmasks()
+	if isSpecialing:
+		leftWallness.target_position.x = -128
+		rightWallness.target_position.x = 128
+	else:
+		leftWallness.target_position.x = -64
+		rightWallness.target_position.x = 64
+
 func level_up():
 	super.level_up()
 

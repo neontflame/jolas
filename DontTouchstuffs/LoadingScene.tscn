@@ -1,19 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgqegpy3w0etx"]
+[gd_scene format=3 uid="uid://dgqegpy3w0etx"]
 
 [ext_resource type="Script" uid="uid://dgi4p0m2nqn1w" path="res://DontTouchstuffs/LoadingScene.gd" id="1_7pqmv"]
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_anq2u"]
 [ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="3_ty3qp"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="4_anq2u"]
 
-[node name="LoadingScene" type="Node2D"]
+[node name="LoadingScene" type="Node2D" unique_id=29196500 node_paths=PackedStringArray("loadingLabel")]
 script = ExtResource("1_7pqmv")
+loadingLabel = NodePath("CanvasLayer/Control/Label3")
 
-[node name="Black" type="Sprite2D" parent="."]
+[node name="Black" type="Sprite2D" parent="." unique_id=1569700715]
 position = Vector2(438, 226)
 scale = Vector2(24.1641, 12.0234)
 texture = ExtResource("2_anq2u")
 
-[node name="White2" type="Sprite2D" parent="."]
+[node name="White2" type="Sprite2D" parent="." unique_id=1459199944]
 visible = false
 self_modulate = Color(0.737193, 0.737193, 0.737193, 1)
 position = Vector2(0, 480)
@@ -21,11 +22,26 @@ scale = Vector2(0.01, 0.516)
 texture = ExtResource("3_ty3qp")
 centered = false
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 13.0
-offset_top = 457.0
-offset_right = 788.0
-offset_bottom = 506.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2088543199]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1155706750]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control" unique_id=478246888]
+layout_mode = 0
+offset_left = -747.0
+offset_top = -3.0
+offset_right = 28.0
+offset_bottom = 46.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_anq2u")
 theme_override_font_sizes/font_size = 20

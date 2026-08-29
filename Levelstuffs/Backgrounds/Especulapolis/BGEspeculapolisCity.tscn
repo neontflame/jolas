@@ -61,15 +61,15 @@ scale = Vector2(1, 0.143939)
 texture = ExtResource("3_dmnvh")
 centered = false
 region_enabled = true
-region_rect = Rect2(213296.06, 0, 972, 264)
+region_rect = Rect2(272031.16, 0, 972, 264)
 
 [node name="NuvensTopo" type="ParallaxBackground" parent="." unique_id=597888017 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
+scroll_base_scale = Vector2(0.25, 0)
 script = ExtResource("4_rf4vj")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer1")
 ParallaxType = 2
-ScrollSpeed = Vector2(10, 0)
+ScrollSpeed = Vector2(15, 0)
 metadata/_custom_type_script = "uid://clf5iqelrjavx"
 
 [node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo" unique_id=120152678]
@@ -82,15 +82,15 @@ material = SubResource("CanvasItemMaterial_1mgcj")
 texture = ExtResource("5_a4iva")
 centered = false
 region_enabled = true
-region_rect = Rect2(179821.06, 0, 2048, 148)
+region_rect = Rect2(240717.86, 0, 2048, 148)
 
 [node name="NuvensTopo2" type="ParallaxBackground" parent="." unique_id=563416250 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
+scroll_base_scale = Vector2(0.15, 0)
 script = ExtResource("4_rf4vj")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer2")
 ParallaxType = 2
-ScrollSpeed = Vector2(5, 0)
+ScrollSpeed = Vector2(10, 0)
 metadata/_custom_type_script = "uid://clf5iqelrjavx"
 
 [node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo2" unique_id=1189398431]
@@ -104,15 +104,15 @@ position = Vector2(0, 56)
 texture = ExtResource("6_e0tth")
 centered = false
 region_enabled = true
-region_rect = Rect2(89395.33, 0, 2048, 148)
+region_rect = Rect2(120633.62, 0, 2048, 148)
 
 [node name="NuvensTopo3" type="ParallaxBackground" parent="." unique_id=2104471489 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
+scroll_base_scale = Vector2(0.063, 0)
 script = ExtResource("4_rf4vj")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer3")
 ParallaxType = 2
-ScrollSpeed = Vector2(2.5, 0)
+ScrollSpeed = Vector2(5, 0)
 metadata/_custom_type_script = "uid://clf5iqelrjavx"
 
 [node name="Parallax2D" type="ParallaxLayer" parent="NuvensTopo3" unique_id=761129763]
@@ -126,7 +126,7 @@ position = Vector2(0, 136)
 texture = ExtResource("7_8hlou")
 centered = false
 region_enabled = true
-region_rect = Rect2(44661.316, 0, 2048, 148)
+region_rect = Rect2(60275.684, 0, 2048, 148)
 
 [node name="CidadeFundo" type="ParallaxBackground" parent="." unique_id=1307350779 node_paths=PackedStringArray("PLayer", "Sprite")]
 scroll_base_offset = Vector2(0, -120)

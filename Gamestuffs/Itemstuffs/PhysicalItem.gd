@@ -40,7 +40,13 @@ func _physics_process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	super._on_body_entered(body)
-	
+	if body is PlayerObject:
+		body.mayGrabItem = true
+
+func _on_body_exited(body):
+	if body is PlayerObject:
+		body.mayGrabItem = false
+
 func on_hit():
 	pass
 

@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 		CoolMenu.play_sfx('Back')
 		CoolMenu.curSelected = 1
 		GPStats.is_multiplayer = false
+		SaveUtils.save_online()
 		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	
 	OnlineUtils.username = $MenuCanvas/MidAnchor/UsrTxt.text
@@ -67,6 +68,12 @@ func on_host() -> void:
 func on_join() -> void:
 	GPStats.is_hosting = false
 	goToGame()
+
+func on_serverlist() -> void:
+	CoolMenu.curSelected = 0
+	SaveUtils.save_online()
+	CoolMenu.play_sfx('Go')
+	change_self_scene('res://Menustuffs/OnlineServersMenu/OnlineServersMenu.tscn')
 
 var mapToGoTo := ''
 

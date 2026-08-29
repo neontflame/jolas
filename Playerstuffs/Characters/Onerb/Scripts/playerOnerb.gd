@@ -228,6 +228,7 @@ func _physics_process(delta: float) -> void:
 		hooksTried = 0
 
 func on_respawn(maxOutHp:bool):
+	super.on_respawn(maxOutHp)
 	isGonnaHook = false
 	cancelHookOnto()
 	for i in range(2):

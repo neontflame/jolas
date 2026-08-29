@@ -26,6 +26,7 @@ func _on_body_entered(body):
 		call_deferred("on_hit")
 		# print(body.name + " entered!")
 
+
 func on_area_entered(area: Area2D):
 	pass
 

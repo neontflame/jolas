@@ -21,7 +21,7 @@ var players = {}
 # For example, the value of "name" can be set to something the player
 # entered in a UI scene.
 var player_info = 	{
-					"name": "Guest",
+					"name": "",
 					"char": GPStats.char,
 					"loaded-mods": GameUtils.loadedMods,
 					"loaded-mods-folderless": GameUtils.loadedModsFolderless,

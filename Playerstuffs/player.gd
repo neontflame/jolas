@@ -95,7 +95,6 @@ var holding_jump:bool = false
 
 var up_override:bool = false
 
-var isSonicPhys: bool = true
 var practicalAngle := 0.0
 
 var spriteRotatesByItself: bool = false
@@ -104,6 +103,8 @@ var movementEnabled:bool = true
 var walkingEnabled:bool = true #mostly for abilities to use
 
 var camOffset := Vector2(0.0, 0.0)
+
+var mayGrabItem: bool = false
 #endregion
 
 #region Multiplayer Bull Shit
@@ -146,7 +147,6 @@ func _enter_tree() -> void:
 	
 func _physics_process(delta: float) -> void:
 	deltaOne = delta * 60
-	regenWallCollmasks()
 	while stunFrames > 0:
 		stunFrames -= 1
 		return
@@ -245,12 +245,8 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	# jumpfuck
 	if can_player_jump():
 		jumpsDone += 1
-		if isSonicPhys:
-			# print("pode pular")
-			motion.y = JUMP_VELOCITY
-		else:
-			motion.y = JUMP_VELOCITY * -floorSinCos.y
-			motion.x += JUMP_VELOCITY * -floorSinCos.x
+		# print("pode pular")
+		motion.y = JUMP_VELOCITY
 		motion.y -= abs(motion.x/2) * sin(get_floor_angle())
 		jumping = true
 		holding_jump = true
@@ -285,6 +281,8 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 			motion.x = motion.x * (FRICTION)
 
 func handlePhys() -> void:
+	regenWallCollmasks()
+	
 	# Floor Physicque
 	slopeMult = (2 if (!Input.is_action_pressed("ctrl_left") && !Input.is_action_pressed("ctrl_right")) else 1)
 	if is_on_floor():
@@ -317,7 +315,7 @@ func apply_player_gravity(custom_gravity: float = GRAVITY):
 	if is_on_ceiling():
 		motion.y = abs(motion.y) * 0.5
 	if (is_on_wall() and flooredFrames >= 3) or is_on_wall_only():
-		motion.x = 0
+		motion.x = sign(motion.x)
 
 #region Camera
 func setup_camera():
@@ -385,7 +383,7 @@ func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 	predicted.x = clamp(predicted.x, min_x, max_x)
 	predicted.y = clamp(predicted.y, min_y, max_y)
 	
-	print(predicted)
+	# print(predicted)
 	return predicted - global_position
 #endregion 
 
@@ -555,11 +553,11 @@ func on_spring(vel:Vector2):
 
 func on_fall_from_slope():
 	motion.y = -50
-	print(motion)
+	# print(motion)
 	up_direction = Vector2(0.0, -1.0)
 
 func on_respawn(maxOutHp:bool):
-	pass
+	mayGrabItem = false
 #endregion
 
 #region Utilidades (Multiplayer)
@@ -620,10 +618,9 @@ func spawnNumber(quant):
 	numble.set_text(quant)
 
 func regenWallCollmasks():
-	if leftWallness.collision_mask != collision_mask:
-		leftWallness.collision_mask = collision_mask
-	if rightWallness.collision_mask != collision_mask:
-		rightWallness.collision_mask = collision_mask
+	leftWallness.collision_mask = collision_mask
+	rightWallness.collision_mask = collision_mask
+
 func is_on_wall_side(side:StringName, sensitive:bool = false):
 	match side:
 		'left':

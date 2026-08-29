@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://06bwncarbswa"]
+[gd_scene format=3 uid="uid://06bwncarbswa"]
 
 [ext_resource type="Script" uid="uid://btvfhxu7i86ca" path="res://Menustuffs/OnlineMenu/OnlineMenu.gd" id="1_khr1v"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_khr1v"]
@@ -7,21 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://dc3gp7wgayv4o" path="res://Menustuffs/SaveMenu/SaveBoxOnline.tscn" id="5_yyxvo"]
 [ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="6_nybyn"]
 
-[node name="OnlineMenu" type="Node2D"]
+[node name="OnlineMenu" type="Node2D" unique_id=1476185262]
 script = ExtResource("1_khr1v")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=481748690]
 
-[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1641191938]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_khr1v")]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=1488635126 instance=ExtResource("2_khr1v")]
 position = Vector2(54, 39)
 
-[node name="MidAnchor" type="Control" parent="MenuCanvas"]
+[node name="MidAnchor" type="Control" parent="MenuCanvas" unique_id=144393039]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_isfkt")
 
-[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor"]
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=1469248086]
 layout_mode = 0
 offset_left = -195.0
 offset_top = -165.0
@@ -48,7 +48,7 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 16
 
-[node name="UsernameLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="UsernameLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1405739121]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -157.0
@@ -59,7 +59,7 @@ theme_override_font_sizes/font_size = 18
 text = "multi_username_lbl"
 text_overrun_behavior = 3
 
-[node name="UsrTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="UsrTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=956352769]
 layout_mode = 0
 offset_left = -179.0
 offset_top = -125.0
@@ -70,7 +70,7 @@ theme_override_font_sizes/font_size = 18
 placeholder_text = "Seu \"nickname\""
 caret_blink = true
 
-[node name="ServerLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="ServerLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=138531067]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -85.0
@@ -81,7 +81,7 @@ theme_override_font_sizes/font_size = 18
 text = "multi_server_lbl"
 text_overrun_behavior = 3
 
-[node name="IPTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="IPTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1301192460]
 layout_mode = 0
 offset_left = -179.0
 offset_top = -53.0
@@ -93,7 +93,7 @@ text = "127.0.0.1"
 placeholder_text = "Endereço IP"
 caret_blink = true
 
-[node name="PortTxt" type="TextEdit" parent="MenuCanvas/MidAnchor"]
+[node name="PortTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=391970409]
 layout_mode = 0
 offset_left = 145.0
 offset_top = -53.0
@@ -105,7 +105,7 @@ text = "7000"
 placeholder_text = "Porta"
 caret_blink = true
 
-[node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor"]
+[node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=855852197]
 layout_mode = 0
 offset_left = -180.0
 offset_top = -6.0
@@ -116,10 +116,10 @@ theme_override_font_sizes/font_size = 18
 text = "multi_localsave_lbl"
 text_overrun_behavior = 3
 
-[node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" instance=ExtResource("5_yyxvo")]
+[node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" unique_id=648693147 instance=ExtResource("5_yyxvo")]
 position = Vector2(-171, 27)
 
-[node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor"]
+[node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1687371485]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 148.0
@@ -127,16 +127,33 @@ offset_right = 216.0
 offset_bottom = 190.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_isfkt")
-theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
-theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
 theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
 theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
 theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
 theme_override_font_sizes/font_size = 18
 text = "multi_join_btn"
 
-[node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor"]
+[node name="ServersButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1153391945]
+layout_mode = 0
+offset_left = -161.0
+offset_top = 207.0
+offset_right = 208.0
+offset_bottom = 249.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_isfkt")
+theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
+theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
+theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
+theme_override_font_sizes/font_size = 18
+text = "Ver lista de servidores públicos"
+
+[node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=2033928814]
 layout_mode = 0
 offset_left = -175.0
 offset_top = 148.0
@@ -145,16 +162,16 @@ offset_bottom = 190.0
 tooltip_text = "multi_host_btn_popup"
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_isfkt")
-theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
-theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
 theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
 theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
 theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
 theme_override_font_sizes/font_size = 18
 text = "multi_host_btn"
 
-[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=331748673]
 visible = false
 layout_mode = 3
 anchors_preset = 3
@@ -167,11 +184,11 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor"]
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor" unique_id=1555423432]
 position = Vector2(-36, 0)
 texture = ExtResource("6_nybyn")
 
-[node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=1263478595]
 visible = false
 self_modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
@@ -186,4 +203,5 @@ mouse_filter = 2
 [connection signal="text_changed" from="MenuCanvas/MidAnchor/UsrTxt" to="." method="_on_usrtxt_text_changed"]
 [connection signal="onClicked" from="MenuCanvas/MidAnchor/SaveBoxOnline" to="." method="savebox_click"]
 [connection signal="pressed" from="MenuCanvas/MidAnchor/JoinButt" to="." method="on_join"]
+[connection signal="pressed" from="MenuCanvas/MidAnchor/ServersButt" to="." method="on_serverlist"]
 [connection signal="pressed" from="MenuCanvas/MidAnchor/HostButt" to="." method="on_host"]

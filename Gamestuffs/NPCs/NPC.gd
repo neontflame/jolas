@@ -25,7 +25,7 @@ func _body_exited(body: Node2D) -> void:
 func _physics_process(delta: float) -> void:
 	$InteractText.visible = canTalk
 	
-	if canTalk:
+	if canTalk and not GPStats.charObject.mayGrabItem:
 		if Input.is_action_just_pressed("ctrl_interact"):
 			playDialogue()
 			talkedTo = true

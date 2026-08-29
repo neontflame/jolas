@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dpn4bk7w2bk3i"]
+[gd_scene format=3 uid="uid://dpn4bk7w2bk3i"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_pwpvx"]
 [ext_resource type="Script" uid="uid://bysn73mcwwj6e" path="res://Playerstuffs/Characters/Neon/Scripts/playerNeon.gd" id="2_ewxw4"]
@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_skd0q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"battleSpin",
 "speed": 12.0
 }, {
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_0nyvt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"brake",
 "speed": 5.0
 }, {
@@ -79,7 +79,7 @@ animations = [{
 "duration": 12.0,
 "texture": ExtResource("16_jagvf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_edtyq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hurt",
 "speed": 12.0
 }, {
@@ -101,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_3gnpl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -118,7 +118,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_kyjxy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 24.0
 }, {
@@ -129,7 +129,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_4ifrj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"specialBounceback",
 "speed": 12.0
 }, {
@@ -137,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_k2kvf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"specialCharge",
 "speed": 5.0
 }, {
@@ -151,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_daf5h")
 }],
-"loop": true,
+"loop": 1,
 "name": &"specialGo",
 "speed": 24.0
 }, {
@@ -168,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_wen5m")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 24.0
 }]
@@ -176,46 +176,46 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyp1u"]
 size = Vector2(119, 39)
 
-[node name="Player" instance=ExtResource("1_pwpvx")]
+[node name="Player" unique_id=1699838645 instance=ExtResource("1_pwpvx")]
 script = ExtResource("2_ewxw4")
 ATTACK_DMG = Dictionary[String, float]({
 "default": 3.0
 })
 
-[node name="StateMachine" parent="." index="0"]
+[node name="StateMachine" parent="." index="0" unique_id=1536097381]
 script = ExtResource("3_0onri")
 
-[node name="Default" parent="StateMachine" index="0"]
+[node name="Default" parent="StateMachine" index="0" unique_id=379171175]
 script = ExtResource("4_8244u")
 
-[node name="Floor" parent="StateMachine" index="1"]
+[node name="Floor" parent="StateMachine" index="1" unique_id=1326715689]
 script = ExtResource("4_shed0")
 
-[node name="Air" parent="StateMachine" index="2"]
+[node name="Air" parent="StateMachine" index="2" unique_id=521348263]
 script = ExtResource("3_asxp3")
 
-[node name="ExtraState" type="Node" parent="StateMachine" index="3"]
+[node name="ExtraState" type="Node" parent="StateMachine" index="3" unique_id=1120351662]
 script = ExtResource("5_k3kgu")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=912736551]
 scale = Vector2(0.46, 0.68)
 
-[node name="LeftWallness" parent="CollisionShape2D" index="0"]
+[node name="LeftWallness" parent="CollisionShape2D" index="0" unique_id=1910455013]
 collision_mask = 3
 
-[node name="RightWallness" parent="CollisionShape2D" index="1"]
+[node name="RightWallness" parent="CollisionShape2D" index="1" unique_id=1737281280]
 collision_mask = 3
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
 animation = &"default"
 frame_progress = 0.245725
 
-[node name="MultiplayerName" parent="." index="6"]
+[node name="MultiplayerName" parent="." index="6" unique_id=31252319]
 offset_top = -77.0
 offset_bottom = -37.0
 
-[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7"]
+[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7" unique_id=908286239]
 position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_nyp1u")
 disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv0kwtpveitw3"]
+[gd_scene format=3 uid="uid://bv0kwtpveitw3"]
 
 [ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/state_pattern.gd" id="3_auq01"]
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"battleSpin",
 "speed": 5.0
 }, {
@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"brake",
 "speed": 5.0
 }, {
@@ -38,7 +38,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -46,7 +46,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hurt",
 "speed": 24.0
 }, {
@@ -54,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": false,
+"loop": 0,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -62,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 24.0
 }, {
@@ -70,7 +70,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_wxeps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 24.0
 }]
@@ -128,7 +128,7 @@ properties/16/path = NodePath(".:invulnFrames")
 properties/16/spawn = true
 properties/16/replication_mode = 2
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_collisions", "sfx_player", "multiplayerName", "coolCamera", "hitboxCoisos", "leftWallness", "rightWallness", "plySprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1161425286 node_paths=PackedStringArray("player_collisions", "sfx_player", "multiplayerName", "coolCamera", "hitboxCoisos", "leftWallness", "rightWallness", "plySprite")]
 collision_layer = 2
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -147,26 +147,26 @@ leftWallness = NodePath("CollisionShape2D/LeftWallness")
 rightWallness = NodePath("CollisionShape2D/RightWallness")
 plySprite = NodePath("AnimatedSprite2D")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1536097381]
 script = ExtResource("13_ld8br")
 
-[node name="Default" type="Node" parent="StateMachine"]
+[node name="Default" type="Node" parent="StateMachine" unique_id=379171175]
 script = ExtResource("3_auq01")
 metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
 
-[node name="Floor" type="Node" parent="StateMachine"]
+[node name="Floor" type="Node" parent="StateMachine" unique_id=1326715689]
 script = ExtResource("14_mv4eb")
 
-[node name="Air" type="Node" parent="StateMachine"]
+[node name="Air" type="Node" parent="StateMachine" unique_id=521348263]
 script = ExtResource("15_axjgi")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=834863810]
 script = ExtResource("5_axjgi")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine" unique_id=241346284]
 script = ExtResource("6_43xdi")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1587177805]
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -174,32 +174,32 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912736551]
 position = Vector2(-2.5, 2)
 shape = SubResource("RectangleShape2D_cvnsp")
 
-[node name="LeftWallness" type="ShapeCast2D" parent="CollisionShape2D"]
+[node name="LeftWallness" type="ShapeCast2D" parent="CollisionShape2D" unique_id=1910455013]
 position = Vector2(2.5, -2)
 shape = SubResource("RectangleShape2D_auq01")
 target_position = Vector2(-64, 0)
 
-[node name="RightWallness" type="ShapeCast2D" parent="CollisionShape2D"]
+[node name="RightWallness" type="ShapeCast2D" parent="CollisionShape2D" unique_id=1737281280]
 position = Vector2(2.5, -2)
 shape = SubResource("RectangleShape2D_auq01")
 target_position = Vector2(64, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1389142644]
 position = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_rtyar")
 animation = &"battleSpin"
 
-[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1856957917]
 bus = &"SFX"
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=565964858]
 replication_config = SubResource("SceneReplicationConfig_uawoe")
 
-[node name="MultiplayerName" type="RichTextLabel" parent="."]
+[node name="MultiplayerName" type="RichTextLabel" parent="." unique_id=31252319]
 visible = false
 offset_left = -93.0
 offset_top = -93.0
@@ -213,4 +213,4 @@ bbcode_enabled = true
 text = "nome de usuario"
 horizontal_alignment = 1
 
-[node name="HitboxCoisos" type="Node2D" parent="."]
+[node name="HitboxCoisos" type="Node2D" parent="." unique_id=680730754]

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://df2371s3snpac"]
+
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="1_emq01"]
+[ext_resource type="Script" uid="uid://c3par5sccko3y" path="res://Menustuffs/OnlineServersMenu/ServerThingie.gd" id="1_uy1wd"]
+
+[node name="ServerThingie" type="Control" unique_id=1999078359]
+custom_minimum_size = Vector2(567, 32)
+custom_maximum_size = Vector2(567, -1)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uy1wd")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1920093717]
+self_modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(295.24988, 13)
+scale = Vector2(9.304689, 0.59375)
+texture = ExtResource("1_emq01")
+
+[node name="Ip" type="Label" parent="." unique_id=876095856]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 112.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.42000002)
+text = "255.255.255.255:25555"
+
+[node name="Indicator" type="Label" parent="." unique_id=763754323]
+layout_mode = 0
+offset_left = 548.0
+offset_right = 561.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0.4649247, 0.86397636, 1, 1)
+text = "M"
+horizontal_alignment = 2
+
+[node name="nomecoiso" type="RichTextLabel" parent="." unique_id=972841424]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 346.0
+offset_bottom = 28.0
+bbcode_enabled = true
+text = "Nome do server breh!"
+fit_content = true
+autowrap_mode = 0

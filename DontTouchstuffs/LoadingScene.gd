@@ -2,12 +2,13 @@ extends Node2D
 class_name LoadingScene
 
 static var goToScene:String = "res://Menustuffs/Menu.tscn"
+@export var loadingLabel:Label
 
 var loading_status:int = 0.0
 var progress:Array[float]
 
 func _ready() -> void:
-	$Label3.text = tr("loading") % ("0.0%")
+	loadingLabel.text = tr("loading") % ("0.0%")
 	ResourceLoader.load_threaded_request(LoadingScene.goToScene)
 
 func _process(delta: float) -> void:
@@ -17,7 +18,8 @@ func _process(delta: float) -> void:
 	# Check the loading status:
 	match loading_status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			$Label3.text = tr("loading") % (str(progress[0] * 100) + "%")
+			var progrers = floor(progress[0] * 10000) / 100
+			loadingLabel.text = tr("loading") % (str(progrers) + "%")
 		ResourceLoader.THREAD_LOAD_LOADED:
 			# When done loading, change to the target scene:
 			get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(LoadingScene.goToScene))
