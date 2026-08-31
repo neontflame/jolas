@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		if selectedThing:
-			goToGame(selectedThing.metadata["ip"])
+			goToGame(selectedThing.metadata["ip"], selectedThing.metadata["port"])
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		CoolMenu.play_sfx('Back')
@@ -54,8 +54,9 @@ func _process(delta: float) -> void:
 
 var mapToGoTo := ''
 
-func goToGame(ip:String):
+func goToGame(ip:String, port:int):
 	OnlineUtils.ipEntered = ip
+	OnlineUtils.portEntered = port
 	GPStats.is_hosting = false
 	
 	canControl = false
@@ -98,7 +99,7 @@ func requestDone(result: int, response_code: int, headers: PackedStringArray, bo
 			servContainer.add_child(newServy)
 			newServy.setup(whichOne, server)
 			newServy.heyImPressed.connect(func(id, metadata):
-				goToGame(metadata.ip)
+				goToGame(metadata.ip, metadata.port)
 			)
 			whichOne += 1
 		

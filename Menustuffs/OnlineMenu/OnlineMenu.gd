@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 	OnlineUtils.portEntered = int($MenuCanvas/MidAnchor/PortTxt.text)
 	OnlineUtils.serverName = $MenuCanvas/MidAnchor/SrvNameTxt.text
 	
-	MultiplayerMayhem.PORT = OnlineUtils.portEntered
 	MultiplayerMayhem.player_info["name"] = OnlineUtils.username
 	
 	if $MenuCanvas/MidAnchor/UsrTxt.text != '' && $MenuCanvas/MidAnchor/IPTxt.text != '':

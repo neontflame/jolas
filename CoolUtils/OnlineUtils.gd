@@ -7,7 +7,6 @@ var username:String = ''
 var serverName:String = ''
 
 func _ready() -> void:
-	MultiplayerMayhem.PORT = portEntered
 	MultiplayerMayhem.player_info["name"] = username
 	$HTTPRequest.request_completed.connect(func(result, response_code, headers, body):
 		print(body.get_string_from_utf8())
