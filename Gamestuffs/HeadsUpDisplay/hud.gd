@@ -43,7 +43,7 @@ func _ready() -> void:
 	comboText.position.y = -64.0
 	
 	while GPStats.charObject == null:
-		await get_tree().process_frame
+		await SpecificAutoloadForSpecificReasons.get_tree().process_frame
 	if GPStats.charObject:
 		print("[HUD] sinais prontos")
 		GPStats.charObject.comboIncrease.connect(show_combo_hud)

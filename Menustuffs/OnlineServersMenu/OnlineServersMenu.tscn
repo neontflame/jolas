@@ -63,48 +63,13 @@ theme_override_font_sizes/font_size = 18
 text = "Lista de servidores"
 text_overrun_behavior = 3
 
-[node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=114843413]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 148.0
-offset_right = 317.0
-offset_bottom = 190.0
-mouse_default_cursor_shape = 2
-theme = ExtResource("3_00hqq")
-theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
-theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
-theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
-theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
-theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
-theme_override_font_sizes/font_size = 18
-text = "multi_join_btn"
-
-[node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1333023246]
-layout_mode = 0
-offset_left = -244.0
-offset_top = 148.0
-offset_right = 19.0
-offset_bottom = 190.0
-tooltip_text = "multi_host_btn_popup"
-mouse_default_cursor_shape = 2
-theme = ExtResource("3_00hqq")
-theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
-theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
-theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
-theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
-theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
-theme_override_font_sizes/font_size = 18
-text = "multi_host_btn"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor" unique_id=1927981863]
 custom_minimum_size = Vector2(567, 0)
 layout_mode = 0
 offset_left = -251.0
 offset_top = -130.0
 offset_right = 316.0
-offset_bottom = 139.0
+offset_bottom = 194.0
 
 [node name="ServContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ScrollContainer" unique_id=1020733375]
 layout_mode = 2
@@ -142,6 +107,3 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [connection signal="request_completed" from="ServRequest" to="." method="requestDone"]
-[connection signal="pressed" from="MenuCanvas/MidAnchor/JoinButt" to="." method="on_join"]
-[connection signal="button_down" from="MenuCanvas/MidAnchor/HostButt" to="." method="_on_host_butt_button_down"]
-[connection signal="pressed" from="MenuCanvas/MidAnchor/HostButt" to="." method="on_host"]

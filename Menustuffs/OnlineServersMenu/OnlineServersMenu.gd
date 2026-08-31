@@ -55,11 +55,7 @@ func _process(delta: float) -> void:
 var mapToGoTo := ''
 
 func goToGame(ip:String):
-	var eep = ip.replace("::1", "127.0.0.1")
-	eep = eep.replace("localhost", "127.0.0.1")
-	eep = eep.split(":")[0]
-	
-	OnlineUtils.ipEntered = eep
+	OnlineUtils.ipEntered = ip
 	GPStats.is_hosting = false
 	
 	canControl = false
@@ -101,6 +97,9 @@ func requestDone(result: int, response_code: int, headers: PackedStringArray, bo
 			var newServy = load("res://Menustuffs/OnlineServersMenu/ServerThingie.tscn").instantiate()
 			servContainer.add_child(newServy)
 			newServy.setup(whichOne, server)
+			newServy.heyImPressed.connect(func(id, metadata):
+				goToGame(metadata.ip)
+			)
 			whichOne += 1
 		
 		CoolMenu.maxSelected = len(coolDicts.servers)

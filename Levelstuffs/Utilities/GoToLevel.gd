@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if triggeredGoto: return
 	if JolasGame.isChangingMap: return
 	
-	if body is PlayerObject:
+	if body is PlayerObject and body == GPStats.charObject:
 		print('[GoToLevel] vai ' + whereToGo)
 		JolasGame.isChangingMap = true
 		if body.get_multi_status():

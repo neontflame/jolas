@@ -11,6 +11,7 @@ func _enter_tree() -> void:
 	$MenuCanvas/MidAnchor/UsrTxt.text = SaveUtils.get_online_info()['name']
 	$MenuCanvas/MidAnchor/IPTxt.text = SaveUtils.get_online_info()['ip']
 	$MenuCanvas/MidAnchor/PortTxt.text = str(int(SaveUtils.get_online_info()['port']))
+	$MenuCanvas/MidAnchor/SrvNameTxt.text = SaveUtils.get_online_info()['serverName']
 	
 	if !GPStats.is_multiplayer:
 		GPStats.saveNum = SaveUtils.get_online_info()['saveSlot']
@@ -31,9 +32,12 @@ func _process(delta: float) -> void:
 		SaveUtils.save_online()
 		change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 	
+	$MenuCanvas/MidAnchor/SrvNameTxt.placeholder_text = "Servidor de " + $MenuCanvas/MidAnchor/UsrTxt.text
+	
 	OnlineUtils.username = $MenuCanvas/MidAnchor/UsrTxt.text
 	OnlineUtils.ipEntered = $MenuCanvas/MidAnchor/IPTxt.text
 	OnlineUtils.portEntered = int($MenuCanvas/MidAnchor/PortTxt.text)
+	OnlineUtils.serverName = $MenuCanvas/MidAnchor/SrvNameTxt.text
 	
 	MultiplayerMayhem.PORT = OnlineUtils.portEntered
 	MultiplayerMayhem.player_info["name"] = OnlineUtils.username

@@ -1,9 +1,10 @@
 extends Node
 
-var masterServer:String = 'http://jolasms.localhost'
+var masterServer:String = 'https://neontflame.especulamente.com.br/jolas/ms'
 var ipEntered:String = '127.0.0.1'
 var portEntered:int = 7000
 var username:String = ''
+var serverName:String = ''
 
 func _ready() -> void:
 	MultiplayerMayhem.PORT = portEntered
@@ -21,8 +22,10 @@ func sendServerHeartbeat():
 		if len(GameUtils.loadedModsFolderless) > modIndex:
 			loadedModsStringed += "\n"
 		modIndex += 1
-	
-	var nomeServidor = 'Server de ' + username
+		
+	var nomeServidor = serverName
+	if serverName == '':
+		nomeServidor = 'Servidor de ' + username
 	
 	var heartbeatUrl = "%s/heartbeat.php?port=%s&nome=%s" % [
 		masterServer,

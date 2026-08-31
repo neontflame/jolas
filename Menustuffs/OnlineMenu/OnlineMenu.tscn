@@ -39,9 +39,9 @@ theme = ExtResource("3_isfkt")
 [node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=1469248086]
 layout_mode = 0
 offset_left = -195.0
-offset_top = -165.0
+offset_top = -191.0
 offset_right = 235.0
-offset_bottom = 200.0
+offset_bottom = 261.0
 texture = ExtResource("3_bqvpi")
 patch_margin_left = 20
 patch_margin_top = 28
@@ -51,9 +51,9 @@ patch_margin_bottom = 16
 [node name="UsernameLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1405739121]
 layout_mode = 0
 offset_left = -180.0
-offset_top = -157.0
+offset_top = -173.0
 offset_right = 217.0
-offset_bottom = -127.0
+offset_bottom = -143.0
 theme = ExtResource("3_isfkt")
 theme_override_font_sizes/font_size = 18
 text = "multi_username_lbl"
@@ -62,9 +62,9 @@ text_overrun_behavior = 3
 [node name="UsrTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=956352769]
 layout_mode = 0
 offset_left = -179.0
-offset_top = -125.0
+offset_top = -147.0
 offset_right = 217.0
-offset_bottom = -98.0
+offset_bottom = -120.0
 theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 18
 placeholder_text = "Seu \"nickname\""
@@ -73,9 +73,9 @@ caret_blink = true
 [node name="ServerLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=138531067]
 layout_mode = 0
 offset_left = -180.0
-offset_top = -85.0
+offset_top = -115.0
 offset_right = 217.0
-offset_bottom = -55.0
+offset_bottom = -85.0
 theme = ExtResource("3_isfkt")
 theme_override_font_sizes/font_size = 18
 text = "multi_server_lbl"
@@ -84,9 +84,9 @@ text_overrun_behavior = 3
 [node name="IPTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1301192460]
 layout_mode = 0
 offset_left = -179.0
-offset_top = -53.0
+offset_top = -89.0
 offset_right = 139.0
-offset_bottom = -26.0
+offset_bottom = -62.0
 theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 18
 text = "127.0.0.1"
@@ -96,35 +96,56 @@ caret_blink = true
 [node name="PortTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=391970409]
 layout_mode = 0
 offset_left = 145.0
-offset_top = -53.0
+offset_top = -89.0
 offset_right = 217.0
-offset_bottom = -26.0
+offset_bottom = -62.0
 theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 18
 text = "7000"
 placeholder_text = "Porta"
 caret_blink = true
 
+[node name="ServerNameLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=440484506]
+layout_mode = 0
+offset_left = -180.0
+offset_top = -59.0
+offset_right = 217.0
+offset_bottom = -29.0
+theme = ExtResource("3_isfkt")
+theme_override_font_sizes/font_size = 18
+text = "multi_server_lbl"
+text_overrun_behavior = 3
+
+[node name="SrvNameTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1579530164]
+layout_mode = 0
+offset_left = -179.0
+offset_top = -27.0
+offset_right = 217.0
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Servidor de [nickname]"
+caret_blink = true
+
 [node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=855852197]
 layout_mode = 0
 offset_left = -180.0
-offset_top = -6.0
+offset_top = 10.0
 offset_right = 217.0
-offset_bottom = 24.0
+offset_bottom = 40.0
 theme = ExtResource("3_isfkt")
 theme_override_font_sizes/font_size = 18
 text = "multi_localsave_lbl"
 text_overrun_behavior = 3
 
 [node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" unique_id=648693147 instance=ExtResource("5_yyxvo")]
-position = Vector2(-171, 27)
+position = Vector2(-171, 43)
 
 [node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1687371485]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 148.0
+offset_top = 164.0
 offset_right = 216.0
-offset_bottom = 190.0
+offset_bottom = 206.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_isfkt")
 theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
@@ -138,10 +159,10 @@ text = "multi_join_btn"
 
 [node name="ServersButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1153391945]
 layout_mode = 0
-offset_left = -161.0
-offset_top = 207.0
-offset_right = 208.0
-offset_bottom = 249.0
+offset_left = -174.0
+offset_top = 209.0
+offset_right = 213.0
+offset_bottom = 251.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_isfkt")
 theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
@@ -156,9 +177,9 @@ text = "Ver lista de servidores públicos"
 [node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=2033928814]
 layout_mode = 0
 offset_left = -175.0
-offset_top = 148.0
+offset_top = 164.0
 offset_right = 19.0
-offset_bottom = 190.0
+offset_bottom = 206.0
 tooltip_text = "multi_host_btn_popup"
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_isfkt")
@@ -201,6 +222,9 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [connection signal="text_changed" from="MenuCanvas/MidAnchor/UsrTxt" to="." method="_on_usrtxt_text_changed"]
+[connection signal="text_changed" from="MenuCanvas/MidAnchor/IPTxt" to="." method="_on_usrtxt_text_changed"]
+[connection signal="text_changed" from="MenuCanvas/MidAnchor/PortTxt" to="." method="_on_usrtxt_text_changed"]
+[connection signal="text_changed" from="MenuCanvas/MidAnchor/SrvNameTxt" to="." method="_on_usrtxt_text_changed"]
 [connection signal="onClicked" from="MenuCanvas/MidAnchor/SaveBoxOnline" to="." method="savebox_click"]
 [connection signal="pressed" from="MenuCanvas/MidAnchor/JoinButt" to="." method="on_join"]
 [connection signal="pressed" from="MenuCanvas/MidAnchor/ServersButt" to="." method="on_serverlist"]

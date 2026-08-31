@@ -5,6 +5,8 @@ var id:int = 0
 var selected:bool = false
 var metadata:Dictionary = {}
 
+signal heyImPressed(id:int, metadata:Dictionary)
+
 func setup(_id:int, dic:Dictionary):
 	id = _id
 	metadata = dic
@@ -30,3 +32,6 @@ func is_moused():
 
 func un_moused():
 	CoolMenu.curSelected = -1
+
+func _on_join_butt_pressed() -> void:
+	heyImPressed.emit(id, metadata)
