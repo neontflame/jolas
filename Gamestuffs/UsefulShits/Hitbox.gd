@@ -29,7 +29,7 @@ func setUp(_owner:Node2D, _scale:Vector2, _damage:float, _knockback:float, _knoc
 	while knockAngle < 0.0:
 		knockAngle += 360.0
 	anglery = Vector2.from_angle(deg_to_rad(knockAngle))
-	print(anglery)
+	# print(anglery)
 	
 	if proprietor.has_method('hitboxes'):
 		proprietor.hitboxes.append(self)

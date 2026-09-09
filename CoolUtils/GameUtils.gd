@@ -10,7 +10,7 @@ static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'Fk
 
 static var majorVersion:int = 0
 static var minorVersion:int = 9
-static var patchVersion:int = 3
+static var patchVersion:int = 4
 static var captionVersion:String = 'Online Test'
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 

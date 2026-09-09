@@ -69,7 +69,7 @@ static func save_online():
 		"ip": OnlineUtils.ipEntered,
 		"port": int(OnlineUtils.portEntered),
 		"serverName": OnlineUtils.serverName,
-		"saveSlot": GPStats.saveNum,
+		"saveSlot": GPStats.saveSlot,
 		"char": GPStats.char
 	}
 	

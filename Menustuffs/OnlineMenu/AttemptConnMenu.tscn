@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cmwvya85ubidk"]
+
+[ext_resource type="Script" uid="uid://bsixxeaio436h" path="res://Menustuffs/OnlineMenu/AttemptConnMenu.gd" id="1_aq5e8"]
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_mr2yi"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_bevjy"]
+[ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_xoa1t"]
+[ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="6_x8qrm"]
+
+[node name="AttemptConnMenu" type="Node2D" unique_id=1476185262 node_paths=PackedStringArray("testingLabel")]
+script = ExtResource("1_aq5e8")
+testingLabel = NodePath("MenuCanvas/MidAnchor/TestLabel")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=481748690]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1641191938]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=380236689 instance=ExtResource("2_mr2yi")]
+position = Vector2(54, 39)
+
+[node name="MidAnchor" type="Control" parent="MenuCanvas" unique_id=144393039]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_bevjy")
+
+[node name="DipshitDescBox" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=1469248086]
+layout_mode = 0
+offset_left = -195.0
+offset_top = -31.0
+offset_right = 235.0
+offset_bottom = 134.0
+texture = ExtResource("4_xoa1t")
+patch_margin_left = 20
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 16
+
+[node name="TestLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1405739121]
+layout_mode = 0
+offset_left = -180.0
+offset_top = -18.0
+offset_right = 217.0
+offset_bottom = 121.0
+theme = ExtResource("3_bevjy")
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 18
+text = "Tentando conexão
+Something something ip aqui"
+autowrap_mode = 1
+text_overrun_behavior = 3
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=331748673]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor" unique_id=1555423432]
+position = Vector2(-36, 0)
+texture = ExtResource("6_x8qrm")
+
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=1263478595]
+visible = false
+self_modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

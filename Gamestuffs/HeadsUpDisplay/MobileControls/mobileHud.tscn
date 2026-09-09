@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://4rudnxugxis"]
+
+[ext_resource type="Script" uid="uid://t50srk1g44wm" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/mobileHud.gd" id="1_vdbb0"]
+[ext_resource type="Texture2D" uid="uid://c7111rd0noquj" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/analogBg.png" id="2_gyr5x"]
+[ext_resource type="Texture2D" uid="uid://nx4dvg7wq4el" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/AnalogicoMovivelSolto.png" id="3_y6fjq"]
+[ext_resource type="Texture2D" uid="uid://doxjuex830gub" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/AnalogicoMovivelPress.png" id="4_rm4mg"]
+[ext_resource type="Texture2D" uid="uid://cplkd4aew8hml" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao1Solto.png" id="5_mhgbf"]
+[ext_resource type="Texture2D" uid="uid://n7dr7lwkajne" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao1Press0002.png" id="6_gf455"]
+[ext_resource type="Texture2D" uid="uid://dtvdyfkyc7c87" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Solto.png" id="7_iq27y"]
+[ext_resource type="Texture2D" uid="uid://bux8o3ix7ds4y" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Botao2Press0002.png" id="8_ij5hd"]
+[ext_resource type="Texture2D" uid="uid://b4yrafr4bjeiw" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoASolto.png" id="9_7ya7m"]
+[ext_resource type="Texture2D" uid="uid://cm02ub2btmt60" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoAPress0002.png" id="10_nckhu"]
+[ext_resource type="Texture2D" uid="uid://cxu8oicc5t06i" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoPause.png" id="11_bqwjl"]
+[ext_resource type="Texture2D" uid="uid://b17ubm0t0wq8v" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/BotaoChat.png" id="12_lheuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3ls3"]
+size = Vector2(94.46, 63.055)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsonh"]
+texture = ExtResource("2_gyr5x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qm433"]
+texture = ExtResource("3_y6fjq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to60a"]
+texture = ExtResource("2_gyr5x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvy4v"]
+texture = ExtResource("4_rm4mg")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpa0y"]
+radius = 45.93
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3ls3"]
+radius = 36.95
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuu8i"]
+size = Vector2(44.82, 44.695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nc1wm"]
+size = Vector2(56.395, 44.695)
+
+[node name="MobileControlShits" type="Node" unique_id=513033774]
+script = ExtResource("1_vdbb0")
+
+[node name="MobileTopLeft" type="Control" parent="." unique_id=785508956]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="QuestsButton" type="TouchScreenButton" parent="MobileTopLeft" unique_id=980718115]
+position = Vector2(47, 136)
+shape = SubResource("RectangleShape2D_s3ls3")
+action = "ctrl_quests"
+
+[node name="InventoryButton" type="TouchScreenButton" parent="MobileTopLeft" unique_id=399798611]
+position = Vector2(47, 211)
+shape = SubResource("RectangleShape2D_s3ls3")
+action = "ctrl_inventory"
+
+[node name="MobileDownLeft" type="Control" parent="." unique_id=508068930]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="VirtualJoystick" type="VirtualJoystick" parent="MobileDownLeft" unique_id=207783221]
+layout_mode = 0
+offset_left = 86.0
+offset_top = -72.0
+offset_right = 126.0
+offset_bottom = -32.0
+theme_override_styles/normal_joystick = SubResource("StyleBoxTexture_hsonh")
+theme_override_styles/normal_tip = SubResource("StyleBoxTexture_qm433")
+theme_override_styles/pressed_joystick = SubResource("StyleBoxTexture_to60a")
+theme_override_styles/pressed_tip = SubResource("StyleBoxTexture_rvy4v")
+joystick_size = 115.0
+tip_size = 87.0
+action_left = &"ctrl_left"
+action_right = &"ctrl_right"
+action_up = &"ctrl_up"
+action_down = &"ctrl_down"
+
+[node name="MobileDownRight" type="Control" parent="." unique_id=469603225]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="1Button" type="TouchScreenButton" parent="MobileDownRight" unique_id=1792363527]
+position = Vector2(-172, -57)
+texture_normal = ExtResource("5_mhgbf")
+texture_pressed = ExtResource("6_gf455")
+shape = SubResource("CircleShape2D_lpa0y")
+action = "ctrl_1"
+
+[node name="2Button" type="TouchScreenButton" parent="MobileDownRight" unique_id=1129506651]
+position = Vector2(-82, -110)
+texture_normal = ExtResource("7_iq27y")
+texture_pressed = ExtResource("8_ij5hd")
+shape = SubResource("CircleShape2D_lpa0y")
+action = "ctrl_2"
+
+[node name="AButton" type="TouchScreenButton" parent="MobileDownRight" unique_id=569673180]
+position = Vector2(-171, -145)
+texture_normal = ExtResource("9_7ya7m")
+texture_pressed = ExtResource("10_nckhu")
+shape = SubResource("CircleShape2D_s3ls3")
+action = "ctrl_interact"
+
+[node name="MobileTopRight" type="Control" parent="." unique_id=1604276094]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="PauseButton" type="TouchScreenButton" parent="MobileTopRight" unique_id=2047075969]
+position = Vector2(-12, 12)
+texture_normal = ExtResource("11_bqwjl")
+shape = SubResource("RectangleShape2D_tuu8i")
+action = "ctrl_pause"
+
+[node name="ChatButton" type="TouchScreenButton" parent="MobileTopRight" unique_id=262230502]
+position = Vector2(-26, 62)
+texture_normal = ExtResource("12_lheuo")
+shape = SubResource("RectangleShape2D_nc1wm")
+action = "ctrl_online_chat"

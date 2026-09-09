@@ -36,7 +36,7 @@ func _ready() -> void:
 		canvasLayer.add_child(customHUD.instantiate())
 	
 	if GameUtils.isMobile:
-		var mobHUD = load("res://Gamestuffs/HeadsUpDisplay/mobileHud.tscn")
+		var mobHUD = load("res://Gamestuffs/HeadsUpDisplay/MobileControls/mobileHud.tscn")
 		canvasLayer.add_child(mobHUD.instantiate())
 		comboText.position.x -= 51.0
 	

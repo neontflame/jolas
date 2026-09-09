@@ -24,6 +24,7 @@ var player_info = 	{
 					"char": GPStats.char,
 					"loaded-mods": GameUtils.loadedMods,
 					"loaded-mods-folderless": GameUtils.loadedModsFolderless,
+					"connTest": false
 					}
 					
 var players_loaded = 0
@@ -48,6 +49,7 @@ func join_game(address = ""):
 	multiplayer.multiplayer_peer = peer
 
 func create_game():
+	OnlineUtils.setupUPNPThreaded()
 	var peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(OnlineUtils.portEntered, MAX_CONNECTIONS)
 	if error:
@@ -104,7 +106,7 @@ func _register_player(new_player_info):
 	player_connected.emit(new_player_id, new_player_info)
 
 func _on_player_disconnected(id):
-	if not players[id]["name"] == '':
+	if (not players[id]["name"] == '') and (not players[id]["connTest"]):
 		rpc('_player_send_msg', id, players[id]["name"] + ' saiu da sala\n')
 	players.erase(id)
 	player_disconnected.emit(id)
@@ -114,6 +116,7 @@ func _on_connected_ok():
 	players[peer_id] = player_info
 	player_connected.emit(peer_id, player_info)
 	if player_info["name"] == '': return
+	if player_info["connTest"]: return
 	rpc('_player_send_msg', peer_id, player_info["name"] + ' entrou na sala\n')
 
 

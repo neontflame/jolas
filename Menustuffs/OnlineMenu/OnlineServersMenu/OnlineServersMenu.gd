@@ -5,6 +5,7 @@ var canControl:bool = true
 
 @export var servRequest:HTTPRequest
 @export var servContainer:VBoxContainer
+@export var infoLabel:Label
 var selectedThing
 
 func _ready() -> void:
@@ -14,11 +15,11 @@ func _ready() -> void:
 
 func _enter_tree() -> void:
 	if !GPStats.is_multiplayer:
-		GPStats.saveNum = SaveUtils.get_online_info()['saveSlot']
+		GPStats.saveSlot = SaveUtils.get_online_info()['saveSlot']
 		GPStats.char = SaveUtils.get_online_info()['char']
 	GPStats.is_multiplayer = true
 	
-	$MenuCanvas/MidAnchor/ServlistLabel.text = "Lista de servidores (%s)" % OnlineUtils.masterServer
+	$MenuCanvas/MidAnchor/MSAddress.text = OnlineUtils.masterServer
 
 func _process(delta: float) -> void:
 	if !canControl: return
@@ -32,20 +33,22 @@ func _process(delta: float) -> void:
 	if CoolMenu.curSelected == -1:
 		selectedThing = null
 	
-	if Input.is_action_just_pressed("ui_down"):
-		CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
-		$MenuCanvas/MidAnchor/ScrollContainer.scroll_vertical = servContainer.get_children()[CoolMenu.curSelected].position.y
-		CoolMenu.play_sfx('Tick')
-	
-	if Input.is_action_just_pressed("ui_up"):
-		CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
-		$MenuCanvas/MidAnchor/ScrollContainer.scroll_vertical = servContainer.get_children()[CoolMenu.curSelected].position.y
-		CoolMenu.play_sfx('Tick')
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		if selectedThing:
-			goToGame(selectedThing.metadata["ip"], selectedThing.metadata["port"])
-	
+	if len(servContainer.get_children()) > 0:
+		if Input.is_action_just_pressed("ui_down"):
+			CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
+			$MenuCanvas/MidAnchor/ScrollContainer.scroll_vertical = servContainer.get_children()[CoolMenu.curSelected].position.y
+			CoolMenu.play_sfx('Tick')
+		
+		if Input.is_action_just_pressed("ui_up"):
+			CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
+			$MenuCanvas/MidAnchor/ScrollContainer.scroll_vertical = servContainer.get_children()[CoolMenu.curSelected].position.y
+			CoolMenu.play_sfx('Tick')
+		
+		if Input.is_action_just_pressed("ui_accept"):
+			if selectedThing:
+				testConnect(selectedThing.metadata["ip"], selectedThing.metadata["port"])
+				#goToGame(selectedThing.metadata["ip"], selectedThing.metadata["port"])
+		
 	if Input.is_action_just_pressed("ui_cancel"):
 		CoolMenu.play_sfx('Back')
 		change_self_scene('res://Menustuffs/OnlineMenu/OnlineMenu.tscn')
@@ -54,21 +57,27 @@ func _process(delta: float) -> void:
 
 var mapToGoTo := ''
 
+func testConnect(ip:String, port:int):
+	OnlineUtils.ipEntered = ip
+	OnlineUtils.portEntered = floori(port)
+	AttemptConnMenu.prevMenu = "OnlineServersMenu"
+	change_self_scene('res://Menustuffs/OnlineMenu/AttemptConnMenu.tscn')
+
 func goToGame(ip:String, port:int):
 	OnlineUtils.ipEntered = ip
-	OnlineUtils.portEntered = port
+	OnlineUtils.portEntered = floori(port)
 	GPStats.is_hosting = false
 	
 	canControl = false
 	CoolMenu.activeMusicLayers = 0
 	CoolMenu.play_sfx('Go')
 	
-	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:
+	if SaveUtils.get_save_info(GPStats.saveSlot)['new'] == true:
 		mapToGoTo = GameUtils.defaultMap
 	else:
-		mapToGoTo = SaveUtils.get_save_info(GPStats.saveNum)['map']
+		mapToGoTo = SaveUtils.get_save_info(GPStats.saveSlot)['map']
 		
-	GPStats.load_info_from_save(GPStats.saveNum)
+	GPStats.load_info_from_save(GPStats.saveSlot)
 	
 	var coolTweens = create_tween()
 	coolTweens.tween_method(
@@ -83,6 +92,8 @@ func goToGame(ip:String, port:int):
 				)
 
 func requestDone(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	infoLabel.text = "Verificando servidores..."
+	infoLabel.visible = true
 	var coolBodyes:String = ""
 	var coolDicts:Dictionary = {}
 	if result == HTTPRequest.RESULT_SUCCESS:
@@ -94,13 +105,26 @@ func requestDone(result: int, response_code: int, headers: PackedStringArray, bo
 		
 		var whichOne:int = 0
 		for server in coolDicts.servers:
+			server.port = floori(server.port)
 			print('serv: ', server)
-			var newServy = load("res://Menustuffs/OnlineServersMenu/ServerThingie.tscn").instantiate()
+			var newServy = load("res://Menustuffs/OnlineMenu/OnlineServersMenu/ServerThingie.tscn").instantiate()
 			servContainer.add_child(newServy)
 			newServy.setup(whichOne, server)
 			newServy.heyImPressed.connect(func(id, metadata):
-				goToGame(metadata.ip, metadata.port)
+				testConnect(metadata.ip, metadata.port)
 			)
 			whichOne += 1
 		
 		CoolMenu.maxSelected = len(coolDicts.servers)
+	infoLabel.visible = (len(servContainer.get_children()) <= 0)
+	infoLabel.text = "Nenhum servidor aberto por enquanto...\nVerifique novamente mais tarde!"
+
+
+func refreshServers() -> void:
+	infoLabel.text = "Verificando servidores..."
+	infoLabel.visible = true
+	
+	for child in servContainer.get_children():
+		child.free()
+	
+	servRequest.request("%s/servers.php?mods=true" % OnlineUtils.masterServer)

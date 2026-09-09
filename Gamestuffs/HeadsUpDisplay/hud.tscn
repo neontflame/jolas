@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c87scbdosa8xd"]
+[gd_scene format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
 [ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_t1xeu"]
@@ -41,7 +41,7 @@ spacing_glyph = -4
 base_font = ExtResource("9_otgxo")
 spacing_top = -10
 
-[node name="Hud" type="Node2D" node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
+[node name="Hud" type="Node2D" unique_id=1640403116 node_paths=PackedStringArray("canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
 script = ExtResource("1_e0onf")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/PlayerIcon")
@@ -59,16 +59,16 @@ notifsNode = NodePath("CanvasLayer/RightAnchor/Notifs")
 sfxPlayer = NodePath("AudioStreamPlayer")
 onlineElements = NodePath("CanvasLayer/OnlineStuffs")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1422871247]
 layer = 0
 
-[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer"]
+[node name="LevelSquare" type="Sprite2D" parent="CanvasLayer" unique_id=317358273]
 material = SubResource("ShaderMaterial_43w4t")
 use_parent_material = true
 position = Vector2(40, 16)
 texture = ExtResource("3_36asn")
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer"]
+[node name="LevelLabel" type="Label" parent="CanvasLayer" unique_id=32791581]
 offset_left = -38.0
 offset_top = -21.0
 offset_right = 100.0
@@ -79,33 +79,33 @@ theme_override_font_sizes/font_size = 70
 text = "1"
 horizontal_alignment = 1
 
-[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer"]
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer" unique_id=2086198462]
 position = Vector2(62, 65)
 texture = ExtResource("5_t1xeu")
 
-[node name="Bars" type="Node2D" parent="CanvasLayer"]
+[node name="Bars" type="Node2D" parent="CanvasLayer" unique_id=1429147600]
 
-[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
+[node name="HPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=531091576]
 position = Vector2(88, 16)
 texture = ExtResource("6_5ep0j")
 centered = false
 
-[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars"]
+[node name="XPLabel" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=315327197]
 position = Vector2(107, 54)
 texture = ExtResource("7_4f5kr")
 centered = false
 
-[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1024170942]
 position = Vector2(112, 32)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+[node name="XPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=1373063271]
 position = Vector2(128, 64)
 texture = ExtResource("8_piegi")
 centered = false
 
-[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=1826639922]
 offset_left = 112.0
 offset_top = 32.0
 offset_right = 209.0
@@ -116,7 +116,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
+[node name="HPText" type="Label" parent="CanvasLayer/Bars" unique_id=62792426]
 offset_left = 172.0
 offset_top = 21.0
 offset_right = 255.0
@@ -126,7 +126,7 @@ theme_override_font_sizes/font_size = 18
 text = "125/125"
 horizontal_alignment = 2
 
-[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+[node name="XPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=1083414393]
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 225.0
@@ -137,7 +137,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="XPText" type="Label" parent="CanvasLayer/Bars"]
+[node name="XPText" type="Label" parent="CanvasLayer/Bars" unique_id=1293775338]
 offset_left = 188.0
 offset_top = 53.0
 offset_right = 271.0
@@ -147,7 +147,7 @@ theme_override_font_sizes/font_size = 18
 text = "1000/1000"
 horizontal_alignment = 2
 
-[node name="RightAnchor" type="Control" parent="CanvasLayer"]
+[node name="RightAnchor" type="Control" parent="CanvasLayer" unique_id=2033087471]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -156,7 +156,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor"]
+[node name="ComboText" type="RichTextLabel" parent="CanvasLayer/RightAnchor" unique_id=138303399]
 layout_mode = 0
 offset_left = -744.0
 offset_top = -64.0
@@ -168,16 +168,16 @@ bbcode_enabled = true
 text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
 horizontal_alignment = 2
 
-[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor"]
+[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor" unique_id=421777343]
 position = Vector2(40, 96)
 
-[node name="QuestIcon" parent="CanvasLayer" instance=ExtResource("12_5tfyd")]
+[node name="QuestIcon" parent="CanvasLayer" unique_id=819157946 instance=ExtResource("12_5tfyd")]
 position = Vector2(34, 136)
 
-[node name="InventoryIcon" parent="CanvasLayer" instance=ExtResource("13_grt4r")]
+[node name="InventoryIcon" parent="CanvasLayer" unique_id=261802534 instance=ExtResource("13_grt4r")]
 position = Vector2(33, 211)
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1951809224]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -188,11 +188,11 @@ offset_right = 20.0
 offset_bottom = 41.0
 grow_horizontal = 2
 
-[node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("13_fndli")]
+[node name="PlaceInfo" parent="CanvasLayer/Control" unique_id=894254314 instance=ExtResource("13_fndli")]
 visible = false
 position = Vector2(20, 21)
 
-[node name="OnlineStuffs" type="Control" parent="CanvasLayer"]
+[node name="OnlineStuffs" type="Control" parent="CanvasLayer" unique_id=1345113482]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -202,7 +202,7 @@ offset_right = 40.0
 grow_vertical = 0
 theme = ExtResource("14_m2u84")
 
-[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs"]
+[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs" unique_id=312916887]
 visible = false
 layout_mode = 0
 offset_left = 3.0
@@ -214,7 +214,7 @@ theme_override_font_sizes/font_size = 18
 placeholder_text = "Escreva alguma coisa aqui!"
 caret_blink = true
 
-[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs"]
+[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs" unique_id=1605877171]
 visible = false
 layout_mode = 0
 offset_top = -175.0
@@ -229,4 +229,4 @@ scroll_following = true
 vertical_alignment = 2
 justification_flags = 131
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2028784788]

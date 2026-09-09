@@ -25,7 +25,7 @@ func update():
 			
 			JolasGame.instance.fadeIn(1, 
 			func(): 
-				print('ok agora volta')
+				# print('ok agora volta')
 				JolasGame.instance.respawnPlayer() 
 				JolasGame.instance.fadeOut(1)
 				)

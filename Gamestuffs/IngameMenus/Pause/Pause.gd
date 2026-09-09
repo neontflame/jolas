@@ -84,7 +84,7 @@ func doSomething(opt:StringName):
 			await get_tree().create_timer(0.5).timeout
 			change_self_scene('res://Menustuffs/OptionsMenu/OptionsMenu.tscn')
 		'exit':
-			SaveUtils.save_game(GPStats.saveNum)
+			SaveUtils.save_game(GPStats.saveSlot)
 			for hudchild in JolasGame.instance.hud.get_children(true):
 				if hudchild is AudioStreamPlayer\
 				or hudchild is Timer: continue

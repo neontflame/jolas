@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://c4kiyb14h0aq2"]
 
-[ext_resource type="Script" uid="uid://dsxa8u24wkvpt" path="res://Menustuffs/OnlineServersMenu/OnlineServersMenu.gd" id="1_8l0op"]
+[ext_resource type="Script" uid="uid://dsxa8u24wkvpt" path="res://Menustuffs/OnlineMenu/OnlineServersMenu/OnlineServersMenu.gd" id="1_8l0op"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_iw7ay"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_00hqq"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_j0hgo"]
-[ext_resource type="PackedScene" uid="uid://df2371s3snpac" path="res://Menustuffs/OnlineServersMenu/ServerThingie.tscn" id="5_il5vb"]
 [ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="6_xevtg"]
 
-[node name="OnlineServersMenu" type="Node2D" unique_id=1625329292 node_paths=PackedStringArray("servRequest", "servContainer")]
+[node name="OnlineServersMenu" type="Node2D" unique_id=1625329292 node_paths=PackedStringArray("servRequest", "servContainer", "infoLabel")]
 script = ExtResource("1_8l0op")
 servRequest = NodePath("ServRequest")
 servContainer = NodePath("MenuCanvas/MidAnchor/ScrollContainer/ServContainer")
+infoLabel = NodePath("MenuCanvas/MidAnchor/NoServersLol")
 
 [node name="ServRequest" type="HTTPRequest" parent="." unique_id=1744847284]
 
@@ -52,15 +52,60 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 16
 
+[node name="RefreshButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1739849928]
+self_modulate = Color(0.66217554, 1, 0.7287319, 1)
+layout_mode = 0
+offset_left = 257.0
+offset_top = 203.0
+offset_right = 330.0
+offset_bottom = 234.0
+tooltip_text = "multi_host_btn_popup"
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_00hqq")
+theme_override_colors/font_color = Color(0.435192, 0.435192, 0.435192, 1)
+theme_override_colors/font_focus_color = Color(0.222623, 0.30868, 0.496268, 1)
+theme_override_colors/font_pressed_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
+theme_override_font_sizes/font_size = 13
+text = "Recarregar"
+
 [node name="ServlistLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=86997990]
 layout_mode = 0
 offset_left = -245.0
 offset_top = -160.0
-offset_right = 316.0
+offset_right = -96.0
 offset_bottom = -130.0
 theme = ExtResource("3_00hqq")
 theme_override_font_sizes/font_size = 18
 text = "Lista de servidores"
+text_overrun_behavior = 3
+
+[node name="MSAddress" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1428883510]
+layout_mode = 0
+offset_left = -95.0
+offset_top = -156.0
+offset_right = 311.0
+offset_bottom = -135.0
+theme = ExtResource("3_00hqq")
+theme_override_colors/font_color = Color(1, 1, 1, 0.39100003)
+theme_override_font_sizes/font_size = 14
+text = "http://enderecodoms.com"
+text_overrun_behavior = 3
+
+[node name="NoServersLol" type="Label" parent="MenuCanvas/MidAnchor" unique_id=954963659]
+layout_mode = 0
+offset_left = -245.0
+offset_top = -32.0
+offset_right = 316.0
+offset_bottom = 47.0
+theme = ExtResource("3_00hqq")
+theme_override_colors/font_color = Color(1, 1, 1, 0.22700001)
+theme_override_font_sizes/font_size = 24
+text = "Aguarde..."
+horizontal_alignment = 1
+vertical_alignment = 1
 text_overrun_behavior = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor" unique_id=1927981863]
@@ -69,12 +114,9 @@ layout_mode = 0
 offset_left = -251.0
 offset_top = -130.0
 offset_right = 316.0
-offset_bottom = 194.0
+offset_bottom = 191.0
 
 [node name="ServContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ScrollContainer" unique_id=1020733375]
-layout_mode = 2
-
-[node name="Control" parent="MenuCanvas/MidAnchor/ScrollContainer/ServContainer" unique_id=1999078359 instance=ExtResource("5_il5vb")]
 layout_mode = 2
 
 [node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=881577412]
@@ -107,3 +149,4 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [connection signal="request_completed" from="ServRequest" to="." method="requestDone"]
+[connection signal="pressed" from="MenuCanvas/MidAnchor/RefreshButt" to="." method="refreshServers"]

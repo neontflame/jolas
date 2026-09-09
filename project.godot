@@ -35,7 +35,7 @@ config/icon="uid://bep52erpdihdj"
 [autoload]
 
 FpsCounter="*res://DontTouchstuffs/FPSCounter.tscn"
-MultiplayerMayhem="*res://Gamestuffs/Multiplayer/Multiplayer.gd"
+MultiplayerMayhem="*res://Gamestuffs/Multiplayer/MultiplayerMayhem.gd"
 SpecificAutoloadForSpecificReasons="*res://DontTouchstuffs/SpecificAutoloadForSpecificReasons.tscn"
 OnlineUtils="*res://CoolUtils/OnlineUtils.tscn"
 

@@ -1,7 +1,7 @@
 extends Node
 class_name GPStats
 
-static var saveNum := 0
+static var saveSlot := 0
 
 static var char := 'Neon'
 static var xp := 0
@@ -35,8 +35,8 @@ static func process(delta: float) -> void:
 		charObject.hp = ceil(maxHP * hpDifference)
 		charObject.level_up()
 
-static func load_info_from_save(saveNum:int):
-	var save = SaveUtils.get_save_info(saveNum)
+static func load_info_from_save(saveSlot:int):
+	var save = SaveUtils.get_save_info(saveSlot)
 	
 	if save['new'] == true:
 		level = 1

@@ -65,7 +65,7 @@ func handleRocketAnims():
 		sushiFrame = abs(sushiFrame) + 4
 	if sushiFrame > 7:
 		sushiFrame -= 8
-	print(sushiFrame)
+	# print(sushiFrame)
 	Player.plySprite.play('rocketLauncher', 0)
 	Player.plySprite.set_frame(sushiFrame) # codigo com alma
 	var addedAngle := 90

@@ -30,7 +30,7 @@ func _ready() -> void:
 	makeHud()
 	createMap(GPStats.curMap)
 	createPlayer(GPStats.char, -1)
-	SaveUtils.save_game(GPStats.saveNum)
+	SaveUtils.save_game(GPStats.saveSlot)
 	
 	if GPStats.is_multiplayer:
 		if GPStats.is_hosting:
@@ -90,7 +90,7 @@ func createMap(lvl:String, playerGoTo:String = ""):
 	else:
 		GPStats.curMap = map.name
 		
-	SaveUtils.save_game(GPStats.saveNum)
+	SaveUtils.save_game(GPStats.saveSlot)
 	if GameUtils.get_map_info(lvl).has('songFile'):
 		playBGM(GameUtils.get_map_info(lvl)['songFile'])
 		
@@ -202,7 +202,7 @@ func _process(_delta: float) -> void:
 	GPStats.process(_delta)
 	
 	if not isDial and not isMenu:
-		if not hud.isWriting:
+		if (not hud.isWriting) and (not isChangingMap):
 			if Input.is_action_just_pressed("ctrl_pause"):
 				pauseGame()
 				ingameMenu.makeMenu('Pause')
@@ -226,6 +226,8 @@ func create_mp_game():
 
 func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	removeFromPeerID(peer_id)
+	
+	if player_info["connTest"]: return
 	var playery = GameUtils.get_char_asset(player_info['char'], player_info['char'] + ".tscn")
 	var pInst = playery.instantiate()
 	pInst.playerID = peer_id
@@ -255,6 +257,9 @@ func removeFromPeerID(peer_id:Variant):
 func bye_bye() -> void:
 	CoolMenu.comingFrom = 'OnlineMenu'
 	GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
+
+func _exit_tree() -> void:
+	OnlineUtils.closeUPNPThread()
 #endregion
 
 #region Música

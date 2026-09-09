@@ -5,7 +5,7 @@ var canControl:bool = true
 
 func _ready() -> void:
 	CoolMenu.blurAmount = 2
-	CoolMenu.activeMusicLayers = 3
+	CoolMenu.activeMusicLayers = 2
 
 func _enter_tree() -> void:	
 	$MenuCanvas/MidAnchor/UsrTxt.text = SaveUtils.get_online_info()['name']
@@ -14,10 +14,10 @@ func _enter_tree() -> void:
 	$MenuCanvas/MidAnchor/SrvNameTxt.text = SaveUtils.get_online_info()['serverName']
 	
 	if !GPStats.is_multiplayer:
-		GPStats.saveNum = SaveUtils.get_online_info()['saveSlot']
+		GPStats.saveSlot = SaveUtils.get_online_info()['saveSlot']
 		GPStats.char = SaveUtils.get_online_info()['char']
 	
-	$MenuCanvas/MidAnchor/SaveBoxOnline.saveId = GPStats.saveNum
+	$MenuCanvas/MidAnchor/SaveBoxOnline.saveId = GPStats.saveSlot
 	$MenuCanvas/MidAnchor/SaveBoxOnline.renderSaveOnline()
 	
 	GPStats.is_multiplayer = true
@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 	if $MenuCanvas/MidAnchor/UsrTxt.text != '' && $MenuCanvas/MidAnchor/IPTxt.text != '':
 		var coisoInt = int($MenuCanvas/MidAnchor/PortTxt.text)
 		if $MenuCanvas/MidAnchor/PortTxt.text == str(coisoInt):
-			$MenuCanvas/MidAnchor/JoinButt.disabled = false
-			$MenuCanvas/MidAnchor/HostButt.disabled = false
+			$MenuCanvas/MidAnchor/JoinButt.disabled = !(coisoInt == clampi(coisoInt, 1024, 65535))
+			$MenuCanvas/MidAnchor/HostButt.disabled = !(coisoInt == clampi(coisoInt, 1024, 65535))
 		else:
 			$MenuCanvas/MidAnchor/JoinButt.disabled = true
 			$MenuCanvas/MidAnchor/HostButt.disabled = true
@@ -59,7 +59,7 @@ func _on_usrtxt_text_changed() -> void:
 func savebox_click() -> void:
 	CoolMenu.play_sfx('Go')
 	SaveUtils.save_online()
-	CoolMenu.curSelected = GPStats.saveNum
+	CoolMenu.curSelected = GPStats.saveSlot
 	change_self_scene('res://Menustuffs/SaveMenu/SaveMenu.tscn')
 	call_deferred('queue_free')
 
@@ -70,13 +70,18 @@ func on_host() -> void:
 
 func on_join() -> void:
 	GPStats.is_hosting = false
-	goToGame()
+	# goToGame()
+	testConnect()
 
 func on_serverlist() -> void:
 	CoolMenu.curSelected = 0
 	SaveUtils.save_online()
 	CoolMenu.play_sfx('Go')
-	change_self_scene('res://Menustuffs/OnlineServersMenu/OnlineServersMenu.tscn')
+	change_self_scene('res://Menustuffs/OnlineMenu/OnlineServersMenu/OnlineServersMenu.tscn')
+
+func testConnect():
+	AttemptConnMenu.prevMenu = "OnlineMenu"
+	change_self_scene('res://Menustuffs/OnlineMenu/AttemptConnMenu.tscn')
 
 var mapToGoTo := ''
 
@@ -86,12 +91,12 @@ func goToGame():
 	CoolMenu.play_sfx('Go')
 	SaveUtils.save_online()
 	
-	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:
+	if SaveUtils.get_save_info(GPStats.saveSlot)['new'] == true:
 		mapToGoTo = GameUtils.defaultMap
 	else:
-		mapToGoTo = SaveUtils.get_save_info(GPStats.saveNum)['map']
+		mapToGoTo = SaveUtils.get_save_info(GPStats.saveSlot)['map']
 		
-	GPStats.load_info_from_save(GPStats.saveNum)
+	GPStats.load_info_from_save(GPStats.saveSlot)
 	
 	var coolTweens = create_tween()
 	coolTweens.tween_method(
