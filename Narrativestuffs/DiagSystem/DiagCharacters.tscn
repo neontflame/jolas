@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvhspg25ndcqs"]
+[gd_scene format=3 uid="uid://bvhspg25ndcqs"]
 
-[ext_resource type="PackedScene" uid="uid://bmxjfcdw3vlwl" path="res://Gamestuffs/Dialoguestuffs/DiagBase.tscn" id="1_o3rj6"]
-[ext_resource type="Script" uid="uid://cpeix3b7q7psm" path="res://Gamestuffs/Dialoguestuffs/DiagCharacters.gd" id="2_qx8vr"]
+[ext_resource type="PackedScene" uid="uid://bmxjfcdw3vlwl" path="res://Narrativestuffs/DiagSystem/DiagBase.tscn" id="1_o3rj6"]
+[ext_resource type="Script" uid="uid://cpeix3b7q7psm" path="res://Narrativestuffs/DiagSystem/DiagCharacters.gd" id="2_qx8vr"]
 [ext_resource type="Texture2D" uid="uid://djv341tn10sev" path="res://Playerstuffs/Characters/Neon/DiagName.png" id="3_6kpy3"]
-[ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Gamestuffs/Dialoguestuffs/Sprites/balaoDeFala.png" id="4_vogol"]
+[ext_resource type="Texture2D" uid="uid://dffcea8aybcsl" path="res://Narrativestuffs/DiagSystem/Sprites/balaoDeFala.png" id="4_vogol"]
 
 [node name="DiagCharacters" node_paths=PackedStringArray("flippable", "charName", "portraitPos") instance=ExtResource("1_o3rj6")]
 script = ExtResource("2_qx8vr")

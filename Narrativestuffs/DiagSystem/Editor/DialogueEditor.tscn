@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://demmw1ek786c1"]
 
-[ext_resource type="Script" uid="uid://0a0airokxxci" path="res://Gamestuffs/Dialoguestuffs/Editor/DialogueEditor.gd" id="1_kcu8i"]
+[ext_resource type="Script" uid="uid://0a0airokxxci" path="res://Narrativestuffs/DiagSystem/Editor/DialogueEditor.gd" id="1_kcu8i"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="1_tuwwo"]
 
 [node name="DialogueEditor" type="Node2D" node_paths=PackedStringArray("diagShitsContainer", "theScroll")]

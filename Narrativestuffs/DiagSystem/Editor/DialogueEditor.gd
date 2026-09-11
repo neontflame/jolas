@@ -7,7 +7,7 @@ func _on_diag_load_pressed() -> void:
 	for child in diagShitsContainer.get_children():
 		diagShitsContainer.remove_child(child)
 	
-	var pathness = 'res://Gamestuffs/Dialoguestuffs/Dialogues/' + $CanvasLayer/Control2/dialogueName.text + '.json'
+	var pathness = 'res://Narrativestuffs/Dialogues/' + $CanvasLayer/Control2/dialogueName.text + '.json'
 	if not ResourceLoader.exists(pathness): return
 	
 	var theJayson:Dictionary = JSON.parse_string(FileUtils.get_text_file_content(pathness))
@@ -19,7 +19,7 @@ func _on_diag_load_pressed() -> void:
 	for linery in theJayson['dialogue']:
 		idcool += 1
 		var line = theJayson['dialogue']['line' + str(idcool)]
-		var newThingie = load("res://Gamestuffs/Dialoguestuffs/Editor/DiagEdFragment.tscn").instantiate()
+		var newThingie = load("res://Narrativestuffs/DiagSystem/Editor/DiagEdFragment.tscn").instantiate()
 		diagShitsContainer.add_child(newThingie)
 		newThingie.setup(line)
 		newThingie.id = idcool
@@ -29,7 +29,7 @@ func _on_diag_load_pressed() -> void:
 	refreshIndexes()
 
 func _on_add_diag_pressed() -> void:
-	var newThingie = load("res://Gamestuffs/Dialoguestuffs/Editor/DiagEdFragment.tscn").instantiate()
+	var newThingie = load("res://Narrativestuffs/DiagSystem/Editor/DiagEdFragment.tscn").instantiate()
 	diagShitsContainer.add_child(newThingie)
 	newThingie.moveUp.connect(moveDiagUp)
 	newThingie.moveDown.connect(moveDiagDown)

@@ -2,8 +2,8 @@ extends Node
 class_name DiagUtils
 
 static func get_dialogue_path(diag:String):
-	var pathness:String = FileUtils.get_localized_file('res://Gamestuffs/Dialoguestuffs/Dialogues/%s.json' % diag)
-	var pathness_char:String = FileUtils.get_localized_file('res://Gamestuffs/Dialoguestuffs/Dialogues/%s.%s.json' % [diag, GPStats.char])
+	var pathness:String = FileUtils.get_localized_file('res://Narrativestuffs/Dialogues/%s.json' % diag)
+	var pathness_char:String = FileUtils.get_localized_file('res://Narrativestuffs/Dialogues/%s.%s.json' % [diag, GPStats.char])
 	
 	if ResourceLoader.exists(pathness_char):
 		return pathness_char

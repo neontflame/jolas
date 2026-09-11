@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3o1l3adjwwy5"]
+[gd_scene format=3 uid="uid://c3o1l3adjwwy5"]
 
-[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Gamestuffs/Dialoguestuffs/DiagPortrait.gd" id="1_wtjit"]
+[ext_resource type="Script" uid="uid://d4fx1kx5f7jcd" path="res://Narrativestuffs/DiagSystem/DiagPortrait.gd" id="1_wtjit"]
 [ext_resource type="Texture2D" uid="uid://djxqh361g1b3m" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0001.png" id="2_lw7oh"]
 [ext_resource type="Texture2D" uid="uid://b8r0nbtbtmiva" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0002.png" id="3_wtjit"]
 [ext_resource type="Texture2D" uid="uid://cnpmq7upjkvam" path="res://Playerstuffs/Characters/FknDavid/Sprites/portraits/portraitLute0003.png" id="4_45bs4"]

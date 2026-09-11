@@ -193,7 +193,7 @@ func playDialogue(diagName:String, type:String = "DiagCharacters"):
 		isDial = true
 		pauseGame()
 		if dialogueInstance: dialogueInstance.queue_free()
-		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/%s.tscn" % type).instantiate()
+		dialogueInstance = load("res://Narrativestuffs/DiagSystem/%s.tscn" % type).instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)
