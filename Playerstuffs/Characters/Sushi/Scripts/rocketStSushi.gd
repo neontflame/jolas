@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 var usingMouse:bool = false
 
 func enter_state():

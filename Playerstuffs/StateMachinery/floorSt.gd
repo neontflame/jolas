@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 func enter_state():
 	Player.motion.y = 4

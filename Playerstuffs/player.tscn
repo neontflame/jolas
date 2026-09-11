@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bv0kwtpveitw3"]
 
-[ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/player.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/state_pattern.gd" id="3_auq01"]
+[ext_resource type="Script" uid="uid://l6u7cg7ylxo" path="res://Playerstuffs/PlayerObject.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://cm7lxkrnvk3gc" path="res://Playerstuffs/PlayerStatePattern.gd" id="3_auq01"]
 [ext_resource type="Script" uid="uid://dnqkjr8ce0qri" path="res://Playerstuffs/StateMachinery/hurtSt.gd" id="5_axjgi"]
 [ext_resource type="Script" uid="uid://dene0qklmyw2y" path="res://Playerstuffs/StateMachinery/deathSt.gd" id="6_43xdi"]
 [ext_resource type="Texture2D" uid="uid://cbdldy34oe4ur" path="res://icon.svg" id="6_wxeps"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="9_auq01"]
-[ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/state_machine.gd" id="13_ld8br"]
+[ext_resource type="Script" uid="uid://cwhd6xyoef8gf" path="res://Playerstuffs/PlayerStateMachine.gd" id="13_ld8br"]
 [ext_resource type="Script" uid="uid://u65cs2bew2dh" path="res://Playerstuffs/StateMachinery/floorSt.gd" id="14_mv4eb"]
 [ext_resource type="Script" uid="uid://bfcpscdta4eqm" path="res://Playerstuffs/StateMachinery/airSt.gd" id="15_axjgi"]
 

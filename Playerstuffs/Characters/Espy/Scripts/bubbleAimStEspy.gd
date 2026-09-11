@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 var deaccelerate_tween: Tween
 var bubble_tween: Tween

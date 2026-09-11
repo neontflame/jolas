@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 var velocity:Vector2 = Vector2(0,0)
 var calledIt:bool = false

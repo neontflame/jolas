@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 func enter_state():
 	if Player.is_on_floor():

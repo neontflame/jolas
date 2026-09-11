@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 # todo: programar o fucking dash
 # 3 frames de começo pra pegar o angulo certo

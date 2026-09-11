@@ -1,9 +1,7 @@
-## estado do player ayay
 ## roubei do breno hihi
 class_name StatePattern extends Node
 
 var States = null
-var Player: PlayerObject = null
 var StateName: String = "null"
 
 func setup():

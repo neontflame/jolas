@@ -1,4 +1,4 @@
-extends "res://Playerstuffs/state_machine.gd"
+extends PlayerStateMachine
 
 #region GTeto-specific
 @onready var st_charge_floor: Node = $GTChargeFloor

@@ -1,4 +1,4 @@
-extends Node
+class_name PlayerStateMachine extends Node
 
 #region Gerais
 @onready var st_default: Node = $Default

@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 var homing := false
 
