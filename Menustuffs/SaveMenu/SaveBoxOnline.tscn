@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc3gp7wgayv4o"]
+[gd_scene format=3 uid="uid://dc3gp7wgayv4o"]
 
 [ext_resource type="Script" uid="uid://con14lmbu1nji" path="res://Menustuffs/SaveMenu/SaveBox.gd" id="1_dab0b"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="2_dab0b"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="3_qyspv"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="4_dab0b"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="4_dab0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dab0b"]
 size = Vector2(384, 96)

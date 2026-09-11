@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5s5rj5po17bk"]
+[gd_scene format=3 uid="uid://b5s5rj5po17bk"]
 
 [ext_resource type="Texture2D" uid="uid://dt0r87nep15e" path="res://Gamestuffs/HeadsUpDisplay/questIcon.png" id="1_7ge0o"]
 [ext_resource type="Script" uid="uid://dujclft0tapbl" path="res://Gamestuffs/HeadsUpDisplay/QuestIcon.gd" id="2_4hig7"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_wd036"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="3_wd036"]
 
 [node name="QuestIcon" type="Sprite2D"]
 texture = ExtResource("1_7ge0o")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5loat7ktx8o5"]
+[gd_scene format=3 uid="uid://c5loat7ktx8o5"]
 
 [ext_resource type="Script" uid="uid://b5wsp1nsw2p4y" path="res://DontTouchstuffs/FPSCounter.gd" id="1_cpg2e"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="2_cpg2e"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="2_cpg2e"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("testLabel")]
 script = ExtResource("1_cpg2e")

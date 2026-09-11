@@ -439,7 +439,7 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	
 func play_sfx(soundName:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Gamestuffs/Sounds/Ingame/" + soundName + ".wav")
+	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + soundName + ".wav")
 	sfx_player.volume_db = volumeDB
 	sfx_player.play()
 

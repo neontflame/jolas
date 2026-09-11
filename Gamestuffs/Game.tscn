@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://6j45bvm3jouo"]
 
-[ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/game.gd" id="1_wmjmx"]
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="3_5r2sg"]
-[ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://Gamestuffs/Multiplayer/MultiplayerMayhem.gd" id="3_ll7to"]
-[ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://Gamestuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
-[ext_resource type="PackedScene" uid="uid://cwltciujlq6jq" path="res://Gamestuffs/IngameMenus/IngameMenu.tscn" id="6_tn4rb"]
+[ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/Game.gd" id="1_wmjmx"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="3_5r2sg"]
+[ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://DontTouchstuffs/Multiplayer/MultiplayerMayhem.gd" id="3_ll7to"]
+[ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://DontTouchstuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
+[ext_resource type="PackedScene" uid="uid://cwltciujlq6jq" path="res://Menustuffs/Ingame/IngameMenu.tscn" id="6_tn4rb"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("coolFade", "plyNode", "lvlNode", "whereHud", "bgmStream", "ingameMenu")]
 script = ExtResource("1_wmjmx")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dgqegpy3w0etx"]
 
 [ext_resource type="Script" uid="uid://dgi4p0m2nqn1w" path="res://DontTouchstuffs/LoadingScene.gd" id="1_7pqmv"]
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_anq2u"]
-[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="3_ty3qp"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="4_anq2u"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="2_anq2u"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Internalstuffs/Shaders/white.png" id="3_ty3qp"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="4_anq2u"]
 
 [node name="LoadingScene" type="Node2D" unique_id=29196500 node_paths=PackedStringArray("loadingLabel")]
 script = ExtResource("1_7pqmv")

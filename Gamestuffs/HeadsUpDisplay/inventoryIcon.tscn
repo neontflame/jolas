@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcsask4ppob0g"]
+[gd_scene format=3 uid="uid://bcsask4ppob0g"]
 
 [ext_resource type="Texture2D" uid="uid://j1j0vbacdwcb" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.png" id="1_uu0bg"]
 [ext_resource type="Script" uid="uid://cey2bt6yanolk" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.gd" id="2_ygcy8"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_uu0bg"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="3_uu0bg"]
 
 [node name="InventoryIcon" type="Sprite2D"]
 texture = ExtResource("1_uu0bg")

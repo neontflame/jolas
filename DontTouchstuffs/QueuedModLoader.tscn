@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b52vc7x2aobol"]
+[gd_scene format=3 uid="uid://b52vc7x2aobol"]
 
 [ext_resource type="Script" uid="uid://cn5n0x6l8p8x1" path="res://DontTouchstuffs/QueuedModLoader.gd" id="1_cadni"]
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_kppmq"]
-[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Shaders/white.png" id="3_8gni8"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="2_kppmq"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Internalstuffs/Shaders/white.png" id="3_8gni8"]
 
 [sub_resource type="SystemFont" id="SystemFont_qrkeq"]
 font_names = PackedStringArray("Consolas", "Monospace")

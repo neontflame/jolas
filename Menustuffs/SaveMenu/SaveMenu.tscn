@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6i304br5j7n4"]
+[gd_scene format=3 uid="uid://b6i304br5j7n4"]
 
 [ext_resource type="Script" uid="uid://b7nt422qhhgm" path="res://Menustuffs/SaveMenu/SaveMenu.gd" id="1_86qpw"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_86qpw"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://chefkcr8qrrsc" path="res://Menustuffs/Commons/SetaDeletar.png" id="9_8323x"]
 [ext_resource type="Texture2D" uid="uid://cv5b8knko1eyc" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/Seta.png" id="10_5vgxp"]
 [ext_resource type="Texture2D" uid="uid://dgpewdg5b70ot" path="res://Gamestuffs/HeadsUpDisplay/MobileControls/SetaPress.png" id="11_hacn3"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="13_8323x"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="13_8323x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_omsxf"]
 animations = [{

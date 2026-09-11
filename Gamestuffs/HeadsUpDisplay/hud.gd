@@ -119,7 +119,7 @@ func hide_combo_hud():
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfxPlayer.playing: sfxPlayer.stop()
-	sfxPlayer.stream = load("res://Gamestuffs/Sounds/Notifs/" + name + ".wav")
+	sfxPlayer.stream = load("res://Soundstuffs/SFX/Notifs/" + name + ".wav")
 	sfxPlayer.volume_db = volumeDB
 	sfxPlayer.play()
 

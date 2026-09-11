@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://h5b25ixee4vd"]
+[gd_scene format=3 uid="uid://h5b25ixee4vd"]
 
 [ext_resource type="Script" uid="uid://s5ig3d1d8a0v" path="res://Gamestuffs/Cutscenestuffs/WTTOFJ/welcome_to_the_worldof_jolas.gd" id="1_tcy4d"]
-[ext_resource type="AudioStream" uid="uid://d01w7q7ts6kvn" path="res://Musicstuffs/cutscenes/welcome_mother3.wav" id="2_cqq2o"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_kyb1l"]
-[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Levelstuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="4_bodje"]
+[ext_resource type="AudioStream" uid="uid://d01w7q7ts6kvn" path="res://Soundstuffs/Music/cutscenes/welcome_mother3.wav" id="2_cqq2o"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_kyb1l"]
+[ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Gameplaystuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="4_bodje"]
 
 [sub_resource type="Animation" id="Animation_bodje"]
 length = 0.001

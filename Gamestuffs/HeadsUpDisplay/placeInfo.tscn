@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdob43vo7sjc4"]
+[gd_scene format=3 uid="uid://cdob43vo7sjc4"]
 
 [ext_resource type="Script" uid="uid://c04y50420fixl" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.gd" id="1_qu50f"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="2_clx64"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="2_clx64"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qu50f"]
 

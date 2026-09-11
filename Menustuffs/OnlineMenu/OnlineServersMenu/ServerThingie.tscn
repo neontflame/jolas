@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://df2371s3snpac"]
 
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="1_emq01"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="1_emq01"]
 [ext_resource type="Script" uid="uid://c3par5sccko3y" path="res://Menustuffs/OnlineMenu/OnlineServersMenu/ServerThingie.gd" id="1_uy1wd"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_6q81s"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_6q81s"]
 
 [node name="ServerThingie" type="Control" unique_id=1999078359]
 custom_minimum_size = Vector2(567, 32)

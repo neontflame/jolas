@@ -1,31 +1,33 @@
 extends Node2D
 class_name JolasGame
 
-var map:JolasMap
-var playerInstance
-var dialogueInstance
-var isDial := false
-var isMenu := false
-
-var allChars:Array = []
-var charDict:Dictionary = {}
+static var instance:JolasGame
 
 @export var coolFade:TextureRect
+
 @export var plyNode:Node2D
 @export var lvlNode:Node2D
+
 @export var whereHud:Node2D
 var hud:HeadsUpDisplay
+
 @export var bgmStream:AudioStreamPlayer
 @export var ingameMenu:Node2D
 
+var map:JolasMap
+var playerInstance
+var dialogueInstance
+
 var curTrackName:String = ""
-
 static var isChangingMap := false
-static var isGonnaCrash := false #If you fail me. I will kill you
 
-static var instance:JolasGame
+var isDial := false
+var isMenu := false
 
-# Called when the node enters the scene tree for the first time.
+# multiplayery
+var allChars:Array = []
+var charDict:Dictionary = {}
+
 func _ready() -> void:
 	makeHud()
 	createMap(GPStats.curMap)
@@ -264,7 +266,7 @@ func _exit_tree() -> void:
 
 #region Música
 func playBGM(trackName:String):
-	var pathness = "res://Musicstuffs/" + trackName
+	var pathness = "res://Soundstuffs/Music/" + trackName
 	if curTrackName == trackName: return
 	curTrackName = trackName
 	

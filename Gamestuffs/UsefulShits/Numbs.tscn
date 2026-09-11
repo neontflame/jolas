@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvg6brvqv8dxw"]
+[gd_scene format=3 uid="uid://dvg6brvqv8dxw"]
 
 [ext_resource type="Script" uid="uid://cuxgi78md430x" path="res://Gamestuffs/UsefulShits/Numbs.gd" id="1_ka0pc"]
-[ext_resource type="FontFile" uid="uid://bhon7t82gb5qy" path="res://Gamestuffs/Fonts/fnt_Numbs.png" id="2_rf47y"]
+[ext_resource type="FontFile" uid="uid://bhon7t82gb5qy" path="res://Miscstuffs/Fonts/fnt_Numbs.png" id="2_rf47y"]
 
 [sub_resource type="FontVariation" id="FontVariation_htx1j"]
 base_font = ExtResource("2_rf47y")

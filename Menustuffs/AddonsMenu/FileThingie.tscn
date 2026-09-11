@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqfjq6dvakk2m"]
+[gd_scene format=3 uid="uid://cqfjq6dvakk2m"]
 
 [ext_resource type="Script" uid="uid://do64q5h4w7o6y" path="res://Menustuffs/AddonsMenu/FileThingie.gd" id="1_7ghir"]
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="1_g1iuw"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_7ghir"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="1_g1iuw"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_7ghir"]
 [ext_resource type="Texture2D" uid="uid://b3vxt3hpg36g0" path="res://Menustuffs/AddonsMenu/defaultIcon.png" id="4_mu3qi"]
 [ext_resource type="Texture2D" uid="uid://br86kfedgan5n" path="res://Menustuffs/AddonsMenu/folderIcon.png" id="5_l2c1n"]
 [ext_resource type="Texture2D" uid="uid://fqeuk0057whi" path="res://Menustuffs/AddonsMenu/jolaPckIcon.png" id="6_gk741"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2fvcyowj5mkg"]
+[gd_scene format=3 uid="uid://b2fvcyowj5mkg"]
 
 [ext_resource type="Script" uid="uid://bjq21xdxjnpmy" path="res://Menustuffs/Commons/GoWherever.gd" id="1_f4nn3"]
 [ext_resource type="Texture2D" uid="uid://d05dxajfk5ioy" path="res://Menustuffs/Commons/Esc.png" id="1_ln7y5"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Gamestuffs/Fonts/jolastypeface.ttf" id="3_f4nn3"]
+[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="3_f4nn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4nn3"]
 size = Vector2(160, 48)

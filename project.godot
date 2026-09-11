@@ -35,9 +35,9 @@ config/icon="uid://bep52erpdihdj"
 [autoload]
 
 FpsCounter="*res://DontTouchstuffs/FPSCounter.tscn"
-MultiplayerMayhem="*res://Gamestuffs/Multiplayer/MultiplayerMayhem.gd"
+MultiplayerMayhem="*res://DontTouchstuffs/Multiplayer/MultiplayerMayhem.gd"
 SpecificAutoloadForSpecificReasons="*res://DontTouchstuffs/SpecificAutoloadForSpecificReasons.tscn"
-OnlineUtils="*res://CoolUtils/OnlineUtils.tscn"
+OnlineUtils="*res://Internalstuffs/CoolUtils/OnlineUtils.tscn"
 
 [display]
 
@@ -188,8 +188,8 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translation_remaps={
-"res://Gamestuffs/IngameMenus/Inventory/inventoryCoiso.png": PackedStringArray("res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoEN.png:en", "res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoJP.png:ja"),
 "res://Menustuffs/DipshitMenu/EscolhaSeuMane.png": PackedStringArray("res://Menustuffs/DipshitMenu/ChooseYourDipshit.png:en"),
+"res://Menustuffs/Ingame/Inventory/inventoryCoiso.png": PackedStringArray("res://Menustuffs/Ingame/Inventory/inventoryCoisoEN.png:en", "res://Menustuffs/Ingame/Inventory/inventoryCoisoJP.png:ja"),
 "res://Menustuffs/MainMenu/Logo.png": PackedStringArray("res://Menustuffs/MainMenu/JPLocale/Logo0002.png:ja"),
 "res://Menustuffs/MainMenu/jolarAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarAtivoJP.png:ja"),
 "res://Menustuffs/MainMenu/jolarCoopAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarCoopAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarCoopAtivoJP.png:ja"),
@@ -205,7 +205,7 @@ locale/translation_remaps={
 "res://Menustuffs/SaveMenu/PassaporteMod.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteModEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteModJP.png:ja"),
 "res://Menustuffs/SaveMenu/PassaporteVazio.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteVazioEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteVazioJP.png:ja")
 }
-locale/translations=PackedStringArray("res://Translationstuffs/traduz.en.translation", "res://Translationstuffs/traduz.ja.translation", "res://Translationstuffs/traduz.pt_BR.translation")
+locale/translations=PackedStringArray("res://Internalstuffs/Translations/traduz.en.translation", "res://Internalstuffs/Translations/traduz.ja.translation", "res://Internalstuffs/Translations/traduz.pt_BR.translation")
 locale/fallback="pt_BR"
 locale/locale_filter_mode=1
 locale/language_filter=["en", "es", "ja", "pt"]

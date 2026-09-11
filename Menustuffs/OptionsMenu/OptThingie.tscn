@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://crlfmwhsrwnja"]
+[gd_scene format=3 uid="uid://crlfmwhsrwnja"]
 
 [ext_resource type="Script" uid="uid://b25cfhrs8v0v8" path="res://Menustuffs/OptionsMenu/OptThingie.gd" id="1_ml7t4"]
-[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://black.png" id="2_xrvu5"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="4_xrvu5"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="2_xrvu5"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="4_xrvu5"]
 
-[node name="OptThingie" type="Control"]
-clip_contents = true
+[node name="OptThingie" type="Control" unique_id=1440430854]
 custom_minimum_size = Vector2(398, 32)
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("4_xrvu5")
 script = ExtResource("1_ml7t4")
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="bg" type="Sprite2D" parent="." unique_id=227410787]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(205, 11)
 scale = Vector2(6.48438, 0.59375)
 texture = ExtResource("2_xrvu5")
 
-[node name="Title" type="Node2D" parent="."]
+[node name="Title" type="Node2D" parent="." unique_id=239187425]
 visible = false
 
-[node name="TitleName" type="Label" parent="Title"]
+[node name="TitleName" type="Label" parent="Title" unique_id=907973145]
 offset_left = 4.0
 offset_top = -1.0
 offset_right = 394.0
@@ -32,9 +32,9 @@ text = "Botões de controle"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Option" type="Node2D" parent="."]
+[node name="Option" type="Node2D" parent="." unique_id=1772872519]
 
-[node name="OptName" type="RichTextLabel" parent="Option"]
+[node name="OptName" type="RichTextLabel" parent="Option" unique_id=428787444]
 offset_left = 4.0
 offset_top = -1.0
 offset_right = 336.0
@@ -47,7 +47,7 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="OptChoice" type="Label" parent="Option"]
+[node name="OptChoice" type="Label" parent="Option" unique_id=2113047706]
 offset_left = 252.0
 offset_top = -1.0
 offset_right = 387.0
@@ -58,7 +58,7 @@ theme_override_font_sizes/font_size = 18
 text = "< Wii >"
 horizontal_alignment = 2
 
-[node name="OptSlider" type="HSlider" parent="Option"]
+[node name="OptSlider" type="HSlider" parent="Option" unique_id=178276067]
 visible = false
 offset_left = 242.0
 offset_top = 5.0

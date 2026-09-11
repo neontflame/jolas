@@ -1,7 +1,7 @@
-[gd_scene load_steps=54 format=3 uid="uid://llk5w8w0yx48"]
+[gd_scene format=3 uid="uid://llk5w8w0yx48"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_avxmv"]
-[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="2_1nj8v"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Internalstuffs/Shaders/outlineCoolio.gdshader" id="2_1nj8v"]
 [ext_resource type="Script" uid="uid://c6fbrs8xhaeam" path="res://Playerstuffs/Characters/Sketcher/Scripts/playerSketcher.gd" id="2_2ar5l"]
 [ext_resource type="Texture2D" uid="uid://dqhm8jx5chgki" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Idle.png" id="2_upuk6"]
 [ext_resource type="Texture2D" uid="uid://c4ykhak1f1vow" path="res://Playerstuffs/Characters/Sketcher/Sprites/Jake Jump0001.png" id="3_1nj8v"]

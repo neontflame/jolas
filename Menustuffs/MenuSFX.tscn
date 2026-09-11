@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0jh3e8r8mhg3"]
+[gd_scene format=3 uid="uid://c0jh3e8r8mhg3"]
 
-[ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Gamestuffs/Sounds/Commons/back.wav" id="1_2no7w"]
-[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Gamestuffs/Sounds/Commons/go.wav" id="2_yw620"]
-[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Gamestuffs/Sounds/Commons/tick.wav" id="3_htmqo"]
+[ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Soundstuffs/SFX/Commons/back.wav" id="1_2no7w"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Soundstuffs/SFX/Commons/go.wav" id="2_yw620"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Soundstuffs/SFX/Commons/tick.wav" id="3_htmqo"]
 
 [node name="SFX" type="Node"]
 
