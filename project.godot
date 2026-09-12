@@ -32,6 +32,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://bdikxum6nhrcp"
 config/icon="uid://bep52erpdihdj"
 
+[audio]
+
+buses/default_bus_layout="uid://br4agsbmky5hj"
+
 [autoload]
 
 FpsCounter="*res://DontTouchstuffs/FPSCounter.tscn"
