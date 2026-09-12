@@ -32,7 +32,7 @@ static func conclude(questName:String, additionalPerks:Callable = func():pass):
 	#notifs
 
 static func get_info(questName:String):
-	var queStuffRaw = "res://Gamestuffs/Quests/%s.json" % questName
+	var queStuffRaw = "res://Storystuffs/Quests/%s.json" % questName
 	var queStuff = FileUtils.get_localized_file(queStuffRaw)
 	var questInfo = '' 
 	if !ResourceLoader.exists(queStuff):
@@ -49,8 +49,8 @@ static func get_info(questName:String):
 	return questGotten
 
 static func get_icon(questIcon:String):
-	var iQuest = "res://Menustuffs/Ingame/Quests/questIcons/%s.png" % questIcon
+	var iQuest = "res://Storystuffs/Quests/Icons/%s.png" % questIcon
 	if ResourceLoader.exists(iQuest):
 		return load(iQuest)
 	else:
-		return load("res://Menustuffs/Ingame/Quests/questIcons/unknown.png")
+		return load("res://Storystuffs/Quests/Icons/unknown.png")

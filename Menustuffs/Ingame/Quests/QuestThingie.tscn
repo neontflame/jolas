@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c050eikxrjg3j" path="res://Menustuffs/Ingame/Quests/QuestThingie.gd" id="1_av0gs"]
 [ext_resource type="FontFile" uid="uid://daahjhdjd7xs8" path="res://Miscstuffs/Fonts/tahoma.ttf" id="2_6mf5g"]
 [ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Internalstuffs/Shaders/white.png" id="2_fcnqb"]
-[ext_resource type="Texture2D" uid="uid://c52m7dtrbhbnq" path="res://Menustuffs/Ingame/Quests/questIcons/unknown.png" id="3_fcnqb"]
+[ext_resource type="Texture2D" uid="uid://c52m7dtrbhbnq" path="res://Storystuffs/Quests/Icons/unknown.png" id="3_fcnqb"]
 
 [node name="Control" type="Control" unique_id=1315261051]
 clip_contents = true

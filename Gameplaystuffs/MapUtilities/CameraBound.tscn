@@ -10,6 +10,7 @@ collision_mask = 3
 script = ExtResource("1_2f4et")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1362137372]
+position = Vector2(99.999985, 99.999985)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_lsxal")
 debug_color = Color(0.28404376, 0.61230224, 0.44038132, 0.41960785)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c52m7dtrbhbnq"
-path="res://.godot/imported/unknown.png-196c6255ba5552bad754935d1baae258.ctex"
+uid="uid://vsxt2d62hebi"
+path="res://.godot/imported/skelly.png-1290b2f96aef14fba3d00e6cccd8da68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menustuffs/Ingame/Quests/questIcons/unknown.png"
-dest_files=["res://.godot/imported/unknown.png-196c6255ba5552bad754935d1baae258.ctex"]
+source_file="res://Storystuffs/Quests/Icons/skelly.png"
+dest_files=["res://.godot/imported/skelly.png-1290b2f96aef14fba3d00e6cccd8da68.ctex"]
 
 [params]
 

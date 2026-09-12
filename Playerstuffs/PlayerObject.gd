@@ -206,7 +206,7 @@ func handleSonicPhys() -> void:
 			on_land() 	# Ok eu acho q isso e prova o suficiente de q o 
 						# codigo de fisica do jogador e meio bagunçado pra crl
 						# mas a gente bola
-		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.75):
+		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.4):
 			# print('Get Outta Here')
 			on_fall_from_slope()
 		up_direction = get_floor_normal()
@@ -486,7 +486,7 @@ func make_hitbox(offset:Vector2, scale:Vector2, _damage:float, _knockback:float,
 
 func make_hitbox_actual(offset:Vector2, scale:Vector2, _damage:float, _knockback:float, _knockAngle:float, hitboxId:String = ''):
 	if GPStats.is_multiplayer && curMap != GPStats.curMap: return
-	var hitbox = load("res://Gamestuffs/UsefulShits/Hitbox.tscn").instantiate()
+	var hitbox = load("res://Gameplaystuffs/UsefulShits/Hitbox.tscn").instantiate()
 	var theRotation = 0.0
 	if plySprite.flip_h:
 		theRotation = Vector2.from_angle(player_collisions.rotation)
@@ -612,7 +612,7 @@ func setMotion(x:float, y:float, addX:bool = false, addY:bool = false):
 		motion.y = y
 
 func spawnNumber(quant):
-	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	var numble = load("res://Gameplaystuffs/UsefulShits/Numbs.tscn").instantiate()
 	get_parent().add_child(numble)
 	numble.global_position = global_position - Vector2(0, 32)
 	numble.set_text(quant)

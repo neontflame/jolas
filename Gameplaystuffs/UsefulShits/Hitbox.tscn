@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7ark1lk5fvnu"]
+[gd_scene format=3 uid="uid://c7ark1lk5fvnu"]
 
-[ext_resource type="Script" uid="uid://doa0teqrib1ya" path="res://Gamestuffs/UsefulShits/Hitbox.gd" id="1_lj56n"]
-[ext_resource type="Shape2D" uid="uid://b0i2as2wrt4eq" path="res://Gamestuffs/UsefulShits/HitboxSquareShape.tres" id="2_g41jo"]
+[ext_resource type="Script" uid="uid://doa0teqrib1ya" path="res://Gameplaystuffs/UsefulShits/Hitbox.gd" id="1_lj56n"]
+[ext_resource type="Shape2D" uid="uid://b0i2as2wrt4eq" path="res://Gameplaystuffs/UsefulShits/HitboxSquareShape.tres" id="2_g41jo"]
 
 [node name="Hitbox" type="Area2D" node_paths=PackedStringArray("collide")]
 collision_layer = 3

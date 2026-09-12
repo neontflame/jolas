@@ -188,7 +188,7 @@ _next_key = 22
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3o1f1"]
 _surfaces = [{
-"aabb": AABB(-1152.14, -872, 0, 2440.14, 1232, 1e-05),
+"aabb": AABB(-1152.1406, -872, 0, 2440.1406, 1232, 1e-05),
 "attribute_data": PackedByteArray("/////2ocLsGU06lAahwuwZTTqUD/////hJajwMTDqj+ElqPAxMOqP/////+VX17AM3MpP5VfXsAzcyk//////+iiJcD8zOg+6KIlwPzM6D7/////09LSv7W0tD7T0tK/tbS0Pv////+1tHRBtbS0PrW0dEG1tLQ+/////8TD40EeHs7BxMPjQR4ezsH/////l5YWQh4ezsGXlhZCHh7Owf////+1tLRBWlpaQLW0tEFaWlpA/////6alpUHx8LBApqWlQfHwsED/////Dw+PQXh4eEAPD49BeHh4QP////9paWlB8fCwQGlpaUHx8LBA/////zw8PEFpaWlAPDw8QWlpaUD/////xMMDQfHwsEDEwwNB8fCwQP////+lpaVAeHh4QKWlpUB4eHhA/////5eWFkB4eLhAl5YWQHh4uED/////z1EAQNWurkDPUQBA1a6uQP////9ETHjAcAebQERMeMBwB5tA//////hYq8DIgONA+FirwMiA40D/////p568wIT99kCnnrzAhP32QP/////GhtHAdeAEQcaG0cB14ARB/////1jK6sAclA1BWMrqwByUDUH/////MpEEwVtIFUEykQTBW0gVQf/////4oxbB0asbQfijFsHRqxtB/////wD6K8EfbSBBAPorwR9tIEH/////4uFhwcTDI0Hi4WHBxMMjQf/////T0tLBh4cnQdPS0sGHhydB/////3lo6MG11CZBeWjowbXUJkH/////01L4waalIkHTUvjBpqUiQf////8PtwHCtRQcQQ+3AcK1FBxB/////3m5A8LEPxhBebkDwsQ/GEH/////S0sFwjw8FEFLSwXCPDwUQf////9LegbCaS0QQUt6BsJpLRBB/////zxUB8KXNgxBPFQHwpc2DEH/////4uYHwg97CEHi5gfCD3sIQf////8AQAjCHh4FQQBACMIeHgVB/////1ptCMIPQwJBWm0Iwg9DAkH/////tXwIwi0NAEG1fAjCLQ0AQf////8SjYM/biaZQBKNgz9uJplA/////zwvqz5Opo1APC+rPk6mjUD/////l2pkwDl1jUCXamTAOXWNQP/////1NPW+Bp6DQPU09b4GnoNA/////+0ks7/iCnlA7SSzv+IKeUD/////DJEawMeoc0AMkRrAx6hzQP////8G/zbA53F4QAb/NsDncXhA/////wKMRsHiGcFAAoxGweIZwUD/////h5VTwR7hyECHlVPBHuHIQP////+GIU/AJfqCQIYhT8Al+oJA/////xRRYcF1dc1AFFFhwXV1zUD/////9E+JwdZK1UD0T4nB1krVQP////+zidbBeijQQLOJ1sF6KNBA/////3l4CMI8PPxAeXgIwjw8/EA="),
 "format": 34359742527,
 "index_count": 153,
@@ -207,7 +207,7 @@ z_index = -10
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ok0x5"]
 _surfaces = [{
-"aabb": AABB(-1153.82, 253.285, 0, 27.7552, 57.2353, 1e-05),
+"aabb": AABB(-1153.8169, 253.28506, 0, 27.755249, 57.23529, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -227,7 +227,7 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ocqoe"]
 _surfaces = [{
-"aabb": AABB(-1135.15, 5.93687, 0, 1644.15, 295.499, 1e-05),
+"aabb": AABB(-1135.1464, 5.9368687, 0, 1644.1464, 295.49866, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP//////xIuBAAACAP/Ei4EAAAIA///////Ei4EAAAAAA8SLgQAAAAAD/////pHCHQQAAgD+kcIdBAACAP/////+kcIdBAAAAAKRwh0EAAAAA/////2BIoUEAAIA/YEihQQAAgD//////YEihQQAAAABgSKFBAAAAAP////+04qhBAACAP7TiqEEAAIA//////7TiqEEAAAAAtOKoQQAAAAD/////hHmwQQAAgD+EebBBAACAP/////+EebBBAAAAAIR5sEEAAAAA/////6gNv0EAAIA/qA2/QQAAgD//////qA2/QQAAAACoDb9BAAAAAP/////ntPhBAACAP+e0+EEAAIA//////+e0+EEAAAAA57T4QQAAAAD/////6EkDQgAAgD/oSQNCAACAP//////oSQNCAAAAAOhJA0IAAAAA/////9HGBkIAAIA/0cYGQgAAgD//////0cYGQgAAAADRxgZCAAAAAP/////odwpCAACAP+h3CkIAAIA//////+h3CkIAAAAA6HcKQgAAAAD/////kuJNQgAAgD+S4k1CAACAP/////+S4k1CAAAAAJLiTUIAAAAA"),
 "format": 34359742527,
 "index_count": 66,
@@ -246,7 +246,7 @@ z_index = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lrpiq"]
 _surfaces = [{
-"aabb": AABB(509, 6.08336, 0, 19, 49.2333, 1e-05),
+"aabb": AABB(509, 6.0833626, 0, 19, 49.233276, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -325,7 +325,7 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jmo4h"]
 _surfaces = [{
-"aabb": AABB(-1154.14, -873.705, 0, 2443.85, 1235.71, 1e-05),
+"aabb": AABB(-1154.1393, -873.7052, 0, 2443.8477, 1235.7052, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////+qrW1BAACAP6qtbUEAAIA//////6qtbUEAAAAAqq1tQQAAAAD/////KaMIQgAAgD8powhCAACAP/////8powhCAAAAACmjCEIAAAAA//////JcIUIAAIA/8lwhQgAAgD//////8lwhQgAAAADyXCFCAAAAAP////+RUihCAACAP5FSKEIAAIA//////5FSKEIAAAAAkVIoQgAAAAD/////lB8vQgAAgD+UHy9CAACAP/////+UHy9CAAAAAJQfL0IAAAAA/////yKnPEIAAIA/Iqc8QgAAgD//////Iqc8QgAAAAAipzxCAAAAAP////+1rnRCAACAP7WudEIAAIA//////7WudEIAAAAAta50QgAAAAD/////iWuBQgAAgD+Ja4FCAACAP/////+Ja4FCAAAAAIlrgUIAAAAA/////5QPhUIAAIA/lA+FQgAAgD//////lA+FQgAAAACUD4VCAAAAAP////+P2IhCAACAP4/YiEIAAIA//////4/YiEIAAAAAj9iIQgAAAAD/////K5jMQgAAgD8rmMxCAACAP/////8rmMxCAAAAACuYzEIAAAAA/////ybKIEMAAIA/JsogQwAAgD//////JsogQwAAAAAmyiBDAAAAAP////9jIzNDAACAP2MjM0MAAIA//////2MjM0MAAAAAYyMzQwAAAAD/////Fsp0QwAAgD8WynRDAACAP/////8WynRDAAAAABbKdEMAAAAA/////2l0ekMAAIA/aXR6QwAAgD//////aXR6QwAAAABpdHpDAAAAAP/////TfoBDAACAP9N+gEMAAIA//////9N+gEMAAAAA036AQwAAAAD/////bi2EQwAAgD9uLYRDAACAP/////9uLYRDAAAAAG4thEMAAAAA//////KRh0MAAIA/8pGHQwAAgD//////8pGHQwAAAADykYdDAAAAAP////+zkYtDAACAP7ORi0MAAIA//////7ORi0MAAAAAs5GLQwAAAAD/////2gqPQwAAgD/aCo9DAACAP//////aCo9DAAAAANoKj0MAAAAA/////19vkkMAAIA/X2+SQwAAgD//////X2+SQwAAAABfb5JDAAAAAP/////75ZJDAACAP/vlkkMAAIA///////vlkkMAAAAA++WSQwAAAAD/////pxWUQwAAgD+nFZRDAACAP/////+nFZRDAAAAAKcVlEMAAAAA/////4vdlEMAAIA/i92UQwAAgD//////i92UQwAAAACL3ZRDAAAAAP////+evJVDAACAP568lUMAAIA//////568lUMAAAAAnryVQwAAAAD//////K6WQwAAgD/8rpZDAACAP//////8rpZDAAAAAPyulkMAAAAA/////8uzl0MAAIA/y7OXQwAAgD//////y7OXQwAAAADLs5dDAAAAAP////8VJ5hDAACAPxUnmEMAAIA//////xUnmEMAAAAAFSeYQwAAAAD/////sZWYQwAAgD+xlZhDAACAP/////+xlZhDAAAAALGVmEMAAAAA/////ygNmUMAAIA/KA2ZQwAAgD//////KA2ZQwAAAAAoDZlDAAAAAP////+0k5lDAACAP7STmUMAAIA//////7STmUMAAAAAtJOZQwAAAAD/////cUecQwAAgD9xR5xDAACAP/////9xR5xDAAAAAHFHnEMAAAAA/////7cXnUMAAIA/txedQwAAgD//////txedQwAAAAC3F51DAAAAAP////9l+J1DAACAP2X4nUMAAIA//////2X4nUMAAAAAZfidQwAAAAD/////w+2eQwAAgD/D7Z5DAACAP//////D7Z5DAAAAAMPtnkMAAAAA//////P9n0MAAIA/8/2fQwAAgD//////8/2fQwAAAADz/Z9DAAAAAP////+WMKFDAACAP5YwoUMAAIA//////5YwoUMAAAAAljChQwAAAAD/////QY6iQwAAgD9BjqJDAACAP/////9BjqJDAAAAAEGOokMAAAAA/////zHupUMAAIA/Me6lQwAAgD//////Me6lQwAAAAAx7qVDAAAAAP////9BKrJDAACAP0EqskMAAIA//////0EqskMAAAAAQSqyQwAAAAD/////49y0QwAAgD/j3LRDAACAP//////j3LRDAAAAAOPctEMAAAAA/////3DetkMAAIA/cN62QwAAgD//////cN62QwAAAABw3rZDAAAAAP/////3ULhDAACAP/dQuEMAAIA///////dQuEMAAAAA91C4QwAAAAD/////Zt+4QwAAgD9m37hDAACAP/////9m37hDAAAAAGbfuEMAAAAA/////5lWuUMAAIA/mVa5QwAAgD//////mVa5QwAAAACZVrlDAAAAAP////9YurlDAACAP1i6uUMAAIA//////1i6uUMAAAAAWLq5QwAAAAD/////8A26QwAAgD/wDbpDAACAP//////wDbpDAAAAAPANukMAAAAA//////9TukMAAIA//1O6QwAAgD///////1O6QwAAAAD/U7pDAAAAAP////85jrpDAACAPzmOukMAAIA//////zmOukMAAAAAOY66QwAAAAD/////Sr26QwAAgD9KvbpDAACAP/////9KvbpDAAAAAEq9ukMAAAAA/////9vgukMAAIA/2+C6QwAAgD//////2+C6QwAAAADb4LpDAAAAAP////8AALtDAACAPwAAu0MAAIA//////wAAu0MAAAAAAAC7QwAAAAA="),
 "format": 34359742527,
 "index_count": 312,
@@ -448,47 +448,46 @@ dialogue = "diagTest"
 position = Vector2(6735, 1218)
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1219481979]
-visible = false
 
 [node name="CameraBound" parent="Camera regions" unique_id=1075467101 instance=ExtResource("3_so8ub")]
-position = Vector2(1677, 1220)
+position = Vector2(0, 856)
 scale = Vector2(16.825, 4.3)
 continuousX = true
 continuousY = true
 
 [node name="CameraBound7" parent="Camera regions" unique_id=226453886 instance=ExtResource("3_so8ub")]
-position = Vector2(1016, 365)
+position = Vector2(1, 1)
 scale = Vector2(10.14, 4.3)
 continuousY = true
 
 [node name="CameraBound8" parent="Camera regions" unique_id=568217966 instance=ExtResource("3_so8ub")]
-position = Vector2(2940, 399)
+position = Vector2(2634, 35.000004)
 scale = Vector2(3.715, 4.3)
 continuousX = true
 continuousY = true
 
 [node name="CameraBound2" parent="Camera regions" unique_id=1578452376 instance=ExtResource("3_so8ub")]
-position = Vector2(4887, 749)
+position = Vector2(3362, 34.000004)
 scale = Vector2(16.825, 8.97)
 continuousX = true
 
 [node name="CameraBound3" parent="Camera regions" unique_id=334302865 instance=ExtResource("3_so8ub")]
-position = Vector2(7193, 755)
+position = Vector2(6726, 331.00003)
 scale = Vector2(6.595, 8.97)
 continuousX = true
 
 [node name="CameraBound4" parent="Camera regions" unique_id=1506715378 instance=ExtResource("3_so8ub")]
-position = Vector2(9453, 1430)
+position = Vector2(7539.999, 306.00006)
 scale = Vector2(16.285, 13.715)
 continuousX = true
 
 [node name="CameraBound5" parent="Camera regions" unique_id=1980832432 instance=ExtResource("3_so8ub")]
-position = Vector2(12327, 1788)
+position = Vector2(10783, 491)
 scale = Vector2(12.57, 12.875)
 continuousX = true
 
 [node name="CameraBound6" parent="Camera regions" unique_id=338647221 instance=ExtResource("3_so8ub")]
-position = Vector2(16364, 1788)
+position = Vector2(13292, 505)
 scale = Vector2(29.895, 12.875)
 continuousX = true
 

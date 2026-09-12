@@ -203,7 +203,7 @@ func handlePlyHits(harmPlayer:bool = true):
 			touchedPlayer.yeowch(strength, KNOCKBACK_ON_PLY_BODY_HIT)
 
 func spawnNumber(quant):
-	var numble = load("res://Gamestuffs/UsefulShits/Numbs.tscn").instantiate()
+	var numble = load("res://Gameplaystuffs/UsefulShits/Numbs.tscn").instantiate()
 	get_parent().add_child(numble)
 	numble.global_position = global_position - Vector2(0, 32)
 	numble.set_text(quant)

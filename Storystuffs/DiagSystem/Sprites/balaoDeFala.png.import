@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vsxt2d62hebi"
-path="res://.godot/imported/skelly.png-582b3dbb484fdb7e4a072b38e62d6545.ctex"
+uid="uid://dffcea8aybcsl"
+path="res://.godot/imported/balaoDeFala.png-11ea6fb0e5ba466e5708421c45fef1b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menustuffs/Ingame/Quests/questIcons/skelly.png"
-dest_files=["res://.godot/imported/skelly.png-582b3dbb484fdb7e4a072b38e62d6545.ctex"]
+source_file="res://Storystuffs/DiagSystem/Sprites/balaoDeFala.png"
+dest_files=["res://.godot/imported/balaoDeFala.png-11ea6fb0e5ba466e5708421c45fef1b7.ctex"]
 
 [params]
 

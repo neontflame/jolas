@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DiagTalksound" format=3 uid="uid://vd4pba2kchme"]
 
-[ext_resource type="Script" uid="uid://c0nu0k2qwolns" path="res://Narrativestuffs/DiagSystem/DiagTalksound.gd" id="1_1g8nf"]
+[ext_resource type="Script" uid="uid://c0nu0k2qwolns" path="res://Storystuffs/DiagSystem/DiagTalksound.gd" id="1_1g8nf"]
 [ext_resource type="AudioStream" uid="uid://cjpg2crtntdp" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-01.wav" id="2_1odew"]
 [ext_resource type="AudioStream" uid="uid://bwn03hsi1318k" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-02.wav" id="3_0aom4"]
 [ext_resource type="AudioStream" uid="uid://bd281p62vun8x" path="res://Playerstuffs/Characters/Sushi/Sounds/fala-03.wav" id="4_6288f"]

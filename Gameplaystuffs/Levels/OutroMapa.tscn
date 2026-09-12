@@ -19,47 +19,28 @@
 [sub_resource type="Resource" id="Resource_qccto"]
 script = ExtResource("5_uujrh")
 position = Vector2(-56, 1192)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-texture_idx = 0
-flip = false
-width = 1.0
 
 [sub_resource type="Resource" id="Resource_r3m6q"]
 script = ExtResource("5_uujrh")
 position = Vector2(176, 1248)
 point_in = Vector2(-128, -64)
 point_out = Vector2(104, 72)
-texture_idx = 0
-flip = false
-width = 1.0
 
 [sub_resource type="Resource" id="Resource_wgyth"]
 script = ExtResource("5_uujrh")
 position = Vector2(384, 1328)
 point_in = Vector2(-96, 0)
 point_out = Vector2(-344, 16)
-texture_idx = 0
-flip = false
-width = 1.0
 
 [sub_resource type="Resource" id="Resource_2bpg7"]
 script = ExtResource("5_uujrh")
 position = Vector2(-72, 1408)
 point_in = Vector2(136, 88)
 point_out = Vector2(16, -64)
-texture_idx = 0
-flip = false
-width = 1.0
 
 [sub_resource type="Resource" id="Resource_6rxk0"]
 script = ExtResource("5_uujrh")
 position = Vector2(-56, 1192)
-point_in = Vector2(0, 0)
-point_out = Vector2(0, 0)
-texture_idx = 0
-flip = false
-width = 1.0
 
 [sub_resource type="Resource" id="Resource_h80y3"]
 script = ExtResource("6_jkiv4")
@@ -75,10 +56,6 @@ _constraints = {
 Vector2i(0, 5): 15
 }
 _next_key = 6
-_material_overrides = {}
-tessellation_stages = 3
-tessellation_tolerance = 6.0
-curve_bake_interval = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qgdai"]
 _surfaces = [{
@@ -98,13 +75,10 @@ script = ExtResource("7_7ln5x")
 texture = ExtResource("8_nfnv6")
 mesh = SubResource("ArrayMesh_qgdai")
 z_index = -10
-z_as_relative = true
-show_behind_parent = false
-force_no_tiling = false
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_323v8"]
 _surfaces = [{
-"aabb": AABB(-58.3019, 1182.22, 0, 21.8446, 51.7928, 1e-05),
+"aabb": AABB(-58.301903, 1182.2169, 0, 21.844593, 51.792847, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -120,13 +94,11 @@ script = ExtResource("7_7ln5x")
 texture = ExtResource("9_lm7r3")
 mesh = SubResource("ArrayMesh_323v8")
 z_index = 2
-z_as_relative = true
-show_behind_parent = false
 force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_17lbq"]
 _surfaces = [{
-"aabb": AABB(-39.3347, 1185.09, 0, 423.733, 182.073, 1e-05),
+"aabb": AABB(-39.33469, 1185.0942, 0, 423.7331, 182.07336, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8QxLk/AACAPxDEuT8AAIA//////xDEuT8AAAAAEMS5PwAAAAD/////F9NqQAAAgD8X02pAAACAP/////8X02pAAAAAABfTakAAAAAA/////y0d0UAAAIA/LR3RQAAAgD//////LR3RQAAAAAAtHdFAAAAAAP////8b+yVBAACAPxv7JUEAAIA//////xv7JUEAAAAAG/slQQAAAAD/////18AxQQAAgD/XwDFBAACAP//////XwDFBAAAAANfAMUEAAAAA/////z6qPUEAAIA/Pqo9QQAAgD//////Pqo9QQAAAAA+qj1BAAAAAP////8YeVpBAACAPxh5WkEAAIA//////xh5WkEAAAAAGHlaQQAAAAA="),
 "format": 34359742527,
 "index_count": 42,
@@ -142,13 +114,10 @@ script = ExtResource("7_7ln5x")
 texture = ExtResource("10_pjvdg")
 mesh = SubResource("ArrayMesh_17lbq")
 z_index = 2
-z_as_relative = true
-show_behind_parent = false
-force_no_tiling = false
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rx6ew"]
 _surfaces = [{
-"aabb": AABB(-73.7688, 1190.5, 0, 459.768, 246.372, 1e-05),
+"aabb": AABB(-73.76877, 1190.4951, 0, 459.7678, 246.37183, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////+b7YBAAACAP5vtgEAAAIA//////5vtgEAAAAAAm+2AQAAAAAD/////H+4HQQAAgD8f7gdBAACAP/////8f7gdBAAAAAB/uB0EAAAAA/////xPLY0EAAIA/E8tjQQAAgD//////E8tjQQAAAAATy2NBAAAAAP/////Boa1BAACAP8GhrUEAAIA//////8GhrUEAAAAAwaGtQQAAAAD/////I8y3QQAAgD8jzLdBAACAP/////8jzLdBAAAAACPMt0EAAAAA/////+h3wkEAAIA/6HfCQQAAgD//////6HfCQQAAAADod8JBAAAAAP////9QIN5BAACAP1Ag3kEAAIA//////1Ag3kEAAAAAUCDeQQAAAAD//////OMJQgAAgD/84wlCAACAP//////84wlCAAAAAPzjCUIAAAAA/////xZtHkIAAIA/Fm0eQgAAgD//////Fm0eQgAAAAAWbR5CAAAAAP////9mfTpCAACAP2Z9OkIAAIA//////2Z9OkIAAAAAZn06QgAAAAD/////WjZEQgAAgD9aNkRCAACAP/////9aNkRCAAAAAFo2REIAAAAA/////3FlSEIAAIA/cWVIQgAAgD//////cWVIQgAAAABxZUhCAAAAAP/////XXkxCAACAP9deTEIAAIA//////9deTEIAAAAA115MQgAAAAD/////SG1QQgAAgD9IbVBCAACAP/////9IbVBCAAAAAEhtUEIAAAAA/////2TuVEIAAIA/ZO5UQgAAgD//////ZO5UQgAAAABk7lRCAAAAAP/////CQlpCAACAP8JCWkIAAIA//////8JCWkIAAAAAwkJaQgAAAAD/////DcJgQgAAgD8NwmBCAACAP/////8NwmBCAAAAAA3CYEIAAAAA/////wAAikIAAIA/AACKQgAAgD//////AACKQgAAAAAAAIpCAAAAAA=="),
 "format": 34359742527,
 "index_count": 108,
@@ -163,113 +132,109 @@ _surfaces = [{
 script = ExtResource("7_7ln5x")
 texture = ExtResource("11_nabj4")
 mesh = SubResource("ArrayMesh_rx6ew")
-z_index = 0
-z_as_relative = true
-show_behind_parent = false
-force_no_tiling = false
 
-[node name="OutroMapa" type="Node2D"]
+[node name="OutroMapa" type="Node2D" unique_id=863317868]
 script = ExtResource("1_ue65o")
 
-[node name="EspeculanteBackground" parent="." instance=ExtResource("5_qp5dq")]
+[node name="EspeculanteBackground" parent="." unique_id=211960362 instance=ExtResource("5_qp5dq")]
 coolColor = Color(0.680261, 0.835274, 1, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=200305251]
 position = Vector2(177, 518)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=1390139347]
 color = Color(0, 0.364706, 0.780392, 1)
 polygon = PackedVector2Array(-331, -11, -542, 306, -320, 645)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1805118928]
 polygon = PackedVector2Array(-945, -62, -74, -80, -74, -16, 157, -19, 211, 15, 303, 14, 380, 35, 432, 37, 475, 56, 858, 57, 858, 1, 1256, 3, 1258, -44, 1421, -47, 1422, -94, 1583, -95, 1581, -142, 1834, -143, 1833, -52, 1941, -53, 1935, 27, 2563, 25, 2561, 97, 2752, 98, 2752, 169, 2921, 214, 2919, 474, 3071, 474, 3063, 530, 2757, 534, 1998, 534, 1985, 332, 481, 320, -215, 233, -209, 810, 279, 810, 622, 938, 1335, 938, 1337, 809, 1967, 810, 1967, 946, 2695, 946, 2695, 818, 2983, 818, 2983, 754, 3547, 550, 3549, 392, 3311, 386, 3311, 338, 3425, 339, 3592, 254, 4196, 253, 4389, 114, 4923, 111, 4920, -751, 4186, -842, 4871, -841, 5127, -837, 5120, 105, 4933, 592, 4866, 821, 3214, 978, 1798, 1290, -421, 1363, -1025, 234, -1049, -790, 1012, -784, 1007, -477, 823, -458, 736, -371, 309, -371, 235, -297, 162, -311, 102, -467, -41, -486, -73, -702, -961, -686)
 
-[node name="CurvedTerrainV2" type="StaticBody2D" parent="." node_paths=PackedStringArray("obj_shape")]
+[node name="CurvedTerrainV2" type="StaticBody2D" parent="." unique_id=1873191885 node_paths=PackedStringArray("obj_shape")]
 script = ExtResource("3_pyyvb")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
 
-[node name="SS2D_Shape" type="Node2D" parent="CurvedTerrainV2"]
+[node name="SS2D_Shape" type="Node2D" parent="CurvedTerrainV2" unique_id=770643203]
 script = ExtResource("4_duv05")
 _points = SubResource("Resource_h80y3")
 _meshes = Array[ExtResource("7_7ln5x")]([SubResource("Resource_x6fxd"), SubResource("Resource_nqgjv"), SubResource("Resource_lgnuw"), SubResource("Resource_g2n2j")])
 shape_material = ExtResource("12_n3fp3")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedTerrainV2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedTerrainV2" unique_id=1208857817]
 visible = false
-polygon = PackedVector2Array(-56, 1192, 12, 1196, 85.75, 1212.25, 176, 1248, 283, 1315, 303.422, 1321.67, 325.625, 1325.63, 384, 1328, 271.219, 1339.64, 186.75, 1359.63, 78, 1407, 41.3438, 1425.58, 24.7383, 1431.66, 8.25, 1434.88, -8.89453, 1434.67, -27.4688, 1430.48, -48.2461, 1421.78, -72, 1408)
+polygon = PackedVector2Array(-56, 1192, 12, 1196, 85.75, 1212.25, 176, 1248, 283, 1315, 303.42188, 1321.6719, 325.625, 1325.625, 384, 1328, 271.21875, 1339.6406, 186.75, 1359.625, 78, 1407, 41.34375, 1425.5781, 24.738281, 1431.6621, 8.25, 1434.875, -8.894531, 1434.666, -27.46875, 1430.4844, -48.246094, 1421.7793, -72, 1408)
 metadata/_edit_lock_ = true
 
-[node name="Spawnpoint" type="Node2D" parent="."]
+[node name="Spawnpoint" type="Node2D" parent="." unique_id=1243704368]
 position = Vector2(174, 436)
 
-[node name="GHZSpawnpoint" type="Node2D" parent="."]
+[node name="GHZSpawnpoint" type="Node2D" parent="." unique_id=1779209638]
 position = Vector2(192, 1208)
 
-[node name="BackSpawnpoint" type="Node2D" parent="."]
+[node name="BackSpawnpoint" type="Node2D" parent="." unique_id=317807963]
 position = Vector2(4783, 602)
 
-[node name="Camera regions" type="Node2D" parent="."]
+[node name="Camera regions" type="Node2D" parent="." unique_id=402137750]
 
-[node name="CameraBound" parent="Camera regions" instance=ExtResource("3_d0je0")]
-position = Vector2(1038, 230)
-scale = Vector2(10.26, 3.91)
+[node name="CameraBound" parent="Camera regions" unique_id=408558558 instance=ExtResource("3_d0je0")]
+position = Vector2(-48, -120)
+scale = Vector2(10.3, 3.91)
 continuousX = true
 
-[node name="CameraBound4" parent="Camera regions" instance=ExtResource("3_d0je0")]
-position = Vector2(1624, 1112)
+[node name="CameraBound4" parent="Camera regions" unique_id=894358623 instance=ExtResource("3_d0je0")]
+position = Vector2(24, 744)
 scale = Vector2(15.985, 3.91)
 continuousX = true
 continuousY = true
 
-[node name="CameraBound2" parent="Camera regions" instance=ExtResource("3_d0je0")]
-position = Vector2(3205, 568)
+[node name="CameraBound2" parent="Camera regions" unique_id=2111114384 instance=ExtResource("3_d0je0")]
+position = Vector2(2008.0001, 32)
 scale = Vector2(11.735, 6.54)
 continuousX = true
 continuousY = true
 
-[node name="CameraBound3" parent="Camera regions" instance=ExtResource("3_d0je0")]
-position = Vector2(4564, 332)
+[node name="CameraBound3" parent="Camera regions" unique_id=732581958 instance=ExtResource("3_d0je0")]
+position = Vector2(4152, -56.000008)
 scale = Vector2(4.455, 5.08)
 continuousX = true
 
-[node name="enemigos" type="Node2D" parent="."]
+[node name="enemigos" type="Node2D" parent="." unique_id=1480697764]
 
-[node name="TemplateMob" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob" parent="enemigos" unique_id=1757841067 instance=ExtResource("4_8wpb2")]
 position = Vector2(936, 510)
 
-[node name="TemplateMob2" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob2" parent="enemigos" unique_id=149252907 instance=ExtResource("4_8wpb2")]
 position = Vector2(1518, 405)
 
-[node name="TemplateMob3" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob3" parent="enemigos" unique_id=829520959 instance=ExtResource("4_8wpb2")]
 position = Vector2(1860, 302)
 
-[node name="TemplateMob4" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob4" parent="enemigos" unique_id=1820008363 instance=ExtResource("4_8wpb2")]
 position = Vector2(3521, 773)
 
-[node name="TemplateMob5" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob5" parent="enemigos" unique_id=1331797001 instance=ExtResource("4_8wpb2")]
 position = Vector2(3521, 998)
 
-[node name="TemplateMob7" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob7" parent="enemigos" unique_id=981017920 instance=ExtResource("4_8wpb2")]
 position = Vector2(2463, 1398)
 
-[node name="TemplateMob6" parent="enemigos" instance=ExtResource("4_8wpb2")]
+[node name="TemplateMob6" parent="enemigos" unique_id=992250958 instance=ExtResource("4_8wpb2")]
 position = Vector2(4054, 715)
 
-[node name="GoToLevel" parent="." instance=ExtResource("5_trijc")]
+[node name="GoToLevel" parent="." unique_id=1589819425 instance=ExtResource("5_trijc")]
 position = Vector2(-96, -16)
 scale = Vector2(3.535, 77.715)
 levelInQuestion = "Sandlerhell"
 whereToSpawn = "BackSpawnpoint"
 
-[node name="GoToLevel3" parent="." instance=ExtResource("5_trijc")]
+[node name="GoToLevel3" parent="." unique_id=1650215934 instance=ExtResource("5_trijc")]
 position = Vector2(-24, 1512)
 scale = Vector2(3.535, 77.715)
 levelInQuestion = "GreenHawntZone"
 whereToSpawn = "BackSpawnpoint"
 
-[node name="GoToLevel2" parent="." instance=ExtResource("5_trijc")]
+[node name="GoToLevel2" parent="." unique_id=1878391861 instance=ExtResource("5_trijc")]
 position = Vector2(5084, 668)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerdomain"

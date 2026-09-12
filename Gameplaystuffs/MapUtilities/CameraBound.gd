@@ -14,8 +14,8 @@ var letTheBodies:Array = []
 @onready var bounds:Dictionary = {
 	'width': widthHeightWhatever.x,
 	'height': widthHeightWhatever.y,
-	'x': global_position.x - (widthHeightWhatever.x/2),
-	'y': global_position.y - (widthHeightWhatever.y/2)
+	'x': global_position.x,
+	'y': global_position.y
 }
 
 @onready var continuousBounds:Dictionary = {

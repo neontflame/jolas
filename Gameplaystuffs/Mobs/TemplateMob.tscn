@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dq32mfrkrguyk" path="res://Gameplaystuffs/Mobs/StatePatternism/defaultSt.gd" id="3_roppu"]
 [ext_resource type="Script" uid="uid://c764epcbow7k4" path="res://Gameplaystuffs/Mobs/StatePatternism/hurtSt.gd" id="4_mdl05"]
 [ext_resource type="Script" uid="uid://cej4ef60qr7qh" path="res://Gameplaystuffs/Mobs/StatePatternism/deathSt.gd" id="5_hgoir"]
-[ext_resource type="PackedScene" uid="uid://whj8dgxik0b5" path="res://Gamestuffs/UsefulShits/TinyBar.tscn" id="7_oo2om"]
+[ext_resource type="PackedScene" uid="uid://whj8dgxik0b5" path="res://Gameplaystuffs/UsefulShits/TinyBar.tscn" id="7_oo2om"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hgoir"]
 animations = [{

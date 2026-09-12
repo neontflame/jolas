@@ -56,17 +56,17 @@ position = Vector2(4861, 600)
 visible = false
 
 [node name="CameraBound" parent="Camera regions" unique_id=1817175958 instance=ExtResource("3_4gkxx")]
-position = Vector2(1005, 385)
+position = Vector2(-40, 0)
 scale = Vector2(10.26, 3.91)
 continuousX = true
 
 [node name="CameraBound2" parent="Camera regions" unique_id=1874080852 instance=ExtResource("3_4gkxx")]
-position = Vector2(2796, 451)
+position = Vector2(1712, 56)
 scale = Vector2(10.26, 3.91)
 continuousX = true
 
 [node name="CameraBound3" parent="Camera regions" unique_id=1635348760 instance=ExtResource("3_4gkxx")]
-position = Vector2(4784.81, 320)
+position = Vector2(3872, -216.00002)
 scale = Vector2(9.499, 5.26)
 idealZoom = 0.75
 

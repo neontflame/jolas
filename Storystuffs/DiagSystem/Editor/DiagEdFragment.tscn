@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hjum51haisyt"]
 
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="1_1077f"]
-[ext_resource type="Script" uid="uid://blkyhbf7ttkp2" path="res://Narrativestuffs/DiagSystem/Editor/DiagEdFragment.gd" id="2_aco56"]
+[ext_resource type="Script" uid="uid://blkyhbf7ttkp2" path="res://Storystuffs/DiagSystem/Editor/DiagEdFragment.gd" id="2_aco56"]
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="3_1077f"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("choiceContainer")]

@@ -16,7 +16,7 @@ func setup(diag:Dictionary):
 	$CheckButton.button_pressed = diag.has("choice")
 	if diag.has("choice"):
 		for choi in diag["choice"]:
-			var newThingie = load("res://Narrativestuffs/DiagSystem/Editor/DiagEdFragOption.tscn").instantiate()
+			var newThingie = load("res://Storystuffs/DiagSystem/Editor/DiagEdFragOption.tscn").instantiate()
 			newThingie.textCool = choi[0]
 			newThingie.diagFilename = choi[1]
 			choiceContainer.add_child(newThingie)
@@ -44,7 +44,7 @@ func makeJson():
 	return dic
 
 func _on_add_button_pressed() -> void:
-	var newThingie = load("res://Narrativestuffs/DiagSystem/Editor/DiagEdFragOption.tscn").instantiate()
+	var newThingie = load("res://Storystuffs/DiagSystem/Editor/DiagEdFragOption.tscn").instantiate()
 	choiceContainer.add_child(newThingie)
 
 func _on_delete_button_pressed() -> void:

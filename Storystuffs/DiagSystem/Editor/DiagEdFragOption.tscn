@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8x5k2kfe5iwf"]
 
-[ext_resource type="Script" uid="uid://xx4floy1203l" path="res://Narrativestuffs/DiagSystem/Editor/DiagEdFragOption.gd" id="1_mb2o5"]
+[ext_resource type="Script" uid="uid://xx4floy1203l" path="res://Storystuffs/DiagSystem/Editor/DiagEdFragOption.gd" id="1_mb2o5"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(0, 42)

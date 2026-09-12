@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h5b25ixee4vd"]
 
-[ext_resource type="Script" uid="uid://s5ig3d1d8a0v" path="res://Narrativestuffs/Cutscenes/WTTOFJ/welcome_to_the_worldof_jolas.gd" id="1_tcy4d"]
+[ext_resource type="Script" uid="uid://s5ig3d1d8a0v" path="res://Storystuffs/Cutscenes/WTTOFJ/welcome_to_the_worldof_jolas.gd" id="1_tcy4d"]
 [ext_resource type="AudioStream" uid="uid://d01w7q7ts6kvn" path="res://Soundstuffs/Music/cutscenes/welcome_mother3.wav" id="2_cqq2o"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_kyb1l"]
 [ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Gameplaystuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="4_bodje"]
@@ -120,7 +120,7 @@ _data = {
 &"jolas_intro": SubResource("Animation_kyb1l")
 }
 
-[node name="WelcomeToTheWorldofJolas" type="Control" node_paths=PackedStringArray("music", "text_area", "black_bg_label")]
+[node name="WelcomeToTheWorldofJolas" type="Control" unique_id=705591362 node_paths=PackedStringArray("music", "text_area", "black_bg_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,15 +132,13 @@ music = NodePath("AudioStreamPlayer")
 text_area = NodePath("TextArea")
 black_bg_label = NodePath("TextArea/CenterContainer/Label")
 
-[node name="CutsceneAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bodje")
-}
-autoplay = "jolas_intro"
+[node name="CutsceneAnimation" type="AnimationPlayer" parent="." unique_id=45525492]
+libraries/ = SubResource("AnimationLibrary_bodje")
+autoplay = &"jolas_intro"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1829153626]
 
-[node name="BlackBackground" type="ColorRect" parent="."]
+[node name="BlackBackground" type="ColorRect" parent="." unique_id=401344263]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,7 +147,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextArea" type="Control" parent="."]
+[node name="TextArea" type="Control" parent="." unique_id=1774073338]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,7 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="TextArea"]
+[node name="CenterContainer" type="CenterContainer" parent="TextArea" unique_id=1551227243]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,7 +163,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TextArea/CenterContainer"]
+[node name="Label" type="Label" parent="TextArea/CenterContainer" unique_id=395000927]
 layout_mode = 2
 theme = ExtResource("3_kyb1l")
 text = "welcome to the
@@ -173,4 +171,4 @@ world of JOLAS."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MenuBackground" parent="." instance=ExtResource("4_bodje")]
+[node name="MenuBackground" parent="." unique_id=1794947801 instance=ExtResource("4_bodje")]
