@@ -13,6 +13,9 @@ func _ready() -> void:
 	initialPos = global_position
 	makeThings(amount, gapBetweenTrails)
 
+func setupInitialPos():
+	initialPos = global_position
+
 func makeThings(amount:int, yGap:float):
 	for i in range(amount):
 		var theNode:Node2D = Node2D.new()

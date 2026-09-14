@@ -70,10 +70,10 @@ grow_vertical = 0
 
 [node name="VirtualJoystick" type="VirtualJoystick" parent="MobileDownLeft" unique_id=207783221]
 layout_mode = 0
-offset_left = 86.0
-offset_top = -72.0
-offset_right = 126.0
-offset_bottom = -32.0
+offset_left = 3.0
+offset_top = -152.0
+offset_right = 199.0
+offset_bottom = 38.0
 theme_override_styles/normal_joystick = SubResource("StyleBoxTexture_hsonh")
 theme_override_styles/normal_tip = SubResource("StyleBoxTexture_qm433")
 theme_override_styles/pressed_joystick = SubResource("StyleBoxTexture_to60a")

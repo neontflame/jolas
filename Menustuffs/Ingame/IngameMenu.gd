@@ -45,5 +45,6 @@ func tweenOut():
 	)
 
 func _process(delta: float) -> void:
-	if JolasGame.instance.isMenu: 
-		JolasGame.instance.bgmStream.volume_db = theVolModifier
+	if JolasGame.instance != null:
+		if JolasGame.instance.isMenu: 
+			JolasGame.instance.bgmStream.volume_db = theVolModifier
