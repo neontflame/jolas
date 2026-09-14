@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ciejbc17lgh1b"]
+
+[ext_resource type="Script" uid="uid://csd3jg12g71mj" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/MakesEspecula.gd" id="1_qqyi7"]
+
+[node name="MakesEspecula" type="Node2D" unique_id=2000219589]
+script = ExtResource("1_qqyi7")
+
+[node name="Lines" type="Node2D" parent="." unique_id=1124996953]

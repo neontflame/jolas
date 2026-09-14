@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Gameplaystuffs/MapUtilities/ParallaxComponent/parallax_component.gd" id="1_6l624"]
 
-[node name="ParallaxComponent" type="ParallaxBackground" node_paths=PackedStringArray("PLayer", "Sprite")]
+[node name="ParallaxComponent" type="ParallaxBackground" unique_id=1921920883]
+scroll_base_scale = Vector2(0, 0)
 scroll_ignore_camera_zoom = true
 script = ExtResource("1_6l624")
-PLayer = NodePath("")
-Sprite = NodePath("")
 ParallaxType = 0

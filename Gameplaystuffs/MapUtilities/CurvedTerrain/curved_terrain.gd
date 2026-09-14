@@ -1,4 +1,4 @@
-@icon("res://Gameplaystuffs/Utilities/CurvedTerrain/curved_terrain.svg")
+@icon("res://Gameplaystuffs/MapUtilities/CurvedTerrain/curved_terrain.svg")
 @tool
 ## Sistema de terreno curvo baseado em Path2D.[br]
 ## Gera automaticamente:[br]

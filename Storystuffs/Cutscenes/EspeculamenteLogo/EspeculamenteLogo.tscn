@@ -1,0 +1,402 @@
+[gd_scene format=3 uid="uid://bmdvmdbuf233m"]
+
+[ext_resource type="Script" uid="uid://yt87cfj8lfep" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/EspeculamenteLogo.gd" id="1_40wce"]
+[ext_resource type="PackedScene" uid="uid://ciejbc17lgh1b" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/MakesEspecula.tscn" id="2_yjhvs"]
+[ext_resource type="Texture2D" uid="uid://cpqa8vacs1y4o" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/GtetoPlane/biplaneculativos0001.png" id="3_k7m8l"]
+[ext_resource type="Texture2D" uid="uid://cvwinpjaolmme" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/portalFoda.png" id="4_3c66q"]
+[ext_resource type="Texture2D" uid="uid://csenlcvl1eidh" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/GtetoPlane/biplaneculativos0002.png" id="4_vgk3t"]
+[ext_resource type="Texture2D" uid="uid://daou2j3vyyek0" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/GtetoPlane/biplaneculativos0003.png" id="5_x0blm"]
+[ext_resource type="Texture2D" uid="uid://cl670xwcfclcu" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/GtetoPlane/biplaneculativos0004.png" id="6_7wag1"]
+[ext_resource type="Texture2D" uid="uid://dwu8woh720cpi" path="res://Storystuffs/Cutscenes/EspeculamenteLogo/especulaLogo.png" id="7_vgk3t"]
+[ext_resource type="AudioStream" uid="uid://cigou1mauko8r" path="res://Soundstuffs/SFX/Misc/BiplaneSFX.wav" id="8_x0blm"]
+[ext_resource type="AudioStream" uid="uid://bcm0sxxui8kkc" path="res://Soundstuffs/SFX/Ingame/Release.wav" id="9_7wag1"]
+[ext_resource type="AudioStream" uid="uid://doah3cxs8250t" path="res://Soundstuffs/SFX/Notifs/Quest.wav" id="11_3c66q"]
+
+[sub_resource type="Gradient" id="Gradient_6w52m"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hsonh"]
+gradient = SubResource("Gradient_6w52m")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsonh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k7m8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgk3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x0blm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7wag1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_uhdf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GTetoPlane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-601, 184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GTetoPlane:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GTetoPlane:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MakesEspecula:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MakesEspecula:self_modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MakesEspecula:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EspeculaLogo:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EspeculaLogo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(406, 242)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WhiteFade:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("EspeculaLogo/PortalFoda:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75, -1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("EspeculaLogo/PortalFoda:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3c66q"]
+resource_name = "intro"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GTetoPlane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8333334, 3, 3.5, 4.9),
+"transitions": PackedFloat32Array(1.5691689, 1, 1e-05, 0.35355338, 1),
+"update": 0,
+"values": [Vector2(-720, 184), Vector2(150, 184), Vector2(1127, 184), Vector2(1700, 184), Vector2(-400, 184)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.845),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"getStarted"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GTetoPlane:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1e-05, 1.0352646e-05),
+"update": 1,
+"values": [1.0, -1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MakesEspecula:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.7666667, 4.9),
+"transitions": PackedFloat32Array(1e-05, 0.2332583, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.25, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MakesEspecula:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9666667, 3.7666667, 4.3333335),
+"transitions": PackedFloat32Array(0, 0.25000003, 0.28717443, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.67800003), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EspeculaLogo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.7666667, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EspeculaLogo:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.8, 4.633333),
+"transitions": PackedFloat32Array(0.3298771, 0.3298771, 1),
+"update": 0,
+"values": [Vector2(456, 242), Vector2(456, 242), Vector2(400, 242)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Whoosh")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("WhiteFade:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6.4333334, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("EspeculaLogo/PortalFoda:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.499457, 4.5494566, 5.133333),
+"transitions": PackedFloat32Array(5.0982466, 0.37892917, 1),
+"update": 0,
+"values": [Vector2(75, -1), Vector2(75, 7), Vector2(75, -1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("EspeculaLogo/PortalFoda:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.5094566, 4.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("XatBarulho")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.5666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dr3kd"]
+_data = {
+&"RESET": SubResource("Animation_uhdf7"),
+&"intro": SubResource("Animation_3c66q")
+}
+
+[node name="EspeculamenteLogo" type="Node2D" unique_id=1482796532 node_paths=PackedStringArray("especulaTrail")]
+script = ExtResource("1_40wce")
+especulaTrail = NodePath("MakesEspecula")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2045411751]
+offset_left = -1180.0
+offset_top = -342.0
+offset_right = 2031.0
+offset_bottom = 1102.0
+texture = SubResource("GradientTexture1D_hsonh")
+expand_mode = 2
+
+[node name="MakesEspecula" parent="." unique_id=2000219589 instance=ExtResource("2_yjhvs")]
+position = Vector2(-10, 184)
+framesBetweenAdd = 2
+amount = 5
+gapBetweenTrails = 30.0
+
+[node name="EspeculaLogo" type="Sprite2D" parent="." unique_id=39109547]
+position = Vector2(406, 242)
+texture = ExtResource("7_vgk3t")
+
+[node name="PortalFoda" type="Sprite2D" parent="EspeculaLogo" unique_id=93516561]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(75, -1)
+texture = ExtResource("4_3c66q")
+
+[node name="GTetoPlane" type="Node2D" parent="." unique_id=1343816858]
+position = Vector2(-601, 184)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GTetoPlane" unique_id=1758060945]
+position = Vector2(263, 88)
+sprite_frames = SubResource("SpriteFrames_hsonh")
+autoplay = "default"
+frame_progress = 0.8294105
+
+[node name="biplaneSFX" type="AudioStreamPlayer2D" parent="GTetoPlane" unique_id=496200345]
+position = Vector2(281.70197, 136)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+stream = ExtResource("8_x0blm")
+volume_db = 4.588
+autoplay = true
+max_distance = 1200.0
+attenuation = 5.464172
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581576185]
+libraries/ = SubResource("AnimationLibrary_dr3kd")
+autoplay = &"intro"
+
+[node name="Whoosh" type="AudioStreamPlayer" parent="." unique_id=2007940656]
+stream = ExtResource("9_7wag1")
+volume_db = -11.311
+bus = &"SFX"
+
+[node name="WhiteFade" type="TextureRect" parent="." unique_id=1440648251]
+offset_left = -1180.0
+offset_top = -342.0
+offset_right = 2031.0
+offset_bottom = 1102.0
+texture = SubResource("GradientTexture1D_hsonh")
+expand_mode = 2
+
+[node name="XatBarulho" type="AudioStreamPlayer" parent="." unique_id=1756144610]
+stream = ExtResource("11_3c66q")

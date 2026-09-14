@@ -1,5 +1,5 @@
 @tool
-@icon("res://Gameplaystuffs/Utilities/ParallaxComponent/parallax_component_icon.svg")
+@icon("uid://3k43r4tuevow")
 extends ParallaxBackground
 class_name ParallaxComponent
 
