@@ -193,6 +193,7 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translation_remaps={
+"res://Gamestuffs/HeadsUpDisplay/levelPaperPTBR.png": PackedStringArray("res://Gamestuffs/HeadsUpDisplay/levelPaperEN.png:en", "res://Gamestuffs/HeadsUpDisplay/levelPaperES.png:es", "res://Gamestuffs/HeadsUpDisplay/levelPaperEN.png:ja"),
 "res://Menustuffs/DipshitMenu/EscolhaSeuMane.png": PackedStringArray("res://Menustuffs/DipshitMenu/ChooseYourDipshit.png:en"),
 "res://Menustuffs/Ingame/Inventory/inventoryCoiso.png": PackedStringArray("res://Menustuffs/Ingame/Inventory/inventoryCoisoEN.png:en", "res://Menustuffs/Ingame/Inventory/inventoryCoisoJP.png:ja"),
 "res://Menustuffs/MainMenu/Logo.png": PackedStringArray("res://Menustuffs/MainMenu/JPLocale/Logo0002.png:ja"),

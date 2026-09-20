@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mqbfkb6flnry"
-path="res://.godot/imported/LevelSquare.png-e14cc638ebc9ea500ee7865f42bc6cf9.ctex"
+uid="uid://domyf0p6xat02"
+path="res://.godot/imported/levelPaperPTBR.png-4c213378a342a9dbcd89491dfd103833.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png"
-dest_files=["res://.godot/imported/LevelSquare.png-e14cc638ebc9ea500ee7865f42bc6cf9.ctex"]
+source_file="res://Gamestuffs/HeadsUpDisplay/levelPaperPTBR.png"
+dest_files=["res://.godot/imported/levelPaperPTBR.png-4c213378a342a9dbcd89491dfd103833.ctex"]
 
 [params]
 

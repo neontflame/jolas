@@ -6,7 +6,7 @@ uniform float shift_hue;
 void fragment() {
 // Input:3
 	vec3 input_color;
-	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 texture_color = COLOR;
 	input_color = texture_color.rgb;
 
 // VectorFunc:2
