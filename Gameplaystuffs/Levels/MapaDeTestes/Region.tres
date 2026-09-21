@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xhqgfn0qgrqh" path="res://Gameplaystuffs/RegionInfo.gd" id="1_4hscv"]
 [ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="2_a76gm"]
 [ext_resource type="AudioStream" uid="uid://dj74fguklovbm" path="res://Soundstuffs/Music/EmpireCityDay.ogg" id="3_a76gm"]
+[ext_resource type="AudioStream" uid="uid://cexsqsu6dem3r" path="res://Soundstuffs/Music/CircuitCityJ'mix.ogg" id="4_biqax"]
 
 [sub_resource type="Resource" id="Resource_biqax"]
 script = ExtResource("2_a76gm")
@@ -10,9 +11,15 @@ name = "Empire City (Day)"
 songfile = ExtResource("3_a76gm")
 metadata/_custom_type_script = "uid://c5e5tyhwjkhy1"
 
+[sub_resource type="Resource" id="Resource_garv4"]
+script = ExtResource("2_a76gm")
+name = "Circuit City J'mix"
+songfile = ExtResource("4_biqax")
+metadata/_custom_type_script = "uid://c5e5tyhwjkhy1"
+
 [resource]
 script = ExtResource("1_4hscv")
 name = "Trecos de teste"
 internalName = "MapaDeTestes"
-songfiles = Array[ExtResource("2_a76gm")]([SubResource("Resource_biqax")])
+songfiles = Array[ExtResource("2_a76gm")]([SubResource("Resource_biqax"), SubResource("Resource_garv4")])
 metadata/_custom_type_script = "uid://xhqgfn0qgrqh"

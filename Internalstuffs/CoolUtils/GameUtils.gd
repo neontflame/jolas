@@ -66,6 +66,7 @@ static func existing_char(char:String):
 #region Mapas
 static var defaultMap:String = 'TheThing'
 
+static var infoCache:Dictionary = {}
 #eu nao acho que nos precisamos disso a nao ser que eu faça um menu de level select depois
 #static func get_maps():
 	#var lvlList:Array = ResourceLoader.list_directory("res://Gameplaystuffs/Levels/")
@@ -105,15 +106,25 @@ static func get_region_from_map(map: String):
 				return region
 	return null
 
-static func get_map_path(map:String, region:String):
+static func get_map_path(map:String, region:String = ""):
+	if region == "":
+		region = get_region_from_map(map)
 	return "res://Gameplaystuffs/Levels/%s/%s/Map.tscn" % [region, map]
 
-static func get_map_info(map:String, region:String):
+static func get_map_info(map:String, region:String = ""):
+	if infoCache.has("%s/%s" % [region, map]):
+		return infoCache["%s/%s" % [region, map]]
+		
+	if region == "":
+		region = get_region_from_map(map)
+	
 	var mapStuff = get_region_asset_path(region, map + "/Info.tres")
 	var mapInfo = MapInfo.new()
 	if ResourceLoader.exists(mapStuff):
 		mapInfo = load(mapStuff)
 		mapInfo.region = get_region_info(region)
+		
+		infoCache["%s/%s" % [region, map]] = mapInfo
 	return mapInfo
 #endregion
 
