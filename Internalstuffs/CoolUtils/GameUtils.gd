@@ -12,6 +12,7 @@ static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchV
 
 #region Chars
 static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
+static var charInfoCache:Dictionary = {}
 
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
@@ -41,10 +42,14 @@ static func get_char_preview(char:String):
 	return get_char_asset(char, 'CharSel.tscn')
 
 static func get_char_info(char:String):
+	if charInfoCache.has(char):
+		return charInfoCache[char]
+		
 	var charStuff = get_char_asset_path(char, "Info.tres")
 	var charInfo:PlayerInfo = PlayerInfo.new()
 	if ResourceLoader.exists(charStuff):
 		charInfo = load(charStuff)
+		charInfoCache[char] = charInfo
 	return charInfo
 
 static func get_char_asset(char:String, asset:String):
@@ -66,7 +71,7 @@ static func existing_char(char:String):
 #region Mapas
 static var defaultMap:String = 'TheThing'
 
-static var infoCache:Dictionary = {}
+static var mapInfoCache:Dictionary = {}
 #eu nao acho que nos precisamos disso a nao ser que eu faça um menu de level select depois
 #static func get_maps():
 	#var lvlList:Array = ResourceLoader.list_directory("res://Gameplaystuffs/Levels/")
@@ -112,8 +117,8 @@ static func get_map_path(map:String, region:String = ""):
 	return "res://Gameplaystuffs/Levels/%s/%s/Map.tscn" % [region, map]
 
 static func get_map_info(map:String, region:String = ""):
-	if infoCache.has("%s/%s" % [region, map]):
-		return infoCache["%s/%s" % [region, map]]
+	if mapInfoCache.has("%s/%s" % [region, map]):
+		return mapInfoCache["%s/%s" % [region, map]]
 		
 	if region == "":
 		region = get_region_from_map(map)
@@ -124,7 +129,7 @@ static func get_map_info(map:String, region:String = ""):
 		mapInfo = load(mapStuff)
 		mapInfo.region = get_region_info(region)
 		
-		infoCache["%s/%s" % [region, map]] = mapInfo
+		mapInfoCache["%s/%s" % [region, map]] = mapInfo
 	return mapInfo
 #endregion
 

@@ -1,33 +1,30 @@
 extends Node2D
 class_name JolasGame
 
-static var instance:JolasGame
+static var instance: JolasGame
 
-@export var coolFade:TextureRect
-
-@export var plyNode:Node2D
-@export var lvlNode:Node2D
-
-@export var whereHud:Node2D
-var hud:HeadsUpDisplay
-
-@export var bgmStream:AudioStreamPlayer
-@export var ingameMenu:Node2D
-
-var map:JolasMap
+@export var coolFade: TextureRect
+@export var plyNode: Node2D
+@export var lvlNode: Node2D
+@export var whereHud: Node2D
+@export var bgmStream: AudioStreamPlayer
+@export var ingameMenu: Node2D
+var hud: HeadsUpDisplay
+var map: JolasMap
 var playerInstance
 var dialogueInstance
 
-var curTrackName:String = ""
-var curTrackRegion:RegionSong = null
 static var isChangingMap := false
+
+var curTrackName := ""
+var curTrackRegion: RegionSong = null
 
 var isDial := false
 var isMenu := false
 
-# multiplayery
-var allChars:Array = []
-var charDict:Dictionary = {}
+# variaveis multiplayer !!
+var allChars: Array = []
+var charDict: Dictionary = {}
 
 func _ready() -> void:
 	makeHud()
@@ -44,14 +41,6 @@ func _ready() -> void:
 	JolasGame.instance = self
 	isChangingMap = false
 
-func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
-	for child in whereHud.get_children():
-		child.free()
-	hud = null
-	
-	var newHud = load(where).instantiate()
-	whereHud.add_child(newHud)
-	hud = newHud
 
 #region Os Auxiliares
 # The Joy of Creation
@@ -60,7 +49,9 @@ func createPlayer(chara:String, id:int = -1):
 	print("[GAME] Criando char ", chara)
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
 	
-	if playerInstance: remove_child(playerInstance)
+	if playerInstance: 
+		removePlayer()
+	
 	playerInstance = player.instantiate()
 	playerInstance.playerID = id
 	plyNode.add_child(playerInstance)
@@ -183,6 +174,15 @@ func unpauseGame():
 		or child == coolFade \
 		or child == ingameMenu: continue
 		child.process_mode = PROCESS_MODE_INHERIT
+
+func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
+	for child in whereHud.get_children():
+		child.free()
+	hud = null
+	
+	var newHud = load(where).instantiate()
+	whereHud.add_child(newHud)
+	hud = newHud
 #endregion
 
 #region Diálogo
