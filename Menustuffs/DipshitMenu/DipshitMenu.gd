@@ -72,14 +72,12 @@ func loadCharPreview(char:String):
 		charPreview.position = $MenuCanvas/MidAnchor/CharInfo/PreviewPos.position
 		$MenuCanvas/MidAnchor/CharInfo.add_child(charPreview)
 	
-	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char)['name']
-	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char)['desc'] + '\n'
+	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char).name
+	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char).desc + '\n'
 	
-	if GameUtils.get_char_info(char)['ability'] is Array:
-		for abilitee in GameUtils.get_char_info(char)['ability']:
-			$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + GeneralUtils.text_replacery(abilitee)
-	else:
-		$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + GeneralUtils.text_replacery(GameUtils.get_char_info(char)['ability'])
+	if len(GameUtils.get_char_info(char).ability) > 0:
+		for abilitee in GameUtils.get_char_info(char).ability:
+			$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + str(abilitee)
 
 var mapToGoTo := ''
 

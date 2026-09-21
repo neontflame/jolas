@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://d11aa86n2dum1"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_epeg3"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_jdc1x"]
+
+[sub_resource type="Resource" id="Resource_v67ok"]
+script = ExtResource("1_epeg3")
+name = "espada"
+color = Color(0.654232, 0.6542321, 0.65423197, 1)
+instructions = "ctrl_2 mata"
+
+[resource]
+script = ExtResource("1_jdc1x")
+name = "Queixão"
+desc = "[shake]ele tambem ta no jogo[/shake]"
+ability = [SubResource("Resource_v67ok")]
+locked = true
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

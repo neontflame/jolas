@@ -30,7 +30,7 @@ static func get_chars():
 	# checa se tem
 	for chara in charlist:
 		var coolswag = chara.left(len(chara) - 1)
-		if get_char_info(coolswag).has("locked"):
+		if get_char_info(coolswag).locked:
 			print(coolswag, ' e desbloqueavel')
 			if not UnlockUtils.is_char_unlocked(coolswag):
 				trueCharlist.erase(coolswag)
@@ -41,18 +41,11 @@ static func get_char_preview(char:String):
 	return get_char_asset(char, 'CharSel.tscn')
 
 static func get_char_info(char:String):
-	var charStuff = get_char_asset_path(char, "Info.json")
-	var charInfo = '' 
-	if !ResourceLoader.exists(charStuff):
-		charInfo = '{
-	"name": "Placeholder",
-	"desc": "Lorem ipsum dolor sit amet",
-	"ability": "o que ele sequer [wave]faz ?[/wave]"
-	}'
-	else:
-		charInfo = FileUtils.get_text_file_content(charStuff)
-	var charGotten = JSON.parse_string(charInfo)
-	return charGotten
+	var charStuff = get_char_asset_path(char, "Info.tres")
+	var charInfo:PlayerInfo = PlayerInfo.new()
+	if ResourceLoader.exists(charStuff):
+		charInfo = load(charStuff)
+	return charInfo
 
 static func get_char_asset(char:String, asset:String):
 	var charPath = get_char_asset_path(char, asset)

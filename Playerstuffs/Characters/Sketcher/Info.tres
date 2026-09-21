@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://kflu0k0kh2ib"]
+
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_3b2tv"]
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_vj080"]
+
+[sub_resource type="Resource" id="Resource_lb5f3"]
+script = ExtResource("1_vj080")
+name = "Spin Attack"
+instructions = "ao apertar o botão de pulo no ar, você faz um chute girando pra frente"
+
+[sub_resource type="Resource" id="Resource_wv6d0"]
+script = ExtResource("1_vj080")
+name = "Eletricidade"
+color = Color(0, 1, 1, 1)
+instructions = "voce tem uma barra de ELETRICIDADE ao seu dispor! suas habilidades dependem desta, entao use ela com cautela!"
+
+[sub_resource type="Resource" id="Resource_2vl7v"]
+script = ExtResource("1_vj080")
+name = "Parkour"
+color = Color(0, 0.8784314, 1, 1)
+instructions = "segure ctrl_1. voce podera andar em paredes pra ajudar em toda sorte de Trickshots (a troco de sua ELETRICIDADE ser lentamente drenada)"
+
+[sub_resource type="Resource" id="Resource_ow1h4"]
+script = ExtResource("1_vj080")
+name = "Dash Attack"
+color = Color(0, 0.8784314, 1, 1)
+instructions = "aperte ctrl_2! se voce estiver perto de um mob voce vai se lançar nele, caso contrário voce se lança pra frente"
+
+[sub_resource type="Resource" id="Resource_mu0a7"]
+script = ExtResource("1_vj080")
+name = "Boost"
+color = Color(0, 0.8784314, 1, 1)
+instructions = "segure ctrl_2 para atingir inimagináveis níveis de velocidade - ao troco de ficar meio difícil de controlar sem os reflexos necessários"
+
+[resource]
+script = ExtResource("1_3b2tv")
+name = "Jake \"Sketcher\""
+desc = "ele chegou atrasado"
+ability = [SubResource("Resource_lb5f3"), SubResource("Resource_wv6d0"), SubResource("Resource_2vl7v"), SubResource("Resource_ow1h4"), SubResource("Resource_mu0a7")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

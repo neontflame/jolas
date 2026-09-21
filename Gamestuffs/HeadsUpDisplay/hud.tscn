@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c87scbdosa8xd"]
 
 [ext_resource type="Script" uid="uid://ocn28k7qki2j" path="res://Gamestuffs/HeadsUpDisplay/hud.gd" id="1_e0onf"]
-[ext_resource type="Texture2D" path="res://Gamestuffs/HeadsUpDisplay/HpXpFundoCoiso.png" id="2_b47b4"]
+[ext_resource type="Texture2D" uid="uid://daigymbvxrxan" path="res://Gamestuffs/HeadsUpDisplay/HpXpFundoCoiso.png" id="2_b47b4"]
 [ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Internalstuffs/Shaders/hueshift.gdshader" id="2_t1xeu"]
-[ext_resource type="Texture2D" path="res://Gamestuffs/HeadsUpDisplay/levelPaperPTBR.png" id="3_m2u84"]
+[ext_resource type="Texture2D" uid="uid://domyf0p6xat02" path="res://Gamestuffs/HeadsUpDisplay/levelPaperPTBR.png" id="3_m2u84"]
 [ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Internalstuffs/Shaders/outlineCoolio.gdshader" id="5_otgxo"]
 [ext_resource type="Texture2D" uid="uid://bkv02msdmexcn" path="res://Playerstuffs/Characters/Neon/Icon.png" id="5_t1xeu"]
-[ext_resource type="Texture2D" path="res://Gamestuffs/HeadsUpDisplay/o FuckingPostit.png" id="7_grt4r"]
-[ext_resource type="Texture2D" path="res://Gamestuffs/HeadsUpDisplay/BarraRabiscada.png" id="9_m2u84"]
+[ext_resource type="Texture2D" uid="uid://crpuyu676184o" path="res://Gamestuffs/HeadsUpDisplay/o FuckingPostit.png" id="7_grt4r"]
+[ext_resource type="Texture2D" uid="uid://dmoa5oarrco7e" path="res://Gamestuffs/HeadsUpDisplay/BarraRabiscada.png" id="9_m2u84"]
 [ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="9_otgxo"]
 [ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_taoro"]
 [ext_resource type="PackedScene" uid="uid://b5s5rj5po17bk" path="res://Gamestuffs/HeadsUpDisplay/questIcon.tscn" id="12_5tfyd"]
@@ -33,9 +33,9 @@ spacing_glyph = -6
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u453t"]
 shader = ExtResource("5_otgxo")
-shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/allow_out_of_bounds = true
 shader_parameter/line_thickness = 2.50000011875
-shader_parameter/add_margins = true
+shader_parameter/line_color = Color(1, 1, 1, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_5tfyd"]
 base_font = ExtResource("11_taoro")
