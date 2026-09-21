@@ -47,7 +47,7 @@ func renderPaused():
 	# $FullSave/Timespan.text = timeString
 	$FullSave/CurChar.text = GameUtils.get_char_info(GPStats.char)["name"]
 	
-	if GameUtils.loadedMods != []:
+	if ModUtils.loadedMods != []:
 		$SaveBox.play('mod')
 
 func renderSaveOnline():
@@ -69,7 +69,7 @@ func renderSaveOnline():
 		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
 		# $FullSave/Timespan.text = timeString
 
-		if GameUtils.loadedMods != []:
+		if ModUtils.loadedMods != []:
 			$SaveBox.self_modulate.b = 0
 			$ModWarning.visible = true
 		else:

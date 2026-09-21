@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dlsdgprqmkwmf"]
 
-[ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Gameplaystuffs/map.gd" id="1_f3d5j"]
+[ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Gameplaystuffs/Map.gd" id="1_f3d5j"]
 [ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Gameplaystuffs/MapUtilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="2_bxs3o"]
 [ext_resource type="PackedScene" uid="uid://cium04o7swryj" path="res://Gameplaystuffs/Backgrounds/MenuBGSeparado/menu_background.tscn" id="2_pf4o8"]
 [ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="3_wrhdy"]

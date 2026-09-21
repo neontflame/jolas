@@ -18,7 +18,7 @@ func setupAutoloadMods():
 			var initSplit = arguString.split("=")
 			var modsSplit = initSplit[1].split(",")
 			for mod in modsSplit:
-				GameUtils.queuedMods.append("user://" + mod)
+				ModUtils.queuedMods.append("user://" + mod)
 
 func _ready() -> void:
 	await GameInit.setupGameInfo()
@@ -38,17 +38,17 @@ func _ready() -> void:
 				var initSplit = arguString.split("=")
 				OnlineUtils.portEntered = int(initSplit[1])
 		
-		if len(GameUtils.queuedMods) > 0:
-			for mod in GameUtils.queuedMods:
+		if len(ModUtils.queuedMods) > 0:
+			for mod in ModUtils.queuedMods:
 				print('Carregando mod: %s' % mod)
 				ProjectSettings.load_resource_pack(mod)
-				GameUtils.loadedMods.append(mod)
-				GameUtils.loadedModsFolderless.append(mod.get_file())
-			print('Total de mods carregados: %s' % len(GameUtils.queuedMods))
-			GameUtils.queuedMods = []
+				ModUtils.loadedMods.append(mod)
+				ModUtils.loadedModsFolderless.append(mod.get_file())
+			print('Total de mods carregados: %s' % len(ModUtils.queuedMods))
+			ModUtils.queuedMods = []
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 	else:
-		if len(GameUtils.queuedMods) > 0:
+		if len(ModUtils.queuedMods) > 0:
 			get_tree().change_scene_to_file("res://DontTouchstuffs/QueuedModLoader.tscn")
 		else:
 			GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")

@@ -22,8 +22,8 @@ var players = {}
 var player_info = 	{
 					"name": "",
 					"char": GPStats.char,
-					"loaded-mods": GameUtils.loadedMods,
-					"loaded-mods-folderless": GameUtils.loadedModsFolderless,
+					"loaded-mods": ModUtils.loadedMods,
+					"loaded-mods-folderless": ModUtils.loadedModsFolderless,
 					"connTest": false
 					}
 					

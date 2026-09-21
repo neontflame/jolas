@@ -17,9 +17,9 @@ func sendServerHeartbeat():
 	var loadedModsStringed = ''
 	
 	var modIndex:int = 1
-	for mod in GameUtils.loadedModsFolderless:
+	for mod in ModUtils.loadedModsFolderless:
 		loadedModsStringed += mod
-		if len(GameUtils.loadedModsFolderless) > modIndex:
+		if len(ModUtils.loadedModsFolderless) > modIndex:
 			loadedModsStringed += "\n"
 		modIndex += 1
 		
@@ -32,7 +32,7 @@ func sendServerHeartbeat():
 		portEntered,
 		nomeServidor.uri_encode(),
 	]
-	if len(GameUtils.loadedModsFolderless) > 0:
+	if len(ModUtils.loadedModsFolderless) > 0:
 		heartbeatUrl += "&mods=" + loadedModsStringed.uri_encode()
 	
 	print(heartbeatUrl)

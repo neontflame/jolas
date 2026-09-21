@@ -1,6 +1,10 @@
 extends Node
 class_name ModUtils
 
+static var loadedMods:Array = []
+static var loadedModsFolderless:Array = []
+static var queuedMods:Array = []
+
 static func get_mod_info(mod:String):
 	# mods serao .pck ou .zip
 	var modStuff = mod.left(mod.length() - 3) + 'json'

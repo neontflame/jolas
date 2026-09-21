@@ -7,10 +7,10 @@ var runScripts:Array = []
 
 func _enter_tree() -> void:
 	renderTexty()
-	for mod in GameUtils.queuedMods:
+	for mod in ModUtils.queuedMods:
 		ProjectSettings.load_resource_pack(mod)
-		GameUtils.loadedMods.append(mod)
-		GameUtils.loadedModsFolderless.append(mod.get_file())
+		ModUtils.loadedMods.append(mod)
+		ModUtils.loadedModsFolderless.append(mod.get_file())
 		loadArray.append(mod)
 		if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
 			for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
@@ -20,7 +20,7 @@ func _enter_tree() -> void:
 	
 	await get_tree().create_timer(0.1).timeout
 	
-	GameUtils.queuedMods = []
+	ModUtils.queuedMods = []
 	
 	for script in scriptsToRun:
 		var modscript = load(script).new()
@@ -35,7 +35,7 @@ func _enter_tree() -> void:
 func renderTexty():
 	$Label.text = tr('mod_of_mods_loaded').format(
 		{"loaded_mods": len(loadArray),
-		"queued_mods": len(GameUtils.queuedMods)}
+		"queued_mods": len(ModUtils.queuedMods)}
 						)
 	$Label2.text = ''
 	for moddy in loadArray.slice(-24):

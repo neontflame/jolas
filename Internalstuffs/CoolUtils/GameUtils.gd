@@ -4,20 +4,14 @@ class_name GameUtils
 static var isMobile:bool = false
 static var testingMobile:bool = false
 
-static var defaultMap:String = 'TheThing'
-
-static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
-
 static var majorVersion:int = 0
-static var minorVersion:int = 9
-static var patchVersion:int = 4
-static var captionVersion:String = 'Improvement Project'
+static var minorVersion:int = 10
+static var patchVersion:int = 0
+static var captionVersion:String = 'Demo'
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
-static var loadedMods:Array = []
-static var loadedModsFolderless:Array = []
-static var queuedMods:Array = []
-
+#region Chars
+static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
 
 static func get_chars():
 	var charlist:Array = ResourceLoader.list_directory("res://Playerstuffs/Characters/")
@@ -42,24 +36,10 @@ static func get_chars():
 				trueCharlist.erase(coolswag)
 		
 	return trueCharlist
-	
-static func get_maps():
-	var lvlList:Array = ResourceLoader.list_directory("res://Gameplaystuffs/Levels/")
-	var trueLvlList:Array = []
-	
-	for lvl in lvlList:
-		if lvl.substr(len(lvl) - 5, 5) == '.json':
-			# KILL THEM .
-			pass
-		else:
-			trueLvlList.append(lvl.left(len(lvl) - 5))
-		
-	return trueLvlList
 
-#region Chars
 static func get_char_preview(char:String):
 	return get_char_asset(char, 'CharSel.tscn')
-	
+
 static func get_char_info(char:String):
 	var charStuff = get_char_asset_path(char, "Info.json")
 	var charInfo = '' 
@@ -76,22 +56,36 @@ static func get_char_info(char:String):
 
 static func get_char_asset(char:String, asset:String):
 	var charPath = get_char_asset_path(char, asset)
-	# print(charPath + (" exists" if load(charPath) else " doesnt exist"))
 	if ResourceLoader.exists(charPath):
 		return load(charPath)
 	else:
 		return null
 	
 static func get_char_asset_path(char:String, asset:String):
-	var charPath = "res://Playerstuffs/Characters/" + existing_char(char) + "/" + asset
+	var charPath = "res://Playerstuffs/Characters/%s/%s" % [existing_char(char), asset]
 	return FileUtils.get_localized_file(charPath)
 	
 static func existing_char(char:String):
-	if ResourceLoader.list_directory("res://Playerstuffs/Characters/" + char + "/"): return char
+	if ResourceLoader.list_directory("res://Playerstuffs/Characters/%s/" % char): return char
 	else: return 'Neon'
 #endregion
 
 #region Mapas
+static var defaultMap:String = 'TheThing'
+
+static func get_maps():
+	var lvlList:Array = ResourceLoader.list_directory("res://Gameplaystuffs/Levels/")
+	var trueLvlList:Array = []
+	
+	for lvl in lvlList:
+		if lvl.substr(len(lvl) - 5, 5) == '.json':
+			# KILL THEM .
+			pass
+		else:
+			trueLvlList.append(lvl.left(len(lvl) - 5))
+		
+	return trueLvlList
+
 static func get_map_info(lvl:String):
 	var lvlStuffOg = "res://Gameplaystuffs/Levels/" + lvl + ".json"
 	var lvlStuff = FileUtils.get_localized_file(lvlStuffOg)
@@ -109,6 +103,17 @@ static func get_map_info(lvl:String):
 	var lvlGotten = JSON.parse_string(lvlInfo)
 	return lvlGotten
 
+static func get_map_asset(map:String, asset:String):
+	var mapPath = get_map_asset_path(map, asset)
+	if ResourceLoader.exists(mapPath):
+		return load(mapPath)
+	else:
+		return null
+	
+static func get_map_asset_path(map:String, asset:String):
+	var mapPath = "res://Gameplaystuffs/Levels/%s/%s" % [map, asset]
+	return FileUtils.get_localized_file(mapPath)
+	
 static func get_map_path(map:String):
 	return "res://Gameplaystuffs/Levels/" + map + ".tscn"
 #endregion

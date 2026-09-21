@@ -10,7 +10,7 @@ static func save_game(slot:int):
 	else:
 		playstime = get_save_info(slot)['first-playtime']
 	var saveStuff
-	if GameUtils.loadedMods != []:
+	if ModUtils.loadedMods != []:
 		saveStuff = FileAccess.open('user://modSave' + str(slot) + '.jol', FileAccess.WRITE)
 	else:
 		saveStuff = FileAccess.open('user://save' + str(slot) + '.jol', FileAccess.WRITE)
@@ -27,7 +27,7 @@ static func save_game(slot:int):
 		"last-playtime": Time.get_unix_time_from_system(),
 		"assignedQuests": QuestUtils.assignedQuests,
 		"clearedQuests": QuestUtils.clearedQuests,
-		"applied-mods": GameUtils.loadedModsFolderless
+		"applied-mods": ModUtils.loadedModsFolderless
 	}
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))
@@ -38,7 +38,7 @@ static func get_save_info(slot:int):
 	}
 	var pathness:String = 'user://save' + str(slot) + '.jol'
 	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
-	var shouldMod:bool = (FileAccess.file_exists(pathnessMods) && GameUtils.loadedMods != [])
+	var shouldMod:bool = (FileAccess.file_exists(pathnessMods) && ModUtils.loadedMods != [])
 	
 	if !shouldMod:
 		if !FileAccess.file_exists(pathness):
@@ -52,7 +52,7 @@ static func delete_save(slot:int):
 	var pathness:String = 'user://save' + str(slot) + '.jol'
 	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
 	
-	var shouldMod:bool = (GameUtils.loadedMods != [])
+	var shouldMod:bool = (ModUtils.loadedMods != [])
 	
 	var saveStuff = FileAccess.open((pathnessMods if shouldMod else pathness), FileAccess.WRITE)
 	var saveInfo:Dictionary = {

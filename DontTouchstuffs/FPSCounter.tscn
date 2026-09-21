@@ -1,20 +1,27 @@
 [gd_scene format=3 uid="uid://c5loat7ktx8o5"]
 
 [ext_resource type="Script" uid="uid://b5wsp1nsw2p4y" path="res://DontTouchstuffs/FPSCounter.gd" id="1_cpg2e"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="2_cpg2e"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("testLabel")]
+[sub_resource type="SystemFont" id="SystemFont_dnj8m"]
+font_names = PackedStringArray("Consolas", "Monospace")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl3l2"]
+bg_color = Color(0, 0, 0, 0.34509805)
+
+[node name="Node2D" type="Node2D" unique_id=1097384393 node_paths=PackedStringArray("testLabel")]
 script = ExtResource("1_cpg2e")
 testLabel = NodePath("CanvasLayer/RichTextLabel")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=470048011]
 layer = 128
 
-[node name="RichTextLabel" type="Label" parent="CanvasLayer"]
+[node name="RichTextLabel" type="Label" parent="CanvasLayer" unique_id=1207695813]
 offset_left = 11.0
-offset_right = 492.0
-offset_bottom = 25.0
-theme_override_constants/line_spacing = -10
-theme_override_fonts/font = ExtResource("2_cpg2e")
-theme_override_font_sizes/font_size = 16
+offset_top = 8.0
+offset_right = 181.0
+offset_bottom = 23.0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = SubResource("SystemFont_dnj8m")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_gl3l2")
 text = "FPS: ? | Memória: ? MB"
