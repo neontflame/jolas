@@ -1,19 +1,25 @@
 extends Node
 class_name GPStats
 
+static var maxHP := 10
+static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
+
+#region Game stats
 static var saveSlot := 0
+
+static var xp := 0
+static var level := 7
 
 static var charObject: PlayerObject
 static var char := 'Neon'
-static var maxHP := 10
-static var xp := 0
-static var level := 7
-static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
 
 static var curMap := 'TheThing'
+static var curRegion := 'MapaDeTestes'
+
 static var exploredMaps:Array = []
 
 static var modded := false
+#endregion
 
 #region Multiplayer variables
 static var is_multiplayer := false

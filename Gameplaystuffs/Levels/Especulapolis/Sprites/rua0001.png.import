@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqq8b2588ar01"
-path="res://.godot/imported/parqueGrama.png-25e845d6dda6dcbb955121f895f2b0a3.ctex"
+uid="uid://d3shih52qc3mx"
+path="res://.godot/imported/rua0001.png-83aabec533d38a0c801dda881653b24f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Levels/Especulapolis/parqueGrama.png"
-dest_files=["res://.godot/imported/parqueGrama.png-25e845d6dda6dcbb955121f895f2b0a3.ctex"]
+source_file="res://Gameplaystuffs/Levels/Especulapolis/Sprites/rua0001.png"
+dest_files=["res://.godot/imported/rua0001.png-83aabec533d38a0c801dda881653b24f.ctex"]
 
 [params]
 

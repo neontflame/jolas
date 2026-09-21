@@ -21,6 +21,7 @@ static func save_game(slot:int):
 		"xp": GPStats.xp,
 		"maxHP": GPStats.maxHP,
 		"map": GPStats.curMap,
+		"region": GPStats.curRegion,
 		"exploredMaps": GPStats.exploredMaps,
 		"inventory": InventoryUtils.inventory,
 		"first-playtime": playstime,
@@ -46,6 +47,9 @@ static func get_save_info(slot:int):
 		
 	var saveStuff = FileAccess.open((pathnessMods if shouldMod else pathness), FileAccess.READ)
 	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
+	
+	if not saveGotten.has("region"):
+		saveGotten["region"] = GameUtils.get_region_from_map(saveGotten["map"])
 	return saveGotten
 
 static func delete_save(slot:int):

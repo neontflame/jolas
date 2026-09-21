@@ -1,5 +1,6 @@
 extends Area2D
 @export var levelInQuestion:String = ""
+@export var regionInQuestion:String = ""
 @export var whereToSpawn:String = "Spawnpoint"
 var triggeredGoto:bool = false
 var canGoNow:bool = false
@@ -27,6 +28,6 @@ func _on_body_entered(body: Node2D) -> void:
 			JolasGame.instance.fadeIn(0.5, 
 			func(): 
 				print('[GoToLevel] ok agora volta')
-				JolasGame.instance.createMap(levelInQuestion, whereToGo)
+				JolasGame.instance.createMap(levelInQuestion, regionInQuestion, whereToGo)
 				JolasGame.instance.fadeOut(0.5)
 				)

@@ -19,6 +19,7 @@ var playerInstance
 var dialogueInstance
 
 var curTrackName:String = ""
+var curTrackRegion:RegionSong = null
 static var isChangingMap := false
 
 var isDial := false
@@ -30,7 +31,7 @@ var charDict:Dictionary = {}
 
 func _ready() -> void:
 	makeHud()
-	createMap(GPStats.curMap)
+	createMap(GPStats.curMap, GPStats.curRegion)
 	createPlayer(GPStats.char, -1)
 	SaveUtils.save_game(GPStats.saveSlot)
 	
@@ -77,30 +78,29 @@ func removePlayer():
 		allChars.erase(playerInstance)
 		playerInstance.queue_free()
 
-func createMap(lvl:String, playerGoTo:String = ""):
+func createMap(lvl:String, region:String, playerGoTo:String = ""):
 	print('[GAME] Criando mapa ' + lvl)
 	if map: map.free()
 	
-	map = load(GameUtils.get_map_path(lvl)).instantiate()
+	map = load(GameUtils.get_map_path(lvl, region)).instantiate()
+	map.info = GameUtils.get_map_info(lvl, region)
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
 	lvlNode.add_child(map)
 	# MapUtils.set_map(map)
 	
 	await get_tree().process_frame
-	if map.infoCoisos != "":
-		GPStats.curMap = map.infoCoisos
-	else:
-		GPStats.curMap = map.name
+	GPStats.curMap = lvl
 		
 	SaveUtils.save_game(GPStats.saveSlot)
-	if GameUtils.get_map_info(lvl).has('songFile'):
-		playBGM(GameUtils.get_map_info(lvl)['songFile'])
-		
-	hud.placeInfo.queue_free()
-	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
-	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
-	hud.placeInfo.position = Vector2(20.0, 21.0)
-	hud.placeInfo.triggerPlaceInfo()
+	
+	if (curTrackRegion == null) \
+	or (curTrackRegion != null and \
+		((curTrackRegion in map.info.get_songfiles()) and curTrackRegion.loops) \
+		or (not (curTrackRegion in map.info.get_songfiles()))
+	):
+		var songPlayed:RegionSong = map.info.get_songfiles().pick_random()
+		playBGM(songPlayed)
+		triggerPlaceInfo(songPlayed)
 	
 	#potential
 	if playerGoTo != "":
@@ -108,6 +108,14 @@ func createMap(lvl:String, playerGoTo:String = ""):
 		if not isMenu:
 			GPStats.charObject.process_mode = Node.PROCESS_MODE_INHERIT
 			JolasGame.isChangingMap = false
+
+func triggerPlaceInfo(songPlayed:RegionSong, canPlace:bool = true):
+	hud.placeInfo.queue_free()
+	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
+	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
+	hud.placeInfo.position = Vector2(20.0, 21.0)
+	hud.placeInfo.canPlace = canPlace
+	hud.placeInfo.triggerPlaceInfo(songPlayed)
 
 func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
 	if map:
@@ -265,26 +273,43 @@ func _exit_tree() -> void:
 #endregion
 
 #region Música
-func playBGM(trackName:String):
-	var pathness = "res://Soundstuffs/Music/" + trackName
-	if curTrackName == trackName: return
-	curTrackName = trackName
-	
-	bgmStream.stream = load(pathness)
+func playBGM(track:Variant, showInfo:bool = false):
+	if track is RegionSong:
+		if curTrackName == track.get_filename(): return
+		curTrackName = track.get_filename()
+		curTrackRegion = track
+		
+		bgmStream.stream = track.songfile
+		if showInfo:
+			triggerPlaceInfo(track, false)
+	elif track is String:
+		var pathness = "res://Soundstuffs/Music/" + track
+		if curTrackName == track: return
+		curTrackName = track
+		curTrackRegion = null
+		
+		bgmStream.stream = load(pathness)
 	bgmStream.volume_db = 0.0
 	bgmStream.play()
-	bgmStream.finished.connect(func():curTrackName="")
+	if not bgmStream.finished.is_connected(onBGMFinished):
+		bgmStream.finished.connect(onBGMFinished)
 
-func fadeBGM(sec:float = 1.0, nextSong:String = ""):
+func onBGMFinished():
+	curTrackName = ""
+	if curTrackRegion:
+		var songPlayed:RegionSong = map.info.get_songfiles().pick_random()
+		playBGM(songPlayed, true)
+
+func fadeBGM(sec:float = 1.0, nextSong:Variant = null):
 	var mustween = get_tree().create_tween()
 	mustween.tween_method(func(v):
 		bgmStream.volume_db = v
 		if v <= -99.5:
 			bgmStream.stop()
 			
-			if nextSong != "":
+			if nextSong:
 				mustween.kill()
-				playBGM(nextSong),
+				playBGM(nextSong, true),
 		0.0,
 		-100.0,
 		sec

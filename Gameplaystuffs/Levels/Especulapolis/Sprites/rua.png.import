@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4e1585e2ap2y"
-path="res://.godot/imported/grama aleatoria0001.png-f1ff33d11e8f502867c4f63aae3e406f.ctex"
+uid="uid://emmxeqnxx7sd"
+path="res://.godot/imported/rua.png-2e22419cbabde17164e74cae9846dc6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Levels/Especulapolis/gramas aleatorias/grama aleatoria0001.png"
-dest_files=["res://.godot/imported/grama aleatoria0001.png-f1ff33d11e8f502867c4f63aae3e406f.ctex"]
+source_file="res://Gameplaystuffs/Levels/Especulapolis/Sprites/rua.png"
+dest_files=["res://.godot/imported/rua.png-2e22419cbabde17164e74cae9846dc6f.ctex"]
 
 [params]
 

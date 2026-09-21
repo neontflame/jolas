@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bsebxc1mw277y"]
 
-[ext_resource type="Script" uid="uid://ix0rujox53fc" path="res://Gameplaystuffs/Levels/OutroMapa.gd" id="1_ue65o"]
+[ext_resource type="Script" uid="uid://ix0rujox53fc" path="res://Gameplaystuffs/Levels/MapaDeTestes/OutroMapa/OutroMapa.gd" id="1_ue65o"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="3_d0je0"]
 [ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Gameplaystuffs/MapUtilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="3_pyyvb"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="4_8wpb2"]
@@ -226,15 +226,18 @@ position = Vector2(4054, 715)
 position = Vector2(-96, -16)
 scale = Vector2(3.535, 77.715)
 levelInQuestion = "Sandlerhell"
+regionInQuestion = "MapaDeTestes"
 whereToSpawn = "BackSpawnpoint"
 
 [node name="GoToLevel3" parent="." unique_id=1650215934 instance=ExtResource("5_trijc")]
 position = Vector2(-24, 1512)
 scale = Vector2(3.535, 77.715)
 levelInQuestion = "GreenHawntZone"
+regionInQuestion = "MapaDeTestes"
 whereToSpawn = "BackSpawnpoint"
 
 [node name="GoToLevel2" parent="." unique_id=1878391861 instance=ExtResource("5_trijc")]
 position = Vector2(5084, 668)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerdomain"
+regionInQuestion = "MapaDeTestes"

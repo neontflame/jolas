@@ -1,27 +1,27 @@
 [gd_scene format=4 uid="uid://pfbvf7uaonxl"]
 
-[ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Gameplaystuffs/Levels/TheThing.gd" id="1_h803n"]
-[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Gameplaystuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_h3gw8"]
-[ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gameplaystuffs/NPCs/Sushitest.tscn" id="2_h803n"]
-[ext_resource type="PackedScene" uid="uid://b41bk5icyu1cb" path="res://Gameplaystuffs/Backgrounds/Especulapolis/BGEspeculapolisCity.tscn" id="3_lrpiq"]
-[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="3_so8ub"]
-[ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="4_7akha"]
-[ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Gameplaystuffs/MapUtilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="4_qfnem"]
-[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Gameplaystuffs/MapUtilities/GoToLevel.tscn" id="5_khcdk"]
-[ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="5_kjgon"]
-[ext_resource type="Script" uid="uid://bwcf4pjgprn0k" path="res://addons/rmsmartshape/shapes/point.gd" id="6_lrpiq"]
-[ext_resource type="Script" uid="uid://bo5f7qe27jfje" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_b2jpl"]
-[ext_resource type="PackedScene" uid="uid://bk8h65886ui4k" path="res://Gameplaystuffs/NPCs/Queixo.tscn" id="7_jr6rj"]
-[ext_resource type="Script" uid="uid://eydktikufi24" path="res://Gameplaystuffs/MapUtilities/CurvedTerrain/curved_terrain.gd" id="7_vamy5"]
-[ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Gameplaystuffs/Levels/GreenHill/checkered.png" id="8_co55q"]
-[ext_resource type="Script" uid="uid://llobjh5hvry" path="res://addons/rmsmartshape/shapes/mesh.gd" id="8_kybko"]
-[ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Gameplaystuffs/Levels/GreenHill/grass.png" id="9_h3gw8"]
-[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="10_h3gw8"]
-[ext_resource type="Texture2D" uid="uid://cvnmxl0pv4fv5" path="res://Gameplaystuffs/Levels/GreenHill/leftCornerGrass.png" id="10_laf0f"]
-[ext_resource type="Texture2D" uid="uid://g0b38vd65h31" path="res://Gameplaystuffs/Levels/GreenHill/rightCornerGrass.png" id="12_3v0ck"]
-[ext_resource type="Texture2D" uid="uid://dlm8c0ljl1b5o" path="res://Gameplaystuffs/Levels/GreenHill/edging.png" id="13_jmo4h"]
-[ext_resource type="Resource" uid="uid://co6hvtipelu3x" path="res://Gameplaystuffs/Levels/GreenHill/FloorResource.tres" id="14_xx0l7"]
-[ext_resource type="PackedScene" uid="uid://c235ewedswe5c" path="res://Gameplaystuffs/Mobs/RoBawnt/robawnt_enemy.tscn" id="19_kjgon"]
+[ext_resource type="Script" uid="uid://cm7173wrhnpvj" path="res://Gameplaystuffs/Levels/MapaDeTestes/TheThing/TheThing.gd" id="1_i8jbm"]
+[ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Gameplaystuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_gyjdb"]
+[ext_resource type="PackedScene" uid="uid://b41bk5icyu1cb" path="res://Gameplaystuffs/Backgrounds/Especulapolis/BGEspeculapolisCity.tscn" id="3_xcos6"]
+[ext_resource type="Script" uid="uid://eydktikufi24" path="res://Gameplaystuffs/MapUtilities/CurvedTerrain/curved_terrain.gd" id="4_f0kx1"]
+[ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Gameplaystuffs/MapUtilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="5_gmcfs"]
+[ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="6_bfo4t"]
+[ext_resource type="Script" uid="uid://bwcf4pjgprn0k" path="res://addons/rmsmartshape/shapes/point.gd" id="7_ef0xw"]
+[ext_resource type="Script" uid="uid://bo5f7qe27jfje" path="res://addons/rmsmartshape/shapes/point_array.gd" id="8_gqmbg"]
+[ext_resource type="Script" uid="uid://llobjh5hvry" path="res://addons/rmsmartshape/shapes/mesh.gd" id="9_yw7tt"]
+[ext_resource type="Texture2D" uid="uid://ddaoiujm8gxi2" path="res://Gameplaystuffs/Levels/GreenHill/checkered.png" id="10_hxerf"]
+[ext_resource type="Texture2D" uid="uid://cvnmxl0pv4fv5" path="res://Gameplaystuffs/Levels/GreenHill/leftCornerGrass.png" id="11_oet38"]
+[ext_resource type="Texture2D" uid="uid://dq7m2mfo0q38u" path="res://Gameplaystuffs/Levels/GreenHill/grass.png" id="12_3k02j"]
+[ext_resource type="Texture2D" uid="uid://g0b38vd65h31" path="res://Gameplaystuffs/Levels/GreenHill/rightCornerGrass.png" id="13_ip2ca"]
+[ext_resource type="Texture2D" uid="uid://dlm8c0ljl1b5o" path="res://Gameplaystuffs/Levels/GreenHill/edging.png" id="14_twpr4"]
+[ext_resource type="Resource" uid="uid://co6hvtipelu3x" path="res://Gameplaystuffs/Levels/GreenHill/FloorResource.tres" id="15_l6xy2"]
+[ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gameplaystuffs/NPCs/Sushitest.tscn" id="16_lfjic"]
+[ext_resource type="PackedScene" uid="uid://bk8h65886ui4k" path="res://Gameplaystuffs/NPCs/Queixo.tscn" id="17_332fq"]
+[ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="18_eeo3g"]
+[ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="19_sqdkp"]
+[ext_resource type="PackedScene" uid="uid://c235ewedswe5c" path="res://Gameplaystuffs/Mobs/RoBawnt/robawnt_enemy.tscn" id="20_x5viq"]
+[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="21_0ph1c"]
+[ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Gameplaystuffs/MapUtilities/GoToLevel.tscn" id="22_i0wfw"]
 
 [sub_resource type="Curve2D" id="Curve2D_h3gw8"]
 bake_interval = 128.0
@@ -63,19 +63,19 @@ height = 640
 fill_to = Vector2(0, 1)
 
 [sub_resource type="Resource" id="Resource_ok0x5"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-1152, 272)
 texture_idx = 1
 
 [sub_resource type="Resource" id="Resource_07h1w"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-903.786, 225.168)
 point_in = Vector2(-184, 24)
 point_out = Vector2(192, -16)
 texture_idx = 2
 
 [sub_resource type="Resource" id="Resource_c4m5y"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-470.798, 222.3)
 point_in = Vector2(-152, 24)
 point_out = Vector2(160, -16)
@@ -83,82 +83,82 @@ texture_idx = 1
 width = 1.2
 
 [sub_resource type="Resource" id="Resource_40v4x"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-48, 16)
 point_in = Vector2(-176, 8)
 point_out = Vector2(184, 0)
 
 [sub_resource type="Resource" id="Resource_mi5x0"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(528, 16)
 texture_idx = 2
 
 [sub_resource type="Resource" id="Resource_fl16b"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(976, -872)
 
 [sub_resource type="Resource" id="Resource_42kh6"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(1288, -872)
 
 [sub_resource type="Resource" id="Resource_e5g0l"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(776, 120)
 
 [sub_resource type="Resource" id="Resource_spduj"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-74.1135, 133.444)
 point_in = Vector2(96, 0)
 point_out = Vector2(-88, 0)
 texture_idx = 1
 
 [sub_resource type="Resource" id="Resource_sjgko"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-472, 352)
 point_in = Vector2(352, 8)
 point_out = Vector2(-136, 0)
 
 [sub_resource type="Resource" id="Resource_ahawn"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-888, 360)
 point_in = Vector2(160, 0)
 point_out = Vector2(-280, 8)
 
 [sub_resource type="Resource" id="Resource_3t0yf"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(-1152, 272)
 texture_idx = 1
 
 [sub_resource type="Resource" id="Resource_lnpox"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(712, 192)
 
 [sub_resource type="Resource" id="Resource_sdvxs"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(616, 136)
 
 [sub_resource type="Resource" id="Resource_th3l3"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(504, 192)
 
 [sub_resource type="Resource" id="Resource_i6vxt"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(408, 128)
 
 [sub_resource type="Resource" id="Resource_eti8p"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(288, 192)
 
 [sub_resource type="Resource" id="Resource_ixdha"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(184, 136)
 
 [sub_resource type="Resource" id="Resource_fpm3m"]
-script = ExtResource("6_lrpiq")
+script = ExtResource("7_ef0xw")
 position = Vector2(88, 200)
 
 [sub_resource type="Resource" id="Resource_cefje"]
-script = ExtResource("7_b2jpl")
+script = ExtResource("8_gqmbg")
 _points = {
 0: SubResource("Resource_ok0x5"),
 1: SubResource("Resource_07h1w"),
@@ -200,8 +200,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_ocqoe"]
-script = ExtResource("8_kybko")
-texture = ExtResource("8_co55q")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("10_hxerf")
 mesh = SubResource("ArrayMesh_3o1f1")
 z_index = -10
 
@@ -219,8 +219,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_3o1f1"]
-script = ExtResource("8_kybko")
-texture = ExtResource("10_laf0f")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("11_oet38")
 mesh = SubResource("ArrayMesh_ok0x5")
 z_index = 2
 force_no_tiling = true
@@ -239,8 +239,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_8osul"]
-script = ExtResource("8_kybko")
-texture = ExtResource("9_h3gw8")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("12_3k02j")
 mesh = SubResource("ArrayMesh_ocqoe")
 z_index = 2
 
@@ -258,8 +258,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_b2jpl"]
-script = ExtResource("8_kybko")
-texture = ExtResource("12_3v0ck")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("13_ip2ca")
 mesh = SubResource("ArrayMesh_lrpiq")
 z_index = 2
 force_no_tiling = true
@@ -278,8 +278,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_laf0f"]
-script = ExtResource("8_kybko")
-texture = ExtResource("10_laf0f")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("11_oet38")
 mesh = SubResource("ArrayMesh_kybko")
 z_index = 2
 force_no_tiling = true
@@ -298,8 +298,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_kybko"]
-script = ExtResource("8_kybko")
-texture = ExtResource("9_h3gw8")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("12_3k02j")
 mesh = SubResource("ArrayMesh_b2jpl")
 z_index = 2
 
@@ -317,8 +317,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_3v0ck"]
-script = ExtResource("8_kybko")
-texture = ExtResource("12_3v0ck")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("13_ip2ca")
 mesh = SubResource("ArrayMesh_laf0f")
 z_index = 2
 force_no_tiling = true
@@ -337,27 +337,27 @@ _surfaces = [{
 }]
 
 [sub_resource type="Resource" id="Resource_xx0l7"]
-script = ExtResource("8_kybko")
-texture = ExtResource("13_jmo4h")
+script = ExtResource("9_yw7tt")
+texture = ExtResource("14_twpr4")
 mesh = SubResource("ArrayMesh_jmo4h")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eip3h"]
 
 [node name="TheThing" type="Node2D" unique_id=2065888323]
-script = ExtResource("1_h803n")
+script = ExtResource("1_i8jbm")
 metadata/_edit_vertical_guides_ = [11136.0, 11200.0]
 
-[node name="EspeculanteBackground" parent="." unique_id=1612061250 instance=ExtResource("2_h3gw8")]
+[node name="EspeculanteBackground" parent="." unique_id=1612061250 instance=ExtResource("2_gyjdb")]
 coolColor = Color(0.84, 0.84, 0.84, 1)
 
-[node name="BGEspeculapolisCity" parent="." unique_id=1580880721 instance=ExtResource("3_lrpiq")]
+[node name="BGEspeculapolisCity" parent="." unique_id=1580880721 instance=ExtResource("3_xcos6")]
 
 [node name="CurvedTerrains" type="Node2D" parent="." unique_id=772084753]
 
 [node name="CurvedTerrain" type="Path2D" parent="CurvedTerrains" unique_id=1183574363]
 texture_filter = 1
 curve = SubResource("Curve2D_h3gw8")
-script = ExtResource("7_vamy5")
+script = ExtResource("4_f0kx1")
 is_platform_terrain = false
 curve_bake_interval = 128.0
 visible_collision = false
@@ -373,7 +373,7 @@ metadata/_custom_type_script = "uid://eydktikufi24"
 [node name="BigBall" type="Path2D" parent="CurvedTerrains" unique_id=861542494]
 texture_filter = 1
 curve = SubResource("Curve2D_jr6rj")
-script = ExtResource("7_vamy5")
+script = ExtResource("4_f0kx1")
 is_platform_terrain = false
 curve_bake_interval = 32.0
 visible_collision = false
@@ -383,16 +383,16 @@ enable_edge_texture = false
 metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="CurvedTerrainV2" type="StaticBody2D" parent="CurvedTerrains" unique_id=134095656 node_paths=PackedStringArray("obj_shape")]
-script = ExtResource("4_qfnem")
+script = ExtResource("5_gmcfs")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
 
 [node name="SS2D_Shape" type="Node2D" parent="CurvedTerrains/CurvedTerrainV2" unique_id=733403545]
 position = Vector2(1598.8, 585.7)
-script = ExtResource("5_kjgon")
+script = ExtResource("6_bfo4t")
 _points = SubResource("Resource_cefje")
-_meshes = Array[ExtResource("8_kybko")]([SubResource("Resource_ocqoe"), SubResource("Resource_3o1f1"), SubResource("Resource_8osul"), SubResource("Resource_b2jpl"), SubResource("Resource_laf0f"), SubResource("Resource_kybko"), SubResource("Resource_3v0ck"), SubResource("Resource_xx0l7")])
-shape_material = ExtResource("14_xx0l7")
+_meshes = Array[ExtResource("9_yw7tt")]([SubResource("Resource_ocqoe"), SubResource("Resource_3o1f1"), SubResource("Resource_8osul"), SubResource("Resource_b2jpl"), SubResource("Resource_laf0f"), SubResource("Resource_kybko"), SubResource("Resource_3v0ck"), SubResource("Resource_xx0l7")])
+shape_material = ExtResource("15_l6xy2")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CurvedTerrains/CurvedTerrainV2" unique_id=1199632196]
@@ -440,98 +440,100 @@ position = Vector2(1858, 579)
 [node name="BackSpawnpoint" type="Node2D" parent="." unique_id=1850136288]
 position = Vector2(19169, 2605)
 
-[node name="TestNpc" parent="." unique_id=970102330 instance=ExtResource("2_h803n")]
+[node name="TestNpc" parent="." unique_id=970102330 instance=ExtResource("16_lfjic")]
 position = Vector2(2869, 1282)
 dialogue = "diagTest"
 
-[node name="QueixoNpc" parent="." unique_id=201261731 instance=ExtResource("7_jr6rj")]
+[node name="QueixoNpc" parent="." unique_id=201261731 instance=ExtResource("17_332fq")]
 position = Vector2(6735, 1218)
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1219481979]
 
-[node name="CameraBound" parent="Camera regions" unique_id=1075467101 instance=ExtResource("3_so8ub")]
+[node name="CameraBound" parent="Camera regions" unique_id=1075467101 instance=ExtResource("18_eeo3g")]
 position = Vector2(0, 856)
 scale = Vector2(16.825, 4.3)
 continuousX = true
 continuousY = true
 
-[node name="CameraBound7" parent="Camera regions" unique_id=226453886 instance=ExtResource("3_so8ub")]
+[node name="CameraBound7" parent="Camera regions" unique_id=226453886 instance=ExtResource("18_eeo3g")]
 position = Vector2(1, 1)
 scale = Vector2(10.14, 4.3)
 continuousY = true
 
-[node name="CameraBound8" parent="Camera regions" unique_id=568217966 instance=ExtResource("3_so8ub")]
+[node name="CameraBound8" parent="Camera regions" unique_id=568217966 instance=ExtResource("18_eeo3g")]
 position = Vector2(2634, 35.000004)
 scale = Vector2(3.715, 4.3)
 continuousX = true
 continuousY = true
 
-[node name="CameraBound2" parent="Camera regions" unique_id=1578452376 instance=ExtResource("3_so8ub")]
+[node name="CameraBound2" parent="Camera regions" unique_id=1578452376 instance=ExtResource("18_eeo3g")]
 position = Vector2(3362, 34.000004)
 scale = Vector2(16.825, 8.97)
 continuousX = true
 
-[node name="CameraBound3" parent="Camera regions" unique_id=334302865 instance=ExtResource("3_so8ub")]
+[node name="CameraBound3" parent="Camera regions" unique_id=334302865 instance=ExtResource("18_eeo3g")]
 position = Vector2(6726, 331.00003)
 scale = Vector2(6.595, 8.97)
 continuousX = true
 
-[node name="CameraBound4" parent="Camera regions" unique_id=1506715378 instance=ExtResource("3_so8ub")]
+[node name="CameraBound4" parent="Camera regions" unique_id=1506715378 instance=ExtResource("18_eeo3g")]
 position = Vector2(7539.999, 306.00006)
 scale = Vector2(16.285, 13.715)
 continuousX = true
 
-[node name="CameraBound5" parent="Camera regions" unique_id=1980832432 instance=ExtResource("3_so8ub")]
+[node name="CameraBound5" parent="Camera regions" unique_id=1980832432 instance=ExtResource("18_eeo3g")]
 position = Vector2(10783, 491)
 scale = Vector2(12.57, 12.875)
 continuousX = true
 
-[node name="CameraBound6" parent="Camera regions" unique_id=338647221 instance=ExtResource("3_so8ub")]
+[node name="CameraBound6" parent="Camera regions" unique_id=338647221 instance=ExtResource("18_eeo3g")]
 position = Vector2(13292, 505)
 scale = Vector2(29.895, 12.875)
 continuousX = true
 
 [node name="enemigos" type="Node2D" parent="." unique_id=1635689018]
 
-[node name="TemplateMob" parent="enemigos" unique_id=131992716 instance=ExtResource("4_7akha")]
+[node name="TemplateMob" parent="enemigos" unique_id=131992716 instance=ExtResource("19_sqdkp")]
 position = Vector2(6084, 1239)
 
-[node name="TemplateMob2" parent="enemigos" unique_id=668356164 instance=ExtResource("4_7akha")]
+[node name="TemplateMob2" parent="enemigos" unique_id=668356164 instance=ExtResource("19_sqdkp")]
 position = Vector2(7320, 936)
 
-[node name="TemplateMob3" parent="enemigos" unique_id=1806079912 instance=ExtResource("4_7akha")]
+[node name="TemplateMob3" parent="enemigos" unique_id=1806079912 instance=ExtResource("19_sqdkp")]
 position = Vector2(7845, 951)
 
-[node name="TemplateMob4" parent="enemigos" unique_id=1124002539 instance=ExtResource("4_7akha")]
+[node name="TemplateMob4" parent="enemigos" unique_id=1124002539 instance=ExtResource("19_sqdkp")]
 position = Vector2(7031, 773)
 
-[node name="TemplateMob5" parent="enemigos" unique_id=1177243146 instance=ExtResource("4_7akha")]
+[node name="TemplateMob5" parent="enemigos" unique_id=1177243146 instance=ExtResource("19_sqdkp")]
 position = Vector2(4678, 1254)
 
-[node name="TemplateMob6" parent="enemigos" unique_id=1382537676 instance=ExtResource("4_7akha")]
+[node name="TemplateMob6" parent="enemigos" unique_id=1382537676 instance=ExtResource("19_sqdkp")]
 position = Vector2(4219, 1150)
 
-[node name="TemplateMob7" parent="enemigos" unique_id=1519606035 instance=ExtResource("4_7akha")]
+[node name="TemplateMob7" parent="enemigos" unique_id=1519606035 instance=ExtResource("19_sqdkp")]
 position = Vector2(1152, 1464)
 
-[node name="RobawntEnemy" parent="enemigos" unique_id=2115289845 instance=ExtResource("19_kjgon")]
+[node name="RobawntEnemy" parent="enemigos" unique_id=2115289845 instance=ExtResource("20_x5viq")]
 position = Vector2(624, 1472)
 initial_side = 0
 
 [node name="StageGizmos" type="Node2D" parent="." unique_id=231473017]
 
-[node name="MolaQuadradaDoKiko" parent="StageGizmos" unique_id=1717356444 instance=ExtResource("10_h3gw8")]
+[node name="MolaQuadradaDoKiko" parent="StageGizmos" unique_id=1717356444 instance=ExtResource("21_0ph1c")]
 position = Vector2(37, 1527)
 rotation = 0.198968
 scale = Vector2(0.77, 0.48)
 launch_force = 2209.68
 
-[node name="GoToLevel" parent="StageGizmos" unique_id=1717154976 instance=ExtResource("5_khcdk")]
+[node name="GoToLevel" parent="StageGizmos" unique_id=1717154976 instance=ExtResource("22_i0wfw")]
 position = Vector2(19342, 1322)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerhell"
+regionInQuestion = "MapaDeTestes"
 
-[node name="GoToLevel2" parent="StageGizmos" unique_id=1179418540 instance=ExtResource("5_khcdk")]
+[node name="GoToLevel2" parent="StageGizmos" unique_id=1179418540 instance=ExtResource("22_i0wfw")]
 position = Vector2(2078, 192)
 scale = Vector2(2.97, 53.85)
 levelInQuestion = "GreenHawntZone"
+regionInQuestion = "MapaDeTestes"

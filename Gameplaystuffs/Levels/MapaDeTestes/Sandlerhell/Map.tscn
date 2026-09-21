@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdp8oyw0776yw"]
 
-[ext_resource type="Script" uid="uid://udvdewldk1nf" path="res://Gameplaystuffs/Levels/Sandlerhell.gd" id="1_a86g7"]
+[ext_resource type="Script" uid="uid://udvdewldk1nf" path="res://Gameplaystuffs/Levels/MapaDeTestes/Sandlerhell/Sandlerhell.gd" id="1_a86g7"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="2_onl2j"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Gameplaystuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_plmiv"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="3_3fjsp"]
@@ -99,9 +99,11 @@ position = Vector2(6385, 977)
 position = Vector2(-175, 756)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "TheThing"
+regionInQuestion = "MapaDeTestes"
 whereToSpawn = "BackSpawnpoint"
 
 [node name="GoToLevel2" parent="." unique_id=1675827364 instance=ExtResource("4_xb70q")]
 position = Vector2(7163, 875)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
+regionInQuestion = "MapaDeTestes"

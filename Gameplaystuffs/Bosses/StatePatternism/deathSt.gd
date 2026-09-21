@@ -17,8 +17,8 @@ func update():
 	Boss.inputSimulation(0,0)
 
 func getOuttaHere():
-	if GameUtils.get_map_info(GPStats.curMap).has('songFile'):
-		JolasGame.instance.fadeBGM(1.0, GameUtils.get_map_info(GPStats.curMap)['songFile'])
+	if len(GameUtils.get_map_info(GPStats.curMap, GPStats.curRegion).get_songfiles()) > 0:
+		JolasGame.instance.fadeBGM(1.0, GameUtils.get_map_info(GPStats.curMap, GPStats.curRegion).get_songfiles().pick_random())
 	
 	var alphatween:Tween = create_tween()
 	alphatween.tween_method(

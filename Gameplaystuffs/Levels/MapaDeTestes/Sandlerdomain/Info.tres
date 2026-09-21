@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://7g1y81l877xq"]
+
+[ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="1_5hjjd"]
+[ext_resource type="Script" uid="uid://5s2txlf08gqn" path="res://Gameplaystuffs/MapInfo.gd" id="2_xd308"]
+
+[resource]
+script = ExtResource("2_xd308")
+name = "Sandlerdomain"
+regionString = "MapaDeTestes"
+metadata/_custom_type_script = "uid://5s2txlf08gqn"

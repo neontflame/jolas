@@ -180,7 +180,6 @@ offset_bottom = 41.0
 grow_horizontal = 2
 
 [node name="PlaceInfo" parent="CanvasLayer/Control" unique_id=894254314 instance=ExtResource("13_fndli")]
-visible = false
 position = Vector2(20, 21)
 
 [node name="OnlineStuffs" type="Control" parent="CanvasLayer" unique_id=1345113482]

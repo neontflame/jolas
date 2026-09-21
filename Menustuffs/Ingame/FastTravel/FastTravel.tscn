@@ -59,22 +59,22 @@ _data = {
 &"getOut": SubResource("Animation_vwfdp")
 }
 
-[node name="FastTravel" type="Node2D" node_paths=PackedStringArray("mapinha")]
+[node name="FastTravel" type="Node2D" unique_id=2001390863 node_paths=PackedStringArray("mapinha")]
 script = ExtResource("1_4jg8c")
 mapinha = NodePath("MenuCanvas/Control/MapaBg/MapaDeTestes")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=1964349748]
 
-[node name="LeftAnchor" type="Control" parent="MenuCanvas"]
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1844813115]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Esc" parent="MenuCanvas/LeftAnchor" instance=ExtResource("2_v6li4")]
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=300725199 instance=ExtResource("2_v6li4")]
 position = Vector2(54, 39)
 
-[node name="Control" type="Control" parent="MenuCanvas"]
+[node name="Control" type="Control" parent="MenuCanvas" unique_id=862046963]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,14 +88,13 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MapaBg" type="Sprite2D" parent="MenuCanvas/Control"]
+[node name="MapaBg" type="Sprite2D" parent="MenuCanvas/Control" unique_id=1904050062]
 position = Vector2(20, 20)
 texture = ExtResource("2_tdrl1")
 
-[node name="MapaDeTestes" parent="MenuCanvas/Control/MapaBg" instance=ExtResource("4_vwfdp")]
+[node name="MapaDeTestes" parent="MenuCanvas/Control/MapaBg" unique_id=670951988 node_paths=PackedStringArray("parenting") instance=ExtResource("4_vwfdp")]
 position = Vector2(2, 13)
+parenting = NodePath("../../../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_1xe81")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1340124070]
+libraries/ = SubResource("AnimationLibrary_1xe81")

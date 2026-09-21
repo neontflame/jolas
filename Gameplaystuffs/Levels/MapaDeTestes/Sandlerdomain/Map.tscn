@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwrifkr1erwwu"]
 
-[ext_resource type="Script" uid="uid://c51ej8qs1iiil" path="res://Gameplaystuffs/Levels/Sandlerdomain.gd" id="1_1pu2r"]
+[ext_resource type="Script" uid="uid://c51ej8qs1iiil" path="res://Gameplaystuffs/Levels/MapaDeTestes/Sandlerdomain/Sandlerdomain.gd" id="1_1pu2r"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Gameplaystuffs/Levels/especulamente.com.br/especulante_background.tscn" id="2_gq6mc"]
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="3_4gkxx"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="4_gq6mc"]
@@ -94,6 +94,7 @@ position = Vector2(2791, 618)
 position = Vector2(-109, 656)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
+regionInQuestion = "MapaDeTestes"
 whereToSpawn = "BackSpawnpoint"
 
 [node name="BossShit" type="Node2D" parent="." unique_id=177043369]

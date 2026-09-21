@@ -1,6 +1,7 @@
 extends Node2D
 class_name LugarMapa
 
+@export var parenting:FastTravelMenu
 static var mapaCoiso
 static var instance
 
@@ -16,8 +17,8 @@ func _ready() -> void:
 	thePins = $Pins.get_children()
 	setup_pins()
 	whereAmI()
-	$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
-	$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+	$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).name
+	$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).region.name
 	
 	canSelect = true
 
@@ -61,8 +62,8 @@ func setup_pins():
 						Submenu.instance.goToThing(get_pin(curSelected).placeId)
 					if curSelected != id:
 						curSelected = id
-						$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
-						$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+						$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).name
+						$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).region.name
 						CoolMenu.play_sfx('Tick'))
 		
 		for key in pin.goto.keys():
@@ -91,8 +92,8 @@ func goToOtherPin(thepin:int, where:String):
 		if myPin.goto[where].is_valid_int():
 			if get_pin(int(myPin.goto[where])):
 				curSelected = int(myPin.goto[where])
-				$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['name']
-				$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId)['region']
+				$PlaceName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).name
+				$RegName.text = GameUtils.get_map_info(get_pin(curSelected).placeId, parenting.regionString).region.name
 				CoolMenu.play_sfx('Tick')
 		else:
 			changeMap(myPin.goto[where])
@@ -103,6 +104,8 @@ func changeMap(mapName:String):
 	var lugarpath:String = "res://Menustuffs/Ingame/FastTravel/Lugares/%s.tscn" % mapName
 	if LugarMapa.mapaCoiso: LugarMapa.mapaCoiso.queue_free()
 	LugarMapa.mapaCoiso = load(lugarpath).instantiate()
+	LugarMapa.mapaCoiso.parenting = parenting
+	parenting.regionString = mapName
 	get_parent().add_child(LugarMapa.mapaCoiso)
 	LugarMapa.mapaCoiso.global_position = global_position
 	LugarMapa.mapaCoiso.z_index = z_index

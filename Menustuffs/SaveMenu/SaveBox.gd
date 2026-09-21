@@ -24,8 +24,8 @@ func renderSave():
 		$FullSave/LvCount.text = str(GeneralUtils.display_number(coolSaveness["level"]))
 		$FullSave/LvCount.add_theme_color_override("font_color", Color.from_hsv(0.61 + hueShift, 0.6, 1.0, 1.0))
 		
-		var mapInfo = GameUtils.get_map_info(coolSaveness["map"])
-		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
+		var mapInfo = GameUtils.get_map_info(coolSaveness["map"], coolSaveness["region"])
+		$FullSave/CurMap.text = mapInfo.name + ' - ' + mapInfo.region.name
 		# $FullSave/Timespan.text = timeString
 		$FullSave/CurChar.text = GameUtils.get_char_info(coolSaveness["player"])["name"]
 		
@@ -42,8 +42,8 @@ func renderPaused():
 	$FullSave/LvCount.text = str(GeneralUtils.display_number(GPStats.level))
 	$FullSave/LvCount.add_theme_color_override("font_color", Color.from_hsv(0.61 + hueShift, 0.6, 1.0, 1.0))
 	
-	var mapInfo = GameUtils.get_map_info(GPStats.curMap)
-	$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
+	var mapInfo = GameUtils.get_map_info(GPStats.curMap, GPStats.curRegion)
+	$FullSave/CurMap.text = mapInfo.name + ' - ' + mapInfo.region.name
 	# $FullSave/Timespan.text = timeString
 	$FullSave/CurChar.text = GameUtils.get_char_info(GPStats.char)["name"]
 	
@@ -65,8 +65,8 @@ func renderSaveOnline():
 		$FullSave.visible = true
 		# player info
 		$FullSave/LvCount.text = tr('oldsave_lvcount') % GeneralUtils.display_number(coolSaveness["level"])
-		var mapInfo = GameUtils.get_map_info(coolSaveness["map"])
-		$FullSave/CurMap.text = mapInfo["name"] + ' - ' + mapInfo["region"]
+		var mapInfo = GameUtils.get_map_info(coolSaveness["map"], coolSaveness["region"])
+		$FullSave/CurMap.text = mapInfo.name + ' - ' + mapInfo.region.name
 		# $FullSave/Timespan.text = timeString
 
 		if ModUtils.loadedMods != []:

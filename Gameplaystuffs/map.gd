@@ -5,7 +5,7 @@ class_name JolasMap
 # agora nos so usamos os nomes dos nodes mesmo #Lol
 # @export var spawnpoint:Node2D
 # @export var spawnpointBack:Node2D
-@export var infoCoisos:String = ""
+var info:MapInfo = null
 
 @export var hasBossRoom:bool = false
 @export var boss:BossObject
@@ -15,8 +15,8 @@ var allPlayersInBossRoom:bool = false
 func _ready() -> void:
 	if get_tree().current_scene.name == name:
 		await GameInit.setupGameInfo()
-		var mapName = get_tree().current_scene.scene_file_path.get_file().get_basename()
-		GPStats.curMap = mapName
+		GPStats.curMap = name
+		GPStats.curRegion = GameUtils.get_region_from_map(GPStats.curMap)
 		GPStats.char = GameUtils.get_chars().pick_random()
 		GPStats.saveSlot = 999
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")

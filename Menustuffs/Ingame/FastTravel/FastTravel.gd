@@ -1,12 +1,14 @@
 extends Submenu
+class_name FastTravelMenu
 
 @export var mapinha:LugarMapa
 var canControl:bool = true
+var regionString:String = ""
 
 func _ready() -> void:
 	CoolMenu.play_sfx('Unwrap')
 	$AnimationPlayer.play('getIn')
-	mapinha.changeMap(GameUtils.get_map_info(GPStats.curMap)['regionInternal'])
+	mapinha.changeMap(GPStats.curRegion)
 
 func _process(_delta: float) -> void:
 	$MenuCanvas/LeftAnchor/Esc.visible = canControl
@@ -34,7 +36,7 @@ func goToThing(mapId:String):
 	JolasGame.instance.fadeIn(0.5, 
 	func(): 
 		print('[FASTTRAVEL] ok agora volta')
-		JolasGame.instance.createMap(mapId)
+		JolasGame.instance.createMap(mapId, regionString)
 		JolasGame.instance.respawnPlayer(false, "Spawnpoint")
 		JolasGame.instance.fadeOut(0.5)
 		)

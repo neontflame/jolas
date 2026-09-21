@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://babbiu4t0ewip"
-path="res://.godot/imported/grama aleatoria0002.png-fc3c9b60bd4a6c2b924b9f2d749a7413.ctex"
+uid="uid://bvkw2jrl4e41n"
+path="res://.godot/imported/sidewalkies.png-7171c9cc8290812fd89c8c2266cbb3d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Levels/Especulapolis/gramas aleatorias/grama aleatoria0002.png"
-dest_files=["res://.godot/imported/grama aleatoria0002.png-fc3c9b60bd4a6c2b924b9f2d749a7413.ctex"]
+source_file="res://Gameplaystuffs/Levels/Especulapolis/Sprites/sidewalkies.png"
+dest_files=["res://.godot/imported/sidewalkies.png-7171c9cc8290812fd89c8c2266cbb3d9.ctex"]
 
 [params]
 

@@ -2,14 +2,13 @@
 extends Resource
 class_name PlayerInfo
 
-@export var name: String = "Pers, o Nagem"
-@export_multiline var desc: String = "esse e meu oc dos especulativos ele tem uma habilidade que mata todo mundo"
+@export var name:String = "Pers, o Nagem"
+@export_multiline var desc:String = "esse e meu oc dos especulativos ele tem uma habilidade que mata todo mundo"
+
+@export var ability:Array = []
 
 #region coisos de habilidade
-@export var ability: Array = []
-
 @export_tool_button("Adicionar string", "Add") var stringAdd = _add_string
-
 @export_tool_button("Adicionar habilidade", "Add") var abilityAdd = _add_ability
 
 func _add_string() -> void:
@@ -24,3 +23,4 @@ func _add_ability() -> void:
 #endregion
 
 @export var locked:bool = false
+@export var addToMultiplayer:Array[String] = []
