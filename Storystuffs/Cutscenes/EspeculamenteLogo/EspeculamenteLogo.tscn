@@ -19,32 +19,12 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hsonh"]
 gradient = SubResource("Gradient_6w52m")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hsonh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_k7m8l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_vgk3t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_x0blm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_7wag1")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 24.0
-}]
-
 [sub_resource type="Animation" id="Animation_uhdf7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GTetoPlane:position")
+tracks/0/path = NodePath("CanvasLayer/Control/GTetoPlane:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,7 +36,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GTetoPlane:flip_h")
+tracks/1/path = NodePath("CanvasLayer/Control/GTetoPlane:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +48,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GTetoPlane:scale:x")
+tracks/2/path = NodePath("CanvasLayer/Control/GTetoPlane:scale:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -80,7 +60,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MakesEspecula:scale")
+tracks/3/path = NodePath("CanvasLayer/Control/MakesEspecula:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -92,7 +72,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MakesEspecula:self_modulate:a")
+tracks/4/path = NodePath("CanvasLayer/Control/MakesEspecula:self_modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -104,7 +84,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MakesEspecula:modulate")
+tracks/5/path = NodePath("CanvasLayer/Control/MakesEspecula:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -116,7 +96,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("EspeculaLogo:modulate")
+tracks/6/path = NodePath("CanvasLayer/Control/EspeculaLogo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -128,7 +108,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("EspeculaLogo:position")
+tracks/7/path = NodePath("CanvasLayer/Control/EspeculaLogo:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -140,7 +120,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("WhiteFade:self_modulate")
+tracks/8/path = NodePath("CanvasLayer/WhiteFade:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -152,7 +132,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("EspeculaLogo/PortalFoda:position")
+tracks/9/path = NodePath("CanvasLayer/Control/EspeculaLogo/PortalFoda:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -164,7 +144,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("EspeculaLogo/PortalFoda:self_modulate")
+tracks/10/path = NodePath("CanvasLayer/Control/EspeculaLogo/PortalFoda:self_modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -180,7 +160,7 @@ length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GTetoPlane:position")
+tracks/0/path = NodePath("CanvasLayer/Control/GTetoPlane:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -206,7 +186,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GTetoPlane:scale:x")
+tracks/2/path = NodePath("CanvasLayer/Control/GTetoPlane:scale:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -218,7 +198,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MakesEspecula:scale")
+tracks/3/path = NodePath("CanvasLayer/Control/MakesEspecula:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -230,7 +210,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MakesEspecula:modulate")
+tracks/4/path = NodePath("CanvasLayer/Control/MakesEspecula:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -242,7 +222,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("EspeculaLogo:modulate")
+tracks/5/path = NodePath("CanvasLayer/Control/EspeculaLogo:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -254,7 +234,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("EspeculaLogo:position")
+tracks/6/path = NodePath("CanvasLayer/Control/EspeculaLogo:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -280,7 +260,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("WhiteFade:self_modulate")
+tracks/8/path = NodePath("CanvasLayer/WhiteFade:self_modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -292,7 +272,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("EspeculaLogo/PortalFoda:position")
+tracks/9/path = NodePath("CanvasLayer/Control/EspeculaLogo/PortalFoda:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -304,7 +284,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("EspeculaLogo/PortalFoda:self_modulate")
+tracks/10/path = NodePath("CanvasLayer/Control/EspeculaLogo/PortalFoda:self_modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -334,9 +314,30 @@ _data = {
 &"intro": SubResource("Animation_3c66q")
 }
 
-[node name="EspeculamenteLogo" type="Node2D" unique_id=1482796532 node_paths=PackedStringArray("especulaTrail")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsonh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k7m8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vgk3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x0blm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7wag1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="EspeculamenteLogo" type="Node2D" unique_id=1482796532 node_paths=PackedStringArray("especulaTrail", "gTetoPlane")]
 script = ExtResource("1_40wce")
-especulaTrail = NodePath("MakesEspecula")
+especulaTrail = NodePath("CanvasLayer/Control/MakesEspecula")
+gTetoPlane = NodePath("CanvasLayer/Control/GTetoPlane")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2045411751]
 offset_left = -1180.0
@@ -346,31 +347,53 @@ offset_bottom = 1102.0
 texture = SubResource("GradientTexture1D_hsonh")
 expand_mode = 2
 
-[node name="MakesEspecula" parent="." unique_id=2000219589 instance=ExtResource("2_yjhvs")]
-position = Vector2(-10, 184)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241962293]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1502359551]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-380, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1581576185]
+deterministic = true
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_dr3kd")
+autoplay = &"intro"
+
+[node name="MakesEspecula" parent="CanvasLayer/Control" unique_id=2000219589 instance=ExtResource("2_yjhvs")]
+position = Vector2(-390, 175)
 framesBetweenAdd = 2
 amount = 5
 gapBetweenTrails = 30.0
 
-[node name="EspeculaLogo" type="Sprite2D" parent="." unique_id=39109547]
+[node name="EspeculaLogo" type="Sprite2D" parent="CanvasLayer/Control" unique_id=39109547]
 position = Vector2(406, 242)
 texture = ExtResource("7_vgk3t")
 
-[node name="PortalFoda" type="Sprite2D" parent="EspeculaLogo" unique_id=93516561]
+[node name="PortalFoda" type="Sprite2D" parent="CanvasLayer/Control/EspeculaLogo" unique_id=93516561]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(75, -1)
 texture = ExtResource("4_3c66q")
 
-[node name="GTetoPlane" type="Node2D" parent="." unique_id=1343816858]
+[node name="GTetoPlane" type="Node2D" parent="CanvasLayer/Control" unique_id=1343816858]
 position = Vector2(-601, 184)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GTetoPlane" unique_id=1758060945]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control/GTetoPlane" unique_id=1758060945]
 position = Vector2(263, 88)
 sprite_frames = SubResource("SpriteFrames_hsonh")
 autoplay = "default"
 frame_progress = 0.8294105
 
-[node name="biplaneSFX" type="AudioStreamPlayer2D" parent="GTetoPlane" unique_id=496200345]
+[node name="biplaneSFX" type="AudioStreamPlayer2D" parent="CanvasLayer/Control/GTetoPlane" unique_id=496200345]
 position = Vector2(281.70197, 136)
 rotation = 3.1415927
 scale = Vector2(1, -1)
@@ -381,22 +404,20 @@ max_distance = 1200.0
 attenuation = 5.464172
 bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581576185]
-libraries/ = SubResource("AnimationLibrary_dr3kd")
-autoplay = &"intro"
+[node name="WhiteFade" type="TextureRect" parent="CanvasLayer" unique_id=1440648251]
+offset_left = -1188.0
+offset_top = -342.0
+offset_right = 2023.0
+offset_bottom = 1102.0
+texture = SubResource("GradientTexture1D_hsonh")
+expand_mode = 2
 
 [node name="Whoosh" type="AudioStreamPlayer" parent="." unique_id=2007940656]
 stream = ExtResource("9_7wag1")
 volume_db = -11.311
 bus = &"SFX"
 
-[node name="WhiteFade" type="TextureRect" parent="." unique_id=1440648251]
-offset_left = -1180.0
-offset_top = -342.0
-offset_right = 2031.0
-offset_bottom = 1102.0
-texture = SubResource("GradientTexture1D_hsonh")
-expand_mode = 2
-
 [node name="XatBarulho" type="AudioStreamPlayer" parent="." unique_id=1756144610]
 stream = ExtResource("11_3c66q")
+
+[connection signal="animation_finished" from="CanvasLayer/Control/AnimationPlayer" to="." method="onAnimFinish"]

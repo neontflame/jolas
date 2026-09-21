@@ -1,5 +1,6 @@
 extends Node2D
 @export var especulaTrail:IntroPlaneTrail
+@export var gTetoPlane:Node2D
 
 var coolIntroy = [
 	['', '', 'B', '', ''],
@@ -24,12 +25,12 @@ var coolIntroy = [
 	['', '', '', '', '']
 ]
 
-var curLine:int = -6
+var curLine:int = -1
 var gtetoPlaned:bool = false
 
 func _physics_process(delta: float) -> void:
 	if not gtetoPlaned:
-		especulaTrail.position = $GTetoPlane.position
+		especulaTrail.position = gTetoPlane.position
 	
 	if especulaTrail.elapsed % especulaTrail.framesBetweenAdd > 0:
 		return
@@ -45,3 +46,8 @@ func _physics_process(delta: float) -> void:
 
 func getStarted():
 	curLine = 0
+
+
+func onAnimFinish(anim_name: StringName) -> void:
+	if anim_name == &"intro":
+		get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")

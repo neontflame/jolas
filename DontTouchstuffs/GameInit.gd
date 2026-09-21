@@ -51,4 +51,4 @@ func _ready() -> void:
 		if len(ModUtils.queuedMods) > 0:
 			get_tree().change_scene_to_file("res://DontTouchstuffs/QueuedModLoader.tscn")
 		else:
-			GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
+			GeneralUtils.loadScene("res://Storystuffs/Cutscenes/EspeculamenteLogo/EspeculamenteLogo.tscn")

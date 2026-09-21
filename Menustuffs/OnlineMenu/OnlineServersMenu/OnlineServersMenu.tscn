@@ -79,7 +79,7 @@ offset_right = -96.0
 offset_bottom = -130.0
 theme = ExtResource("3_00hqq")
 theme_override_font_sizes/font_size = 18
-text = "Lista de servidores"
+text = "multi_serverlist"
 text_overrun_behavior = 3
 
 [node name="MSAddress" type="Label" parent="MenuCanvas/MidAnchor" unique_id=1428883510]

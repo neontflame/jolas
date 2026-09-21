@@ -105,22 +105,12 @@ text = "7000"
 placeholder_text = "Porta"
 caret_blink = true
 
-[node name="ServerNameLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=440484506]
-layout_mode = 0
-offset_left = -180.0
-offset_top = -59.0
-offset_right = 217.0
-offset_bottom = -29.0
-theme = ExtResource("3_isfkt")
-theme_override_font_sizes/font_size = 18
-text = "multi_server_lbl"
-text_overrun_behavior = 3
-
 [node name="SrvNameTxt" type="TextEdit" parent="MenuCanvas/MidAnchor" unique_id=1579530164]
 layout_mode = 0
 offset_left = -179.0
-offset_top = -27.0
+offset_top = -56.0
 offset_right = 217.0
+offset_bottom = -29.0
 theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 18
 placeholder_text = "Servidor de [nickname]"
@@ -129,16 +119,16 @@ caret_blink = true
 [node name="SaveLabel" type="Label" parent="MenuCanvas/MidAnchor" unique_id=855852197]
 layout_mode = 0
 offset_left = -180.0
-offset_top = 10.0
+offset_top = -6.0
 offset_right = 217.0
-offset_bottom = 40.0
+offset_bottom = 24.0
 theme = ExtResource("3_isfkt")
 theme_override_font_sizes/font_size = 18
 text = "multi_localsave_lbl"
 text_overrun_behavior = 3
 
 [node name="SaveBoxOnline" parent="MenuCanvas/MidAnchor" unique_id=648693147 instance=ExtResource("5_yyxvo")]
-position = Vector2(-171, 43)
+position = Vector2(-171, 27)
 
 [node name="JoinButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=1687371485]
 layout_mode = 0
@@ -172,7 +162,7 @@ theme_override_colors/font_hover_color = Color(0.601223, 0.601223, 0.601223, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.393086, 0.393086, 0.393085, 1)
 theme_override_colors/font_disabled_color = Color(0.564962, 0.564962, 0.564962, 1)
 theme_override_font_sizes/font_size = 18
-text = "Ver lista de servidores públicos"
+text = "multi_servers_btn"
 
 [node name="HostButt" type="Button" parent="MenuCanvas/MidAnchor" unique_id=2033928814]
 layout_mode = 0

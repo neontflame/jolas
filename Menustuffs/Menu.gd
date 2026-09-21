@@ -15,7 +15,6 @@ static var comingFrom = ''
 @export var camera: Camera2D
 @export var blurfx:TextureRect
 
-@onready var theMusics := [$BGMLayer1, $BGMLayer2, $BGMLayer3]
 var theVolumes:Array = [0.0, 0.0, 0.0]
 
 func _ready() -> void:
@@ -24,8 +23,7 @@ func _ready() -> void:
 	
 	manageTrackVolumes()
 	
-	for track in theMusics:
-		track.play()
+	$BGMLayered.play()
 	
 	if CoolMenu.comingFrom != '':
 		$MainMenu.change_self_scene('res://Menustuffs/' + comingFrom + '/' + comingFrom + '.tscn')
@@ -53,11 +51,17 @@ static func stop_sfx(sfxName:String):
 	CoolMenu.instance.get_node('SFX/' + sfxName).stop()
 
 func manageTrackVolumes():
-	for vol in range(len(theMusics)):
+	for vol in range(len(theVolumes)):
 		if vol < CoolMenu.activeMusicLayers:
 			theVolumes[vol] = 0.0
 		else:
-			theVolumes[vol] = linear_to_db(0.0)
-	for trackNum in range(len(theMusics)):
-		var coolume = theVolumes[trackNum]
-		theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum]) 
+			theVolumes[vol] = linear_to_db(0.001)
+		$BGMLayered.stream.set_sync_stream_volume(vol, 
+		lerp(
+			$BGMLayered.stream.get_sync_stream_volume(vol),
+			theVolumes[vol],
+			0.2
+		))
+	#for trackNum in range(len(theMusics)):
+		#var coolume = theVolumes[trackNum]
+		#theMusics[trackNum].volume_db = (coolume if !is_nan(coolume) else theVolumes[trackNum]) 

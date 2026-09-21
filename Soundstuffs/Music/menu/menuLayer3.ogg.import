@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b2exfij2ykgn6"
+uid="uid://bn6b23kko2gvj"
 path="res://.godot/imported/menuLayer3.ogg-03a7b6fa005db6b2eac56f4a705055d0.oggvorbisstr"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/menuLayer3.ogg-03a7b6fa005db6b2eac56f4a705055
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=120.0
 beat_count=0
 bar_beats=4
