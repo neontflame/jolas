@@ -47,14 +47,14 @@ static var bindList:Array = [
 
 # Preferencios
 static func save_prefs():
-	var saveStuff = FileAccess.open('user://preferences.json', FileAccess.WRITE)
+	var saveStuff = FileAccess.open(get_pref_path(), FileAccess.WRITE)
 	var saveInfo:Dictionary = get_default_prefs()
 	saveInfo.merge(preferences, true)
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))
 
 static func get_prefs_info():
-	var pathness:String = 'user://preferences.json'
+	var pathness:String = get_pref_path()
 	var emptyInfo = get_default_prefs()
 	
 	if !FileAccess.file_exists(pathness):
@@ -88,14 +88,14 @@ static func get_default_prefs() -> Dictionary:
 
 # Controles
 static func save_controls():
-	var saveStuff = FileAccess.open('user://controls.dat', FileAccess.WRITE)
+	var saveStuff = FileAccess.open(get_controls_path(), FileAccess.WRITE)
 	var saveInfo:Dictionary = get_default_controls()
 	saveInfo.merge(keyBince, true)
 	
 	saveStuff.store_var(saveInfo, true)
 
 static func get_controls_info():
-	var pathness:String = 'user://controls.dat'
+	var pathness:String = get_controls_path()
 	var emptyInfo = get_default_controls()
 	
 	if !FileAccess.file_exists(pathness):
@@ -117,3 +117,9 @@ static func get_default_controls() -> Dictionary:
 	for bind in bindList:
 		keyBince[bind[0]] = InputMap.action_get_events(bind[0])[0]
 	return emptyDict
+
+static func get_pref_path():
+	return "%spreferences.json" % FileUtils.get_user_path()
+
+static func get_controls_path():
+	return "%scontrols.dat" % FileUtils.get_user_path()

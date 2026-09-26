@@ -1,7 +1,7 @@
 extends "res://Menustuffs/Submenu.gd"
 
-var curPath:String = 'user://'
-var root:String = 'user://'
+var curPath:String = FileUtils.get_user_path()
+var root:String = FileUtils.get_user_path()
 var curItems:Array = []
 
 

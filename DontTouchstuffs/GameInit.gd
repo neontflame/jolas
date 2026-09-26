@@ -18,7 +18,7 @@ func setupAutoloadMods():
 			var initSplit = arguString.split("=")
 			var modsSplit = initSplit[1].split(",")
 			for mod in modsSplit:
-				ModUtils.queuedMods.append("user://" + mod)
+				ModUtils.queuedMods.append(FileUtils.get_user_path() + mod)
 
 func _ready() -> void:
 	await GameInit.setupGameInfo()

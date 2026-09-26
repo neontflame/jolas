@@ -11,9 +11,9 @@ static func save_game(slot:int):
 		playstime = get_save_info(slot)['first-playtime']
 	var saveStuff
 	if ModUtils.loadedMods != []:
-		saveStuff = FileAccess.open('user://modSave' + str(slot) + '.jol', FileAccess.WRITE)
+		saveStuff = FileAccess.open(get_save_path(slot, true), FileAccess.WRITE)
 	else:
-		saveStuff = FileAccess.open('user://save' + str(slot) + '.jol', FileAccess.WRITE)
+		saveStuff = FileAccess.open(get_save_path(slot), FileAccess.WRITE)
 	var saveInfo:Dictionary = {
 		"new": false,
 		"player": GPStats.char,
@@ -37,8 +37,8 @@ static func get_save_info(slot:int):
 	var newSave = {
 		"new": true
 	}
-	var pathness:String = 'user://save' + str(slot) + '.jol'
-	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
+	var pathness:String = get_save_path(slot)
+	var pathnessMods:String = get_save_path(slot, true)
 	var shouldMod:bool = (FileAccess.file_exists(pathnessMods) && ModUtils.loadedMods != [])
 	
 	if !shouldMod:
@@ -53,8 +53,8 @@ static func get_save_info(slot:int):
 	return saveGotten
 
 static func delete_save(slot:int):
-	var pathness:String = 'user://save' + str(slot) + '.jol'
-	var pathnessMods:String = 'user://modSave' + str(slot) + '.jol'
+	var pathness:String = get_save_path(slot)
+	var pathnessMods:String = get_save_path(slot, true)
 	
 	var shouldMod:bool = (ModUtils.loadedMods != [])
 	
@@ -67,7 +67,7 @@ static func delete_save(slot:int):
 	saveStuff.store_string(JSON.stringify(saveInfo))
 
 static func save_online():
-	var saveStuff = FileAccess.open('user://onlineInfo.json', FileAccess.WRITE)
+	var saveStuff = FileAccess.open(get_online_info_path(), FileAccess.WRITE)
 	var saveInfo:Dictionary = {
 		"name": OnlineUtils.username,
 		"ip": OnlineUtils.ipEntered,
@@ -80,7 +80,7 @@ static func save_online():
 	saveStuff.store_string(JSON.stringify(saveInfo))
 
 static func get_online_info():
-	var pathness:String = 'user://onlineInfo.json'
+	var pathness:String = get_online_info_path()
 	var emptyInfo:Dictionary = {
 		"name": "",
 		"ip": "127.0.0.1",
@@ -101,4 +101,11 @@ static func get_online_info():
 	else:
 		saveGotten['char'] = 'Neon'
 	return saveGotten
-	
+
+static func get_online_info_path():
+	return '%sonlineInfo.json' % FileUtils.get_user_path()
+
+static func get_save_path(slot:int, modded:bool = false):
+	if modded:
+		return '%smodSave%s.jol' % [FileUtils.get_user_path(), slot]
+	return '%ssave%s.jol' % [FileUtils.get_user_path(), slot]

@@ -11,7 +11,7 @@ static func unlock_char(charName:StringName):
 	save_unlocks()
 	
 static func save_unlocks():
-	var saveStuff = FileAccess.open('user://unlocks.jol', FileAccess.WRITE)
+	var saveStuff = FileAccess.open(get_unlock_path(), FileAccess.WRITE)
 	var saveInfo:Dictionary = {
 		"chars": unlockedChars
 	}
@@ -19,7 +19,7 @@ static func save_unlocks():
 	saveStuff.store_string(JSON.stringify(saveInfo))
 
 static func get_unlocks():
-	var pathness:String = 'user://unlocks.jol'
+	var pathness:String = get_unlock_path()
 	var emptyInfo:Dictionary = {
 		"chars": []
 	}
@@ -34,3 +34,6 @@ static func get_unlocks():
 static func merge_to_vars():
 	for char in get_unlocks()["chars"]:
 		unlockedChars.append(char)
+
+static func get_unlock_path():
+	return '%sunlocks.jol' % FileUtils.get_user_path()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6j45bvm3jouo"]
 
-[ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/Game.gd" id="1_wmjmx"]
+[ext_resource type="Script" uid="uid://k74hjh0p3rer" path="res://Gamestuffs/game.gd" id="1_wmjmx"]
 [ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="3_5r2sg"]
 [ext_resource type="Script" uid="uid://8jlcqkyoirjk" path="res://DontTouchstuffs/Multiplayer/MultiplayerMayhem.gd" id="3_ll7to"]
 [ext_resource type="Script" uid="uid://bp2c6ngrwfkbg" path="res://DontTouchstuffs/Multiplayer/MultiSpawner.gd" id="4_f3ii1"]
@@ -31,6 +31,7 @@ offset_left = -605.0
 offset_top = -277.0
 offset_right = 1302.0
 offset_bottom = 702.0
+mouse_filter = 2
 texture = ExtResource("3_5r2sg")
 
 [node name="Multiplayer" type="Node" parent="." unique_id=2050843933]
