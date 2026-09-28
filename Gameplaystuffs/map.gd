@@ -24,7 +24,13 @@ func _ready() -> void:
 	MapUtils.set_map(self)
 	await get_tree().process_frame
 	await get_tree().process_frame
-	if hasBossRoom:
+	setupBoss()
+
+func setupBoss():
+	if (not hasBossRoom): return
+	if GPStats.bossesBeat.has(boss.name):
+		bossBeatAlready()
+	else:
 		bossRoom.body_entered.connect(onEnterBossRoom)
 
 func onEnterBossRoom(body:Node2D):
@@ -45,4 +51,7 @@ func bossStart():
 	pass
 
 func bossEnd():
+	GPStats.addToBossesBeat(boss.name)
+
+func bossBeatAlready():
 	pass

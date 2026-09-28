@@ -18,4 +18,9 @@ func bossStart():
 	isBossing = true
 
 func bossEnd():
+	super.bossEnd()
 	isBossing = false
+
+func bossBeatAlready():
+	removeEdgy()
+	boss.queue_free()

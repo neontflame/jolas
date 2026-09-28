@@ -17,6 +17,7 @@ static var curMap := 'TheThing'
 static var curRegion := 'MapaDeTestes'
 
 static var exploredMaps:Array = []
+static var bossesBeat:Array = []
 
 static var modded := false
 #endregion
@@ -50,7 +51,9 @@ static func load_info_from_save(saveSlot:int):
 		xp = 0
 		maxHP = 10
 		curMap = GameUtils.defaultMap
+		curRegion = GameUtils.get_region_from_map(curMap)
 		exploredMaps = []
+		bossesBeat = []
 		InventoryUtils.inventory = []
 		QuestUtils.clear_all()
 	else:
@@ -58,9 +61,15 @@ static func load_info_from_save(saveSlot:int):
 		xp = save['xp']
 		maxHP = save['maxHP']
 		curMap = save['map']
+		if save.has("region"): curRegion = save['region']
 		if save.has("exploredMaps"): exploredMaps = save['exploredMaps']
+		if save.has("bossesBeat"): exploredMaps = save['bossesBeat']
 		if (save.has("assignedQuests") and save.has("clearedQuests")):
 			QuestUtils.assignedQuests = save['assignedQuests']
 			QuestUtils.clearedQuests = save['clearedQuests']
 		if (save.has("inventory")):
 			InventoryUtils.inventory = save['inventory']
+
+static func addToBossesBeat(bossName:String):
+	if not bossesBeat.has(bossName):
+		bossesBeat.append(bossName)
