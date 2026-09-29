@@ -28,7 +28,7 @@ static func save_game(slot:int):
 		"last-playtime": Time.get_unix_time_from_system(),
 		"assignedQuests": QuestUtils.assignedQuests,
 		"clearedQuests": QuestUtils.clearedQuests,
-		"applied-mods": ModUtils.loadedModsFolderless
+		"applied-mods": ModUtils.loadedMods
 	}
 	
 	saveStuff.store_string(JSON.stringify(saveInfo))

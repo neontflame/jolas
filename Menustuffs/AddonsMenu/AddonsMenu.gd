@@ -87,9 +87,8 @@ func loadMod(mod:String):
 				if not ModUtils.queuedMods.has(mod):
 					ModUtils.queuedMods.append(mod)
 			else:
-				ProjectSettings.load_resource_pack(mod)
+				ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
 				ModUtils.loadedMods.append(mod)
-				ModUtils.loadedModsFolderless.append(mod.get_file())
 				# carregar scripts !!!
 				# pra quem for maluco e fizer algum mod maluco que precise
 				if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:

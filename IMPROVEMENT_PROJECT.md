@@ -9,3 +9,7 @@ Ok ja que esse jogo aparenta ficar meio fucking gigante ao longo do tempo e melh
 - [x] transformar algumas coisas que usam .json em resources
 	- [x] Info de personagem (PlayerInfo/PlayerInfoAbility)
 	- [x] Info de mapa
+- [ ] sistema de modding um pouco diferenciado !!
+	- [x] fazer mods funcionarem de ID ao inves de arquivo
+	- [ ] refazer menu de addons
+	- [ ] (opcional) TALVEZ recompilar a godot pra usar aquele pull request de descarregar pck

@@ -12,13 +12,10 @@ static func setupGameInfo():
 	await QuestUtils.clear_all()
 
 func setupAutoloadMods():
-	for argument in OS.get_cmdline_args():
-		var arguString:String = str(argument)
-		if arguString.begins_with("--mods="):
-			var initSplit = arguString.split("=")
-			var modsSplit = initSplit[1].split(",")
-			for mod in modsSplit:
-				ModUtils.queuedMods.append(FileUtils.get_user_path() + mod)
+	var enabledMods = FileUtils.get_text_file_content('%s/loadedMods.txt' % FileUtils.get_user_path())
+	var modsSplit = enabledMods.split("\n")
+	for mod in modsSplit:
+		ModUtils.queuedMods.append(mod)
 
 func _ready() -> void:
 	await GameInit.setupGameInfo()
@@ -41,9 +38,8 @@ func _ready() -> void:
 		if len(ModUtils.queuedMods) > 0:
 			for mod in ModUtils.queuedMods:
 				print('Carregando mod: %s' % mod)
-				ProjectSettings.load_resource_pack(mod)
+				ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
 				ModUtils.loadedMods.append(mod)
-				ModUtils.loadedModsFolderless.append(mod.get_file())
 			print('Total de mods carregados: %s' % len(ModUtils.queuedMods))
 			ModUtils.queuedMods = []
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
@@ -51,4 +47,4 @@ func _ready() -> void:
 		if len(ModUtils.queuedMods) > 0:
 			get_tree().change_scene_to_file("res://DontTouchstuffs/QueuedModLoader.tscn")
 		else:
-			GeneralUtils.loadScene("res://Storystuffs/Cutscenes/EspeculamenteLogo/EspeculamenteLogo.tscn")
+			GeneralUtils.loadScene(ProjectSettings.get_setting("application/run/main_scene"))

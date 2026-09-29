@@ -2,15 +2,19 @@ extends Node
 class_name ModUtils
 
 static var loadedMods:Array = []
-static var loadedModsFolderless:Array = []
 static var queuedMods:Array = []
+
+static func get_mod_path(mod:String, asset:String = "mod.pck"):
+	return '%s/mods/%s/%s' % [FileUtils.get_user_path(), mod, asset]
 
 static func get_mod_info(mod:String):
 	# mods serao .pck ou .zip
-	var modStuff = mod.left(mod.length() - 3) + 'json'
+	var modStuff = '%s/mods/%s/metadata.json' % [FileUtils.get_user_path(), mod]
 	var modInfo = '' 
 	if !FileAccess.file_exists(modStuff):
 		modInfo = '{
+		"name": "MeuModSuperLegal",
+		"author": "epicojogos123",
 		"restartsGame": false,
 		"requiredVersion": "%s",
 		"runOnLoad": []

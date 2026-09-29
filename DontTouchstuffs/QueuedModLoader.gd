@@ -8,9 +8,8 @@ var runScripts:Array = []
 func _enter_tree() -> void:
 	renderTexty()
 	for mod in ModUtils.queuedMods:
-		ProjectSettings.load_resource_pack(mod)
+		ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
 		ModUtils.loadedMods.append(mod)
-		ModUtils.loadedModsFolderless.append(mod.get_file())
 		loadArray.append(mod)
 		if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
 			for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
@@ -30,7 +29,7 @@ func _enter_tree() -> void:
 		renderTextySkript()
 		
 	await get_tree().create_timer(0.1).timeout
-	GeneralUtils.loadScene("res://Storystuffs/Cutscenes/EspeculamenteLogo/EspeculamenteLogo.tscn")
+	GeneralUtils.loadScene(ProjectSettings.get_setting("application/run/main_scene"))
 
 func renderTexty():
 	$Label.text = tr('mod_of_mods_loaded').format(
