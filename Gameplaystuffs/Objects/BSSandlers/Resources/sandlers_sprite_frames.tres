@@ -21,7 +21,7 @@ animations = [{
 "duration": 2.0,
 "texture": ExtResource("4_0afx0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"explode",
 "speed": 16.0
 }, {
@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_103ok")
 }],
-"loop": true,
+"loop": 1,
 "name": &"projectile",
 "speed": 16.0
 }]

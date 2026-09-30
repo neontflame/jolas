@@ -65,7 +65,6 @@ func _physics_process(_delta: float) -> void:
 	if GPStats.is_multiplayer: 
 		onlineChatHandler()
 
-
 #region Gameplay
 func lvlHandler():
 	# treco de nivel
