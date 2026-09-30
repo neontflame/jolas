@@ -96,8 +96,7 @@ func _physics_process(_delta: float) -> void:
 			menuLayer = 0
 		
 		if CoolMenu.curSelected != -1:
-			if Input.is_action_just_pressed("ui_accept") \
-			or Input.is_action_just_pressed('ui_click'):
+			if Input.is_action_just_pressed("ui_accept"):
 				loadMod(boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].modId)
 	
 	elif menuLayer == 0: # MOD CHOICER MENU
