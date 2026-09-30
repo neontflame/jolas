@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://2y3bfu7583m4"]
+[gd_scene format=3 uid="uid://2y3bfu7583m4"]
 
 [ext_resource type="Script" uid="uid://cqybtcnsij22n" path="res://Playerstuffs/Characters/Sushi/Scripts/hudSushi.gd" id="1_dm8fv"]
 [ext_resource type="Texture2D" uid="uid://bx58hnmyu2hsi" path="res://Playerstuffs/Characters/Sushi/Sprites/HUD/hud_AmmoLabel.png" id="2_6ij4g"]
 [ext_resource type="Texture2D" uid="uid://cfuby712pofr0" path="res://Playerstuffs/Characters/Sushi/Sprites/HUD/hud_ammoBars.png" id="3_fdvpt"]
 
-[node name="Hud" type="Node2D"]
+[node name="Hud" type="Node2D" unique_id=2104794122]
 script = ExtResource("1_dm8fv")
 
-[node name="AmmoLabel" type="Sprite2D" parent="."]
-position = Vector2(112, 80)
+[node name="AmmoLabel" type="Sprite2D" parent="." unique_id=1438008884]
+position = Vector2(-7, 9)
 texture = ExtResource("2_6ij4g")
 centered = false
 
-[node name="AmmoBars" type="Sprite2D" parent="."]
+[node name="AmmoBars" type="Sprite2D" parent="." unique_id=2045858879]
 texture_repeat = 2
-position = Vector2(128, 96)
+position = Vector2(36, 9)
 texture = ExtResource("3_fdvpt")
 centered = false
 region_enabled = true
