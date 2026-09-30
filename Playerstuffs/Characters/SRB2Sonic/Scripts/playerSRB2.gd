@@ -28,14 +28,14 @@ func _physics_process(delta: float) -> void:
 	
 	special_box.rotation = practicalAngle
 
-func connectAttack(_stunFrames:float, fromBehind:bool = false, vel:Vector2 = Vector2(250, -250)):
-	super.connectAttack(_stunFrames, fromBehind, vel)
+func connectAttack(_stunFrames:float, vel:Vector2 = Vector2(250, -250)):
+	super.connectAttack(_stunFrames, vel)
 	
 func level_up():
 	super.level_up()
 
 func hitbox_connect(hit:OffensiveHitbox, type:String):
-	connectAttack(2, true, spin_knockback())
+	connectAttack(2, spin_knockback())
 
 func set_roll_collision(setter: bool):
 	special_box.set_deferred("disabled", not setter)
@@ -77,6 +77,11 @@ func generic_squish(is_vertical: bool = true):
 	squash_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	squash_tween.tween_property(plySprite, "scale", Vector2.ONE, 0.5)
 
+func play_char_sfx(soundName:String, char:String, volumeDB:float = 0.0):
+	if sfx_player.playing: sfx_player.stop()
+	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + soundName + ".ogg") # leve tweak to com preguiça de converter os sons pra wav
+	sfx_player.volume_db = volumeDB
+	sfx_player.play()
 
 func _on_spin_fx_timer_timeout() -> void:
 	create_thok_fx()

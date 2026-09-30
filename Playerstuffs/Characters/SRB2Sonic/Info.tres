@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://dpgoyokmnmulm"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_g36vf"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_lyeem"]
+
+[sub_resource type="Resource" id="Resource_2rcah"]
+script = ExtResource("1_g36vf")
+name = "speed thok"
+color = Color(0, 0, 1, 1)
+instructions = "aperte o botão de pulo no ar para dar um dash pra frente com tudo!"
+
+[sub_resource type="Resource" id="Resource_msttb"]
+script = ExtResource("1_g36vf")
+name = "spindash / rolar"
+color = Color(0, 1, 0, 1)
+instructions = "aperte ctrl_2 no chao se estiver parado (ou andando bem devagar) para carregar o spin dash, quanto mais segurar, mais rapido ele vai ser. se estiver andando ou correndo, vai apenas começar a rolar mesmo"
+
+[resource]
+script = ExtResource("1_lyeem")
+name = "SRB2 Sonic"
+desc = "por que ele ta verde. 
+ele joga de uma forma parecida com o sonic do srb2, onde ele tem um limite de velocidade quando corre de pé, e só pode subir rampas bem se rolar no chao. de nada :)"
+ability = [SubResource("Resource_2rcah"), SubResource("Resource_msttb")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

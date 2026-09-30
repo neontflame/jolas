@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 
 func enter_state():
 	Player.make_hitbox(Vector2(0, 9), Vector2(2.2, 2.2), Player.ATTACK_DMG_LVL['default'], 50.0, 0.0, "spin_attack")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6jvfvons3w28"]
+[gd_scene format=3 uid="uid://6jvfvons3w28"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_wtpuj"]
 [ext_resource type="Script" uid="uid://clqvfc7pb3c34" path="res://Playerstuffs/Characters/SRB2Sonic/Scripts/playerSRB2.gd" id="2_bcgp1"]
@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyp1u"]
 size = Vector2(40, 40)
 
-[node name="Player" node_paths=PackedStringArray("special_box", "spinFxTimer") instance=ExtResource("1_wtpuj")]
+[node name="Player" unique_id=1420412064 node_paths=PackedStringArray("special_box", "spinFxTimer") instance=ExtResource("1_wtpuj")]
 script = ExtResource("2_bcgp1")
 special_box = NodePath("SpecialCollide")
 spinFxTimer = NodePath("SpinFxTimer")
@@ -21,41 +21,40 @@ FLOOR_ACCELERATION = 15.0
 AIR_ACCELERATION = 20.0
 FLOOR_BRAKE = 20.0
 SOFT_MAX_SPEED = 1000.0
-SLOPE_VEL_ADD = 30.0
 FLOOR_FRICTION = 0.95
 AIR_FRICTION = 1.0
 
-[node name="StateMachine" parent="." index="0"]
+[node name="StateMachine" parent="." index="0" unique_id=1536097381]
 script = ExtResource("3_1yyof")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" index="1" unique_id=1326715689]
 script = ExtResource("4_1yyof")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" index="2" unique_id=521348263]
 script = ExtResource("5_bcgp1")
 
-[node name="SpinCharge" type="Node" parent="StateMachine" index="3"]
+[node name="SpinCharge" type="Node" parent="StateMachine" index="3" unique_id=2003265867]
 script = ExtResource("6_1hbx6")
 
-[node name="Roll" type="Node" parent="StateMachine" index="4"]
+[node name="Roll" type="Node" parent="StateMachine" index="4" unique_id=1020581477]
 script = ExtResource("7_bcgp1")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=912736551]
 position = Vector2(0, 0)
 scale = Vector2(0.311, 0.46)
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1389142644]
 sprite_frames = ExtResource("7_1yyof")
 animation = &"spin_charge"
 frame_progress = 0.36579
 offset = Vector2(0, -4)
 
-[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7"]
+[node name="SpecialCollide" type="CollisionShape2D" parent="." index="7" unique_id=194444503]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_nyp1u")
 disabled = true
 
-[node name="SpinFxTimer" type="Timer" parent="." index="9"]
+[node name="SpinFxTimer" type="Timer" parent="." index="9" unique_id=621437072]
 wait_time = 0.05
 
 [connection signal="timeout" from="SpinFxTimer" to="." method="_on_spin_fx_timer_timeout"]
