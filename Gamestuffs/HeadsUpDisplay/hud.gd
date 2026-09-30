@@ -10,6 +10,7 @@ class_name HeadsUpDisplay
 @export var xpText:Label
 @export var hpBar:Sprite2D
 @export var xpBar:Sprite2D
+@export var extraHudPlace:Node2D
 
 @export var comboText:RichTextLabel
 var combo_tween: Tween
@@ -55,7 +56,7 @@ func initCharHUD(chara:String):
 	playerIcon.texture = GameUtils.get_char_asset(chara, "Icon.png")
 	var customHUD = GameUtils.get_char_asset(chara, "HUD.tscn")
 	if customHUD:
-		canvasLayer.add_child(customHUD.instantiate())
+		extraHudPlace.add_child(customHUD.instantiate())
 #endregion
 
 # No Man's Land
@@ -64,7 +65,6 @@ func _physics_process(_delta: float) -> void:
 	hpXpHandler()
 	if GPStats.is_multiplayer: 
 		onlineChatHandler()
-
 
 #region Gameplay
 func lvlHandler():

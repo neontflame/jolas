@@ -96,20 +96,26 @@ func _physics_process(_delta: float) -> void:
 			menuLayer = 0
 		
 		if CoolMenu.curSelected != -1:
-			if Input.is_action_just_pressed("ui_accept") \
-			or Input.is_action_just_pressed('ui_click'):
+			if Input.is_action_just_pressed("ui_accept"):
 				loadMod(boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].modId)
 	
 	elif menuLayer == 0: # MOD CHOICER MENU
-		if Input.is_action_just_pressed("ui_down"):
-			CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
-			$MenuCanvas/MidAnchor/ModsList/ScrollContainer.scroll_vertical = boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].position.y
-			CoolMenu.play_sfx('Tick')
-		
-		if Input.is_action_just_pressed("ui_up"):
-			CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
-			$MenuCanvas/MidAnchor/ModsList/ScrollContainer.scroll_vertical = boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].position.y
-			CoolMenu.play_sfx('Tick')
+		if len(boxWithABunchOfShitInIt.get_children()) > 0:
+			if Input.is_action_just_pressed("ui_down"):
+				CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
+				$MenuCanvas/MidAnchor/ModsList/ScrollContainer.scroll_vertical = boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].position.y
+				CoolMenu.play_sfx('Tick')
+			
+			if Input.is_action_just_pressed("ui_up"):
+				CoolMenu.curSelected = wrap(CoolMenu.curSelected - 1, 0, CoolMenu.maxSelected)
+				$MenuCanvas/MidAnchor/ModsList/ScrollContainer.scroll_vertical = boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].position.y
+				CoolMenu.play_sfx('Tick')
+			
+			if CoolMenu.curSelected != -1:
+				if Input.is_action_just_pressed("ui_accept") \
+				or Input.is_action_just_pressed('ui_click'):
+					CoolMenu.play_sfx('Tick')
+					loadModInfo(boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].modId)
 		
 		if Input.is_action_just_pressed('ui_cancel'):
 			CoolMenu.play_sfx('Back')
@@ -121,9 +127,3 @@ func _physics_process(_delta: float) -> void:
 				CoolMenu.curSelected = 4
 				change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn')
 		
-		if CoolMenu.curSelected != -1:
-			if Input.is_action_just_pressed("ui_accept") \
-			or Input.is_action_just_pressed('ui_click'):
-				CoolMenu.play_sfx('Tick')
-				loadModInfo(boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].modId)
-			
