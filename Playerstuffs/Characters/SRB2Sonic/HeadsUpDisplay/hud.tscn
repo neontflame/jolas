@@ -1,11 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://dcph586p0w20d"]
+[gd_scene format=3 uid="uid://dcph586p0w20d"]
 
 [ext_resource type="Script" uid="uid://dfv2mesg45grq" path="res://Playerstuffs/Characters/SRB2Sonic/HeadsUpDisplay/hudSRB2.gd" id="1_f60hx"]
-[ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Shaders/hueshift.gdshader" id="2_3ovr4"]
+[ext_resource type="Shader" uid="uid://ccwfhd6h6oxuu" path="res://Internalstuffs/Shaders/hueshift.gdshader" id="2_3ovr4"]
 [ext_resource type="Texture2D" uid="uid://mqbfkb6flnry" path="res://Gamestuffs/HeadsUpDisplay/LevelSquare.png" id="3_o5vmj"]
 [ext_resource type="Texture2D" uid="uid://fahy27cwqeoq" path="res://Gamestuffs/HeadsUpDisplay/hud_BarBG.png" id="7_12byc"]
 [ext_resource type="Texture2D" uid="uid://d0e8jaxdogxnl" path="res://Gamestuffs/HeadsUpDisplay/hud_HpBar.png" id="8_i31om"]
-[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Gamestuffs/Fonts/general.fnt" id="9_brho0"]
+[ext_resource type="FontFile" uid="uid://dq61mghtm7weo" path="res://Miscstuffs/Fonts/general.fnt" id="9_brho0"]
 [ext_resource type="FontFile" uid="uid://5rpwmij82xd3" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2NUM.png" id="9_esd4i"]
 [ext_resource type="Texture2D" uid="uid://cv23dgqcidks5" path="res://Gamestuffs/HeadsUpDisplay/hud_XpBar.png" id="10_hwafb"]
 [ext_resource type="FontFile" uid="uid://ckkuixbox5ot1" path="res://Gamestuffs/HeadsUpDisplay/hud_ComboFont.png" id="11_yvh1p"]
@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bcsask4ppob0g" path="res://Gamestuffs/HeadsUpDisplay/inventoryIcon.tscn" id="13_8djgu"]
 [ext_resource type="PackedScene" uid="uid://cdob43vo7sjc4" path="res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn" id="14_tlvbi"]
 [ext_resource type="FontFile" uid="uid://drmfsuuq6jfm3" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ALPHABET.png" id="15_12byc"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="15_kmpot"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="15_kmpot"]
 [ext_resource type="Texture2D" uid="uid://bi8c6cq0tahfp" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2EXP.png" id="16_12byc"]
-[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Shaders/outlineCoolio.gdshader" id="16_dwb5i"]
+[ext_resource type="Shader" uid="uid://danjb3joqvlqr" path="res://Internalstuffs/Shaders/outlineCoolio.gdshader" id="16_dwb5i"]
 [ext_resource type="FontFile" uid="uid://bv6nckg5gcdn7" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ALPHABETLevels.png" id="16_i31om"]
 [ext_resource type="Texture2D" uid="uid://boyqepxuvw3s" path="res://Playerstuffs/Characters/SRB2Sonic/Icon.png" id="17_brho0"]
 [ext_resource type="Texture2D" uid="uid://bjlybbcl8403h" path="res://Playerstuffs/Characters/SRB2Sonic/Sprites/HeadsUpDisplay/SONIC2ITEMS.png" id="17_i31om"]
@@ -33,9 +33,9 @@ shader_parameter/shift_hue = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_otgxo"]
 shader = ExtResource("16_dwb5i")
-shader_parameter/line_color = Color(0, 0, 0, 0.396078)
+shader_parameter/allow_out_of_bounds = true
 shader_parameter/line_thickness = 2.0
-shader_parameter/add_margins = true
+shader_parameter/line_color = Color(0, 0, 0, 0.396078)
 
 [sub_resource type="SystemFont" id="SystemFont_u453t"]
 font_names = PackedStringArray("MS UI Gothic")
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_hwafb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -70,18 +70,19 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_yvh1p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"none",
 "speed": 2.0
 }]
 
-[node name="Hud" type="Node2D" node_paths=PackedStringArray("inventoryText", "questText", "comboSprite", "comboLabel", "levelCharName", "canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "testLabel", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
+[node name="Hud" type="Node2D" unique_id=212234015 node_paths=PackedStringArray("inventoryText", "questText", "comboSprite", "comboLabel", "levelCharName", "oldHpBar", "canvasLayer", "playerIcon", "levelLabel", "levelSquare", "hpText", "xpText", "hpBar", "xpBar", "comboText", "questIcon", "inventoryIcon", "placeInfo", "notifsNode", "sfxPlayer", "onlineElements")]
 script = ExtResource("1_f60hx")
 inventoryText = NodePath("CanvasLayer/Node2D/InventoryText")
 questText = NodePath("CanvasLayer/Node2D/QuestText")
 comboSprite = NodePath("CanvasLayer/Node2D/Sonic2combo")
 comboLabel = NodePath("CanvasLayer/Node2D/Sonic2combo/ComboText")
 levelCharName = NodePath("CanvasLayer/BottomLeftAnchor/CharNameLabel")
+oldHpBar = NodePath("CanvasLayer/Bars/HPBar")
 canvasLayer = NodePath("CanvasLayer")
 playerIcon = NodePath("CanvasLayer/BottomLeftAnchor/PlayerIcon")
 levelLabel = NodePath("CanvasLayer/BottomLeftAnchor/LevelLabel")
@@ -90,7 +91,6 @@ hpText = NodePath("CanvasLayer/Bars/HPText")
 xpText = NodePath("CanvasLayer/Node2D/XPText")
 hpBar = NodePath("CanvasLayer/Bars/HPBar")
 xpBar = NodePath("IPretendIDoNotSeeIt/XPBar")
-testLabel = NodePath("CanvasLayer/RightAnchor/TestLabel")
 comboText = NodePath("IPretendIDoNotSeeIt/ComboText")
 questIcon = NodePath("IPretendIDoNotSeeIt/QuestIcon")
 inventoryIcon = NodePath("IPretendIDoNotSeeIt/InventoryIcon")
@@ -99,10 +99,10 @@ notifsNode = NodePath("CanvasLayer/RightAnchor/Notifs")
 sfxPlayer = NodePath("AudioStreamPlayer")
 onlineElements = NodePath("CanvasLayer/OnlineStuffs")
 
-[node name="IPretendIDoNotSeeIt" type="Node2D" parent="."]
+[node name="IPretendIDoNotSeeIt" type="Node2D" parent="." unique_id=1703300274]
 visible = false
 
-[node name="XPBar" type="NinePatchRect" parent="IPretendIDoNotSeeIt"]
+[node name="XPBar" type="NinePatchRect" parent="IPretendIDoNotSeeIt" unique_id=650128334]
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 225.0
@@ -113,13 +113,13 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="QuestIcon" parent="IPretendIDoNotSeeIt" instance=ExtResource("12_d82eu")]
+[node name="QuestIcon" parent="IPretendIDoNotSeeIt" unique_id=884123851 instance=ExtResource("12_d82eu")]
 position = Vector2(34, 136)
 
-[node name="InventoryIcon" parent="IPretendIDoNotSeeIt" instance=ExtResource("13_8djgu")]
+[node name="InventoryIcon" parent="IPretendIDoNotSeeIt" unique_id=694378936 instance=ExtResource("13_8djgu")]
 position = Vector2(33, 211)
 
-[node name="ComboText" type="RichTextLabel" parent="IPretendIDoNotSeeIt"]
+[node name="ComboText" type="RichTextLabel" parent="IPretendIDoNotSeeIt" unique_id=172869802]
 offset_left = 16.0
 offset_top = -64.0
 offset_right = 792.0
@@ -130,23 +130,23 @@ bbcode_enabled = true
 text = "[img]res://Gamestuffs/HeadsUpDisplay/hud_ComboLabel.png[/img]9999"
 horizontal_alignment = 2
 
-[node name="LevelSquare" type="Sprite2D" parent="IPretendIDoNotSeeIt"]
+[node name="LevelSquare" type="Sprite2D" parent="IPretendIDoNotSeeIt" unique_id=813100926]
 material = SubResource("ShaderMaterial_43w4t")
 use_parent_material = true
 position = Vector2(46, 482)
 texture = ExtResource("3_o5vmj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1148644280]
 layer = 0
 
-[node name="Bars" type="Node" parent="CanvasLayer"]
+[node name="Bars" type="Node" parent="CanvasLayer" unique_id=478155924]
 
-[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars"]
+[node name="HPBarBG" type="Sprite2D" parent="CanvasLayer/Bars" unique_id=398347071]
 position = Vector2(32, 16)
 texture = ExtResource("7_12byc")
 centered = false
 
-[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars"]
+[node name="HPBar" type="NinePatchRect" parent="CanvasLayer/Bars" unique_id=518915496]
 offset_left = 32.0
 offset_top = 16.0
 offset_right = 129.0
@@ -157,7 +157,7 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="HPText" type="Label" parent="CanvasLayer/Bars"]
+[node name="HPText" type="Label" parent="CanvasLayer/Bars" unique_id=777925709]
 offset_left = 190.0
 offset_top = 16.0
 offset_right = 262.0
@@ -167,7 +167,7 @@ theme_override_fonts/font = ExtResource("9_esd4i")
 theme_override_font_sizes/font_size = 11
 text = "1000/1000"
 
-[node name="RightAnchor" type="Control" parent="CanvasLayer"]
+[node name="RightAnchor" type="Control" parent="CanvasLayer" unique_id=604969507]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -176,7 +176,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor"]
+[node name="TestLabel" type="Label" parent="CanvasLayer/RightAnchor" unique_id=2125815162]
 layout_mode = 0
 offset_left = -328.0
 offset_top = -1.0
@@ -187,10 +187,10 @@ theme_override_font_sizes/font_size = 18
 text = "FPS: 60"
 horizontal_alignment = 2
 
-[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor"]
+[node name="Notifs" type="Node2D" parent="CanvasLayer/RightAnchor" unique_id=1205641797]
 position = Vector2(40, 37)
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=32996741]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -201,11 +201,11 @@ offset_right = 20.0
 offset_bottom = 41.0
 grow_horizontal = 2
 
-[node name="PlaceInfo" parent="CanvasLayer/Control" instance=ExtResource("14_tlvbi")]
+[node name="PlaceInfo" parent="CanvasLayer/Control" unique_id=1283297447 instance=ExtResource("14_tlvbi")]
 visible = false
 position = Vector2(20, 21)
 
-[node name="OnlineStuffs" type="Control" parent="CanvasLayer"]
+[node name="OnlineStuffs" type="Control" parent="CanvasLayer" unique_id=1788979822]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -215,7 +215,7 @@ offset_right = 40.0
 grow_vertical = 0
 theme = ExtResource("15_kmpot")
 
-[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs"]
+[node name="MsgTxt" type="TextEdit" parent="CanvasLayer/OnlineStuffs" unique_id=2137412970]
 visible = false
 layout_mode = 0
 offset_left = 3.0
@@ -227,7 +227,7 @@ theme_override_font_sizes/font_size = 18
 placeholder_text = "Escreva alguma coisa aqui!"
 caret_blink = true
 
-[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs"]
+[node name="MsgLogTxt" type="RichTextLabel" parent="CanvasLayer/OnlineStuffs" unique_id=480658612]
 visible = false
 material = SubResource("ShaderMaterial_otgxo")
 layout_mode = 0
@@ -241,7 +241,7 @@ scroll_following = true
 vertical_alignment = 2
 justification_flags = 131
 
-[node name="BottomLeftAnchor" type="Control" parent="CanvasLayer"]
+[node name="BottomLeftAnchor" type="Control" parent="CanvasLayer" unique_id=2092916058]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -250,12 +250,12 @@ offset_top = -40.0
 offset_right = 40.0
 grow_vertical = 0
 
-[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer/BottomLeftAnchor"]
+[node name="PlayerIcon" type="Sprite2D" parent="CanvasLayer/BottomLeftAnchor" unique_id=617905446]
 position = Vector2(48, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_brho0")
 
-[node name="CharNameLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+[node name="CharNameLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor" unique_id=1415023930]
 material = SubResource("ShaderMaterial_hwafb")
 layout_mode = 0
 offset_left = 69.0
@@ -266,7 +266,7 @@ theme_override_fonts/font = ExtResource("16_i31om")
 text = "Sonic"
 uppercase = true
 
-[node name="CoolX" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+[node name="CoolX" type="Label" parent="CanvasLayer/BottomLeftAnchor" unique_id=1427156975]
 layout_mode = 0
 offset_left = 76.0
 offset_top = 11.0
@@ -275,7 +275,7 @@ offset_bottom = 27.0
 theme_override_fonts/font = ExtResource("15_12byc")
 text = "x"
 
-[node name="LevelLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor"]
+[node name="LevelLabel" type="Label" parent="CanvasLayer/BottomLeftAnchor" unique_id=1007714416]
 layout_mode = 0
 offset_left = 85.0
 offset_top = 11.0
@@ -285,15 +285,15 @@ theme_override_fonts/font = ExtResource("15_12byc")
 text = "1"
 horizontal_alignment = 2
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer"]
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1440774647]
 position = Vector2(32, 48)
 
-[node name="Sonic2exp" type="Sprite2D" parent="CanvasLayer/Node2D"]
+[node name="Sonic2exp" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1092064294]
 scale = Vector2(2, 2)
 texture = ExtResource("16_12byc")
 centered = false
 
-[node name="XPText" type="Label" parent="CanvasLayer/Node2D"]
+[node name="XPText" type="Label" parent="CanvasLayer/Node2D" unique_id=147665646]
 offset_left = 64.0
 offset_right = 136.0
 offset_bottom = 13.0
@@ -303,13 +303,13 @@ theme_override_font_sizes/font_size = 11
 text = "320/320"
 horizontal_alignment = 2
 
-[node name="Sonic2items" type="Sprite2D" parent="CanvasLayer/Node2D"]
+[node name="Sonic2items" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1834575812]
 position = Vector2(0, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("17_i31om")
 centered = false
 
-[node name="InventoryText" type="Label" parent="CanvasLayer/Node2D"]
+[node name="InventoryText" type="Label" parent="CanvasLayer/Node2D" unique_id=1335591937]
 offset_left = 96.0
 offset_top = 32.0
 offset_right = 128.0
@@ -320,13 +320,13 @@ theme_override_font_sizes/font_size = 11
 text = "999"
 horizontal_alignment = 2
 
-[node name="Sonic2quests" type="Sprite2D" parent="CanvasLayer/Node2D"]
+[node name="Sonic2quests" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1981018422]
 position = Vector2(0, 64)
 scale = Vector2(2, 2)
 texture = ExtResource("18_brho0")
 centered = false
 
-[node name="QuestText" type="Label" parent="CanvasLayer/Node2D"]
+[node name="QuestText" type="Label" parent="CanvasLayer/Node2D" unique_id=1546577951]
 offset_left = 96.0
 offset_top = 64.0
 offset_right = 128.0
@@ -337,7 +337,7 @@ theme_override_font_sizes/font_size = 11
 text = "5"
 horizontal_alignment = 2
 
-[node name="Sonic2combo" type="AnimatedSprite2D" parent="CanvasLayer/Node2D"]
+[node name="Sonic2combo" type="AnimatedSprite2D" parent="CanvasLayer/Node2D" unique_id=1299180554]
 position = Vector2(0, 96)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_d82eu")
@@ -345,7 +345,7 @@ animation = &"none"
 frame_progress = 0.591221
 centered = false
 
-[node name="ComboText" type="Label" parent="CanvasLayer/Node2D/Sonic2combo"]
+[node name="ComboText" type="Label" parent="CanvasLayer/Node2D/Sonic2combo" unique_id=1608506943]
 offset_left = 48.0
 offset_right = 80.0
 offset_bottom = 13.0
@@ -354,4 +354,4 @@ theme_override_font_sizes/font_size = 11
 text = "0"
 horizontal_alignment = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1177157485]
