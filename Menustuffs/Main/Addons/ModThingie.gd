@@ -12,6 +12,7 @@ func setup():
 	var modInfo:Dictionary = ModUtils.get_mod_info(modId)
 	$Label.text = modInfo.name
 	$AuthLabel.text = modInfo.author
+	$ModPlaceholder.texture = ModUtils.get_mod_pic(modId)
 	
 	mouse_entered.connect(is_moused)
 	mouse_exited.connect(un_moused)

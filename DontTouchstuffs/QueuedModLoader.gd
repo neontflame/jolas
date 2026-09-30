@@ -28,6 +28,8 @@ func _enter_tree() -> void:
 		await get_tree().process_frame
 		renderTextySkript()
 		
+	ModUtils.modInfoCache = {}
+	ModUtils.modPicCache = {}
 	await get_tree().create_timer(0.1).timeout
 	GeneralUtils.loadScene(GeneralUtils.initScene())
 
