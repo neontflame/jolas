@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://csxjg1mmemuc6"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_mhlbv"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_rv6wg"]
+
+[sub_resource type="Resource" id="Resource_mn23a"]
+script = ExtResource("1_mhlbv")
+name = "Rocket Launcher"
+instructions = "segure ctrl_2 para sacar seu lançador de foguetes
+use os direcionais ou o mouse para mirar, e ctrl_1 pra atirar"
+
+[resource]
+script = ExtResource("1_rv6wg")
+name = "Sushi Brando"
+desc = "ele e estupido - no entanto ele e bom com armas"
+ability = [SubResource("Resource_mn23a")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

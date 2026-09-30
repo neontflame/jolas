@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn3rbimoohkac"]
+[gd_scene format=3 uid="uid://cn3rbimoohkac"]
 
 [ext_resource type="Script" uid="uid://dxhhd8p61q50p" path="res://Menustuffs/AboutMenu/AboutMenu.gd" id="1_3pkva"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_qlkjh"]
-[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Themestuffs/jolasTheme.tres" id="3_wdd2k"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_wdd2k"]
 [ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_18puu"]
 
 [node name="Submenu" type="Node2D"]

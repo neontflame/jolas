@@ -9,7 +9,7 @@ func _ready() -> void:
 	CoolMenu.activeMusicLayers = 3
 	CoolMenu.maxSelected = len(coolChars)
 	
-	var theSave = SaveUtils.get_save_info(GPStats.saveNum)
+	var theSave = SaveUtils.get_save_info(GPStats.saveSlot)
 	if theSave.has('player'):
 		CoolMenu.curSelected = coolChars.find(theSave['player'])
 	changeSel(0)
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		CoolMenu.play_sfx('Back')
 		change_self_scene('res://Menustuffs/SaveMenu/SaveMenu.tscn')
-		CoolMenu.curSelected = GPStats.saveNum
+		CoolMenu.curSelected = GPStats.saveSlot
 	
 	if Input.is_action_pressed("ui_up"):
 		$MenuCanvas/MidAnchor/CharInfo/Desc.get_v_scroll_bar().value -= 2
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			CoolMenu.play_sfx('Go')
 			GPStats.char = coolChars[CoolMenu.curSelected]
 			print(GPStats.char)
-			CoolMenu.curSelected = GPStats.saveNum
+			CoolMenu.curSelected = GPStats.saveSlot
 			change_self_scene('res://Menustuffs/OnlineMenu/OnlineMenu.tscn')
 		else:
 			getEmBoy()
@@ -72,14 +72,12 @@ func loadCharPreview(char:String):
 		charPreview.position = $MenuCanvas/MidAnchor/CharInfo/PreviewPos.position
 		$MenuCanvas/MidAnchor/CharInfo.add_child(charPreview)
 	
-	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char)['name']
-	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char)['desc'] + '\n'
+	$MenuCanvas/MidAnchor/CharInfo/Name.text = GameUtils.get_char_info(char).name
+	$MenuCanvas/MidAnchor/CharInfo/Desc.text = GameUtils.get_char_info(char).desc + '\n'
 	
-	if GameUtils.get_char_info(char)['ability'] is Array:
-		for abilitee in GameUtils.get_char_info(char)['ability']:
-			$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + GeneralUtils.text_replacery(abilitee)
-	else:
-		$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + GeneralUtils.text_replacery(GameUtils.get_char_info(char)['ability'])
+	if len(GameUtils.get_char_info(char).ability) > 0:
+		for abilitee in GameUtils.get_char_info(char).ability:
+			$MenuCanvas/MidAnchor/CharInfo/Desc.text += '\n' + str(abilitee)
 
 var mapToGoTo := ''
 
@@ -90,19 +88,19 @@ func getEmBoy() -> void:
 	GPStats.char = coolChars[CoolMenu.curSelected]
 	# aqui e o mapa default
 	# favor trocar quando tiver um mapa de verdade!
-	if SaveUtils.get_save_info(GPStats.saveNum)['new'] == true:
+	if SaveUtils.get_save_info(GPStats.saveSlot)['new'] == true:
 		mapToGoTo = GameUtils.defaultMap
 	else:
-		mapToGoTo = SaveUtils.get_save_info(GPStats.saveNum)['map']
+		mapToGoTo = SaveUtils.get_save_info(GPStats.saveSlot)['map']
 		
-	GPStats.load_info_from_save(GPStats.saveNum)
+	GPStats.load_info_from_save(GPStats.saveSlot)
 	
 	var coolTweens = create_tween()
 	coolTweens.tween_method(
 					func(value): 
 						$MenuCanvas/FadeRect.self_modulate.a = value
 						if value >= 1:
-							get_tree().change_scene_to_file("res://Gamestuffs/Game.tscn")
+							GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 						,  
 					0.0,  # Start value
 					1.0,  # End value

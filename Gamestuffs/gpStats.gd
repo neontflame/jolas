@@ -1,18 +1,26 @@
 extends Node
 class_name GPStats
 
-static var saveNum := 0
-
-static var char := 'Neon'
-static var xp := 0
-static var level := 7
-static var charObject: PlayerObject
 static var maxHP := 10
 static var lvLimit := 20 # multiplicador pros limites dos niveis eu acho
+
+#region Game stats
+static var saveSlot := 0
+
+static var xp := 0
+static var level := 7
+
+static var charObject: PlayerObject
+static var char := 'Neon'
+
 static var curMap := 'TheThing'
+static var curRegion := 'MapaDeTestes'
+
 static var exploredMaps:Array = []
+static var bossesBeat:Array = []
 
 static var modded := false
+#endregion
 
 #region Multiplayer variables
 static var is_multiplayer := false
@@ -35,15 +43,17 @@ static func process(delta: float) -> void:
 		charObject.hp = ceil(maxHP * hpDifference)
 		charObject.level_up()
 
-static func load_info_from_save(saveNum:int):
-	var save = SaveUtils.get_save_info(saveNum)
+static func load_info_from_save(saveSlot:int):
+	var save = SaveUtils.get_save_info(saveSlot)
 	
 	if save['new'] == true:
 		level = 1
 		xp = 0
 		maxHP = 10
 		curMap = GameUtils.defaultMap
+		curRegion = GameUtils.get_region_from_map(curMap)
 		exploredMaps = []
+		bossesBeat = []
 		InventoryUtils.inventory = []
 		QuestUtils.clear_all()
 	else:
@@ -51,9 +61,15 @@ static func load_info_from_save(saveNum:int):
 		xp = save['xp']
 		maxHP = save['maxHP']
 		curMap = save['map']
+		if save.has("region"): curRegion = save['region']
 		if save.has("exploredMaps"): exploredMaps = save['exploredMaps']
+		if save.has("bossesBeat"): exploredMaps = save['bossesBeat']
 		if (save.has("assignedQuests") and save.has("clearedQuests")):
 			QuestUtils.assignedQuests = save['assignedQuests']
 			QuestUtils.clearedQuests = save['clearedQuests']
 		if (save.has("inventory")):
 			InventoryUtils.inventory = save['inventory']
+
+static func addToBossesBeat(bossName:String):
+	if not bossesBeat.has(bossName):
+		bossesBeat.append(bossName)

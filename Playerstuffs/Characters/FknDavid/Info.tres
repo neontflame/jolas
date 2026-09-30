@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://dwm35i8fem5r"]
+
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_6rl8v"]
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_6uawe"]
+
+[sub_resource type="Resource" id="Resource_as05y"]
+script = ExtResource("1_6uawe")
+name = "Dash"
+instructions = "aperte ctrl_1 para se jogar em uma de 8 direçoes - dependendo do jeito que voce usa vc pode acumular momentum"
+
+[sub_resource type="Resource" id="Resource_22uox"]
+script = ExtResource("1_6uawe")
+name = "Item"
+instructions = "aperte ctrl_2 para arremessar algo na direçao que voce esta olhando! essa habilidade tem um cooldown de 0.7 segundos"
+
+[resource]
+script = ExtResource("1_6rl8v")
+name = "Fucking David"
+desc = "Fucking amigo do sushi, ele tambem ta ajudando a achar as chaves da mansao do hawnt"
+ability = [SubResource("Resource_as05y"), SubResource("Resource_22uox")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

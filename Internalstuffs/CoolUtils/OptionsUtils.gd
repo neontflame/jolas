@@ -1,0 +1,125 @@
+extends Node
+class_name OptionsUtils
+
+static var preferences:Dictionary = {
+}
+
+static var keyBince:Dictionary = {
+}
+
+#internalName:String
+#visibleName:String
+#optionery:Array[String]
+#defValue:Variant
+#mobileStatus:int
+	# -1: aparece em ambos
+	# 0: so aparece em desktop
+	# 1: so aparece em mobile
+
+static var coolOptiones:Array = [
+	['pref', 'Preferências', [], 0, 0], # label
+		['buttonType', 'Tipos de botões na UI', ['btn_wii', 'btn_x360', 'btn_ps3', 'btn_gcn', 'btn_dc', 'btn_kb'], 0, 0], #lembre-se de sempre usar o indice e nao o nome em si!
+		['fpsCounter', 'Contador de FPS', ['opt_no', 'opt_yes'], 0, -1],
+	['vols', 'Volumes', [], 0, -1], # label
+		['volMaster', 'Mestre', ['slider'], 1.0, -1],
+		['volSFX', 'Efeitos sonoros', ['slider'], 1.0, -1],
+		['volBGM', 'Música', ['slider'], 1.0, -1],
+	['conts', 'Controles e Gameplay', [], 0, -1], # label
+		['tapJump', '"Tap Jump"', ['opt_no', 'opt_yes'], 1, -1],
+		['keybinds', 'Keybinds', [''], 0, 0],
+		['touchControls', 'Controles de toque', [''], 0, 1],
+		['speedZoom', 'Zoom menor em alta vel.', ['opt_no', 'opt_yes'], 1, -1],
+		['genZoom', 'Zoom da câmera', ['slider'], 0.5, -1]
+]
+static var bindList:Array = [
+		["ctrl_left", "Esquerda"],
+		["ctrl_down", "Baixo"],
+		["ctrl_up", "Cima"],
+		["ctrl_right", "Direita"],
+		["ctrl_jump", "Pular"],
+		["ctrl_2", "Especial 1"], #meio contra-intuitivo mas whatever
+		["ctrl_1", "Especial 2"],
+		["ctrl_interact", "Interagir"],
+		["ctrl_pause", "Pausa"],
+		["ctrl_quests", "Quests"],
+		["ctrl_inventory", "Inventário"]
+	]
+
+# Preferencios
+static func save_prefs():
+	var saveStuff = FileAccess.open(get_pref_path(), FileAccess.WRITE)
+	var saveInfo:Dictionary = get_default_prefs()
+	saveInfo.merge(preferences, true)
+	
+	saveStuff.store_string(JSON.stringify(saveInfo))
+
+static func get_prefs_info():
+	var pathness:String = get_pref_path()
+	var emptyInfo = get_default_prefs()
+	
+	if !FileAccess.file_exists(pathness):
+		return emptyInfo
+		
+	var saveStuff = FileAccess.open(pathness, FileAccess.READ)
+	var saveGotten = JSON.parse_string(saveStuff.get_as_text())
+	return saveGotten
+
+static func join_prefs_from_info():
+	preferences.merge(await get_prefs_info(), true)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("Master"),
+		OptionsUtils.preferences["volMaster"]
+	)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("Musica"),
+		OptionsUtils.preferences["volBGM"]
+	)
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("SFX"),
+		OptionsUtils.preferences["volSFX"]
+	)
+
+static func get_default_prefs() -> Dictionary:
+	var emptyDict:Dictionary = {}
+	for optione in coolOptiones:
+		if optione[2] != []:
+			emptyDict.set(optione[0], optione[3]) 
+	return emptyDict
+
+# Controles
+static func save_controls():
+	var saveStuff = FileAccess.open(get_controls_path(), FileAccess.WRITE)
+	var saveInfo:Dictionary = get_default_controls()
+	saveInfo.merge(keyBince, true)
+	
+	saveStuff.store_var(saveInfo, true)
+
+static func get_controls_info():
+	var pathness:String = get_controls_path()
+	var emptyInfo = get_default_controls()
+	
+	if !FileAccess.file_exists(pathness):
+		return emptyInfo
+		
+	var saveStuff = FileAccess.open(pathness, FileAccess.READ)
+	var saveGotten = saveStuff.get_var(true)
+	
+	for bind in bindList:
+		if saveGotten.has(bind[0]):
+			keyBince[bind[0]] = saveGotten[bind[0]]
+			InputMap.action_erase_events(bind[0])
+			InputMap.action_add_event(bind[0], keyBince[bind[0]])
+			
+	return saveGotten
+
+static func get_default_controls() -> Dictionary:
+	var emptyDict:Dictionary = {}
+	for bind in bindList:
+		keyBince[bind[0]] = InputMap.action_get_events(bind[0])[0]
+	return emptyDict
+
+static func get_pref_path():
+	return "%spreferences.json" % FileUtils.get_user_path()
+
+static func get_controls_path():
+	return "%scontrols.dat" % FileUtils.get_user_path()

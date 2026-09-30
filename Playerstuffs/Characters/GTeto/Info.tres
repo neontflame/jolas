@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://j0nddyyj3uek"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_4on2b"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_iunlj"]
+
+[sub_resource type="Resource" id="Resource_copux"]
+script = ExtResource("1_4on2b")
+name = "G-T-Charge"
+instructions = "aperte ctrl_1 pra carregar e atirar um projétil poderoso!"
+
+[sub_resource type="Resource" id="Resource_biaux"]
+script = ExtResource("1_4on2b")
+name = "G-T-Slam"
+color = Color(1, 0, 0.13333334, 1)
+instructions = "aperte ctrl_2 no ar pra rapidamente ir ate o chao - com um leve knockback no pouso!"
+
+[resource]
+script = ExtResource("1_iunlj")
+name = "G-Teto"
+desc = "ela tambem ta ajudando a procurar as chaves! 
+isso e por ocasiao, no entanto; tudo aponta ao canhao que atirou ela aqui"
+ability = [SubResource("Resource_copux"), SubResource("Resource_biaux")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

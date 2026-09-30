@@ -5,6 +5,7 @@ static var current_song: String = ""
 
 @export var placeLabel:RichTextLabel
 @export var songLabel:RichTextLabel
+var canPlace:bool = true
 var canSong:bool = false
 var coolTweenies:Array = []
 
@@ -13,20 +14,20 @@ func _ready() -> void:
 	placeLabel.visible = false
 	songLabel.visible = false
 
-func triggerPlaceInfo() -> void:
-	placeLabel.text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] "
-	placeLabel.text += GameUtils.get_map_info(GPStats.curMap)['name']
+func triggerPlaceInfo(songPlayed:RegionSong) -> void:
+	var mapInfo = GameUtils.get_map_info(GPStats.curMap, GPStats.curRegion)
 	
-	if GameUtils.get_map_info(GPStats.curMap).has("song"):
-		if GameUtils.get_map_info(GPStats.curMap)['song'] != PlaceDisplayerIngame.current_song:
+	placeLabel.text = "[img]res://Gamestuffs/HeadsUpDisplay/placeCoiso.png[/img] %s" % mapInfo.name
+	
+	if songPlayed != null:
+		if songPlayed.name != PlaceDisplayerIngame.current_song:
 			canSong = true
-			PlaceDisplayerIngame.current_song = GameUtils.get_map_info(GPStats.curMap)['song']
-			songLabel.text = "[img]res://Gamestuffs/HeadsUpDisplay/songCoiso.png[/img] "
-			songLabel.text += GameUtils.get_map_info(GPStats.curMap)['song']
-	
-	doLabelTween(placeLabel)
+			PlaceDisplayerIngame.current_song = songPlayed.name
+			songLabel.text = "[img]res://Gamestuffs/HeadsUpDisplay/songCoiso.png[/img] %s" % songPlayed.name
+		
+	if canPlace: doLabelTween(placeLabel)
 	if canSong:
-		await get_tree().create_timer(2).timeout
+		if canPlace: await get_tree().create_timer(2).timeout
 		doLabelTween(songLabel)
 
 func doLabelTween(label):

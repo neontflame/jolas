@@ -15,14 +15,26 @@ func enter_state():
 	Player.shakeForce = 0.0
 	Player.plySprite.play("bubbleLaunch")
 
+var prevMotionX := 0.0
+
 func update():
+			
 	Player.handlePhys()
 	Player.handleMovement()
 	Player.handleCamera()
 	Player.apply_player_gravity()
 	
+	if abs(Player.motion.x) > 100:
+		prevMotionX = Player.motion.x
+	
 	if Player.bubble_blasted:
 		custom_espy_animation()
+		if Player.is_on_wall_side('left'):
+			Player.motion.x = abs(prevMotionX) * -0.5
+		if Player.is_on_wall_side('right'):
+			Player.motion.x = abs(prevMotionX) * 0.5
+		if Player.is_on_ceiling():
+			Player.motion.y = abs(Player.motion.y)
 	else:
 		handleAnimations()
 	

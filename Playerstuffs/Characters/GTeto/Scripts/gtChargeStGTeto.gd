@@ -1,4 +1,4 @@
-extends StatePattern
+extends PlayerStatePattern
 var yChange := 0.0
 var projPos := Vector2(61.0, 7.0)
 

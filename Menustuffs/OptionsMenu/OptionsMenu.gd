@@ -49,12 +49,12 @@ func _process(delta: float) -> void:
 		$MenuCanvas/MidAnchor/ScrollContainer.scroll_vertical = boxWithABunchOfShitInIt.get_children()[CoolMenu.curSelected].position.y
 		CoolMenu.play_sfx('Tick')
 	if Input.is_action_just_pressed('ui_cancel'):
-		print(OptionsUtils.preferences)
+		# print(OptionsUtils.preferences)
 		OptionsUtils.save_prefs()
 		CoolMenu.play_sfx('Back')
 		match CoolMenu.curMenu:
 			'Ingame':
-				change_self_scene('res://Gamestuffs/IngameMenus/Pause/Pause.tscn', 2)
+				change_self_scene('res://Menustuffs/Ingame/Pause/Pause.tscn', 2)
 			_:
 				change_self_scene('res://Menustuffs/MainMenu/MainMenu.tscn', 2)
 		

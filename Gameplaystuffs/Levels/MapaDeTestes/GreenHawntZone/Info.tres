@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://dp6bwuqem7uqh"]
+
+[ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="1_iypnt"]
+[ext_resource type="Script" uid="uid://5s2txlf08gqn" path="res://Gameplaystuffs/MapInfo.gd" id="2_a412p"]
+[ext_resource type="AudioStream" uid="uid://46vmdc0e3oro" path="res://Soundstuffs/Music/Sonic Generations - Green Hill - Classic__243712_4621314.ogg" id="2_okujl"]
+
+[sub_resource type="Resource" id="Resource_okujl"]
+script = ExtResource("1_iypnt")
+name = "Green Hill (Classic)"
+songfile = ExtResource("2_okujl")
+metadata/_custom_type_script = "uid://c5e5tyhwjkhy1"
+
+[resource]
+script = ExtResource("2_a412p")
+name = "Green Hawnt Zone"
+regionString = "MapaDeTestes"
+extraSongfiles = Array[ExtResource("1_iypnt")]([SubResource("Resource_okujl")])
+overrideSongs = true
+metadata/_custom_type_script = "uid://5s2txlf08gqn"

@@ -1,0 +1,42 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b3h36wuhhjlft"
+path="res://.godot/imported/arialbd.ttf-89e20bd1a0190709e2353bc0eda2308b.fontdata"
+
+[deps]
+
+source_file="res://Miscstuffs/Fonts/arialbd.ttf"
+dest_files=["res://.godot/imported/arialbd.ttf-89e20bd1a0190709e2353bc0eda2308b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+disable_embedded_bitmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=false
+force_autohinter=false
+modulate_color_glyphs=true
+hinting=2
+subpixel_positioning=0
+keep_rounding_remainders=false
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=false
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "Nova Configuração",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

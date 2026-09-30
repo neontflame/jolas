@@ -1,9 +1,8 @@
 extends "res://Menustuffs/Submenu.gd"
 
-var curPath:String = 'user://'
-var root:String = 'user://'
+var curPath:String = FileUtils.get_user_path()
+var root:String = FileUtils.get_user_path()
 var curItems:Array = []
-
 
 @export var boxWithABunchOfShitInIt:VBoxContainer
 
@@ -22,7 +21,7 @@ func reload():
 	for file in DirAccess.get_files_at(curPath):
 		curItems.append(file)
 		
-	print(curItems)
+	# print(curItems)
 	if curPath != root:
 		curItems.push_front('../')
 	CoolMenu.maxSelected = len(curItems)
@@ -38,23 +37,23 @@ func reload():
 		newFile.filename = item
 		newFile.folder = curPath
 		newFile.setup()
-		if GameUtils.loadedMods.has(curPath + newFile.filename):
+		if ModUtils.loadedMods.has(curPath + newFile.filename):
 			newFile.applied = true
 		newFile.id = i
 		i += 1
 
 func _process(delta: float) -> void:
-	$MenuCanvas/MidAnchor/ModLabel.text = tr_n('mod_loaded_single', 'mod_loaded_plural', len(GameUtils.loadedMods)) % len(GameUtils.loadedMods)
-	if len(GameUtils.queuedMods) > 0:
-		$MenuCanvas/MidAnchor/ModLabel.text += tr_n('mod_queued_single', 'mod_queued_plural', len(GameUtils.queuedMods)) % len(GameUtils.queuedMods)
+	$MenuCanvas/MidAnchor/ModLabel.text = tr_n('mod_loaded_single', 'mod_loaded_plural', len(ModUtils.loadedMods)) % len(ModUtils.loadedMods)
+	if len(ModUtils.queuedMods) > 0:
+		$MenuCanvas/MidAnchor/ModLabel.text += tr_n('mod_queued_single', 'mod_queued_plural', len(ModUtils.queuedMods)) % len(ModUtils.queuedMods)
 	
 	for coolfile in boxWithABunchOfShitInIt.get_children():
 		if CoolMenu.curSelected != -1:
 			coolfile.selected = (coolfile.filename == curItems[CoolMenu.curSelected])
 		else:
 			coolfile.selected = false
-		coolfile.applied = (GameUtils.loadedMods.has(curPath + coolfile.filename) \
-						or GameUtils.queuedMods.has(curPath + coolfile.filename))
+		coolfile.applied = (ModUtils.loadedMods.has(curPath + coolfile.filename) \
+						or ModUtils.queuedMods.has(curPath + coolfile.filename))
 		
 	if Input.is_action_just_pressed("ui_down"):
 		CoolMenu.curSelected = wrap(CoolMenu.curSelected + 1, 0, CoolMenu.maxSelected)
@@ -73,7 +72,7 @@ func _process(delta: float) -> void:
 				goBack()
 			elif curItems[CoolMenu.curSelected].ends_with('/'):
 				curPath += curItems[CoolMenu.curSelected]
-				print(curPath)
+				# print(curPath)
 				reload()
 				CoolMenu.play_sfx('Tick')
 			elif curItems[CoolMenu.curSelected].ends_with('.pck') || curItems[CoolMenu.curSelected].ends_with('.zip') :
@@ -81,15 +80,14 @@ func _process(delta: float) -> void:
 
 
 func loadMod(mod:String):
-	if !GameUtils.loadedMods.has(mod):
+	if !ModUtils.loadedMods.has(mod):
 		if ModUtils.is_mod_compatible(mod):
 			if ModUtils.get_mod_info(mod)['restartsGame']:
-				if not GameUtils.queuedMods.has(mod):
-					GameUtils.queuedMods.append(mod)
+				if not ModUtils.queuedMods.has(mod):
+					ModUtils.queuedMods.append(mod)
 			else:
-				ProjectSettings.load_resource_pack(mod)
-				GameUtils.loadedMods.append(mod)
-				GameUtils.loadedModsFolderless.append(mod.get_file())
+				ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
+				ModUtils.loadedMods.append(mod)
 				# carregar scripts !!!
 				# pra quem for maluco e fizer algum mod maluco que precise
 				if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
@@ -101,9 +99,9 @@ func loadMod(mod:String):
 func goBack():
 	CoolMenu.play_sfx('Back')
 	if curPath == root:
-		if len(GameUtils.queuedMods) > 0:
+		if len(ModUtils.queuedMods) > 0:
 			CoolMenu.curSelected = 0
-			GameUtils.queuedMods.reverse()
+			ModUtils.queuedMods.reverse()
 			get_tree().change_scene_to_file('res://DontTouchstuffs/QueuedModLoader.tscn')
 		else:
 			CoolMenu.curSelected = 4
@@ -113,12 +111,12 @@ func goBack():
 		# e hora de voltar
 		var lessPath:Array = curPath.split('/')
 		lessPath.resize(lessPath.size() - 2)
-		print(lessPath)
+		# print(lessPath)
 		
 		curPath = ''
 		for lesser in lessPath:
 			curPath += lesser
 			curPath += '/'
 			
-		print(curPath)
+		# print(curPath)
 		reload()

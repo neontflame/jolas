@@ -1,33 +1,36 @@
 extends Node2D
 class_name JolasGame
 
-var map:JolasMap
+static var instance: JolasGame
+
+@export var coolFade: TextureRect
+@export var plyNode: Node2D
+@export var lvlNode: Node2D
+@export var whereHud: Node2D
+@export var bgmStream: AudioStreamPlayer
+@export var ingameMenu: Node2D
+var hud: HeadsUpDisplay
+var map: JolasMap
 var playerInstance
 var dialogueInstance
+
+static var isChangingMap := false
+
+var curTrackName := ""
+var curTrackRegion: RegionSong = null
+
 var isDial := false
 var isMenu := false
 
-var allChars:Array = []
-var charDict:Dictionary = {}
+# variaveis multiplayer !!
+var allChars: Array = []
+var charDict: Dictionary = {}
 
-@export var coolFade:TextureRect
-@export var plyNode:Node2D
-@export var lvlNode:Node2D
-@export var whereHud:Node2D
-var hud:HeadsUpDisplay
-@export var bgmStream:AudioStreamPlayer
-@export var ingameMenu:Node2D
-
-var curTrackName:String = ""
-
-static var instance:JolasGame
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	makeHud()
-	createMap(GPStats.curMap)
+	createMap(GPStats.curMap, GPStats.curRegion)
 	createPlayer(GPStats.char, -1)
-	SaveUtils.save_game(GPStats.saveNum)
+	SaveUtils.save_game(GPStats.saveSlot)
 	
 	if GPStats.is_multiplayer:
 		if GPStats.is_hosting:
@@ -36,24 +39,19 @@ func _ready() -> void:
 			join_mp_game()
 	
 	JolasGame.instance = self
+	isChangingMap = false
 
-func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
-	for child in whereHud.get_children():
-		child.free()
-	hud = null
-	
-	var newHud = load(where).instantiate()
-	whereHud.add_child(newHud)
-	hud = newHud
 
 #region Os Auxiliares
 # The Joy of Creation
 # eu nunca joguei fnaf na minha vida na vdd
 func createPlayer(chara:String, id:int = -1):
-	print(chara)
+	print("[GAME] Criando char ", chara)
 	var player = GameUtils.get_char_asset(chara, chara + ".tscn")
 	
-	if playerInstance: remove_child(playerInstance)
+	if playerInstance: 
+		removePlayer()
+	
 	playerInstance = player.instantiate()
 	playerInstance.playerID = id
 	plyNode.add_child(playerInstance)
@@ -64,49 +62,69 @@ func createPlayer(chara:String, id:int = -1):
 			playerInstance.position = map.get_node("Spawnpoint").position
 		
 	GPStats.setCharObject(playerInstance)
+	GPStats.charObject.on_respawn(true)
 
 func removePlayer():
 	if playerInstance: 
 		allChars.erase(playerInstance)
 		playerInstance.queue_free()
 
-func createMap(lvl:String):
-	print('proximo mapa: ' + lvl)
+func createMap(lvl:String, region:String, playerGoTo:String = ""):
+	print('[GAME] Criando mapa ' + lvl)
 	if map: map.free()
 	
-	map = load(GameUtils.get_map_path(lvl)).instantiate()
+	map = load(GameUtils.get_map_path(lvl, region)).instantiate()
+	map.info = GameUtils.get_map_info(lvl, region)
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
 	lvlNode.add_child(map)
 	# MapUtils.set_map(map)
 	
-	if map.infoCoisos != "":
-		GPStats.curMap = map.infoCoisos
-	else:
-		GPStats.curMap = map.name
+	await get_tree().process_frame
+	GPStats.curMap = lvl
 		
-	SaveUtils.save_game(GPStats.saveNum)
-	if GameUtils.get_map_info(lvl).has('songFile'):
-		playBGM(GameUtils.get_map_info(lvl)['songFile'])
+	SaveUtils.save_game(GPStats.saveSlot)
 	
+	if (curTrackRegion == null) \
+	or (curTrackRegion != null and \
+		((curTrackRegion in map.info.get_songfiles()) and curTrackRegion.loops) \
+		or (not (curTrackRegion in map.info.get_songfiles()))
+	):
+		var songPlayed:RegionSong = map.info.get_songfiles().pick_random()
+		playBGM(songPlayed)
+		triggerPlaceInfo(songPlayed)
+	
+	#potential
+	if playerGoTo != "":
+		respawnPlayer(false, playerGoTo)
+		if not isMenu:
+			GPStats.charObject.process_mode = Node.PROCESS_MODE_INHERIT
+			JolasGame.isChangingMap = false
+
+func triggerPlaceInfo(songPlayed:RegionSong, canPlace:bool = true):
 	hud.placeInfo.queue_free()
 	hud.placeInfo = load("res://Gamestuffs/HeadsUpDisplay/placeInfo.tscn").instantiate()
 	hud.get_node("CanvasLayer/Control").add_child(hud.placeInfo)
 	hud.placeInfo.position = Vector2(20.0, 21.0)
-	hud.placeInfo.triggerPlaceInfo()
+	hud.placeInfo.canPlace = canPlace
+	hud.placeInfo.triggerPlaceInfo(songPlayed)
 
 func respawnPlayer(maxOutHP:bool = true, spawnNode:String = "Spawnpoint"):
-	await get_tree().process_frame
 	if map:
-		GPStats.charObject.position = map.get_node(spawnNode).position
+		if map.get_node_or_null(spawnNode):
+			GPStats.charObject.position = map.get_node(spawnNode).position
 	
 	if maxOutHP: GPStats.charObject.hp = GPStats.maxHP
 	GPStats.charObject.change_state(GPStats.charObject.state_machine.st_floor)
+	GPStats.charObject.on_respawn(maxOutHP)
+	GPStats.charObject.setup_camera()
 
 #acaba os treco de player
 var fadeTween:Tween = create_tween()
 func fadeOut(sec:float, callThat:Callable = func():pass):
-	fadeTween.kill()
-	
+	if fadeTween:
+		fadeTween.kill()
+		
+	await get_tree().process_frame
 	fadeTween = create_tween()
 	fadeTween.tween_method(
 		func(value): 
@@ -121,7 +139,8 @@ func fadeOut(sec:float, callThat:Callable = func():pass):
 	)
 
 func fadeIn(sec:float, callThat:Callable = func():pass):
-	fadeTween.kill()
+	if fadeTween:
+		fadeTween.kill()
 	
 	coolFade.visible = true
 	fadeTween = create_tween()
@@ -155,6 +174,15 @@ func unpauseGame():
 		or child == coolFade \
 		or child == ingameMenu: continue
 		child.process_mode = PROCESS_MODE_INHERIT
+
+func makeHud(where:String = "res://Gamestuffs/HeadsUpDisplay/hud.tscn"):
+	for child in whereHud.get_children():
+		child.free()
+	hud = null
+	
+	var newHud = load(where).instantiate()
+	whereHud.add_child(newHud)
+	hud = newHud
 #endregion
 
 #region Diálogo
@@ -165,12 +193,15 @@ func endDialogue() -> void:
 	dialogueInstance.disconnect('dialogue_end', endDialogue)
 	remove_child(dialogueInstance)
 
-func playDialogue(diagName:String):
+# todo: fazer algo que deixe voce inicializar dialogo sem especificar o tipo
+## tipos de dialogo por enquanto incluem:
+## - DiagCharacters
+func playDialogue(diagName:String, type:String = "DiagCharacters"):
 	if !isDial:
 		isDial = true
 		pauseGame()
 		if dialogueInstance: dialogueInstance.queue_free()
-		dialogueInstance = load("res://Gamestuffs/Dialoguestuffs/DialogueScene.tscn").instantiate()
+		dialogueInstance = load("res://Storystuffs/DiagSystem/%s.tscn" % type).instantiate()
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)
@@ -181,7 +212,7 @@ func _process(_delta: float) -> void:
 	GPStats.process(_delta)
 	
 	if not isDial and not isMenu:
-		if not hud.isWriting:
+		if (not hud.isWriting) and (not isChangingMap):
 			if Input.is_action_just_pressed("ctrl_pause"):
 				pauseGame()
 				ingameMenu.makeMenu('Pause')
@@ -196,7 +227,7 @@ func _process(_delta: float) -> void:
 func join_mp_game():
 	removePlayer()
 	removeFromPeerID(multiplayer.get_unique_id())
-	$Multiplayer.join_game(GameUtils.ipEntered)
+	$Multiplayer.join_game(OnlineUtils.ipEntered)
 
 func create_mp_game():
 	removePlayer()
@@ -205,6 +236,8 @@ func create_mp_game():
 
 func _on_player_connected(peer_id: Variant, player_info: Variant) -> void:
 	removeFromPeerID(peer_id)
+	
+	if player_info["connTest"]: return
 	var playery = GameUtils.get_char_asset(player_info['char'], player_info['char'] + ".tscn")
 	var pInst = playery.instantiate()
 	pInst.playerID = peer_id
@@ -233,31 +266,51 @@ func removeFromPeerID(peer_id:Variant):
 
 func bye_bye() -> void:
 	CoolMenu.comingFrom = 'OnlineMenu'
-	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+	GeneralUtils.loadScene("res://Menustuffs/Menu.tscn")
+
+func _exit_tree() -> void:
+	OnlineUtils.closeUPNPThread()
 #endregion
 
 #region Música
-func playBGM(trackName:String):
-	var pathness = "res://Musicstuffs/" + trackName
-	if curTrackName == trackName: return
-	curTrackName = trackName
-	
-	bgmStream.stream = load(pathness)
-	bgmStream.volume_db = GeneralUtils.get_volume_db('bgm')
+func playBGM(track:Variant, showInfo:bool = false):
+	if track is RegionSong:
+		if curTrackName == track.get_filename(): return
+		curTrackName = track.get_filename()
+		curTrackRegion = track
+		
+		bgmStream.stream = track.songfile
+		if showInfo:
+			triggerPlaceInfo(track, false)
+	elif track is String:
+		var pathness = "res://Soundstuffs/Music/" + track
+		if curTrackName == track: return
+		curTrackName = track
+		curTrackRegion = null
+		
+		bgmStream.stream = load(pathness)
+	bgmStream.volume_db = 0.0
 	bgmStream.play()
-	bgmStream.finished.connect(func():curTrackName="")
+	if not bgmStream.finished.is_connected(onBGMFinished):
+		bgmStream.finished.connect(onBGMFinished)
 
-func fadeBGM(sec:float = 1.0, nextSong:String = ""):
+func onBGMFinished():
+	curTrackName = ""
+	if curTrackRegion:
+		var songPlayed:RegionSong = map.info.get_songfiles().pick_random()
+		playBGM(songPlayed, true)
+
+func fadeBGM(sec:float = 1.0, nextSong:Variant = null):
 	var mustween = get_tree().create_tween()
 	mustween.tween_method(func(v):
 		bgmStream.volume_db = v
 		if v <= -99.5:
 			bgmStream.stop()
 			
-			if nextSong != "":
+			if nextSong:
 				mustween.kill()
-				playBGM(nextSong),
-		GeneralUtils.get_volume_db('bgm'),
+				playBGM(nextSong, true),
+		0.0,
 		-100.0,
 		sec
 		)

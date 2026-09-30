@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bv1lfdcwx8ebx"
+
+[deps]
+
+files=["res://Internalstuffs/Translations/traduz.pt_BR.translation", "res://Internalstuffs/Translations/traduz.en.translation", "res://Internalstuffs/Translations/traduz.ja.translation"]
+
+source_file="res://Internalstuffs/Translations/traduz.csv"
+dest_files=["res://Internalstuffs/Translations/traduz.pt_BR.translation", "res://Internalstuffs/Translations/traduz.en.translation", "res://Internalstuffs/Translations/traduz.ja.translation"]
+
+[params]
+
+compress=false
+delimiter=1
+unescape_keys=false
+unescape_translations=true

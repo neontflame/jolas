@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dhgahsaupt4oy"]
+
+[ext_resource type="Script" uid="uid://oymb4lw27jiq" path="res://Menustuffs/Ingame/FastTravel/FastTravel.gd" id="1_4jg8c"]
+[ext_resource type="Texture2D" uid="uid://c65r1xebifob2" path="res://Menustuffs/Ingame/FastTravel/mapaBg.png" id="2_tdrl1"]
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_v6li4"]
+[ext_resource type="PackedScene" uid="uid://bbhguj3f8adm8" path="res://Menustuffs/Ingame/FastTravel/Lugares/MapaDeTestes.tscn" id="4_vwfdp"]
+
+[sub_resource type="Animation" id="Animation_v6li4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4jg8c"]
+resource_name = "getIn"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(0.170755, 0.129408, 1),
+"update": 0,
+"values": [Vector2(1.25, 0), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vwfdp"]
+resource_name = "getOut"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuCanvas/Control/MapaBg:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.5),
+"transitions": PackedFloat32Array(0.170755, 0.129408, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 1.05), Vector2(1.25, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xe81"]
+_data = {
+&"RESET": SubResource("Animation_v6li4"),
+&"getIn": SubResource("Animation_4jg8c"),
+&"getOut": SubResource("Animation_vwfdp")
+}
+
+[node name="FastTravel" type="Node2D" unique_id=2001390863 node_paths=PackedStringArray("mapinha")]
+script = ExtResource("1_4jg8c")
+mapinha = NodePath("MenuCanvas/Control/MapaBg/MapaDeTestes")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=1964349748]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1844813115]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=300725199 instance=ExtResource("2_v6li4")]
+position = Vector2(54, 39)
+
+[node name="Control" type="Control" parent="MenuCanvas" unique_id=862046963]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MapaBg" type="Sprite2D" parent="MenuCanvas/Control" unique_id=1904050062]
+position = Vector2(20, 20)
+texture = ExtResource("2_tdrl1")
+
+[node name="MapaDeTestes" parent="MenuCanvas/Control/MapaBg" unique_id=670951988 node_paths=PackedStringArray("parenting") instance=ExtResource("4_vwfdp")]
+position = Vector2(2, 13)
+parenting = NodePath("../../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1340124070]
+libraries/ = SubResource("AnimationLibrary_1xe81")

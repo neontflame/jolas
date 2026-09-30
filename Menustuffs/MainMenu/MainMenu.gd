@@ -30,13 +30,16 @@ func randomQuote():
 		'who up colorindo they textinho',
 		'hihi quando',
 		'lembra daquela vez que EU e o speed tentamos nao rir',
+		'lembra daquela vez que eu o hawnt o sketcher o springus\no sushi e o speed tentamos nao rir',
 		'MINHA MAE É PARCIALMENTE PENDENDO A SER MENDIGA',
 		'cara vai se fuder\ncom a porra do seu mr beast',
 		'gifted goons vs hard work goons',
 		'opa eaí webcore!',
 		'"20 dolares e 20 dolares"',
 		'cara eu estou jolando cara',
-		'ESSA NÃO É UMA CALL DE GAMEDEV'
+		'ESSA NÃO É UMA CALL DE GAMEDEV',
+		'nem te conto',
+		''
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	
@@ -45,8 +48,13 @@ func _ready() -> void:
 		$MenuCanvas/RightAnchor/Opts/addons.modulate.a = 0.5
 		$MenuCanvas/RightAnchor/Opts/sair.modulate.a = 0.5
 	
-	$MenuCanvas/Label.text = "jogo feito por neontflame, direitos autorais uhhhhhh pipipi popopo???
-							versão %s (%s) - termo \"jolas\" cunhado por hawnt, sketcher e zummy" % [GameUtils.gameVersion, GameUtils.captionVersion]
+	var versionStringness:String = GameUtils.gameVersion
+	if GameUtils.captionVersion != null && GameUtils.captionVersion != "":
+		versionStringness += " (%s)" % GameUtils.captionVersion
+	
+	$MenuCanvas/Label.text = "[b]versão %s[/b]
+jogo feito por [b]neontflame[/b], direitos autorais uhhhhhh pipipi popopo???
+termo \"jolas\" cunhado por hawnt, sketcher e zummy" % versionStringness
 	$MenuCanvas/Quote.text = randomQuote()
 	
 	for child in $MenuCanvas/RightAnchor/Opts.get_children():
@@ -104,7 +112,7 @@ func goToMenu(menuName:String):
 			change_self_scene("res://Menustuffs/OptionsMenu/OptionsMenu.tscn")
 		'addons':
 			if OS.get_name() != "Web":
-				change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+				change_self_scene("res://Menustuffs/Main/Addons/Addons.tscn")
 			else:
 				CoolMenu.stop_sfx('Go')
 				CoolMenu.play_sfx('Back')

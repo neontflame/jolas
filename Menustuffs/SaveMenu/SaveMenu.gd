@@ -95,7 +95,7 @@ func _process(delta: float) -> void:
 				changeDelStuff()
 			else:
 				CoolMenu.play_sfx('Go')
-				GPStats.saveNum = CoolMenu.curSelected
+				GPStats.saveSlot = CoolMenu.curSelected
 				CoolMenu.curSelected = 0
 				whiteTweenTo('res://Menustuffs/DipshitMenu/DipshitMenu.tscn')
 				

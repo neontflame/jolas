@@ -22,15 +22,27 @@ config/name="jolas.: Desbravações Abound"
 config/name_localized={
 "ja": "jolas.: 壮大な探検の冒険"
 }
+config/version="0.10.0"
 run/main_scene="uid://b1m18oeu0ix3m"
 config/use_custom_user_dir=true
 config/custom_user_dir_name=".jolas"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.224298, 0.3506, 0.710711, 1)
+boot_splash/stretch_mode=0
+boot_splash/use_filter=false
+boot_splash/image="uid://bdikxum6nhrcp"
 config/icon="uid://bep52erpdihdj"
+
+[audio]
+
+buses/default_bus_layout="uid://br4agsbmky5hj"
 
 [autoload]
 
-MultiplayerMayhem="*res://Gamestuffs/Multiplayer/Multiplayer.gd"
+FpsCounter="*res://DontTouchstuffs/FPSCounter.tscn"
+MultiplayerMayhem="*res://DontTouchstuffs/Multiplayer/MultiplayerMayhem.gd"
+SpecificAutoloadForSpecificReasons="*res://DontTouchstuffs/SpecificAutoloadForSpecificReasons.tscn"
+OnlineUtils="*res://Internalstuffs/CoolUtils/OnlineUtils.tscn"
 
 [display]
 
@@ -181,8 +193,9 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translation_remaps={
-"res://Gamestuffs/IngameMenus/Inventory/inventoryCoiso.png": PackedStringArray("res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoEN.png:en", "res://Gamestuffs/IngameMenus/Inventory/inventoryCoisoJP.png:ja"),
+"res://Gamestuffs/HeadsUpDisplay/levelPaperPTBR.png": PackedStringArray("res://Gamestuffs/HeadsUpDisplay/levelPaperEN.png:en", "res://Gamestuffs/HeadsUpDisplay/levelPaperES.png:es", "res://Gamestuffs/HeadsUpDisplay/levelPaperEN.png:ja"),
 "res://Menustuffs/DipshitMenu/EscolhaSeuMane.png": PackedStringArray("res://Menustuffs/DipshitMenu/ChooseYourDipshit.png:en"),
+"res://Menustuffs/Ingame/Inventory/inventoryCoiso.png": PackedStringArray("res://Menustuffs/Ingame/Inventory/inventoryCoisoEN.png:en", "res://Menustuffs/Ingame/Inventory/inventoryCoisoJP.png:ja"),
 "res://Menustuffs/MainMenu/Logo.png": PackedStringArray("res://Menustuffs/MainMenu/JPLocale/Logo0002.png:ja"),
 "res://Menustuffs/MainMenu/jolarAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarAtivoJP.png:ja"),
 "res://Menustuffs/MainMenu/jolarCoopAtivo.png": PackedStringArray("res://Menustuffs/MainMenu/ENLocale/jolarCoopAtivoEN.png:en", "res://Menustuffs/MainMenu/JPLocale/jolarCoopAtivoJP.png:ja"),
@@ -198,7 +211,7 @@ locale/translation_remaps={
 "res://Menustuffs/SaveMenu/PassaporteMod.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteModEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteModJP.png:ja"),
 "res://Menustuffs/SaveMenu/PassaporteVazio.png": PackedStringArray("res://Menustuffs/SaveMenu/ENLocale/PassaporteVazioEN.png:en", "res://Menustuffs/SaveMenu/JPLocale/PassaporteVazioJP.png:ja")
 }
-locale/translations=PackedStringArray("res://Translationstuffs/traduz.en.translation", "res://Translationstuffs/traduz.ja.translation", "res://Translationstuffs/traduz.pt_BR.translation")
+locale/translations=PackedStringArray("res://Internalstuffs/Translations/traduz.en.translation", "res://Internalstuffs/Translations/traduz.ja.translation", "res://Internalstuffs/Translations/traduz.pt_BR.translation")
 locale/fallback="pt_BR"
 locale/locale_filter_mode=1
 locale/language_filter=["en", "es", "ja", "pt"]

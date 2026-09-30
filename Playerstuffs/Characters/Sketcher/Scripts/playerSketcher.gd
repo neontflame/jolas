@@ -16,6 +16,7 @@ extends PlayerObject
 @export var leftWallSweep:RayCast2D
 
 @export var homingArea:Area2D
+@export var homingSweep:RayCast2D
 
 @export var dashLine:Line2D
 @export var boostLine:Line2D
@@ -83,11 +84,10 @@ func handleBoost():
 	boostSprite.rotation = plySprite.rotation
 	boostSprite.flip_h = (motion.x < 0)
 	boostSprite.offset.x = (30 if motion.x < 0 else -30)
-	$Windstuff.volume_db = GeneralUtils.get_volume_db('sfx', 0)
 	if not isBoosting:
 		$Windstuff.stop()
 		return
-	
+		
 	if not hasElec():
 		delete_hitboxes('boost')
 		isBoosting = false
@@ -152,32 +152,9 @@ func handlePhys():
 		if evryFrame % 5 == 0:
 			makeAfterimage()
 
-func handleSonicPhys() -> void:
-	isSonicPhys = true
-	player_collisions.rotation = practicalAngle
-	plySprite.rotation = lerp_angle(plySprite.rotation, practicalAngle, 0.2)
-		
-	# Sonic Physix
-	if is_on_floor():
-		# print(abs(motion.x), ' ', SOFT_MAX_SPEED, ' ')
-		if (up_direction.y > -0.4) && (abs(motion.x) < SOFT_MAX_SPEED):
-			if not isParkouring:
-				# print('Get Outta Here')
-				motion.y = -50
-				print(motion)
-				up_direction = Vector2(0.0, -1.0)
-		up_direction = get_floor_normal()
-	else:
-		if up_direction != Vector2(0.0, -1.0):
-			# print('AIR TIME')
-			var prevmotion := Vector2(
-				motion.x * -up_direction.y - motion.y * up_direction.x,
-				motion.y * -up_direction.y + motion.x * up_direction.x,
-				)
-			# print(floorSinCos)
-			# print(prevmotion)
-			up_direction = Vector2(0.0, -1.0)
-			motion = prevmotion
+func on_fall_from_slope():
+	if not isParkouring:
+		super.on_fall_from_slope()
 
 var previousMotionY := 0.0
 var isRebounding := false
@@ -191,8 +168,10 @@ func handleRebounds():
 			if PlayerUtils.is_jump_pressed() && reboundsDone < REBOUND_LIMIT:
 				if -abs(previousMotionY) < JUMP_VELOCITY:
 					motion.y = -abs(previousMotionY) - 50
-					reboundsDone += 1
-					ELECTRICITY += ELEC_USAGE['rebound_reward']
+				else:
+					motion.y = JUMP_VELOCITY - 50
+				reboundsDone += 1
+				ELECTRICITY += ELEC_USAGE['rebound_reward']
 		if reboundCountdown <= 0.0:
 			reboundsDone = 0
 
@@ -218,6 +197,7 @@ func handleParkour():
 			#motion.x = -900
 			#motion.y = -500
 
+# Ah ss essa parte aqui inteira e completamente nao usada #whoopsie
 func sweep_mob(dir:StringName):
 	vaultCooldown = 15.0
 	print('vaulted')
@@ -226,7 +206,7 @@ func sweep_mob(dir:StringName):
 	sweeping_mob(dir)[1].stunFrames = 15
 	global_position.y = (sweeping_mob(dir)[1].global_position.y - 
 						(sweeping_mob(dir)[1].collisions.shape.get_rect().size.y / 2))
-	sweeping_mob(dir)[1].yeowch(ATTACK_DMG_LVL['vault'], true, Vector2(50.0, 200.0))
+	sweeping_mob(dir)[1].yeowch(ATTACK_DMG_LVL['vault'], Vector2(-50.0, 200.0))
 
 func sweeping_mob(dir:StringName) -> Array:
 	var isTrued := false
@@ -260,8 +240,10 @@ func handleMovement(new_floor_acceleration: float = FLOOR_ACCELERATION, new_air_
 	handleRebounds()
 	if Input.is_action_pressed('ctrl_2') && hasElec():
 		handleParkour()
+		floor_max_angle = deg_to_rad(180.0)
 		isParkouring = true
 	else:
+		floor_max_angle = deg_to_rad(60.0)
 		isParkouring = false
 	if Input.is_action_just_pressed("ctrl_down") and is_on_floor():
 		isSliding = true
@@ -297,7 +279,7 @@ func get_invuln():
 	
 func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
-	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
+	connectAttack(5.0)
 	
 	match hit.coolId:
 		'slide':

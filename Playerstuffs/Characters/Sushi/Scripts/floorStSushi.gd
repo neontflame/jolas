@@ -8,7 +8,7 @@ func enter_state():
 	else:
 		Player.motion.x *= 1.125
 		
-	Player.bhopCooldown = floor(10 * Player.deltaOne) # 10 frames
+	Player.bhopCooldown = 10 # 10 frames
 
 func update():
 	super.update()

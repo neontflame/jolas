@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://b5ma7p07i0xdb"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_56pr8"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_cqvsu"]
+
+[sub_resource type="Resource" id="Resource_fiy83"]
+script = ExtResource("1_56pr8")
+name = "Air Dash"
+instructions = "aperte ctrl_2 para se jogar em qualquer coisa que estiver na sua frente - carregavel!"
+
+[resource]
+script = ExtResource("1_cqvsu")
+name = "Neon T. Flame"
+desc = "um dos maluco que ta tentando achar a chave da mansao do hawnt"
+ability = [SubResource("Resource_fiy83")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

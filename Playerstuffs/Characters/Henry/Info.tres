@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://b55440mnl0fay"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_1e0rc"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="1_tnorv"]
+
+[sub_resource type="Resource" id="Resource_yfkc3"]
+script = ExtResource("1_1e0rc")
+name = "Gun"
+instructions = "aperte ctrl_1 ou ctrl_2 pra dar um tiro! ele te propulsiona na direçao oposta"
+
+[resource]
+script = ExtResource("1_tnorv")
+name = "\"Henry\" Guy"
+desc = "ele ta precisando de uma cama nova pro kitnet dele entao logicamente ele faria o que qualquer pessoa em sã consciencia teria feito...
+...roubar a conta do fortnite do hawnt"
+ability = [SubResource("Resource_yfkc3")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

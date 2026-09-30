@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cwltciujlq6jq"]
+
+[ext_resource type="Script" uid="uid://b3vatl0xu0515" path="res://Menustuffs/Ingame/IngameMenu.gd" id="1_8m1h5"]
+[ext_resource type="Shader" uid="uid://cctpja4krhfbv" path="res://Internalstuffs/Shaders/blur.gdshader" id="2_mbqe1"]
+[ext_resource type="Texture2D" uid="uid://chgixm61v6lbr" path="res://Internalstuffs/Shaders/white.png" id="3_vyrye"]
+[ext_resource type="AudioStream" uid="uid://b511a5fcthmth" path="res://Soundstuffs/SFX/Commons/back.wav" id="4_q4ubd"]
+[ext_resource type="AudioStream" uid="uid://bcsrbnjhg2b55" path="res://Soundstuffs/SFX/Commons/go.wav" id="5_bptd1"]
+[ext_resource type="AudioStream" uid="uid://bwpp0i2jl3jis" path="res://Soundstuffs/SFX/Commons/tick.wav" id="6_hxhvq"]
+[ext_resource type="AudioStream" uid="uid://bffbmcyjdkjfo" path="res://Soundstuffs/SFX/Commons/BOARD-SELECT.wav" id="7_mbqe1"]
+[ext_resource type="AudioStream" uid="uid://skikfx7dtkw4" path="res://Soundstuffs/SFX/Commons/wrap.wav" id="8_vyrye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vebjx"]
+shader = ExtResource("2_mbqe1")
+shader_parameter/amount = 0.0
+
+[node name="IngameMenu" type="Node2D" node_paths=PackedStringArray("blurBGFx")]
+process_mode = 3
+script = ExtResource("1_8m1h5")
+blurBGFx = NodePath("PrimaryCanvas/BlurFx")
+
+[node name="PrimaryCanvas" type="CanvasLayer" parent="."]
+
+[node name="BlurFx" type="TextureRect" parent="PrimaryCanvas"]
+material = SubResource("ShaderMaterial_vebjx")
+offset_left = -410.0
+offset_top = -146.0
+offset_right = 1132.0
+offset_bottom = 630.0
+texture = ExtResource("3_vyrye")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Back" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_q4ubd")
+bus = &"SFX"
+
+[node name="Go" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_bptd1")
+bus = &"SFX"
+
+[node name="Tick" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_hxhvq")
+bus = &"SFX"
+
+[node name="Unwrap" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_mbqe1")
+bus = &"SFX"
+
+[node name="Wrap" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_vyrye")
+bus = &"SFX"

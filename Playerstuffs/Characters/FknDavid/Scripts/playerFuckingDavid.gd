@@ -16,10 +16,10 @@ var projPos := Vector2(40.0, -7.0)
 
 func _process(_delta: float) -> void:
 	if dashCooldown > 0:
-		dashCooldown -= deltaOne
+		dashCooldown -= (_delta * 60)
 	
 	if itemCooldown > 0:
-		itemCooldown -= deltaOne
+		itemCooldown -= (_delta * 60)
 	
 	if dashTriggered and is_on_floor():
 		dashTriggered = false
@@ -81,5 +81,5 @@ func makeAfterimage():
 
 func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')
-	connectAttack(5.0, (hitboxCoisos.scale.x == -1))
+	connectAttack(5.0)
 	

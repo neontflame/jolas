@@ -1,3 +1,3 @@
-extends "res://Playerstuffs/state_machine.gd"
+extends PlayerStateMachine
 
 @onready var st_dash: Node = $Dash

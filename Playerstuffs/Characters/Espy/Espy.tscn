@@ -141,7 +141,6 @@ setaralho = NodePath("EspyFX/ASetaQueDizPraOndeElaTaSendoArremessada")
 run_button_multiplier = 1.5
 FLOOR_ACCELERATION = 15.0
 FLOOR_BRAKE = 30.0
-SLOPE_VEL_ADD = 30.0
 ATTACK_DMG = Dictionary[String, float]({
 "default": 2.0,
 "launch": 5.0
@@ -150,10 +149,10 @@ ATTACK_DMG = Dictionary[String, float]({
 [node name="StateMachine" parent="." index="0"]
 script = ExtResource("3_nklo0")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" index="1"]
 script = ExtResource("4_howso")
 
-[node name="Air" parent="StateMachine" index="1"]
+[node name="Air" parent="StateMachine" index="2"]
 script = ExtResource("4_vyjxe")
 
 [node name="BubbleAim" type="Node" parent="StateMachine" index="4"]

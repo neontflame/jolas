@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://56ghx42cphus"]
+
+[ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="1_1npnq"]
+[ext_resource type="Script" uid="uid://5s2txlf08gqn" path="res://Gameplaystuffs/MapInfo.gd" id="2_c2opu"]
+
+[resource]
+script = ExtResource("2_c2opu")
+name = "Outro mapa"
+regionString = "MapaDeTestes"
+metadata/_custom_type_script = "uid://5s2txlf08gqn"

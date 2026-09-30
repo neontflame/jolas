@@ -7,18 +7,19 @@ var runScripts:Array = []
 
 func _enter_tree() -> void:
 	renderTexty()
-	for mod in GameUtils.queuedMods:
-		ProjectSettings.load_resource_pack(mod)
-		GameUtils.loadedMods.append(mod)
-		GameUtils.loadedModsFolderless.append(mod.get_file())
+	for mod in ModUtils.queuedMods:
+		ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
+		ModUtils.loadedMods.append(mod)
 		loadArray.append(mod)
 		if len(ModUtils.get_mod_info(mod)['runOnLoad']) > 0:
 			for modscript in ModUtils.get_mod_info(mod)['runOnLoad']:
 				scriptsToRun.append(modscript)
 		renderTexty()
-		await get_tree().process_frame
+		await get_tree().create_timer(0.05).timeout
 	
-	GameUtils.queuedMods = []
+	await get_tree().create_timer(0.1).timeout
+	
+	ModUtils.queuedMods = []
 	
 	for script in scriptsToRun:
 		var modscript = load(script).new()
@@ -27,13 +28,15 @@ func _enter_tree() -> void:
 		await get_tree().process_frame
 		renderTextySkript()
 		
-	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Menustuffs/Menu.tscn")
+	ModUtils.modInfoCache = {}
+	ModUtils.modPicCache = {}
+	await get_tree().create_timer(0.1).timeout
+	GeneralUtils.loadScene(GeneralUtils.initScene())
 
 func renderTexty():
 	$Label.text = tr('mod_of_mods_loaded').format(
 		{"loaded_mods": len(loadArray),
-		"queued_mods": len(GameUtils.queuedMods)}
+		"queued_mods": len(ModUtils.queuedMods)}
 						)
 	$Label2.text = ''
 	for moddy in loadArray.slice(-24):

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://tefj8smb0y5s"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_40oth"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="2_a6u22"]
+
+[sub_resource type="Resource" id="Resource_fiy83"]
+script = ExtResource("1_40oth")
+name = "Air Dash"
+instructions = "press ctrl_2 to propel yourself forwards - it's chargeable!"
+
+[resource]
+script = ExtResource("2_a6u22")
+name = "Neon T. Flame"
+desc = "one of the guys trying to find the keys to hawnt's mansion"
+ability = [SubResource("Resource_fiy83")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

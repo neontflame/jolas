@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerInfo" format=3 uid="uid://behf4rttfnub4"]
+
+[ext_resource type="Script" uid="uid://bd2a0pr4uyfxs" path="res://Playerstuffs/InfoResources/PlayerInfoAbility.gd" id="1_hq3j3"]
+[ext_resource type="Script" uid="uid://cy4kxdfp6a4rn" path="res://Playerstuffs/InfoResources/PlayerInfo.gd" id="2_3ouyy"]
+
+[sub_resource type="Resource" id="Resource_nyyy4"]
+script = ExtResource("1_hq3j3")
+name = "Rabo Gancho"
+instructions = "something something ctrl_2 depois eu arrumo isso"
+
+[resource]
+script = ExtResource("2_3ouyy")
+name = "Onerb"
+desc = "gamedragon987 acaba por ser encontrado vivo, porém de maneira muito diferente... ser foragido e morar no congo muda uma pessoa profundamente
+esse brother esqueceu as chaves da casa dele na mansão do hawnt"
+ability = [SubResource("Resource_nyyy4")]
+metadata/_custom_type_script = "uid://cy4kxdfp6a4rn"

@@ -1,0 +1,29 @@
+extends Node
+class_name FileUtils
+
+static func get_user_path():
+	# return "user://"
+	return OS.get_executable_path().get_base_dir() + '/'
+
+static func get_localized_file(filePath):
+	var localizedFilePath = '%s.%s.%s' % [filePath.get_basename(), TranslationServer.get_locale(), filePath.get_extension()]
+	if ResourceLoader.exists(localizedFilePath):
+		return localizedFilePath
+	else:
+		return filePath
+
+static func get_text_file_content(filePath):
+	if FileAccess.file_exists(filePath):
+		var file = FileAccess.open(filePath, FileAccess.READ)
+		var content = file.get_as_text()
+		return content
+	return null
+
+static func format_bytes(Bytes:int):
+	# https://github.com/HaxeFlixel/flixel/blob/master/flixel/util/FlxStringUtil.hx
+	var units:Array = ["B", "kB", "MB", "GB", "TB", "PB"]
+	var curUnit = 0
+	while (Bytes >= 1024 && curUnit < len(units) - 1):
+		Bytes /= 1024;
+		curUnit += 1
+	return GeneralUtils.display_number(Bytes) + units[curUnit]
