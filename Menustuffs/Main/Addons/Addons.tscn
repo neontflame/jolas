@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://yx7x47rit3ku"]
+
+[ext_resource type="Script" uid="uid://15qsvsy5ganm" path="res://Menustuffs/Main/Addons/Addons.gd" id="1_rf1kt"]
+[ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_iet4s"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_44n7y"]
+[ext_resource type="Texture2D" uid="uid://p46ringr2s15" path="res://Menustuffs/DipshitMenu/ExtendableDipshitBox.png" id="4_vd48p"]
+[ext_resource type="PackedScene" uid="uid://dokd4r2fwnw6i" path="res://Menustuffs/Main/Addons/ModThingie.tscn" id="5_oq5kr"]
+[ext_resource type="Texture2D" uid="uid://bxrtlnytmvkxo" path="res://Miscstuffs/modPlaceholder.png" id="6_fynkb"]
+[ext_resource type="Texture2D" uid="uid://x44wj73nfd6o" path="res://Menustuffs/Commons/Enter.png" id="7_mkf5k"]
+
+[node name="AddonsMenu" type="Node2D" unique_id=1341723443 node_paths=PackedStringArray("boxWithABunchOfShitInIt")]
+script = ExtResource("1_rf1kt")
+boxWithABunchOfShitInIt = NodePath("MenuCanvas/MidAnchor/ModsList/ScrollContainer/VBoxContainer")
+
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=795094789]
+
+[node name="LeftAnchor" type="Control" parent="MenuCanvas" unique_id=1126453688]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Esc" parent="MenuCanvas/LeftAnchor" unique_id=147464496 instance=ExtResource("2_iet4s")]
+position = Vector2(54, 39)
+
+[node name="MidAnchor" type="Control" parent="MenuCanvas" unique_id=1093962004]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_44n7y")
+
+[node name="ModsList" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=2020541269]
+layout_mode = 0
+offset_left = -364.0
+offset_top = -159.0
+offset_right = -11.0
+offset_bottom = 222.0
+texture = ExtResource("4_vd48p")
+patch_margin_left = 20
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 16
+
+[node name="ModLabel" type="Label" parent="MenuCanvas/MidAnchor/ModsList" unique_id=1079424164]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 346.0
+offset_right = 341.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 18
+text = "0 mods carregados"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuCanvas/MidAnchor/ModsList" unique_id=942023934]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 11.0
+offset_right = 344.0
+offset_bottom = 342.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MidAnchor/ModsList/ScrollContainer" unique_id=1384248817]
+layout_mode = 2
+
+[node name="FileThingie" parent="MenuCanvas/MidAnchor/ModsList/ScrollContainer/VBoxContainer" unique_id=490716353 instance=ExtResource("5_oq5kr")]
+layout_mode = 2
+
+[node name="ModInfo" type="NinePatchRect" parent="MenuCanvas/MidAnchor" unique_id=1432946975]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -199.0
+offset_right = 410.0
+offset_bottom = 250.0
+texture = ExtResource("4_vd48p")
+patch_margin_left = 20
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 16
+
+[node name="Icon" type="Sprite2D" parent="MenuCanvas/MidAnchor/ModInfo" unique_id=788684676]
+position = Vector2(8, 9)
+texture = ExtResource("6_fynkb")
+centered = false
+
+[node name="ModName" type="Label" parent="MenuCanvas/MidAnchor/ModInfo" unique_id=1756663543]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 12.0
+offset_right = 393.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 21
+text = "Mod de Conversão Total Foda"
+text_overrun_behavior = 3
+
+[node name="ModAuthor" type="Label" parent="MenuCanvas/MidAnchor/ModInfo" unique_id=1392481111]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 40.0
+offset_right = 395.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.62352943)
+theme_override_font_sizes/font_size = 16
+text = "por Tal tal e tal, tal tal, tal, etc"
+text_overrun_behavior = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/MidAnchor/ModInfo" unique_id=27807945]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 78.0
+offset_right = 394.0
+offset_bottom = 409.0
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+
+[node name="PressEnter" type="Label" parent="MenuCanvas/MidAnchor/ModInfo" unique_id=125748899]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 414.0
+offset_right = 400.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 18
+text = "Pressione ENTER pra carregar o mod!"
+horizontal_alignment = 1
+
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=1647507049]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enter" type="Sprite2D" parent="MenuCanvas/RightAnchor" unique_id=931210533]
+position = Vector2(-36, 0)
+texture = ExtResource("7_mkf5k")

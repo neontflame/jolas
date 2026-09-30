@@ -12,10 +12,12 @@ static func setupGameInfo():
 	await QuestUtils.clear_all()
 
 func setupAutoloadMods():
+	ModUtils.queuedMods = []
 	var enabledMods = FileUtils.get_text_file_content('%s/loadedMods.txt' % FileUtils.get_user_path())
-	var modsSplit = enabledMods.split("\n")
-	for mod in modsSplit:
-		ModUtils.queuedMods.append(mod)
+	if enabledMods:
+		var modsSplit = enabledMods.split("\n")
+		for mod in modsSplit:
+			ModUtils.queuedMods.append(mod)
 
 func _ready() -> void:
 	await GameInit.setupGameInfo()
@@ -47,4 +49,4 @@ func _ready() -> void:
 		if len(ModUtils.queuedMods) > 0:
 			get_tree().change_scene_to_file("res://DontTouchstuffs/QueuedModLoader.tscn")
 		else:
-			GeneralUtils.loadScene(ProjectSettings.get_setting("application/run/main_scene"))
+			GeneralUtils.loadScene(GeneralUtils.initScene())

@@ -112,7 +112,7 @@ func goToMenu(menuName:String):
 			change_self_scene("res://Menustuffs/OptionsMenu/OptionsMenu.tscn")
 		'addons':
 			if OS.get_name() != "Web":
-				change_self_scene("res://Menustuffs/AddonsMenu/AddonsMenu.tscn")
+				change_self_scene("res://Menustuffs/Main/Addons/Addons.tscn")
 			else:
 				CoolMenu.stop_sfx('Go')
 				CoolMenu.play_sfx('Back')

@@ -4,7 +4,6 @@ var curPath:String = FileUtils.get_user_path()
 var root:String = FileUtils.get_user_path()
 var curItems:Array = []
 
-
 @export var boxWithABunchOfShitInIt:VBoxContainer
 
 func _ready() -> void:

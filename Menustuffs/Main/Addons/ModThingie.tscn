@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dokd4r2fwnw6i"]
+
+[ext_resource type="Script" uid="uid://blbsxgb8ffkjn" path="res://Menustuffs/Main/Addons/ModThingie.gd" id="1_0e2we"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_ynjp2"]
+[ext_resource type="Texture2D" uid="uid://bxrtlnytmvkxo" path="res://Miscstuffs/modPlaceholder.png" id="4_0e2we"]
+
+[sub_resource type="Gradient" id="Gradient_1kxs2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.9607843, 0.7490196, 0.12941177, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0e2we"]
+gradient = SubResource("Gradient_1kxs2")
+
+[node name="ModThingie" type="Control" unique_id=490716353]
+custom_minimum_size = Vector2(330, 32)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 330.0
+offset_bottom = 39.0
+script = ExtResource("1_0e2we")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1693097697]
+self_modulate = Color(1, 1, 1, 0.23529412)
+position = Vector2(205, -4.000001)
+scale = Vector2(6.48438, 40.000004)
+texture = SubResource("GradientTexture1D_0e2we")
+
+[node name="Label" type="Label" parent="." unique_id=90618020]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 4.0
+offset_right = 344.0
+offset_bottom = 34.0
+theme = ExtResource("3_ynjp2")
+theme_override_font_sizes/font_size = 18
+text = "My Sick Fucking Mod"
+text_overrun_behavior = 3
+
+[node name="AuthLabel" type="Label" parent="." unique_id=1149627492]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 14.0
+offset_right = 326.0
+offset_bottom = 44.0
+theme = ExtResource("3_ynjp2")
+theme_override_colors/font_color = Color(1, 1, 1, 0.503)
+theme_override_font_sizes/font_size = 12
+text = "Sick Fucking Equipe"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="ModPlaceholder" type="Sprite2D" parent="." unique_id=2003503153]
+position = Vector2(3, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_0e2we")
+centered = false

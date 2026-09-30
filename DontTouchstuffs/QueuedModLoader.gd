@@ -29,7 +29,7 @@ func _enter_tree() -> void:
 		renderTextySkript()
 		
 	await get_tree().create_timer(0.1).timeout
-	GeneralUtils.loadScene(ProjectSettings.get_setting("application/run/main_scene"))
+	GeneralUtils.loadScene(GeneralUtils.initScene())
 
 func renderTexty():
 	$Label.text = tr('mod_of_mods_loaded').format(

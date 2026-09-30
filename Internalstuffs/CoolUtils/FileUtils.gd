@@ -13,9 +13,11 @@ static func get_localized_file(filePath):
 		return filePath
 
 static func get_text_file_content(filePath):
-	var file = FileAccess.open(filePath, FileAccess.READ)
-	var content = file.get_as_text()
-	return content
+	if FileAccess.file_exists(filePath):
+		var file = FileAccess.open(filePath, FileAccess.READ)
+		var content = file.get_as_text()
+		return content
+	return null
 
 static func format_bytes(Bytes:int):
 	# https://github.com/HaxeFlixel/flixel/blob/master/flixel/util/FlxStringUtil.hx

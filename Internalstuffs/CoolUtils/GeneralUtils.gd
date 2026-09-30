@@ -76,3 +76,6 @@ static func text_replacery(string:String):
 static func loadScene(scene:String):
 	LoadingScene.goToScene = scene
 	SpecificAutoloadForSpecificReasons.get_tree().change_scene_to_file("res://DontTouchstuffs/LoadingScene.tscn")
+
+static func initScene():
+	return "res://Storystuffs/Cutscenes/EspeculamenteLogo/EspeculamenteLogo.tscn"
