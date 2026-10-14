@@ -383,6 +383,8 @@ enable_edge_texture = false
 metadata/_custom_type_script = "uid://eydktikufi24"
 
 [node name="CurvedTerrainV2" type="StaticBody2D" parent="CurvedTerrains" unique_id=134095656 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("5_gmcfs")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -495,27 +497,35 @@ continuousX = true
 
 [node name="TemplateMob" parent="enemigos" unique_id=131992716 instance=ExtResource("19_sqdkp")]
 position = Vector2(6084, 1239)
+collision_layer = 2
 
 [node name="TemplateMob2" parent="enemigos" unique_id=668356164 instance=ExtResource("19_sqdkp")]
 position = Vector2(7320, 936)
+collision_layer = 2
 
 [node name="TemplateMob3" parent="enemigos" unique_id=1806079912 instance=ExtResource("19_sqdkp")]
 position = Vector2(7845, 951)
+collision_layer = 2
 
 [node name="TemplateMob4" parent="enemigos" unique_id=1124002539 instance=ExtResource("19_sqdkp")]
 position = Vector2(7031, 773)
+collision_layer = 2
 
 [node name="TemplateMob5" parent="enemigos" unique_id=1177243146 instance=ExtResource("19_sqdkp")]
 position = Vector2(4678, 1254)
+collision_layer = 2
 
 [node name="TemplateMob6" parent="enemigos" unique_id=1382537676 instance=ExtResource("19_sqdkp")]
 position = Vector2(4219, 1150)
+collision_layer = 2
 
 [node name="TemplateMob7" parent="enemigos" unique_id=1519606035 instance=ExtResource("19_sqdkp")]
 position = Vector2(1152, 1464)
+collision_layer = 2
 
 [node name="RobawntEnemy" parent="enemigos" unique_id=2115289845 instance=ExtResource("20_x5viq")]
 position = Vector2(624, 1472)
+collision_layer = 2
 initial_side = 0
 
 [node name="StageGizmos" type="Node2D" parent="." unique_id=231473017]

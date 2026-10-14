@@ -29,6 +29,9 @@ var curLine:int = -1
 var gtetoPlaned:bool = false
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ctrl_pause"):
+		onAnimFinish(&"intro")
+	
 	if not gtetoPlaned:
 		especulaTrail.position = gTetoPlane.position
 	
@@ -46,7 +49,6 @@ func _physics_process(delta: float) -> void:
 
 func getStarted():
 	curLine = 0
-
 
 func onAnimFinish(anim_name: StringName) -> void:
 	if anim_name == &"intro":

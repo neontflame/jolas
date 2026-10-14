@@ -2672,6 +2672,8 @@ metadata/_custom_type_script = "uid://dhdc4b8yddyej"
 [node name="CurvedTerrains" type="Node2D" parent="." unique_id=735913148]
 
 [node name="MegaTerrain1" type="StaticBody2D" parent="CurvedTerrains" unique_id=1320099533 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2694,8 +2696,8 @@ metadata/_edit_lock_ = true
 position = Vector2(448, 896)
 
 [node name="RedLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern1" unique_id=871738706 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 32772
+collision_mask = 32772
 script = ExtResource("2_bxs3o")
 terrain_type = 2
 obj_shape = NodePath("SS2D_Shape")
@@ -2714,8 +2716,8 @@ polygon = PackedVector2Array(2496, 2176, 2496, 2432, 2176, 2432, 2215.789, 2429.
 metadata/_edit_lock_ = true
 
 [node name="BlueLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern1" unique_id=1211624532 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 32776
+collision_mask = 32776
 script = ExtResource("2_bxs3o")
 terrain_type = 3
 obj_shape = NodePath("SS2D_Shape")
@@ -2734,6 +2736,8 @@ polygon = PackedVector2Array(2176, 2432, 1856, 2432, 1856, 2176, 1920, 2176, 192
 metadata/_edit_lock_ = true
 
 [node name="WhiteTeto" type="StaticBody2D" parent="CurvedTerrains/LoopPattern1" unique_id=1625531352 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2775,8 +2779,8 @@ scale = Vector2(16, 16)
 position = Vector2(18432, 128)
 
 [node name="RedLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" unique_id=1849005813 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 32772
+collision_mask = 32772
 script = ExtResource("2_bxs3o")
 terrain_type = 2
 obj_shape = NodePath("SS2D_Shape")
@@ -2795,8 +2799,8 @@ polygon = PackedVector2Array(2496, 2176, 2496, 2432, 2176, 2432, 2215.789, 2429.
 metadata/_edit_lock_ = true
 
 [node name="BlueLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" unique_id=1200844825 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 32776
+collision_mask = 32776
 script = ExtResource("2_bxs3o")
 terrain_type = 3
 obj_shape = NodePath("SS2D_Shape")
@@ -2815,6 +2819,8 @@ polygon = PackedVector2Array(2176, 2432, 1856, 2432, 1856, 2176, 1920, 2176, 192
 metadata/_edit_lock_ = true
 
 [node name="WhiteTeto" type="StaticBody2D" parent="CurvedTerrains/LoopPattern3" unique_id=1661009594 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2854,6 +2860,8 @@ scale = Vector2(16, 16)
 
 [node name="CurvedTerrainV2" type="StaticBody2D" parent="CurvedTerrains" unique_id=1441857454 node_paths=PackedStringArray("obj_shape")]
 position = Vector2(7424, 3072)
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2872,6 +2880,8 @@ metadata/_edit_lock_ = true
 
 [node name="CurvedTerrainV6" type="StaticBody2D" parent="CurvedTerrains" unique_id=1175238897 node_paths=PackedStringArray("obj_shape")]
 position = Vector2(7424, 3072)
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2891,6 +2901,8 @@ metadata/_edit_lock_ = true
 
 [node name="CurvedTerrainV3" type="StaticBody2D" parent="CurvedTerrains" unique_id=1977213494 node_paths=PackedStringArray("obj_shape")]
 position = Vector2(6144, 3072)
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2909,6 +2921,8 @@ metadata/_edit_lock_ = true
 
 [node name="CurvedPlatform1" type="StaticBody2D" parent="CurvedTerrains" unique_id=1508383482 node_paths=PackedStringArray("obj_shape")]
 position = Vector2(5888, 2560)
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 terrain_type = 1
 obj_shape = NodePath("SS2D_Shape")
@@ -2929,6 +2943,8 @@ one_way_collision_margin = 32.0
 metadata/_edit_lock_ = true
 
 [node name="CurvedTerrainV4" type="StaticBody2D" parent="CurvedTerrains" unique_id=1896670847 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -2949,8 +2965,8 @@ metadata/_edit_lock_ = true
 position = Vector2(13504, 640)
 
 [node name="RedLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern2" unique_id=742296504 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 32772
+collision_mask = 32772
 script = ExtResource("2_bxs3o")
 terrain_type = 2
 obj_shape = NodePath("SS2D_Shape")
@@ -2969,8 +2985,8 @@ polygon = PackedVector2Array(2112, 2432, 2112, 2496, 1920, 2496, 1920, 2432)
 metadata/_edit_lock_ = true
 
 [node name="BlueLayer" type="StaticBody2D" parent="CurvedTerrains/LoopPattern2" unique_id=1233913685 node_paths=PackedStringArray("obj_shape")]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 32776
+collision_mask = 32776
 script = ExtResource("2_bxs3o")
 terrain_type = 3
 obj_shape = NodePath("SS2D_Shape")
@@ -2989,6 +3005,8 @@ polygon = PackedVector2Array(1856, 2176, 1920, 2176, 1920, 2432, 1856, 2432)
 metadata/_edit_lock_ = true
 
 [node name="WhiteTeto" type="StaticBody2D" parent="CurvedTerrains/LoopPattern2" unique_id=1296451631 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"
@@ -3027,6 +3045,8 @@ position = Vector2(2304, 2048)
 scale = Vector2(16, 16)
 
 [node name="CurvedTerrainV5" type="StaticBody2D" parent="CurvedTerrains" unique_id=1760094291 node_paths=PackedStringArray("obj_shape")]
+collision_layer = 32769
+collision_mask = 32769
 script = ExtResource("2_bxs3o")
 obj_shape = NodePath("SS2D_Shape")
 metadata/_custom_type_script = "uid://2gjr7be5sgfd"

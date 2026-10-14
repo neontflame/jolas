@@ -437,16 +437,18 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 				change_state(state_machine.st_hurt)
 			return true
 	
-func play_sfx(soundName:String, volumeDB:float = 0.0):
+func play_sfx(soundName:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + soundName + ".wav")
+	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + soundName + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
-func play_char_sfx(soundName:String, char:String, volumeDB:float = 0.0):
+func play_char_sfx(soundName:String, char:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + soundName + ".wav")
+	sfx_player.stream = load("res://Playerstuffs/Characters/" + char + "/Sounds/" + soundName + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
 func stop_sfx():
@@ -642,4 +644,11 @@ func get_floor_acceleration(accel_modifier: float = FLOOR_ACCELERATION) -> float
 
 func get_air_acceleration(air_accel_modifier: float = AIR_ACCELERATION) -> float:
 	return air_accel_modifier
+
+func get_player_vector() -> Vector2:
+	var input: Vector2 = Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down")
+	return input.normalized()
+
+func get_delta() -> float:
+	return get_physics_process_delta_time()
 #endregion

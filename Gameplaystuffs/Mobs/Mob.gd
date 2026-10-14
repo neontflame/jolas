@@ -26,6 +26,8 @@ var previous_state = null
 
 @export var USES_BODY_AS_HITBOX:bool = true
 
+@export var USES_BODY_AS_HOOKABLE: bool = true
+
 @export var KNOCKBACK_ON_PLY_BODY_HIT:Vector2 = Vector2(250, -250)
 
 ## uma chance de 1 em quantos pra dropar esse item ?
@@ -81,6 +83,9 @@ func _ready() -> void:
 	
 	collArea.connect("body_entered", onTouched)
 	collArea.connect("body_exited", onUntouched)
+	
+	if USES_BODY_AS_HOOKABLE:
+		set_collision_layer_value(16, true)
 
 func _physics_process(delta: float) -> void:
 	healthBar.progress = hp / maxHP

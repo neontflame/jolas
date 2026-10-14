@@ -14,7 +14,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_mdl05")
 }],
-"loop": true,
+"loop": 1,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_mdl05")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_mdl05")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt",
 "speed": 5.0
 }]
@@ -43,8 +43,8 @@ size = Vector2(127, 126)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgoir"]
 radius = 498.049
 
-[node name="TemplateMob" type="CharacterBody2D" node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "healthBar", "screen_notifier", "leSprite")]
-collision_layer = 2
+[node name="TemplateMob" type="CharacterBody2D" unique_id=856023157 node_paths=PackedStringArray("collisions", "collArea", "collAreaCollision", "playerDetector", "sfx_player", "healthBar", "screen_notifier", "leSprite")]
+collision_layer = 32770
 script = ExtResource("1_odjvr")
 ACCELERATION = 10.0
 collisions = NodePath("ActualCollision")
@@ -56,44 +56,44 @@ healthBar = NodePath("TinyBar")
 screen_notifier = NodePath("VisibleOnScreenNotifier2D")
 leSprite = NodePath("AnimatedSprite2D")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=992408573]
 script = ExtResource("2_roppu")
 
-[node name="Default" type="Node" parent="StateMachine"]
+[node name="Default" type="Node" parent="StateMachine" unique_id=19793391]
 script = ExtResource("3_roppu")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=421184282]
 script = ExtResource("4_mdl05")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="StateMachine" unique_id=238719221]
 script = ExtResource("5_hgoir")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1584828659]
 sprite_frames = SubResource("SpriteFrames_hgoir")
 animation = &"hurt"
 
-[node name="ActualCollision" type="CollisionShape2D" parent="."]
+[node name="ActualCollision" type="CollisionShape2D" parent="." unique_id=723835681]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_nigrx")
 
-[node name="CollidesWithPlayer" type="Area2D" parent="."]
+[node name="CollidesWithPlayer" type="Area2D" parent="." unique_id=788037408]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollidesWithPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollidesWithPlayer" unique_id=548309117]
 shape = SubResource("RectangleShape2D_3qbnk")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1972400540]
 bus = &"SFX"
 
-[node name="PlayerDetector" type="Area2D" parent="."]
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1534483190]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1611311469]
 shape = SubResource("CircleShape2D_hgoir")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1952833013]
 visible = false
 offset_left = -68.0
 offset_top = -120.0
@@ -102,10 +102,10 @@ offset_bottom = -97.0
 text = "10/10"
 horizontal_alignment = 1
 
-[node name="TinyBar" parent="." instance=ExtResource("7_oo2om")]
+[node name="TinyBar" parent="." unique_id=424859754 instance=ExtResource("7_oo2om")]
 position = Vector2(0, -82)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=718478845]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="pd_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="pd_body_exited"]

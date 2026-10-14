@@ -1,14 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://cx45rc2oh6axa"]
+[gd_scene format=3 uid="uid://cx45rc2oh6axa"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_08l24"]
 [ext_resource type="Script" uid="uid://bgwkirasqgqur" path="res://Playerstuffs/Characters/Onerb/Scripts/playerOnerb.gd" id="2_8dmbm"]
 [ext_resource type="Texture2D" uid="uid://xpd6ujxjb1s" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/breno cauda.png" id="2_p6cfn"]
+[ext_resource type="Script" uid="uid://bv6aq5uatwo1a" path="res://Playerstuffs/Characters/Onerb/Scripts/stateMachineOnerb.gd" id="3_6dntj"]
 [ext_resource type="Texture2D" uid="uid://lfgofiffrs7k" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/breno caudaTip.png" id="3_8dmbm"]
 [ext_resource type="Script" uid="uid://makxwcukxga1" path="res://Playerstuffs/Characters/Onerb/Scripts/airStOnerb.gd" id="3_dbayo"]
+[ext_resource type="Script" uid="uid://be33qjxibv7qw" path="res://Playerstuffs/Characters/Onerb/Scripts/hookAimStOnerb.gd" id="4_3co13"]
 [ext_resource type="Texture2D" uid="uid://bwg8703fua2wf" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0001.png" id="4_dbayo"]
 [ext_resource type="Texture2D" uid="uid://dyp4tqgdvgilp" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0002.png" id="5_3co13"]
+[ext_resource type="Script" uid="uid://culrtw8rh6p7x" path="res://Playerstuffs/Characters/Onerb/Scripts/hookFireStOnerb.gd" id="5_5l64d"]
+[ext_resource type="Script" uid="uid://cyvepabgkl2sv" path="res://Playerstuffs/Characters/Onerb/Scripts/hookMoveStOnerb.gd" id="6_04p00"]
 [ext_resource type="Texture2D" uid="uid://cgdlb12h3puge" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (2).png" id="6_5l64d"]
 [ext_resource type="Texture2D" uid="uid://ddisk7d71rcsl" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (3).png" id="7_04p00"]
+[ext_resource type="Script" uid="uid://cwvq6hrs2frj5" path="res://Playerstuffs/Characters/Onerb/Scripts/spinAttackStOnerb.gd" id="7_6dntj"]
 [ext_resource type="Texture2D" uid="uid://queg57nfdx76" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (4).png" id="8_6dntj"]
 [ext_resource type="Texture2D" uid="uid://co8m0xypja5xo" path="res://Playerstuffs/Characters/Onerb/Sprites/breno sonicbattlespin (1).png" id="9_o3dgy"]
 [ext_resource type="Texture2D" uid="uid://dl58omkrtve65" path="res://Playerstuffs/Characters/Onerb/Sprites/breno brake.png" id="10_yv138"]
@@ -35,6 +40,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8dmbm"]
 size = Vector2(40, 18)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1fef"]
+radius = 16.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dfayk"]
 animations = [{
 "frames": [{
@@ -44,7 +52,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_3co13")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -64,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_o3dgy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"battleSpin",
 "speed": 12.0
 }, {
@@ -72,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_yv138")
 }],
-"loop": true,
+"loop": 1,
 "name": &"brake",
 "speed": 5.0
 }, {
@@ -80,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_63gov")
 }],
-"loop": true,
+"loop": 1,
 "name": &"caudaPrepare",
 "speed": 5.0
 }, {
@@ -88,7 +96,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_s18vl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"caudaPullback",
 "speed": 5.0
 }, {
@@ -96,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_pnms4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"caudaSpin",
 "speed": 5.0
 }, {
@@ -104,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_ode4i")
 }],
-"loop": true,
+"loop": 1,
 "name": &"caudaThrow",
 "speed": 5.0
 }, {
@@ -118,7 +126,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_3mr1n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -129,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_yd7xk")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hurt",
 "speed": 12.0
 }, {
@@ -143,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_bniru")
 }],
-"loop": false,
+"loop": 0,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -157,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_51hpu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 24.0
 }, {
@@ -174,12 +182,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_u0n33")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 24.0
 }]
 
-[node name="Player" node_paths=PackedStringArray("caudaVision", "caudaRaycast", "caudaLine", "caudaEnd", "targetSpr") instance=ExtResource("1_08l24")]
+[node name="Player" unique_id=1687611920 node_paths=PackedStringArray("caudaVision", "caudaRaycast", "caudaLine", "caudaEnd", "targetSpr", "cauda_tip_area", "cauda_tip_collision") instance=ExtResource("1_08l24")]
 script = ExtResource("2_8dmbm")
 caudaVision = NodePath("CaudaStuff")
 caudaRaycast = NodePath("CaudaTechnical/CaudaCast")
@@ -187,6 +195,11 @@ caudaLine = NodePath("CaudaStuff/CaudaLine")
 caudaEnd = NodePath("CaudaStuff/BrenoCaudaTip")
 targetSpr = NodePath("Target")
 hookableNonFloors = ["MobObject", "BossObject", "MolaQuadradaDoKiko"]
+hook_distance_gap = 64.0
+max_hook_distance = 512.0
+hook_momentum_gap = 1200.0
+cauda_tip_area = NodePath("CaudaStuff/BrenoCaudaTip/CaudaTipCollision")
+cauda_tip_collision = NodePath("CaudaStuff/BrenoCaudaTip/CaudaTipCollision/CollisionShape2D")
 hookChances = 2
 FLOOR_ACCELERATION = 50.0
 SOFT_MAX_SPEED = 700.0
@@ -196,40 +209,65 @@ ATTACK_DMG = Dictionary[String, float]({
 "hookie": 5.0
 })
 
-[node name="Air" parent="StateMachine" index="2"]
+[node name="StateMachine" parent="." index="0" unique_id=1536097381]
+script = ExtResource("3_6dntj")
+
+[node name="Air" parent="StateMachine" index="2" unique_id=521348263]
 script = ExtResource("3_dbayo")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="HookAim" type="Node" parent="StateMachine" index="5" unique_id=176242216]
+script = ExtResource("4_3co13")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
+[node name="HookFire" type="Node" parent="StateMachine" index="6" unique_id=1854788068]
+script = ExtResource("5_5l64d")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
+[node name="HookMove" type="Node" parent="StateMachine" index="7" unique_id=451457077]
+script = ExtResource("6_04p00")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
+[node name="SpinAttack" type="Node" parent="StateMachine" index="8" unique_id=1089356378]
+script = ExtResource("7_6dntj")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=912736551]
 scale = Vector2(0.52, 0.92)
 
-[node name="CaudaTechnical" type="Node2D" parent="." index="3"]
+[node name="CaudaTechnical" type="Node2D" parent="." index="3" unique_id=1511006280]
 
-[node name="CaudaCast" type="ShapeCast2D" parent="CaudaTechnical" index="0"]
+[node name="CaudaCast" type="ShapeCast2D" parent="CaudaTechnical" index="0" unique_id=1552780287]
 shape = SubResource("RectangleShape2D_8dmbm")
-target_position = Vector2(292, 0)
-collision_mask = 3
+target_position = Vector2(512, 0)
+collision_mask = 32768
 collide_with_areas = true
 
-[node name="CaudaStuff" type="Node2D" parent="." index="4"]
+[node name="CaudaStuff" type="Node2D" parent="." index="4" unique_id=25311320]
 
-[node name="CaudaLine" type="Line2D" parent="CaudaStuff" index="0"]
+[node name="CaudaLine" type="Line2D" parent="CaudaStuff" index="0" unique_id=551117587]
 points = PackedVector2Array(0, 14, 106, -3)
 texture = ExtResource("2_p6cfn")
 texture_mode = 1
 end_cap_mode = 1
 
-[node name="BrenoCaudaTip" type="Sprite2D" parent="CaudaStuff" index="1"]
+[node name="BrenoCaudaTip" type="Sprite2D" parent="CaudaStuff" index="1" unique_id=1948556995]
 position = Vector2(108, -2)
 texture = ExtResource("3_8dmbm")
 centered = false
 offset = Vector2(0, -6)
 
-[node name="Target" type="AnimatedSprite2D" parent="." index="5"]
+[node name="CaudaTipCollision" type="Area2D" parent="CaudaStuff/BrenoCaudaTip" index="0" unique_id=1777118549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaudaStuff/BrenoCaudaTip/CaudaTipCollision" index="0" unique_id=703044270]
+shape = SubResource("CircleShape2D_s1fef")
+disabled = true
+
+[node name="Target" type="AnimatedSprite2D" parent="." index="5" unique_id=445281885]
 position = Vector2(253, 0)
 sprite_frames = SubResource("SpriteFrames_dfayk")
 frame_progress = 0.246446
 
-[node name="AnimatedSprite2D" parent="." index="6"]
+[node name="AnimatedSprite2D" parent="." index="6" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_0lagk")
 animation = &"caudaThrow"
 offset = Vector2(0, 1)

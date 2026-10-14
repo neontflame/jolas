@@ -95,16 +95,23 @@ func get_collision_polygon() -> CollisionPolygon2D:
 	return null
 
 func setup_collision_layers() -> void:
+	collision_layer = 0
+	collision_mask = 0
+	
 	match terrain_type:
 		types.RED:
-			collision_layer = (1 << 2)
-			collision_mask = (1 << 2)
+			set_collision_layer_value(3, true)
+			set_collision_mask_value(3, true)
 		types.BLUE:
-			collision_layer = (1 << 3)
-			collision_mask = (1 << 3)
+			set_collision_layer_value(4, true)
+			set_collision_mask_value(4, true)
 		_:
-			collision_layer = (1 << 0)
-			collision_mask = (1 << 0)
+			set_collision_layer_value(1, true)
+			set_collision_mask_value(1, true)
+	
+	# onerb hook mechanics
+	set_collision_layer_value(16, true)
+	set_collision_mask_value(16, true)
 
 func modulate_based_on_layer():
 	if not obj_shape:
