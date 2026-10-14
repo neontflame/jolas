@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://makxwcukxga1" path="res://Playerstuffs/Characters/Onerb/Scripts/airStOnerb.gd" id="3_dbayo"]
 [ext_resource type="Script" uid="uid://be33qjxibv7qw" path="res://Playerstuffs/Characters/Onerb/Scripts/hookAimStOnerb.gd" id="4_3co13"]
 [ext_resource type="Texture2D" uid="uid://bwg8703fua2wf" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0001.png" id="4_dbayo"]
+[ext_resource type="Script" uid="uid://cjyg1qrn534rd" path="res://Playerstuffs/Characters/Onerb/Scripts/floorStOnerb.gd" id="4_o3dgy"]
 [ext_resource type="Texture2D" uid="uid://dyp4tqgdvgilp" path="res://Playerstuffs/Characters/Onerb/Sprites/cauda/brenoTgt0002.png" id="5_3co13"]
 [ext_resource type="Script" uid="uid://culrtw8rh6p7x" path="res://Playerstuffs/Characters/Onerb/Scripts/hookFireStOnerb.gd" id="5_5l64d"]
 [ext_resource type="Script" uid="uid://cyvepabgkl2sv" path="res://Playerstuffs/Characters/Onerb/Scripts/hookMoveStOnerb.gd" id="6_04p00"]
@@ -212,6 +213,9 @@ ATTACK_DMG = Dictionary[String, float]({
 [node name="StateMachine" parent="." index="0" unique_id=1536097381]
 script = ExtResource("3_6dntj")
 
+[node name="Floor" parent="StateMachine" index="1" unique_id=1326715689]
+script = ExtResource("4_o3dgy")
+
 [node name="Air" parent="StateMachine" index="2" unique_id=521348263]
 script = ExtResource("3_dbayo")
 
@@ -257,6 +261,8 @@ centered = false
 offset = Vector2(0, -6)
 
 [node name="CaudaTipCollision" type="Area2D" parent="CaudaStuff/BrenoCaudaTip" index="0" unique_id=1777118549]
+collision_layer = 32768
+collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaudaStuff/BrenoCaudaTip/CaudaTipCollision" index="0" unique_id=703044270]
 shape = SubResource("CircleShape2D_s1fef")

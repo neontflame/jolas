@@ -24,6 +24,7 @@ func update():
 			Player.change_state(Player.state_machine.st_air)
 		else:
 			Player.change_state(Player.state_machine.st_floor)
+			Player.hooksTried = 0
 	
 	# just get spinny whatever brujh
 	if Input.is_action_just_pressed("ctrl_2"):

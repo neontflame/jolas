@@ -83,6 +83,7 @@ func on_hooked_body(body: Node2D) -> void:
 		hooked_at.emit(caudaEnd.global_position)
 	elif body is MobObject:
 		if body.USES_BODY_AS_HOOKABLE:
+			print("hook")
 			hooked_at.emit(body.global_position)
 
 func on_hooked_at(hook_position: Vector2) -> void:
