@@ -38,6 +38,7 @@ func _ready() -> void:
 				OnlineUtils.portEntered = int(initSplit[1])
 		
 		if len(ModUtils.queuedMods) > 0:
+			GPStats.modded = true
 			for mod in ModUtils.queuedMods:
 				print('Carregando mod: %s' % mod)
 				ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
