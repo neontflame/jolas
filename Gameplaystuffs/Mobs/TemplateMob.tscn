@@ -88,6 +88,7 @@ shape = SubResource("RectangleShape2D_3qbnk")
 bus = &"SFX"
 
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=1534483190]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

@@ -26,8 +26,6 @@ var previous_state = null
 
 @export var USES_BODY_AS_HITBOX:bool = true
 
-@export var USES_BODY_AS_HOOKABLE: bool = true
-
 @export var KNOCKBACK_ON_PLY_BODY_HIT:Vector2 = Vector2(250, -250)
 
 ## uma chance de 1 em quantos pra dropar esse item ?
@@ -46,6 +44,14 @@ var previous_state = null
 @export var healthBar:Bar
 
 @export var screen_notifier: VisibleOnScreenNotifier2D
+
+@export_group("Character Specific Interactions")
+@export_subgroup("Can Get Hooked?")
+## se o objeto pode ser ganchado pelo onerb.
+@export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var USES_BODY_AS_HOOKABLE: bool = true
+## deixe isso em 0.0 para não ter timer de stun nenhum. isso desativa momentaneamente a colisao de dano.
+@export var onerb_hook_stun_timer: float = 3.0
+@export_group("")
 
 @export_category('Animations')
 @export var leSprite:AnimatedSprite2D
@@ -92,8 +98,10 @@ func _physics_process(delta: float) -> void:
 	healthBar.visible = not (isDead or not detectingPlayer)
 	
 	if stunFrames > 0:
-		stunFrames -= 1
-		return
+		stunFrames -= 1 * delta
+	else:
+		if collAreaCollision.disabled:
+			collAreaCollision.set_deferred("disabled", false)
 	if current_state.has_method('update'): current_state.update()
 	# $Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
 	move_and_slide()
@@ -140,7 +148,10 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	spawnNumber(hpLost)
 	if theHarmer:
 		theHarmer.increaseCombo()
-	stunFrames = 2.0
+	
+	if stunFrames <= 0.0:
+		stunFrames = 0.5
+	
 	var medianVel = (vel.x + vel.y)/2
 	if medianVel < 400:
 		play_sfx('Hit1')
@@ -165,6 +176,13 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	else:
 		change_state(state_machine.st_hurt)
 	return true
+
+func stun_mob() -> void:
+	if onerb_hook_stun_timer <= 0.0:
+		return
+	stunFrames = onerb_hook_stun_timer
+	collAreaCollision.set_deferred("disabled", true)
+	velocity = Vector2.ZERO
 
 func play_sfx(name:String, volumeDB:float = 0.0):
 	if sfx_player.playing: sfx_player.stop()
@@ -203,7 +221,7 @@ func pd_body_exited(body: Node2D) -> void:
 # voce pode tentar combar eles agora
 func handlePlyHits(harmPlayer:bool = true):
 	if touchingPlayer && USES_BODY_AS_HITBOX:
-		if harmPlayer:
+		if harmPlayer and stunFrames <= 0.0:
 			theHarmer = null
 			touchedPlayer.yeowch(strength, KNOCKBACK_ON_PLY_BODY_HIT)
 

@@ -51,6 +51,7 @@ func _ready() -> void:
 	caudaEnd.global_position = global_position
 	
 	# colisao da ponta da cauda
+	cauda_tip_collision.set_deferred("disabled", true)
 	cauda_tip_area.area_entered.connect(on_hooked_area)
 	cauda_tip_area.body_entered.connect(on_hooked_body)
 	
@@ -58,6 +59,11 @@ func _ready() -> void:
 	hooked_at.connect(on_hooked_at)
 	
 	targetSpr.visible = false
+
+func _process(delta: float) -> void:
+	caudaLine.set_point_position(1, to_local(caudaEnd.global_position))
+	targetSpr.rotate(5.0 * delta)
+	print(motion)
 
 #region Hook Mechanics
 func can_hook() -> void:
@@ -73,6 +79,7 @@ func release_hook() -> void:
 		hooksTried += 1
 		preview_hook_position = global_position + (hook_aim_direction * max_hook_distance)
 		play_char_sfx("ChickenSwing", "Onerb", 10.0, randf_range(0.8, 1.2), ".ogg")
+		cauda_tip_collision.set_deferred("disabled", false)
 		change_state(state_machine.hook_fire)
 
 func on_hooked_area(area: Area2D) -> void:
@@ -83,11 +90,12 @@ func on_hooked_body(body: Node2D) -> void:
 		hooked_at.emit(caudaEnd.global_position)
 	elif body is MobObject:
 		if body.USES_BODY_AS_HOOKABLE:
-			print("hook")
 			hooked_at.emit(body.global_position)
+			body.stun_mob()
 
 func on_hooked_at(hook_position: Vector2) -> void:
 	next_hook_position = hook_position
+	play_char_sfx("fpa_ploink", "Onerb", 0.0, randf_range(0.8, 1.2))
 	change_state(state_machine.hook_move)
 
 func move_hook_object() -> void:
@@ -96,6 +104,7 @@ func move_hook_object() -> void:
 	caudaVision.visible = true
 
 func return_hook_object() -> void:
+	cauda_tip_collision.set_deferred("disabled", true)
 	kill_tween_engracadinho()
 	tweenEngracinho = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 	tweenEngracinho.tween_property(caudaEnd, "position", Vector2.ZERO, 0.25)
@@ -116,7 +125,14 @@ func handleCameraSpecial(camera_offset: Vector2) -> void:
 #region Hook Aim
 func handle_hook_aim() -> void:
 	if caudaRaycast.is_colliding():
-		targetSpr.global_position = caudaRaycast.get_collision_point(0)
+		var collision = caudaRaycast.get_collider(0)
+		if collision is MobObject:
+			if collision.USES_BODY_AS_HOOKABLE:
+				targetSpr.global_position = collision.global_position
+				return
+			targetSpr.global_position = caudaRaycast.get_collision_point(0)
+		else:
+			targetSpr.global_position = caudaRaycast.get_collision_point(0)
 	else:
 		targetSpr.position = Vector2.from_angle(caudaRaycast.rotation) * caudaRaycast.target_position.x
 #endregion
@@ -129,7 +145,7 @@ func getSpinny():
 	if get_player_vector() == Vector2.ZERO:
 		motion = last_motion
 	else:
-		motion = hook_momentum * get_player_vector()
+		motion = hook_momentum * hook_aim_direction
 
 var spinnyOftened:bool = false
 func spinny_everySoOften():
@@ -145,9 +161,6 @@ func spinny_everySoOften():
 	)
 	hits.rotation_degrees = 45
 	play_sfx("Whoosh", -5.0)
-
-func _process(_delta: float) -> void:
-	caudaLine.set_point_position(1, to_local(caudaEnd.global_position))
 
 func hitbox_connect(hit:OffensiveHitbox, type:String):
 	# print('connec')

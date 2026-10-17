@@ -22,6 +22,12 @@ func update():
 	if Player.get_player_vector() != Vector2.ZERO:
 		Player.hook_aim_direction = Player.get_player_vector()
 		Player.caudaRaycast.rotation = Player.hook_aim_direction.angle()
+		
+		# sprite flip
+		if sign(Player.get_player_vector().x) < 0.0:
+			Player.plySprite.flip_h = true
+		else:
+			Player.plySprite.flip_h = false
 	Player.handle_hook_aim()
 	
 	# camera

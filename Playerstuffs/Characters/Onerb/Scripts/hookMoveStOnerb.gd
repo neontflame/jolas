@@ -1,9 +1,14 @@
 extends PlayerStatePattern
 
+func enter_state():
+	if Player.jumping:
+		Player.jumping = false
+
 func update():
-	
 	move_to_hook()
 	Player.caudaEnd.global_position = Player.next_hook_position
+	
+	Player.plySprite.play("caudaPullback")
 	
 	if Input.is_action_just_pressed("ctrl_2"):
 		Player.getSpinny()
@@ -26,3 +31,5 @@ func next_to_hook() -> void:
 
 func exit_state():
 	Player.return_hook_object()
+	if Player.is_on_floor():
+		Player.hooksTried = 0

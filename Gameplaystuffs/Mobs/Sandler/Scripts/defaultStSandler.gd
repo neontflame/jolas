@@ -3,7 +3,7 @@ extends "res://Gameplaystuffs/Mobs/StatePatternism/defaultSt.gd"
 func update():
 	super.update()
 	
-	if Mob.detectingPlayer:
+	if Mob.detectingPlayer and Mob.stunFrames <= 0.0:
 		if Mob.position.x < GPStats.charObject.position.x:
 			Mob.inputSimulation(1, 0)
 		elif Mob.position.x > GPStats.charObject.position.x:

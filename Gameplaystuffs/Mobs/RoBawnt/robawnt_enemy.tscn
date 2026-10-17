@@ -37,6 +37,7 @@ ACCELERATION = 800.0
 MAX_SPEED = 200.0
 maxHP = 200.0
 strength = 5.0
+USES_BODY_AS_HOOKABLE = false
 
 [node name="Default" parent="StateMachine" parent_id_path=PackedInt32Array(992408573) index="0" unique_id=19793391]
 script = ExtResource("3_4weo6")
@@ -57,9 +58,6 @@ position = Vector2(-0.5, 16)
 shape = SubResource("RectangleShape2D_cieje")
 
 [node name="CollidesWithPlayer" parent="." index="3" unique_id=788037408]
-visible = false
-
-[node name="PlayerDetector" parent="." index="5" unique_id=1534483190]
 visible = false
 
 [node name="HawntNodes" type="Node2D" parent="." index="9" unique_id=1317348229]

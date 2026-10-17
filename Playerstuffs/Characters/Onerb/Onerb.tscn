@@ -271,9 +271,11 @@ disabled = true
 [node name="Target" type="AnimatedSprite2D" parent="." index="5" unique_id=445281885]
 position = Vector2(253, 0)
 sprite_frames = SubResource("SpriteFrames_dfayk")
-frame_progress = 0.246446
+autoplay = "default"
+frame_progress = 0.90103865
 
 [node name="AnimatedSprite2D" parent="." index="6" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_0lagk")
-animation = &"caudaThrow"
+animation = &"caudaPullback"
+frame_progress = 0.8103533
 offset = Vector2(0, 1)

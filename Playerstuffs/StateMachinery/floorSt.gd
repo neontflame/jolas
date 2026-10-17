@@ -6,6 +6,9 @@ func enter_state():
 		Player.plySprite.animation_finished.connect(animDone)
 	pass
 
+func exit_state():
+	Player.shakeForce = 0
+
 func update():
 	Player.handlePhys()
 	Player.handleMovement()
