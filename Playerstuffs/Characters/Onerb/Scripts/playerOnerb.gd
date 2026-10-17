@@ -63,7 +63,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	caudaLine.set_point_position(1, to_local(caudaEnd.global_position))
 	targetSpr.rotate(5.0 * delta)
-	print(motion)
 
 #region Hook Mechanics
 func can_hook() -> void:

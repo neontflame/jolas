@@ -78,15 +78,11 @@ func on_player_entered(body: Node2D) -> void:
 	if is_boss_fight_active:
 		return
 	
-	if body is PlayerObject:
-		for player in JolasGame.instance.allChars:
-			if GPStats.is_multiplayer and (player.curMap != GPStats.curMap):
-				return
-			if not boss_arena_area.get_overlapping_bodies().has(player):
-				print('[JOLASMAP] Ih crl')
-				return
-	
-	print("JOLAS MAP boss startou")
+	for player in JolasGame.instance.allChars:
+		if GPStats.is_multiplayer and (player.curMap != GPStats.curMap):
+			return
+		if not boss_arena_area.get_overlapping_bodies().has(player):
+			return
 	is_boss_fight_active = true
 	boss_activate()
 #endregion
