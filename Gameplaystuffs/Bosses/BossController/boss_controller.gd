@@ -41,11 +41,17 @@ func _ready() -> void:
 	if boss_door:
 		boss_door.get_collision_polygon().set_deferred("disabled", true)
 	
+	await get_tree().process_frame
+	
 	connect_signals()
+	
 	check_for_active_at_start()
+	
+	check_for_boss_beated()
 
 func connect_signals() -> void:
 	if boss_object:
+		boss_object.boss_start.connect(boss_start)
 		boss_object.boss_dead.connect(boss_end)
 	
 	if boss_arena_area:
@@ -54,9 +60,11 @@ func connect_signals() -> void:
 	boss_fight_finished.connect(on_boss_fight_finished)
 
 func check_for_boss_beated() -> void:
-	boss_fight_finished.emit()
-	if boss_object:
-		boss_object.queue_free()
+	if GPStats.bossesBeat.has(boss_object.name):
+		boss_fight_finished.emit()
+		
+		if boss_object:
+			boss_object.queue_free()
 #endregion
 
 #region Player Interactions

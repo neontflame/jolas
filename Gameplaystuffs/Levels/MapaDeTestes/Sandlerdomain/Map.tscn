@@ -500,7 +500,7 @@ mesh = SubResource("ArrayMesh_fqn4p")
 z_index = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6mc"]
-size = Vector2(1871, 1047)
+size = Vector2(1736, 965)
 
 [sub_resource type="Resource" id="Resource_qogjq"]
 script = ExtResource("9_36nku")
@@ -539,6 +539,72 @@ _next_key = 5
 
 [sub_resource type="Resource" id="Resource_wqp4h"]
 script = ExtResource("18_kin0d")
+
+[sub_resource type="Resource" id="Resource_itgfj"]
+script = ExtResource("9_36nku")
+position = Vector2(-64, -32)
+
+[sub_resource type="Resource" id="Resource_honc2"]
+script = ExtResource("9_36nku")
+position = Vector2(1792, -32)
+
+[sub_resource type="Resource" id="Resource_h0rcn"]
+script = ExtResource("9_36nku")
+position = Vector2(1792, 896)
+
+[sub_resource type="Resource" id="Resource_ukih8"]
+script = ExtResource("9_36nku")
+position = Vector2(-64, 896)
+texture_idx = 1
+
+[sub_resource type="Resource" id="Resource_hl3mp"]
+script = ExtResource("9_36nku")
+position = Vector2(-64, -32)
+
+[sub_resource type="Resource" id="Resource_bw5co"]
+script = ExtResource("10_0w56c")
+_points = {
+0: SubResource("Resource_itgfj"),
+1: SubResource("Resource_honc2"),
+2: SubResource("Resource_h0rcn"),
+3: SubResource("Resource_ukih8"),
+4: SubResource("Resource_hl3mp")
+}
+_point_order = PackedInt32Array(0, 1, 2, 3, 4)
+_constraints = {
+Vector2i(0, 4): 15
+}
+_next_key = 5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fwipl"]
+_surfaces = [{
+"aabb": AABB(-64, -32, 0, 1856, 928, 1e-05),
+"attribute_data": PackedByteArray("/////wAA4EEAAAC/AADgQQAAAL//////AADgQQAAYEEAAOBBAABgQf////8AAIC/AABgQQAAgL8AAGBB/////wAAgL8AAAC/AACAvwAAAL8="),
+"format": 34359742527,
+"index_count": 9,
+"index_data": PackedByteArray("AAABAAIAAgADAAMAAwAAAAIA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AADgRAAAAMIAAAAAAADgRAAAYEQAAAAAAACAwgAAYEQAAAAAAACAwgAAAMIAAAAA/////////7//////////v/////////+//////////78=")
+}]
+
+[sub_resource type="Gradient" id="Gradient_kin0d"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_is3of"]
+gradient = SubResource("Gradient_kin0d")
+
+[sub_resource type="Resource" id="Resource_x150r"]
+script = ExtResource("11_bh1kx")
+texture = SubResource("GradientTexture2D_is3of")
+mesh = SubResource("ArrayMesh_fwipl")
+z_index = -10
+
+[sub_resource type="Resource" id="Resource_pr7b8"]
+script = ExtResource("18_kin0d")
+fill_textures = Array[Texture2D]([SubResource("GradientTexture2D_is3of")])
 
 [node name="Sandlerdomain" type="Node2D" unique_id=628272213]
 script = ExtResource("1_1pu2r")
@@ -622,8 +688,9 @@ levelInQuestion = "OutroMapa"
 regionInQuestion = "MapaDeTestes"
 whereToSpawn = "BackSpawnpoint"
 
-[node name="BossController" type="Node" parent="." unique_id=525878401 node_paths=PackedStringArray("boss_object", "boss_arena_area", "boss_arena_collision", "boss_door")]
+[node name="BossController" type="Node" parent="." unique_id=525878401 node_paths=PackedStringArray("creepy_bg", "boss_object", "boss_arena_area", "boss_arena_collision", "boss_door")]
 script = ExtResource("15_xkuuy")
+creepy_bg = NodePath("SS2D_Shape")
 boss_object = NodePath("BigSandler")
 boss_arena_area = NodePath("BossDetect")
 boss_arena_collision = NodePath("BossDetect/CollisionShape2D")
@@ -631,12 +698,13 @@ boss_door = NodePath("CurvedTerrainV2")
 metadata/_custom_type_script = "uid://dnj4ff6y1d44u"
 
 [node name="BossDetect" type="Area2D" parent="BossController" unique_id=308391514]
+visible = false
 position = Vector2(3867, -187)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossController/BossDetect" unique_id=1724925076]
-position = Vector2(925.5, 513.5)
+position = Vector2(961, 472.5)
 shape = SubResource("RectangleShape2D_gq6mc")
 debug_color = Color(0, 0, 0, 0.42)
 
@@ -670,3 +738,11 @@ visible = false
 polygon = PackedVector2Array(3776, 576, 3904, 576, 3904, 768, 3776, 768)
 disabled = true
 metadata/_edit_lock_ = true
+
+[node name="SS2D_Shape" type="Node2D" parent="BossController" unique_id=1095356133]
+position = Vector2(3968, -128)
+script = ExtResource("8_vvnu6")
+_points = SubResource("Resource_bw5co")
+_meshes = Array[ExtResource("11_bh1kx")]([SubResource("Resource_x150r")])
+shape_material = SubResource("Resource_pr7b8")
+metadata/_custom_type_script = "uid://dhdc4b8yddyej"

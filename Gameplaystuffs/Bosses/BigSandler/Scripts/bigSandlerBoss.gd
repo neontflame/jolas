@@ -73,6 +73,7 @@ func awake():
 	healthBar.visible = true
 	FUCKING_aura.visible = false
 	leSprite.visible = true
+	boss_start.emit()
 	change_state(state_machine.st_default)
 
 func frame_specific_actions():
