@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dsivnbo17dpmc"]
+
+[ext_resource type="Script" uid="uid://dnj4ff6y1d44u" path="res://Gameplaystuffs/Bosses/BossController/boss_controller.gd" id="1_jnfa4"]
+
+[node name="BossController" type="Node" unique_id=1850331683]
+script = ExtResource("1_jnfa4")

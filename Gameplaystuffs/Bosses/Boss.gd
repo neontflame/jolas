@@ -57,6 +57,10 @@ var theHarmer:PlayerObject
 
 var isHurting := false
 var isDead := false
+
+signal boss_start
+signal boss_dead
+
 var stunFrames := 0.0
 #endregion
 
@@ -133,7 +137,7 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 		change_state(state_machine.st_death)
 		dropItems()
 		isDead = true
-		MapUtils.map.bossEnd()
+		boss_dead.emit()
 	else:
 		change_state(state_machine.st_hurt)
 	return true

@@ -1,3 +1,4 @@
+@tool
 @icon("uid://c33sc3mggdipf")
 extends Node2D
 class_name JolasMap
@@ -6,11 +7,6 @@ class_name JolasMap
 # @export var spawnpoint:Node2D
 # @export var spawnpointBack:Node2D
 var info:MapInfo = null
-
-@export var hasBossRoom:bool = false
-@export var boss:BossObject
-@export var bossRoom:Area2D
-var allPlayersInBossRoom:bool = false
 
 func _ready() -> void:
 	if get_tree().current_scene.name == name:
@@ -22,36 +18,3 @@ func _ready() -> void:
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 		return
 	MapUtils.set_map(self)
-	await get_tree().process_frame
-	await get_tree().process_frame
-	setupBoss()
-
-func setupBoss():
-	if (not hasBossRoom): return
-	if GPStats.bossesBeat.has(boss.name):
-		bossBeatAlready()
-	else:
-		bossRoom.body_entered.connect(onEnterBossRoom)
-
-func onEnterBossRoom(body:Node2D):
-	for player in JolasGame.instance.allChars:
-		if GPStats.is_multiplayer and (player.curMap != GPStats.curMap):
-			return
-		if not bossRoom.get_overlapping_bodies().has(player):
-			print('[JOLASMAP] Ih crl')
-			return
-	
-	if not allPlayersInBossRoom:
-		print('[JOLASMAP] FOI')
-		boss.awake()
-		bossStart()
-		allPlayersInBossRoom = true
-
-func bossStart():
-	pass
-
-func bossEnd():
-	GPStats.addToBossesBeat(boss.name)
-
-func bossBeatAlready():
-	pass

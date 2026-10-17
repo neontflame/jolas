@@ -42,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_pxle5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"clickClick",
 "speed": 12.0
 }, {
@@ -68,7 +68,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_d0kok")
 }],
-"loop": false,
+"loop": 0,
 "name": &"clickStart",
 "speed": 12.0
 }, {
@@ -88,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_rbp3q")
 }],
-"loop": false,
+"loop": 0,
 "name": &"clickThrow",
 "speed": 12.0
 }, {
@@ -102,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_3nkq2")
 }],
-"loop": false,
+"loop": 0,
 "name": &"dead",
 "speed": 12.0
 }, {
@@ -119,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_jxqe0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_0imbj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hurt",
 "speed": 12.0
 }]
@@ -150,7 +150,7 @@ animations = [{
 "duration": 5.0,
 "texture": ExtResource("27_d0kok")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -170,12 +170,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_kmqfq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"entrance",
 "speed": 12.0
 }]
 
-[node name="BigSandler" node_paths=PackedStringArray("FUCKING_aura", "attack_timer", "mini_sandler_timer") instance=ExtResource("1_qtkih")]
+[node name="BigSandler" unique_id=1747225031 node_paths=PackedStringArray("FUCKING_aura", "attack_timer", "mini_sandler_timer") instance=ExtResource("1_qtkih")]
 script = ExtResource("2_eyt61")
 FUCKING_aura = NodePath("SandlerSpecific/FuckingAura")
 attack_timer = NodePath("SandlerSpecific/AttackTimer")
@@ -201,18 +201,18 @@ scale = Vector2(1.87, 3.055)
 position = Vector2(0, -210)
 scale = Vector2(5, 1)
 
-[node name="SandlerSpecific" type="Node2D" parent="." index="7"]
+[node name="SandlerSpecific" type="Node2D" parent="." index="7" unique_id=494799662]
 
-[node name="FuckingAura" type="AnimatedSprite2D" parent="SandlerSpecific" index="0"]
+[node name="FuckingAura" type="AnimatedSprite2D" parent="SandlerSpecific" index="0" unique_id=490656396]
 visible = false
 position = Vector2(5, -16)
 sprite_frames = SubResource("SpriteFrames_rbp3q")
 autoplay = "default"
 
-[node name="AttackTimer" type="Timer" parent="SandlerSpecific" index="1"]
+[node name="AttackTimer" type="Timer" parent="SandlerSpecific" index="1" unique_id=177141218]
 process_callback = 0
 one_shot = true
 
-[node name="SandlerTimers" type="Timer" parent="SandlerSpecific" index="2"]
+[node name="SandlerTimers" type="Timer" parent="SandlerSpecific" index="2" unique_id=344202266]
 process_callback = 0
 wait_time = 0.1
