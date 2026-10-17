@@ -206,7 +206,7 @@ func handleSonicPhys() -> void:
 			on_land() 	# Ok eu acho q isso e prova o suficiente de q o 
 						# codigo de fisica do jogador e meio bagunçado pra crl
 						# mas a gente bola
-		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED * 0.4):
+		if (up_direction.y > -0.001) && (abs(motion.x) < SOFT_MAX_SPEED/1.65):
 			# print('Get Outta Here')
 			on_fall_from_slope()
 		up_direction = get_floor_normal()

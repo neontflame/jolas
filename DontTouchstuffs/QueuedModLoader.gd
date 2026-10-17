@@ -8,6 +8,7 @@ var runScripts:Array = []
 func _enter_tree() -> void:
 	renderTexty()
 	for mod in ModUtils.queuedMods:
+		GPStats.modded = true
 		ProjectSettings.load_resource_pack(ModUtils.get_mod_path(mod))
 		ModUtils.loadedMods.append(mod)
 		loadArray.append(mod)

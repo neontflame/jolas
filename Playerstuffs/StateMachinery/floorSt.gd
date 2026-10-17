@@ -22,7 +22,9 @@ func update():
 func handleAnimations() -> void:
 	if Player.is_on_floor():
 		if Player.plySprite.animation == 'brake':
-			Player.play_sfx('Skidding', 10)
+			Player.play_sfx('Skidding', 10, 
+			maxf(0.5 + (abs(Player.motion.x) / 2500), 1)
+			)
 			Player.shakeForce = Player.motion.x / 250
 		else:
 			Player.shakeForce = 0
