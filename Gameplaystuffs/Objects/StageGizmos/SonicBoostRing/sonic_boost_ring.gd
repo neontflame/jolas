@@ -19,6 +19,7 @@ var ring_tween: Tween
 
 func _ready() -> void:
 	area.body_entered.connect(on_body_entered)
+	animation_player.seek(randf_range(0.0, 3.0), true)
 
 func on_body_entered(body: Node2D) -> void:
 	if body is PlayerObject:
