@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_rdp1e")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_qa50y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_un3ih")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -52,7 +52,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_5deut")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -63,7 +63,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_8uvje")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_e4a6g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -82,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_sucjd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_p0sje")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -101,7 +101,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_qa50y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -109,7 +109,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_un3ih")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_lpvck")
 }],
-"loop": true,
+"loop": 1,
 "name": &"active",
 "speed": 5.0
 }, {
@@ -128,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_3md7f")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inactive",
 "speed": 5.0
 }]
@@ -136,18 +136,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5deut"]
 size = Vector2(252.085, 21.955)
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("mobilery")]
+[node name="MainMenu" type="Node2D" unique_id=1481033351 node_paths=PackedStringArray("mobilery")]
 script = ExtResource("1_yqxuh")
 mobilery = NodePath("MenuCanvas/RightAnchor/OptsMobile")
 
-[node name="MenuCanvas" type="CanvasLayer" parent="."]
+[node name="MenuCanvas" type="CanvasLayer" parent="." unique_id=63202632]
 
-[node name="Logo" type="Sprite2D" parent="MenuCanvas"]
+[node name="Logo" type="Sprite2D" parent="MenuCanvas" unique_id=1726956095]
 position = Vector2(21, 18)
 texture = ExtResource("1_1hf02")
 centered = false
 
-[node name="Quote" type="Label" parent="MenuCanvas"]
+[node name="Quote" type="Label" parent="MenuCanvas" unique_id=212222079]
 offset_left = 80.0
 offset_top = 91.0
 offset_right = 480.0
@@ -157,7 +157,7 @@ theme_override_fonts/font = ExtResource("3_un3ih")
 theme_override_font_sizes/font_size = 18
 text = "insira uma quote engraçadinha aqui ou algo do tipo"
 
-[node name="Label" type="RichTextLabel" parent="MenuCanvas"]
+[node name="Label" type="RichTextLabel" parent="MenuCanvas" unique_id=1299719125]
 offset_left = 3.0
 offset_top = 420.0
 offset_right = 544.0
@@ -172,7 +172,7 @@ text = "jogo feito por [b]neontflame[/b], direitos autorais uhhhhhh pipipi popop
 termo \"jolas\" cunhado por hawnt, sketcher e zummy"
 vertical_alignment = 2
 
-[node name="RightAnchor" type="Control" parent="MenuCanvas"]
+[node name="RightAnchor" type="Control" parent="MenuCanvas" unique_id=1781050142]
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -185,88 +185,88 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Opts" type="Node2D" parent="MenuCanvas/RightAnchor"]
+[node name="Opts" type="Node2D" parent="MenuCanvas/RightAnchor" unique_id=1729575708]
 position = Vector2(-216, -86)
 
-[node name="jolar" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="jolar" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1824774887]
 sprite_frames = SubResource("SpriteFrames_ou8cy")
 animation = &"inactive"
 centered = false
 
-[node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="jolarCoop" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=307959810]
 position = Vector2(0, 24)
 sprite_frames = SubResource("SpriteFrames_xkq5v")
 animation = &"active"
 centered = false
 
-[node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="opcoes" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=368681667]
 position = Vector2(0, 64)
 sprite_frames = SubResource("SpriteFrames_nj4bg")
 animation = &"inactive"
 centered = false
 
-[node name="sobre" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="sobre" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=725068570]
 position = Vector2(0, 88)
 sprite_frames = SubResource("SpriteFrames_v3c3c")
 animation = &"inactive"
 centered = false
 
-[node name="addons" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="addons" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=401133733]
 position = Vector2(0, 136)
 sprite_frames = SubResource("SpriteFrames_5deut")
 animation = &"inactive"
 centered = false
 
-[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts"]
+[node name="sair" type="AnimatedSprite2D" parent="MenuCanvas/RightAnchor/Opts" unique_id=1874607254]
 position = Vector2(0, 168)
 sprite_frames = SubResource("SpriteFrames_e4pto")
 animation = &"inactive"
 centered = false
 
-[node name="OptsMobile" type="Node2D" parent="MenuCanvas/RightAnchor"]
+[node name="OptsMobile" type="Node2D" parent="MenuCanvas/RightAnchor" unique_id=1002829307]
 
-[node name="IdTouchy" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=2058570826]
 position = Vector2(-94, -68)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="IdTouchy2" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy2" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=1880137406]
 position = Vector2(-94, -42)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 id = 1
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="IdTouchy3" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy3" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=624168190]
 position = Vector2(-94, -1)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 id = 2
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="IdTouchy4" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy4" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=1666763525]
 position = Vector2(-94, 23)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 id = 3
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="IdTouchy5" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy5" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=1872289013]
 position = Vector2(-94, 61)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 id = 4
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="IdTouchy6" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile"]
+[node name="IdTouchy6" type="TouchScreenButton" parent="MenuCanvas/RightAnchor/OptsMobile" unique_id=1207484816]
 position = Vector2(-94, 101)
 shape = SubResource("RectangleShape2D_5deut")
 script = ExtResource("16_un3ih")
 id = 5
 metadata/_custom_type_script = "uid://c5t625hf4qdy5"
 
-[node name="FadeRect" type="ColorRect" parent="MenuCanvas"]
+[node name="FadeRect" type="ColorRect" parent="MenuCanvas" unique_id=684055387]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

@@ -277,6 +277,5 @@ frame_progress = 0.90103865
 
 [node name="AnimatedSprite2D" parent="." index="6" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_0lagk")
-animation = &"caudaPullback"
-frame_progress = 0.8103533
+animation = &"jump"
 offset = Vector2(0, 1)

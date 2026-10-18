@@ -45,6 +45,24 @@ func on_body_entered(body: Node2D) -> void:
 		# toca o som
 		sfx.play()
 		sfx.pitch_scale = randf_range(0.8, 1.2)
+	
+	if body is MobObject:
+		if body.hp <= 0:
+			return
+		
+		ring_tween_animation()
+		
+		# ajusta pra posicao e aplica speed
+		body.global_position = global_position
+		await get_tree().process_frame
+		body.velocity = Vector2.UP.rotated(rotation) * ring_strength
+		
+		if body.velocity.x != 0.0:
+			body.plySprite.flip_h = false if sign(body.motion.x) > 0.0 else true
+		
+		# toca o som
+		sfx.play()
+		sfx.pitch_scale = randf_range(0.8, 1.2)
 
 func ring_tween_animation() -> void:
 	if ring_tween and ring_tween.is_valid():

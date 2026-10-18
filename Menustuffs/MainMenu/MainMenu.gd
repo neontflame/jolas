@@ -39,7 +39,8 @@ func randomQuote():
 		'cara eu estou jolando cara',
 		'ESSA NÃO É UMA CALL DE GAMEDEV',
 		'nem te conto',
-		''
+		'',
+		'eu tambem to no\nmenu principal - henry'
 	]
 	return quotes[randi_range(0, len(quotes) - 1)]
 	

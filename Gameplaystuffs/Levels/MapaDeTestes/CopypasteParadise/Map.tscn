@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://llobjh5hvry" path="res://addons/rmsmartshape/shapes/mesh.gd" id="7_4njmt"]
 [ext_resource type="Texture2D" uid="uid://c7yb2mphrwsrk" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteLeft.png" id="8_r77yv"]
 [ext_resource type="Texture2D" uid="uid://c4h2cu1i74ex0" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTeste.png" id="9_3atr6"]
+[ext_resource type="Resource" uid="uid://cwxibpp7s171m" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/floorResource_Purple.tres" id="10_gtobd"]
 [ext_resource type="Texture2D" uid="uid://cj3o0628rhdue" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteRight.png" id="10_tyumx"]
-[ext_resource type="Resource" uid="uid://c2shemsecbh8o" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/floorResource.tres" id="11_gtobd"]
 [ext_resource type="PackedScene" uid="uid://ba3mwa4us65ii" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/sonic_boost_ring.tscn" id="16_68uxh"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="17_gdnya"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gameplaystuffs/NPCs/Sushitest.tscn" id="18_1iouv"]
@@ -564,7 +564,7 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_jlupl")
 _points = SubResource("Resource_shcxj")
 _meshes = Array[ExtResource("7_4njmt")]([SubResource("Resource_aytah"), SubResource("Resource_jlupl"), SubResource("Resource_k3a83"), SubResource("Resource_i18ag"), SubResource("Resource_idp3s"), SubResource("Resource_j1efn"), SubResource("Resource_kqa71"), SubResource("Resource_c7oqi"), SubResource("Resource_1iouv"), SubResource("Resource_0hju0"), SubResource("Resource_81k1u"), SubResource("Resource_jql6u"), SubResource("Resource_w0ca0"), SubResource("Resource_6wcwu"), SubResource("Resource_baac0"), SubResource("Resource_jj0pe"), SubResource("Resource_kcq5j"), SubResource("Resource_kx41j"), SubResource("Resource_fpd04"), SubResource("Resource_ux8dd"), SubResource("Resource_wnq31")])
-shape_material = ExtResource("11_gtobd")
+shape_material = ExtResource("10_gtobd")
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 metadata/_edit_lock_ = true
 
@@ -605,7 +605,7 @@ scale = Vector2(0.77, 0.48)
 spring_speed = 3.0
 
 [node name="GoToLevel" parent="StageGizmos" unique_id=1717154976 instance=ExtResource("24_jql6u")]
-position = Vector2(19342, 1322)
+position = Vector2(6352, 1088)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "Sandlerhell"
 regionInQuestion = "MapaDeTestes"

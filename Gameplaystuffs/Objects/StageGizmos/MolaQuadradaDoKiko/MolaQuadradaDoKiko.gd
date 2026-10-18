@@ -91,6 +91,8 @@ func release_player():
 		current_object.on_spring(get_launch_velocity(current_object))
 	
 	elif current_object is MobObject:
+		if current_object.hp <= 0:
+			return
 		current_object.velocity = get_launch_velocity(current_object)
 	
 	current_object = null

@@ -239,16 +239,16 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AGAdRAAA+0MAAAAAAKBKRAAA5UMAAAAAAABiRAAA4EMAAAAAABl2RAD240MAAAAAALSDRABw7kMAAAAAAPDPRABgAUQAAAAAAADQRAAAAEQAAAAAAAAQRQAAAEQAAAAAAAAQRQAAwEMAAAAAAAA4RQAAwEMAAAAAAIBBRQAAtkMAAAAAAIBORQAAikMAAAAAALBSRQDAgkMAAAAAAABYRQAAgEMAAAAAAACMRQAAgEMAAAAAAACaRQAAwEMAAAAAAACcRQAAwEMAAAAAAACcRQAACEQAAAAAAACIRQAAIEQAAAAAAACERQAAQEQAAAAAAAB4RQAAQEQAAAAAAABgRQAAYEQAAAAAAAB4RQAAYEQAAAAAAEqFRQAAZUQAAAAAAACcRQAAgEQAAAAAAACkRQAAgEQAAAAAsLukRQAugEQAAAAAgG+lRQCwgEQAAAAAAMSmRQCAgkQAAAAA4EbDRYCRhUQAAAAAAADERQAAgEQAAAAAAADIRQAAgEQAAAAAAADIRQAAcEQAAAAAAADMRQAAcEQAAAAAAADQRQAAYEQAAAAAAADoRQAAYEQAAAAAAADAwwAAwEQAAAAAAADAwwAAAAAAAAAAAACAwwAAAAAAAAAAAIDPRAAABUQAAAAAAFA9RQBAvUMAAAAAAABwRQAAIEQAAAAAAG6SRQAAe0QAAAAAdN7CRRDKh0QAAAAAAACAwwAAAEQAAAAAABygRACoF0QAAAAAAAbPRABsB0QAAAAAALyrRQCAjUQAAAAAAG/CRQCsiUQAAAAAAADoRQAAwEQAAAAAgJenRABdHUQAAAAAAFDORAAgCkQAAAAALPnBRXA+i0QAAAAA8KerRKAhH0QAAAAAAFLNRAAEDUQAAAAAoH3BRYCIjEQAAAAAAADMRAAAEEQAAAAAAABgRQAAIEQAAAAAgBCtRQBQj0QAAAAABP3ARVCRjUQAAAAAAE7KRAD8EkQAAAAAUMStRQDSj0QAAAAAADDIRADgFUQAAAAAAHjARQBgjkQAAAAAAJrFRACUGEQAAAAAYGO/RYBrj0QAAAAAAIDCRAAAG0QAAAAAAEW+RQDkj0QAAAAAAJC6RACgHkQAAAAAAAC8RQAAkEQAAAAAAICuRQAAkEQAAAAAAACwRAAAIEQAAAAAAAAGRAAAAEQAAAAA/////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////78=")
 }]
 
-[sub_resource type="Gradient" id="Gradient_r77yv"]
+[sub_resource type="Gradient" id="Gradient_2xxc7"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.4745098, 0.22745098, 0.5019608, 1)
+colors = PackedColorArray(0.19607843, 0.8039216, 0.19607843, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3atr6"]
-gradient = SubResource("Gradient_r77yv")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dciko"]
+gradient = SubResource("Gradient_2xxc7")
 
 [sub_resource type="Resource" id="Resource_ch715"]
 script = ExtResource("10_yfn2x")
-texture = SubResource("GradientTexture1D_3atr6")
+texture = SubResource("GradientTexture1D_dciko")
 mesh = SubResource("ArrayMesh_2f2b8")
 z_index = -10
 
@@ -865,3 +865,4 @@ position = Vector2(5120, 912)
 
 [node name="SonicBoostRing2" parent="." unique_id=1893718021 instance=ExtResource("15_2xxc7")]
 position = Vector2(5120, 560)
+ring_strength = 1008.0
