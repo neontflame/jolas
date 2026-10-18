@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dl18nhc26aafg"]
 
-[ext_resource type="Script" uid="uid://h2saga301k4x" path="res://Gameplaystuffs/Levels/MapaDeTestes/CopypasteParadise/CopypasteParadise.gd" id="1_68uxh"]
+[ext_resource type="Script" uid="uid://bo8y3nidp2uhs" path="res://Gameplaystuffs/map.gd" id="1_15xfu"]
 [ext_resource type="PackedScene" uid="uid://b41bk5icyu1cb" path="res://Gameplaystuffs/Backgrounds/Especulapolis/BGEspeculapolisCity.tscn" id="2_aytah"]
 [ext_resource type="Script" uid="uid://2gjr7be5sgfd" path="res://Gameplaystuffs/MapUtilities/CurvedTerrainV2/curved_terrain_v_2.gd" id="3_20p74"]
 [ext_resource type="Script" uid="uid://dhdc4b8yddyej" path="res://addons/rmsmartshape/shapes/shape.gd" id="4_jlupl"]
@@ -364,7 +364,7 @@ mesh = SubResource("ArrayMesh_j1efn")
 z_index = 1
 
 [node name="CopypasteParadise" type="Node2D" unique_id=2065888323]
-script = ExtResource("1_68uxh")
+script = ExtResource("1_15xfu")
 metadata/_edit_vertical_guides_ = [11136.0, 11200.0]
 
 [node name="BGEspeculapolisCity" parent="." unique_id=1580880721 instance=ExtResource("2_aytah")]
@@ -393,7 +393,7 @@ polygon = PackedVector2Array(0, 1536, 6400, 1536, 6400, -1536, 6656, -1536, 6656
 metadata/_edit_lock_ = true
 
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=675141072]
-position = Vector2(220, 1521)
+position = Vector2(128, 1521)
 
 [node name="GHZSpawnpoint" type="Node2D" parent="." unique_id=769597935]
 position = Vector2(1858, 579)
@@ -402,7 +402,7 @@ position = Vector2(1858, 579)
 position = Vector2(19169, 2605)
 
 [node name="TestNpc" parent="." unique_id=970102330 instance=ExtResource("18_1iouv")]
-position = Vector2(1120, 1536)
+position = Vector2(368, 1536)
 dialogue = "OnerbTest"
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1219481979]

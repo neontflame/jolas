@@ -10,8 +10,10 @@ class_name SonicBoostRing
 @export var area: Area2D
 @export var area_collision: CollisionShape2D
 @export var ring_sprite: Sprite2D
+@export var white_ring_sprite: Sprite2D
 @export var sfx: AudioStreamPlayer2D
 @export_category("")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var ring_tween: Tween
 
@@ -45,6 +47,19 @@ func ring_tween_animation() -> void:
 		ring_tween.kill()
 	
 	ring_sprite.scale = Vector2(1.5, 0.5)
+	white_ring_sprite.modulate.a = 1.0
+	white_ring_sprite.position.y = 0.0
 	
-	ring_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
-	ring_tween.tween_property(ring_sprite, "scale", Vector2.ONE, 0.25)
+	ring_tween = create_tween().set_parallel()
+	
+	ring_tween.tween_property(
+		ring_sprite, "scale", Vector2.ONE, 0.25
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
+	
+	ring_tween.tween_property(
+		white_ring_sprite, "position:y", -64.0, 0.5
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	
+	ring_tween.tween_property(
+		white_ring_sprite, "modulate:a", 0.0, 0.5
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
