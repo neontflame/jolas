@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_dymyi")
 }],
-"loop": false,
+"loop": 0,
 "name": &"angry",
 "speed": 12.0
 }, {
@@ -43,7 +43,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_x6qvr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"confused",
 "speed": 12.0
 }, {
@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_af1sl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_2vpsd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"pointy",
 "speed": 12.0
 }]
@@ -84,15 +84,15 @@ stream_1/stream = ExtResource("15_34y4h")
 stream_2/stream = ExtResource("16_x6qvr")
 stream_2/weight = 0.25
 
-[node name="neonPort" type="Node2D" node_paths=PackedStringArray("talksound")]
+[node name="neonPort" type="Node2D" unique_id=1969334728]
 script = ExtResource("1_pjmxm")
-talksound = NodePath("AudioStreamPlayer")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=498670670]
 position = Vector2(-2, -65)
 sprite_frames = SubResource("SpriteFrames_2vpsd")
+animation = &"confused"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1358378619]
 stream = SubResource("AudioStreamRandomizer_r8vum")
 volume_db = -0.912
 bus = &"SFX"

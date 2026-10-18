@@ -25,7 +25,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_45bs4")
 }],
-"loop": false,
+"loop": 0,
 "name": &"challenge",
 "speed": 12.0
 }, {
@@ -36,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_f18vp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"confused",
 "speed": 12.0
 }, {
@@ -50,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_lj3o4")
 }],
-"loop": false,
+"loop": 0,
 "name": &"cool",
 "speed": 12.0
 }, {
@@ -64,15 +64,16 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_ehgel")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 12.0
 }]
 
-[node name="fkndavidPort" type="Node2D"]
+[node name="fkndavidPort" type="Node2D" unique_id=1002625612]
 script = ExtResource("1_wtjit")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1426023502]
 position = Vector2(-23, -101)
 sprite_frames = SubResource("SpriteFrames_iadqb")
-animation = &"challenge"
+frame = 2
+frame_progress = 1.0

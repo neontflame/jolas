@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crl8ghvjkjkqn" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/Sprites/sonic_boost_ring.png" id="1_ixt2p"]
 [ext_resource type="Script" uid="uid://47cvwldl0ttw" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/sonic_boost_ring.gd" id="1_r7pak"]
-[ext_resource type="AudioStream" uid="uid://c5lnxcd18dyjj" path="res://Soundstuffs/SFX/Ingame/Pop.wav" id="3_fxlwe"]
+[ext_resource type="AudioStream" uid="uid://ucf8iaq1vxr6" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/Launchpad.wav" id="3_fxlwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
 size = Vector2(192, 96)
@@ -26,3 +26,4 @@ shape = SubResource("RectangleShape2D_s1fef")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1828555920]
 stream = ExtResource("3_fxlwe")
+bus = &"SFX"

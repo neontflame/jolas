@@ -403,9 +403,10 @@ position = Vector2(19169, 2605)
 
 [node name="TestNpc" parent="." unique_id=970102330 instance=ExtResource("18_1iouv")]
 position = Vector2(1120, 1536)
-dialogue = "diagTest.Neon"
+dialogue = "OnerbTest"
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1219481979]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" unique_id=1075467101 instance=ExtResource("20_0hju0")]
 position = Vector2(0, 6.1035156e-05)
@@ -428,24 +429,24 @@ levelInQuestion = "Sandlerhell"
 regionInQuestion = "MapaDeTestes"
 
 [node name="SonicBoostRing" parent="StageGizmos" unique_id=1351686043 instance=ExtResource("16_68uxh")]
-position = Vector2(512, 1408)
+position = Vector2(1536, 1408)
 
 [node name="SonicBoostRing2" parent="StageGizmos" unique_id=2119101782 instance=ExtResource("16_68uxh")]
-position = Vector2(512, 1024)
+position = Vector2(1536.0001, 1024)
 rotation = 0.2617994
 
 [node name="SonicBoostRing3" parent="StageGizmos" unique_id=1032727353 instance=ExtResource("16_68uxh")]
-position = Vector2(656, 656)
+position = Vector2(1680.0001, 656)
 rotation = 0.2617994
 
 [node name="SonicBoostRing4" parent="StageGizmos" unique_id=718053754 instance=ExtResource("16_68uxh")]
-position = Vector2(768, 352)
+position = Vector2(1792, 352)
 rotation = 1.5707964
 
 [node name="SonicBoostRing5" parent="StageGizmos" unique_id=1987226786 instance=ExtResource("16_68uxh")]
-position = Vector2(1152, 352)
+position = Vector2(2176, 352)
 rotation = 1.5707964
 
 [node name="SonicBoostRing6" parent="StageGizmos" unique_id=1800655355 instance=ExtResource("16_68uxh")]
-position = Vector2(1536, 352)
+position = Vector2(2560, 352)
 rotation = 1.5707964

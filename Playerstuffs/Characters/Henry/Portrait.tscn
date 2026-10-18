@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_cy4xq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 12.0
 }, {
@@ -40,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_bn8ny")
 }],
-"loop": false,
+"loop": 0,
 "name": &"png",
 "speed": 12.0
 }, {
@@ -54,7 +54,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_i1agu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"sad",
 "speed": 12.0
 }, {
@@ -68,7 +68,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_i5px4")
 }],
-"loop": false,
+"loop": 0,
 "name": &"yeah",
 "speed": 12.0
 }]

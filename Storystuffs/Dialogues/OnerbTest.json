@@ -1,0 +1,60 @@
+{
+	"dialogue": {
+		"line1": {
+			"char": "fkndavid",
+			"line": "ok entao tipo assim",
+			"mood": "default",
+			"position": "right"
+		},
+		"line2": {
+			"char": "fkndavid",
+			"line": "eu odeio [tornado]minorias[/tornado]",
+			"mood": "cool",
+			"position": "right"
+		},
+		"line3": {
+			"char": "neon",
+			"line": "...",
+			"mood": "confused",
+			"position": "left"
+		},
+		"line4": {
+			"char": "neon",
+			"line": "isso e meio errado de falar",
+			"mood": "confused",
+			"position": "left"
+		},
+		"line5": {
+			"char": "fkndavid",
+			"line": "eu sei.",
+			"mood": "default",
+			"position": "right"
+		},
+		"line6": {
+			"char": "fkndavid",
+			"line": "falei porque eu [tornado]odeio todo mundo igualmente[/tornado]",
+			"mood": "cool",
+			"position": "right"
+		},
+		"line7": {
+			"char": "fkndavid",
+			"line": "e isso inclui [tornado]voce[/tornado]",
+			"mood": "cool",
+			"position": "right"
+		},
+		"line8": {
+			"char": "henry",
+			"line": "",
+			"mood": "png",
+			"position": "left"
+		},
+		"line9": {
+			"char": "henry",
+			"line": "eu tambem to no dialogo",
+			"mood": "png",
+			"position": "left"
+		}
+	},
+	"questAssigned": "",
+	"questClear": ""
+}
