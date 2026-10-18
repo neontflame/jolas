@@ -6,15 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bd5aopvrphewb" path="res://Menustuffs/Ingame/FastTravel/placeGoThing.png" id="4_tun8v"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="5_tun8v"]
 
-[node name="MapaDeTestes" type="Node2D"]
+[node name="MapaDeTestes" type="Node2D" unique_id=2099489565]
 script = ExtResource("1_aywg7")
 
-[node name="MapaDeTestes" type="Sprite2D" parent="."]
+[node name="MapaDeTestes" type="Sprite2D" parent="." unique_id=708385222]
 texture = ExtResource("1_o84g8")
 
-[node name="Pins" type="Node2D" parent="."]
+[node name="Pins" type="Node2D" parent="." unique_id=749032270]
 
-[node name="Pin" parent="Pins" instance=ExtResource("2_4kjkx")]
+[node name="Pin" parent="Pins" unique_id=1281182433 instance=ExtResource("2_4kjkx")]
 position = Vector2(-87, 53)
 goto = Dictionary[String, String]({
 "DOWN": "-1",
@@ -24,7 +24,7 @@ goto = Dictionary[String, String]({
 })
 placeId = "TheThing"
 
-[node name="Pin2" parent="Pins" instance=ExtResource("2_4kjkx")]
+[node name="Pin2" parent="Pins" unique_id=2061188836 instance=ExtResource("2_4kjkx")]
 position = Vector2(-7, 24)
 coolId = 1
 isRelevant = false
@@ -36,7 +36,7 @@ goto = Dictionary[String, String]({
 })
 placeId = "Sandlerhell"
 
-[node name="Pin3" parent="Pins" instance=ExtResource("2_4kjkx")]
+[node name="Pin3" parent="Pins" unique_id=2138433316 instance=ExtResource("2_4kjkx")]
 position = Vector2(23, -31)
 coolId = 2
 isRelevant = false
@@ -48,7 +48,7 @@ goto = Dictionary[String, String]({
 })
 placeId = "OutroMapa"
 
-[node name="Pin4" parent="Pins" instance=ExtResource("2_4kjkx")]
+[node name="Pin4" parent="Pins" unique_id=445536700 instance=ExtResource("2_4kjkx")]
 position = Vector2(111, -47)
 coolId = 3
 goto = Dictionary[String, String]({
@@ -59,7 +59,7 @@ goto = Dictionary[String, String]({
 })
 placeId = "Sandlerdomain"
 
-[node name="Pin5" parent="Pins" instance=ExtResource("2_4kjkx")]
+[node name="Pin5" parent="Pins" unique_id=2101911454 instance=ExtResource("2_4kjkx")]
 position = Vector2(-100, -45)
 coolId = 4
 isRelevant = false
@@ -71,12 +71,12 @@ goto = Dictionary[String, String]({
 })
 placeId = "GreenHawntZone"
 
-[node name="PlaceGoThing" type="Sprite2D" parent="."]
+[node name="PlaceGoThing" type="Sprite2D" parent="." unique_id=1569356472]
 position = Vector2(-87, 43)
 texture = ExtResource("4_tun8v")
 offset = Vector2(0, -10)
 
-[node name="PlaceName" type="Label" parent="."]
+[node name="PlaceName" type="Label" parent="." unique_id=1660224906]
 offset_left = -211.0
 offset_top = 147.0
 offset_right = -1.0
@@ -86,7 +86,7 @@ theme_override_colors/font_color = Color(0.25098, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Nome do lugar"
 
-[node name="RegName" type="Label" parent="."]
+[node name="RegName" type="Label" parent="." unique_id=444105602]
 offset_left = 2.0
 offset_top = 146.0
 offset_right = 213.0

@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" format=3 uid="uid://djoi2qkryn4yn"]
+
+[ext_resource type="Script" uid="uid://0lhxan4cqrc1" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_jcywi"]
+[ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_4qjof"]
+[ext_resource type="Script" uid="uid://d218yx0d1ilsn" path="res://addons/rmsmartshape/normal_range.gd" id="4_p1hxk"]
+[ext_resource type="Texture2D" uid="uid://cqq8b2588ar01" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/parqueGrama.png" id="5_k7p6a"]
+[ext_resource type="Texture2D" uid="uid://jeq0tvlqhnoc" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/pseudorandomize.png" id="6_jrb15"]
+[ext_resource type="Script" uid="uid://nc5bfedvnpgm" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_8ygot"]
+
+[sub_resource type="Resource" id="Resource_685ea"]
+script = ExtResource("2_4qjof")
+textures = Array[Texture2D]([ExtResource("5_k7p6a")])
+use_corner_texture = false
+use_taper_texture = false
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_0nhx4"]
+script = ExtResource("4_p1hxk")
+distance = 360.0
+
+[sub_resource type="Resource" id="Resource_wfoaj"]
+script = ExtResource("1_jcywi")
+edge_material = SubResource("Resource_685ea")
+normal_range = SubResource("Resource_0nhx4")
+z_index = 1
+offset = -1.2
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Resource" id="Resource_c7duq"]
+script = ExtResource("2_4qjof")
+textures = Array[Texture2D]([ExtResource("6_jrb15")])
+randomize_texture = true
+use_corner_texture = false
+use_taper_texture = false
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_cia1m"]
+script = ExtResource("4_p1hxk")
+distance = 180.0
+
+[sub_resource type="Resource" id="Resource_mo23k"]
+script = ExtResource("1_jcywi")
+edge_material = SubResource("Resource_c7duq")
+normal_range = SubResource("Resource_cia1m")
+taper_sharp_corners = true
+offset = 0.10000000000000007
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jer22"]
+load_path = "res://.godot/imported/parqueGrama.png-2e2846fef2a8e85aaa4583adcbf4436f.ctex"
+
+[sub_resource type="Resource" id="Resource_sh18f"]
+script = ExtResource("2_4qjof")
+textures = Array[Texture2D]([SubResource("CompressedTexture2D_jer22")])
+use_corner_texture = false
+use_taper_texture = false
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_7f8vk"]
+script = ExtResource("4_p1hxk")
+distance = 360.0
+
+[sub_resource type="Resource" id="Resource_kig3e"]
+script = ExtResource("1_jcywi")
+edge_material = SubResource("Resource_sh18f")
+normal_range = SubResource("Resource_7f8vk")
+z_index = -12
+offset = -0.3999999999999999
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Gradient" id="Gradient_eeo3g"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.4, 0.8, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4qn3n"]
+gradient = SubResource("Gradient_eeo3g")
+
+[resource]
+script = ExtResource("7_8ygot")
+_edge_meta_materials = Array[ExtResource("1_jcywi")]([SubResource("Resource_wfoaj"), SubResource("Resource_mo23k"), SubResource("Resource_kig3e")])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_4qn3n")])
+metadata/_custom_type_script = "uid://nc5bfedvnpgm"

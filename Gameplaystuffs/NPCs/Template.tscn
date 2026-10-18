@@ -10,7 +10,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_wemd6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -18,22 +18,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xesd"]
 size = Vector2(110, 115)
 
-[node name="TestNpc" type="Node2D"]
+[node name="TestNpc" type="Node2D" unique_id=692453556]
 script = ExtResource("1_mfgud")
 
-[node name="NPC" type="AnimatedSprite2D" parent="."]
+[node name="NPC" type="AnimatedSprite2D" parent="." unique_id=1415490213]
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_gsrpb")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=600504944]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2069218484]
 position = Vector2(0, -57)
 shape = SubResource("RectangleShape2D_8xesd")
 
-[node name="InteractText" type="RichTextLabel" parent="."]
+[node name="InteractText" type="RichTextLabel" parent="." unique_id=465787720]
+z_index = 200
+z_as_relative = false
 offset_left = -68.0
 offset_top = -151.0
 offset_right = 68.0
