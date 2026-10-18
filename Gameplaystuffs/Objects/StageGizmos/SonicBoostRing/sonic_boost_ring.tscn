@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ba3mwa4us65ii"]
+
+[ext_resource type="Texture2D" uid="uid://crl8ghvjkjkqn" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/Sprites/sonic_boost_ring.png" id="1_ixt2p"]
+[ext_resource type="Script" uid="uid://47cvwldl0ttw" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/sonic_boost_ring.gd" id="1_r7pak"]
+[ext_resource type="AudioStream" uid="uid://c5lnxcd18dyjj" path="res://Soundstuffs/SFX/Ingame/Pop.wav" id="3_fxlwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
+size = Vector2(192, 96)
+
+[node name="SonicBoostRing" type="Node2D" unique_id=1351686043 node_paths=PackedStringArray("area", "area_collision", "ring_sprite", "sfx")]
+script = ExtResource("1_r7pak")
+area = NodePath("Area2D")
+area_collision = NodePath("Area2D/CollisionShape2D")
+ring_sprite = NodePath("RegularSprite")
+sfx = NodePath("AudioStreamPlayer2D")
+
+[node name="RegularSprite" type="Sprite2D" parent="." unique_id=1095975704]
+texture = ExtResource("1_ixt2p")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=337574642]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=685872773]
+shape = SubResource("RectangleShape2D_s1fef")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1828555920]
+stream = ExtResource("3_fxlwe")

@@ -6,6 +6,9 @@ func enter_state():
 	
 	Player.targetSpr.visible = true
 	
+	Player.jumping = false
+	Player.jumpsDone = 99
+	
 	# direcao default caso o player nao esteja mexendo porra nenhuma
 	if Player.get_player_vector() == Vector2.ZERO:
 		Player.hook_aim_direction = Player.motion.normalized()

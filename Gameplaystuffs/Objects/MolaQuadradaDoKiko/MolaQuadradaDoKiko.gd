@@ -102,6 +102,5 @@ func play_sfx(sfx: AudioStreamPlayer2D):
 	
 func _notification(what):
 	if what == NOTIFICATION_TRANSFORM_CHANGED:
-		print("oi")
 		queue_redraw()
 #endregion

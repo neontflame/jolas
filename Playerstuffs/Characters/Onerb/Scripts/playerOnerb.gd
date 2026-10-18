@@ -22,6 +22,10 @@ enum HookStatus {
 @export var hook_distance_gap: float = 32.0
 @export var max_hook_distance: float = 512.0
 @export var hook_momentum_gap: float = 1200.0
+@export var hookChances:int = 2
+var hooksTried:int = 0
+
+var canSpinny:bool = true
 @export_subgroup("")
 @export var cauda_tip_area: Area2D
 @export var cauda_tip_collision: CollisionShape2D
@@ -40,11 +44,6 @@ signal hook_failed
 #endregion
 
 var tweenEngracinho:Tween
-
-@export var hookChances:int = 2
-var hooksTried:int = 0
-
-var canSpinny:bool = true
 
 func _ready() -> void:
 	super()

@@ -61,40 +61,38 @@ _data = {
 &"boingoing": SubResource("Animation_l4l7j")
 }
 
-[node name="MolaQuadradaDoKiko" type="Node2D" node_paths=PackedStringArray("player_position", "spring_sound")]
+[node name="MolaQuadradaDoKiko" type="Node2D" unique_id=1206115055 node_paths=PackedStringArray("player_position", "spring_sound")]
 script = ExtResource("1_mwj7q")
 player_position = NodePath("MolaGames/Area2D/Marker2D")
 spring_sound = NodePath("AudioStreamPlayer")
 
-[node name="MolaGames" type="Node2D" parent="."]
+[node name="MolaGames" type="Node2D" parent="." unique_id=1251054368]
 
-[node name="Sprite2D" type="Sprite2D" parent="MolaGames"]
+[node name="Sprite2D" type="Sprite2D" parent="MolaGames" unique_id=420954179]
 texture = ExtResource("2_0jm0m")
 offset = Vector2(0, -64)
 
-[node name="MolaCima" type="Sprite2D" parent="MolaGames"]
+[node name="MolaCima" type="Sprite2D" parent="MolaGames" unique_id=2028518367]
 position = Vector2(1, -131)
 texture = ExtResource("3_3w600")
 offset = Vector2(0, 16)
 
-[node name="Area2D" type="Area2D" parent="MolaGames"]
+[node name="Area2D" type="Area2D" parent="MolaGames" unique_id=795014972]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MolaGames/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MolaGames/Area2D" unique_id=1401789723]
 position = Vector2(0, -120)
 shape = SubResource("RectangleShape2D_gr4ie")
 
-[node name="Marker2D" type="Marker2D" parent="MolaGames/Area2D"]
+[node name="Marker2D" type="Marker2D" parent="MolaGames/Area2D" unique_id=778404147]
 position = Vector2(0, -112)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_aeohk"),
-&"mola_quadrada_do_kiko": SubResource("AnimationLibrary_tmxdb")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=122955188]
+libraries/ = SubResource("AnimationLibrary_aeohk")
+libraries/mola_quadrada_do_kiko = SubResource("AnimationLibrary_tmxdb")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1593888558]
 stream = ExtResource("3_j3f0v")
 bus = &"SFX"
 
