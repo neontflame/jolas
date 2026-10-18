@@ -1,93 +1,17 @@
 extends "res://Playerstuffs/StateMachinery/airSt.gd"
 
+func enter_state():
+	Player.plySprite.speed_scale = 1
+	Player.shakeForce = 0
+	# print('Enter Air')
+	await get_tree().process_frame
+	
+	if Player.jumping == true:
+		Player.play_sfx('Jump', 10)
+	Player.plySprite.play('jump')
+
 func update():
-	if !Player.canDoCharge && !Player.isSpecialing:
-		super.update();
+	super.update()
 		
-	if Player.canDoCharge:
-		Player.handlePhys()
-		Player.handleMovement()
-		Player.base_camera_offset.x = (-Player.charge if Player.plySprite.flip_h else Player.charge) / 10
-		
-		if Player.is_on_floor():
-			Player.canDoCharge = false
-			Player.change_state(Player.state_machine.st_floor)
-		
-	if !Player.isSpecialing && Player.movementEnabled:
-		if Input.is_action_just_pressed("ctrl_2"):
-			Player.canDoCharge = true
-			Player.charge = 800
-			Player.plySprite.play('specialCharge')
-			
-		if Input.is_action_pressed("ctrl_2") && Player.canDoCharge:
-			Player.handleCameraSpecial()
-			Player.apply_player_gravity(10.0)
-			
-			if Player.motion.y < 0.0:
-				Player.motion.y = lerp(Player.motion.y, 0.0, 0.05)
-			
-			Player.charge = lerp(Player.charge, 1920.0, 0.05)
-			Player.shakeForce = Player.charge * 0.005
-			# voce pode agora mudar de direçao no ar
-			if Input.is_action_pressed("ctrl_right"):
-				Player.plySprite.flip_h = false
-			if Input.is_action_pressed("ctrl_left"):
-				Player.plySprite.flip_h = true
-		else:
-			Player.handleCamera()
-				
-		if Input.is_action_just_released("ctrl_2") && Player.canDoCharge:
-			Player.shakeForce = 0
-			Player.base_camera_offset.x = 0
-			Player.plySprite.play('specialGo')
-			Player.play_sfx('Release', 0)
-			if Player.plySprite.flip_h:
-				Player.position.x += 1
-				Player.motion.x = -Player.charge
-			else:
-				Player.position.x -= 1
-				Player.motion.x = Player.charge
-			
-			Player.motion.y = Player.charge * -0.25
-			Player.motion.y += Player.charge * 0.45 * Input.get_vector("ctrl_left", "ctrl_right", "ctrl_up", "ctrl_down").y
-			# FRENTE
-			Player.make_hitbox(	Vector2(30.0, 8.0),
-								Vector2(3.5, 2.75),
-								Player.ATTACK_DMG_LVL['default'],
-								250,
-								-40
-			)
-			#TRAS
-			Player.make_hitbox(	Vector2(-30.0, 8.0),
-								Vector2(3, 2),
-								Player.ATTACK_DMG_LVL['default'] / 2,
-								250,
-								-40
-			)
-			Player.canDoCharge = false
-			Player.isSpecialing = true
-			Player.jumping = false
-			
-	if Player.isSpecialing:
-		Player.handlePhys()
-		Player.handleCamera()
-		Player.apply_player_gravity()
-		if Player.is_on_wall():
-			var intendedMotionX = abs(Player.nonZeroXVel)
-			print(intendedMotionX)
-			if Player.is_on_wall_side('left'):
-				Player.motion.x = intendedMotionX * 0.325
-			if Player.is_on_wall_side('right'):
-				Player.motion.x = intendedMotionX * -0.325
-			print(Player.motion.x)
-				
-			Player.motion.y = abs(Player.nonZeroXVel) * -0.35
-			Player.isSpecialing = false
-			Player.delete_hitboxes()
-			Player.plySprite.play('specialBounceback')
-			
-		if Player.is_on_floor():
-			Player.delete_hitboxes()
-			Player.isSpecialing = false
-			Player.invulnFrames = 4.0
-			Player.change_state(Player.state_machine.st_floor)
+	if Input.is_action_pressed("ctrl_2"):
+		Player.change_state(Player.state_machine.charge)

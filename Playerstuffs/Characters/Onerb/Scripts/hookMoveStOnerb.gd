@@ -17,8 +17,8 @@ func update():
 
 func move_to_hook() -> void:
 	# move essa porra
-	var dir_vec: Vector2 = Player.hook_aim_direction.normalized()
-	Player.motion = dir_vec * Player.hook_momentum
+	var dir_vec: Vector2 = Player.caudaEnd.global_position - Player.global_position
+	Player.motion = dir_vec.normalized() * Player.hook_momentum
 	
 	# deixa o rabo preso la
 	Player.caudaEnd.global_position = Player.next_hook_position

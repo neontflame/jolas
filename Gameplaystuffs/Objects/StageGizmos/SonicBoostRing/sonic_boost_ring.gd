@@ -39,6 +39,9 @@ func on_body_entered(body: Node2D) -> void:
 		await get_tree().process_frame
 		body.motion = Vector2.UP.rotated(rotation) * ring_strength
 		
+		if body.motion.x != 0.0:
+			body.plySprite.flip_h = false if sign(body.motion.x) > 0.0 else true
+		
 		# toca o som
 		sfx.play()
 		sfx.pitch_scale = randf_range(0.8, 1.2)
@@ -54,7 +57,7 @@ func ring_tween_animation() -> void:
 	ring_tween = create_tween().set_parallel()
 	
 	ring_tween.tween_property(
-		ring_sprite, "scale", Vector2.ONE, 0.25
+		ring_sprite, "scale", Vector2.ONE, 0.5
 	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SPRING)
 	
 	ring_tween.tween_property(

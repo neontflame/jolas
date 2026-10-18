@@ -14,6 +14,9 @@ func enter_state():
 		return
 	Player.shakeForce = 0.0
 	Player.plySprite.play("bubbleLaunch")
+	
+	if not Player.jumping:
+		Player.plySprite.play('fall')
 
 var prevMotionX := 0.0
 

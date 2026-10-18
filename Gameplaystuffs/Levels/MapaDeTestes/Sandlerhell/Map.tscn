@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cj3o0628rhdue" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteRight.png" id="10_dciko"]
 [ext_resource type="Script" uid="uid://llobjh5hvry" path="res://addons/rmsmartshape/shapes/mesh.gd" id="10_yfn2x"]
 [ext_resource type="Resource" uid="uid://c2shemsecbh8o" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/floorResource.tres" id="11_f1lar"]
+[ext_resource type="PackedScene" uid="uid://ba3mwa4us65ii" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/sonic_boost_ring.tscn" id="15_2xxc7"]
 
 [sub_resource type="Resource" id="Resource_bqkw8"]
 script = ExtResource("8_dciko")
@@ -67,6 +68,12 @@ point_in = Vector2(-256, 0)
 script = ExtResource("8_dciko")
 position = Vector2(4480, 256)
 texture_idx = 1
+
+[sub_resource type="Resource" id="Resource_ewyfl"]
+script = ExtResource("8_dciko")
+position = Vector2(4992, 384)
+texture_idx = 10
+width = 0.0
 
 [sub_resource type="Resource" id="Resource_vupnx"]
 script = ExtResource("8_dciko")
@@ -170,12 +177,6 @@ position = Vector2(-256, 0)
 script = ExtResource("8_dciko")
 position = Vector2(-256, 512)
 
-[sub_resource type="Resource" id="Resource_ewyfl"]
-script = ExtResource("8_dciko")
-position = Vector2(4992, 384)
-texture_idx = 10
-width = 0.0
-
 [sub_resource type="Resource" id="Resource_bae5a"]
 script = ExtResource("8_dciko")
 position = Vector2(4928, 384)
@@ -238,16 +239,16 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AGAdRAAA+0MAAAAAAKBKRAAA5UMAAAAAAABiRAAA4EMAAAAAABl2RAD240MAAAAAALSDRABw7kMAAAAAAPDPRABgAUQAAAAAAADQRAAAAEQAAAAAAAAQRQAAAEQAAAAAAAAQRQAAwEMAAAAAAAA4RQAAwEMAAAAAAIBBRQAAtkMAAAAAAIBORQAAikMAAAAAALBSRQDAgkMAAAAAAABYRQAAgEMAAAAAAACMRQAAgEMAAAAAAACaRQAAwEMAAAAAAACcRQAAwEMAAAAAAACcRQAACEQAAAAAAACIRQAAIEQAAAAAAACERQAAQEQAAAAAAAB4RQAAQEQAAAAAAABgRQAAYEQAAAAAAAB4RQAAYEQAAAAAAEqFRQAAZUQAAAAAAACcRQAAgEQAAAAAAACkRQAAgEQAAAAAsLukRQAugEQAAAAAgG+lRQCwgEQAAAAAAMSmRQCAgkQAAAAA4EbDRYCRhUQAAAAAAADERQAAgEQAAAAAAADIRQAAgEQAAAAAAADIRQAAcEQAAAAAAADMRQAAcEQAAAAAAADQRQAAYEQAAAAAAADoRQAAYEQAAAAAAADAwwAAwEQAAAAAAADAwwAAAAAAAAAAAACAwwAAAAAAAAAAAIDPRAAABUQAAAAAAFA9RQBAvUMAAAAAAABwRQAAIEQAAAAAAG6SRQAAe0QAAAAAdN7CRRDKh0QAAAAAAACAwwAAAEQAAAAAABygRACoF0QAAAAAAAbPRABsB0QAAAAAALyrRQCAjUQAAAAAAG/CRQCsiUQAAAAAAADoRQAAwEQAAAAAgJenRABdHUQAAAAAAFDORAAgCkQAAAAALPnBRXA+i0QAAAAA8KerRKAhH0QAAAAAAFLNRAAEDUQAAAAAoH3BRYCIjEQAAAAAAADMRAAAEEQAAAAAAABgRQAAIEQAAAAAgBCtRQBQj0QAAAAABP3ARVCRjUQAAAAAAE7KRAD8EkQAAAAAUMStRQDSj0QAAAAAADDIRADgFUQAAAAAAHjARQBgjkQAAAAAAJrFRACUGEQAAAAAYGO/RYBrj0QAAAAAAIDCRAAAG0QAAAAAAEW+RQDkj0QAAAAAAJC6RACgHkQAAAAAAAC8RQAAkEQAAAAAAICuRQAAkEQAAAAAAACwRAAAIEQAAAAAAAAGRAAAAEQAAAAA/////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////78=")
 }]
 
-[sub_resource type="Gradient" id="Gradient_fwipl"]
-offsets = PackedFloat32Array(0.005524862)
-colors = PackedColorArray(0.36862746, 0.36862746, 0.36862746, 1)
+[sub_resource type="Gradient" id="Gradient_r77yv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.4745098, 0.22745098, 0.5019608, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kin0d"]
-gradient = SubResource("Gradient_fwipl")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3atr6"]
+gradient = SubResource("Gradient_r77yv")
 
 [sub_resource type="Resource" id="Resource_ch715"]
 script = ExtResource("10_yfn2x")
-texture = SubResource("GradientTexture1D_kin0d")
+texture = SubResource("GradientTexture1D_3atr6")
 mesh = SubResource("ArrayMesh_2f2b8")
 z_index = -10
 
@@ -858,3 +859,9 @@ position = Vector2(7163, 875)
 scale = Vector2(3.535, 154.325)
 levelInQuestion = "OutroMapa"
 regionInQuestion = "MapaDeTestes"
+
+[node name="SonicBoostRing" parent="." unique_id=1351686043 instance=ExtResource("15_2xxc7")]
+position = Vector2(5120, 912)
+
+[node name="SonicBoostRing2" parent="." unique_id=1893718021 instance=ExtResource("15_2xxc7")]
+position = Vector2(5120, 560)

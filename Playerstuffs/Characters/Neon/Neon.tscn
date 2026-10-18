@@ -7,13 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dgdfnf85axlmo" path="res://Playerstuffs/Characters/Neon/Sprites/neon brake.png" id="4_0nyvt"]
 [ext_resource type="Script" uid="uid://d4ee040kauey0" path="res://Playerstuffs/Characters/Neon/Scripts/defaultStNeon.gd" id="4_8244u"]
 [ext_resource type="Script" uid="uid://cgtsk4hvyjdcm" path="res://Playerstuffs/Characters/Neon/Scripts/floorStNeon.gd" id="4_shed0"]
-[ext_resource type="Script" uid="uid://b6ylylstvd0da" path="res://Playerstuffs/Characters/Neon/Scripts/extraStNeon.gd" id="5_k3kgu"]
+[ext_resource type="Script" uid="uid://b6ylylstvd0da" path="res://Playerstuffs/Characters/Neon/Scripts/releaseStNeon.gd" id="5_k3kgu"]
 [ext_resource type="Texture2D" uid="uid://hn1btwdaixm7" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0001.png" id="6_k3kgu"]
 [ext_resource type="Texture2D" uid="uid://dwauf58m4fauv" path="res://Playerstuffs/Characters/Neon/Sprites/neon Yeouch0002.png" id="7_edtyq"]
 [ext_resource type="Texture2D" uid="uid://dmrdp6eamgb7j" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0001.png" id="7_nyp1u"]
 [ext_resource type="Texture2D" uid="uid://bkc7avym75tby" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0001.png" id="8_cjni4"]
+[ext_resource type="Script" uid="uid://br7ya1tsly764" path="res://Playerstuffs/Characters/Neon/Scripts/chargeStNeon.gd" id="8_ckb42"]
 [ext_resource type="Texture2D" uid="uid://bhn7grjnol0bp" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0002.png" id="8_orwjl"]
 [ext_resource type="Texture2D" uid="uid://dw36lpq6313m" path="res://Playerstuffs/Characters/Neon/Sprites/neon jump0002.png" id="9_3gnpl"]
+[ext_resource type="Script" uid="uid://87se8ecvcbe3" path="res://Playerstuffs/Characters/Neon/Scripts/wallKickStNeon.gd" id="9_odujv"]
 [ext_resource type="Texture2D" uid="uid://cjjcie2cthgik" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0003.png" id="9_xgcps"]
 [ext_resource type="Texture2D" uid="uid://cw5dbkx0opjf5" path="res://Playerstuffs/Characters/Neon/Sprites/neonRun0001.png" id="10_ors8w"]
 [ext_resource type="Texture2D" uid="uid://bsdlp6p8c3ag6" path="res://Playerstuffs/Characters/Neon/Sprites/neon sonicBattleSpin0004.png" id="10_skd0q"]
@@ -194,8 +196,16 @@ script = ExtResource("4_shed0")
 [node name="Air" parent="StateMachine" index="2" unique_id=521348263]
 script = ExtResource("3_asxp3")
 
-[node name="ExtraState" type="Node" parent="StateMachine" index="3" unique_id=1120351662]
+[node name="Charge" type="Node" parent="StateMachine" index="5" unique_id=1262424830]
+script = ExtResource("8_ckb42")
+metadata/_custom_type_script = "uid://cm7lxkrnvk3gc"
+
+[node name="Release" type="Node" parent="StateMachine" index="6" unique_id=1120351662]
 script = ExtResource("5_k3kgu")
+
+[node name="WallKick" type="Node" parent="StateMachine" index="7" unique_id=1254593022]
+script = ExtResource("9_odujv")
+metadata/_custom_type_script = "uid://cwhd6xyoef8gf"
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=912736551]
 scale = Vector2(0.46, 0.68)
@@ -208,8 +218,9 @@ collision_mask = 3
 
 [node name="AnimatedSprite2D" parent="." index="3" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_rhcf3")
-animation = &"default"
-frame_progress = 0.245725
+animation = &"jump"
+frame = 1
+frame_progress = 1.0
 
 [node name="MultiplayerName" parent="." index="6" unique_id=31252319]
 offset_top = -77.0

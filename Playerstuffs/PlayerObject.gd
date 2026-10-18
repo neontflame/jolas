@@ -390,11 +390,13 @@ func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 # roubei do breno creditos pra ele
 func change_state(new_state):
 	if new_state != null:
+		if new_state == current_state:
+			return
 		# muda os estados
 		previous_state = current_state
+		previous_state.exit_state()
 		current_state = new_state
 		# ativa as funcoes dos estados
-		previous_state.exit_state()
 		current_state.enter_state()
 
 func add_xp(xp:float):

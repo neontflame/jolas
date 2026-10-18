@@ -10,6 +10,8 @@ func enter_state():
 			Player.plySprite.play('vault')
 		else:
 			Player.plySprite.play('jump')
+	else:
+		Player.plySprite.play('fall')
 	
 func update():
 	super.update()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yua6e7d1dyei"
-path="res://.godot/imported/molaCima.png-5bcce412a163564190697e526d836d5c.ctex"
+uid="uid://bs5w46fegdnvt"
+path="res://.godot/imported/molaCoiso.png-e4f0c95a4db8a2fc268181c9bf9b3969.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/molaCima.png"
-dest_files=["res://.godot/imported/molaCima.png-5bcce412a163564190697e526d836d5c.ctex"]
+source_file="res://Gameplaystuffs/Objects/StageGizmos/MolaQuadradaDoKiko/molaCoiso.png"
+dest_files=["res://.godot/imported/molaCoiso.png-e4f0c95a4db8a2fc268181c9bf9b3969.ctex"]
 
 [params]
 

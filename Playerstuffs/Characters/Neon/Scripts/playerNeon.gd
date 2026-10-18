@@ -39,8 +39,8 @@ func level_up():
 	super.level_up()
 
 func hitbox_connect(hit:OffensiveHitbox, type:String):
-	# print('connec')
 	connectAttack(2, Vector2(250, -250))
+	change_state(state_machine.wall_kick)
 
 func on_spring(vel:Vector2):
 	isSpecialing = false

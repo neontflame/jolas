@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cq82etijoas4b"
-path="res://.godot/imported/FancySpring.wav-c220e5d9fdfae18971eb38706bb71dc1.sample"
+path="res://.godot/imported/FancySpring.wav-3fba40398665bde71288c34a1e7e9aa5.sample"
 
 [deps]
 
-source_file="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/Sounds/FancySpring.wav"
-dest_files=["res://.godot/imported/FancySpring.wav-c220e5d9fdfae18971eb38706bb71dc1.sample"]
+source_file="res://Gameplaystuffs/Objects/StageGizmos/MolaQuadradaDoKiko/Sounds/FancySpring.wav"
+dest_files=["res://.godot/imported/FancySpring.wav-3fba40398665bde71288c34a1e7e9aa5.sample"]
 
 [params]
 

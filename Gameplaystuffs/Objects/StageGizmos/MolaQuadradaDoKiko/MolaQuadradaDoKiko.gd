@@ -3,16 +3,20 @@ extends Node2D
 class_name MolaQuadradaDoKiko
 
 @export_category("SpringSetup")
+## força da mola. ela tem uma preview demonstrada no editor com a linha vede
 @export_range(0.0, 10000.0) var launch_force: float = 1000.0:
 	set(v):
 		launch_force = v
 		queue_redraw()
 
-@export_range(0.1, 2.0) var spring_speed: float = 1.0
+## velocidade de animacao da mola
+@export_range(0.1, 5.0, 0.1) var spring_speed: float = 1.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export_category("Tech Stuff")
+## posicao onde o player ficará preso
 @export var player_position: Marker2D
+## som da mola
 @export var spring_sound: AudioStreamPlayer2D
 
 var current_object: CharacterBody2D
@@ -75,8 +79,12 @@ func release_player():
 	if current_object is PlayerObject:
 		if not current_object.current_state == current_object.state_machine.st_air:
 			current_object.change_state(current_object.state_machine.st_air)
+			
 		await get_tree().process_frame # perdao isso VAI ocorrer novamente
+		
 		current_object.motion = get_launch_velocity(current_object)
+		if current_object.motion.x != 0.0:
+			current_object.plySprite.flip_h = false if sign(current_object.motion.x) > 0.0 else true
 		current_object.walkingEnabled = true
 		current_object.jumping = false
 		current_object.jumpsDone = 99

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://s3vin3ndywwa" path="res://Gameplaystuffs/MapUtilities/CameraBound.tscn" id="18_eeo3g"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="19_sqdkp"]
 [ext_resource type="PackedScene" uid="uid://c235ewedswe5c" path="res://Gameplaystuffs/Mobs/RoBawnt/robawnt_enemy.tscn" id="20_x5viq"]
-[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="21_0ph1c"]
+[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/StageGizmos/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="21_0ph1c"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Gameplaystuffs/MapUtilities/GoToLevel.tscn" id="22_i0wfw"]
 [ext_resource type="PackedScene" uid="uid://c7126jtqd6ggh" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/especulante_background.tscn" id="22_i8jbm"]
 

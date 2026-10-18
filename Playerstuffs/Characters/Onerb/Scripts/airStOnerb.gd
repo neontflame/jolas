@@ -7,6 +7,8 @@ func enter_state():
 	if Player.jumping == true:
 		Player.play_char_sfx("fpa_jump", "Onerb", 10.0, randf_range(0.8, 1.2))
 		Player.plySprite.play('jump')
+	else:
+		Player.plySprite.play('fall')
 
 func update():
 	super()

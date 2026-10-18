@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://swibihrhyi68"]
+[gd_scene format=3 uid="uid://swibihrhyi68"]
 
 [ext_resource type="PackedScene" uid="uid://bv0kwtpveitw3" path="res://Playerstuffs/player.tscn" id="1_lx2ml"]
 [ext_resource type="Script" uid="uid://boadx05adikdb" path="res://Playerstuffs/Characters/FknDavid/Scripts/playerFuckingDavid.gd" id="2_2aac8"]
@@ -45,7 +45,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_2aac8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"battleSpin",
 "speed": 12.0
 }, {
@@ -53,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_f3t5a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"brake",
 "speed": 5.0
 }, {
@@ -61,7 +61,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_f3t5a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"chargedash",
 "speed": 5.0
 }, {
@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_vhm54")
 }],
-"loop": false,
+"loop": 0,
 "name": &"dash",
 "speed": 12.0
 }, {
@@ -80,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_af4ya")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -91,7 +91,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_lh6l0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hurt",
 "speed": 24.0
 }, {
@@ -102,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_2o4ca")
 }],
-"loop": false,
+"loop": 0,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -116,7 +116,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_25u5a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 24.0
 }, {
@@ -133,7 +133,7 @@ animations = [{
 "duration": 4.0,
 "texture": ExtResource("20_j45sp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"useItem",
 "speed": 24.0
 }, {
@@ -150,12 +150,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_smmf6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 24.0
 }]
 
-[node name="Player" instance=ExtResource("1_lx2ml")]
+[node name="Player" unique_id=1826199030 instance=ExtResource("1_lx2ml")]
 script = ExtResource("2_2aac8")
 dashSpeed = 1200.0
 dashAttenuate = 0.25
@@ -171,19 +171,19 @@ ATTACK_DMG = Dictionary[String, float]({
 "default": 2.5
 })
 
-[node name="StateMachine" parent="." index="0"]
+[node name="StateMachine" parent="." index="0" unique_id=1536097381]
 script = ExtResource("2_h3u8p")
 
-[node name="Floor" parent="StateMachine" index="0"]
+[node name="Floor" parent="StateMachine" index="1" unique_id=1326715689]
 script = ExtResource("4_f3t5a")
 
-[node name="Dash" type="Node" parent="StateMachine" index="4"]
+[node name="Dash" type="Node" parent="StateMachine" index="4" unique_id=776259491]
 script = ExtResource("3_kfjo7")
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="2" unique_id=912736551]
 scale = Vector2(0.355, 0.95)
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1389142644]
 sprite_frames = SubResource("SpriteFrames_w5j1r")
 animation = &"jump"
 offset = Vector2(0, -9)

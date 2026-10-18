@@ -4,9 +4,13 @@ func enter_state():
 	Player.plySprite.speed_scale = 1;
 	Player.shakeForce = 0
 	# print('Enter Air')
+	await get_tree().process_frame
+	
 	if Player.jumping == true:
 		Player.play_sfx('Jump', 10)
 		Player.plySprite.play('jump')
+	else:
+		Player.plySprite.play('fall')
 	
 func update():
 	Player.handlePhys()

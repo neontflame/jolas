@@ -13,7 +13,8 @@ func _ready() -> void:
 		await GameInit.setupGameInfo()
 		GPStats.curMap = name
 		GPStats.curRegion = GameUtils.get_region_from_map(GPStats.curMap)
-		GPStats.char = GameUtils.get_chars().pick_random()
+		#GPStats.char = GameUtils.get_chars().pick_random()
+		GPStats.char = "Neon"
 		GPStats.saveSlot = 999
 		GeneralUtils.loadScene("res://Gamestuffs/Game.tscn")
 		return

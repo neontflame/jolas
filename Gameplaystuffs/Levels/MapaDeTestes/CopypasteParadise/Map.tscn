@@ -19,8 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://cmp2r0r1gy28r" path="res://Gameplaystuffs/Bosses/BigSandler/BigSandler.tscn" id="21_gtobd"]
 [ext_resource type="PackedScene" uid="uid://e1ynj776x83b" path="res://Gameplaystuffs/Mobs/Sandler/Sandler.tscn" id="21_ux8dd"]
 [ext_resource type="PackedScene" uid="uid://c235ewedswe5c" path="res://Gameplaystuffs/Mobs/RoBawnt/robawnt_enemy.tscn" id="22_81k1u"]
-[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="23_wnq31"]
+[ext_resource type="PackedScene" uid="uid://da8qxbrdt7dc4" path="res://Gameplaystuffs/Objects/StageGizmos/MolaQuadradaDoKiko/MolaQuadradaDoKiko.tscn" id="23_wnq31"]
 [ext_resource type="PackedScene" uid="uid://sterqndmf51e" path="res://Gameplaystuffs/MapUtilities/GoToLevel.tscn" id="24_jql6u"]
+
+[sub_resource type="Resource" id="Resource_oi1y6"]
+script = ExtResource("5_6n2nw")
+position = Vector2(112, 2048)
 
 [sub_resource type="Resource" id="Resource_xcos6"]
 script = ExtResource("5_6n2nw")
@@ -72,6 +76,11 @@ texture_idx = 5
 script = ExtResource("5_6n2nw")
 position = Vector2(112, 2048)
 
+[sub_resource type="Resource" id="Resource_6n2nw"]
+script = ExtResource("5_6n2nw")
+position = Vector2(512, 1536)
+point_in = Vector2(0, 256)
+
 [sub_resource type="Resource" id="Resource_4njmt"]
 script = ExtResource("5_6n2nw")
 position = Vector2(1920, 1792)
@@ -85,18 +94,9 @@ point_in = Vector2(-256, 0)
 script = ExtResource("5_6n2nw")
 position = Vector2(1920, 2304)
 
-[sub_resource type="Resource" id="Resource_oi1y6"]
-script = ExtResource("5_6n2nw")
-position = Vector2(112, 2048)
-
 [sub_resource type="Resource" id="Resource_5vxtu"]
 script = ExtResource("5_6n2nw")
 position = Vector2(768, 1792)
-
-[sub_resource type="Resource" id="Resource_6n2nw"]
-script = ExtResource("5_6n2nw")
-position = Vector2(512, 1536)
-point_in = Vector2(0, 256)
 
 [sub_resource type="Resource" id="Resource_shcxj"]
 script = ExtResource("6_k3a83")
@@ -600,8 +600,9 @@ position = Vector2(768, 2256)
 [node name="StageGizmos" type="Node2D" parent="." unique_id=231473017]
 
 [node name="MolaQuadradaDoKiko" parent="StageGizmos" unique_id=1717356444 instance=ExtResource("23_wnq31")]
-position = Vector2(1408, 1527)
+position = Vector2(1408, 1536.0001)
 scale = Vector2(0.77, 0.48)
+spring_speed = 3.0
 
 [node name="GoToLevel" parent="StageGizmos" unique_id=1717154976 instance=ExtResource("24_jql6u")]
 position = Vector2(19342, 1322)
@@ -610,7 +611,7 @@ levelInQuestion = "Sandlerhell"
 regionInQuestion = "MapaDeTestes"
 
 [node name="SonicBoostRing" parent="StageGizmos" unique_id=1351686043 instance=ExtResource("16_68uxh")]
-position = Vector2(1664, 1472)
+position = Vector2(1664, 1424)
 
 [node name="Instrucoes e Textos" type="Control" parent="." unique_id=1361382955]
 layout_mode = 3
@@ -641,9 +642,9 @@ autowrap_mode = 2
 [node name="Label4" type="Label" parent="Instrucoes e Textos" unique_id=1018498989]
 layout_mode = 0
 offset_left = 1536.0
-offset_top = 1328.0
+offset_top = 1296.0
 offset_right = 1792.0
-offset_bottom = 1408.0
+offset_bottom = 1376.0
 theme = ExtResource("17_gdnya")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
