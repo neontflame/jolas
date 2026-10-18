@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7126jtqd6ggh"]
 
-[ext_resource type="Script" uid="uid://btlwdckxkixkb" path="res://Gameplaystuffs/Levels/especulamente.com.br/especulante_background.gd" id="1_l1c1y"]
+[ext_resource type="Script" uid="uid://btlwdckxkixkb" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/especulante_background.gd" id="1_l1c1y"]
 [ext_resource type="Script" uid="uid://clf5iqelrjavx" path="res://Gameplaystuffs/MapUtilities/ParallaxComponent/parallax_component.gd" id="1_v4xj6"]
-[ext_resource type="Texture2D" uid="uid://cqbuyd05soqvb" path="res://Gameplaystuffs/Levels/especulamente.com.br/EspeculanteBackground.png" id="2_rv7cv"]
+[ext_resource type="Texture2D" uid="uid://cqbuyd05soqvb" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/EspeculanteBackground.png" id="2_rv7cv"]
 
 [node name="EspeculanteBackground" type="Node" node_paths=PackedStringArray("spritePica")]
 script = ExtResource("1_l1c1y")

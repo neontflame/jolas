@@ -62,7 +62,7 @@ script = ExtResource("1_pkttu")
 edge_material = SubResource("Resource_c7duq")
 normal_range = SubResource("Resource_cia1m")
 taper_sharp_corners = true
-offset = 0.10000000000000009
+offset = 0.10000000000000007
 metadata/_custom_type_script = "uid://0lhxan4cqrc1"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jer22"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqbuyd05soqvb"
-path="res://.godot/imported/EspeculanteBackground.png-1a04011752c5cfffa744f9550e8627e6.ctex"
+path="res://.godot/imported/EspeculanteBackground.png-c2f7defd684dd4b2cbd435e41e9c7a4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Levels/especulamente.com.br/EspeculanteBackground.png"
-dest_files=["res://.godot/imported/EspeculanteBackground.png-1a04011752c5cfffa744f9550e8627e6.ctex"]
+source_file="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/EspeculanteBackground.png"
+dest_files=["res://.godot/imported/EspeculanteBackground.png-c2f7defd684dd4b2cbd435e41e9c7a4e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4h2cu1i74ex0"
-path="res://.godot/imported/chaoTeste.png-eb61c1dda743a5090a88f5a07261182d.ctex"
+uid="uid://cj3o0628rhdue"
+path="res://.godot/imported/chaoTesteRight.png-4a4b0f1b732e5fc8ca23f84c2d047e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gameplaystuffs/Levels/MapaDeTestes/chaoTeste.png"
-dest_files=["res://.godot/imported/chaoTeste.png-eb61c1dda743a5090a88f5a07261182d.ctex"]
+source_file="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteRight.png"
+dest_files=["res://.godot/imported/chaoTesteRight.png-4a4b0f1b732e5fc8ca23f84c2d047e64.ctex"]
 
 [params]
 

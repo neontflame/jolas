@@ -2,25 +2,33 @@
 
 [ext_resource type="Script" uid="uid://0lhxan4cqrc1" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_7sf1h"]
 [ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_viq7u"]
-[ext_resource type="Texture2D" uid="uid://c4h2cu1i74ex0" path="res://Gameplaystuffs/Levels/MapaDeTestes/chaoTeste.png" id="3_x6xc4"]
+[ext_resource type="Texture2D" uid="uid://c4h2cu1i74ex0" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTeste.png" id="3_x6xc4"]
 [ext_resource type="Script" uid="uid://d218yx0d1ilsn" path="res://addons/rmsmartshape/normal_range.gd" id="4_03rvm"]
+[ext_resource type="Texture2D" uid="uid://c7yb2mphrwsrk" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteLeft.png" id="4_x6xc4"]
+[ext_resource type="Texture2D" uid="uid://cj3o0628rhdue" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteRight.png" id="5_03rvm"]
 [ext_resource type="Script" uid="uid://nc5bfedvnpgm" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_m07wq"]
 
 [sub_resource type="Resource" id="Resource_rqej7"]
 script = ExtResource("2_viq7u")
 textures = Array[Texture2D]([ExtResource("3_x6xc4")])
+textures_taper_left = Array[Texture2D]([ExtResource("4_x6xc4")])
+textures_taper_right = Array[Texture2D]([ExtResource("5_03rvm")])
+textures_taper_corner_left = Array[Texture2D]([ExtResource("4_x6xc4")])
+textures_taper_corner_right = Array[Texture2D]([ExtResource("5_03rvm")])
 use_corner_texture = false
-use_taper_texture = false
+fit_mode = 1
 metadata/_custom_type_script = "uid://d0xjijisx1woh"
 
 [sub_resource type="Resource" id="Resource_f67cf"]
 script = ExtResource("4_03rvm")
-distance = 360.0
+begin = 45.0
+distance = 90.0
 
 [sub_resource type="Resource" id="Resource_n4324"]
 script = ExtResource("1_7sf1h")
 edge_material = SubResource("Resource_rqej7")
 normal_range = SubResource("Resource_f67cf")
+offset = -0.7999999999999998
 metadata/_custom_type_script = "uid://0lhxan4cqrc1"
 
 [sub_resource type="Gradient" id="Gradient_0w5yj"]
@@ -29,8 +37,9 @@ colors = PackedColorArray(0, 0, 0, 0.7372549, 0, 0, 0, 0.21568628)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sit1g"]
 gradient = SubResource("Gradient_0w5yj")
 width = 5
-height = 10
-fill_to = Vector2(0, 0.21367522)
+height = 16
+fill_from = Vector2(0, 0.13675214)
+fill_to = Vector2(0, 0.4059829)
 
 [sub_resource type="Resource" id="Resource_wj2st"]
 script = ExtResource("2_viq7u")
@@ -41,7 +50,8 @@ metadata/_custom_type_script = "uid://d0xjijisx1woh"
 
 [sub_resource type="Resource" id="Resource_es2rv"]
 script = ExtResource("4_03rvm")
-distance = 360.0
+begin = 45.0
+distance = 90.0
 
 [sub_resource type="Resource" id="Resource_sh7cx"]
 script = ExtResource("1_7sf1h")
@@ -51,15 +61,45 @@ z_index = -1
 offset = -3.0
 metadata/_custom_type_script = "uid://0lhxan4cqrc1"
 
-[sub_resource type="Gradient" id="Gradient_666lu"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.57254905, 0.57254905, 0.57254905, 1)
+[sub_resource type="Gradient" id="Gradient_khdm4"]
+colors = PackedColorArray(0, 0, 0, 0.7372549, 0, 0, 0, 0.21568628)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_v0lwa"]
-gradient = SubResource("Gradient_666lu")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8124y"]
+gradient = SubResource("Gradient_khdm4")
+width = 5
+height = 10
+fill_to = Vector2(0, 0.21367522)
+
+[sub_resource type="Resource" id="Resource_7sf1h"]
+script = ExtResource("2_viq7u")
+textures = Array[Texture2D]([SubResource("GradientTexture2D_8124y")])
+use_corner_texture = false
+use_taper_texture = false
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_viq7u"]
+script = ExtResource("4_03rvm")
+begin = 157.0
+distance = 229.0
+
+[sub_resource type="Resource" id="Resource_x6xc4"]
+script = ExtResource("1_7sf1h")
+edge_material = SubResource("Resource_7sf1h")
+normal_range = SubResource("Resource_viq7u")
+taper_sharp_corners = true
+z_index = -1
+offset = -1.0
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Gradient" id="Gradient_fwipl"]
+offsets = PackedFloat32Array(0.005524862)
+colors = PackedColorArray(0.36862746, 0.36862746, 0.36862746, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kin0d"]
+gradient = SubResource("Gradient_fwipl")
 
 [resource]
 script = ExtResource("5_m07wq")
-_edge_meta_materials = Array[ExtResource("1_7sf1h")]([SubResource("Resource_n4324"), SubResource("Resource_sh7cx")])
-fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_v0lwa")])
+_edge_meta_materials = Array[ExtResource("1_7sf1h")]([SubResource("Resource_n4324"), SubResource("Resource_sh7cx"), SubResource("Resource_x6xc4")])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_kin0d")])
 metadata/_custom_type_script = "uid://nc5bfedvnpgm"
