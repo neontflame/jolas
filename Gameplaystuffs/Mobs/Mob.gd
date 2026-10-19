@@ -66,11 +66,12 @@ var touchedBody
 
 var theHarmer:PlayerObject
 
-var isHurting := false
-var isDead := false
-var stunFrames := 0.0
+var isHurting:bool = false
+var isDead:bool = false
+var stunFrames:float = 0.0 # char nao se mexe mas o estado dele ainda da update
+var freezeFrames:float = 0.0 # o char e fisicamente incapaz de fazer qualquer coisa
 
-var isEnabled: bool = false
+var isEnabled:bool = false
 #endregion
 
 func _ready() -> void:
@@ -96,6 +97,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	healthBar.progress = hp / maxHP
 	healthBar.visible = not (isDead or not detectingPlayer)
+	
+	if freezeFrames > 0:
+		freezeFrames -= 1 * delta * 60
+		return
 	
 	if stunFrames > 0:
 		stunFrames -= 1 * delta
@@ -149,16 +154,16 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 	if theHarmer:
 		theHarmer.increaseCombo()
 	
-	if stunFrames <= 0.0:
-		stunFrames = 0.5
+	if freezeFrames <= 0.0:
+		freezeFrames = (hpLost / 5) / 60
 	
 	var medianVel = (vel.x + vel.y)/2
 	if medianVel < 400:
-		play_sfx('Hit1')
+		play_sfx('Hit1', 5)
 	if medianVel >= 400 and medianVel < 800:
-		play_sfx('Hit2')
+		play_sfx('Hit2', 5)
 	if medianVel >= 800:
-		play_sfx('Hit3')
+		play_sfx('Hit3', 5)
 	hp -= hpLost
 	
 	# var harmer_pos: Vector2 = theHarmer.global_position - global_position
@@ -184,16 +189,18 @@ func stun_mob() -> void:
 	collAreaCollision.set_deferred("disabled", true)
 	velocity = Vector2.ZERO
 
-func play_sfx(name:String, volumeDB:float = 0.0):
+func play_sfx(soundName:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + name + ".wav")
+	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + soundName + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
-func play_mob_sfx(name:String, mob:String, volumeDB:float = 0.0):
+func play_mob_sfx(name:String, mob:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Gameplaystuffs/Mobs/" + mob + "/Sounds/" + name + ".wav")
+	sfx_player.stream = load("res://Gameplaystuffs/Mobs/" + mob + "/Sounds/" + name + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
 #woah uma coisa Simulando o player ?

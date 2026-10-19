@@ -53,7 +53,6 @@ var isPlayerGrounded: bool
 
 const WeirdMultiplier = 100
 # signal updateShit(velocity:Vector2)
-var deltaOne:float = 1.0
 var floorSinCos := Vector2(0.0, 0.0)
 var idealZoom := 1.0
 
@@ -70,7 +69,7 @@ var comboFrames:int = 0
 signal comboIncrease
 signal comboReset
 
-var stunFrames:int = 0
+var stunFrames:float = 0
 var jumpsDone:int = 1
 
 var hitboxes:Array = []
@@ -146,9 +145,8 @@ func _enter_tree() -> void:
 			multiplayerName.position.y = player_collisions.position.y - (player_collisions.shape.get_rect().size.y / 2) - 24
 	
 func _physics_process(delta: float) -> void:
-	deltaOne = delta * 60
 	while stunFrames > 0:
-		stunFrames -= 1
+		stunFrames -= 1 * delta * 60
 		return
 	if current_state.has_method("update"): current_state.update()
 	
@@ -366,7 +364,10 @@ func breno_cam():
 	else:
 		# não pode... volta
 		coolCamera.position.x = lerp(coolCamera.position.x, base_camera_offset.x, delta * 2) # 2 pra voltar mais rápido
-	coolCamera.position += Vector2(1, 1) * randf_range(-camShakeForce, camShakeForce)
+	coolCamera.offset = Vector2(
+		randf_range(-camShakeForce, camShakeForce),
+		randf_range(-camShakeForce, camShakeForce)
+	)
 
 func clamp_camera_offset(desired_offset: Vector2) -> Vector2:
 	var screen_half_x = get_viewport_rect().size.x / coolCamera.zoom.x
@@ -422,11 +423,11 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 			
 			var medianVel = (vel.x + vel.y)/2
 			if medianVel < 400:
-				play_sfx('Hit1')
+				play_sfx('Hit1', 5)
 			if medianVel >= 400 and medianVel < 800:
-				play_sfx('Hit2')
+				play_sfx('Hit2', 5)
 			if medianVel >= 800:
-				play_sfx('Hit3')
+				play_sfx('Hit3', 5)
 			
 			stunFrames = 2
 			hp -= hpLost

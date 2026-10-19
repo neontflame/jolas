@@ -5,6 +5,5 @@
 
 [resource]
 script = ExtResource("2_lhnqs")
-name = "CopyPasteParadise"
-overrideSongs = true
+name = "Copypaste Paradise"
 metadata/_custom_type_script = "uid://5s2txlf08gqn"

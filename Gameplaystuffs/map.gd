@@ -9,6 +9,9 @@ class_name JolasMap
 var info:MapInfo = null
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if get_tree().current_scene.name == name:
 		await GameInit.setupGameInfo()
 		GPStats.curMap = name

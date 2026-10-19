@@ -61,7 +61,7 @@ var isDead := false
 signal boss_start
 signal boss_dead
 
-var stunFrames := 0.0
+var stunFrames:float = 0.0
 #endregion
 
 func _ready() -> void:
@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	healthBar.progress = hp / maxHP
 	
 	if stunFrames > 0:
-		stunFrames -= 1
+		stunFrames -= 1 * delta * 60
 		return
 	if current_state.has_method('update'): current_state.update()
 	# $Label.text = GeneralUtils.display_number(hp) + '/' + GeneralUtils.display_number(maxHP)
@@ -145,24 +145,26 @@ func yeowch(hpLost:float, vel:Vector2 = Vector2(250, -250)):
 func on_hurt(hpLost:float, extra:Dictionary):
 	var medianVel = (extra['vel'].x + extra['vel'].y)/2
 	if medianVel < 400:
-		play_sfx('Hit1')
+		play_sfx('Hit1', 5)
 	if medianVel >= 400 and medianVel < 800:
-		play_sfx('Hit2')
+		play_sfx('Hit2', 5)
 	if medianVel >= 800:
-		play_sfx('Hit3')
+		play_sfx('Hit3', 5)
 	velocity.y = extra['vel'].y
 	velocity.x = extra['vel'].x
 
-func play_sfx(name:String, volumeDB:float = 0.0):
+func play_sfx(soundName:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + name + ".wav")
+	sfx_player.stream = load("res://Soundstuffs/SFX/Ingame/" + soundName + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
-func play_boss_sfx(name:String, boss:String, volumeDB:float = 0.0):
+func play_boss_sfx(name:String, boss:String, volumeDB:float = 0.0, pitch_scale: float = 1.0, file_type: String = ".wav"):
 	if sfx_player.playing: sfx_player.stop()
-	sfx_player.stream = load("res://Gameplaystuffs/Bosses/" + boss + "/Sounds/" + name + ".wav")
+	sfx_player.stream = load("res://Gameplaystuffs/Bosses/" + boss + "/Sounds/" + name + file_type)
 	sfx_player.volume_db = volumeDB
+	sfx_player.pitch_scale = pitch_scale
 	sfx_player.play()
 
 #woah uma coisa Simulando o player ?

@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://0lhxan4cqrc1"
 
 [sub_resource type="Gradient" id="Gradient_2xxc7"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.19607843, 0.8039216, 0.19607843, 1)
+colors = PackedColorArray(0.6745098, 0.6745098, 0.76862746, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_dciko"]
 gradient = SubResource("Gradient_2xxc7")

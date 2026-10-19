@@ -14,11 +14,11 @@ func _ready() -> void:
 		CoolMenu.curSelected = coolChars.find(theSave['player'])
 	changeSel(0)
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	$MenuCanvas/MidAnchor/IconSelect/Icons.position.x = lerp(
 		$MenuCanvas/MidAnchor/IconSelect/Icons.position.x,
 		0.0,
-		0.2
+		0.1
 	)
 	
 	if !canControl: return ############################ ui coisos

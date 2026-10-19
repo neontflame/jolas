@@ -28,9 +28,9 @@ var ELECTRICITY:float = 5.0
 var ctrl1held:float = 0.0
 
 var isParkouring:bool = false
-var vaultCooldown := 0.0
-var reboundsDone := 0
-var reboundCountdown := 0.0
+var vaultCooldown:float = 0.0
+var reboundsDone:int = 0
+var reboundCountdown:float = 0.0
 
 var isSliding:bool = false
 signal slideTriggered
@@ -55,10 +55,10 @@ func _process(_delta: float) -> void:
 		ELECTRICITY = ELEC_GAUGE_MAX
 	
 	if vaultCooldown > 0.0:
-		vaultCooldown -= deltaOne
+		vaultCooldown -= get_physics_process_delta_time() * 60
 	
 	if reboundCountdown > 0.0:
-		reboundCountdown -= deltaOne
+		reboundCountdown -= get_physics_process_delta_time() * 60
 	
 	handleLine(dashLine)
 	handleLine(boostLine)

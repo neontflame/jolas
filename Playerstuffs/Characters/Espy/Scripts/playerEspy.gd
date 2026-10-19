@@ -39,4 +39,5 @@ func hitbox_connect(hit:OffensiveHitbox, type:String):
 	if hit.coolId == "jumpbox":
 		motion.y = abs(motion.y) * -1.025
 	else:
-		motion.y = abs(motion.y) * -1.05
+		motion.y = abs(motion.y) * (-1.05 + (Input.get_axis("ctrl_up", "ctrl_down") * 0.1))
+		stunFrames = 4
