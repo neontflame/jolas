@@ -211,9 +211,16 @@ func playDialogue(diagName:String, type:String = "DiagCharacters"):
 #endregion
 
 #region Cutscenes
-func startCutscene(cutscene:String):
+var cutsceneFades:bool = true
+var cutsceneStopsSong:bool = true
+
+func startCutscene(cutscene:String, stopsSong:bool = false, fades:bool = true):
 	print('criando ', cutscene)
-	fadeOut(0.5, func():pass)
+	cutsceneFades = fades
+	cutsceneStopsSong = stopsSong
+	
+	if cutsceneFades:
+		fadeOut(0.5, func():pass)
 	var leCut:JolasCutscene = load("res://Storystuffs/Cutscenes/%s/Cutscene.tscn" % cutscene).instantiate()
 	add_child(leCut)
 	cutsceneInstance = leCut
@@ -225,18 +232,42 @@ func startCutscene(cutscene:String):
 	
 	isDial = true
 	pauseGame()
+	
+	cutsceneInstance.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	await get_tree().process_frame
+	if stopsSong:
+		stopBGM()
+	
+
+func startVideoCutscene(vid:String, stopsSong:bool = true, fades:bool = true):
+	startCutscene("VideoCutscene", stopsSong, fades)
+	cutsceneInstance.playVid(vid)
 
 func endCutscene():
-	fadeIn(0.5, func():
-		cutsceneInstance.queue_free()
-		isDial = false
-		unpauseGame()
-		
-		fadeOut(0.5, func():pass)
-		hud.canvasLayer.visible = true
-		$Level.visible = true
-		$Players.visible = true
-	)
+	if cutsceneFades:
+		fadeIn(0.5, func():
+			backFromCutscenery()
+			fadeOut(0.5, func():pass)
+		)
+	else:
+		backFromCutscenery()
+
+func backFromCutscenery():
+	cutsceneInstance.queue_free()
+	isDial = false
+	unpauseGame()
+	
+	hud.canvasLayer.visible = true
+	$Level.visible = true
+	$Players.visible = true
+	
+	if cutsceneStopsSong:
+		var songPlayed:RegionSong = map.info.get_songfiles().pick_random()
+		playBGM(songPlayed)
+		await get_tree().process_frame
+		triggerPlaceInfo(songPlayed)
+
 #endregion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -348,5 +379,7 @@ func fadeBGM(sec:float = 1.0, nextSong:Variant = null):
 		)
 	
 func stopBGM():
+	curTrackName = ""
+	PlaceDisplayerIngame.current_song = ""
 	bgmStream.stop()
 #endregion

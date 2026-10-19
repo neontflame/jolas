@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bllci5yjw750q"]
+
+[ext_resource type="PackedScene" uid="uid://ckn4kascpwvwf" path="res://Storystuffs/Cutscenes/JolasCutscene.tscn" id="1_vhyj1"]
+[ext_resource type="Script" uid="uid://myuwshyqb6ws" path="res://Storystuffs/Cutscenes/VideoCutscene/cutscene.gd" id="2_tchya"]
+[ext_resource type="Texture2D" uid="uid://di60ao0e05fsv" path="res://Miscstuffs/black.png" id="3_rwigk"]
+
+[node name="JolasCutscene" unique_id=93198701 node_paths=PackedStringArray("vidStreamPly") instance=ExtResource("1_vhyj1")]
+script = ExtResource("2_tchya")
+vidStreamPly = NodePath("CanvasLayer/Control/VideoStreamPlayer")
+
+[node name="Black" type="Sprite2D" parent="CanvasLayer" parent_id_path=PackedInt32Array(534483671) index="0" unique_id=359025901]
+position = Vector2(438, 226)
+scale = Vector2(24.1641, 12.0234)
+texture = ExtResource("3_rwigk")
+
+[node name="Control" type="Control" parent="CanvasLayer" parent_id_path=PackedInt32Array(534483671) index="1" unique_id=1119852811]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer/Control" index="0" unique_id=2074314268]
+custom_maximum_size = Vector2(800, 500)
+layout_mode = 0
+offset_left = -380.0
+offset_top = -230.0
+offset_right = 420.0
+offset_bottom = 270.0
+expand = true
+bus = &"Musica"
+
+[connection signal="finished" from="CanvasLayer/Control/VideoStreamPlayer" to="." method="onStreamFinished"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo4kn4eyc41lb" path="res://Storystuffs/Cutscenes/JolasCutscene.gd" id="1_i6oei"]
 
 [node name="JolasCutscene" type="Node2D" unique_id=93198701]
+process_mode = 3
 script = ExtResource("1_i6oei")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=534483671]
