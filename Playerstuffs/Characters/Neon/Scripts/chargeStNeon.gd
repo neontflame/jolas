@@ -1,5 +1,7 @@
 extends PlayerStatePattern
 
+var legacyBehavior:bool = true
+
 func enter_state():
 	Player.charge = 800
 	Player.plySprite.play('specialCharge')
@@ -7,6 +9,12 @@ func enter_state():
 func update():
 	Player.handleCameraSpecial()
 	Player.apply_player_gravity(10.0)
+	
+	if legacyBehavior:
+		Player.handleMovement()
+		Player.handlePhys()
+		if Player.is_on_floor():
+			Player.change_state(Player.state_machine.st_floor)
 	
 	charge_control()
 	

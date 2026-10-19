@@ -8,6 +8,7 @@ var is_boss_fight_active: bool = false
 signal boss_cutscene_started
 signal boss_fight_started
 signal boss_fight_finished
+signal boss_fight_already_beaten
 
 @export_category("Boss")
 ## o chefao que sera ativado nessa sala
@@ -47,7 +48,7 @@ func _ready() -> void:
 	
 	check_for_active_at_start()
 	
-	check_for_boss_beated()
+	check_for_boss_beaten()
 
 func connect_signals() -> void:
 	if boss_object:
@@ -58,10 +59,11 @@ func connect_signals() -> void:
 		boss_arena_area.body_entered.connect(on_player_entered)
 	
 	boss_fight_finished.connect(on_boss_fight_finished)
+	boss_fight_already_beaten.connect(on_boss_fight_already_beaten)
 
-func check_for_boss_beated() -> void:
+func check_for_boss_beaten() -> void:
 	if GPStats.bossesBeat.has(boss_object.name):
-		boss_fight_finished.emit()
+		boss_fight_already_beaten.emit()
 		
 		if boss_object:
 			boss_object.queue_free()
@@ -107,5 +109,8 @@ func on_boss_fight_finished() -> void:
 	
 	if boss_door:
 		boss_door.get_collision_polygon().set_deferred("disabled", true)
+
+func on_boss_fight_already_beaten() -> void:
+	on_boss_fight_finished()
 
 #endregion

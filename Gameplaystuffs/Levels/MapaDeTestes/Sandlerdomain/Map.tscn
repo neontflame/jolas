@@ -62,12 +62,12 @@ script = ExtResource("18_kin0d")
 
 [sub_resource type="Resource" id="Resource_itgfj"]
 script = ExtResource("9_36nku")
-position = Vector2(-176, -32)
+position = Vector2(-176, -104)
 texture_idx = 5
 
 [sub_resource type="Resource" id="Resource_honc2"]
 script = ExtResource("9_36nku")
-position = Vector2(1792, -32)
+position = Vector2(1792, -96)
 
 [sub_resource type="Resource" id="Resource_h0rcn"]
 script = ExtResource("9_36nku")
@@ -80,7 +80,7 @@ texture_idx = 1
 
 [sub_resource type="Resource" id="Resource_hl3mp"]
 script = ExtResource("9_36nku")
-position = Vector2(-176, -32)
+position = Vector2(-176, -104)
 texture_idx = 5
 
 [sub_resource type="Resource" id="Resource_bw5co"]
@@ -100,15 +100,15 @@ _next_key = 5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fwipl"]
 _surfaces = [{
-"aabb": AABB(-176, -32, 0, 1968, 928, 1e-05),
-"attribute_data": PackedByteArray("/////wAA4EEAAAC/AADgQQAAAL//////AADgQQAAYEEAAOBBAABgQf////8AADDAAABgQQAAMMAAAGBB/////wAAMMAAAAC/AAAwwAAAAL8="),
+"aabb": AABB(-176, -104, 0, 1968, 1000, 1e-05),
+"attribute_data": PackedByteArray("/////wAA4EEAAMC/AADgQQAAwL//////AADgQQAAYEEAAOBBAABgQf////8AADDAAABgQQAAMMAAAGBB/////wAAMMAAANC/AAAwwAAA0L8="),
 "format": 34359742527,
 "index_count": 9,
 "index_data": PackedByteArray("AAABAAIAAgADAAMAAwAAAAIA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AADgRAAAAMIAAAAAAADgRAAAYEQAAAAAAAAwwwAAYEQAAAAAAAAwwwAAAMIAAAAA/////////7//////////v/////////+//////////78=")
+"vertex_data": PackedByteArray("AADgRAAAwMIAAAAAAADgRAAAYEQAAAAAAAAwwwAAYEQAAAAAAAAwwwAA0MIAAAAA/////////7//////////v/////////+//////////78=")
 }]
 
 [sub_resource type="Gradient" id="Gradient_kin0d"]
@@ -240,8 +240,8 @@ _surfaces = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_fwipl"]
-offsets = PackedFloat32Array(0.005524862)
-colors = PackedColorArray(0.36862746, 0.36862746, 0.36862746, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.69803923, 0.13333334, 0.13333334, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kin0d"]
 gradient = SubResource("Gradient_fwipl")
@@ -254,7 +254,7 @@ z_index = -10
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qogjq"]
 _surfaces = [{
-"aabb": AABB(-256, -1, 0, 46, 20, 1e-05),
+"aabb": AABB(-256, -2, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -262,7 +262,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AACAwwAAgL8AAAAAAACAwwAAmEEAAAAAAABSwwAAmEEAAAAAAABSwwAAgL8AAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AACAwwAAAMAAAAAAAACAwwAAkEEAAAAAAABSwwAAkEEAAAAAAABSwwAAAMAAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_mxjlv"]
@@ -273,7 +273,7 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y5t17"]
 _surfaces = [{
-"aabb": AABB(-210, -1, 0, 1252, 20, 1e-05),
+"aabb": AABB(-210, -2, 0, 1252, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////84vdlBAACAPzi92UEAAIA//////zi92UEAAAAAOL3ZQQAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -281,7 +281,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AABSwwAAgL8AAAAAAABSwwAAmEEAAAAAAECCRAAAmEEAAAAAAECCRAAAgL8AAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AABSwwAAAMAAAAAAAABSwwAAkEEAAAAAAECCRAAAkEEAAAAAAECCRAAAAMAAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_upmwd"]
@@ -291,7 +291,7 @@ mesh = SubResource("ArrayMesh_y5t17")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_etbep"]
 _surfaces = [{
-"aabb": AABB(1042, -1, 0, 46, 20, 1e-05),
+"aabb": AABB(1042, -2, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -299,7 +299,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AECCRAAAgL8AAAAAAECCRAAAmEEAAAAAAACIRAAAmEEAAAAAAACIRAAAgL8AAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AECCRAAAAMAAAAAAAECCRAAAkEEAAAAAAACIRAAAkEEAAAAAAACIRAAAAMAAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_wrre5"]
@@ -367,7 +367,7 @@ z_index = -1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_atfdh"]
 _surfaces = [{
-"aabb": AABB(1088, -57, 0, 46, 20, 1e-05),
+"aabb": AABB(1088, -58, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -375,7 +375,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AACIRAAAZMIAAAAAAACIRAAAFMIAAAAAAMCNRAAAFMIAAAAAAMCNRAAAZMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AACIRAAAaMIAAAAAAACIRAAAGMIAAAAAAMCNRAAAGMIAAAAAAMCNRAAAaMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_wwx2f"]
@@ -386,7 +386,7 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wqp4h"]
 _surfaces = [{
-"aabb": AABB(1134, -57, 0, 356, 20, 1e-05),
+"aabb": AABB(1134, -58, 0, 356, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP//////1pvdAAACAP/Wm90AAAIA///////Wm90AAAAAA9ab3QAAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -394,7 +394,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AMCNRAAAZMIAAAAAAMCNRAAAFMIAAAAAAEC6RAAAFMIAAAAAAEC6RAAAZMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AMCNRAAAaMIAAAAAAMCNRAAAGMIAAAAAAEC6RAAAGMIAAAAAAEC6RAAAaMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_skrd6"]
@@ -404,7 +404,7 @@ mesh = SubResource("ArrayMesh_wqp4h")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_itgfj"]
 _surfaces = [{
-"aabb": AABB(1490, -57, 0, 46, 20, 1e-05),
+"aabb": AABB(1490, -58, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -412,7 +412,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AEC6RAAAZMIAAAAAAEC6RAAAFMIAAAAAAADARAAAFMIAAAAAAADARAAAZMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AEC6RAAAaMIAAAAAAEC6RAAAGMIAAAAAAADARAAAGMIAAAAAAADARAAAaMIAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_7lmdg"]
@@ -461,7 +461,7 @@ z_index = -1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ukih8"]
 _surfaces = [{
-"aabb": AABB(1536, -1, 0, 46, 20, 1e-05),
+"aabb": AABB(1536, -2, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -469,7 +469,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AADARAAAgL8AAAAAAADARAAAmEEAAAAAAMDFRAAAmEEAAAAAAMDFRAAAgL8AAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AADARAAAAMAAAAAAAADARAAAkEEAAAAAAMDFRAAAkEEAAAAAAMDFRAAAAMAAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_hiy7a"]
@@ -480,15 +480,15 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hl3mp"]
 _surfaces = [{
-"aabb": AABB(1582, -1.029933, 0, 4132, 212.02994, 1e-05),
-"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP//////GCB9BAACAP8YIH0EAAIA//////8YIH0EAAAAAxggfQQAAAAD/////p4MIQgAAgD+ngwhCAACAP/////+ngwhCAAAAAKeDCEIAAAAA/////7pgtEIAAIA/umC0QgAAgD//////umC0QgAAAAC6YLRCAAAAAA=="),
+"aabb": AABB(1582, -2.0224319, 0, 4132, 212.02243, 1e-05),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////91EB9BAACAP3UQH0EAAIA//////3UQH0EAAAAAdRAfQQAAAAD/////koUIQgAAgD+ShQhCAACAP/////+ShQhCAAAAAJKFCEIAAAAA/////7pgtEIAAIA/umC0QgAAgD//////umC0QgAAAAC6YLRCAAAAAA=="),
 "format": 34359742527,
 "index_count": 18,
 "index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABQAEAAYABQAGAAcA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray("AMDFRAAAgL8AAAAAAMDFRAAAmEEAAAAAcMv+RNIol0EAAAAA3gL/RNjUg78AAAAAueVDRRvlUkMAAAAAbwFERVf4PkMAAAAAAJCyRQAAU0MAAAAAAJCyRQAAP0MAAAAA/3//f/f/A0D/f/9/9/8DQP9//3/D9eI6/3//f8P14Tr/f/9/wfXhOv9//3/B9eE6/3//f/7//z//f/9//v//Pw==")
+"vertex_data": PackedByteArray("AMDFRAAAAMAAAAAAAMDFRAAAkEEAAAAAM87+RC44j0EAAAAAoQX/RIZvAcAAAAAAGudDRQbnUUMAAAAA0AJERUL6PUMAAAAAAJCyRQAAUkMAAAAAAJCyRQAAPkMAAAAA/3//f/j/A0D/f/9/+P8DQP9//3/D9eE6/3//f8L14Tr/f/9/wfXhOv9//3/B9eE6/3//f/7//z//f/9//v//Pw==")
 }]
 
 [sub_resource type="Resource" id="Resource_iouxf"]
@@ -498,7 +498,7 @@ mesh = SubResource("ArrayMesh_hl3mp")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bw5co"]
 _surfaces = [{
-"aabb": AABB(5714, 191, 0, 46, 20, 1e-05),
+"aabb": AABB(5714, 190, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -506,7 +506,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AJCyRQAAP0MAAAAAAJCyRQAAU0MAAAAAAAC0RQAAU0MAAAAAAAC0RQAAP0MAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AJCyRQAAPkMAAAAAAJCyRQAAUkMAAAAAAAC0RQAAUkMAAAAAAAC0RQAAPkMAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_eo40i"]
@@ -555,7 +555,7 @@ z_index = -1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6286o"]
 _surfaces = [{
-"aabb": AABB(3776, -897, 0, 46, 20, 1e-05),
+"aabb": AABB(3776, -898, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -563,7 +563,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AABsRQBAYMQAAAAAAABsRQBAW8QAAAAAAOBuRQBAW8QAAAAAAOBuRQBAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AABsRQCAYMQAAAAAAABsRQCAW8QAAAAAAOBuRQCAW8QAAAAAAOBuRQCAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_r0rdb"]
@@ -574,7 +574,7 @@ force_no_tiling = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kwh3k"]
 _surfaces = [{
-"aabb": AABB(3822, -897, 0, 2404, 20, 1e-05),
+"aabb": AABB(3822, -898, 0, 2404, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8hC1FCAACAPyELUUIAAIA//////yELUUIAAAAAIQtRQgAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -582,7 +582,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AOBuRQBAYMQAAAAAAOBuRQBAW8QAAAAAAJDCRQBAW8QAAAAAAJDCRQBAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AOBuRQCAYMQAAAAAAOBuRQCAW8QAAAAAAJDCRQCAW8QAAAAAAJDCRQCAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_smwf7"]
@@ -592,7 +592,7 @@ mesh = SubResource("ArrayMesh_kwh3k")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0ob6x"]
 _surfaces = [{
-"aabb": AABB(6226, -897, 0, 46, 20, 1e-05),
+"aabb": AABB(6226, -898, 0, 46, 20, 1e-05),
 "attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8AAIA/AACAPwAAgD8AAIA//////wAAgD8AAAAAAACAPwAAAAA="),
 "format": 34359742527,
 "index_count": 6,
@@ -600,7 +600,7 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AJDCRQBAYMQAAAAAAJDCRQBAW8QAAAAAAADERQBAW8QAAAAAAADERQBAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
+"vertex_data": PackedByteArray("AJDCRQCAYMQAAAAAAJDCRQCAW8QAAAAAAADERQCAW8QAAAAAAADERQCAYMQAAAAA/3//f////z//f/9/////P/9//3////8//3//f////z8=")
 }]
 
 [sub_resource type="Resource" id="Resource_qqp10"]
@@ -647,21 +647,19 @@ texture = SubResource("GradientTexture2D_8124y")
 mesh = SubResource("ArrayMesh_nufvs")
 z_index = -1
 
-[node name="Sandlerdomain" type="Node2D" unique_id=628272213 node_paths=PackedStringArray("ss2dCool")]
+[node name="Sandlerdomain" type="Node2D" unique_id=628272213 node_paths=PackedStringArray("ss2dCool", "bossController", "spawnpoint", "spawnpointInBoss")]
 script = ExtResource("1_1pu2r")
 ss2dCool = NodePath("CurvedTerrainV2/SS2D_Shape")
+bossController = NodePath("BossController")
+spawnpoint = NodePath("Spawnpoint")
+spawnpointInBoss = NodePath("BossSpawnpoint")
 
 [node name="EspeculanteBackground" parent="." unique_id=939041050 instance=ExtResource("2_gq6mc")]
 coolColor = Color(0.67, 0.2546, 0.2546, 1)
 
-[node name="EdgyCoiso" type="Polygon2D" parent="." unique_id=282005813]
-visible = false
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(3844, -213, 5749, -232, 5753, 842, 3839, 849)
-
 [node name="BossController" type="Node" parent="." unique_id=525878401 node_paths=PackedStringArray("creepy_bg", "boss_object", "boss_arena_area", "boss_arena_collision", "boss_door")]
 script = ExtResource("15_xkuuy")
-creepy_bg = NodePath("SS2D_Shape")
+creepy_bg = NodePath("EdgyShape")
 boss_object = NodePath("BigSandler")
 boss_arena_area = NodePath("BossDetect")
 boss_arena_collision = NodePath("BossDetect/CollisionShape2D")
@@ -710,7 +708,7 @@ polygon = PackedVector2Array(3776, 576, 3904, 576, 3904, 768, 3776, 768)
 disabled = true
 metadata/_edit_lock_ = true
 
-[node name="SS2D_Shape" type="Node2D" parent="BossController" unique_id=1095356133]
+[node name="EdgyShape" type="Node2D" parent="BossController" unique_id=1095356133]
 position = Vector2(3968, -128)
 script = ExtResource("8_vvnu6")
 _points = SubResource("Resource_bw5co")
@@ -741,10 +739,14 @@ metadata/_edit_lock_ = true
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=1010561084]
 position = Vector2(174, 436)
 
+[node name="BossSpawnpoint" type="Node2D" parent="." unique_id=1691209982]
+position = Vector2(4168, 734)
+
 [node name="BackSpawnpoint" type="Node2D" parent="." unique_id=704263731]
 position = Vector2(4861, 600)
 
 [node name="Camera regions" type="Node2D" parent="." unique_id=1977799768]
+visible = false
 
 [node name="CameraBound" parent="Camera regions" unique_id=1817175958 instance=ExtResource("3_4gkxx")]
 position = Vector2(-40, 0)

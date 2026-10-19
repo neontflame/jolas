@@ -69,7 +69,6 @@ func awake():
 	JolasGame.instance.playBGM(CUSTOM_BOSS_MUSIC if CUSTOM_BOSS_MUSIC != "" else "ULTRAKILLCybergrind.ogg")
 	FUCKING_aura.play('entrance')
 	await get_tree().create_timer(4.22).timeout
-	MapUtils.map.removeEdgy()
 	healthBar.visible = true
 	FUCKING_aura.visible = false
 	leSprite.visible = true

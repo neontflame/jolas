@@ -1,6 +1,5 @@
 @tool
-extends JolasMap
-var isBossing:bool = false
+extends JolasMapBoss
 
 @export var ss2dCool:SS2D_Shape
 
@@ -12,7 +11,7 @@ func _ready() -> void:
 	
 	ss2dCool.shape_material.set_fill_textures([grad])
 	
-	super()
+	super._ready()
 
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -21,4 +20,7 @@ func _physics_process(_delta: float) -> void:
 	#$StaticBody2D2/CollisionPolygon2D.disabled = not (isBossing && allPlayersInBossRoom)
 
 func removeEdgy():
-	$EdgyCoiso.visible = false
+	$BossController/EdgyShape.visible = false
+
+func bossAlreadyBeaten():
+	removeEdgy()
