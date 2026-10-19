@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bjdl8y1vajw3t"]
+
+[ext_resource type="PackedScene" uid="uid://ckn4kascpwvwf" path="res://Storystuffs/Cutscenes/JolasCutscene.tscn" id="1_5idiw"]
+[ext_resource type="PackedScene" uid="uid://pfbvf7uaonxl" path="res://Gameplaystuffs/Levels/MapaDeTestes/TheThing/Map.tscn" id="2_v8ndx"]
+[ext_resource type="Script" uid="uid://cwm623m4b5e2" path="res://Storystuffs/Cutscenes/OMapaDeTeste/cutscene.gd" id="2_yp6sg"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="4_sbrjp"]
+
+[sub_resource type="Gradient" id="Gradient_5idiw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hsonh"]
+gradient = SubResource("Gradient_5idiw")
+
+[sub_resource type="Animation" id="Animation_v8ndx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TheThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2285, -304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yp6sg"]
+resource_name = "leCutscene"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TheThing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.01, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2500, -304), Vector2(-3339, -160), Vector2(-6219, -316), Vector2(-5118, -1005)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3, 3.5, 5.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 3.01, 4.51),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.255, 0.255, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sbrjp"]
+_data = {
+&"RESET": SubResource("Animation_v8ndx"),
+&"leCutscene": SubResource("Animation_yp6sg")
+}
+
+[node name="JolasCutscene" unique_id=93198701 instance=ExtResource("1_5idiw")]
+script = ExtResource("2_yp6sg")
+
+[node name="CanvasLayer" parent="." index="0" unique_id=534483671]
+layer = 0
+
+[node name="TheThing" parent="CanvasLayer" index="0" unique_id=2065888323 instance=ExtResource("2_v8ndx")]
+position = Vector2(-2285, -304)
+scale = Vector2(0.5, 0.5)
+isOnCutscene = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" index="1" unique_id=1138995719]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -592.0
+offset_top = -270.0
+offset_right = 1355.0
+offset_bottom = 769.0
+texture = SubResource("GradientTexture1D_hsonh")
+
+[node name="Label" type="Label" parent="CanvasLayer" index="2" unique_id=1853983507]
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 473.0
+offset_bottom = 116.0
+theme = ExtResource("4_sbrjp")
+theme_override_constants/outline_size = 6
+text = "Um lugar completamente abandonado.
+
+Há relatos de que esse lugar era usado para empreender testes que, até o momento, seguem desconhecidos."
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=874362914]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_sbrjp")
+autoplay = &"leCutscene"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

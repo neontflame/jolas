@@ -13,9 +13,11 @@ var hud: HeadsUpDisplay
 var map: JolasMap
 var playerInstance
 var dialogueInstance
+var cutsceneInstance:JolasCutscene
 
 static var isChangingMap := false
 
+var mapExploredForFirstTime:bool = false
 var curTrackName := ""
 var curTrackRegion: RegionSong = null
 
@@ -75,6 +77,7 @@ func createMap(lvl:String, region:String, playerGoTo:String = ""):
 	
 	map = load(GameUtils.get_map_path(lvl, region)).instantiate()
 	map.info = GameUtils.get_map_info(lvl, region)
+	mapExploredForFirstTime = not GPStats.exploredMaps.has(lvl)
 	if not GPStats.exploredMaps.has(lvl): GPStats.exploredMaps.append(lvl)
 	lvlNode.add_child(map)
 	# MapUtils.set_map(map)
@@ -205,6 +208,35 @@ func playDialogue(diagName:String, type:String = "DiagCharacters"):
 		add_child(dialogueInstance)
 		dialogueInstance.parseDialogue(diagName)
 		dialogueInstance.connect('dialogue_end', endDialogue)
+#endregion
+
+#region Cutscenes
+func startCutscene(cutscene:String):
+	print('criando ', cutscene)
+	fadeOut(0.5, func():pass)
+	var leCut:JolasCutscene = load("res://Storystuffs/Cutscenes/%s/Cutscene.tscn" % cutscene).instantiate()
+	add_child(leCut)
+	cutsceneInstance = leCut
+	hud.canvasLayer.visible = false
+	$Level.visible = false
+	$Players.visible = false
+	
+	cutsceneInstance.cutsceneEnd.connect(endCutscene)
+	
+	isDial = true
+	pauseGame()
+
+func endCutscene():
+	fadeIn(0.5, func():
+		cutsceneInstance.queue_free()
+		isDial = false
+		unpauseGame()
+		
+		fadeOut(0.5, func():pass)
+		hud.canvasLayer.visible = true
+		$Level.visible = true
+		$Players.visible = true
+	)
 #endregion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

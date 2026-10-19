@@ -25,7 +25,6 @@ ingameMenu = NodePath("IngameMenu")
 layer = 2
 
 [node name="Fade" type="TextureRect" parent="CanvasLayer" unique_id=320057208]
-visible = false
 z_index = 5
 offset_left = -605.0
 offset_top = -277.0

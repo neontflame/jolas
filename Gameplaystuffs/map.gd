@@ -3,13 +3,16 @@
 extends Node2D
 class_name JolasMap
 
+@export var isOnCutscene:bool:
+	set(soIsIt):
+		isOnCutscene = soIsIt
 # agora nos so usamos os nomes dos nodes mesmo #Lol
 # @export var spawnpoint:Node2D
 # @export var spawnpointBack:Node2D
 var info:MapInfo = null
 
 func _ready() -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or isOnCutscene:
 		return
 	
 	if get_tree().current_scene.name == name:
