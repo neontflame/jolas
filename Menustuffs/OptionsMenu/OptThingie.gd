@@ -55,7 +55,7 @@ func setup():
 	else:
 		changeThing(0)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	$bg.self_modulate.a = lerp($bg.self_modulate.a,
 							(0.75 if selected else 0.4),
 							0.2)

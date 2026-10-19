@@ -10,5 +10,5 @@ func grabInfo(player:PlayerObject):
 	await get_tree().create_timer(0.25).timeout
 	queue_free()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	global_position = myGlobalPos

@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if get_pin(curSelected) == null: return
 	$PlaceGoThing.position = $PlaceGoThing.position.lerp(
 							get_pin(curSelected).position, 
-							0.2)
+							0.2 * delta * 60)
 	
 	if canSelect:
 		if len(thePins) > 0:

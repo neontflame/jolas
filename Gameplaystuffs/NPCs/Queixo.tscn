@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp5e40nfm5fxd" path="res://Gameplaystuffs/NPCs/Queixo.gd" id="1_a8kkw"]
 [ext_resource type="Texture2D" uid="uid://dsqrg37ihdek0" path="res://Playerstuffs/Characters/Queixao/Sprites/queixao idle.png" id="2_a8kkw"]
-[ext_resource type="FontFile" uid="uid://updb85se4dgg" path="res://Miscstuffs/Fonts/jolastypeface.ttf" id="3_a8kkw"]
+[ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="3_opyev"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8bld3"]
 animations = [{
@@ -10,7 +10,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_a8kkw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -18,30 +18,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xesd"]
 size = Vector2(110, 115)
 
-[node name="QueixoNpc" type="Node2D"]
+[node name="QueixoNpc" type="Node2D" unique_id=1196118451]
 script = ExtResource("1_a8kkw")
 dialogue = "queixoJolaComeco"
 
-[node name="NPC" type="AnimatedSprite2D" parent="."]
+[node name="NPC" type="AnimatedSprite2D" parent="." unique_id=381272640]
 position = Vector2(11, -69)
 sprite_frames = SubResource("SpriteFrames_8bld3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1510254204]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1264214198]
 position = Vector2(8, -77)
 scale = Vector2(1.165, 1.325)
 shape = SubResource("RectangleShape2D_8xesd")
 
-[node name="InteractText" type="RichTextLabel" parent="."]
+[node name="InteractText" type="RichTextLabel" parent="." unique_id=182309748]
 offset_left = -68.0
 offset_top = -184.0
 offset_right = 68.0
 offset_bottom = -152.0
-theme_override_fonts/normal_font = ExtResource("3_a8kkw")
-theme_override_font_sizes/normal_font_size = 18
+theme = ExtResource("3_opyev")
+theme_override_constants/outline_size = 8
 bbcode_enabled = true
 text = "Interagir"
 horizontal_alignment = 1

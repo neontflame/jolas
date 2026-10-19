@@ -1,6 +1,6 @@
 extends Node2D
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if !GPStats.charObject: return
 	
 	$ElecBar.set_size(
