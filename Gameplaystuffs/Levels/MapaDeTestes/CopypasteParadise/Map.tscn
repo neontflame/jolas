@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c4h2cu1i74ex0" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTeste.png" id="9_3atr6"]
 [ext_resource type="Resource" uid="uid://cwxibpp7s171m" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/floorResource_Purple.tres" id="10_gtobd"]
 [ext_resource type="Texture2D" uid="uid://cj3o0628rhdue" path="res://Gameplaystuffs/Levels/MapaDeTestes/Assets/chaoTesteRight.png" id="10_tyumx"]
+[ext_resource type="Texture2D" uid="uid://dsgm8hae7ymkh" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/areiaDoMal.png" id="11_15xfu"]
+[ext_resource type="Texture2D" uid="uid://dc2816beq13q3" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/areiaTop.png" id="12_aytah"]
+[ext_resource type="Resource" uid="uid://6fcmsoeajf8g" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/fuckingPraia.tres" id="13_20p74"]
 [ext_resource type="PackedScene" uid="uid://ba3mwa4us65ii" path="res://Gameplaystuffs/Objects/StageGizmos/SonicBoostRing/sonic_boost_ring.tscn" id="16_68uxh"]
 [ext_resource type="Theme" uid="uid://cbuy6erl2dfb7" path="res://Internalstuffs/Theme/jolasTheme.tres" id="17_gdnya"]
 [ext_resource type="PackedScene" uid="uid://b5w5g0noewopm" path="res://Gameplaystuffs/NPCs/Sushitest.tscn" id="18_1iouv"]
@@ -546,6 +549,132 @@ texture = SubResource("GradientTexture2D_8124y")
 mesh = SubResource("ArrayMesh_81k1u")
 z_index = -1
 
+[sub_resource type="Resource" id="Resource_rh3de"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2040, 1048)
+texture_idx = -7
+
+[sub_resource type="Resource" id="Resource_hhkk1"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2632, 1184)
+texture_idx = -4
+
+[sub_resource type="Resource" id="Resource_ghasc"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2632, 1480)
+
+[sub_resource type="Resource" id="Resource_er6k4"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2248, 1184)
+
+[sub_resource type="Resource" id="Resource_vfl84"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2224, 1048)
+
+[sub_resource type="Resource" id="Resource_hhhml"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2328, 1184)
+
+[sub_resource type="Resource" id="Resource_cr63c"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2384, 1160)
+texture_idx = 6
+
+[sub_resource type="Resource" id="Resource_ohw6t"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2408, 1128)
+
+[sub_resource type="Resource" id="Resource_dkefv"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2432, 1080)
+
+[sub_resource type="Resource" id="Resource_pxv62"]
+script = ExtResource("5_6n2nw")
+position = Vector2(2632, 1080)
+texture_idx = 2
+
+[sub_resource type="Resource" id="Resource_vn5cc"]
+script = ExtResource("5_6n2nw")
+position = Vector2(1816, 1128)
+
+[sub_resource type="Resource" id="Resource_mih74"]
+script = ExtResource("5_6n2nw")
+position = Vector2(1592, 1128)
+
+[sub_resource type="Resource" id="Resource_qwpas"]
+script = ExtResource("5_6n2nw")
+position = Vector2(1416, 1480)
+
+[sub_resource type="Resource" id="Resource_dt72h"]
+script = ExtResource("5_6n2nw")
+position = Vector2(1416, 1216)
+
+[sub_resource type="Resource" id="Resource_18axc"]
+script = ExtResource("5_6n2nw")
+position = Vector2(1416, 1480)
+
+[sub_resource type="Resource" id="Resource_iosa3"]
+script = ExtResource("6_k3a83")
+_points = {
+0: SubResource("Resource_18axc"),
+1: SubResource("Resource_rh3de"),
+2: SubResource("Resource_hhkk1"),
+3: SubResource("Resource_ghasc"),
+6: SubResource("Resource_er6k4"),
+12: SubResource("Resource_vfl84"),
+13: SubResource("Resource_hhhml"),
+14: SubResource("Resource_cr63c"),
+15: SubResource("Resource_ohw6t"),
+16: SubResource("Resource_dkefv"),
+17: SubResource("Resource_pxv62"),
+18: SubResource("Resource_vn5cc"),
+19: SubResource("Resource_mih74"),
+20: SubResource("Resource_qwpas"),
+21: SubResource("Resource_dt72h")
+}
+_point_order = PackedInt32Array(20, 21, 19, 18, 1, 12, 6, 13, 14, 15, 16, 17, 2, 3, 0)
+_constraints = {
+Vector2i(20, 0): 15
+}
+_next_key = 22
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cmnqv"]
+_surfaces = [{
+"aabb": AABB(1416, 1048, 0, 1216, 432, 1e-05),
+"attribute_data": PackedByteArray("/////y7YAkAC2QBALtgCQALZAED/////TLkUQN4L7z9MuRRA3gvvP/////+4eitA3gvvP7h6K0DeC+8//////yQ8QkC8F94/JDxCQLwX3j//////T+1UQLwX3j9P7VRAvBfeP/////96nmdA3gvvP3qeZ0DeC+8//////6EOakDK3+Q/oQ5qQMrf5D//////5l9+QMrf5D/mX35Ayt/kP/////9TLmVA7NP1P1MuZUDs0/U//////3ZdV0D26fo/dl1XQPbp+j//////+H1fQPbp+j/4fV9A9un6P//////mX35A9un6P+ZffkD26fo//////+ZffkA60hxA5l9+QDrSHED/////LtgCQDrSHEAu2AJAOtIcQA=="),
+"format": 34359742527,
+"index_count": 39,
+"index_data": PackedByteArray("AAABAAIAAgADAAQABQAGAAcAAAACAAQACAAFAAcAAAAEAAkACgAIAAcAAAAJAAoACgAHAAsAAAAKAAsAAAALAAwADAANAA0ADQAAAAwA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("AACxRAAAmEQAAAAAAADHRAAAjUQAAAAAAADjRAAAjUQAAAAAAAD/RAAAg0QAAAAAAAALRQAAg0QAAAAAAIAWRQAAjUQAAAAAAAAYRQAAh0QAAAAAAIAkRQAAh0QAAAAAAAAVRQAAkUQAAAAAAIAMRQAAlEQAAAAAAIARRQAAlEQAAAAAAIAkRQAAlEQAAAAAAIAkRQAAuUQAAAAAAACxRAAAuUQAAAAA/////////7//////////v//////+//+//////////7//////////v//////+//+//////////7//////////v//////+//+//////////7//////////v/////////+//////////7//////////vw==")
+}]
+
+[sub_resource type="Resource" id="Resource_cybxs"]
+script = ExtResource("7_4njmt")
+texture = ExtResource("11_15xfu")
+mesh = SubResource("ArrayMesh_cmnqv")
+z_index = -10
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_igcjp"]
+_surfaces = [{
+"aabb": AABB(1394.5736, 1026.6841, 0, 1258.8529, 474.7423, 1e-05),
+"attribute_data": PackedByteArray("/////wAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAgD8AAAAAAACAP/////8ZTq0/AACAPxlOrT8AAIA//////xlOrT8AAAAAGU6tPwAAAAD/////+98XQAAAgD/73xdAAACAP//////73xdAAAAAAPvfF0AAAAAA/////wlXbUAAAIA/CVdtQAAAgD//////CVdtQAAAAAAJV21AAAAAAP////+ghaRAAACAP6CFpEAAAIA//////6CFpEAAAAAAoIWkQAAAAAD/////AQbDQAAAgD8BBsNAAACAP/////8BBsNAAAAAAAEGw0AAAAAA/////zql3UAAAIA/OqXdQAAAgD//////OqXdQAAAAAA6pd1AAAAAAP/////S5fJAAACAP9Ll8kAAAIA//////9Ll8kAAAAAA0uXyQAAAAAD/////IyEBQQAAgD8jIQFBAACAP/////8jIQFBAAAAACMhAUEAAAAA/////+9cBkEAAIA/71wGQQAAgD//////71wGQQAAAADvXAZBAAAAAP////+ynwpBAACAP7KfCkEAAIA//////7KfCkEAAAAAsp8KQQAAAAD/////9ScaQQAAgD/1JxpBAACAP//////1JxpBAAAAAPUnGkEAAAAA/////6bmIkEAAIA/puYiQQAAgD//////puYiQQAAAACm5iJBAAAAAP////+ejz1BAACAP56PPUEAAIA//////56PPUEAAAAAno89QQAAAAD/////21uXQQAAgD/bW5dBAACAP//////bW5dBAAAAANtbl0EAAAAA"),
+"format": 34359742527,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAwACAAQAAwAEAAUABQAEAAYABQAGAAcABwAGAAgABwAIAAkACQAIAAoACQAKAAsACwAKAAwACwAMAA0ADQAMAA4ADQAOAA8ADwAOABAADwAQABEAEQAQABIAEQASABMAEwASABQAEwAUABUAFQAUABYAFQAWABcAFwAWABgAFwAYABkAGQAYABoAGQAaABsAGwAaABwAGwAcAB0A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("W1KuRKWtu0QAAAAApe24RFsSsUQAAAAAxy27RHVKnkQAAAAAR2uuRKdnlkQAAAAAp+XJRLFFmUQAAAAAZ3PGRGusikQAAAAAtSnlRK58mUQAAAAAU5riRAa1ikQAAAAA25QARa58j0QAAAAAU5r+RAa1gEQAAAAAF0wHRazTi0QAAAAAIx4MReRVgEQAAAAAF8wIRazTnEQAAAAAI54NReRVkUQAAAAAYcUSRXVioEQAAAAAVUMRReGwkUQAAAAAXeIYRXLimkQAAAAA9T8URUgXj0QAAAAA9OkbRSGxk0QAAAAAtIgVRVPOi0QAAAAAOiUbRcctkUQAAAAA1DMXRUdrhEQAAAAALokgRaXtjkQAAAAA0tYlRVtShEQAAAAAACAeRQAAlEQAAAAAAKAlRQAAlEQAAAAALYkgRVsSsUQAAAAA09YlRaWtu0QAAAAApe24RFsSsUQAAAAAW1KuRKWtu0QAAAAA/3//fwuHeXz/f/9/sY0mef9//3/FuJxj/3//f92ykGb/f/9/oequSv9//38k6O1L/3//fzXtZEn/f/9/Ke1qSf9//38g4W5P/3//fwnm+kz/f/9/CcwEJv9//3+bxc4i/3//fwvEBSL/f/9/E8GJIP9//3/27QNJ/3//fzTs5Un/f/9/0siVW/9//3+ayLFb/3//f3GnRmz/f/9/fK7BaP9//3+RmTZz/3//fxDLdlr/f/9/apQ1Cv9//38gwBAg/3//f4eKQwX/f/9/PIYeA/9//3+BQz4e/3//f+U/DCD/f/9/AAD/P/9//38AAP8/")
+}]
+
+[sub_resource type="Resource" id="Resource_l4ici"]
+script = ExtResource("7_4njmt")
+texture = ExtResource("12_aytah")
+mesh = SubResource("ArrayMesh_igcjp")
+
 [node name="CopypasteParadise" type="Node2D" unique_id=2065888323]
 script = ExtResource("1_15xfu")
 metadata/_edit_vertical_guides_ = [11136.0, 11200.0]
@@ -572,6 +701,14 @@ metadata/_edit_lock_ = true
 visible = false
 polygon = PackedVector2Array(112, 2048, 118.5, 2088, 130.5625, 2129, 152, 2176, 167.05469, 2199.875, 185.4375, 2223, 207.47656, 2244.625, 233.5, 2264, 263.83594, 2280.375, 298.8125, 2293, 338.7578, 2301.125, 384, 2304, 1920, 2304, 1920, 1792, 768, 1792, 728, 1788, 687, 1778.5, 640, 1760, 616.125, 1746.4375, 593, 1729.5, 571.375, 1708.8125, 552, 1684, 535.625, 1654.6875, 523, 1620.5, 514.875, 1581.0625, 512, 1536, 6400, 1536, 6400, -1536, 6656, -1536, 6656, 1536, 6656, 3584, 0, 3584, -256, 3584, -256, 1536, -256, -1536, 128, -1536)
 metadata/_edit_lock_ = true
+
+[node name="SS2D_Shape" type="Node2D" parent="CurvedTerrains" unique_id=446533086]
+position = Vector2(856, 96)
+script = ExtResource("4_jlupl")
+_points = SubResource("Resource_iosa3")
+_meshes = Array[ExtResource("7_4njmt")]([SubResource("Resource_cybxs"), SubResource("Resource_l4ici")])
+shape_material = ExtResource("13_20p74")
+metadata/_custom_type_script = "uid://dhdc4b8yddyej"
 
 [node name="Spawnpoint" type="Node2D" parent="." unique_id=675141072]
 position = Vector2(640, 1521)

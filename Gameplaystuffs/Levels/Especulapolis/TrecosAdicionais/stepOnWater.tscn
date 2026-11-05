@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bn5suvwifj81d"]
+
+[ext_resource type="Script" uid="uid://bomnsyq2jqevy" path="res://Gameplaystuffs/Levels/Especulapolis/TrecosAdicionais/stepOnWater.gd" id="1_hxn6c"]
+[ext_resource type="AudioStream" uid="uid://bispcvjl86peq" path="res://Soundstuffs/SFX/Ingame/Levels/WaterStep.wav" id="2_sys2i"]
+
+[sub_resource type="Gradient" id="Gradient_sys2i"]
+offsets = PackedFloat32Array(0.2583732, 0.28229666, 0.75598085, 0.83732057)
+colors = PackedColorArray(0.4, 0.8, 1, 0, 0.4, 0.8, 1, 1, 0.4, 0.8, 1, 1, 0.4, 0.8, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qm433"]
+gradient = SubResource("Gradient_sys2i")
+width = 7
+height = 7
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Curve" id="Curve_rvy4v"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71369296, 0.020201921), -5.893674, -0.16448262, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_to60a"]
+offsets = PackedFloat32Array(0.54146343, 0.6536585)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Area2D" type="Area2D" unique_id=891259081]
+script = ExtResource("1_hxn6c")
+
+[node name="TheWaterStep" type="Node2D" parent="." unique_id=453059370]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TheWaterStep" unique_id=1218151387]
+stream = ExtResource("2_sys2i")
+attenuation = 0.06698591
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="TheWaterStep" unique_id=1528483761]
+amount = 5
+texture = SubResource("GradientTexture2D_qm433")
+lifetime = 0.79
+speed_scale = 0.51
+randomness = 0.22
+lifetime_randomness = 0.51
+direction = Vector2(0, -1)
+spread = 6.92
+initial_velocity_min = 215.38
+initial_velocity_max = 392.89
+linear_accel_min = -4.62
+linear_accel_max = 5.85
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_rvy4v")
+color_ramp = SubResource("Gradient_to60a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="SS2D_Material_Shape" format=3 uid="uid://c0h8k0ohnavwj"]
+
+[ext_resource type="Script" uid="uid://0lhxan4cqrc1" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_hrqwk"]
+[ext_resource type="Script" uid="uid://d0xjijisx1woh" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_85yv5"]
+[ext_resource type="Texture2D" uid="uid://chd6btdq2onk1" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/predioPartsDiscolored0002.png" id="3_b0ayx"]
+[ext_resource type="Texture2D" uid="uid://c03o8aei5ykk7" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/predioPartsDiscolored0004.png" id="4_wkdov"]
+[ext_resource type="Script" uid="uid://d218yx0d1ilsn" path="res://addons/rmsmartshape/normal_range.gd" id="5_52a23"]
+[ext_resource type="Texture2D" uid="uid://cr363av8iav48" path="res://Gameplaystuffs/Levels/Especulapolis/Sprites/coolRoofes.png" id="6_w6ui4"]
+[ext_resource type="Script" uid="uid://nc5bfedvnpgm" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_w8g4q"]
+
+[sub_resource type="Resource" id="Resource_to60a"]
+script = ExtResource("2_85yv5")
+textures = Array[Texture2D]([ExtResource("3_b0ayx")])
+textures_corner_outer = Array[Texture2D]([ExtResource("4_wkdov")])
+fit_mode = 1
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_p78tr"]
+script = ExtResource("5_52a23")
+distance = 360.0
+
+[sub_resource type="Resource" id="Resource_qm433"]
+script = ExtResource("1_hrqwk")
+edge_material = SubResource("Resource_to60a")
+normal_range = SubResource("Resource_p78tr")
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Resource" id="Resource_bwjo5"]
+script = ExtResource("2_85yv5")
+textures = Array[Texture2D]([ExtResource("6_w6ui4")])
+use_corner_texture = false
+use_taper_texture = false
+metadata/_custom_type_script = "uid://d0xjijisx1woh"
+
+[sub_resource type="Resource" id="Resource_b1cgn"]
+script = ExtResource("5_52a23")
+begin = 47.0
+distance = 90.0
+
+[sub_resource type="Resource" id="Resource_1lste"]
+script = ExtResource("1_hrqwk")
+edge_material = SubResource("Resource_bwjo5")
+normal_range = SubResource("Resource_b1cgn")
+z_index = 1
+metadata/_custom_type_script = "uid://0lhxan4cqrc1"
+
+[sub_resource type="Gradient" id="Gradient_fi1tj"]
+offsets = PackedFloat32Array(0.011049724)
+colors = PackedColorArray(0.97, 0.7394633, 0.52379996, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvy4v"]
+gradient = SubResource("Gradient_fi1tj")
+
+[resource]
+script = ExtResource("7_w8g4q")
+_edge_meta_materials = Array[ExtResource("1_hrqwk")]([SubResource("Resource_qm433"), SubResource("Resource_1lste")])
+fill_textures = Array[Texture2D]([SubResource("GradientTexture1D_rvy4v")])
+metadata/_custom_type_script = "uid://nc5bfedvnpgm"

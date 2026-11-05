@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://lsuinw5hlgb1"]
+
+[ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="1_ia3i2"]
+[ext_resource type="Script" uid="uid://5s2txlf08gqn" path="res://Gameplaystuffs/MapInfo.gd" id="2_8q0bu"]
+
+[sub_resource type="AudioStream" id="AudioStream_bhqkt"]
+
+[sub_resource type="Resource" id="Resource_r750w"]
+script = ExtResource("1_ia3i2")
+name = "\" \""
+songfile = SubResource("AudioStream_bhqkt")
+metadata/_custom_type_script = "uid://c5e5tyhwjkhy1"
+
+[resource]
+script = ExtResource("2_8q0bu")
+name = "Praia"
+regionString = "Especulapolis"
+extraSongfiles = Array[ExtResource("1_ia3i2")]([SubResource("Resource_r750w")])
+overrideSongs = true
+metadata/_custom_type_script = "uid://5s2txlf08gqn"

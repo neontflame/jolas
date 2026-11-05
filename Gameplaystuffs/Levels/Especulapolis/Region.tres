@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RegionInfo" format=3 uid="uid://bek0hgp00djfm"]
+
+[ext_resource type="Script" uid="uid://xhqgfn0qgrqh" path="res://Gameplaystuffs/RegionInfo.gd" id="1_72g1b"]
+[ext_resource type="Script" uid="uid://c5e5tyhwjkhy1" path="res://Gameplaystuffs/RegionSong.gd" id="2_svgbf"]
+[ext_resource type="AudioStream" uid="uid://cexsqsu6dem3r" path="res://Soundstuffs/Music/CircuitCityJ'mix.ogg" id="3_5qv55"]
+
+[sub_resource type="Resource" id="Resource_oe2c0"]
+script = ExtResource("2_svgbf")
+name = "Circuit City J'mix"
+songfile = ExtResource("3_5qv55")
+metadata/_custom_type_script = "uid://c5e5tyhwjkhy1"
+
+[resource]
+script = ExtResource("1_72g1b")
+name = "Especulápolis"
+songfiles = Array[ExtResource("2_svgbf")]([SubResource("Resource_oe2c0")])
+metadata/_custom_type_script = "uid://xhqgfn0qgrqh"
