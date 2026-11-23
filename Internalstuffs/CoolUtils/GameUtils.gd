@@ -7,11 +7,11 @@ static var testingMobile:bool = false
 static var majorVersion:int = 0
 static var minorVersion:int = 9
 static var patchVersion:int = 4
-static var captionVersion:String = 'Prévia de modding'
+static var captionVersion:String = 'Prévia 2'
 static var gameVersion:String = '%s.%s.%s' % [majorVersion, minorVersion, patchVersion]
 
 #region Chars
-static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Espy', 'Queixao']
+static var charOrder:Array = ['Neon', 'Sushi', 'GTeto', 'Sketcher', 'Henry', 'FknDavid', 'Onerb', 'Dex', 'Espy', 'Queixao']
 static var charInfoCache:Dictionary = {}
 
 static func get_chars():
