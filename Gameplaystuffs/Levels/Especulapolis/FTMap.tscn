@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1flwucrr3kq2"]
+
+[ext_resource type="PackedScene" uid="uid://byynn2o226ipe" path="res://Gameplaystuffs/Levels/FastTravelTemplate.tscn" id="1_6it13"]
+[ext_resource type="Texture2D" uid="uid://dbwn1cg68yjxh" path="res://Gameplaystuffs/Levels/MapaDeTestes/mapaDeTestes.png" id="2_nlisj"]
+[ext_resource type="PackedScene" uid="uid://dpc3c1btrxg4p" path="res://Menustuffs/Ingame/FastTravel/Pin.tscn" id="3_bpguo"]
+
+[node name="MapaDeTestes" unique_id=2099489565 instance=ExtResource("1_6it13")]
+
+[node name="MapaDeTestes" type="Sprite2D" parent="." index="0" unique_id=996083949]
+texture = ExtResource("2_nlisj")
+
+[node name="Pin" parent="Pins" parent_id_path=PackedInt32Array(749032270) index="0" unique_id=1164324225 instance=ExtResource("3_bpguo")]
+position = Vector2(-184, 0)
+placeId = "Praia"

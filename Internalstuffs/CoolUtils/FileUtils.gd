@@ -3,7 +3,11 @@ class_name FileUtils
 
 static func get_user_path():
 	# return "user://"
-	return OS.get_executable_path().get_base_dir() + '/'
+	var osStuff:Array = ["Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD"]
+	
+	if osStuff.has(OS.get_name()):
+		return OS.get_executable_path().get_base_dir() + '/'
+	return "user://"
 
 static func get_localized_file(filePath):
 	var localizedFilePath = '%s.%s.%s' % [filePath.get_basename(), TranslationServer.get_locale(), filePath.get_extension()]

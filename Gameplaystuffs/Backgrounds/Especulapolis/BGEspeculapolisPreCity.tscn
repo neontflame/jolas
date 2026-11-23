@@ -25,6 +25,7 @@ shader_parameter/forca_onda = 0.085
 [node name="BGEspeculapolisPreCity" type="Node" unique_id=710099029]
 
 [node name="Ceu" parent="." unique_id=1065577321 node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
+scroll_ignore_camera_zoom = false
 PLayer = NodePath("CeuPL")
 Sprite = NodePath("CeuPL/CeuSprite")
 
@@ -40,6 +41,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 972, 402)
 
 [node name="Nuvem" parent="." unique_id=348445882 node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
+scroll_ignore_camera_zoom = false
 PLayer = NodePath("NuvemPL")
 Sprite = NodePath("NuvemPL/NuvemSprite")
 ParallaxType = 1
@@ -57,11 +59,10 @@ scale = Vector2(1, 0.34848487)
 texture = ExtResource("3_2ednj")
 centered = false
 region_enabled = true
-region_rect = Rect2(185272.7, 0, 972, 264)
+region_rect = Rect2(189614.95, 0, 972, 264)
 
 [node name="NuvensTopo" type="ParallaxBackground" parent="." unique_id=276681442 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
-scroll_ignore_camera_zoom = true
+scroll_base_scale = Vector2(0.1, 0.1)
 script = ExtResource("4_l4fwh")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer1")
@@ -79,10 +80,10 @@ material = SubResource("CanvasItemMaterial_1mgcj")
 texture = ExtResource("5_5o6b3")
 centered = false
 region_enabled = true
-region_rect = Rect2(151809.8, 0, 2048, 148)
+region_rect = Rect2(156152.05, 0, 2048, 148)
 
 [node name="NuvensTopo2" type="ParallaxBackground" parent="." unique_id=962961196 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
+scroll_base_scale = Vector2(0.1, 0.1)
 script = ExtResource("4_l4fwh")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer2")
@@ -101,10 +102,10 @@ position = Vector2(0, 56)
 texture = ExtResource("6_85x3q")
 centered = false
 region_enabled = true
-region_rect = Rect2(75389.6, 0, 2048, 148)
+region_rect = Rect2(77560.73, 0, 2048, 148)
 
 [node name="NuvensTopo3" type="ParallaxBackground" parent="." unique_id=1476493064 node_paths=PackedStringArray("PLayer", "Sprite")]
-scroll_base_scale = Vector2(0, 0)
+scroll_base_scale = Vector2(0.1, 0.1)
 script = ExtResource("4_l4fwh")
 PLayer = NodePath("Parallax2D")
 Sprite = NodePath("Parallax2D/NuvensLayer3")
@@ -123,26 +124,28 @@ position = Vector2(0, 136)
 texture = ExtResource("7_v8bxa")
 centered = false
 region_enabled = true
-region_rect = Rect2(37658.45, 0, 2048, 148)
+region_rect = Rect2(38744.01, 0, 2048, 148)
 
 [node name="Wa\'er" parent="." unique_id=712677593 node_paths=PackedStringArray("PLayer", "Sprite") instance=ExtResource("1_dym7j")]
 scroll_base_scale = Vector2(0.1, 0)
+scroll_ignore_camera_zoom = false
 PLayer = NodePath("Wa\'erParallaxLayer")
 Sprite = NodePath("Wa\'erParallaxLayer/Wa\'erSprite")
 ParallaxType = 2
 ScrollSpeed = Vector2(0, 0)
 
 [node name="Wa\'erParallaxLayer" type="ParallaxLayer" parent="Wa\'er" unique_id=798981844]
-motion_mirroring = Vector2(1024, 1024)
+motion_mirroring = Vector2(1536, 1024)
 
 [node name="Wa\'erSprite" type="Sprite2D" parent="Wa\'er/Wa\'erParallaxLayer" unique_id=1446011768]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_j4por")
 position = Vector2(0, 392)
+scale = Vector2(1.4999999, 1)
 texture = ExtResource("9_hbkkp")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 1024, 1024)
+region_rect = Rect2(0, 0, 1536, 1536)
 
 [node name="MenuBg" type="Sprite2D" parent="." unique_id=723252480]
 visible = false

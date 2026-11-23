@@ -101,7 +101,7 @@ func goToOtherPin(thepin:int, where:String):
 #endregion
 
 func changeMap(mapName:String):
-	var lugarpath:String = "res://Menustuffs/Ingame/FastTravel/Lugares/%s.tscn" % mapName
+	var lugarpath:String = "res://Gameplaystuffs/Levels/%s/FTMap.tscn" % mapName
 	if LugarMapa.mapaCoiso: LugarMapa.mapaCoiso.queue_free()
 	LugarMapa.mapaCoiso = load(lugarpath).instantiate()
 	LugarMapa.mapaCoiso.parenting = parenting

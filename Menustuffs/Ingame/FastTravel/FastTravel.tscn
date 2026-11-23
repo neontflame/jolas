@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://oymb4lw27jiq" path="res://Menustuffs/Ingame/FastTravel/FastTravel.gd" id="1_4jg8c"]
 [ext_resource type="Texture2D" uid="uid://c65r1xebifob2" path="res://Menustuffs/Ingame/FastTravel/mapaBg.png" id="2_tdrl1"]
 [ext_resource type="PackedScene" uid="uid://b2fvcyowj5mkg" path="res://Menustuffs/Commons/GoBack.tscn" id="2_v6li4"]
-[ext_resource type="PackedScene" uid="uid://bbhguj3f8adm8" path="res://Menustuffs/Ingame/FastTravel/Lugares/MapaDeTestes.tscn" id="4_vwfdp"]
+[ext_resource type="PackedScene" uid="uid://bbhguj3f8adm8" path="res://Gameplaystuffs/Levels/MapaDeTestes/FTMap.tscn" id="4_vwfdp"]
 
 [sub_resource type="Animation" id="Animation_v6li4"]
 length = 0.001
